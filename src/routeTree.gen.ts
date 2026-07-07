@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ImportUsaRouteImport } from './routes/import-usa'
+import { Route as ImportUaeRouteImport } from './routes/import-uae'
+import { Route as ImportKoreaRouteImport } from './routes/import-korea'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportUsaRoute = ImportUsaRouteImport.update({
+  id: '/import-usa',
+  path: '/import-usa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportUaeRoute = ImportUaeRouteImport.update({
+  id: '/import-uae',
+  path: '/import-uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportKoreaRoute = ImportKoreaRouteImport.update({
+  id: '/import-korea',
+  path: '/import-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,78 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/import-korea': typeof ImportKoreaRoute
+  '/import-uae': typeof ImportUaeRoute
+  '/import-usa': typeof ImportUsaRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/import-korea': typeof ImportKoreaRoute
+  '/import-uae': typeof ImportUaeRoute
+  '/import-usa': typeof ImportUsaRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/import-korea': typeof ImportKoreaRoute
+  '/import-uae': typeof ImportUaeRoute
+  '/import-usa': typeof ImportUsaRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/import-korea' | '/import-uae' | '/import-usa' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/import-korea' | '/import-uae' | '/import-usa' | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/import-korea'
+    | '/import-uae'
+    | '/import-usa'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ImportKoreaRoute: typeof ImportKoreaRoute
+  ImportUaeRoute: typeof ImportUaeRoute
+  ImportUsaRoute: typeof ImportUsaRoute
+  ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-usa': {
+      id: '/import-usa'
+      path: '/import-usa'
+      fullPath: '/import-usa'
+      preLoaderRoute: typeof ImportUsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-uae': {
+      id: '/import-uae'
+      path: '/import-uae'
+      fullPath: '/import-uae'
+      preLoaderRoute: typeof ImportUaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-korea': {
+      id: '/import-korea'
+      path: '/import-korea'
+      fullPath: '/import-korea'
+      preLoaderRoute: typeof ImportKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +127,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ImportKoreaRoute: ImportKoreaRoute,
+  ImportUaeRoute: ImportUaeRoute,
+  ImportUsaRoute: ImportUsaRoute,
+  ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
