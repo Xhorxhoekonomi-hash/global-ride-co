@@ -9,12 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
+import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -35,6 +44,21 @@ const ImportKoreaRoute = ImportKoreaRouteImport.update({
   path: '/import-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
+  id: '/delivered-vehicles',
+  path: '/delivered-vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,50 +67,95 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/import-korea' | '/import-uae' | '/import-usa' | '/services'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/import-korea' | '/import-uae' | '/import-usa' | '/services'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/about'
+    | '/contact'
+    | '/delivered-vehicles'
     | '/import-korea'
     | '/import-uae'
     | '/import-usa'
     | '/services'
+    | '/sitemap.xml'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/delivered-vehicles'
+    | '/import-korea'
+    | '/import-uae'
+    | '/import-usa'
+    | '/services'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/delivered-vehicles'
+    | '/import-korea'
+    | '/import-uae'
+    | '/import-usa'
+    | '/services'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -115,6 +184,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/delivered-vehicles': {
+      id: '/delivered-vehicles'
+      path: '/delivered-vehicles'
+      fullPath: '/delivered-vehicles'
+      preLoaderRoute: typeof DeliveredVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -127,10 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
