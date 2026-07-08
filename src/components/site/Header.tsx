@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "@/lib/site-data";
+import logoIconAsset from "@/assets/logo-icon-white.png.asset.json";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,9 +27,11 @@ export function Header() {
     >
       <div className="container-page flex h-18 items-center justify-between gap-6 py-3">
         <Link to="/" className="flex min-w-0 items-center gap-3 text-white">
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-teal font-display text-lg font-bold text-white">
-            A
-          </div>
+          <img
+            src={logoIconAsset.url}
+            alt="Alpha Worldwide Albania"
+            className="h-11 w-11 shrink-0 object-contain"
+          />
           <div className="min-w-0 leading-tight">
             <div className="truncate font-display text-base font-bold tracking-tight">
               Alpha Worldwide
