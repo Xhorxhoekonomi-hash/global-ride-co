@@ -1,21 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "@/lib/site-data";
+import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 export function Footer() {
   return (
     <footer className="section-graphite border-t border-white/5">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-md bg-teal font-display text-lg font-bold text-white">
-              A
-            </div>
-            <div className="font-display text-lg font-bold text-white">
-              Alpha Worldwide Albania
-            </div>
-          </div>
-          <p className="mt-4 text-sm text-white/60">Moving Cars Worldwide.</p>
+          <img
+            src={logoFooterAsset.url}
+            alt="Alpha Worldwide Albania"
+            className="h-auto w-44 object-contain"
+          />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
             International vehicle sourcing, auction brokerage, inspection, import & export — fully managed from origin to your door.
           </p>
