@@ -28,22 +28,25 @@ export const NAV_LINKS = [
 ] as const;
 
 export const STATS = [
-  { value: "130+", label: "Countries Served" },
-  { value: "7,800+", label: "Successful Shipments" },
-  { value: "10+", label: "Years International Experience" },
-  { value: "5", label: "Continental Networks: USA · Korea · UAE · Canada · Europe" },
+  { target: 15000, suffix: "+", label: "Cars Bought & Transported" },
+  { target: 7800, suffix: "+", label: "International Shipments" },
+  { target: 130, suffix: "+", label: "Countries Served" },
+  { target: 10, suffix: "+", label: "Years Experience" },
+  { target: 5, suffix: "", label: "Continents" },
 ];
 
-export const PLATFORMS = [
-  "Copart",
-  "IAAI",
-  "Manheim",
-  "Encar",
-  "Autowini",
-  "Dubizzle",
-  "Emirates Auction",
-  "AutoScout24",
-  "Authorized Dealerships",
+export type Platform = { name: string; url?: string };
+
+export const PLATFORMS: Platform[] = [
+  { name: "Copart", url: "https://www.copart.com/" },
+  { name: "IAAI", url: "https://www.iaai.com/" },
+  { name: "Manheim" },
+  { name: "Encar", url: "https://car.encar.com/" },
+  { name: "Autowini", url: "https://www.autowini.com/" },
+  { name: "Dubizzle", url: "https://uae.dubizzle.com/motors/used-cars/" },
+  { name: "Emirates Auction", url: "https://www.emiratesauction.com/motors" },
+  { name: "AutoScout24", url: "https://www.autoscout24.com/" },
+  { name: "Authorized Dealerships" },
 ];
 
 export type Vehicle = {
@@ -59,17 +62,6 @@ export type Vehicle = {
 };
 
 export const VEHICLES: Vehicle[] = [
-  {
-    id: "cullinan-mansory",
-    name: "Rolls Royce Cullinan Mansory",
-    year: 2022,
-    image: carG63,
-    origin: "UAE",
-    destination: "Durrës, Albania",
-    category: "Luxury",
-    services: ["Purchase", "Shipping", "Delivery"],
-    caption: "Sourced, shipped, and delivered to Durrës, Albania.",
-  },
   {
     id: "bmw-m5",
     name: "BMW M5",
@@ -158,46 +150,68 @@ export const VEHICLES: Vehicle[] = [
     services: ["Purchase", "Shipping", "Delivery"],
     caption: "Purchased, shipped, and delivered to Durrës, Albania.",
   },
-  {
-    id: "ghost-bb",
-    name: "Rolls Royce Ghost Black Badge",
-    year: 2023,
-    image: carGhost,
-    origin: "USA",
-    destination: "Durrës, Albania",
-    category: "Luxury",
-    services: ["Purchase", "Shipping", "Delivery"],
-    caption: "Purchased, shipped, delivered to Durrës, Albania.",
-  },
-  {
-    id: "audi-a6",
-    name: "Audi A6 40 TDI",
-    year: 2020,
-    image: carM5,
-    origin: "Europe",
-    destination: "Albania",
-    category: "Dealer Stock",
-    services: ["Dealer", "Shipping", "Customs"],
-    caption: "Delivered to Albania · total 16,100€ all-in.",
-  },
-  {
-    id: "bmw-x5",
-    name: "BMW X5 sDrive 40i",
-    year: 2024,
-    image: carG63,
-    origin: "USA",
-    destination: "Albania",
-    category: "SUV",
-    services: ["Auction", "Shipping", "Delivery"],
-    caption: "Delivered to Albania · total 39,000€ all-in.",
-  },
 ];
 
+// NOTE: Rolls Royce Cullinan Mansory, Rolls Royce Ghost Black Badge, Audi A6
+// 40 TDI, and BMW X5 sDrive 40i were removed from this list. They previously
+// pointed at stock/placeholder images belonging to other vehicles (e.g. a
+// Cullinan card showing a G63 photo), which is misleading on a page that
+// claims to show "real" deliveries. Re-add them once a real, unique delivery
+// photo exists for that exact vehicle — every `image` field above should be
+// a genuine photo of that specific car, never a reused stand-in.
+
 export const IMPORT_STEPS = [
-  { n: 1, title: "Vehicle Search", body: "We help you find the right car — auction listing, dealer stock, or your own link." },
-  { n: 2, title: "Inspection & Verification", body: "Title, history, mechanical condition and service records — verified before purchase." },
-  { n: 3, title: "Purchase / Bidding", body: "Our licensed agents handle bidding and paperwork securely on your behalf." },
-  { n: 4, title: "Inland Transport", body: "Vehicle is moved to the nearest export port by trusted carriers." },
-  { n: 5, title: "International Shipping", body: "Container or RoRo to Durrës, or ports in Germany, Belgium, and Italy." },
-  { n: 6, title: "Customs & Delivery", body: "Full customs clearance, port handling, and door delivery anywhere in Europe." },
+  { n: 1, title: "Find a Vehicle", body: "Browse any auction, dealership, or marketplace worldwide — Copart, IAAI, Encar, Dubizzle, or anywhere else." },
+  { n: 2, title: "Send Us the Link", body: "Share the listing, lot number, or VIN. We review the vehicle and confirm feasibility before you commit." },
+  { n: 3, title: "Professional Inspection", body: "Photos, videos, OBD scan, paint meter reading, and a full mechanical condition report before purchase." },
+  { n: 4, title: "Purchase", body: "We purchase or bid on your behalf, securely and transparently, with no hidden markups." },
+  { n: 5, title: "Shipping", body: "Container, RoRo, or airfreight — we choose the safest, fastest route for that specific vehicle." },
+  { n: 6, title: "Receive Your Vehicle", body: "Delivered to Albania, Kosovo, or anywhere in Europe, fully cleared through customs." },
 ];
+
+export type Country = {
+  slug: string;
+  name: string;
+  hook: string;
+  to: string;
+};
+
+export const COUNTRIES: Country[] = [
+  { slug: "usa", name: "USA", hook: "Copart · IAAI · Manheim · Dealer networks", to: "/import-usa" },
+  { slug: "korea", name: "South Korea", hook: "Encar · Autowini · KB Chachacha", to: "/import-korea" },
+  { slug: "uae", name: "United Arab Emirates", hook: "Dubizzle · Emirates Auction · Official dealers", to: "/import-uae" },
+  { slug: "canada", name: "Canada", hook: "Auction access & dealer sourcing coast to coast", to: "/import-canada" },
+  { slug: "europe", name: "Europe", hook: "AutoScout24 · Dealer stock · Cross-border transport", to: "/import-europe" },
+];
+
+export const WHY_US = [
+  { title: "Professional inspections", body: "155-point mechanical, paint, and history checks before you ever pay for a vehicle." },
+  { title: "Worldwide logistics", body: "Container, RoRo, and airfreight routes covering every major origin and destination port." },
+  { title: "Official documentation", body: "Export papers, customs filings, and transit documents handled correctly the first time." },
+  { title: "Container consolidation", body: "Share container space securely to reduce cost without compromising safety." },
+  { title: "Trusted global partners", body: "Vetted inspectors, agents, and carriers on the ground in every market we serve." },
+  { title: "Fast communication", body: "Direct WhatsApp contact with your case handler — no call centers, no ticket queues." },
+  { title: "Real support", body: "A dedicated team from first inquiry through final delivery, not a hand-off between departments." },
+  { title: "Transparent pricing", body: "Clear cost breakdowns for purchase, inspection, shipping, and customs — no surprise fees." },
+];
+
+export type Faq = { q: string; a: string };
+
+export const FAQS: Faq[] = [
+  { q: "How does shipping a car to Albania actually work?", a: "You send us the vehicle link or lot number, we inspect and purchase it on your behalf, then ship it by container or RoRo to the Port of Durrës. We handle customs clearance and can deliver it to your door anywhere in Albania or Europe." },
+  { q: "Can I buy from Copart or IAAI if I'm not based in the USA?", a: "Yes. As a licensed broker we bid and purchase on major US auction platforms on your behalf, so you don't need a US auction account, a US address, or a US bank account." },
+  { q: "What does the pre-purchase inspection include?", a: "Photos, video walk-arounds, an OBD diagnostic scan, paint-meter readings to check for prior bodywork, and a full mechanical and title-history report — before you commit to buying." },
+  { q: "How long does shipping take from the USA, Korea, or UAE to Albania?", a: "Transit times vary by origin port and shipping method. As a general guide, ocean shipping typically runs several weeks depending on the route and vessel schedule; we confirm exact timing once we have your vehicle's specific origin port." },
+  { q: "What's the difference between container and RoRo shipping?", a: "RoRo (Roll-on/Roll-off) ships the vehicle on its own wheels and is typically more economical. Container shipping is fully enclosed and better suited to higher-value or modified vehicles, or when consolidating multiple vehicles." },
+  { q: "How do I pay, and is it safe?", a: "We provide a transparent cost breakdown before any payment is made, and funds are only released for auction bids or dealer purchases once you've approved the vehicle and price." },
+  { q: "Do you handle customs clearance in Albania?", a: "Yes — customs clearance, port handling, and paperwork at the Port of Durrës are managed for you as part of the full-service process." },
+  { q: "Can you ship to Kosovo or other parts of Europe, not just Albania?", a: "Yes. In addition to Durrës, we regularly arrange delivery to Kosovo and destinations across Italy, Germany, Belgium, the Netherlands, France, and Switzerland." },
+];
+
+export type Testimonial = { name: string; location: string; quote: string; rating: number };
+
+// Intentionally empty: we don't publish testimonials that can't be verified
+// as real Alpha Worldwide Albania customers. Populate this with genuine
+// Google/Facebook reviews (with permission) to activate the Testimonials
+// section on the homepage.
+export const TESTIMONIALS: Testimonial[] = [];
