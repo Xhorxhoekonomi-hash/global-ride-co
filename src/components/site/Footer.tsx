@@ -71,7 +71,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 md:flex-row">
+        <div className="container-page flex flex-col items-center justify-between gap-3 py-6 pb-24 text-xs text-white/50 md:flex-row md:pb-6">
           <div>© {new Date().getFullYear()} Alpha Worldwide Albania. All rights reserved.</div>
           <div className="flex gap-4">
             <button className="hover:text-teal-glow">EN</button>
