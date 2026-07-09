@@ -10,12 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
+import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
+import { Route as ImportEuropeRouteImport } from './routes/import-europe'
+import { Route as ImportCanadaRouteImport } from './routes/import-canada'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
+import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as AuctionAccessRouteImport } from './routes/auction-access'
+import { Route as AirfreightRouteImport } from './routes/airfreight'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -24,9 +34,24 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShippingCalculatorRoute = ShippingCalculatorRouteImport.update({
+  id: '/shipping-calculator',
+  path: '/shipping-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoroShippingRoute = RoroShippingRouteImport.update({
+  id: '/roro-shipping',
+  path: '/roro-shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InspectionServiceRoute = InspectionServiceRouteImport.update({
+  id: '/inspection-service',
+  path: '/inspection-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImportUsaRoute = ImportUsaRouteImport.update({
@@ -44,14 +69,49 @@ const ImportKoreaRoute = ImportKoreaRouteImport.update({
   path: '/import-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImportEuropeRoute = ImportEuropeRouteImport.update({
+  id: '/import-europe',
+  path: '/import-europe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportCanadaRoute = ImportCanadaRouteImport.update({
+  id: '/import-canada',
+  path: '/import-canada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
   id: '/delivered-vehicles',
   path: '/delivered-vehicles',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContainerShippingRoute = ContainerShippingRouteImport.update({
+  id: '/container-shipping',
+  path: '/container-shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuctionAccessRoute = AuctionAccessRouteImport.update({
+  id: '/auction-access',
+  path: '/auction-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightRoute = AirfreightRouteImport.update({
+  id: '/airfreight',
+  path: '/airfreight',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -68,35 +128,65 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airfreight': typeof AirfreightRoute
+  '/auction-access': typeof AuctionAccessRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
+  '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
+  '/faq': typeof FaqRoute
+  '/import-canada': typeof ImportCanadaRoute
+  '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inspection-service': typeof InspectionServiceRoute
+  '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
+  '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airfreight': typeof AirfreightRoute
+  '/auction-access': typeof AuctionAccessRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
+  '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
+  '/faq': typeof FaqRoute
+  '/import-canada': typeof ImportCanadaRoute
+  '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inspection-service': typeof InspectionServiceRoute
+  '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
+  '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airfreight': typeof AirfreightRoute
+  '/auction-access': typeof AuctionAccessRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
+  '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
+  '/faq': typeof FaqRoute
+  '/import-canada': typeof ImportCanadaRoute
+  '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inspection-service': typeof InspectionServiceRoute
+  '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
+  '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
@@ -104,46 +194,86 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/airfreight'
+    | '/auction-access'
+    | '/calculator'
     | '/contact'
+    | '/container-shipping'
     | '/delivered-vehicles'
+    | '/faq'
+    | '/import-canada'
+    | '/import-europe'
     | '/import-korea'
     | '/import-uae'
     | '/import-usa'
+    | '/inspection-service'
+    | '/roro-shipping'
     | '/services'
+    | '/shipping-calculator'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/airfreight'
+    | '/auction-access'
+    | '/calculator'
     | '/contact'
+    | '/container-shipping'
     | '/delivered-vehicles'
+    | '/faq'
+    | '/import-canada'
+    | '/import-europe'
     | '/import-korea'
     | '/import-uae'
     | '/import-usa'
+    | '/inspection-service'
+    | '/roro-shipping'
     | '/services'
+    | '/shipping-calculator'
     | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/airfreight'
+    | '/auction-access'
+    | '/calculator'
     | '/contact'
+    | '/container-shipping'
     | '/delivered-vehicles'
+    | '/faq'
+    | '/import-canada'
+    | '/import-europe'
     | '/import-korea'
     | '/import-uae'
     | '/import-usa'
+    | '/inspection-service'
+    | '/roro-shipping'
     | '/services'
+    | '/shipping-calculator'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AirfreightRoute: typeof AirfreightRoute
+  AuctionAccessRoute: typeof AuctionAccessRoute
+  CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
+  ContainerShippingRoute: typeof ContainerShippingRoute
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
+  FaqRoute: typeof FaqRoute
+  ImportCanadaRoute: typeof ImportCanadaRoute
+  ImportEuropeRoute: typeof ImportEuropeRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
+  InspectionServiceRoute: typeof InspectionServiceRoute
+  RoroShippingRoute: typeof RoroShippingRoute
   ServicesRoute: typeof ServicesRoute
+  ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -156,11 +286,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shipping-calculator': {
+      id: '/shipping-calculator'
+      path: '/shipping-calculator'
+      fullPath: '/shipping-calculator'
+      preLoaderRoute: typeof ShippingCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roro-shipping': {
+      id: '/roro-shipping'
+      path: '/roro-shipping'
+      fullPath: '/roro-shipping'
+      preLoaderRoute: typeof RoroShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspection-service': {
+      id: '/inspection-service'
+      path: '/inspection-service'
+      fullPath: '/inspection-service'
+      preLoaderRoute: typeof InspectionServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/import-usa': {
@@ -184,6 +335,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/import-europe': {
+      id: '/import-europe'
+      path: '/import-europe'
+      fullPath: '/import-europe'
+      preLoaderRoute: typeof ImportEuropeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-canada': {
+      id: '/import-canada'
+      path: '/import-canada'
+      fullPath: '/import-canada'
+      preLoaderRoute: typeof ImportCanadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/delivered-vehicles': {
       id: '/delivered-vehicles'
       path: '/delivered-vehicles'
@@ -191,11 +363,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DeliveredVehiclesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/container-shipping': {
+      id: '/container-shipping'
+      path: '/container-shipping'
+      fullPath: '/container-shipping'
+      preLoaderRoute: typeof ContainerShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auction-access': {
+      id: '/auction-access'
+      path: '/auction-access'
+      fullPath: '/auction-access'
+      preLoaderRoute: typeof AuctionAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight': {
+      id: '/airfreight'
+      path: '/airfreight'
+      fullPath: '/airfreight'
+      preLoaderRoute: typeof AirfreightRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -218,12 +418,22 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AirfreightRoute: AirfreightRoute,
+  AuctionAccessRoute: AuctionAccessRoute,
+  CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
+  ContainerShippingRoute: ContainerShippingRoute,
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
+  FaqRoute: FaqRoute,
+  ImportCanadaRoute: ImportCanadaRoute,
+  ImportEuropeRoute: ImportEuropeRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
+  InspectionServiceRoute: InspectionServiceRoute,
+  RoroShippingRoute: RoroShippingRoute,
   ServicesRoute: ServicesRoute,
+  ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
