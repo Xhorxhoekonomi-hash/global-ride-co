@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Search, Gavel, FileCheck, Ship, Plane, Package, Home, Award, Globe2, MapPin, Users, MessageCircle, FileText, CalendarCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Search, Gavel, FileCheck, Ship, Plane, Package, Home, Award, Globe2, MapPin, Users, MessageCircle, FileText, CalendarCheck, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { TrustStats } from "@/components/site/TrustStats";
@@ -262,6 +262,9 @@ function Home_() {
               </Link>
               <Link to="/inspection-service" className="btn-outline-light">
                 <CalendarCheck className="h-4 w-4" /> Book Inspection
+              </Link>
+              <Link to="/calculator" className="btn-outline-light">
+                <Calculator className="h-4 w-4" /> Calculate Shipping
               </Link>
             </div>
           </div>
