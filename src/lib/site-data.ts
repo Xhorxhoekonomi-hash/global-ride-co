@@ -19,6 +19,7 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/calculator", label: "Shipping Calculator" },
   { to: "/import-usa", label: "Import From USA" },
   { to: "/import-korea", label: "Import From South Korea" },
   { to: "/import-uae", label: "Import From UAE" },
