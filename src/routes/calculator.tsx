@@ -265,7 +265,7 @@ function UsaCalculator() {
                         size === s.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
                       )}
                     >
-                      <div className="text-2xl">{s.icon}</div>
+                      <s.Icon className="h-7 w-7 text-teal" strokeWidth={1.75} />
                       <div className="mt-2 text-sm font-bold text-navy">{s.title}</div>
                       <div className="mt-1 text-xs text-slate-body">{s.body}</div>
                     </button>
