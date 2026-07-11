@@ -418,8 +418,8 @@ function UsaCalculator() {
                   <li>* Shared 40'HC container — typically 4 cars</li>
                   {unloading.isEstimate && <li>* {unloading.note}</li>}
                   <li>* USD→EUR at ~0.92 (approximate rate)</li>
-                  <li className="font-semibold text-amber-700">⚠ Customs & import duties NOT included</li>
-                  <li className="font-semibold text-amber-700">⚠ All figures are estimates. Final confirmed by team.</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Customs & import duties NOT included</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> All figures are estimates. Final confirmed by team.</li>
                 </ul>
               </div>
 
