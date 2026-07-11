@@ -74,7 +74,7 @@ function Home_() {
               Buy Cars Worldwide. <span className="text-teal-glow">We Handle Everything.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-              Purchase, inspection and international shipping from USA, South Korea, UAE and Canada to Albania and Europe.
+              Car shipping to Albania and full vehicle import from USA, South Korea, UAE and Canada — sourced, inspected, purchased and delivered door to door across Albania and Europe.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link to="/contact" className="btn-primary">
