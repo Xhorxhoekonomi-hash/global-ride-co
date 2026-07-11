@@ -31,7 +31,7 @@ function ImportUSA() {
               Import Vehicles from USA Auctions to Albania & Europe
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              We provide full access to major US auto auctions and dealer networks, including Copart, IAAI, Manheim and authorized dealerships.
+              Import a car from USA to Albania with a licensed Copart Albania broker and IAAI Albania broker — full access to Manheim and authorized US dealer networks, plus end-to-end car shipping to Albania.
             </p>
           </div>
         </div>

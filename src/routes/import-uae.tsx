@@ -32,7 +32,7 @@ function ImportUAE() {
               Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              We offer sourcing and shipping of vehicles from Dubai, Abu Dhabi and Sharjah — including access to Dubizzle, Emirates Auction and official dealerships.
+              Dubai car export to Albania and UAE car shipping to Europe — sourcing from Dubizzle, Emirates Auction and official dealerships in Dubai, Abu Dhabi and Sharjah, cleared and delivered end-to-end.
             </p>
             <a
               href={`tel:${CONTACT.uae.replace(/\s/g, "")}`}

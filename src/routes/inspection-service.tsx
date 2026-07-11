@@ -54,7 +54,7 @@ function InspectionService() {
               Know Exactly What You're Buying
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              A 155-point professional inspection before you purchase — anywhere in the USA, South Korea, UAE, or Canada.
+              155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves.
             </p>
           </div>
         </div>

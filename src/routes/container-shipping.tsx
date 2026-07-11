@@ -51,7 +51,7 @@ function ContainerShipping() {
               Maximum Protection, Ocean to Port
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Fully enclosed container shipping to Durrës, Albania and major European ports — the safest way to move a high-value vehicle.
+              Container car shipping to Europe and vehicle shipping to Durrës, fully enclosed from origin port to Albania — the safest way to move a high-value or modified vehicle.
             </p>
           </div>
         </div>

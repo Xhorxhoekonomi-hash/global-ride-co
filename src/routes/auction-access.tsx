@@ -51,7 +51,7 @@ function AuctionAccess() {
               Bid on Any Major Auction — Without a Local Account
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Licensed access to Copart, IAAI, Manheim, Encar, Autowini, Dubizzle, and Emirates Auction, wherever you're based.
+              Auction brokerage Albania — licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction, wherever you're based.
             </p>
           </div>
         </div>

@@ -37,7 +37,7 @@ function ImportKorea() {
               Import Quality Vehicles from South Korea
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              South Korea is a popular market for high-quality, low-mileage vehicles at competitive prices — sourced from Encar, Autowini and official dealer networks.
+              Encar Korea car import specialists — source low-mileage, well-documented vehicles from Encar, Autowini and official dealer networks, with vehicle shipping to Durrës from Busan and Incheon.
             </p>
           </div>
         </div>
