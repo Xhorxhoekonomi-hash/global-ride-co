@@ -120,7 +120,7 @@ function About() {
             <ul className="space-y-3">
               {WHY.map((w) => (
                 <li key={w} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-white/85">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal text-xs font-bold text-white">✓</span>
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal text-white"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
                   <span className="text-sm leading-relaxed">{w}</span>
                 </li>
               ))}
