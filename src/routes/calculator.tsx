@@ -78,10 +78,10 @@ function CalculatorPage() {
           <Tabs defaultValue="usa" className="mx-auto max-w-4xl">
             <TabsList className="mx-auto grid h-auto w-full max-w-lg grid-cols-2 gap-1 rounded-xl bg-mist p-1.5">
               <TabsTrigger value="usa" className="rounded-lg py-2.5 text-sm font-semibold data-[state=active]:bg-navy data-[state=active]:text-white">
-                🇺🇸 USA — Copart / IAAI
+                USA — Copart / IAAI
               </TabsTrigger>
               <TabsTrigger value="korea" className="rounded-lg py-2.5 text-sm font-semibold data-[state=active]:bg-navy data-[state=active]:text-white">
-                🇰🇷 South Korea — Encar
+                South Korea — Encar
               </TabsTrigger>
             </TabsList>
 
