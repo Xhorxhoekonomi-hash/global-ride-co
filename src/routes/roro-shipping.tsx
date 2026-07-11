@@ -5,7 +5,30 @@ import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/roro-shipping")({
-  head: () => buildHead({ title: "RoRo Car Shipping to Albania | Alpha Worldwide", description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports from USA, Korea, UAE and Canada — fast, economical, scheduled sailings.", path: "/roro-shipping", image: heroImg }),
+  head: () => {
+    const base = buildHead({ title: "RoRo Car Shipping to Albania | Alpha Worldwide", description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports from USA, Korea, UAE and Canada — fast, economical, scheduled sailings.", path: "/roro-shipping", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "RoRo Car Shipping",
+            description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/roro-shipping",
+          }),
+        },
+      ],
+    };
+  },
   component: RoroShipping,
 });
 

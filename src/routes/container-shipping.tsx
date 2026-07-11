@@ -5,7 +5,30 @@ import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/container-shipping")({
-  head: () => buildHead({ title: "Container Car Shipping Europe | Alpha Worldwide", description: "Fully enclosed container car shipping to Europe and Albania — for high-value, exotic and modified vehicles from USA, Korea, UAE and Canada.", path: "/container-shipping", image: heroImg }),
+  head: () => {
+    const base = buildHead({ title: "Container Car Shipping Europe | Alpha Worldwide", description: "Fully enclosed container car shipping to Europe and Albania — for high-value, exotic and modified vehicles from USA, Korea, UAE and Canada.", path: "/container-shipping", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Container Car Shipping",
+            description: "Fully enclosed container car shipping to Europe and Albania for high-value, exotic and modified vehicles.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/container-shipping",
+          }),
+        },
+      ],
+    };
+  },
   component: ContainerShipping,
 });
 

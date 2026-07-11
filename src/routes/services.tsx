@@ -7,7 +7,30 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 
 export const Route = createFileRoute("/services")({
-  head: () => buildHead({ title: "Vehicle Import Services | Sourcing, Inspection, Shipping", description: "Auction brokerage Albania, vehicle inspection before purchase, container and RoRo car shipping, customs and door delivery — full-service import.", path: "/services", image: heroImg }),
+  head: () => {
+    const base = buildHead({ title: "Vehicle Import Services | Sourcing, Inspection, Shipping", description: "Auction brokerage Albania, vehicle inspection before purchase, container and RoRo car shipping, customs and door delivery — full-service import.", path: "/services", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Vehicle Import Services",
+            description: "Auction brokerage, pre-purchase inspection, container and RoRo car shipping, customs and door delivery.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/services",
+          }),
+        },
+      ],
+    };
+  },
   component: ServicesPage,
 });
 

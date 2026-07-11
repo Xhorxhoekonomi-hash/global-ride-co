@@ -5,7 +5,30 @@ import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/inspection-service")({
-  head: () => buildHead({ title: "Vehicle Inspection Before Purchase | 155-Point", description: "Vehicle inspection before purchase — 155-point pre-purchase inspection with photos, video, OBD scan and paint-meter reading, worldwide.", path: "/inspection-service", image: heroImg }),
+  head: () => {
+    const base = buildHead({ title: "Vehicle Inspection Before Purchase | 155-Point", description: "Vehicle inspection before purchase — 155-point pre-purchase inspection with photos, video, OBD scan and paint-meter reading, worldwide.", path: "/inspection-service", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Vehicle Inspection Before Purchase",
+            description: "155-point pre-purchase vehicle inspection with photos, video, OBD scan and paint-meter reading, worldwide.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/inspection-service",
+          }),
+        },
+      ],
+    };
+  },
   component: InspectionService,
 });
 

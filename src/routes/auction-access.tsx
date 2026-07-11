@@ -5,7 +5,30 @@ import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/auction-access")({
-  head: () => buildHead({ title: "Copart & IAAI Albania Broker | Auction Access", description: "Licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction — no local account required.", path: "/auction-access", image: heroImg }),
+  head: () => {
+    const base = buildHead({ title: "Copart & IAAI Albania Broker | Auction Access", description: "Licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction — no local account required.", path: "/auction-access", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Auction Brokerage Albania",
+            description: "Copart Albania broker and IAAI Albania broker access, plus Manheim, Encar, Autowini, Dubizzle and Emirates Auction.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/auction-access",
+          }),
+        },
+      ],
+    };
+  },
   component: AuctionAccess,
 });
 
