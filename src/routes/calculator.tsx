@@ -435,7 +435,7 @@ function UsaCalculator() {
 
                 <details className="group">
                   <summary className="btn-outline-dark w-full cursor-pointer list-none text-center">
-                    ✉ Email for Full Breakdown
+                    <span className="inline-flex items-center justify-center gap-2"><Mail className="h-4 w-4" /> Email for Full Breakdown</span>
                   </summary>
                   <form onSubmit={onEmailRequest} className="mt-3 space-y-2">
                     <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="w-full rounded-md border border-border px-3 py-2 text-sm" />
