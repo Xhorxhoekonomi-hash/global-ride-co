@@ -2,9 +2,34 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { Faq } from "@/components/site/Faq";
+import { FAQS } from "@/lib/site-data";
 
 export const Route = createFileRoute("/faq")({
-  head: () => buildHead({ title: "FAQ | Car Shipping & Import to Albania", description: "Answers on car shipping to Albania, auction brokerage, inspection, transit times, customs and payments.", path: "/faq", image: heroImg }),
+  head: () => {
+    const base = buildHead({
+      title: "FAQ | Car Shipping & Import to Albania",
+      description: "Answers on car shipping to Albania, auction brokerage, inspection, transit times, customs and payments.",
+      path: "/faq",
+      image: heroImg,
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+      ],
+    };
+  },
   component: FaqPage,
 });
 
