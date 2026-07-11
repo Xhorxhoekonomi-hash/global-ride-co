@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Globe2 } from "lucide-react";
+import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Globe2, Check } from "lucide-react";
 import heroImg from "@/assets/hero-about.jpg";
 import { TrustStats } from "@/components/site/TrustStats";
 
