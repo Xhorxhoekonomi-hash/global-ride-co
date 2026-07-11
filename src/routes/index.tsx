@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Search, Gavel, FileCheck, Ship, Plane, Package, Home, Award, Globe2, MapPin, Users, MessageCircle, FileText, CalendarCheck, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
+import { buildHead } from "@/lib/seo";
+import { FAQS } from "@/lib/site-data";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { TrustStats } from "@/components/site/TrustStats";
 import { HowItWorks } from "@/components/site/HowItWorks";
