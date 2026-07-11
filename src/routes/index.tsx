@@ -2,26 +2,38 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Search, Gavel, FileCheck, Ship, Plane, Package, Home, Award, Globe2, MapPin, Users, MessageCircle, FileText, CalendarCheck, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
 import { buildHead } from "@/lib/seo";
-import { FAQS } from "@/lib/site-data";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { TrustStats } from "@/components/site/TrustStats";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Faq } from "@/components/site/Faq";
 import { Testimonials } from "@/components/site/Testimonials";
-import { VEHICLES, COUNTRIES, WHY_US, CONTACT } from "@/lib/site-data";
+import { VEHICLES, COUNTRIES, WHY_US, CONTACT, FAQS } from "@/lib/site-data";
+
+const HOME_TITLE = "Car Shipping Albania | Alpha Worldwide";
+const HOME_DESC = "Car shipping to Albania and vehicle import from USA, South Korea, UAE, Canada and Europe — sourced, inspected, and delivered door to door.";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Alpha Worldwide Albania | Buy Cars Worldwide. We Handle Everything." },
-      { name: "description", content: "International vehicle sourcing, inspection, purchase, and shipping from USA, South Korea, UAE and Canada to Albania and Europe. Send us a vehicle link and we handle the rest." },
-      { property: "og:title", content: "Alpha Worldwide Albania | Moving Cars Worldwide" },
-      { property: "og:description", content: "Vehicle sourcing, inspection, purchasing and logistics — fully managed from origin to your door." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: HOME_TITLE, description: HOME_DESC, path: "/", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+      ],
+    };
+  },
   component: Home_,
 });
 
