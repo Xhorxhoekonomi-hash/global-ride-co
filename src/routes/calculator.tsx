@@ -596,7 +596,7 @@ function KoreaCalculator() {
                         destination === d.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
                       )}
                     >
-                      <div className="text-2xl">{d.flag}</div>
+                      <div className="text-xs font-bold tracking-[0.14em] text-teal">{d.code}</div>
                       <div className="mt-2 text-sm font-bold text-navy">{d.label}</div>
                       <div className="mt-1 text-xs text-slate-body">{d.port}</div>
                     </button>
