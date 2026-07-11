@@ -1,9 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { SITE_URL } from "@/lib/seo";
 
-const BASE_URL = "";
-
-const PATHS = ["/", "/services", "/import-usa", "/import-korea", "/import-uae", "/delivered-vehicles", "/about", "/contact"];
+const PATHS = [
+  "/",
+  "/services",
+  "/calculator",
+  "/import-usa",
+  "/import-korea",
+  "/import-uae",
+  "/import-canada",
+  "/import-europe",
+  "/delivered-vehicles",
+  "/about",
+  "/contact",
+  "/faq",
+  "/auction-access",
+  "/inspection-service",
+  "/container-shipping",
+  "/roro-shipping",
+  "/airfreight",
+];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -12,7 +29,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = PATHS.map((p) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${p}</loc>`,
+            `    <loc>${SITE_URL}${p}</loc>`,
             `    <changefreq>weekly</changefreq>`,
             `    <priority>${p === "/" ? "1.0" : "0.8"}</priority>`,
             `  </url>`,
