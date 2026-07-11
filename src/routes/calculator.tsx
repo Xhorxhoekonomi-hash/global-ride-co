@@ -44,16 +44,16 @@ const fmt = (n: number, currency: "$" | "€" = "$") =>
   `${currency}${Math.round(n).toLocaleString("en-US")}`;
 const fmtInt = (n: number) => Math.round(n).toLocaleString("en-US");
 
-const DESTINATIONS: { label: string; value: Destination; flag: string; port: string }[] = [
-  { label: "Albania", value: "Albania", flag: "🇦🇱", port: "Port of Durrës" },
-  { label: "Germany", value: "Germany", flag: "🇩🇪", port: "Port of Bremerhaven" },
-  { label: "Netherlands", value: "Netherlands", flag: "🇳🇱", port: "Port of Rotterdam" },
+const DESTINATIONS: { label: string; value: Destination; code: string; port: string }[] = [
+  { label: "Albania", value: "Albania", code: "AL", port: "Port of Durrës" },
+  { label: "Germany", value: "Germany", code: "DE", port: "Port of Bremerhaven" },
+  { label: "Netherlands", value: "Netherlands", code: "NL", port: "Port of Rotterdam" },
 ];
 
-const SIZE_OPTIONS: { value: VehicleSize; icon: string; title: string; body: string }[] = [
-  { value: "Sedan/Standard", icon: "🚗", title: "Sedan / Standard", body: "Sedan, standard SUV, standard van, standard pickup" },
-  { value: "Large SUV/Truck", icon: "🚙", title: "Large SUV / Large Truck", body: "Large SUV, large pickup · ×1.5 land transport" },
-  { value: "Oversized", icon: "🚛", title: "Oversized", body: "Large van, oversized pickup · ×2.0 land transport" },
+const SIZE_OPTIONS: { value: VehicleSize; Icon: LucideIcon; title: string; body: string }[] = [
+  { value: "Sedan/Standard", Icon: Car, title: "Sedan / Standard", body: "Sedan, standard SUV, standard van, standard pickup" },
+  { value: "Large SUV/Truck", Icon: Truck, title: "Large SUV / Large Truck", body: "Large SUV, large pickup · ×1.5 land transport" },
+  { value: "Oversized", Icon: Container, title: "Oversized", body: "Large van, oversized pickup · ×2.0 land transport" },
 ];
 
 function CalculatorPage() {
