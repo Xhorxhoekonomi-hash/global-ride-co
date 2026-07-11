@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronsUpDown, Loader2, MessageCircle, Zap } from "lucide-react";
+import { AlertTriangle, Car, Check, ChevronsUpDown, Container, Loader2, Mail, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
