@@ -68,8 +68,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alpha Worldwide Albania | Car Import & Shipping from USA, Korea, UAE to Albania" },
-      { name: "description", content: "Buy, inspect, and ship vehicles from the USA, South Korea, UAE, Canada, and Europe — fully managed by Alpha Worldwide Albania, Durrës." },
+      { title: "Car Shipping Albania | Alpha Worldwide" },
+      { name: "description", content: "Car shipping to Albania and vehicle import from USA, South Korea, UAE, Canada and Europe — sourced, inspected, and delivered." },
       { name: "author", content: "Alpha Worldwide Albania" },
       { property: "og:site_name", content: "Alpha Worldwide Albania" },
       { property: "og:type", content: "website" },
