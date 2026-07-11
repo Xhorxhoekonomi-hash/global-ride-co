@@ -1,19 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import heroImg from "@/assets/hero-delivered.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/container-shipping")({
-  head: () => ({
-    meta: [
-      { title: "Container Shipping | Vehicle Import to Albania & Europe" },
-      { name: "description", content: "Fully enclosed container shipping for high-value and modified vehicles from USA, Korea, UAE and Canada to Durrës, Albania and Europe." },
-      { property: "og:title", content: "Container Shipping" },
-      { property: "og:description", content: "Secure, enclosed vehicle shipping via ocean container." },
-      { property: "og:url", content: "/container-shipping" },
-    ],
-    links: [{ rel: "canonical", href: "/container-shipping" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: "Container Car Shipping Europe | Alpha Worldwide", description: "Fully enclosed container car shipping to Europe and Albania — for high-value, exotic and modified vehicles from USA, Korea, UAE and Canada.", path: "/container-shipping", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Container Car Shipping",
+            description: "Fully enclosed container car shipping to Europe and Albania for high-value, exotic and modified vehicles.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/container-shipping",
+          }),
+        },
+      ],
+    };
+  },
   component: ContainerShipping,
 });
 
@@ -36,7 +51,7 @@ function ContainerShipping() {
               Maximum Protection, Ocean to Port
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Fully enclosed container shipping to Durrës, Albania and major European ports — the safest way to move a high-value vehicle.
+              Container car shipping to Europe and vehicle shipping to Durrës, fully enclosed from origin port to Albania — the safest way to move a high-value or modified vehicle.
             </p>
           </div>
         </div>

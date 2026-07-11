@@ -1,21 +1,36 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, ShieldCheck, Gavel, Handshake, Lock, FileText, Truck, Container, Ship, Plane, Anchor, FileCheck } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Vehicle Sourcing, Inspection & Shipping Services | Alpha Worldwide Albania" },
-      { name: "description", content: "Auction brokerage, pre-purchase inspection, container & RoRo shipping, customs and door delivery — full-service vehicle import." },
-      { property: "og:title", content: "Services — Alpha Worldwide Albania" },
-      { property: "og:description", content: "12 services covering the full vehicle import chain." },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: "Vehicle Import Services | Sourcing, Inspection, Shipping", description: "Auction brokerage Albania, vehicle inspection before purchase, container and RoRo car shipping, customs and door delivery — full-service import.", path: "/services", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Vehicle Import Services",
+            description: "Auction brokerage, pre-purchase inspection, container and RoRo car shipping, customs and door delivery.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/services",
+          }),
+        },
+      ],
+    };
+  },
   component: ServicesPage,
 });
 

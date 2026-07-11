@@ -1,19 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Zap, ShieldCheck, Plane } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/airfreight")({
-  head: () => ({
-    meta: [
-      { title: "Airfreight Vehicle Delivery | Urgent & High-Value Shipments" },
-      { name: "description", content: "Premium airfreight vehicle delivery for urgent or exceptionally high-value shipments from USA, Korea, UAE and Canada to Albania and Europe." },
-      { property: "og:title", content: "Airfreight Vehicle Delivery" },
-      { property: "og:description", content: "The fastest way to move a vehicle internationally." },
-      { property: "og:url", content: "/airfreight" },
-    ],
-    links: [{ rel: "canonical", href: "/airfreight" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: "Airfreight Vehicle Delivery | Alpha Worldwide", description: "Premium airfreight vehicle delivery for urgent or exceptionally high-value shipments from USA, Korea, UAE and Canada to Albania and Europe.", path: "/airfreight", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Airfreight Vehicle Delivery",
+            description: "Airfreight vehicle delivery for urgent and exceptionally high-value shipments to Albania and Europe.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/airfreight",
+          }),
+        },
+      ],
+    };
+  },
   component: Airfreight,
 });
 

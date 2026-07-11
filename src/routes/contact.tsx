@@ -1,20 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Mail, Phone, Clock, Facebook, Instagram } from "lucide-react";
 import heroImg from "@/assets/hero-contact.jpg";
+import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Alpha Worldwide Albania | Get a Free Quote" },
-      { name: "description", content: "Reach our Durrës team via WhatsApp, phone, or email to start your vehicle import or shipping quote today." },
-      { property: "og:title", content: "Contact — Alpha Worldwide Albania" },
-      { property: "og:description", content: "Get a free vehicle import & shipping quote." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
+  head: () => buildHead({ title: "Contact Alpha Worldwide Albania | Get a Free Quote", description: "Reach our Durrës team via WhatsApp, phone, or email to start your car shipping to Albania or vehicle import quote today.", path: "/contact", image: heroImg }),
   component: Contact,
 });
 

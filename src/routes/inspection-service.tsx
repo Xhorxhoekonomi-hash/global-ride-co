@@ -1,19 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/inspection-service")({
-  head: () => ({
-    meta: [
-      { title: "Pre-Purchase Vehicle Inspection | USA, Korea, UAE, Canada" },
-      { name: "description", content: "155-point pre-purchase vehicle inspection with photos, video, OBD scan, and paint-meter reading — before you buy from any auction or dealer." },
-      { property: "og:title", content: "Vehicle Inspection Service" },
-      { property: "og:description", content: "Full condition report before you commit to buying." },
-      { property: "og:url", content: "/inspection-service" },
-    ],
-    links: [{ rel: "canonical", href: "/inspection-service" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: "Vehicle Inspection Before Purchase | 155-Point", description: "Vehicle inspection before purchase — 155-point pre-purchase inspection with photos, video, OBD scan and paint-meter reading, worldwide.", path: "/inspection-service", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Vehicle Inspection Before Purchase",
+            description: "155-point pre-purchase vehicle inspection with photos, video, OBD scan and paint-meter reading, worldwide.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              url: "https://www.alphaworldwidealbania.com",
+            },
+            areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
+            url: "https://www.alphaworldwidealbania.com/inspection-service",
+          }),
+        },
+      ],
+    };
+  },
   component: InspectionService,
 });
 
@@ -39,7 +54,7 @@ function InspectionService() {
               Know Exactly What You're Buying
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              A 155-point professional inspection before you purchase — anywhere in the USA, South Korea, UAE, or Canada.
+              155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves.
             </p>
           </div>
         </div>

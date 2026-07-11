@@ -68,8 +68,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alpha Worldwide Albania | Car Import & Shipping from USA, Korea, UAE to Albania" },
-      { name: "description", content: "Buy, inspect, and ship vehicles from the USA, South Korea, UAE, Canada, and Europe — fully managed by Alpha Worldwide Albania, Durrës." },
+      { title: "Car Shipping Albania | Alpha Worldwide" },
+      { name: "description", content: "Car shipping to Albania and vehicle import from USA, South Korea, UAE, Canada and Europe — sourced, inspected, and delivered." },
       { name: "author", content: "Alpha Worldwide Albania" },
       { property: "og:site_name", content: "Alpha Worldwide Albania" },
       { property: "og:type", content: "website" },
@@ -84,6 +84,55 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "AutoDealer"],
+          name: "Alpha Worldwide Albania",
+          description:
+            "International vehicle sourcing, auction brokerage, inspection, and car shipping to Albania and Europe from the USA, South Korea, UAE, Canada, and Europe.",
+          url: "https://www.alphaworldwidealbania.com",
+          telephone: "+355 69 223 3416",
+          email: "info@alphaworldwidealbania.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Durrës",
+            addressCountry: "AL",
+          },
+          areaServed: [
+            "Albania",
+            "United States",
+            "South Korea",
+            "United Arab Emirates",
+            "Canada",
+            "Italy",
+            "Germany",
+            "Belgium",
+            "Netherlands",
+            "France",
+          ],
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: "+355 69 223 3416",
+              contactType: "customer service",
+              areaServed: "AL",
+              availableLanguage: ["en", "sq"],
+            },
+            {
+              "@type": "ContactPoint",
+              telephone: "+971 50 630 4486",
+              contactType: "customer service",
+              areaServed: "AE",
+              availableLanguage: ["en", "ar"],
+            },
+          ],
+          sameAs: [],
+        }),
       },
     ],
   }),

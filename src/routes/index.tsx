@@ -1,25 +1,39 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Search, Gavel, FileCheck, Ship, Plane, Package, Home, Award, Globe2, MapPin, Users, MessageCircle, FileText, CalendarCheck, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-home.jpg";
+import { buildHead } from "@/lib/seo";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { TrustStats } from "@/components/site/TrustStats";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Faq } from "@/components/site/Faq";
 import { Testimonials } from "@/components/site/Testimonials";
-import { VEHICLES, COUNTRIES, WHY_US, CONTACT } from "@/lib/site-data";
+import { VEHICLES, COUNTRIES, WHY_US, CONTACT, FAQS } from "@/lib/site-data";
+
+const HOME_TITLE = "Car Shipping Albania | Alpha Worldwide";
+const HOME_DESC = "Car shipping to Albania and vehicle import from USA, South Korea, UAE, Canada and Europe — sourced, inspected, and delivered door to door.";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Alpha Worldwide Albania | Buy Cars Worldwide. We Handle Everything." },
-      { name: "description", content: "International vehicle sourcing, inspection, purchase, and shipping from USA, South Korea, UAE and Canada to Albania and Europe. Send us a vehicle link and we handle the rest." },
-      { property: "og:title", content: "Alpha Worldwide Albania | Moving Cars Worldwide" },
-      { property: "og:description", content: "Vehicle sourcing, inspection, purchasing and logistics — fully managed from origin to your door." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () => {
+    const base = buildHead({ title: HOME_TITLE, description: HOME_DESC, path: "/", image: heroImg });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+      ],
+    };
+  },
   component: Home_,
 });
 
@@ -60,7 +74,7 @@ function Home_() {
               Buy Cars Worldwide. <span className="text-teal-glow">We Handle Everything.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-              Purchase, inspection and international shipping from USA, South Korea, UAE and Canada to Albania and Europe.
+              Car shipping to Albania and full vehicle import from USA, South Korea, UAE and Canada — sourced, inspected, purchased and delivered door to door across Albania and Europe.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link to="/contact" className="btn-primary">

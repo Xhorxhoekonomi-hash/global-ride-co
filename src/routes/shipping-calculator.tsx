@@ -2,19 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Calculator, Loader2 } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { submitLead } from "@/lib/submit-lead";
 
 export const Route = createFileRoute("/shipping-calculator")({
-  head: () => ({
-    meta: [
-      { title: "Shipping Calculator | Vehicle Import Cost to Albania" },
-      { name: "description", content: "Get an accurate shipping cost estimate for importing a vehicle from USA, South Korea, UAE, or Canada to Albania and Europe." },
-      { property: "og:title", content: "Shipping Calculator" },
-      { property: "og:description", content: "Tell us your route and vehicle — get a real, accurate shipping quote." },
-      { property: "og:url", content: "/shipping-calculator" },
-    ],
-    links: [{ rel: "canonical", href: "/shipping-calculator" }],
-  }),
+  head: () => buildHead({ title: "Shipping Calculator | Car Shipping Albania", description: "Estimate car shipping to Albania and Europe from USA, South Korea, UAE or Canada — tell us your route and vehicle.", path: "/shipping-calculator", image: heroImg }),
   component: ShippingCalculator,
 });
 

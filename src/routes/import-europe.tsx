@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-europe")({
-  head: () => ({
-    meta: [
-      { title: "Import a Car from Europe to Albania — Cross-Border Vehicle Transport" },
-      { name: "description", content: "Vehicle sourcing and cross-border transport from AutoScout24 listings and European dealers to Albania." },
-      { property: "og:title", content: "Import from Europe" },
-      { property: "og:description", content: "AutoScout24 sourcing and cross-border delivery to Albania." },
-      { property: "og:url", content: "/import-europe" },
-    ],
-    links: [{ rel: "canonical", href: "/import-europe" }],
-  }),
+  head: () => buildHead({ title: "Import a Car from Europe to Albania", description: "Cross-border vehicle transport from AutoScout24 and European dealers to Albania — sourcing, purchase handling and delivery.", path: "/import-europe", image: heroImg }),
   component: ImportEurope,
 });
 

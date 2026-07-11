@@ -3,6 +3,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Car, Check, ChevronsUpDown, Container, Loader2, Mail, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
 import { submitLead } from "@/lib/submit-lead";
@@ -26,16 +27,7 @@ import { calculateAllAuctionFees } from "@/data/auctionFees";
 import { KOREA_SHIPPING, KOREA_INCLUDES, KRW_TO_EUR_RATE } from "@/data/koreaShipping";
 
 export const Route = createFileRoute("/calculator")({
-  head: () => ({
-    meta: [
-      { title: "Shipping Cost Calculator | USA & South Korea to Albania, Germany, Netherlands" },
-      { name: "description", content: "Real, itemized shipping cost calculator for vehicles bought at Copart, IAAI, or in South Korea — land transport, auction fees, ocean freight, and unloading, all included." },
-      { property: "og:title", content: "Alpha Worldwide Shipping Calculator" },
-      { property: "og:description", content: "Get a real, itemized cost breakdown for importing your vehicle." },
-      { property: "og:url", content: "/calculator" },
-    ],
-    links: [{ rel: "canonical", href: "/calculator" }],
-  }),
+  head: () => buildHead({ title: "Shipping Cost Calculator | USA & Korea to Europe", description: "Real, itemized car shipping calculator for vehicles bought at Copart, IAAI or in South Korea — land, auction fees, ocean freight and unloading.", path: "/calculator", image: heroImg }),
   component: CalculatorPage,
 });
 

@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Gauge, ShieldCheck, FileText, DollarSign } from "lucide-react";
 import heroImg from "@/assets/hero-korea.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-korea")({
-  head: () => ({
-    meta: [
-      { title: "Import a Car from South Korea to Albania | Encar Broker" },
-      { name: "description", content: "Source low-mileage, well-documented vehicles from Encar and Autowini, shipped from Busan/Incheon to Durrës and Europe." },
-      { property: "og:title", content: "Import a Car from South Korea" },
-      { property: "og:description", content: "Encar & Autowini brokerage with export from Busan/Incheon." },
-      { property: "og:url", content: "/import-korea" },
-    ],
-    links: [{ rel: "canonical", href: "/import-korea" }],
-  }),
+  head: () => buildHead({ title: "Import Car from South Korea to Albania | Encar", description: "Encar Korea car import specialists — source low-mileage vehicles from Encar and Autowini, shipped from Busan/Incheon to Durrës and Europe.", path: "/import-korea", image: heroImg }),
   component: ImportKorea,
 });
 
@@ -45,7 +37,7 @@ function ImportKorea() {
               Import Quality Vehicles from South Korea
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              South Korea is a popular market for high-quality, low-mileage vehicles at competitive prices — sourced from Encar, Autowini and official dealer networks.
+              Encar Korea car import specialists — source low-mileage, well-documented vehicles from Encar, Autowini and official dealer networks, with vehicle shipping to Durrës from Busan and Incheon.
             </p>
           </div>
         </div>
