@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronsUpDown, Loader2, MessageCircle, Zap } from "lucide-react";
+import { AlertTriangle, Car, Check, ChevronsUpDown, Container, Loader2, Mail, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
@@ -44,16 +44,16 @@ const fmt = (n: number, currency: "$" | "€" = "$") =>
   `${currency}${Math.round(n).toLocaleString("en-US")}`;
 const fmtInt = (n: number) => Math.round(n).toLocaleString("en-US");
 
-const DESTINATIONS: { label: string; value: Destination; flag: string; port: string }[] = [
-  { label: "Albania", value: "Albania", flag: "🇦🇱", port: "Port of Durrës" },
-  { label: "Germany", value: "Germany", flag: "🇩🇪", port: "Port of Bremerhaven" },
-  { label: "Netherlands", value: "Netherlands", flag: "🇳🇱", port: "Port of Rotterdam" },
+const DESTINATIONS: { label: string; value: Destination; code: string; port: string }[] = [
+  { label: "Albania", value: "Albania", code: "AL", port: "Port of Durrës" },
+  { label: "Germany", value: "Germany", code: "DE", port: "Port of Bremerhaven" },
+  { label: "Netherlands", value: "Netherlands", code: "NL", port: "Port of Rotterdam" },
 ];
 
-const SIZE_OPTIONS: { value: VehicleSize; icon: string; title: string; body: string }[] = [
-  { value: "Sedan/Standard", icon: "🚗", title: "Sedan / Standard", body: "Sedan, standard SUV, standard van, standard pickup" },
-  { value: "Large SUV/Truck", icon: "🚙", title: "Large SUV / Large Truck", body: "Large SUV, large pickup · ×1.5 land transport" },
-  { value: "Oversized", icon: "🚛", title: "Oversized", body: "Large van, oversized pickup · ×2.0 land transport" },
+const SIZE_OPTIONS: { value: VehicleSize; Icon: LucideIcon; title: string; body: string }[] = [
+  { value: "Sedan/Standard", Icon: Car, title: "Sedan / Standard", body: "Sedan, standard SUV, standard van, standard pickup" },
+  { value: "Large SUV/Truck", Icon: Truck, title: "Large SUV / Large Truck", body: "Large SUV, large pickup · ×1.5 land transport" },
+  { value: "Oversized", Icon: Container, title: "Oversized", body: "Large van, oversized pickup · ×2.0 land transport" },
 ];
 
 function CalculatorPage() {
@@ -78,10 +78,10 @@ function CalculatorPage() {
           <Tabs defaultValue="usa" className="mx-auto max-w-4xl">
             <TabsList className="mx-auto grid h-auto w-full max-w-lg grid-cols-2 gap-1 rounded-xl bg-mist p-1.5">
               <TabsTrigger value="usa" className="rounded-lg py-2.5 text-sm font-semibold data-[state=active]:bg-navy data-[state=active]:text-white">
-                🇺🇸 USA — Copart / IAAI
+                USA — Copart / IAAI
               </TabsTrigger>
               <TabsTrigger value="korea" className="rounded-lg py-2.5 text-sm font-semibold data-[state=active]:bg-navy data-[state=active]:text-white">
-                🇰🇷 South Korea — Encar
+                South Korea — Encar
               </TabsTrigger>
             </TabsList>
 
@@ -265,7 +265,7 @@ function UsaCalculator() {
                         size === s.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
                       )}
                     >
-                      <div className="text-2xl">{s.icon}</div>
+                      <s.Icon className="h-7 w-7 text-teal" strokeWidth={1.75} />
                       <div className="mt-2 text-sm font-bold text-navy">{s.title}</div>
                       <div className="mt-1 text-xs text-slate-body">{s.body}</div>
                     </button>
@@ -333,7 +333,7 @@ function UsaCalculator() {
                         destination === d.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
                       )}
                     >
-                      <div className="text-2xl">{d.flag}</div>
+                      <div className="text-xs font-bold tracking-[0.14em] text-teal">{d.code}</div>
                       <div className="mt-2 text-sm font-bold text-navy">{d.label}</div>
                       <div className="mt-1 text-xs text-slate-body">{d.port}</div>
                     </button>
@@ -418,8 +418,8 @@ function UsaCalculator() {
                   <li>* Shared 40'HC container — typically 4 cars</li>
                   {unloading.isEstimate && <li>* {unloading.note}</li>}
                   <li>* USD→EUR at ~0.92 (approximate rate)</li>
-                  <li className="font-semibold text-amber-700">⚠ Customs & import duties NOT included</li>
-                  <li className="font-semibold text-amber-700">⚠ All figures are estimates. Final confirmed by team.</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Customs & import duties NOT included</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> All figures are estimates. Final confirmed by team.</li>
                 </ul>
               </div>
 
@@ -435,7 +435,7 @@ function UsaCalculator() {
 
                 <details className="group">
                   <summary className="btn-outline-dark w-full cursor-pointer list-none text-center">
-                    ✉ Email for Full Breakdown
+                    <span className="inline-flex items-center justify-center gap-2"><Mail className="h-4 w-4" /> Email for Full Breakdown</span>
                   </summary>
                   <form onSubmit={onEmailRequest} className="mt-3 space-y-2">
                     <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="w-full rounded-md border border-border px-3 py-2 text-sm" />
@@ -596,7 +596,7 @@ function KoreaCalculator() {
                         destination === d.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
                       )}
                     >
-                      <div className="text-2xl">{d.flag}</div>
+                      <div className="text-xs font-bold tracking-[0.14em] text-teal">{d.code}</div>
                       <div className="mt-2 text-sm font-bold text-navy">{d.label}</div>
                       <div className="mt-1 text-xs text-slate-body">{d.port}</div>
                     </button>
@@ -650,8 +650,8 @@ function KoreaCalculator() {
                 </div>
 
                 <ul className="space-y-1 text-[11px] leading-relaxed text-slate-body">
-                  <li className="font-semibold text-amber-700">⚠ Customs & import duties not included</li>
-                  <li className="font-semibold text-amber-700">⚠ Estimates only. Final confirmed by team.</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Customs & import duties not included</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Estimates only. Final confirmed by team.</li>
                 </ul>
               </div>
 
