@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-usa.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 
 export const Route = createFileRoute("/import-usa")({
-  head: () => ({
-    meta: [
-      { title: "Import a Car from USA to Albania | Copart & IAAI Broker" },
-      { name: "description", content: "Full access to Copart, IAAI, Manheim and US dealer networks. We handle bidding, shipping, customs and delivery to Albania and Europe." },
-      { property: "og:title", content: "Import a Car from USA to Albania" },
-      { property: "og:description", content: "Licensed US auction broker for Copart, IAAI, Manheim." },
-      { property: "og:url", content: "/import-usa" },
-    ],
-    links: [{ rel: "canonical", href: "/import-usa" }],
-  }),
+  head: () => buildHead({ title: "Import Car from USA to Albania | Copart & IAAI", description: "Import a car from USA to Albania — licensed Copart Albania broker and IAAI Albania broker handling bidding, shipping, customs and delivery.", path: "/import-usa", image: heroImg }),
   component: ImportUSA,
 });
 

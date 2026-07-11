@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import heroImg from "@/assets/hero-delivered.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/container-shipping")({
-  head: () => ({
-    meta: [
-      { title: "Container Shipping | Vehicle Import to Albania & Europe" },
-      { name: "description", content: "Fully enclosed container shipping for high-value and modified vehicles from USA, Korea, UAE and Canada to Durrës, Albania and Europe." },
-      { property: "og:title", content: "Container Shipping" },
-      { property: "og:description", content: "Secure, enclosed vehicle shipping via ocean container." },
-      { property: "og:url", content: "/container-shipping" },
-    ],
-    links: [{ rel: "canonical", href: "/container-shipping" }],
-  }),
+  head: () => buildHead({ title: "Container Car Shipping Europe | Alpha Worldwide", description: "Fully enclosed container car shipping to Europe and Albania — for high-value, exotic and modified vehicles from USA, Korea, UAE and Canada.", path: "/container-shipping", image: heroImg }),
   component: ContainerShipping,
 });
 

@@ -2,19 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-delivered.jpg";
+import { buildHead } from "@/lib/seo";
 import { VEHICLES, type Vehicle } from "@/lib/site-data";
 
 export const Route = createFileRoute("/delivered-vehicles")({
-  head: () => ({
-    meta: [
-      { title: "Delivered Vehicles | Alpha Worldwide Albania" },
-      { name: "description", content: "Browse real vehicles sourced, inspected, and shipped by Alpha Worldwide — from Rolls Royce to Ferrari to Porsche." },
-      { property: "og:title", content: "Delivered Vehicles" },
-      { property: "og:description", content: "Real cars sourced, shipped and delivered by Alpha Worldwide Albania." },
-      { property: "og:url", content: "/delivered-vehicles" },
-    ],
-    links: [{ rel: "canonical", href: "/delivered-vehicles" }],
-  }),
+  head: () => buildHead({ title: "Delivered Vehicles | Alpha Worldwide Albania", description: "Real vehicles sourced, inspected and shipped by Alpha Worldwide — Rolls Royce, Ferrari, Porsche, Mercedes and more delivered to Albania and Europe.", path: "/delivered-vehicles", image: heroImg }),
   component: DeliveredVehicles,
 });
 

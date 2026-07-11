@@ -1,19 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Globe2, Check } from "lucide-react";
 import heroImg from "@/assets/hero-about.jpg";
+import { buildHead } from "@/lib/seo";
 import { TrustStats } from "@/components/site/TrustStats";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Alpha Worldwide Albania | International Vehicle Logistics" },
-      { name: "description", content: "10+ years sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, Canada and Europe to Albania." },
-      { property: "og:title", content: "About Alpha Worldwide Albania" },
-      { property: "og:description", content: "International vehicle sourcing, auction brokerage and shipping — managed end to end." },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
+  head: () => buildHead({ title: "About Alpha Worldwide Albania | Vehicle Logistics", description: "Ten+ years of vehicle sourcing, inspection and car shipping to Albania from the USA, South Korea, UAE, Canada and Europe.", path: "/about", image: heroImg }),
   component: About,
 });
 

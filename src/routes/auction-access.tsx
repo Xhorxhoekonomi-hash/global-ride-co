@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-usa.jpg";
+import { buildHead } from "@/lib/seo";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/auction-access")({
-  head: () => ({
-    meta: [
-      { title: "Auction Access | Copart, IAAI, Manheim, Encar & More" },
-      { name: "description", content: "Licensed broker access to Copart, IAAI, Manheim, Encar, Autowini, Dubizzle, Emirates Auction, and trusted dealers — no local account required." },
-      { property: "og:title", content: "Auction Access" },
-      { property: "og:description", content: "Bid and buy from major global auction platforms through Alpha Worldwide." },
-      { property: "og:url", content: "/auction-access" },
-    ],
-    links: [{ rel: "canonical", href: "/auction-access" }],
-  }),
+  head: () => buildHead({ title: "Copart & IAAI Albania Broker | Auction Access", description: "Licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction — no local account required.", path: "/auction-access", image: heroImg }),
   component: AuctionAccess,
 });
 

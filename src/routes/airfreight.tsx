@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Zap, ShieldCheck, Plane } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/airfreight")({
-  head: () => ({
-    meta: [
-      { title: "Airfreight Vehicle Delivery | Urgent & High-Value Shipments" },
-      { name: "description", content: "Premium airfreight vehicle delivery for urgent or exceptionally high-value shipments from USA, Korea, UAE and Canada to Albania and Europe." },
-      { property: "og:title", content: "Airfreight Vehicle Delivery" },
-      { property: "og:description", content: "The fastest way to move a vehicle internationally." },
-      { property: "og:url", content: "/airfreight" },
-    ],
-    links: [{ rel: "canonical", href: "/airfreight" }],
-  }),
+  head: () => buildHead({ title: "Airfreight Vehicle Delivery | Alpha Worldwide", description: "Premium airfreight vehicle delivery for urgent or exceptionally high-value shipments from USA, Korea, UAE and Canada to Albania and Europe.", path: "/airfreight", image: heroImg }),
   component: Airfreight,
 });
 

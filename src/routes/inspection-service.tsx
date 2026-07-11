@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/inspection-service")({
-  head: () => ({
-    meta: [
-      { title: "Pre-Purchase Vehicle Inspection | USA, Korea, UAE, Canada" },
-      { name: "description", content: "155-point pre-purchase vehicle inspection with photos, video, OBD scan, and paint-meter reading — before you buy from any auction or dealer." },
-      { property: "og:title", content: "Vehicle Inspection Service" },
-      { property: "og:description", content: "Full condition report before you commit to buying." },
-      { property: "og:url", content: "/inspection-service" },
-    ],
-    links: [{ rel: "canonical", href: "/inspection-service" }],
-  }),
+  head: () => buildHead({ title: "Vehicle Inspection Before Purchase | 155-Point", description: "Vehicle inspection before purchase — 155-point pre-purchase inspection with photos, video, OBD scan and paint-meter reading, worldwide.", path: "/inspection-service", image: heroImg }),
   component: InspectionService,
 });
 

@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-home.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-canada")({
-  head: () => ({
-    meta: [
-      { title: "Import a Car from Canada to Albania & Europe" },
-      { name: "description", content: "Vehicle sourcing, inspection, and shipping from Canadian auctions and dealers to Albania and Europe." },
-      { property: "og:title", content: "Import from Canada" },
-      { property: "og:description", content: "Sourcing, inspection, and shipping from Canada to Durrës, Albania and Europe." },
-      { property: "og:url", content: "/import-canada" },
-    ],
-    links: [{ rel: "canonical", href: "/import-canada" }],
-  }),
+  head: () => buildHead({ title: "Import a Car from Canada to Albania & Europe", description: "Sourcing, vehicle inspection before purchase, and shipping from Canadian auctions and dealers to Durrës, Albania and Europe.", path: "/import-canada", image: heroImg }),
   component: ImportCanada,
 });
 

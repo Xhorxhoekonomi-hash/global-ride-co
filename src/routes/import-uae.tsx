@@ -1,20 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-uae.jpg";
+import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
 import { Phone } from "lucide-react";
 
 export const Route = createFileRoute("/import-uae")({
-  head: () => ({
-    meta: [
-      { title: "Import a Car from Dubai/UAE to Albania & Europe" },
-      { name: "description", content: "Vehicle sourcing from Dubizzle and Emirates Auction, RTA export handling, and shipping to Albania, Italy and Germany." },
-      { property: "og:title", content: "Import from UAE — Dubizzle & Emirates Auction" },
-      { property: "og:description", content: "Full sourcing, RTA export and shipping to Europe." },
-      { property: "og:url", content: "/import-uae" },
-    ],
-    links: [{ rel: "canonical", href: "/import-uae" }],
-  }),
+  head: () => buildHead({ title: "Import Car from Dubai/UAE to Albania & Europe", description: "Dubai car export to Albania — vehicle sourcing from Dubizzle and Emirates Auction, RTA export and UAE car shipping to Europe.", path: "/import-uae", image: heroImg }),
   component: ImportUAE,
 });
 
