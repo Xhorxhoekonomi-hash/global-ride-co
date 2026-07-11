@@ -650,8 +650,8 @@ function KoreaCalculator() {
                 </div>
 
                 <ul className="space-y-1 text-[11px] leading-relaxed text-slate-body">
-                  <li className="font-semibold text-amber-700">⚠ Customs & import duties not included</li>
-                  <li className="font-semibold text-amber-700">⚠ Estimates only. Final confirmed by team.</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Customs & import duties not included</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> Estimates only. Final confirmed by team.</li>
                 </ul>
               </div>
 
