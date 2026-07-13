@@ -15,6 +15,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { CONTACT, OFFICES } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -68,10 +70,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Car Shipping Albania | Alpha Worldwide" },
-      { name: "description", content: "Car shipping to Albania and vehicle import from USA, South Korea, UAE, Canada and Europe — sourced, inspected, and delivered." },
-      { name: "author", content: "Alpha Worldwide Albania" },
-      { property: "og:site_name", content: "Alpha Worldwide Albania" },
+      { title: "International Vehicle Shipping & Import Services | Alpha Worldwide" },
+      { name: "description", content: "Alpha Worldwide sources, inspects, purchases, and ships vehicles worldwide — from the USA, South Korea, UAE, and Canada to Albania and across Europe." },
+      { name: "author", content: "Alpha Worldwide" },
+      { property: "og:site_name", content: "Alpha Worldwide" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#1A3A5C" },
@@ -91,47 +93,61 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["LocalBusiness", "AutoDealer"],
-          name: "Alpha Worldwide Albania",
+          "@type": "Organization",
+          name: "Alpha Worldwide",
+          alternateName: "Alpha Worldwide Albania",
           description:
-            "International vehicle sourcing, auction brokerage, inspection, and car shipping to Albania and Europe from the USA, South Korea, UAE, Canada, and Europe.",
-          url: "https://www.alphaworldwidealbania.com",
-          telephone: "+355 69 223 3416",
-          email: "info@alphaworldwidealbania.com",
+            "International vehicle logistics, sourcing and auction-services company headquartered in Dubai, UAE, with European operations in Durrës, Albania — serving the USA, South Korea, UAE, Canada, Albania, and wider Europe.",
+          url: SITE_URL,
+          email: CONTACT.email,
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Durrës",
-            addressCountry: "AL",
+            addressLocality: OFFICES[0].city,
+            addressCountry: OFFICES[0].countryCode,
           },
           areaServed: [
-            "Albania",
-            "United States",
-            "South Korea",
-            "United Arab Emirates",
-            "Canada",
-            "Italy",
-            "Germany",
-            "Belgium",
-            "Netherlands",
-            "France",
+            "Albania", "United States", "South Korea", "United Arab Emirates",
+            "Canada", "Italy", "Germany", "Belgium", "Netherlands", "France",
+          ],
+          department: [
+            {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              description: "European and Albanian operations",
+              telephone: OFFICES[1].phones[0],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: OFFICES[1].city,
+                addressCountry: OFFICES[1].countryCode,
+              },
+            },
           ],
           contactPoint: [
             {
               "@type": "ContactPoint",
-              telephone: "+355 69 223 3416",
-              contactType: "customer service",
-              areaServed: "AL",
-              availableLanguage: ["en", "sq"],
-            },
-            {
-              "@type": "ContactPoint",
-              telephone: "+971 50 630 4486",
+              telephone: OFFICES[0].phone,
               contactType: "customer service",
               areaServed: "AE",
               availableLanguage: ["en", "ar"],
             },
+            {
+              "@type": "ContactPoint",
+              telephone: OFFICES[1].phones[0],
+              contactType: "customer service",
+              areaServed: "AL",
+              availableLanguage: ["en", "sq"],
+            },
           ],
-          sameAs: [],
+          sameAs: [`https://wa.me/${CONTACT.whatsapp}`],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Alpha Worldwide",
+          url: SITE_URL,
         }),
       },
     ],
