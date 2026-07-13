@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -22,6 +23,7 @@ const STEPS = [
 function ImportUAE() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} />
       <section className="relative isolate overflow-hidden text-white">
         <img src={heroImg} alt="Dubai skyline with luxury vehicle" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
