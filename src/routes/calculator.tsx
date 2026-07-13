@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlertTriangle, Car, Check, ChevronsUpDown, Container, Loader2, Mail, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
+import { AlertTriangle, Car, Check, ChevronsUpDown, Container, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
-import { submitLead } from "@/lib/submit-lead";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -101,10 +101,7 @@ function UsaCalculator() {
   const [bid, setBid] = useState<string>("");
   const [destination, setDestination] = useState<Destination | null>(null);
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
-  const [leadError, setLeadError] = useState("");
+
 
   const bidNumber = parseFloat(bid) || 0;
   const ready = !!location && !!size && bidNumber > 0 && !!destination;
@@ -149,27 +146,8 @@ function UsaCalculator() {
     window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   };
 
-  const onEmailRequest = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim()) {
-      setLeadError("Add your name and phone/WhatsApp so we can send the full breakdown.");
-      return;
-    }
-    setLeadError("");
-    setStatus("submitting");
-    const { whatsappUrl } = await submitLead({
-      name: name.trim(),
-      phone: phone.trim(),
-      origin: "USA",
-      destination: destination ?? undefined,
-      model: size ?? undefined,
-      service: "Shipping calculator — full breakdown request",
-      message: whatsappText(),
-      source: "calculator-usa",
-    });
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    setStatus("done");
-  };
+
+
 
   const showSize = !!location;
   const showBid = showSize && !!size;
@@ -425,20 +403,6 @@ function UsaCalculator() {
                   <MessageCircle className="h-4 w-4" /> Request This Quote on WhatsApp
                 </button>
 
-                <details className="group">
-                  <summary className="btn-outline-dark w-full cursor-pointer list-none text-center">
-                    <span className="inline-flex items-center justify-center gap-2"><Mail className="h-4 w-4" /> Email for Full Breakdown</span>
-                  </summary>
-                  <form onSubmit={onEmailRequest} className="mt-3 space-y-2">
-                    <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="w-full rounded-md border border-border px-3 py-2 text-sm" />
-                    <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone / WhatsApp" className="w-full rounded-md border border-border px-3 py-2 text-sm" />
-                    {leadError && <p className="text-xs text-red-600">{leadError}</p>}
-                    <button type="submit" disabled={status === "submitting"} className="btn-primary w-full justify-center disabled:opacity-70">
-                      {status === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : "Send Full Breakdown"}
-                    </button>
-                    {status === "done" && <p className="text-xs font-medium text-teal">Sent — check WhatsApp.</p>}
-                  </form>
-                </details>
 
                 <a href="/contact" className="block text-center text-sm font-semibold text-teal hover:underline">
                   Request Full Quote →
