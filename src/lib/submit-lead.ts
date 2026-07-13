@@ -1,4 +1,5 @@
 import { CONTACT } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 
 export type LeadPayload = {
   name: string;
@@ -10,12 +11,49 @@ export type LeadPayload = {
   model?: string;
   service?: string;
   message?: string;
-  source: string; // which form/page the lead came from, e.g. "quote-form-full"
+  source: string;
 };
 
-/**
- * Builds a clean, pre-filled WhatsApp message from the lead data.
- */
+type LeadAttribution = {
+  source_page: string;
+  referrer: string;
+  language: string;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  utm_term: string | null;
+  utm_content: string | null;
+  created_at: string;
+};
+
+function captureAttribution(): LeadAttribution {
+  if (typeof window === "undefined") {
+    return {
+      source_page: "",
+      referrer: "",
+      language: "en",
+      utm_source: null,
+      utm_medium: null,
+      utm_campaign: null,
+      utm_term: null,
+      utm_content: null,
+      created_at: new Date().toISOString(),
+    };
+  }
+  const params = new URLSearchParams(window.location.search);
+  return {
+    source_page: window.location.pathname,
+    referrer: document.referrer || "",
+    language: "en",
+    utm_source: params.get("utm_source"),
+    utm_medium: params.get("utm_medium"),
+    utm_campaign: params.get("utm_campaign"),
+    utm_term: params.get("utm_term"),
+    utm_content: params.get("utm_content"),
+    created_at: new Date().toISOString(),
+  };
+}
+
 function buildWhatsAppMessage(lead: LeadPayload): string {
   const lines = [
     "New Quote Request — Alpha Worldwide Albania",
@@ -32,25 +70,10 @@ function buildWhatsAppMessage(lead: LeadPayload): string {
   return lines.join("\n");
 }
 
-/**
- * Placeholder for future backend delivery (email API, Supabase insert, or
- * generic webhook). Currently a no-op that resolves immediately so the
- * WhatsApp handoff below is never blocked by it. To wire up a real backend:
- *
- *   1. Email:    POST lead to a serverless function that calls Resend/SendGrid.
- *   2. Supabase: import { supabase } from "@/lib/supabase" and
- *                await supabase.from("leads").insert(lead)
- *   3. Webhook:  await fetch(WEBHOOK_URL, { method: "POST", body: JSON.stringify(lead) })
- *
- * Any of these can be dropped in here without touching the calling components.
- */
-async function persistLead(lead: LeadPayload): Promise<{ ok: boolean; error?: string }> {
+async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Promise<{ ok: boolean; error?: string }> {
   try {
-    // TODO: replace with real persistence (Supabase / email API / webhook).
-    // Left as a structured stub so it fails silently and never blocks the
-    // WhatsApp handoff, which is the primary, always-working delivery path.
     if (import.meta.env.DEV) {
-      console.info("[lead:stub] would persist lead ->", lead);
+      console.info("[lead:stub] would persist lead ->", { ...lead, ...attribution });
     }
     return { ok: true };
   } catch (err) {
@@ -58,15 +81,10 @@ async function persistLead(lead: LeadPayload): Promise<{ ok: boolean; error?: st
   }
 }
 
-/**
- * Main entry point used by all lead forms on the site.
- * - Validates nothing itself (forms validate before calling this).
- * - Always attempts to persist the lead (currently a stub, safe to fail).
- * - Always opens WhatsApp with a pre-filled message as the guaranteed
- *   delivery channel, since that's what the business actually monitors.
- */
 export async function submitLead(lead: LeadPayload): Promise<{ ok: boolean; whatsappUrl: string }> {
-  await persistLead(lead);
+  const attribution = captureAttribution();
+  await persistLead(lead, attribution);
+  trackEvent("quote_submitted", { source: lead.source, origin: lead.origin });
 
   const message = buildWhatsAppMessage(lead);
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;

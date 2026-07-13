@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
@@ -44,6 +45,7 @@ const CHECKS = [
 function InspectionService() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Vehicle Inspection" }]} />
       <section className="relative isolate overflow-hidden text-white">
         <img src={heroImg} alt="Vehicle inspection" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />

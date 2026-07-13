@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead } from "@/lib/seo";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
@@ -41,6 +42,7 @@ const STEPS = [
 function AuctionAccess() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Auction Access" }]} />
       <section className="relative isolate overflow-hidden text-white">
         <img src={heroImg} alt="Vehicle auction access" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />

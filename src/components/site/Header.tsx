@@ -7,7 +7,6 @@ import logoIconAsset from "@/assets/logo-icon-white.png.asset.json";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"EN" | "SQ">("EN");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,15 +28,15 @@ export function Header() {
         <Link to="/" className="flex min-w-0 items-center gap-3 text-white">
           <img
             src={logoIconAsset.url}
-            alt="Alpha Worldwide Albania"
+            alt="Alpha Worldwide"
             className="h-11 w-11 shrink-0 object-contain"
           />
           <div className="min-w-0 leading-tight">
             <div className="truncate font-display text-base font-bold tracking-tight">
               Alpha Worldwide
             </div>
-            <div className="text-[10px] uppercase tracking-[0.22em] text-teal-glow">
-              Albania
+            <div className="truncate text-[10px] uppercase tracking-[0.22em] text-teal-glow">
+              Moving Cars Worldwide
             </div>
           </div>
         </Link>
@@ -57,19 +56,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-1 rounded-full border border-white/20 p-0.5 text-xs md:flex">
-            {(["EN", "SQ"] as const).map((code) => (
-              <button
-                key={code}
-                onClick={() => setLang(code)}
-                className={`rounded-full px-2.5 py-1 font-semibold transition-colors ${
-                  lang === code ? "bg-teal text-white" : "text-white/70"
-                }`}
-              >
-                {code}
-              </button>
-            ))}
-          </div>
           <a
             href={`https://wa.me/${CONTACT.whatsapp}`}
             target="_blank"

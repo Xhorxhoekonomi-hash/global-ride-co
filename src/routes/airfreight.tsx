@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Zap, ShieldCheck, Plane } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead } from "@/lib/seo";
@@ -41,6 +42,7 @@ const POINTS = [
 function Airfreight() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} />
       <section className="relative isolate overflow-hidden text-white">
         <img src={heroImg} alt="Airfreight vehicle delivery" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />

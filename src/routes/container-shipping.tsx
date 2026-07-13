@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead } from "@/lib/seo";
@@ -41,6 +42,7 @@ const POINTS = [
 function ContainerShipping() {
   return (
     <>
+      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Container Shipping" }]} />
       <section className="relative isolate overflow-hidden text-white">
         <img src={heroImg} alt="Container shipping at port" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />

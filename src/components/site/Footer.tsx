@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
-import { CONTACT, NAV_LINKS } from "@/lib/site-data";
+import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { CONTACT, NAV_LINKS, OFFICES } from "@/lib/site-data";
 import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 export function Footer() {
@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <img
             src={logoFooterAsset.url}
-            alt="Alpha Worldwide Albania"
+            alt="Alpha Worldwide"
             className="h-auto w-44 object-contain"
           />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
@@ -52,31 +52,39 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Contact</h4>
-          <ul className="mt-4 space-y-3 text-sm text-white/70">
-            <li className="flex gap-2.5"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{CONTACT.location}</li>
-            <li className="flex gap-2.5"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <a href={`mailto:${CONTACT.email}`} className="hover:text-teal-glow">{CONTACT.email}</a>
-            </li>
-            {CONTACT.phones.map((p) => (
-              <li key={p} className="flex gap-2.5"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-teal-glow">{p}</a>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Locations</h4>
+          <ul className="mt-4 space-y-4 text-sm text-white/70">
+            {OFFICES.map((office) => (
+              <li key={office.id} className="flex gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                <div>
+                  <div className="font-semibold text-white/85">{office.role}</div>
+                  <div>{office.city}, {office.country}</div>
+                  <div className="mt-0.5">
+                    {"phone" in office ? (
+                      <a href={`tel:${office.phone.replace(/\s/g, "")}`} className="hover:text-teal-glow">{office.phone}</a>
+                    ) : (
+                      office.phones.map((p, i) => (
+                        <span key={p}>
+                          <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-teal-glow">{p}</a>
+                          {i < office.phones.length - 1 && ", "}
+                        </span>
+                      ))
+                    )}
+                  </div>
+                </div>
               </li>
             ))}
-            <li className="flex gap-2.5"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <span>UAE: <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} className="hover:text-teal-glow">{CONTACT.uae}</a></span>
+            <li className="flex gap-2.5 pt-1"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-teal-glow">{CONTACT.email}</a>
             </li>
-            <li className="pt-1 text-xs text-white/50">{CONTACT.hours}</li>
+            <li className="text-xs text-white/50">{CONTACT.hours}</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/5">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-6 pb-24 text-xs text-white/50 md:flex-row md:pb-6">
-          <div>© {new Date().getFullYear()} Alpha Worldwide Albania. All rights reserved.</div>
-          <div className="flex gap-4">
-            <button className="hover:text-teal-glow">EN</button>
-            <button className="hover:text-teal-glow">SQ</button>
-          </div>
+        <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 md:flex-row">
+          <div>© {new Date().getFullYear()} Alpha Worldwide. All rights reserved.</div>
         </div>
       </div>
     </footer>
