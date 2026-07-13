@@ -7,6 +7,28 @@ import carDefender from "@/assets/car-defender.jpg";
 import carGhost from "@/assets/car-ghost.jpg";
 import carM5 from "@/assets/car-m5.jpg";
 
+export const OFFICES = [
+  {
+    id: "dubai",
+    label: "Dubai, UAE — Global Headquarters",
+    city: "Dubai",
+    country: "United Arab Emirates",
+    countryCode: "AE",
+    role: "Global Headquarters",
+    phone: "+971 50 630 4486",
+  },
+  {
+    id: "durres",
+    label: "Durrës, Albania — European & Albanian Operations",
+    city: "Durrës",
+    country: "Albania",
+    countryCode: "AL",
+    role: "European & Albanian Operations",
+    phones: ["+355 69 223 3416", "+355 69 301 2101", "+355 69 294 0040"],
+  },
+] as const;
+
+
 export const CONTACT = {
   location: "Durrës, Albania",
   email: "info@alphaworldwidealbania.com",
