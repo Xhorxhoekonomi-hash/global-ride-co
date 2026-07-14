@@ -7,6 +7,31 @@ import carDefender from "@/assets/car-defender.jpg";
 import carGhost from "@/assets/car-ghost.jpg";
 import carM5 from "@/assets/car-m5.jpg";
 
+export type ServiceItem = {
+  slug: string;
+  title: string;
+  body: string;
+  to: string;
+  hasDedicatedPage: boolean;
+};
+
+export const SERVICES: ServiceItem[] = [
+  { slug: "sourcing", title: "Vehicle Sourcing", body: "We locate the exact vehicle you want across auctions, dealers, and private listings worldwide.", to: "/contact", hasDedicatedPage: false },
+  { slug: "auction-access", title: "Auction Access", body: "Licensed access to Copart, IAAI, Manheim, Encar, and other major platforms — we bid on your behalf.", to: "/auction-access", hasDedicatedPage: true },
+  { slug: "dealer-purchasing", title: "Dealer Purchasing Assistance", body: "Direct negotiation with dealerships on price, terms, and paperwork.", to: "/contact", hasDedicatedPage: false },
+  { slug: "inspection", title: "Pre-Purchase Inspection", body: "155-point inspection with photos, video, OBD scan, and paint-meter reading before you buy.", to: "/inspection-service", hasDedicatedPage: true },
+  { slug: "inland-transport", title: "Inland Transportation", body: "Insured pickup and delivery to the nearest export port in the origin country.", to: "/contact", hasDedicatedPage: false },
+  { slug: "container-shipping", title: "Container Shipping", body: "Fully enclosed ocean shipping for high-value or modified vehicles.", to: "/container-shipping", hasDedicatedPage: true },
+  { slug: "roro-shipping", title: "RoRo Shipping", body: "Roll-on/roll-off ocean shipping — the economical route for standard vehicles.", to: "/roro-shipping", hasDedicatedPage: true },
+  { slug: "airfreight", title: "Vehicle Airfreight", body: "Premium airfreight for urgent or exceptionally high-value shipments.", to: "/airfreight", hasDedicatedPage: true },
+  { slug: "airport-handling", title: "European Airport Handling", body: "Arrival coordination, cargo-terminal handling, and release at major European cargo airports.", to: "/airfreight", hasDedicatedPage: true },
+  { slug: "customs", title: "Customs-Clearance Coordination", body: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry.", to: "/contact", hasDedicatedPage: false },
+  { slug: "transit", title: "T1 Transit Support", body: "Transit-document coordination for vehicles moving under bond between EU customs points.", to: "/contact", hasDedicatedPage: false },
+  { slug: "carnet", title: "Carnet de Passage Handling", body: "Coordination support for temporary vehicle admission using a Carnet de Passage.", to: "/contact", hasDedicatedPage: false },
+  { slug: "port-handling", title: "Port Handling", body: "Unloading, terminal coordination, and release at Durrës and major European ports.", to: "/contact", hasDedicatedPage: false },
+  { slug: "final-mile", title: "Final-Mile Delivery", body: "Delivery from port or airport to your exact address, anywhere in Albania or Europe.", to: "/contact", hasDedicatedPage: false },
+];
+
 export const OFFICES = [
   {
     id: "dubai",
