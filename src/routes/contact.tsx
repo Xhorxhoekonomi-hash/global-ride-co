@@ -3,6 +3,7 @@ import { MapPin, Mail, Phone, Clock, Facebook, Instagram } from "lucide-react";
 import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
