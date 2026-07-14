@@ -72,7 +72,9 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (honeypot) return; // bot filled the hidden field — silently drop, no error shown
     if (!validate()) return;
+
 
     setStatus("submitting");
     try {
