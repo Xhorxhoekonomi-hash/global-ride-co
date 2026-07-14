@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import heroImg from "@/assets/hero-usa.jpg";
-import { buildHead } from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/auction-access")({
             name: "Auction Brokerage Albania",
             description: "Copart Albania broker and IAAI Albania broker access, plus Manheim, Encar, Autowini, Dubizzle and Emirates Auction.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/auction-access",
+            url: `${SITE_URL}/auction-access`,
           }),
         },
       ],

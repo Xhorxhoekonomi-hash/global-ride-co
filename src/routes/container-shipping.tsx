@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import heroImg from "@/assets/hero-delivered.jpg";
-import { buildHead } from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/container-shipping")({
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/container-shipping")({
             name: "Container Car Shipping",
             description: "Fully enclosed container car shipping to Europe and Albania for high-value, exotic and modified vehicles.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/container-shipping",
+            url: `${SITE_URL}/container-shipping`,
           }),
         },
       ],

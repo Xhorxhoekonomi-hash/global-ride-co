@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
-import { buildHead } from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/inspection-service")({
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/inspection-service")({
             name: "Vehicle Inspection Before Purchase",
             description: "155-point pre-purchase vehicle inspection with photos, video, OBD scan and paint-meter reading, worldwide.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/inspection-service",
+            url: `${SITE_URL}/inspection-service`,
           }),
         },
       ],

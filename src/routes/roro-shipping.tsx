@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Clock, DollarSign, Ship } from "lucide-react";
 import heroImg from "@/assets/hero-korea.jpg";
-import { buildHead } from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/roro-shipping")({
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/roro-shipping")({
             name: "RoRo Car Shipping",
             description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/roro-shipping",
+            url: `${SITE_URL}/roro-shipping`,
           }),
         },
       ],
