@@ -152,6 +152,16 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
         onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
       }`}
     >
+      <input
+        type="text"
+        name="company_website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label className={labelClass}>Full Name *</label>
