@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { submitLead } from "@/lib/submit-lead";
+import { trackEvent } from "@/lib/analytics";
+
 
 type Variant = "compact" | "full";
 
