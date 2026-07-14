@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Zap, ShieldCheck, Plane } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
-import { buildHead } from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/airfreight")({
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/airfreight")({
             name: "Airfreight Vehicle Delivery",
             description: "Airfreight vehicle delivery for urgent and exceptionally high-value shipments to Albania and Europe.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/airfreight",
+            url: `${SITE_URL}/airfreight`,
           }),
         },
       ],

@@ -7,6 +7,31 @@ import carDefender from "@/assets/car-defender.jpg";
 import carGhost from "@/assets/car-ghost.jpg";
 import carM5 from "@/assets/car-m5.jpg";
 
+export type ServiceItem = {
+  slug: string;
+  title: string;
+  body: string;
+  to: string;
+  hasDedicatedPage: boolean;
+};
+
+export const SERVICES: ServiceItem[] = [
+  { slug: "sourcing", title: "Vehicle Sourcing", body: "We locate the exact vehicle you want across auctions, dealers, and private listings worldwide.", to: "/contact", hasDedicatedPage: false },
+  { slug: "auction-access", title: "Auction Access", body: "Licensed access to Copart, IAAI, Manheim, Encar, and other major platforms — we bid on your behalf.", to: "/auction-access", hasDedicatedPage: true },
+  { slug: "dealer-purchasing", title: "Dealer Purchasing Assistance", body: "Direct negotiation with dealerships on price, terms, and paperwork.", to: "/contact", hasDedicatedPage: false },
+  { slug: "inspection", title: "Pre-Purchase Inspection", body: "155-point inspection with photos, video, OBD scan, and paint-meter reading before you buy.", to: "/inspection-service", hasDedicatedPage: true },
+  { slug: "inland-transport", title: "Inland Transportation", body: "Insured pickup and delivery to the nearest export port in the origin country.", to: "/contact", hasDedicatedPage: false },
+  { slug: "container-shipping", title: "Container Shipping", body: "Fully enclosed ocean shipping for high-value or modified vehicles.", to: "/container-shipping", hasDedicatedPage: true },
+  { slug: "roro-shipping", title: "RoRo Shipping", body: "Roll-on/roll-off ocean shipping — the economical route for standard vehicles.", to: "/roro-shipping", hasDedicatedPage: true },
+  { slug: "airfreight", title: "Vehicle Airfreight", body: "Premium airfreight for urgent or exceptionally high-value shipments.", to: "/airfreight", hasDedicatedPage: true },
+  { slug: "airport-handling", title: "European Airport Handling", body: "Arrival coordination, cargo-terminal handling, and release at major European cargo airports.", to: "/airfreight", hasDedicatedPage: true },
+  { slug: "customs", title: "Customs-Clearance Coordination", body: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry.", to: "/contact", hasDedicatedPage: false },
+  { slug: "transit", title: "T1 Transit Support", body: "Transit-document coordination for vehicles moving under bond between EU customs points.", to: "/contact", hasDedicatedPage: false },
+  { slug: "carnet", title: "Carnet de Passage Handling", body: "Coordination support for temporary vehicle admission using a Carnet de Passage.", to: "/contact", hasDedicatedPage: false },
+  { slug: "port-handling", title: "Port Handling", body: "Unloading, terminal coordination, and release at Durrës and major European ports.", to: "/contact", hasDedicatedPage: false },
+  { slug: "final-mile", title: "Final-Mile Delivery", body: "Delivery from port or airport to your exact address, anywhere in Albania or Europe.", to: "/contact", hasDedicatedPage: false },
+];
+
 export const OFFICES = [
   {
     id: "dubai",
@@ -38,6 +63,31 @@ export const CONTACT = {
   whatsapp: "355692233416",
 };
 
+export type NavItem =
+  | { type: "link"; to: string; label: string }
+  | { type: "dropdown"; label: string; items: { to: string; label: string }[] };
+
+export const NAV_STRUCTURE: NavItem[] = [
+  { type: "link", to: "/", label: "Home" },
+  { type: "link", to: "/services", label: "Services" },
+  {
+    type: "dropdown",
+    label: "Import From",
+    items: [
+      { to: "/import-usa", label: "USA" },
+      { to: "/import-korea", label: "South Korea" },
+      { to: "/import-uae", label: "UAE" },
+      { to: "/import-canada", label: "Canada" },
+      { to: "/import-europe", label: "Europe" },
+    ],
+  },
+  { type: "link", to: "/airfreight", label: "Air Freight" },
+  { type: "link", to: "/calculator", label: "Shipping Calculator" },
+  { type: "link", to: "/delivered-vehicles", label: "Delivered Vehicles" },
+  { type: "link", to: "/about", label: "About" },
+  { type: "link", to: "/contact", label: "Contact" },
+];
+
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
@@ -45,17 +95,17 @@ export const NAV_LINKS = [
   { to: "/import-usa", label: "Import From USA" },
   { to: "/import-korea", label: "Import From South Korea" },
   { to: "/import-uae", label: "Import From UAE" },
+  { to: "/import-canada", label: "Import From Canada" },
+  { to: "/import-europe", label: "Import From Europe" },
+  { to: "/airfreight", label: "Air Freight" },
   { to: "/delivered-vehicles", label: "Delivered Vehicles" },
   { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export const STATS = [
-  { target: 15000, suffix: "+", label: "Cars Bought & Transported" },
-  { target: 7800, suffix: "+", label: "International Shipments" },
-  { target: 130, suffix: "+", label: "Countries Served" },
-  { target: 10, suffix: "+", label: "Years Experience" },
-  { target: 5, suffix: "", label: "Continents" },
+  { target: 15000, suffix: "+", label: "Vehicles Bought & Transported" },
+  { target: 10, suffix: "+", label: "Years International Experience" },
 ];
 
 export type Platform = { name: string; url?: string };

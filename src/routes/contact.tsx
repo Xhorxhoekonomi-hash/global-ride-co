@@ -3,6 +3,7 @@ import { MapPin, Mail, Phone, Clock, Facebook, Instagram } from "lucide-react";
 import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
@@ -40,17 +41,17 @@ function Contact() {
               <div className="mt-6 space-y-5">
                 <Info icon={MapPin} label="Location">{CONTACT.location}</Info>
                 <Info icon={Mail} label="Email">
-                  <a href={`mailto:${CONTACT.email}`} className="text-navy hover:text-teal">{CONTACT.email}</a>
+                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "contact_page" })} className="text-navy hover:text-teal">{CONTACT.email}</a>
                 </Info>
                 <Info icon={Phone} label="Albania">
                   <div className="space-y-1">
                     {CONTACT.phones.map((p) => (
-                      <div key={p}><a href={`tel:${p.replace(/\s/g, "")}`} className="text-navy hover:text-teal">{p}</a></div>
+                      <div key={p}><a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_albania" })} className="text-navy hover:text-teal">{p}</a></div>
                     ))}
                   </div>
                 </Info>
                 <Info icon={Phone} label="UAE">
-                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} className="text-navy hover:text-teal">{CONTACT.uae}</a>
+                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_uae" })} className="text-navy hover:text-teal">{CONTACT.uae}</a>
                 </Info>
                 <Info icon={Clock} label="Hours">{CONTACT.hours}</Info>
               </div>

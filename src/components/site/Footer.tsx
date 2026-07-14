@@ -1,13 +1,30 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
-import { CONTACT, NAV_LINKS, OFFICES } from "@/lib/site-data";
+import { CONTACT, OFFICES, SERVICES } from "@/lib/site-data";
+import { trackEvent } from "@/lib/analytics";
 import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
+
+const COMPANY_LINKS = [
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+  { to: "/delivered-vehicles", label: "Delivered Vehicles" },
+];
+
+const POPULAR_ROUTES = [
+  { to: "/import-usa", label: "USA to Albania" },
+  { to: "/import-korea", label: "South Korea to Albania" },
+  { to: "/import-uae", label: "UAE to Albania" },
+  { to: "/import-canada", label: "Canada to Albania" },
+  { to: "/import-europe", label: "Europe to Albania" },
+];
+
+const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
 
 export function Footer() {
   return (
     <footer className="section-graphite border-t border-white/5">
-      <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
-        <div>
+      <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5">
+        <div className="lg:col-span-2">
           <img
             src={logoFooterAsset.url}
             alt="Alpha Worldwide"
@@ -27,13 +44,18 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Explore</h4>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Company</h4>
           <ul className="mt-4 space-y-2.5 text-sm">
-            {NAV_LINKS.map((l) => (
+            {COMPANY_LINKS.map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
                   {l.label}
                 </Link>
+              </li>
+            ))}
+            {OFFICES.map((office) => (
+              <li key={office.id}>
+                <span className="text-white/70">{office.role.replace("Global Headquarters", "Dubai Headquarters")}</span>
               </li>
             ))}
           </ul>
@@ -41,47 +63,70 @@ export function Footer() {
 
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Services</h4>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-            <li>Vehicle Sourcing</li>
-            <li>Pre-Purchase Inspection</li>
-            <li>Auction Brokerage</li>
-            <li>Container & RoRo Shipping</li>
-            <li>Airfreight Vehicle Delivery</li>
-            <li>Customs & Door Delivery</li>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {FOOTER_SERVICES.map((s) => (
+              <li key={s.slug}>
+                <Link to={s.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                  {s.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Locations</h4>
-          <ul className="mt-4 space-y-4 text-sm text-white/70">
-            {OFFICES.map((office) => (
-              <li key={office.id} className="flex gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                <div>
-                  <div className="font-semibold text-white/85">{office.role}</div>
-                  <div>{office.city}, {office.country}</div>
-                  <div className="mt-0.5">
-                    {"phone" in office ? (
-                      <a href={`tel:${office.phone.replace(/\s/g, "")}`} className="hover:text-teal-glow">{office.phone}</a>
-                    ) : (
-                      office.phones.map((p, i) => (
-                        <span key={p}>
-                          <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-teal-glow">{p}</a>
-                          {i < office.phones.length - 1 && ", "}
-                        </span>
-                      ))
-                    )}
-                  </div>
-                </div>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Popular Routes</h4>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {POPULAR_ROUTES.map((r) => (
+              <li key={r.to}>
+                <Link to={r.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                  {r.label}
+                </Link>
               </li>
             ))}
-            <li className="flex gap-2.5 pt-1"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <a href={`mailto:${CONTACT.email}`} className="hover:text-teal-glow">{CONTACT.email}</a>
-            </li>
-            <li className="text-xs text-white/50">{CONTACT.hours}</li>
           </ul>
         </div>
       </div>
+
+      <div className="border-t border-white/5">
+        <div className="container-page grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2" />
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Contact</h4>
+            <ul className="mt-4 grid gap-4 text-sm text-white/70 sm:grid-cols-2">
+              {OFFICES.map((office) => (
+                <li key={office.id} className="flex gap-2.5">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                  <div>
+                    <div className="font-semibold text-white/85">{office.role}</div>
+                    <div>{office.city}, {office.country}</div>
+                    <div className="mt-0.5">
+                      {"phone" in office ? (
+                        <a href={`tel:${office.phone.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: office.city })} className="hover:text-teal-glow">{office.phone}</a>
+                      ) : (
+                        office.phones.map((p, i) => (
+                          <span key={p}>
+                            <a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: office.city })} className="hover:text-teal-glow">{p}</a>
+                            {i < office.phones.length - 1 && ", "}
+                          </span>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+              <li className="flex gap-2.5"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                <div>
+                  <div className="font-semibold text-white/85">Email</div>
+                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "footer" })} className="hover:text-teal-glow">{CONTACT.email}</a>
+                </div>
+              </li>
+              <li className="text-xs text-white/50 sm:col-span-2">{CONTACT.hours}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div className="border-t border-white/5">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 md:flex-row">
           <div>© {new Date().getFullYear()} Alpha Worldwide. All rights reserved.</div>

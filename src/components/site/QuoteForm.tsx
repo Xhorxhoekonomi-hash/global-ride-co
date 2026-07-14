@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { submitLead } from "@/lib/submit-lead";
+import { trackEvent } from "@/lib/analytics";
+
 
 type Variant = "compact" | "full";
 
@@ -36,11 +38,18 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [started, setStarted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    if (!started) {
+      setStarted(true);
+      trackEvent("quote_started", { variant });
+    }
     setValues((v) => ({ ...v, [key]: e.target.value }));
     if (errors[key]) setErrors((er) => ({ ...er, [key]: undefined }));
   };
+
 
   const validate = (): boolean => {
     const next: Partial<Record<keyof FormState, string>> = {};
@@ -63,7 +72,9 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (honeypot) return; // bot filled the hidden field — silently drop, no error shown
     if (!validate()) return;
+
 
     setStatus("submitting");
     try {
@@ -141,6 +152,16 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
         onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
       }`}
     >
+      <input
+        type="text"
+        name="company_website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label className={labelClass}>Full Name *</label>

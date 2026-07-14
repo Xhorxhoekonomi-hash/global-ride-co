@@ -65,7 +65,7 @@ export function TrustStats() {
 
   return (
     <section className="section-graphite">
-      <div ref={sectionRef} className="container-page grid grid-cols-2 gap-4 py-14 md:gap-5 lg:grid-cols-5">
+      <div ref={sectionRef} className="container-page mx-auto grid max-w-2xl grid-cols-2 gap-4 py-14 md:gap-6">
         {STATS.map((s) => (
           <StatCard key={s.label} target={s.target} suffix={s.suffix} label={s.label} active={visible} />
         ))}
