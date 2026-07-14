@@ -63,6 +63,31 @@ export const CONTACT = {
   whatsapp: "355692233416",
 };
 
+export type NavItem =
+  | { type: "link"; to: string; label: string }
+  | { type: "dropdown"; label: string; items: { to: string; label: string }[] };
+
+export const NAV_STRUCTURE: NavItem[] = [
+  { type: "link", to: "/", label: "Home" },
+  { type: "link", to: "/services", label: "Services" },
+  {
+    type: "dropdown",
+    label: "Import From",
+    items: [
+      { to: "/import-usa", label: "USA" },
+      { to: "/import-korea", label: "South Korea" },
+      { to: "/import-uae", label: "UAE" },
+      { to: "/import-canada", label: "Canada" },
+      { to: "/import-europe", label: "Europe" },
+    ],
+  },
+  { type: "link", to: "/airfreight", label: "Air Freight" },
+  { type: "link", to: "/calculator", label: "Shipping Calculator" },
+  { type: "link", to: "/delivered-vehicles", label: "Delivered Vehicles" },
+  { type: "link", to: "/about", label: "About" },
+  { type: "link", to: "/contact", label: "Contact" },
+];
+
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
@@ -70,17 +95,17 @@ export const NAV_LINKS = [
   { to: "/import-usa", label: "Import From USA" },
   { to: "/import-korea", label: "Import From South Korea" },
   { to: "/import-uae", label: "Import From UAE" },
+  { to: "/import-canada", label: "Import From Canada" },
+  { to: "/import-europe", label: "Import From Europe" },
+  { to: "/airfreight", label: "Air Freight" },
   { to: "/delivered-vehicles", label: "Delivered Vehicles" },
   { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export const STATS = [
-  { target: 15000, suffix: "+", label: "Cars Bought & Transported" },
-  { target: 7800, suffix: "+", label: "International Shipments" },
-  { target: 130, suffix: "+", label: "Countries Served" },
-  { target: 10, suffix: "+", label: "Years Experience" },
-  { target: 5, suffix: "", label: "Continents" },
+  { target: 15000, suffix: "+", label: "Vehicles Bought & Transported" },
+  { target: 10, suffix: "+", label: "Years International Experience" },
 ];
 
 export type Platform = { name: string; url?: string };
