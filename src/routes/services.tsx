@@ -1,14 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Search, ShieldCheck, Gavel, Handshake, Lock, FileText, Truck, Container, Ship, Plane, Anchor, FileCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
+import { SERVICES } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () => {
-    const base = buildHead({ title: "Vehicle Import Services | Sourcing, Inspection, Shipping", description: "Auction brokerage Albania, vehicle inspection before purchase, container and RoRo car shipping, customs and door delivery — full-service import.", path: "/services", image: heroImg });
+    const base = buildHead({
+      title: "Vehicle Import Services | Sourcing, Inspection, Shipping",
+      description: "Auction access, pre-purchase inspection, container and RoRo shipping, airfreight, and customs-clearance coordination — full-service vehicle import.",
+      path: "/services",
+      image: heroImg,
+    });
     return {
       ...base,
       scripts: [
@@ -18,14 +25,14 @@ export const Route = createFileRoute("/services")({
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Vehicle Import Services",
-            description: "Auction brokerage, pre-purchase inspection, container and RoRo car shipping, customs and door delivery.",
+            description: "Vehicle sourcing, auction access, pre-purchase inspection, container and RoRo shipping, airfreight, and customs-clearance coordination.",
             provider: {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              url: "https://www.alphaworldwidealbania.com",
+              "@type": "Organization",
+              name: "Alpha Worldwide",
+              url: SITE_URL,
             },
             areaServed: ["Albania", "Kosovo", "Italy", "Germany", "Belgium", "Netherlands", "France"],
-            url: "https://www.alphaworldwidealbania.com/services",
+            url: `${SITE_URL}/services`,
           }),
         },
       ],
@@ -34,26 +41,11 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-const SERVICES = [
-  { icon: Search, title: "Vehicle Sourcing", body: "We locate the exact car you want — auction, dealer, or private listing — across the USA, Korea, UAE, Canada and Europe." },
-  { icon: ShieldCheck, title: "Pre-Purchase Inspection", body: "Independent inspection of title, mileage, service records, accident history and mechanical condition." },
-  { icon: Gavel, title: "Auction Brokerage", body: "Licensed access to Copart, IAAI, Manheim, Encar, Emirates Auction and more — we bid on your behalf." },
-  { icon: Handshake, title: "Dealer Negotiation", body: "Our teams negotiate price and terms directly with dealerships, saving you time and money." },
-  { icon: Lock, title: "Secure Purchase Handling", body: "Escrow-safe payment routes, verified documentation and secure title transfer for every purchase." },
-  { icon: FileText, title: "Export Documentation", body: "Bills of lading, export permits, deregistration and origin-country paperwork handled in full." },
-  { icon: Truck, title: "Inland Transportation", body: "Enclosed and open trailer transport to nearest export port — insured door-to-port coverage." },
-  { icon: Container, title: "Container Shipping", body: "Secure, weatherproof container shipping — ideal for high-value and specialty vehicles." },
-  { icon: Ship, title: "RoRo Shipping", body: "Cost-effective Roll-on/Roll-off shipping for standard vehicles on our regular European routes." },
-  { icon: Plane, title: "Airfreight Vehicle Delivery", body: "Expedited air delivery for time-critical shipments and ultra-high-value cars." },
-  { icon: Anchor, title: "Port Unloading & Customs", body: "Unloading, port handling and full customs support at Durrës and major EU ports." },
-  { icon: FileCheck, title: "Homologation & Delivery", body: "EU homologation, registration paperwork and final door delivery anywhere in the region." },
-];
-
 const FAQS = [
   { q: "How long does shipping take?", a: "Typically 25–45 days from USA to Durrës via container, 30–50 days RoRo. Korea and UAE routes average 30–45 days. We provide an exact timeline once the origin port and vessel are booked." },
   { q: "What does the pre-purchase inspection cover?", a: "Title verification, VIN check, accident and service history, mechanical assessment, tyre and interior condition, plus a photo/video report before we commit to purchase." },
   { q: "How are total costs calculated?", a: "Vehicle price + inspection + inland transport + international freight + insurance + customs duties + our service fee. We provide a fully itemised quote up front — no surprises." },
-  { q: "Is customs clearance included?", a: "Yes. We handle port unloading, customs declarations, duty payment and release for all standard routes into Albania and the EU." },
+  { q: "Do you handle customs clearance yourselves?", a: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry — we are not a customs authority, and final clearance decisions rest with the relevant customs administration." },
 ];
 
 function ServicesPage() {
@@ -77,24 +69,26 @@ function ServicesPage() {
 
       <PlatformBadges />
 
-      {/* 12-SERVICE GRID */}
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
-                  <s.icon className="h-5 w-5" />
-                </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{s.title}</h3>
+              <Link
+                key={s.slug}
+                to={s.to}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal"
+              >
+                <h3 className="font-display text-lg font-bold text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
-              </div>
+                <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-teal opacity-0 transition-opacity group-hover:opacity-100">
+                  {s.hasDedicatedPage ? "Learn more" : "Enquire"} <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* MARKETS */}
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
@@ -120,7 +114,6 @@ function ServicesPage() {
 
       <HowItWorks variant="dark" />
 
-      {/* QUOTE + FAQ */}
       <section className="bg-background">
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
