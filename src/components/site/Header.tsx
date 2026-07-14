@@ -1,8 +1,62 @@
-import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { CONTACT, NAV_LINKS } from "@/lib/site-data";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
+import { CONTACT, NAV_STRUCTURE, type NavItem } from "@/lib/site-data";
 import logoIconAsset from "@/assets/logo-icon-white.png.asset.json";
+
+function DesktopNavItem({ item }: { item: NavItem }) {
+  const [open, setOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  if (item.type === "link") {
+    const isActive = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+    return (
+      <Link
+        to={item.to}
+        className={`text-sm font-medium transition-colors hover:text-teal-glow ${
+          isActive ? "text-teal-glow" : "text-white/85"
+        }`}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  const openNow = () => {
+    clearTimeout(closeTimer.current);
+    setOpen(true);
+  };
+  const closeSoon = () => {
+    closeTimer.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  return (
+    <div className="relative" onMouseEnter={openNow} onMouseLeave={closeSoon}>
+      <button
+        className="flex items-center gap-1 text-sm font-medium text-white/85 transition-colors hover:text-teal-glow"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        {item.label}
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute left-1/2 top-full mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-navy p-2 shadow-elegant">
+          {item.items.map((sub) => (
+            <Link
+              key={sub.to}
+              to={sub.to}
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-teal-glow"
+            >
+              {sub.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,16 +96,8 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="text-sm font-medium text-white/85 transition-colors hover:text-teal-glow"
-              activeProps={{ className: "text-teal-glow" }}
-              activeOptions={{ exact: l.to === "/" }}
-            >
-              {l.label}
-            </Link>
+          {NAV_STRUCTURE.map((item) => (
+            <DesktopNavItem key={item.type === "link" ? item.to : item.label} item={item} />
           ))}
         </nav>
 
@@ -81,16 +127,36 @@ export function Header() {
       {open && (
         <div className="border-t border-white/10 bg-navy xl:hidden">
           <nav className="container-page flex flex-col py-4">
-            {NAV_LINKS.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium text-white/85 transition-colors hover:text-teal-glow"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {NAV_STRUCTURE.map((item) =>
+              item.type === "link" ? (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-sm font-medium text-white/85 transition-colors hover:text-teal-glow"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <div key={item.label} className="py-2">
+                  <div className="py-1 text-xs font-semibold uppercase tracking-wider text-white/40">
+                    {item.label}
+                  </div>
+                  <div className="ml-3 flex flex-col">
+                    {item.items.map((sub) => (
+                      <Link
+                        key={sub.to}
+                        to={sub.to}
+                        onClick={() => setOpen(false)}
+                        className="py-2 text-sm font-medium text-white/85 transition-colors hover:text-teal-glow"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ),
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
