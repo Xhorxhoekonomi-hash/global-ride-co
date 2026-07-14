@@ -38,11 +38,18 @@ export function QuoteForm({ variant = "compact", onDark = false }: { variant?: V
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [started, setStarted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    if (!started) {
+      setStarted(true);
+      trackEvent("quote_started", { variant });
+    }
     setValues((v) => ({ ...v, [key]: e.target.value }));
     if (errors[key]) setErrors((er) => ({ ...er, [key]: undefined }));
   };
+
 
   const validate = (): boolean => {
     const next: Partial<Record<keyof FormState, string>> = {};
