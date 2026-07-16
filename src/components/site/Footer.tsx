@@ -16,6 +16,8 @@ const POPULAR_ROUTES = [
   { to: "/import-uae", label: "UAE to Albania" },
   { to: "/import-canada", label: "Canada to Albania" },
   { to: "/import-europe", label: "Europe to Albania" },
+  { to: "/en/shipping/south-korea-to-rotterdam", label: "South Korea to Rotterdam" },
+  { to: "/en/netherlands", label: "Netherlands Vehicle Import" },
 ];
 
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
