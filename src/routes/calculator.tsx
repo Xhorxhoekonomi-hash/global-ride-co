@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Car, Check, ChevronsUpDown, Container, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
@@ -27,9 +27,42 @@ import { calculateAllAuctionFees } from "@/data/auctionFees";
 import { KOREA_SHIPPING, KOREA_INCLUDES, KRW_TO_EUR_RATE } from "@/data/koreaShipping";
 
 export const Route = createFileRoute("/calculator")({
-  head: () => buildHead({ title: "Shipping Cost Calculator | USA & Korea to Europe", description: "Real, itemized car shipping calculator for vehicles bought at Copart, IAAI or in South Korea — land, auction fees, ocean freight and unloading.", path: "/calculator", image: heroImg }),
+  head: () => {
+    const base = buildHead({
+      title: "Car Shipping Cost Calculator | Copart, IAAI & Korea",
+      description: "Free car shipping cost calculator for Copart, IAAI, and South Korea imports — real, itemized rates for shipping to Albania, the Netherlands, and Germany.",
+      path: "/calculator",
+      image: heroImg,
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: CALCULATOR_FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+      ],
+    };
+  },
   component: CalculatorPage,
 });
+
+const CALCULATOR_FAQS = [
+  { q: "How is my USA shipping estimate calculated?", a: "We combine the real land-transport rate from your auction location to the nearest export terminal, the full Copart/IAAI buyer-fee bracket for your winning bid, and the ocean-freight rate for that terminal-to-destination route — all from the same tables our team uses internally." },
+  { q: "How is my South Korea shipping estimate calculated?", a: "South Korea uses a fixed all-in price by vehicle type and destination, covering local pickup, export documentation, and RoRo ocean freight — so the estimate is simpler and doesn't require a separate fee breakdown." },
+  { q: "What's included in the estimate?", a: "Land transport (USA), auction fees (USA), ocean freight, and destination unloading. The Korea estimate additionally bundles pickup and export documentation into one fixed price." },
+  { q: "What's excluded from the estimate?", a: "Customs duties and import taxes are not included in either calculator, since these depend on your destination country's regulations and the vehicle's declared value. We'll help confirm these once we know your destination." },
+  { q: "Why might my final price change from the estimate?", a: "Vehicle dimensions, condition, exact loading requirements, and current carrier schedules can all affect the final price. The calculator gives a real, itemized estimate — your case handler confirms the final number before booking." },
+  { q: "Is this a binding quote?", a: "No — all figures are estimates based on real rate tables, confirmed by our team before any booking is made. Nothing is charged or booked automatically from the calculator." },
+];
 
 const USD_TO_EUR = 0.92;
 const fmt = (n: number, currency: "$" | "€" = "$") =>
@@ -86,7 +119,128 @@ function CalculatorPage() {
           </Tabs>
         </div>
       </section>
+
+      {/* How the estimates work */}
+      <section className="section-mist">
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="eyebrow">How it works</div>
+            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Real Rate Tables, Not Guesses</h2>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="font-display text-lg font-bold text-navy">USA Estimate</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-body">
+                Combines the real land-transport rate from your auction location to the nearest export terminal, the full Copart/IAAI buyer-fee bracket for your winning bid, and the ocean-freight rate for that route.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h3 className="font-display text-lg font-bold text-navy">South Korea Estimate</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-body">
+                A fixed all-in price by vehicle type and destination — bundling local pickup, export documentation, and RoRo ocean freight into one figure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's included / excluded */}
+      <section className="bg-background">
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+              <h3 className="font-display text-lg font-bold text-navy">What's Included</h3>
+              <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
+                <li className="flex gap-2"><span className="text-teal">•</span>Land transport to the export terminal (USA)</li>
+                <li className="flex gap-2"><span className="text-teal">•</span>Full auction buyer fees (USA)</li>
+                <li className="flex gap-2"><span className="text-teal">•</span>Local pickup & export documentation (South Korea)</li>
+                <li className="flex gap-2"><span className="text-teal">•</span>Ocean freight to your destination port</li>
+                <li className="flex gap-2"><span className="text-teal">•</span>Destination unloading</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+              <h3 className="font-display text-lg font-bold text-navy">What's Excluded</h3>
+              <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
+                <li className="flex gap-2"><span className="text-navy/40">•</span>Customs duties and import taxes</li>
+                <li className="flex gap-2"><span className="text-navy/40">•</span>Vehicle registration and homologation fees</li>
+                <li className="flex gap-2"><span className="text-navy/40">•</span>Onward delivery beyond the destination port, unless separately quoted</li>
+              </ul>
+              <p className="mt-4 text-xs text-slate-body">
+                Customs values, tax amounts, and clearance decisions are determined by the relevant customs authority, not by Alpha Worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Destination ports */}
+      <section className="section-mist">
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="eyebrow">Destination ports</div>
+            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Where Your Vehicle Arrives</h2>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-border bg-card p-6 text-center shadow-card">
+              <h3 className="font-display text-base font-bold text-navy">Port of Durrës</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-body">Albania's main port and our home operational base.</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6 text-center shadow-card">
+              <h3 className="font-display text-base font-bold text-navy">Rotterdam</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-body">Our Netherlands gateway, with onward delivery across Western Europe.</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6 text-center shadow-card">
+              <h3 className="font-display text-base font-bold text-navy">Bremerhaven</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-body">A German destination option, available on request.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-background">
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="eyebrow">Questions</div>
+            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2>
+          </div>
+          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+            {CALCULATOR_FAQS.map((f) => (
+              <details key={f.q} className="group p-5">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">
+                  {f.q}
+                  <span className="text-teal transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related pages */}
+      <section className="section-dark">
+        <div className="container-page py-16 text-center md:py-20">
+          <div className="eyebrow text-teal-glow">Ready to move forward?</div>
+          <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">Explore Your Route</h2>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+            <Link to="/import-usa" className="rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white/85 transition-colors hover:border-teal hover:text-teal-glow">
+              Import from USA
+            </Link>
+            <Link to="/import-korea" className="rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white/85 transition-colors hover:border-teal hover:text-teal-glow">
+              Import from South Korea
+            </Link>
+            <Link to="/en/albania" className="rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white/85 transition-colors hover:border-teal hover:text-teal-glow">
+              Shipping to Albania
+            </Link>
+            <Link to="/en/netherlands" className="rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white/85 transition-colors hover:border-teal hover:text-teal-glow">
+              Shipping to Netherlands
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
+
   );
 }
 
