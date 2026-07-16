@@ -114,6 +114,7 @@ export const PLATFORMS: Platform[] = [
   { name: "Copart", url: "https://www.copart.com/" },
   { name: "IAAI", url: "https://www.iaai.com/" },
   { name: "Manheim" },
+  { name: "ADESA", url: "https://www.adesa.com/" },
   { name: "Encar", url: "https://car.encar.com/" },
   { name: "Autowini", url: "https://www.autowini.com/" },
   { name: "Dubizzle", url: "https://uae.dubizzle.com/motors/used-cars/" },
