@@ -45,7 +45,7 @@ const FAQS = [
   { q: "How long does shipping take?", a: "Typically 25–45 days from USA to Durrës via container, 30–50 days RoRo. Korea and UAE routes average 30–45 days. We provide an exact timeline once the origin port and vessel are booked." },
   { q: "What does the pre-purchase inspection cover?", a: "Title verification, VIN check, accident and service history, mechanical assessment, tyre and interior condition, plus a photo/video report before we commit to purchase." },
   { q: "How are total costs calculated?", a: "Vehicle price + inspection + inland transport + international freight + insurance + customs duties + our service fee. We provide a fully itemised quote up front — no surprises." },
-  { q: "Do you handle customs clearance yourselves?", a: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry — we are not a customs authority, and final clearance decisions rest with the relevant customs administration." },
+  { q: "Is customs clearance included in your service fee?", a: "Customs-clearance coordination with licensed local agents is part of our full-service process. Customs duties, taxes, and the customs authority's own fees are separate from our service fee and are the customer's responsibility." },
 ];
 
 function ServicesPage() {
