@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { Gauge, ShieldCheck, FileText, DollarSign } from "lucide-react";
+import { Gauge, ShieldCheck, FileText, DollarSign, ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -44,6 +44,27 @@ function ImportKorea() {
           </div>
         </div>
       </section>
+
+      <section className="bg-background">
+        <div className="container-page py-10">
+          <Link
+            to="/en/shipping/south-korea-to-rotterdam"
+            className="group flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:border-teal"
+          >
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-teal">Shipping to Western Europe</div>
+              <div className="font-display mt-1 text-lg font-bold text-navy">
+                Shipping to the Netherlands, Germany, or Belgium? See our dedicated Rotterdam route.
+              </div>
+            </div>
+            <span className="flex items-center gap-1.5 text-sm font-semibold text-teal">
+              View route <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+
 
       {/* Benefits */}
       <section className="section-mist border-y border-border">

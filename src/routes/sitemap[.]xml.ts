@@ -20,6 +20,8 @@ const PATHS = [
   "/container-shipping",
   "/roro-shipping",
   "/airfreight",
+  "/en/netherlands",
+  "/en/shipping/south-korea-to-rotterdam",
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({

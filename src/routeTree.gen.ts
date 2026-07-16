@@ -29,6 +29,7 @@ import { Route as AirfreightRouteImport } from './routes/airfreight'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
+import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -130,6 +131,12 @@ const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   path: '/en/netherlands',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnShippingSouthKoreaToRotterdamRoute =
+  EnShippingSouthKoreaToRotterdamRouteImport.update({
+    id: '/en/shipping/south-korea-to-rotterdam',
+    path: '/en/shipping/south-korea-to-rotterdam',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -174,6 +182,7 @@ export interface FileRoutesByTo {
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -197,6 +206,7 @@ export interface FileRoutesById {
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
     | '/shipping-calculator'
     | '/sitemap.xml'
     | '/en/netherlands'
+    | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -243,6 +254,7 @@ export interface FileRouteTypes {
     | '/shipping-calculator'
     | '/sitemap.xml'
     | '/en/netherlands'
+    | '/en/shipping/south-korea-to-rotterdam'
   id:
     | '__root__'
     | '/'
@@ -265,6 +277,7 @@ export interface FileRouteTypes {
     | '/shipping-calculator'
     | '/sitemap.xml'
     | '/en/netherlands'
+    | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -288,6 +301,7 @@ export interface RootRouteChildren {
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -432,6 +446,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnNetherlandsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/shipping/south-korea-to-rotterdam': {
+      id: '/en/shipping/south-korea-to-rotterdam'
+      path: '/en/shipping/south-korea-to-rotterdam'
+      fullPath: '/en/shipping/south-korea-to-rotterdam'
+      preLoaderRoute: typeof EnShippingSouthKoreaToRotterdamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -456,6 +477,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

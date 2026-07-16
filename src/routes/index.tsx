@@ -19,7 +19,15 @@ export const Route = createFileRoute("/")({
   component: Home_,
 });
 
-const DESTINATIONS = ["Albania", "Netherlands", "Germany", "Belgium", "France", "Italy", "Kosovo"];
+const DESTINATIONS = [
+  { name: "Albania", to: "/contact" },
+  { name: "Netherlands", to: "/en/netherlands" },
+  { name: "Germany", to: "/contact" },
+  { name: "Belgium", to: "/contact" },
+  { name: "France", to: "/contact" },
+  { name: "Italy", to: "/contact" },
+  { name: "Kosovo", to: "/contact" },
+];
 
 const HOME_SERVICES = SERVICES.slice(0, 9);
 
@@ -119,11 +127,11 @@ function Home_() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {DESTINATIONS.map((d) => (
               <Link
-                key={d}
-                to="/contact"
+                key={d.name}
+                to={d.to}
                 className="flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-navy transition-all hover:-translate-y-0.5 hover:border-teal hover:text-teal"
               >
-                <MapPin className="h-3.5 w-3.5" /> {d}
+                <MapPin className="h-3.5 w-3.5" /> {d.name}
               </Link>
             ))}
           </div>

@@ -85,6 +85,9 @@ export async function submitLead(lead: LeadPayload): Promise<{ ok: boolean; what
   const attribution = captureAttribution();
   await persistLead(lead, attribution);
   trackEvent("quote_submitted", { source: lead.source, origin: lead.origin });
+  if (lead.vehicleLink) {
+    trackEvent("vehicle_link_submitted", { source: lead.source, origin: lead.origin });
+  }
 
   const message = buildWhatsAppMessage(lead);
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
