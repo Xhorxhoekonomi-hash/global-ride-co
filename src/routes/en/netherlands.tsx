@@ -22,17 +22,17 @@ const SERVICES_LINKS = [
 ];
 
 const FAQS = [
-  { q: "Do you import vehicles directly into the Netherlands, or just pass through Rotterdam?", a: "Both. We handle vehicles destined for the Netherlands itself, and we also use the Port of Rotterdam as an entry gateway for onward delivery to Germany, Belgium, France, and Luxembourg." },
+  { q: "Do you import vehicles directly into the Netherlands, or just pass through Rotterdam?", a: "Both. We handle vehicles destined for the Netherlands itself, and we also use the Port of Rotterdam as an entry gateway for onward delivery to Germany, Belgium, and France." },
   { q: "Which origin markets ship via Rotterdam?", a: "South Korea has a dedicated Rotterdam route today. USA and UAE sourcing is available now through our general import pages, with dedicated Rotterdam-specific routes planned." },
   { q: "Do you handle customs clearance at Rotterdam?", a: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry. Customs, transit and destination procedures depend on the vehicle, importer, destination country and applicable regulations." },
-  { q: "Can you deliver to Germany or Belgium from Rotterdam?", a: "Yes — onward transport from Rotterdam to Germany, Belgium, France, and Luxembourg is arranged as part of the same shipment, quoted based on your final destination." },
+  { q: "Can you deliver to Germany or Belgium from Rotterdam?", a: "Yes — onward transport from Rotterdam to Germany, Belgium, and France is arranged as part of the same shipment, quoted based on your final destination." },
 ];
 
 export const Route = createFileRoute("/en/netherlands")({
   head: () => {
     const base = buildHead({
       title: "Vehicle Import to the Netherlands | Alpha Worldwide",
-      description: "Import a vehicle into the Netherlands, or use the Port of Rotterdam as your gateway to Germany, Belgium, France, or Luxembourg.",
+      description: "Import a vehicle into the Netherlands, or use the Port of Rotterdam as your gateway to Germany, Belgium, or France.",
       path: "/en/netherlands",
       image: heroImg,
     });
@@ -87,7 +87,7 @@ function NetherlandsHub() {
               Vehicle Import to the Netherlands
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Import a vehicle into the Netherlands directly, or use the Port of Rotterdam as your gateway to Germany, Belgium, France, and Luxembourg.
+              Import a vehicle into the Netherlands directly, or use the Port of Rotterdam as your gateway to Germany, Belgium, and France.
             </p>
           </div>
         </div>
@@ -107,7 +107,7 @@ function NetherlandsHub() {
               <Ship className="h-6 w-6 text-teal" />
               <h2 className="font-display mt-4 text-2xl font-bold text-navy">Rotterdam as a Gateway</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-body">
-                Using the Port of Rotterdam as the ocean-freight entry point, with onward road transport to Germany, Belgium, France, or Luxembourg as the final destination.
+                Using the Port of Rotterdam as the ocean-freight entry point, with onward road transport to Germany, Belgium, or France as the final destination.
               </p>
             </div>
           </div>

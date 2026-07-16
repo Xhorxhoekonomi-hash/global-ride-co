@@ -15,7 +15,7 @@ const WORKFLOW = [
   { n: 4, icon: Truck, title: "Korean Inland Transport", body: "The vehicle is moved to the export port — Busan or Incheon — for loading." },
   { n: 5, icon: Ship, title: "Ocean Freight to Rotterdam", body: "RoRo or container shipping to the Port of Rotterdam, depending on vehicle type and your preference." },
   { n: 6, icon: Landmark, title: "Port Handling & Customs Coordination", body: "Arrival handling at Rotterdam and customs-clearance coordination with licensed local agents." },
-  { n: 7, icon: Truck, title: "Onward Delivery", body: "Release and onward transport to the Netherlands, Germany, Belgium, France, or Luxembourg." },
+  { n: 7, icon: Truck, title: "Onward Delivery", body: "Release and onward transport to the Netherlands, Germany, Belgium, or France." },
 ];
 
 const INCLUDED = [
@@ -45,7 +45,7 @@ const DOCUMENTS = [
 
 const FAQS = [
   { q: "How long does shipping from South Korea to Rotterdam take?", a: "Transit time depends on the departure port, shipping method, carrier schedule, transshipment plan and vessel availability. The estimated schedule is confirmed before booking. As a general guide, ocean transport typically takes several weeks." },
-  { q: "Can you deliver beyond Rotterdam?", a: "Yes. Rotterdam is our entry gateway for onward delivery to the Netherlands, Germany, Belgium, France, and Luxembourg. Onward transport is quoted separately based on the final destination." },
+  { q: "Can you deliver beyond Rotterdam?", a: "Yes. Rotterdam is our entry gateway for onward delivery to the Netherlands, Germany, Belgium, and France. Onward transport is quoted separately based on the final destination." },
   { q: "Is this a single shipment, or two separate legs?", a: "It's coordinated as one shipment for you. The ocean freight from Korea to Rotterdam and the onward road transport to your final destination are booked together, so you deal with one point of contact throughout." },
   { q: "Do you handle customs clearance yourselves?", a: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry. We are not a customs authority — customs, transit and destination procedures depend on the vehicle, importer, destination country and applicable regulations." },
   { q: "What documents will I need?", a: "Typically a commercial invoice, vehicle registration or ownership document, export documentation from South Korea, Bill of Lading, importer identification, and any customs or transit documentation required for your destination. Required documents vary according to the importer, vehicle, customs procedure and final destination country." },
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/en/shipping/south-korea-to-rotterdam")({
   head: () => {
     const base = buildHead({
       title: "Car Shipping from South Korea to Rotterdam | Alpha Worldwide",
-      description: "Vehicle sourcing, inspection, and shipping from South Korea to Rotterdam — with onward delivery to the Netherlands, Germany, Belgium, France, and Luxembourg.",
+      description: "Vehicle sourcing, inspection, and shipping from South Korea to Rotterdam — with onward delivery to the Netherlands, Germany, Belgium, and France.",
       path: "/en/shipping/south-korea-to-rotterdam",
       image: heroImg,
     });
@@ -71,7 +71,7 @@ export const Route = createFileRoute("/en/shipping/south-korea-to-rotterdam")({
             name: "Vehicle Shipping from South Korea to Rotterdam",
             description: "Vehicle sourcing, pre-purchase inspection, export documentation, and ocean freight from South Korea to Rotterdam, with onward delivery across Western Europe.",
             provider: { "@type": "Organization", name: "Alpha Worldwide", url: SITE_URL },
-            areaServed: ["Netherlands", "Germany", "Belgium", "France", "Luxembourg"],
+            areaServed: ["Netherlands", "Germany", "Belgium", "France"],
             url: `${SITE_URL}/en/shipping/south-korea-to-rotterdam`,
           }),
         },
@@ -112,7 +112,7 @@ function KoreaToRotterdam() {
               Vehicle Shipping from South Korea to Rotterdam
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Sourcing, inspection, and ocean freight from Busan or Incheon to Rotterdam — with onward delivery across the Netherlands, Germany, Belgium, France, and Luxembourg.
+              Sourcing, inspection, and ocean freight from Busan or Incheon to Rotterdam — with onward delivery across the Netherlands, Germany, Belgium, and France.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
@@ -200,7 +200,7 @@ function KoreaToRotterdam() {
             </p>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {["Netherlands", "Germany", "Belgium", "France", "Luxembourg"].map((d) => (
+            {["Netherlands", "Germany", "Belgium", "France"].map((d) => (
               <span key={d} className="rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white/85">
                 {d}
               </span>
