@@ -17,7 +17,11 @@ const POPULAR_ROUTES = [
   { to: "/import-canada", label: "Canada to Albania" },
   { to: "/import-europe", label: "Europe to Albania" },
   { to: "/en/shipping/south-korea-to-rotterdam", label: "South Korea to Rotterdam" },
-  { to: "/en/netherlands", label: "Netherlands Vehicle Import" },
+];
+
+const DESTINATIONS = [
+  { to: "/en/albania", label: "Albania" },
+  { to: "/en/netherlands", label: "Netherlands" },
 ];
 
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
@@ -25,7 +29,7 @@ const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
 export function Footer() {
   return (
     <footer className="section-graphite border-t border-white/5">
-      <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5">
+      <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <img
             src={logoFooterAsset.url}
@@ -88,12 +92,25 @@ export function Footer() {
             ))}
           </ul>
         </div>
+
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Destinations</h4>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {DESTINATIONS.map((d) => (
+              <li key={d.to}>
+                <Link to={d.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                  {d.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="border-t border-white/5">
-        <div className="container-page grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-5">
+        <div className="container-page grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2" />
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Contact</h4>
             <ul className="mt-4 grid gap-4 text-sm text-white/70 sm:grid-cols-2">
               {OFFICES.map((office) => (

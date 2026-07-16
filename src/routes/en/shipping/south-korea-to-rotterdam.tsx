@@ -46,10 +46,10 @@ const DOCUMENTS = [
 const FAQS = [
   { q: "How long does shipping from South Korea to Rotterdam take?", a: "Transit time depends on the departure port, shipping method, carrier schedule, transshipment plan and vessel availability. The estimated schedule is confirmed before booking. As a general guide, ocean transport typically takes several weeks." },
   { q: "Can you deliver beyond Rotterdam?", a: "Yes. Rotterdam is our entry gateway for onward delivery to the Netherlands, Germany, Belgium, France, and Luxembourg. Onward transport is quoted separately based on the final destination." },
-  { q: "Which Korean platforms can you source from?", a: "We assist customers with vehicles listed through Encar, Autowini, KB Chachacha and approved Korean dealers." },
+  { q: "Is this a single shipment, or two separate legs?", a: "It's coordinated as one shipment for you. The ocean freight from Korea to Rotterdam and the onward road transport to your final destination are booked together, so you deal with one point of contact throughout." },
   { q: "Do you handle customs clearance yourselves?", a: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry. We are not a customs authority — customs, transit and destination procedures depend on the vehicle, importer, destination country and applicable regulations." },
   { q: "What documents will I need?", a: "Typically a commercial invoice, vehicle registration or ownership document, export documentation from South Korea, Bill of Lading, importer identification, and any customs or transit documentation required for your destination. Required documents vary according to the importer, vehicle, customs procedure and final destination country." },
-  { q: "RoRo or container — which should I choose?", a: "RoRo is generally more economical and suits standard vehicles. Container shipping offers full enclosure and is better suited to higher-value or modified vehicles. We can recommend the right option once we know your vehicle." },
+  { q: "Can multiple vehicles be shipped together to Rotterdam?", a: "Yes. Consolidating more than one vehicle in the same container or sailing can reduce the per-vehicle shipping cost — ask us about consolidation options when you send your vehicle details." },
 ];
 
 export const Route = createFileRoute("/en/shipping/south-korea-to-rotterdam")({
