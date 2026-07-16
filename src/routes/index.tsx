@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 const DESTINATIONS = [
-  { name: "Albania", to: "/contact" },
+  { name: "Albania", to: "/en/albania" },
   { name: "Netherlands", to: "/en/netherlands" },
   { name: "Germany", to: "/contact" },
   { name: "Belgium", to: "/contact" },
