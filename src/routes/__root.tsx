@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -159,8 +160,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // Read the matched route's pathname during render — this runs as part of
+  // server-side rendering (shellComponent produces the initial HTML), so
+  // the correct lang attribute is present in the first response, not
+  // patched in afterward on the client.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = pathname.startsWith("/al") ? "sq" : "en";
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <HeadContent />
       </head>

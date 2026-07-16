@@ -32,6 +32,15 @@ export const SERVICES: ServiceItem[] = [
   { slug: "final-mile", title: "Final-Mile Delivery", body: "Delivery from port or airport to your exact address, anywhere in Albania or Europe.", to: "/contact", hasDedicatedPage: false },
 ];
 
+// Single source of truth for the EN/SQ language switch. Only routes that
+// actually exist in both languages belong here — never generate a
+// translated URL by string manipulation. Grows as Albanian pages ship.
+export const LANGUAGE_ROUTE_MAP: Record<string, string> = {
+  "/": "/al",
+  "/import-usa": "/al/makina-nga-amerika",
+  "/contact": "/al/kontakt",
+};
+
 export const OFFICES = [
   {
     id: "dubai",
