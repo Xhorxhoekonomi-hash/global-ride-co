@@ -12,6 +12,7 @@ export type LeadPayload = {
   service?: string;
   message?: string;
   source: string;
+  locale?: "en" | "sq";
 };
 
 type LeadAttribution = {
@@ -26,12 +27,12 @@ type LeadAttribution = {
   created_at: string;
 };
 
-function captureAttribution(): LeadAttribution {
+function captureAttribution(locale: "en" | "sq"): LeadAttribution {
   if (typeof window === "undefined") {
     return {
       source_page: "",
       referrer: "",
-      language: "en",
+      language: locale,
       utm_source: null,
       utm_medium: null,
       utm_campaign: null,
@@ -44,7 +45,7 @@ function captureAttribution(): LeadAttribution {
   return {
     source_page: window.location.pathname,
     referrer: document.referrer || "",
-    language: "en",
+    language: locale,
     utm_source: params.get("utm_source"),
     utm_medium: params.get("utm_medium"),
     utm_campaign: params.get("utm_campaign"),
@@ -54,19 +55,47 @@ function captureAttribution(): LeadAttribution {
   };
 }
 
+const MESSAGE_LABELS = {
+  en: {
+    heading: "New Quote Request — Alpha Worldwide",
+    name: "Name",
+    phone: "Phone",
+    email: "Email",
+    origin: "Import From",
+    destination: "Destination",
+    vehicleLink: "Vehicle Link / Lot Number",
+    model: "Make & Model",
+    service: "Service Needed",
+    message: "Message",
+    closing: "Please send me a quote and next steps.",
+  },
+  sq: {
+    heading: "Kërkesë e Re për Ofertë — Alpha Worldwide",
+    name: "Emri",
+    phone: "Telefoni",
+    email: "Email",
+    origin: "Importo nga",
+    destination: "Destinacioni",
+    vehicleLink: "Linku i Automjetit / Numri i Lotit",
+    model: "Marka & Modeli",
+    service: "Shërbimi i Kërkuar",
+    message: "Mesazhi",
+    closing: "Ju lutem më dërgoni një ofertë dhe hapat e mëtejshëm.",
+  },
+};
+
 function buildWhatsAppMessage(lead: LeadPayload): string {
-  const lines = [
-    "New Quote Request — Alpha Worldwide Albania",
-    `Name: ${lead.name}`,
-    `Phone: ${lead.phone}`,
-  ];
-  if (lead.email) lines.push(`Email: ${lead.email}`);
-  lines.push(`Import From: ${lead.origin}`);
-  if (lead.destination) lines.push(`Destination: ${lead.destination}`);
-  if (lead.vehicleLink) lines.push(`Vehicle Link / Lot Number: ${lead.vehicleLink}`);
-  if (lead.model) lines.push(`Make & Model: ${lead.model}`);
-  if (lead.service) lines.push(`Service Needed: ${lead.service}`);
-  if (lead.message) lines.push(`Message: ${lead.message}`);
+  const L = MESSAGE_LABELS[lead.locale ?? "en"];
+  const lines = [L.heading, `${L.name}: ${lead.name}`, `${L.phone}: ${lead.phone}`];
+  if (lead.email) lines.push(`${L.email}: ${lead.email}`);
+  lines.push(`${L.origin}: ${lead.origin}`);
+  if (lead.destination) lines.push(`${L.destination}: ${lead.destination}`);
+  if (lead.vehicleLink) lines.push(`${L.vehicleLink}: ${lead.vehicleLink}`);
+  if (lead.model) lines.push(`${L.model}: ${lead.model}`);
+  if (lead.service) lines.push(`${L.service}: ${lead.service}`);
+  if (lead.message) lines.push(`${L.message}: ${lead.message}`);
+  lines.push("");
+  lines.push(L.closing);
   return lines.join("\n");
 }
 
@@ -82,9 +111,10 @@ async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Pro
 }
 
 export async function submitLead(lead: LeadPayload): Promise<{ ok: boolean; whatsappUrl: string }> {
-  const attribution = captureAttribution();
+  const locale = lead.locale ?? "en";
+  const attribution = captureAttribution(locale);
   await persistLead(lead, attribution);
-  trackEvent("quote_submitted", { source: lead.source, origin: lead.origin });
+  trackEvent("quote_submitted", { source: lead.source, origin: lead.origin, locale });
   if (lead.vehicleLink) {
     trackEvent("vehicle_link_submitted", { source: lead.source, origin: lead.origin });
   }

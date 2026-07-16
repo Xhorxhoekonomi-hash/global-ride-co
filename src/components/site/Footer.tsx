@@ -1,7 +1,8 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { CONTACT, OFFICES, SERVICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { NAV_AL } from "@/lib/i18n-al";
 import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 const COMPANY_LINKS = [
@@ -27,6 +28,9 @@ const DESTINATIONS = [
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
 
 export function Footer() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAlbanian = pathname.startsWith("/al");
+
   return (
     <footer className="section-graphite border-t border-white/5">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6">
@@ -37,7 +41,9 @@ export function Footer() {
             className="h-auto w-44 object-contain"
           />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-            International vehicle sourcing, auction brokerage, inspection, import & export — fully managed from origin to your door.
+            {isAlbanian
+              ? "Kompani ndërkombëtare për blerjen, inspektimin dhe transportin e automjeteve — nga origjina deri në derën tuaj."
+              : "International vehicle sourcing, auction brokerage, inspection, import & export — fully managed from origin to your door."}
           </p>
           <div className="mt-5 flex gap-3">
             <a href="#" aria-label="Facebook" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 hover:border-teal hover:text-teal">
@@ -49,69 +55,86 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Company</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {COMPANY_LINKS.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            {OFFICES.map((office) => (
-              <li key={office.id}>
-                <span className="text-white/70">{office.role.replace("Global Headquarters", "Dubai Headquarters")}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {isAlbanian ? (
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Faqet</h4>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {NAV_AL.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Company</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {COMPANY_LINKS.map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+                {OFFICES.map((office) => (
+                  <li key={office.id}>
+                    <span className="text-white/70">{office.role.replace("Global Headquarters", "Dubai Headquarters")}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Services</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {FOOTER_SERVICES.map((s) => (
-              <li key={s.slug}>
-                <Link to={s.to} className="text-white/70 transition-colors hover:text-teal-glow">
-                  {s.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Services</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {FOOTER_SERVICES.map((s) => (
+                  <li key={s.slug}>
+                    <Link to={s.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Popular Routes</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {POPULAR_ROUTES.map((r) => (
-              <li key={r.to}>
-                <Link to={r.to} className="text-white/70 transition-colors hover:text-teal-glow">
-                  {r.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Popular Routes</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {POPULAR_ROUTES.map((r) => (
+                  <li key={r.to}>
+                    <Link to={r.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {r.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Destinations</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {DESTINATIONS.map((d) => (
-              <li key={d.to}>
-                <Link to={d.to} className="text-white/70 transition-colors hover:text-teal-glow">
-                  {d.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Destinations</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {DESTINATIONS.map((d) => (
+                  <li key={d.to}>
+                    <Link to={d.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {d.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="border-t border-white/5">
         <div className="container-page grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2" />
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Contact</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">{isAlbanian ? "Kontakt" : "Contact"}</h4>
             <ul className="mt-4 grid gap-4 text-sm text-white/70 sm:grid-cols-2">
               {OFFICES.map((office) => (
                 <li key={office.id} className="flex gap-2.5">
@@ -148,7 +171,7 @@ export function Footer() {
 
       <div className="border-t border-white/5">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 md:flex-row">
-          <div>© {new Date().getFullYear()} Alpha Worldwide. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Alpha Worldwide. {isAlbanian ? "Të gjitha të drejtat e rezervuara." : "All rights reserved."}</div>
         </div>
       </div>
     </footer>

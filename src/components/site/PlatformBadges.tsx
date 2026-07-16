@@ -1,7 +1,15 @@
 import { ExternalLink } from "lucide-react";
 import { PLATFORMS } from "@/lib/site-data";
+import { PLATFORM_BADGES_LABELS_AL } from "@/lib/i18n-al";
 
-export function PlatformBadges({ dark = false }: { dark?: boolean }) {
+const LABELS_EN = {
+  eyebrow: "Licensed Access · Trusted Auction & Dealer Networks",
+  footer: "Browse official marketplaces. Alpha Worldwide can assist with inspection, purchase, and shipping.",
+};
+
+export function PlatformBadges({ dark = false, locale = "en" }: { dark?: boolean; locale?: "en" | "sq" }) {
+  const L = locale === "sq" ? PLATFORM_BADGES_LABELS_AL : LABELS_EN;
+
   return (
     <div className={`border-y ${dark ? "border-white/10 bg-graphite" : "border-border bg-mist"}`}>
       <div className="container-page py-8">
@@ -10,7 +18,7 @@ export function PlatformBadges({ dark = false }: { dark?: boolean }) {
             dark ? "text-teal" : "text-teal-dark"
           }`}
         >
-          Licensed Access · Trusted Auction & Dealer Networks
+          {L.eyebrow}
         </p>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
@@ -55,7 +63,7 @@ export function PlatformBadges({ dark = false }: { dark?: boolean }) {
         </div>
 
         <p className={`mt-5 text-center text-xs ${dark ? "text-white/40" : "text-slate-body"}`}>
-          Browse official marketplaces. Alpha Worldwide can assist with inspection, purchase, and shipping.
+          {L.footer}
         </p>
       </div>
     </div>
