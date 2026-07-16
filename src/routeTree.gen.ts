@@ -29,6 +29,7 @@ import { Route as AirfreightRouteImport } from './routes/airfreight'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
+import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -131,6 +132,11 @@ const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   path: '/en/netherlands',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
+  id: '/en/albania',
+  path: '/en/albania',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -158,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
@@ -181,6 +188,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
@@ -205,6 +213,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
@@ -230,6 +239,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/en/albania'
     | '/en/netherlands'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesByTo: FileRoutesByTo
@@ -253,6 +263,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/en/albania'
     | '/en/netherlands'
     | '/en/shipping/south-korea-to-rotterdam'
   id:
@@ -276,6 +287,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/en/albania'
     | '/en/netherlands'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesById: FileRoutesById
@@ -300,6 +312,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
 }
@@ -446,6 +459,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnNetherlandsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/albania': {
+      id: '/en/albania'
+      path: '/en/albania'
+      fullPath: '/en/albania'
+      preLoaderRoute: typeof EnAlbaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -476,19 +496,10 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
