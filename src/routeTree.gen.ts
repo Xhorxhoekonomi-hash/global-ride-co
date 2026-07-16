@@ -28,8 +28,11 @@ import { Route as AuctionAccessRouteImport } from './routes/auction-access'
 import { Route as AirfreightRouteImport } from './routes/airfreight'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
+import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
+import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -127,6 +130,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlIndexRoute = AlIndexRouteImport.update({
+  id: '/al/',
+  path: '/al/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   id: '/en/netherlands',
   path: '/en/netherlands',
@@ -135,6 +143,16 @@ const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
 const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
   id: '/en/albania',
   path: '/en/albania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
+  id: '/al/makina-nga-amerika',
+  path: '/al/makina-nga-amerika',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlKontaktRoute = AlKontaktRouteImport.update({
+  id: '/al/kontakt',
+  path: '/al/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
@@ -164,8 +182,11 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/kontakt': typeof AlKontaktRoute
+  '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/al/': typeof AlIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesByTo {
@@ -188,8 +209,11 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/kontakt': typeof AlKontaktRoute
+  '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/al': typeof AlIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesById {
@@ -213,8 +237,11 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/kontakt': typeof AlKontaktRoute
+  '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/al/': typeof AlIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRouteTypes {
@@ -239,8 +266,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/kontakt'
+    | '/al/makina-nga-amerika'
     | '/en/albania'
     | '/en/netherlands'
+    | '/al/'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -263,8 +293,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/kontakt'
+    | '/al/makina-nga-amerika'
     | '/en/albania'
     | '/en/netherlands'
+    | '/al'
     | '/en/shipping/south-korea-to-rotterdam'
   id:
     | '__root__'
@@ -287,8 +320,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/kontakt'
+    | '/al/makina-nga-amerika'
     | '/en/albania'
     | '/en/netherlands'
+    | '/al/'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesById: FileRoutesById
 }
@@ -312,8 +348,11 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AlKontaktRoute: typeof AlKontaktRoute
+  AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  AlIndexRoute: typeof AlIndexRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
 }
 
@@ -452,6 +491,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/': {
+      id: '/al/'
+      path: '/al'
+      fullPath: '/al/'
+      preLoaderRoute: typeof AlIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/netherlands': {
       id: '/en/netherlands'
       path: '/en/netherlands'
@@ -464,6 +510,20 @@ declare module '@tanstack/react-router' {
       path: '/en/albania'
       fullPath: '/en/albania'
       preLoaderRoute: typeof EnAlbaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-amerika': {
+      id: '/al/makina-nga-amerika'
+      path: '/al/makina-nga-amerika'
+      fullPath: '/al/makina-nga-amerika'
+      preLoaderRoute: typeof AlMakinaNgaAmerikaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/kontakt': {
+      id: '/al/kontakt'
+      path: '/al/kontakt'
+      fullPath: '/al/kontakt'
+      preLoaderRoute: typeof AlKontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/shipping/south-korea-to-rotterdam': {
@@ -496,10 +556,23 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AlKontaktRoute: AlKontaktRoute,
+  AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  AlIndexRoute: AlIndexRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
