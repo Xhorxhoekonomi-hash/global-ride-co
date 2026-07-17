@@ -29,8 +29,8 @@ export const Route = createFileRoute("/al/makina-nga-amerika")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Sigurimi dhe Transporti i Automjeteve nga Amerika",
-            description: "Asistencë blerje në ankande dhe te shitës të përzgjedhur amerikanë, me transport tokësor, dokumentacion eksporti, dhe transport detar deri në Shqipëri.",
+            name: "Blerja dhe transporti i automjeteve nga SHBA-ja",
+            description: "Asistencë për blerjen e automjeteve në ankande dhe nga shitës të përzgjedhur në SHBA, me transport tokësor, dokumentacion eksporti dhe transport detar drejt Shqipërisë.",
             provider: { "@type": "Organization", name: "Alpha Worldwide", url: SITE_URL },
             areaServed: "Albania",
             url: `${SITE_URL}/al/makina-nga-amerika`,
@@ -66,11 +66,11 @@ const STEPS_AL = [
   { n: 8, icon: FileText, title: "Dokumentacioni i eksportit", body: "Përgatitja e dokumentacionit të eksportit para ngarkimit." },
   { n: 9, icon: Package, title: "Ngarkimi në kontenier", body: "Ngarkim në kontenier të përbashkët ose të dedikuar." },
   { n: 10, icon: Ship, title: "Transporti detar", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Shqipërisë." },
-  { n: 11, icon: Landmark, title: "Dorëzimi përfundimtar", body: "Koordinojmë dokumentacionin doganor, procedurat e portit dhe dorëzimin final sipas shërbimit të kërkuar." },
+  { n: 11, icon: Landmark, title: "Dorëzimi përfundimtar", body: "Koordinojmë dokumentacionin doganor, procedurat e portit dhe dorëzimin përfundimtar sipas shërbimit të kërkuar." },
 ];
 
 const INCLUDED_AL = [
-  "Asistencë në sigurimin e automjetit",
+  "Asistencë për gjetjen dhe blerjen e automjetit",
   "Ndihmë në ankand ose blerje",
   "Transport tokësor deri në terminal",
   "Transport detar deri në Durrës",
@@ -83,7 +83,7 @@ const EXCLUDED_AL = [
 ];
 
 const FAQS_AL = [
-  { q: "Cilat platforma amerikane mund të përdorim për blerje?", a: "Alpha Worldwide ju asiston për blerjen e automjeteve në Copart, IAAI, Manheim, ADESA dhe nga shitës të përzgjedhur." },
+  { q: "Nga cilat platforma amerikane mund të blej një automjet?", a: "Alpha Worldwide ju ndihmon të blini automjete në Copart, IAAI, Manheim, ADESA dhe nga shitës të përzgjedhur." },
   { q: "A do të inspektohet automjeti para blerjes?", a: "Mundësia e inspektimit varet nga vendndodhja e automjetit, aksesi i shitësit ose ankandit dhe gjendja e makinës. Nuk garantohet për çdo automjet — ju konfirmojmë disponueshmërinë për lotin specifik." },
   { q: "Sa kohë zgjat transporti nga Amerika në Shqipëri?", a: "Koha e transportit varet nga porti i origjinës, metoda e transportit dhe orari i anijes. Ju japim një afat të përafërt të konfirmuar përpara rezervimit." },
   { q: "A merreni ju me doganën në Durrës?", a: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në Portin e Durrësit. Vlerat doganore dhe taksat përcaktohen nga autoriteti doganor, jo nga Alpha Worldwide." },
