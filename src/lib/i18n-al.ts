@@ -22,29 +22,29 @@ export const QUOTE_FORM_LABELS_AL = {
   email: "Email",
   emailPlaceholder: "juaj@shembull.com",
   emailInvalid: "Ju lutemi shkruani një adresë email të vlefshme.",
-  origin: "Importo nga",
+  origin: "Origjina e automjetit",
   destination: "Destinacioni",
   vehicleLink: "Linku i automjetit ose numri i lotit",
   vehicleLinkPlaceholder: "Linku i Copart, IAAI, ose i një shpalljeje…",
-  makeModel: "Marka & Modeli i Automjetit",
+  makeModel: "Marka dhe modeli i automjetit",
   makeModelPlaceholder: "p.sh. BMW X5",
   service: "Shërbimi i kërkuar",
   serviceFullProcess: "Procesi i plotë (rekomandohet)",
-  serviceInspectionOnly: "Vetëm Inspektim",
-  serviceAuctionPurchase: "Blerje në Ankand",
-  serviceShippingOnly: "Vetëm Transport",
-  serviceCustoms: "Koordinim Doganor",
+  serviceInspectionOnly: "Vetëm inspektim",
+  serviceAuctionPurchase: "Blerje në ankand",
+  serviceShippingOnly: "Vetëm transport",
+  serviceCustoms: "Koordinim doganor",
   message: "Mesazhi",
   messagePlaceholder: "Na tregoni për automjetin, kohën, ose çdo preferencë…",
-  submitCompact: "Merr Ofertë Falas",
-  submitFull: "Kërko Ofertë në WhatsApp",
+  submitCompact: "Merr një ofertë falas",
+  submitFull: "Kërko një ofertë në WhatsApp",
   submitting: "Duke dërguar…",
-  submitHelper: "Duke dërguar hapet WhatsApp me detajet tuaja të plotësuara paraprakisht.",
+  submitHelper: "Pas dërgimit të formularit, WhatsApp do të hapet me të dhënat tuaja të plotësuara paraprakisht.",
   successTitle: "Dërguar në WhatsApp",
   successBody:
-    "Kërkesa juaj u hap në WhatsApp me të gjitha detajet e plotësuara paraprakisht — thjesht shtypni dërgo dhe ekipi ynë do t'ju përgjigjet së shpejti.",
-  tryAgain: "Plotësoni formularin përsëri",
-  errorGeneric: "Diçka shkoi keq. Ju lutemi provoni përsëri ose na kontaktoni direkt në WhatsApp.",
+    "WhatsApp u hap me të dhënat e kërkesës suaj. Kontrollojini dhe shtypni 'Dërgo' për t'ia dërguar ekipit tonë.",
+  tryAgain: "Plotësojeni sërish formularin",
+  errorGeneric: "Diçka shkoi keq. Ju lutemi provoni përsëri ose na kontaktoni drejtpërdrejt në WhatsApp.",
 };
 
 // { value } is the normalized, language-neutral code stored in the lead
@@ -54,7 +54,7 @@ export const QUOTE_FORM_LABELS_AL = {
 // larger data-model refactor.
 export const ORIGIN_OPTIONS_AL = [
   { value: "USA", label: "Amerikë" },
-  { value: "South Korea", label: "Korea e Jugut" },
+  { value: "South Korea", label: "Koreja e Jugut" },
   { value: "UAE", label: "Emiratet e Bashkuara Arabe" },
   { value: "Canada", label: "Kanada" },
   { value: "Europe", label: "Evropë" },
@@ -72,6 +72,6 @@ export const DESTINATION_OPTIONS_AL = [
 ];
 
 export const PLATFORM_BADGES_LABELS_AL = {
-  eyebrow: "Aksesi i Licencuar · Rrjete të Besueshme Ankandesh & Shitësish",
-  footer: "Shfletoni platformat zyrtare. Alpha Worldwide ju asiston me inspektim, blerje dhe transport.",
+  eyebrow: "Akses në platforma të njohura ankandesh dhe shitësish",
+  footer: "Shfletoni platformat zyrtare. Alpha Worldwide ju ndihmon me verifikimin, blerjen dhe transportin e automjetit.",
 };

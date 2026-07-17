@@ -7,7 +7,19 @@ import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
-  head: () => buildHead({ title: "Contact Alpha Worldwide Albania | Get a Free Quote", description: "Reach our Durrës team via WhatsApp, phone, or email to start your car shipping to Albania or vehicle import quote today.", path: "/contact", image: heroImg }),
+  head: () =>
+    buildHead({
+      title: "Contact Alpha Worldwide Albania | Get a Free Quote",
+      description: "Reach our Durrës team via WhatsApp, phone, or email to start your car shipping to Albania or vehicle import quote today.",
+      path: "/contact",
+      lang: "en",
+      hreflang: [
+        { lang: "en", path: "/contact" },
+        { lang: "sq", path: "/al/kontakt" },
+      ],
+      xDefault: "/contact",
+      image: heroImg,
+    }),
   component: Contact,
 });
 
