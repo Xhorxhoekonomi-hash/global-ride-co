@@ -108,11 +108,11 @@ const EXCLUDED_AL = [
 
 const FAQS_AL = [
   { q: "Nga cilat platforma koreane mund të blej një automjet?", a: "Alpha Worldwide ju ndihmon të blini automjete nga Encar, Autowini, KB Chachacha dhe nga shitës të përzgjedhur në Korenë e Jugut." },
-  { q: "A do të inspektohet automjeti para blerjes?", a: "Inspektimi para blerjes është i mundur për automjete të përzgjedhura, në varësi të vendndodhjes së automjetit, aksesit të shitësit dhe gjendjes së makinës. Ju konfirmojmë disponueshmërinë për shpalljen specifike përpara se të vendosni." },
+  { q: "Sa e plotë është inspektimi për një automjet nga Koreja?", a: "Për automjetet e përzgjedhura në Korenë e Jugut, Alpha Worldwide mund të organizojë inspektim para blerjes me fotografi, video dhe kontroll teknik. Shtrirja e inspektimit varet nga vendndodhja, aksesi te automjeti dhe shërbimi i kërkuar — jo çdo shpallje mund të inspektohet automatikisht." },
   { q: "Çfarë kontrollohet gjatë inspektimit?", a: "Inspektimi mbulon gjendjen e jashtme dhe të brendshme, vëzhgime për motorin dhe kutinë e shpejtësisë, rrjedhjet e dukshme, panelet e ripikturuara, një skanim OBD kur është i aksesueshëm, foto dhe video, si dhe një shqyrtim të dokumenteve. Inspektimi pasqyron gjendjen e dukshme dhe të aksesueshme në momentin e kontrollit dhe nuk garanton mungesën e defekteve të fshehura ose të ardhshme." },
   { q: "A duhet të zgjedh kontenier apo RoRo?", a: "Transporti me kontenier është zgjedhja e zakonshme drejt Durrësit dhe ofron mbrojtje të plotë. RoRo është një opsion i mundshëm, por disponueshmëria varet nga porti i origjinës, orari i anijes dhe rruga — nuk është gjithmonë e disponueshme. Ne ju konfirmojmë opsionet reale për automjetin tuaj." },
   { q: "Sa kohë zgjat transporti nga Koreja e Jugut në Shqipëri?", a: "Koha e transportit varet nga porti i eksportit (zakonisht Busan ose Incheon), metoda e transportit dhe orari i anijes. Ju japim një afat të përafërt të konfirmuar përpara rezervimit." },
-  { q: "A merreni ju me doganën në Durrës?", a: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në Portin e Durrësit. Vlerat doganore dhe taksat përcaktohen nga autoriteti doganor, jo nga Alpha Worldwide." },
+  { q: "Kush e koordinon zhdoganimin kur mbërrin automjeti nga Koreja?", a: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në Portin e Durrësit — pavarësisht nëse automjeti vjen nga Koreja e Jugut apo nga një origjinë tjetër. Vlerat doganore dhe taksat përcaktohen nga autoriteti doganor, jo nga Alpha Worldwide." },
 ];
 
 function MakinaNgaKorea() {
