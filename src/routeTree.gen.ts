@@ -31,8 +31,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
+import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
+import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -145,6 +148,11 @@ const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
   path: '/en/albania',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
+  id: '/al/makina-nga-korea',
+  path: '/al/makina-nga-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
   id: '/al/makina-nga-amerika',
   path: '/al/makina-nga-amerika',
@@ -153,6 +161,16 @@ const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
 const AlKontaktRoute = AlKontaktRouteImport.update({
   id: '/al/kontakt',
   path: '/al/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
+  id: '/al/iaai-shqiperi',
+  path: '/al/iaai-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
+  id: '/al/copart-shqiperi',
+  path: '/al/copart-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
@@ -182,8 +200,11 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al/': typeof AlIndexRoute
@@ -209,8 +230,11 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al': typeof AlIndexRoute
@@ -237,8 +261,11 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al/': typeof AlIndexRoute
@@ -266,8 +293,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/copart-shqiperi'
+    | '/al/iaai-shqiperi'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
     | '/al/'
@@ -293,8 +323,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/copart-shqiperi'
+    | '/al/iaai-shqiperi'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
     | '/al'
@@ -320,8 +353,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/copart-shqiperi'
+    | '/al/iaai-shqiperi'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
     | '/al/'
@@ -348,8 +384,11 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
+  AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
   AlKontaktRoute: typeof AlKontaktRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
+  AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
   AlIndexRoute: typeof AlIndexRoute
@@ -512,6 +551,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAlbaniaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/makina-nga-korea': {
+      id: '/al/makina-nga-korea'
+      path: '/al/makina-nga-korea'
+      fullPath: '/al/makina-nga-korea'
+      preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-amerika': {
       id: '/al/makina-nga-amerika'
       path: '/al/makina-nga-amerika'
@@ -524,6 +570,20 @@ declare module '@tanstack/react-router' {
       path: '/al/kontakt'
       fullPath: '/al/kontakt'
       preLoaderRoute: typeof AlKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/iaai-shqiperi': {
+      id: '/al/iaai-shqiperi'
+      path: '/al/iaai-shqiperi'
+      fullPath: '/al/iaai-shqiperi'
+      preLoaderRoute: typeof AlIaaiShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/copart-shqiperi': {
+      id: '/al/copart-shqiperi'
+      path: '/al/copart-shqiperi'
+      fullPath: '/al/copart-shqiperi'
+      preLoaderRoute: typeof AlCopartShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/shipping/south-korea-to-rotterdam': {
@@ -556,8 +616,11 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AlCopartShqiperiRoute: AlCopartShqiperiRoute,
+  AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
   AlKontaktRoute: AlKontaktRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
+  AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
   AlIndexRoute: AlIndexRoute,

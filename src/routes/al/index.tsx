@@ -43,8 +43,13 @@ export const Route = createFileRoute("/al/")({
 
 const ORIGIN_MARKETS_AL = [
   { name: "Amerikë", hook: "Copart · IAAI · Manheim · ADESA", to: "/al/makina-nga-amerika", live: true },
-  { name: "Koreja e Jugut", hook: "Encar · Autowini · KB Chachacha", to: "/al/kontakt", live: false },
+  { name: "Koreja e Jugut", hook: "Encar · Autowini · KB Chachacha", to: "/al/makina-nga-korea", live: true },
   { name: "Dubai / EBA", hook: "Dubizzle · Emirates Auction", to: "/al/kontakt", live: false },
+];
+
+const AL_PLATFORM_TILES = [
+  { name: "Copart Shqipëri", to: "/al/copart-shqiperi", body: "Ofertim dhe blerje në Copart, me transport deri në Durrës." },
+  { name: "IAAI Shqipëri", to: "/al/iaai-shqiperi", body: "Blerje në IAAI me asistencë të plotë deri në portin e Durrësit." },
 ];
 
 const SERVICES_AL = [
