@@ -15,6 +15,11 @@ export const Route = createFileRoute("/import-korea")({
       description: "Source, inspect, and ship a vehicle from South Korea — Encar, Autowini, and KB Chachacha sourcing, with shipping to Albania and across Europe.",
       path: "/import-korea",
       image: heroImg,
+      hreflang: [
+        { lang: "en", path: "/import-korea" },
+        { lang: "sq", path: "/al/makina-nga-korea" },
+      ],
+      xDefault: "/import-korea",
     });
     return {
       ...base,

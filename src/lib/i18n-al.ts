@@ -9,7 +9,15 @@ export type NavItemAL = { to: string; label: string };
 export const NAV_AL: NavItemAL[] = [
   { to: "/al", label: "Kryefaqja" },
   { to: "/al/makina-nga-amerika", label: "Makina nga Amerika" },
+  { to: "/al/makina-nga-korea", label: "Makina nga Koreja" },
   { to: "/al/kontakt", label: "Kontakt" },
+];
+
+// Additional AL pages surfaced only in the footer/hub — kept out of the
+// top nav to avoid overcrowding while still being discoverable.
+export const AL_FOOTER_EXTRAS: NavItemAL[] = [
+  { to: "/al/copart-shqiperi", label: "Copart Shqipëri" },
+  { to: "/al/iaai-shqiperi", label: "IAAI Shqipëri" },
 ];
 
 export const QUOTE_FORM_LABELS_AL = {
