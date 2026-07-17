@@ -10,6 +10,7 @@ export const NAV_AL: NavItemAL[] = [
   { to: "/al", label: "Kryefaqja" },
   { to: "/al/makina-nga-amerika", label: "Makina nga Amerika" },
   { to: "/al/makina-nga-korea", label: "Makina nga Koreja" },
+  { to: "/al/kalkulator-transporti", label: "Kalkulator" },
   { to: "/al/kontakt", label: "Kontakt" },
 ];
 
