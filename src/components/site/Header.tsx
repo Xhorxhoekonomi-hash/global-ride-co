@@ -101,7 +101,7 @@ export function Header() {
   }, []);
 
   const quoteHref = isAlbanian ? "/al/kontakt" : "/contact";
-  const quoteLabel = isAlbanian ? "Merr Ofertë Falas" : "Get a Free Quote";
+  const quoteLabel = isAlbanian ? "Merr një ofertë falas" : "Get a Free Quote";
 
   return (
     <header

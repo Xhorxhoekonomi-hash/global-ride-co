@@ -9,8 +9,8 @@ import { trackEvent } from "@/lib/analytics";
 export const Route = createFileRoute("/al/")({
   head: () => {
     const base = buildHead({
-      title: "Transport Makinash për Shqipëri | Alpha Worldwide",
-      description: "Bli, inspekto dhe transporto makinën tënde nga Amerika, Korea dhe Dubai për në Shqipëri — proces i plotë, i besueshëm, me çmim transparent.",
+      title: "Transport makinash për Shqipëri | Alpha Worldwide",
+      description: "Bli, inspekto dhe transporto makinën tënde nga SHBA-ja, Koreja e Jugut dhe Dubai drejt Shqipërisë, me një proces të qartë dhe transparent.",
       path: "/al/",
       lang: "sq",
       hreflang: [
@@ -50,8 +50,8 @@ const ORIGIN_MARKETS_AL = [
 const SERVICES_AL = [
   { title: "Gjetja dhe blerja e automjetit", body: "Ju ndihmojmë të gjeni dhe të blini automjetin që kërkoni në ankande dhe nga shitës të përzgjedhur." },
   { title: "Inspektimi para blerjes", body: "Kontroll i gjendjes, historikut dhe dokumenteve — para se të vendosni." },
-  { title: "Transport me kontenier & RoRo", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Portit të Durrësit." },
-  { title: "Koordinimi doganor dhe dorëzimi", body: "Koordinojmë dokumentacionin doganor dhe procedurat e portit, deri te dorëzimi final." },
+  { title: "Transport me kontenier dhe RoRo", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Portit të Durrësit." },
+  { title: "Koordinimi doganor dhe dorëzimi", body: "Koordinojmë dokumentacionin doganor dhe procedurat e portit, deri te dorëzimi përfundimtar." },
 ];
 
 const STEPS_AL = [
@@ -112,7 +112,7 @@ function AlbaniaHome() {
                 onClick={() => trackEvent("calculator_started", { source: "al-home-hero" })}
                 className="btn-outline-light"
               >
-                <Calculator className="h-4 w-4" /> Llogarit Koston e Transportit
+                <Calculator className="h-4 w-4" /> Llogarit koston e transportit
               </a>
             </div>
           </div>

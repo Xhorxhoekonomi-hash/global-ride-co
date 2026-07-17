@@ -9,8 +9,8 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 export const Route = createFileRoute("/al/kontakt")({
   head: () =>
     buildHead({
-      title: "Na Kontaktoni | Alpha Worldwide",
-      description: "Kontaktoni ekipin tonë në Durrës për ofertë falas për blerjen, inspektimin dhe transportin e automjetit tuaj.",
+      title: "Na kontaktoni | Alpha Worldwide",
+      description: "Kontaktoni ekipin tonë në Durrës për një ofertë falas për blerjen, inspektimin dhe transportin e automjetit tuaj.",
       path: "/al/kontakt",
       lang: "sq",
       hreflang: [
