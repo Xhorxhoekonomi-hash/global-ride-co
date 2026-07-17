@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { CONTACT, OFFICES, SERVICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
-import { NAV_AL } from "@/lib/i18n-al";
+import { NAV_AL, AL_FOOTER_EXTRAS } from "@/lib/i18n-al";
 import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 const COMPANY_LINKS = [
@@ -69,18 +69,32 @@ export function Footer() {
         </div>
 
         {isAlbanian ? (
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Faqet</h4>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {NAV_AL.map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Faqet</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {NAV_AL.map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Platformat</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {AL_FOOTER_EXTRAS.map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="text-white/70 transition-colors hover:text-teal-glow">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
         ) : (
           <>
             <div>

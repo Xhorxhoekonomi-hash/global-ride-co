@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Gavel, ShieldCheck, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, Package } from "lucide-react";
 import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -190,7 +190,31 @@ function MakinaNgaAmerika() {
         </div>
       </section>
 
+      <section className="section-mist">
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="eyebrow">Faqe të lidhura</div>
+            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Vazhdoni të lexoni</h2>
+          </div>
+          <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
+            <Link to="/al/copart-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <div className="font-display text-base font-bold text-navy">Copart Shqipëri</div>
+              <p className="mt-1.5 text-xs text-slate-body">Ofertim dhe blerje në Copart me asistencë të plotë.</p>
+            </Link>
+            <Link to="/al/iaai-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <div className="font-display text-base font-bold text-navy">IAAI Shqipëri</div>
+              <p className="mt-1.5 text-xs text-slate-body">Blerje në IAAI, nga leximi i lotit deri në Durrës.</p>
+            </Link>
+            <Link to="/calculator" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <div className="font-display text-base font-bold text-navy">Kalkulatori</div>
+              <p className="mt-1.5 text-xs text-slate-body">Llogaritni koston deri në Durrës me tarifat aktuale.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section-dark">
+
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>

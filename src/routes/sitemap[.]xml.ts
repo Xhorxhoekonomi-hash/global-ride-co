@@ -25,6 +25,10 @@ const PATHS = [
   "/en/albania",
   "/al/",
   "/al/makina-nga-amerika",
+  "/al/makina-nga-korea",
+  "/al/copart-shqiperi",
+  "/al/iaai-shqiperi",
+  "/al/kalkulator-transporti",
   "/al/kontakt",
 ];
 
