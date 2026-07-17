@@ -43,22 +43,22 @@ export const Route = createFileRoute("/al/")({
 
 const ORIGIN_MARKETS_AL = [
   { name: "Amerikë", hook: "Copart · IAAI · Manheim · ADESA", to: "/al/makina-nga-amerika", live: true },
-  { name: "Korea e Jugut", hook: "Encar · Autowini · KB Chachacha", to: "/al/kontakt", live: false },
+  { name: "Koreja e Jugut", hook: "Encar · Autowini · KB Chachacha", to: "/al/kontakt", live: false },
   { name: "Dubai / EBA", hook: "Dubizzle · Emirates Auction", to: "/al/kontakt", live: false },
 ];
 
 const SERVICES_AL = [
-  { title: "Sigurimi i Automjetit", body: "Ju ndihmojmë të gjeni saktësisht makinën që kërkoni në ankande dhe te shitës të përzgjedhur." },
-  { title: "Inspektim Para Blerjes", body: "Kontroll i gjendjes, historikut dhe dokumenteve — para se të vendosni." },
-  { title: "Transport me Kontenier & RoRo", body: "Transport oqeanik i sigurt deri në Portin e Durrësit." },
-  { title: "Koordinim Doganor & Dorëzim", body: "Koordinojmë dokumentacionin doganor dhe procedurat e portit, deri te dorëzimi final." },
+  { title: "Gjetja dhe blerja e automjetit", body: "Ju ndihmojmë të gjeni dhe të blini automjetin që kërkoni në ankande dhe nga shitës të përzgjedhur." },
+  { title: "Inspektimi para blerjes", body: "Kontroll i gjendjes, historikut dhe dokumenteve — para se të vendosni." },
+  { title: "Transport me kontenier & RoRo", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Portit të Durrësit." },
+  { title: "Koordinimi doganor dhe dorëzimi", body: "Koordinojmë dokumentacionin doganor dhe procedurat e portit, deri te dorëzimi final." },
 ];
 
 const STEPS_AL = [
-  { n: 1, title: "Zgjidhni Makinën", body: "Na dërgoni linkun e automjetit ose numrin e lotit." },
-  { n: 2, title: "Inspektim & Verifikim", body: "Kontrollojmë gjendjen dhe dokumentet para blerjes." },
-  { n: 3, title: "Blerje e Sigurt", body: "Kryejmë blerjen ose ofertën në ankand në emrin tuaj." },
-  { n: 4, title: "Transport Deri në Durrës", body: "Transport me kontenier ose RoRo deri në Shqipëri." },
+  { n: 1, title: "Zgjidhni makinën", body: "Na dërgoni linkun e automjetit ose numrin e lotit." },
+  { n: 2, title: "Inspektimi dhe verifikimi", body: "Kontrollojmë gjendjen dhe dokumentet para blerjes." },
+  { n: 3, title: "Blerja ose oferta në ankand", body: "Kryejmë blerjen ose vendosim ofertën në ankand sipas udhëzimeve dhe buxhetit tuaj." },
+  { n: 4, title: "Transporti drejt Durrësit", body: "Organizojmë transportin me kontenier ose, kur është i disponueshëm, me RoRo drejt Shqipërisë." },
 ];
 
 const FAQS_AL = [
@@ -70,7 +70,7 @@ const FAQS_AL = [
 
 const ORIGIN_LABELS_AL: Record<string, string> = {
   USA: "Amerikë",
-  Korea: "Korea e Jugut",
+  Korea: "Koreja e Jugut",
   UAE: "Emiratet e Bashkuara Arabe",
   Canada: "Kanada",
   Europe: "Evropë",
@@ -90,12 +90,12 @@ function AlbaniaHome() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
         <div className="container-page flex min-h-[85vh] flex-col justify-center py-32">
           <div className="max-w-4xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Duke Lëvizur Makina Nëpër Botë</div>
+            <div className="eyebrow text-teal-glow">Moving Cars Worldwide</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl">
               Bli, inspekto dhe transporto <span className="text-teal-glow">makinën tënde në Shqipëri</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-              Sigurim, inspektim dhe transport automjetesh nga Amerika, Korea e Jugut dhe Dubai — deri në Portin e Durrësit, me proces të plotë dhe transparent.
+              Ju asistojmë në blerjen, inspektimin dhe transportin e automjeteve nga SHBA-ja, Koreja e Jugut dhe Dubai deri në Portin e Durrësit.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
@@ -188,12 +188,12 @@ function AlbaniaHome() {
       <section className="section-dark relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy via-navy-deep to-graphite" />
         <div className="container-page flex flex-col items-center gap-6 py-20 text-center md:py-24">
-          <div className="eyebrow text-teal-glow">Numra realë, jo hamendje</div>
+          <div className="eyebrow text-teal-glow">Përllogaritje të qarta, pa hamendësime</div>
           <h2 className="font-display max-w-2xl text-3xl font-bold text-white md:text-5xl">
             Llogarit koston e transportit
           </h2>
           <p className="max-w-xl text-white/70">
-            Kalkulatori ynë përdor tarifa reale për transportin nga Amerika dhe Korea e Jugut.
+            Kalkulatori ynë përdor tarifat aktuale të transportit nga SHBA-ja dhe Koreja e Jugut.
           </p>
           <a
             href="/calculator"
@@ -209,7 +209,7 @@ function AlbaniaHome() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Prova, jo premtime</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Dërgesa të vërteta</h2>
+            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Automjete të dorëzuara</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {VEHICLES.slice(0, 3).map((v) => (
@@ -223,7 +223,7 @@ function AlbaniaHome() {
                   </div>
                   <h3 className="font-display mt-2 text-lg font-bold text-navy">{v.year} {v.name}</h3>
                   <span className="mt-3 inline-block rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">
-                    Dërguar
+                    Dorëzuar
                   </span>
                 </div>
               </article>
@@ -244,12 +244,12 @@ function AlbaniaHome() {
           <div className="mx-auto mt-12 grid max-w-2xl gap-6 sm:grid-cols-2">
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <MapPin className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Selia Qendrore</h3>
+              <h3 className="font-display mt-4 text-xl font-bold text-navy">Selia qendrore</h3>
               <p className="mt-1 text-sm text-slate-body">{dubai.city}, Emiratet e Bashkuara Arabe</p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <MapPin className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Operacionet Evropiane</h3>
+              <h3 className="font-display mt-4 text-xl font-bold text-navy">Operacionet në Evropë</h3>
               <p className="mt-1 text-sm text-slate-body">{durres.city}, Shqipëri</p>
             </div>
           </div>
@@ -285,7 +285,7 @@ function AlbaniaHome() {
               Keni gjetur tashmë makinën?
             </h2>
             <p className="mt-5 text-white/70">
-              Na dërgoni linkun. Ne e inspektojmë, llogarisim transportin dhe menaxhojmë gjithçka.
+              Na dërgoni linkun e automjetit. Ne kontrollojmë informacionin, konfirmojmë mundësinë e inspektimit dhe ju përgatisim një ofertë për transportin.
             </p>
           </div>
           <div className="mx-auto mt-14 max-w-2xl">

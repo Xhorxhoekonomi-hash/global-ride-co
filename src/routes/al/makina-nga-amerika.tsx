@@ -56,17 +56,17 @@ export const Route = createFileRoute("/al/makina-nga-amerika")({
 });
 
 const STEPS_AL = [
-  { n: 1, icon: Search, title: "Zgjedhja e Lotit", body: "Na dërgoni numrin e lotit ose linkun e shpalljes." },
-  { n: 2, icon: Gavel, title: "Shqyrtimi i Ankandit", body: "Shqyrtojmë shpalljen, raportin e gjendjes dhe historikun." },
-  { n: 3, icon: ShieldCheck, title: "Inspektim Kur Është i Mundur", body: "Mundësia e inspektimit varet nga vendndodhja, aksesi i shitësit dhe gjendja e makinës." },
-  { n: 4, icon: Gavel, title: "Ndihmë në Blerje/Ankand", body: "Bëjmë ofertën ose blerjen në emrin tuaj, brenda buxhetit." },
-  { n: 5, icon: FileText, title: "Pagesa & Dokumentacioni", body: "Koordinim i pagesës dhe dokumentacionit në çdo hap." },
-  { n: 6, icon: Truck, title: "Marrja nga Ankandi", body: "Automjeti merret nga oborri i ankandit ose i shitësit." },
-  { n: 7, icon: Truck, title: "Transporti Tokësor", body: "Transportohet drejt terminalit të eksportit më të përshtatshëm." },
-  { n: 8, icon: FileText, title: "Dokumentacioni i Eksportit", body: "Përgatitja e dokumentacionit të eksportit para ngarkimit." },
-  { n: 9, icon: Package, title: "Ngarkimi në Kontenier", body: "Ngarkim në kontenier të përbashkët ose të dedikuar." },
-  { n: 10, icon: Ship, title: "Transporti Detar", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Shqipërisë." },
-  { n: 11, icon: Landmark, title: "Dorëzimi Final", body: "Koordinojmë dokumentacionin doganor, procedurat e portit dhe dorëzimin final sipas shërbimit të kërkuar." },
+  { n: 1, icon: Search, title: "Zgjedhja e lotit", body: "Na dërgoni numrin e lotit ose linkun e shpalljes." },
+  { n: 2, icon: Gavel, title: "Verifikimi i shpalljes", body: "Shqyrtojmë shpalljen, raportin e gjendjes dhe historikun." },
+  { n: 3, icon: ShieldCheck, title: "Inspektimi, kur është i mundur", body: "Mundësia e inspektimit varet nga vendndodhja, aksesi i shitësit dhe gjendja e makinës." },
+  { n: 4, icon: Gavel, title: "Asistencë për blerjen ose ankandin", body: "Vendosim ofertën ose kryejmë blerjen sipas autorizimit dhe buxhetit tuaj." },
+  { n: 5, icon: FileText, title: "Pagesa dhe dokumentacioni", body: "Koordinim i pagesës dhe dokumentacionit në çdo hap." },
+  { n: 6, icon: Truck, title: "Tërheqja e automjetit nga ankandi", body: "Automjeti merret nga oborri i ankandit ose i shitësit." },
+  { n: 7, icon: Truck, title: "Transporti tokësor", body: "Transportohet drejt terminalit të eksportit më të përshtatshëm." },
+  { n: 8, icon: FileText, title: "Dokumentacioni i eksportit", body: "Përgatitja e dokumentacionit të eksportit para ngarkimit." },
+  { n: 9, icon: Package, title: "Ngarkimi në kontenier", body: "Ngarkim në kontenier të përbashkët ose të dedikuar." },
+  { n: 10, icon: Ship, title: "Transporti detar", body: "Transport detar me kontenier ose, kur është i disponueshëm, me RoRo drejt Shqipërisë." },
+  { n: 11, icon: Landmark, title: "Dorëzimi përfundimtar", body: "Koordinojmë dokumentacionin doganor, procedurat e portit dhe dorëzimin final sipas shërbimit të kërkuar." },
 ];
 
 const INCLUDED_AL = [
@@ -101,12 +101,12 @@ function MakinaNgaAmerika() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
         <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Importo nga · Amerika</div>
+            <div className="eyebrow text-teal-glow">Import automjetesh nga SHBA-ja</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Blej dhe transporto një makinë nga Amerika
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Alpha Worldwide ju asiston për blerjen e automjeteve në Copart, IAAI, Manheim, ADESA dhe nga shitës të përzgjedhur — me transport deri në Shqipëri.
+              Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
@@ -198,7 +198,7 @@ function MakinaNgaAmerika() {
               Na dërgoni lotin ose linkun e automjetit
             </h2>
             <p className="mt-5 max-w-md text-white/70">
-              Ndani me ne një lot nga Copart ose IAAI, një shpallje nga Manheim ose ADESA, ose linkun e një shitësi.
+              Na dërgoni numrin e lotit nga Copart ose IAAI, shpalljen nga Manheim ose ADESA, ose linkun e automjetit.
             </p>
           </div>
           <QuoteForm variant="full" onDark locale="sq" source="al-usa" />

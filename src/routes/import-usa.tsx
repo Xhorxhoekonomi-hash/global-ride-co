@@ -15,6 +15,12 @@ export const Route = createFileRoute("/import-usa")({
       title: "Import a Car from USA | Copart, IAAI, Manheim, ADESA",
       description: "Source, inspect, and ship a vehicle from the USA — Copart, IAAI, Manheim and ADESA purchase assistance, with shipping to Albania and across Europe.",
       path: "/import-usa",
+      lang: "en",
+      hreflang: [
+        { lang: "en", path: "/import-usa" },
+        { lang: "sq", path: "/al/makina-nga-amerika" },
+      ],
+      xDefault: "/import-usa",
       image: heroImg,
     });
     return {

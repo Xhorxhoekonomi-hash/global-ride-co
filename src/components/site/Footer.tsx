@@ -27,6 +27,19 @@ const DESTINATIONS = [
 
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
 
+// Localized office role/country labels for the Albanian footer — keyed by
+// the exact English source strings already in OFFICES, so this stays in
+// sync automatically if OFFICES data changes shape (falls back to English
+// if a role/country isn't in the map).
+const ROLE_LABELS_AL: Record<string, string> = {
+  "Global Headquarters": "Selia qendrore",
+  "European & Albanian Operations": "Operacionet në Evropë dhe Shqipëri",
+};
+const COUNTRY_LABELS_AL: Record<string, string> = {
+  "United Arab Emirates": "Emiratet e Bashkuara Arabe",
+  Albania: "Shqipëri",
+};
+
 export function Footer() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isAlbanian = pathname.startsWith("/al");
@@ -140,8 +153,8 @@ export function Footer() {
                 <li key={office.id} className="flex gap-2.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                   <div>
-                    <div className="font-semibold text-white/85">{office.role}</div>
-                    <div>{office.city}, {office.country}</div>
+                    <div className="font-semibold text-white/85">{isAlbanian ? ROLE_LABELS_AL[office.role] ?? office.role : office.role}</div>
+                    <div>{office.city}, {isAlbanian ? COUNTRY_LABELS_AL[office.country] ?? office.country : office.country}</div>
                     <div className="mt-0.5">
                       {"phone" in office ? (
                         <a href={`tel:${office.phone.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: office.city })} className="hover:text-teal-glow">{office.phone}</a>
@@ -163,7 +176,7 @@ export function Footer() {
                   <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "footer" })} className="hover:text-teal-glow">{CONTACT.email}</a>
                 </div>
               </li>
-              <li className="text-xs text-white/50 sm:col-span-2">{CONTACT.hours}</li>
+              {!isAlbanian && <li className="text-xs text-white/50 sm:col-span-2">{CONTACT.hours}</li>}
             </ul>
           </div>
         </div>

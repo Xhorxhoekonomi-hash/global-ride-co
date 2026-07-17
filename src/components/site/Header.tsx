@@ -24,7 +24,7 @@ function LanguageSwitch({ pathname, isAlbanian }: { pathname: string; isAlbanian
     <Link
       to={target}
       onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}
-      aria-label={isAlbanian ? "Switch to English" : "Kalo në Anglisht"}
+      aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"}
       className="flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/85 transition-colors hover:bg-white/10"
     >
       <Languages className="h-3.5 w-3.5" />

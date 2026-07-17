@@ -39,7 +39,7 @@ function KontaktAL() {
               Transportoni makinën tuaj me siguri dhe transparencë
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Na kontaktoni sot për një ofertë të besueshme dhe transparente për blerjen, inspektimin dhe transportin e automjetit.
+              Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ function KontaktAL() {
               <div className="flex gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
                 <div>
-                  <div className="font-semibold text-navy">{durres.role.replace("European & Albanian Operations", "Operacionet në Shqipëri")}</div>
+                  <div className="font-semibold text-navy">{durres.role.replace("European & Albanian Operations", "Operacionet në Evropë dhe Shqipëri")}</div>
                   <div className="text-sm text-slate-body">{durres.city}, Shqipëri</div>
                   <div className="mt-1 text-sm text-slate-body">
                     {durres.phones.map((p, i) => (
@@ -71,7 +71,7 @@ function KontaktAL() {
               <div className="flex gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal/50" />
                 <div>
-                  <div className="font-semibold text-navy/70">Selia Qendrore — {dubai.city}</div>
+                  <div className="font-semibold text-navy/70">Selia qendrore — {dubai.city}</div>
                   <div className="mt-1 text-sm text-slate-body">
                     <a href={`tel:${dubai.phone.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "al-kontakt-dubai" })} className="hover:text-teal">{dubai.phone}</a>
                   </div>
