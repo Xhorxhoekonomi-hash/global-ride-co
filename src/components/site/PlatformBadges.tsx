@@ -29,7 +29,7 @@ export function PlatformBadges({ dark = false, locale = "en" }: { dark?: boolean
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Visit ${p.name} (opens in a new tab)`}
+                aria-label={locale === "sq" ? `Vizito ${p.name} — hapet në një skedë të re` : `Visit ${p.name} (opens in a new tab)`}
                 className={`group relative flex items-center gap-2 rounded-xl border px-4 py-2.5 transition-all hover:-translate-y-0.5 ${
                   dark
                     ? "border-white/10 bg-white/[0.03] hover:border-teal/50"
