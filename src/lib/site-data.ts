@@ -39,6 +39,7 @@ export const LANGUAGE_ROUTE_MAP: Record<string, string> = {
   "/": "/al",
   "/import-usa": "/al/makina-nga-amerika",
   "/import-korea": "/al/makina-nga-korea",
+  "/calculator": "/al/kalkulator-transporti",
   "/contact": "/al/kontakt",
 };
 

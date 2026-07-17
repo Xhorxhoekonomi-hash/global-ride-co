@@ -28,6 +28,7 @@ const PATHS = [
   "/al/makina-nga-korea",
   "/al/copart-shqiperi",
   "/al/iaai-shqiperi",
+  "/al/kalkulator-transporti",
   "/al/kontakt",
 ];
 
