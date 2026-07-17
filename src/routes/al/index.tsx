@@ -149,6 +149,17 @@ function AlbaniaHome() {
               ),
             )}
           </div>
+          <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+            {AL_PLATFORM_TILES.map((p) => (
+              <Link key={p.to} to={p.to} className="group rounded-2xl border border-border bg-mist p-5 transition-all hover:-translate-y-1 hover:border-teal">
+                <div className="font-display text-lg font-bold text-navy">{p.name}</div>
+                <p className="mt-1.5 text-xs leading-relaxed text-slate-body">{p.body}</p>
+                <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-teal">
+                  Shfleto <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
