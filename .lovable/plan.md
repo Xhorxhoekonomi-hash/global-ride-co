@@ -1,137 +1,234 @@
+# Phase 3 Batch 2 — Implementation Plan
 
-# Alpha Worldwide Albania — Main Branch Audit
+Base commit: `949720d1`. No code changes yet. Four new Albanian routes plus a safe calculator extraction.
 
-Read-only inspection. No files changed. "Verified" = confirmed by reading the repo at the current tip; "Not verified" = could not be checked in this pass.
+## 1. Current-state inspection (verified)
 
-## 1. Commit state & Phase 3 Batch 1 completeness
+- **Calculator (`src/routes/calculator.tsx`, 842 lines)** — single monolithic route. Inside it:
+  - `CALCULATOR_FAQS` (inline)
+  - `USD_TO_EUR`, `fmt`, `fmtInt`, `toTitle` helpers (inline)
+  - `DESTINATIONS`, `SIZE_OPTIONS` constants (inline)
+  - `CalculatorPage` shell (hero, "How it works", Included/Excluded, Ports, FAQ, Related links)
+  - `UsaCalculator` — full state machine, WhatsApp text builder, result panel
+  - `KoreaCalculator` — same shape for Korea
+  - Shared UI: `Step`, `StepReveal`, `Row`
+  - Rate/data imports already come from `src/data/{landTransport,oceanFreight,auctionFees,koreaShipping}.ts` — **already single-source**.
+- **i18n layer (`src/lib/i18n-al.ts`)** — has nav, quote-form labels, origin/destination options, platform-badge labels. No calculator dictionary yet.
+- **Sitemap (`src/routes/sitemap[.]xml.ts`)** — flat `PATHS` array; currently lists 3 AL routes.
+- **Header (`src/components/site/Header.tsx`)** — reads `NAV_AL` for AL nav, `LANGUAGE_ROUTE_MAP` for reciprocal switch.
+- **`submit-lead.ts`** — locale-aware WhatsApp builder; `source` string is caller-supplied → analytics attribution already works per page.
+- **Existing AL pattern** — `/al/makina-nga-amerika` is a good depth reference (STEPS, INCLUDED/EXCLUDED, FAQ, Service + FAQPage schema, hreflang reciprocal, QuoteForm with `locale="sq"` and `source="al-usa"`).
+- **`/import-korea`** — is a valid English counterpart for `/al/makina-nga-korea` (hreflang pair viable). No English `/copart` or `/iaai` route exists → those AL pages will be self-canonical, no hreflang.
 
-- **Latest commit (HEAD of main):** `1203de51a455c88055383e348dc36296e1eab273` — "Work in progress" (routeTree.gen.ts regenerated, +10 lines). Verified.
-- **Preceding merges relevant to Phase 3 B1:**
-  - `4c046d8` — "Added Albanian i18n layer" (Push 1)
-  - `b4c29ba` — "Pushed shared lead interface" (Push 2)
-  - `4187b75` — "Added Albanian routes" (Push 3: `/al`, `/al/kontakt`, `/al/makina-nga-amerika`)
-- **Push 4 status:** Not verifiable — no commit after `4187b75` touches Phase 3 content (only the routeTree regen). If Push 4 introduced code (e.g. Albanian services/calculator page, English-side reciprocal hreflang, or Supabase table), **it is not in main**. Verified as "not present"; interpretation depends on what Push 4 was meant to contain.
+## 2. Existing files to modify
 
-## 2. Route inventory
+| File | Change |
+|---|---|
+| `src/routes/calculator.tsx` | Slim to a thin route wrapper that renders shared `<Calculator locale="en" />`. **No behavior change.** |
+| `src/lib/i18n-al.ts` | Add `CALCULATOR_DICT_AL` (all UI strings for calculator) and `CALCULATOR_FAQS_AL`. |
+| `src/routes/sitemap[.]xml.ts` | Add the 4 new AL paths. |
+| `src/routes/import-korea.tsx` | Add reciprocal hreflang → `/al/makina-nga-korea`. |
+| `src/routes/calculator.tsx` (English head) | Add reciprocal hreflang → `/al/kalkulator-transporti`. |
+| `src/lib/i18n-al.ts` → `NAV_AL` | Append `Makina nga Koreja`, `Kalkulator`. Copart/IAAI stay out of top-nav (kept as internal links to avoid clutter); listed in AL footer instead. |
+| `src/components/site/Footer.tsx` | Add AL footer link group for the 4 new pages (SQ-side only). |
 
-**EN pages (verified present under `src/routes/`):**
-`/` · `/about` · `/services` · `/contact` · `/faq` · `/calculator` · `/shipping-calculator` · `/delivered-vehicles` · `/auction-access` · `/inspection-service` · `/container-shipping` · `/roro-shipping` · `/airfreight` · `/import-usa` · `/import-korea` · `/import-uae` · `/import-canada` · `/import-europe` · `/en/albania` · `/en/netherlands` · `/en/shipping/south-korea-to-rotterdam` · `/sitemap.xml`.
+## 3. New files to create
 
-**AL pages (verified):** `/al` · `/al/kontakt` · `/al/makina-nga-amerika` (3 total).
+**Calculator extraction (source of truth = shared components):**
 
-**Missing / planned (implied by nav, footer, or LANGUAGE_ROUTE_MAP but not built):**
-- No Albanian equivalents for: services, about, faq, calculator, delivered vehicles, import-korea, import-uae, import-canada, import-europe, auction-access, inspection-service, container-shipping, roro-shipping, airfreight, en/netherlands, en/albania, en/shipping/south-korea-to-rotterdam.
-- Duplication risk: `/calculator` and `/shipping-calculator` both exist — verify only one is linked and the other is either a redirect or intentional. Sitemap only includes `/calculator`.
+- `src/components/calculator/dict.ts` — TypeScript type `CalculatorDict` (all UI strings). Exports `CALCULATOR_DICT_EN`. Imports `CALCULATOR_DICT_AL` from `i18n-al.ts`.
+- `src/components/calculator/format.ts` — `USD_TO_EUR`, `fmt`, `fmtInt`, `toTitle` (moved verbatim).
+- `src/components/calculator/constants.ts` — `DESTINATIONS`, `SIZE_OPTIONS`, `KOREA_TYPES` (labels come from dict at render).
+- `src/components/calculator/CalculatorShell.tsx` — hero, How-it-works, Included/Excluded, Ports, FAQ, Related-links wrapper. Props: `{ locale, dict, faqs, relatedLinks }`.
+- `src/components/calculator/UsaCalculator.tsx` — moved from `calculator.tsx` **byte-identical logic**; strings via `dict` prop; WhatsApp lines built from `dict.whatsapp.*`.
+- `src/components/calculator/KoreaCalculator.tsx` — same treatment.
+- `src/components/calculator/StepUI.tsx` — `Step`, `StepReveal`, `Row`.
 
-## 3. TypeScript & production build
+**Route wrappers (thin):**
 
-- `tsgo --noEmit`: **clean, 0 errors**. Verified.
-- `bun run build`: **success**, built in ~889ms; nitro/wrangler output generated. Verified.
+- `src/routes/al/makina-nga-korea.tsx` — content page (not the calculator).
+- `src/routes/al/kalkulator-transporti.tsx` — imports `CalculatorShell` + `CALCULATOR_DICT_AL` + `CALCULATOR_FAQS_AL`; passes `locale="sq"` and `source="al-calculator"`.
+- `src/routes/al/copart-shqiperi.tsx`
+- `src/routes/al/iaai-shqiperi.tsx`
 
-## 4. SEO audit
+## 4. Shared calculator extraction architecture
 
-- **`buildHead` helper** correctly emits title, description, og:*, twitter:*, canonical, og:locale, hreflang alternates, and x-default. Verified.
-- **Reciprocal hreflang: BROKEN.** Only the three AL pages declare hreflang alternates. Their EN counterparts (`/`, `/contact`, `/import-usa`) do **not** declare hreflang back to `/al/*`. This is non-reciprocal and Google will typically ignore the cluster. Highest-impact SEO defect.
-- **x-default:** Set on AL pages pointing at EN routes; missing on EN pages. Also broken by asymmetry.
-- **Sitemap (`sitemap[.]xml.ts`):** Verified; served dynamically. **Does not include any `/al/*` URLs** and omits `/shipping-calculator`. AL pages are effectively invisible to crawlers via sitemap.
-- **robots.txt:** `Allow: /` with `Sitemap:` pointing to production domain. Correct. Verified.
-- **Titles/descriptions:** Every route sampled uses `buildHead` with unique title + description. No "Lovable App" defaults remain. Verified on `index.tsx`, `contact.tsx`, `import-usa.tsx`, all three `al/*`.
-- **Canonicals:** Emitted per-route via `buildHead`, absolute URL to `SITE_URL`. Verified.
-- **Schema conflicts:** FAQPage JSON-LD is added on `/calculator`, both AL pages, and multiple EN pages. Each is a `FAQPage` limited to that page's FAQs — no duplicate schema on the same URL. Verified.
-- **FAQ uniqueness:** Each route defines its own `FAQS`/`FAQS_AL` const; the services.tsx dedupe fix from earlier is present (customs-clearance question rewritten). No cross-page text duplication spot-checked; a full text-similarity pass was not run.
-- **`<html lang>` SSR:** `__root.tsx` uses `useRouterState` to set `lang="sq"` on `/al*` routes, else `en`. Verified structure; not smoke-tested against actual SSR HTML output.
+```text
+src/data/*                (rate tables — UNCHANGED, single source)
+    ↓
+src/components/calculator/
+    format.ts             (fmt, fmtInt, USD_TO_EUR, toTitle)
+    constants.ts          (DESTINATIONS, SIZE_OPTIONS, KOREA_TYPES)
+    dict.ts               (CalculatorDict type + EN dict; re-export AL dict)
+    StepUI.tsx            (Step, StepReveal, Row)
+    UsaCalculator.tsx     (state + logic + result panel; strings via dict)
+    KoreaCalculator.tsx   (same)
+    CalculatorShell.tsx   (page chrome + Tabs + FAQ + JSON-LD content)
+    ↓
+src/routes/calculator.tsx                (wrapper, locale="en")
+src/routes/al/kalkulator-transporti.tsx  (wrapper, locale="sq")
+```
 
-## 5. Localization audit (Albanian)
+**Locale flow:** each route wrapper picks the dict and FAQ list, plus a `source` string (`en-calculator` / `al-calculator`), and passes them as props. `CalculatorShell` renders its own `head()` in the route wrapper (schema + hreflang stay per-route). No global locale context — pure prop drilling, easy to audit.
 
-- **i18n strings (`src/lib/i18n-al.ts`):** Present with NAV_AL + form labels + origin/destination lists. Verified.
-- **Language switch:** `Header.tsx` uses `LANGUAGE_ROUTE_MAP` + reverse map. **Dead-link behavior:** unknown paths fall back to `/al` (from EN) or `/` (from AL). Safe — but this means clicking "SQ" from `/services` silently sends the user to `/al` home, not a translated services page. UX risk: language switcher looks broken on all EN pages without AL counterparts (17 of 20 EN routes).
-- **LANGUAGE_ROUTE_MAP:** Only 3 pairs (`/`, `/import-usa`, `/contact`). Matches the 3 AL pages. Consistent.
-- **Footer:** Bilingual copyright line based on `isAlbanian` flag. Verified line 166 area.
-- **QuoteForm:** Accepts `locale` prop, `sq` used on AL pages. Verified.
-- **WhatsApp message body:** `submit-lead.ts` builds bilingual message with `MESSAGE_LABELS.en/sq`. Verified. The `/al` home hero also has a hardcoded Albanian WhatsApp intro string — consistent.
-- **Nav on AL pages:** Header is rendered from `__root.tsx` for all routes; the Albanian nav is expected to come from `NAV_AL` when `isAlbanian` — verified imports in Header.tsx, but the actual conditional switch logic was not deep-read; recommend a smoke test.
-- **Analytics:** `language_changed` event fires on switch. Verified.
+**FAQ schema:** each route file builds its own `FAQPage` JSON-LD from its own FAQ array, in its own language. AL wrapper uses `CALCULATOR_FAQS_AL`; EN wrapper uses `CALCULATOR_FAQS_EN` (moved from `calculator.tsx`, verbatim).
 
-## 6. Calculator audit
+**Analytics:** `source` prop threads into WhatsApp button `trackEvent("whatsapp_clicked", { source })` and result-request. Values: `en-calculator-usa`, `en-calculator-korea`, `al-calculator-usa`, `al-calculator-korea`.
 
-- **Data modules untouched vs Phase 2:** `src/data/{auctionFees,koreaShipping,landTransport,oceanFreight}.ts` all imported by `calculator.tsx`; no diff between `4187b75` and HEAD on these files (only routeTree changed). Verified: pricing logic, rate tables, and USA/Korea calculators are unchanged.
-- **Architecture risks before AL localization:**
-  - `/calculator` copy (labels, FAQs, port names, "How it works" section) is English-only and hardcoded inline — a translated `/al/kalkulator` would require either duplicating the whole route file or extracting a `<Calculator>` component with a `locale` prop and moving all strings into `i18n-al.ts`.
-  - `CALCULATOR_FAQS` array is inline; the FAQPage JSON-LD reads from it directly — same duplication issue when localized.
-  - Currency (EUR) and KRW→EUR rate (`KRW_TO_EUR_RATE`) are single-locale but numeric, so they can be reused as-is.
-- **Not verified:** No runtime spot-check of a specific quote (e.g., "2020 Camry from Long Beach to Durrës") to confirm output equals a known target.
+**Rate/behavior invariants preserved:**
+- No number, formula, threshold, surcharge, unloading fee, USD/EUR/KRW rate, terminal-routing, or size-multiplier will be touched.
+- All rate imports still come from `src/data/*` — unchanged files.
+- Both wrappers import the **same** `UsaCalculator` / `KoreaCalculator` components → impossible to diverge.
 
-## 7. Lead capture audit
+## 5. Route-by-route content structure
 
-- **Supabase/database:** **Zero references** to `supabase`, `SUPABASE`, or any DB client anywhere in `src/`. `persistLead()` is a stub that logs in DEV and returns `{ ok: true }`. Verified. All lead capture today is WhatsApp-only.
-- **Attribution:** `captureAttribution()` reads UTM params (source/medium/campaign/term/content), pathname, referrer, language, timestamp — all captured but only console-logged in dev, discarded in prod. Verified.
-- **Analytics:** `quote_submitted` and `vehicle_link_submitted` events fire via `trackEvent`. Verified.
-- **WhatsApp fallback:** URL always built and returned; UI opens WhatsApp with pre-filled body. No error path if WhatsApp is unreachable (mobile without app). Not blocking.
-- **Data normalization issues:**
-  - `origin`/`destination` are free-form strings from a `<select>` — safe.
-  - `phone` is not normalized to E.164; no country-code prefix enforcement.
-  - `email` optional and not validated beyond browser `type="email"`.
-  - `vehicleLink` accepts any string — no URL validation.
-- **Honeypot:** Present in both `QuoteForm` and `AirfreightForm` (`honeypot` state, checked before submit). Verified.
+### `/al/makina-nga-korea` (counterpart of `/import-korea`)
+Sections: hero (SHBA-ja-style native SQ, slogan "Moving Cars Worldwide" preserved) → Encar/Autowini/KB Chachacha/shitës të përzgjedhur → 5-hap process (zgjedhja → inspektim, ku është i mundur → blerja → transporti nga Koreja e Jugut → doganë/dorëzim) → Kontenier vs RoRo (RoRo "kur është operativisht e disponueshme") → Çfarë përfshihet / nuk përfshihet → CTA kalkulatori → FAQ (unike) → QuoteForm `locale="sq"` `source="al-korea"`. Service + FAQPage JSON-LD, `inLanguage: "sq"`, reciprocal hreflang with `/import-korea`.
 
-## 8. Content & factual audit
+### `/al/kalkulator-transporti` (counterpart of `/calculator`)
+Renders `<CalculatorShell locale="sq" dict={CALCULATOR_DICT_AL} faqs={CALCULATOR_FAQS_AL} source="al-calculator" />`. Reciprocal hreflang with `/calculator`. AL FAQPage schema.
 
-- **Luxembourg references:** **None remaining** in `src/`. Verified via `rg`.
-- **Customs wording:** `services.tsx` FAQ correctly states the company coordinates with licensed agents and that duties/taxes are set by authorities, not the company. `al/index.tsx` FAQ mirrors this. Consistent.
-- **Office details:** `OFFICES` = Dubai (HQ, +971 50 630 4486) and Durrës (3 AL phones). `CONTACT` mirrors these. `/al/kontakt` and `/al/index.tsx` reference `OFFICES[0]` (Dubai) and `OFFICES[1]` (Durrës) — positional access is fragile but currently correct.
-- **Business hours:** `"Monday–Friday, 9:00 AM – 5:00 PM"` — timezone unspecified (Albania vs UAE). Minor content risk.
-- **Airport wording:** "European Airport Handling" service refers to "major European cargo airports" (no specific airport claims). Safe.
-- **Platform links:** `PLATFORMS` includes Copart, IAAI, Manheim, ADESA (added Batch 3A). Verified. Korean and UAE platforms referenced by name only (no outbound links) — appropriate.
-- **Unsupported claims:** "155-point inspection" appears in SERVICES copy. Not verifiable in this pass — flag for the user to confirm this figure is defensible.
+### `/al/copart-shqiperi` (self-canonical, no hreflang)
+Positioning: Albanian buyer-side Copart guidance, distinct from the general USA hub.
+Sections: hero (Copart-specific SQ) → Si funksionon blerja në Copart me Alpha Worldwide → Dërgo numrin e lotit → Fotot e ankandit vs. inspektim i pavarur (kualifikuar; jo çdo lot është i inspektueshëm) → Interpretimi i titullit dhe dëmit → Limitet e ofertës dhe autorizimi → Tarifat e Copart dhe transporti tokësor (link → kalkulator) → Tërheqja nga oborri i Copart → Terminali dhe transporti detar me kontenier → Dokumentacioni doganor (autoritetet vendosin taksat) → Çfarë garanton dhe çfarë nuk garanton Alpha Worldwide (jo partneritet zyrtar me Copart; jo inspektim i garantuar) → Cross-links → `/al/makina-nga-amerika`, `/al/kalkulator-transporti`, `/al/kontakt` → FAQ unike (Copart-specifike) → QuoteForm `source="al-copart"`. Service + FAQPage JSON-LD.
 
-## 9. Responsive/visual audit
+### `/al/iaai-shqiperi` (self-canonical, no hreflang)
+Same depth, IAAI-specific angle: seleksionimi i lotit, "Sale Information" & interpretimi i titullit/dëmit, asistencë në ankand, disponueshmëria e inspektimit (kualifikuar), tërheqja nga IAAI, transport tokësor, dokumentacion eksporti, transport detar me kontenier deri në Durrës, vlerësim çmimi, çfarë përfshihet/nuk përfshihet, cross-links, FAQ **e re** (jo ripërdorim i tekstit të Copart), QuoteForm `source="al-iaai"`.
 
-**Not verified in this pass.** Preview was not driven with Playwright. Static code inspection suggests:
-- Header has a mobile menu (`Menu`/`X` Lucide icons), desktop dropdowns, and language switch.
-- Floating WhatsApp button + Footer padding fix committed earlier is present in `Footer.tsx` structure.
-- Hero sections use `min-h-[85vh]`/`55vh` with background image + gradient overlay — standard responsive pattern.
+Both Copart/IAAI pages will use different section ordering, different FAQ wording, different hero angle, and distinct WhatsApp intro strings to avoid near-duplicate content.
 
-Recommended before Phase 3 B2: Playwright smoke on `/`, `/al/`, `/calculator`, `/contact`, `/al/kontakt` at 1280px and 375px, capturing screenshots.
+## 6. Albanian metadata themes
 
-## 10. Accessibility & performance risks
+- `/al/makina-nga-korea` — Title: `Makina nga Koreja e Jugut për Shqipëri | Alpha Worldwide`. Desc: sourcing nga Encar, Autowini, KB Chachacha; inspektim kur është i mundur; transport në Durrës.
+- `/al/kalkulator-transporti` — Title: `Kalkulator transporti automjetesh | Copart, IAAI dhe Koreja e Jugut`. Desc: kosto e detajuar për transportin e automjetit nga SHBA-ja dhe Koreja e Jugut drejt Shqipërisë, Holandës dhe Gjermanisë.
+- `/al/copart-shqiperi` — Title: `Copart Shqipëri — Blerje makinash nga Copart | Alpha Worldwide`. Desc: si të blini në Copart nga Shqipëria me asistencë, transport dhe dokumentacion.
+- `/al/iaai-shqiperi` — Title: `IAAI Shqipëri — Blerje makinash nga IAAI | Alpha Worldwide`. Desc: blerje IAAI nga Shqipëria me asistencë në ankand, transport tokësor, transport detar dhe koordinim dokumentesh.
 
-- 8 aria/alt attributes across Header+Footer — low count. `LanguageSwitch` has `aria-label`. FAQ uses `<details>/<summary>` (accessible by default).
-- Images use `width`/`height` and `object-cover`; hero images not marked `fetchpriority="high"` — LCP optimization opportunity.
-- Framer Motion is loaded on `/calculator` (356KB uncompressed, 93KB gzip in server bundle). Consider lazy-loading or replacing with CSS for a few reveals.
-- `@tanstack/react-router` server bundle is 655KB (137KB gzip) — expected for TanStack Start; not actionable.
-- No `<link rel="preload">` for hero images.
+Sentence casing throughout, no `&`, natural SQ (not literal translation).
 
-## 11. Technical debt & security risks
+## 7. Schema strategy
 
-- `persistLead` stub with attribution captured but discarded is dead weight until Cloud/Supabase lands. Leads are lost if the user closes WhatsApp without sending.
-- No server-side rate limiting on any form (Cloudflare Worker deployment; no rate primitive wired). Honeypot only.
-- No CSP, HSTS, or security headers configured beyond Nitro defaults. Not verified against production headers.
-- `OFFICES[0]`/`OFFICES[1]` positional indexing across `/al/*` — one reorder breaks 3 pages.
-- `LANGUAGE_ROUTE_MAP` is the only source of truth for language reciprocity; EN pages themselves do not declare `hreflang`. This is a structural gap, not a config drift.
-- `/calculator` vs `/shipping-calculator` route duplication — content overlap risk not evaluated.
+Each new page emits:
+- `Service` JSON-LD (`inLanguage: "sq"`, `provider: Alpha Worldwide`, `areaServed: "Albania"`).
+- `FAQPage` JSON-LD built from that page's own SQ FAQ array.
+- Calculator page reuses the FAQ-schema pattern already in `/calculator`.
 
-## 12. Progress estimate & prioritized blockers
+No cross-page schema reuse. No unverifiable claims (e.g. "partneritet zyrtar", "155-pikësh") anywhere in schemas.
 
-**Phase completion (estimate):**
-- Phase 1 (design system, base pages): **100%**
-- Phase 2A (analytics, breadcrumbs, offices): **100%**
-- Phase 2B.1 (int'l foundation, honeypot): **100%**
-- Phase 2B.2 Batches 1–3B (hub pages, airfreight, calculator SEO, Luxembourg cleanup): **100%**
-- Phase 3 Batch 1 (Push 1 i18n, Push 2 shared interface, Push 3 three AL pages): **~75%** — Push 4 is **not in main**.
-- Phase 3 Batch 2: 0%
+## 8. Hreflang / canonical strategy
 
-**Prioritized blockers before Phase 3 B2:**
-1. **Reciprocal hreflang gap** — add hreflang to EN counterparts of the 3 AL pages, or Google will disregard the pair. (SEO, blocker.)
-2. **AL pages missing from sitemap.xml** — `/al`, `/al/kontakt`, `/al/makina-nga-amerika` are unindexable by crawler at sitemap level.
-3. **Confirm Push 4 scope** — if it contained EN-side hreflang or sitemap updates, that explains #1/#2 and it needs to be applied.
-4. **Lead persistence** — Supabase/Cloud table + insert into `persistLead()` before scaling ad spend, or every non-WhatsApp-completing lead is lost.
-5. **Language switcher UX on non-mirrored pages** — either disable/hide the SQ toggle on pages without AL counterparts, or show a tooltip that only 3 pages are translated; silent redirect to `/al` is confusing.
-6. **Route duplication** `/calculator` vs `/shipping-calculator` — decide canonical and redirect the other.
-7. **Timezone on business hours** — clarify "9:00–17:00 CET" or similar.
-8. **Playwright responsive smoke** before B2 to catch mobile regressions in dropdown + language switch.
+| AL page | Self-canonical | Hreflang pair | x-default |
+|---|---|---|---|
+| `/al/makina-nga-korea` | yes | ↔ `/import-korea` | `/import-korea` |
+| `/al/kalkulator-transporti` | yes | ↔ `/calculator` | `/calculator` |
+| `/al/copart-shqiperi` | yes | none (no EN counterpart) | — |
+| `/al/iaai-shqiperi` | yes | none | — |
 
-**Verified vs unverified summary:**
-- Verified: commit SHA, route inventory, TS + build status, presence/absence of Supabase, calculator data untouched, Luxembourg removed, honeypot present, sitemap contents, robots.txt, buildHead output shape, LANGUAGE_ROUTE_MAP contents.
-- Not verified: SSR HTML `<html lang>` output at runtime, calculator numeric correctness for a known quote, mobile/desktop visual state, cross-page FAQ text similarity, production HTTP response headers, "155-point inspection" claim.
+Reciprocal updates required on `/import-korea` and `/calculator` head() — add both `sq` and `en` alternates plus x-default.
 
-No changes made. Ready to proceed to Push 4 / Phase 3 B2 once the blocker list is confirmed.
+## 9. Navigation / footer changes
+
+- `NAV_AL`: append `{ to: "/al/makina-nga-korea", label: "Makina nga Koreja" }` and `{ to: "/al/kalkulator-transporti", label: "Kalkulator" }`. Keep Copart/IAAI out of top nav (avoid crowding + doorway-page vibe); link them from the AL homepage hub grid and the AL footer.
+- `LANGUAGE_ROUTE_MAP` (`src/lib/site-data.ts`): add pairs for the two hreflang-linked pages.
+- Footer: add an SQ-only column when `isAlbanian`, listing all 6 live AL routes.
+- AL homepage (`/al`): add tiles/CTAs to the new pages (already the natural hub).
+
+## 10. Form / WhatsApp / analytics behavior
+
+- `QuoteForm` remains untouched. Each new page uses it with `locale="sq"` and a unique `source`:
+  - `al-korea`, `al-copart`, `al-iaai` (+ hero WhatsApp variants `al-korea-hero`, etc.)
+  - `al-calculator-usa`, `al-calculator-korea` (fired from inside the shared calculator components via the `source` prop).
+- WhatsApp hero pre-fills in Albanian (unique intro string per page — not shared).
+- Origin/destination submissions still use normalized machine values (`USA`, `South Korea`, `Albania`) via `ORIGIN_OPTIONS_AL` / `DESTINATION_OPTIONS_AL` — labels shown in SQ.
+- `submit-lead.ts` locale-aware message builder is already correct — no changes.
+
+## 11. Internal linking plan
+
+- AL homepage → all 6 AL pages.
+- `/al/makina-nga-amerika` → adds cross-links to `/al/copart-shqiperi`, `/al/iaai-shqiperi`, `/al/kalkulator-transporti`.
+- `/al/copart-shqiperi` and `/al/iaai-shqiperi` → `/al/makina-nga-amerika` (hub), `/al/kalkulator-transporti`, `/al/kontakt`. Also link each to the other under "Platforma të tjera".
+- `/al/makina-nga-korea` → `/al/kalkulator-transporti`, `/al/kontakt`.
+- `/al/kalkulator-transporti` "Related pages" → the 4 other AL routes.
+
+## 12. Sitemap plan
+
+Append to `PATHS`:
+```
+/al/makina-nga-korea
+/al/kalkulator-transporti
+/al/copart-shqiperi
+/al/iaai-shqiperi
+```
+Priority `0.8`, `changefreq: weekly` (matches existing convention).
+
+## 13. Test plan
+
+1. `tsgo --noEmit` — 0 errors.
+2. `bun run build` — production build succeeds.
+3. **Byte-diff verification of preserved calculator behavior:**
+   - Before refactor: snapshot `git show HEAD:src/routes/calculator.tsx` for reference.
+   - After extraction: `rg -n "USD_TO_EUR|KRW_TO_EUR_RATE|calculateAllAuctionFees|getLandTransport|getOceanFreight|UNLOADING_FEES|KOREA_SHIPPING"` in the extracted files must match the same call sites and arguments as before.
+   - Confirm `src/data/*` files show `git diff --stat = 0` post-refactor.
+4. **Manual calculator smoke** (Playwright, one script, both locales):
+   - USA path: Houston TX / Sedan / no EV / bid 8000 / Albania → note totalUsd and totalEur.
+   - Korea path: Sedan/Coupe / 20,000,000 KRW / Albania → note totalEur.
+   - Repeat on `/al/kalkulator-transporti` with same inputs → totals must equal EN totals to the cent.
+   - Screenshot result panels for the record.
+5. **hreflang / canonical curl check** on `/calculator`, `/al/kalkulator-transporti`, `/import-korea`, `/al/makina-nga-korea`.
+6. **Sitemap curl check** — all 4 new URLs present.
+7. **Header language switch** — from `/calculator` → `/al/kalkulator-transporti` and back; from `/import-korea` → `/al/makina-nga-korea`. Copart/IAAI pages: SQ→EN falls back to `/` (documented, acceptable — no EN counterpart).
+8. **No emoji regression** — `rg` for the standard emoji ranges over new files.
+9. **Content dedupe** — compare Copart vs IAAI FAQ text; require zero paragraph-level overlap.
+
+## 14. Regression safeguards
+
+- Ship the calculator refactor as a **pure move** first (no visible or numeric changes), verified by the smoke test in step 13.4, before adding the AL wrapper.
+- `src/data/*` files are read-only for this batch — plan will not open them for edits.
+- Keep the same `USD_TO_EUR = 0.92` and `KRW_TO_EUR_RATE = 1/1450` constants (from `koreaShipping.ts`) — not touched, not re-declared.
+- Function signatures of `getLandTransport`, `getOceanFreight`, `calculateAllAuctionFees` unchanged; call sites in extracted components identical.
+- Dict keys are typed via `CalculatorDict` interface — missing SQ key is a build error.
+
+## 15. Risks
+
+1. **Calculator refactor scope** — 842-line file; extraction touches every section. Mitigation: split into a "refactor commit" (no visible/UX diff) then "AL wrapper commit" — Batch 2B sequencing (see below).
+2. **AL Copart/IAAI dedupe risk** — high; twin platforms invite copy-paste. Mitigation: written top-to-bottom independently, different section order, different FAQs, cross-review before ship.
+3. **Copart brand claims** — repo has no evidence of official partnership. Copy will say "asistencë për blerjen përmes Copart", never "partner zyrtar".
+4. **Inspection promises** — Korea page will keep the qualified wording ("kur është e disponueshme / për automjete të kualifikuara"). Owner must confirm if the EN-side "free pre-purchase inspection for eligible vehicles" claim carries over — otherwise SQ version stays even more qualified.
+5. **Language switcher UX** — from `/al/copart-shqiperi` clicking EN silently sends to `/`. Acceptable per current pattern; noted in prior audit as a broader UX item, out of scope here.
+6. **Framer-motion payload** on the new AL calculator route — same as EN, no additional cost since shared component.
+
+## 16. Recommended batch sequence
+
+**Split into 2B.A and 2B.B.** Batch size and refactor risk make one-shot delivery unsafe.
+
+- **Batch 2B.A — Content pages (no refactor):**
+  1. `/al/makina-nga-korea`
+  2. `/al/copart-shqiperi`
+  3. `/al/iaai-shqiperi`
+  4. `NAV_AL` additions (Korea link; Copart/IAAI in footer)
+  5. `LANGUAGE_ROUTE_MAP` addition for `/import-korea` ↔ `/al/makina-nga-korea`
+  6. Reciprocal hreflang on `/import-korea`
+  7. Sitemap: add 3 paths
+  8. Footer: SQ column
+
+- **Batch 2B.B — Calculator extraction + AL calculator:**
+  1. Pure extraction into `src/components/calculator/*` — EN `/calculator` byte-identical UX.
+  2. `CALCULATOR_DICT_AL` + `CALCULATOR_FAQS_AL` in `i18n-al.ts`.
+  3. `/al/kalkulator-transporti` wrapper.
+  4. Reciprocal hreflang on `/calculator`.
+  5. `NAV_AL` calculator link.
+  6. `LANGUAGE_ROUTE_MAP` addition.
+  7. Sitemap: add 1 path.
+  8. Playwright numeric equivalence test EN ↔ SQ.
+
+Rationale: 2B.A is additive-only (no touches to existing behavior beyond hreflang meta); 2B.B is contained to calculator files with a clear rollback (revert the calculator refactor commit, delete the AL wrapper). Batch sizes stay reviewable.
+
+## 17. Owner decisions required
+
+1. **Inspection wording for `/al/makina-nga-korea`** — mirror EN "Free pre-purchase inspection for eligible vehicles"? Or keep even more qualified ("Inspektimi është i mundur për automjete të përzgjedhura, në varësi të vendndodhjes dhe aksesit")?
+2. **Copart / IAAI top-nav** — confirm they should stay out of `NAV_AL` (footer + hub tiles only), per plan.
+3. **Calculator route name** — `/al/kalkulator-transporti` (proposed) vs. `/al/kalkulator` vs. `/al/llogarit-koston`. Choose one; will be locked at ship time.
+4. **Reciprocal hreflang** on `/import-korea` and `/calculator` — confirm we're allowed to modify these two files as part of Batch 2B (per user directive not to touch completed pages unless a blocker).
+5. **Batch sequencing** — approve 2B.A → 2B.B split.
+
+Awaiting approval before implementation.
