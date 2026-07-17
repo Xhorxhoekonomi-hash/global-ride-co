@@ -34,6 +34,7 @@ import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
@@ -163,6 +164,11 @@ const AlKontaktRoute = AlKontaktRouteImport.update({
   path: '/al/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlKalkulatorTransportiRoute = AlKalkulatorTransportiRouteImport.update({
+  id: '/al/kalkulator-transporti',
+  path: '/al/kalkulator-transporti',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
   id: '/al/iaai-shqiperi',
   path: '/al/iaai-shqiperi',
@@ -202,6 +208,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
@@ -232,6 +239,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
@@ -263,6 +271,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
@@ -295,6 +304,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/al/copart-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-korea'
@@ -325,6 +335,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/al/copart-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-korea'
@@ -355,6 +366,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/al/copart-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-korea'
@@ -386,6 +398,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
+  AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
@@ -572,6 +585,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlKontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/kalkulator-transporti': {
+      id: '/al/kalkulator-transporti'
+      path: '/al/kalkulator-transporti'
+      fullPath: '/al/kalkulator-transporti'
+      preLoaderRoute: typeof AlKalkulatorTransportiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/iaai-shqiperi': {
       id: '/al/iaai-shqiperi'
       path: '/al/iaai-shqiperi'
@@ -618,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
+  AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
