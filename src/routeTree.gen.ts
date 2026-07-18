@@ -35,8 +35,11 @@ import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-kor
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
+import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
+import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
+import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -169,14 +172,29 @@ const AlKalkulatorTransportiRoute = AlKalkulatorTransportiRouteImport.update({
   path: '/al/kalkulator-transporti',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlInspektimMakinashRoute = AlInspektimMakinashRouteImport.update({
+  id: '/al/inspektim-makinash',
+  path: '/al/inspektim-makinash',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
   id: '/al/iaai-shqiperi',
   path: '/al/iaai-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
+  id: '/al/encar-shqiperi',
+  path: '/al/encar-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
   id: '/al/copart-shqiperi',
   path: '/al/copart-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
+  id: '/al/ankande-amerikane',
+  path: '/al/ankande-amerikane',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
@@ -206,8 +224,11 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -237,8 +258,11 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -269,8 +293,11 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -302,8 +329,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
+    | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
@@ -333,8 +363,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
+    | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
@@ -364,8 +397,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
+    | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
+    | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
@@ -396,8 +432,11 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
+  AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
+  AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
@@ -592,6 +631,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlKalkulatorTransportiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/inspektim-makinash': {
+      id: '/al/inspektim-makinash'
+      path: '/al/inspektim-makinash'
+      fullPath: '/al/inspektim-makinash'
+      preLoaderRoute: typeof AlInspektimMakinashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/iaai-shqiperi': {
       id: '/al/iaai-shqiperi'
       path: '/al/iaai-shqiperi'
@@ -599,11 +645,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlIaaiShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/encar-shqiperi': {
+      id: '/al/encar-shqiperi'
+      path: '/al/encar-shqiperi'
+      fullPath: '/al/encar-shqiperi'
+      preLoaderRoute: typeof AlEncarShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/copart-shqiperi': {
       id: '/al/copart-shqiperi'
       path: '/al/copart-shqiperi'
       fullPath: '/al/copart-shqiperi'
       preLoaderRoute: typeof AlCopartShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/ankande-amerikane': {
+      id: '/al/ankande-amerikane'
+      path: '/al/ankande-amerikane'
+      fullPath: '/al/ankande-amerikane'
+      preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/shipping/south-korea-to-rotterdam': {
@@ -636,8 +696,11 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
+  AlEncarShqiperiRoute: AlEncarShqiperiRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
+  AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
@@ -650,13 +713,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

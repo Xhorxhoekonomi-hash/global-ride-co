@@ -29,6 +29,9 @@ const PATHS = [
   "/al/copart-shqiperi",
   "/al/iaai-shqiperi",
   "/al/kalkulator-transporti",
+  "/al/ankande-amerikane",
+  "/al/encar-shqiperi",
+  "/al/inspektim-makinash",
   "/al/kontakt",
 ];
 

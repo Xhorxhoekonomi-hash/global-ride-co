@@ -19,6 +19,9 @@ export const NAV_AL: NavItemAL[] = [
 export const AL_FOOTER_EXTRAS: NavItemAL[] = [
   { to: "/al/copart-shqiperi", label: "Copart Shqipëri" },
   { to: "/al/iaai-shqiperi", label: "IAAI Shqipëri" },
+  { to: "/al/ankande-amerikane", label: "Ankande Amerikane" },
+  { to: "/al/encar-shqiperi", label: "Encar Shqipëri" },
+  { to: "/al/inspektim-makinash", label: "Inspektim Makinash" },
 ];
 
 export const QUOTE_FORM_LABELS_AL = {
