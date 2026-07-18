@@ -22,6 +22,10 @@ export const AL_FOOTER_EXTRAS: NavItemAL[] = [
   { to: "/al/ankande-amerikane", label: "Ankande Amerikane" },
   { to: "/al/encar-shqiperi", label: "Encar Shqipëri" },
   { to: "/al/inspektim-makinash", label: "Inspektim Makinash" },
+  { to: "/al/makina-nga-dubai", label: "Makina nga Dubai" },
+  { to: "/al/transport-me-kontenier", label: "Transport me Kontenier" },
+  { to: "/al/transport-roro", label: "Transport RoRo" },
+  { to: "/al/transport-ajror-makinash", label: "Transport Ajror" },
 ];
 
 export const QUOTE_FORM_LABELS_AL = {
