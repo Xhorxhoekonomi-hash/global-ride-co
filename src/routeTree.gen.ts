@@ -33,6 +33,7 @@ import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
 import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
+import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
 import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
@@ -165,6 +166,12 @@ const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
   path: '/al/transport-me-kontenier',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlTransportAjrorMakinashRoute =
+  AlTransportAjrorMakinashRouteImport.update({
+    id: '/al/transport-ajror-makinash',
+    path: '/al/transport-ajror-makinash',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   id: '/al/makina-nga-korea',
   path: '/al/makina-nga-korea',
@@ -252,6 +259,7 @@ export interface FileRoutesByFullPath {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
@@ -289,6 +297,7 @@ export interface FileRoutesByTo {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
@@ -327,6 +336,7 @@ export interface FileRoutesById {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
@@ -366,6 +376,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/en/albania'
@@ -403,6 +414,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/en/albania'
@@ -440,6 +452,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/en/albania'
@@ -478,6 +491,7 @@ export interface RootRouteChildren {
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlTransportAjrorMakinashRoute: typeof AlTransportAjrorMakinashRoute
   AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
@@ -656,6 +670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlTransportMeKontenierRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/transport-ajror-makinash': {
+      id: '/al/transport-ajror-makinash'
+      path: '/al/transport-ajror-makinash'
+      fullPath: '/al/transport-ajror-makinash'
+      preLoaderRoute: typeof AlTransportAjrorMakinashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-korea': {
       id: '/al/makina-nga-korea'
       path: '/al/makina-nga-korea'
@@ -766,6 +787,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlTransportAjrorMakinashRoute: AlTransportAjrorMakinashRoute,
   AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
   AlTransportRoroRoute: AlTransportRoroRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
