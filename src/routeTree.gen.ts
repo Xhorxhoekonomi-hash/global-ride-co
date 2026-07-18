@@ -31,7 +31,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
+import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
@@ -152,9 +154,19 @@ const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
   path: '/en/albania',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
+  id: '/al/transport-me-kontenier',
+  path: '/al/transport-me-kontenier',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   id: '/al/makina-nga-korea',
   path: '/al/makina-nga-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlMakinaNgaDubaiRoute = AlMakinaNgaDubaiRouteImport.update({
+  id: '/al/makina-nga-dubai',
+  path: '/al/makina-nga-dubai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
@@ -232,7 +244,9 @@ export interface FileRoutesByFullPath {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al/': typeof AlIndexRoute
@@ -266,7 +280,9 @@ export interface FileRoutesByTo {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al': typeof AlIndexRoute
@@ -301,7 +317,9 @@ export interface FileRoutesById {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/al/': typeof AlIndexRoute
@@ -337,7 +355,9 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-me-kontenier'
     | '/en/albania'
     | '/en/netherlands'
     | '/al/'
@@ -371,7 +391,9 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-me-kontenier'
     | '/en/albania'
     | '/en/netherlands'
     | '/al'
@@ -405,7 +427,9 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/transport-me-kontenier'
     | '/en/albania'
     | '/en/netherlands'
     | '/al/'
@@ -440,7 +464,9 @@ export interface RootRouteChildren {
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
+  AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
   AlIndexRoute: typeof AlIndexRoute
@@ -603,11 +629,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAlbaniaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/transport-me-kontenier': {
+      id: '/al/transport-me-kontenier'
+      path: '/al/transport-me-kontenier'
+      fullPath: '/al/transport-me-kontenier'
+      preLoaderRoute: typeof AlTransportMeKontenierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-korea': {
       id: '/al/makina-nga-korea'
       path: '/al/makina-nga-korea'
       fullPath: '/al/makina-nga-korea'
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-dubai': {
+      id: '/al/makina-nga-dubai'
+      path: '/al/makina-nga-dubai'
+      fullPath: '/al/makina-nga-dubai'
+      preLoaderRoute: typeof AlMakinaNgaDubaiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/makina-nga-amerika': {
@@ -704,7 +744,9 @@ const rootRouteChildren: RootRouteChildren = {
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
+  AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
   AlIndexRoute: AlIndexRoute,
@@ -713,13 +755,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
