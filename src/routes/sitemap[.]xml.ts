@@ -32,6 +32,10 @@ const PATHS = [
   "/al/ankande-amerikane",
   "/al/encar-shqiperi",
   "/al/inspektim-makinash",
+  "/al/makina-nga-dubai",
+  "/al/transport-me-kontenier",
+  "/al/transport-roro",
+  "/al/transport-ajror-makinash",
   "/al/kontakt",
 ];
 
