@@ -32,6 +32,7 @@ import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
@@ -157,6 +158,11 @@ const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   path: '/al/makina-nga-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlMakinaNgaDubaiRoute = AlMakinaNgaDubaiRouteImport.update({
+  id: '/al/makina-nga-dubai',
+  path: '/al/makina-nga-dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
   id: '/al/makina-nga-amerika',
   path: '/al/makina-nga-amerika',
@@ -232,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
@@ -266,6 +273,7 @@ export interface FileRoutesByTo {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
@@ -301,6 +309,7 @@ export interface FileRoutesById {
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
+  '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
@@ -337,6 +346,7 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
@@ -371,6 +381,7 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
@@ -405,6 +416,7 @@ export interface FileRouteTypes {
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
     | '/al/makina-nga-amerika'
+    | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
     | '/en/albania'
     | '/en/netherlands'
@@ -440,6 +452,7 @@ export interface RootRouteChildren {
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
+  AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
@@ -610,6 +623,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/makina-nga-dubai': {
+      id: '/al/makina-nga-dubai'
+      path: '/al/makina-nga-dubai'
+      fullPath: '/al/makina-nga-dubai'
+      preLoaderRoute: typeof AlMakinaNgaDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-amerika': {
       id: '/al/makina-nga-amerika'
       path: '/al/makina-nga-amerika'
@@ -704,6 +724,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
+  AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
