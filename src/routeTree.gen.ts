@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -19,6 +20,7 @@ import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
 import { Route as ImportEuropeRouteImport } from './routes/import-europe'
 import { Route as ImportCanadaRouteImport } from './routes/import-canada'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
 import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
@@ -46,6 +48,11 @@ import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiper
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
+const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
+  id: '/why-alpha-worldwide',
+  path: '/why-alpha-worldwide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -94,6 +101,11 @@ const ImportEuropeRoute = ImportEuropeRouteImport.update({
 const ImportCanadaRoute = ImportCanadaRouteImport.update({
   id: '/import-canada',
   path: '/import-canada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -239,6 +251,7 @@ export interface FileRoutesByFullPath {
   '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
@@ -249,6 +262,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -277,6 +291,7 @@ export interface FileRoutesByTo {
   '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
@@ -287,6 +302,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -316,6 +332,7 @@ export interface FileRoutesById {
   '/container-shipping': typeof ContainerShippingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
   '/import-korea': typeof ImportKoreaRoute
@@ -326,6 +343,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -356,6 +374,7 @@ export interface FileRouteTypes {
     | '/container-shipping'
     | '/delivered-vehicles'
     | '/faq'
+    | '/how-it-works'
     | '/import-canada'
     | '/import-europe'
     | '/import-korea'
@@ -366,6 +385,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -394,6 +414,7 @@ export interface FileRouteTypes {
     | '/container-shipping'
     | '/delivered-vehicles'
     | '/faq'
+    | '/how-it-works'
     | '/import-canada'
     | '/import-europe'
     | '/import-korea'
@@ -404,6 +425,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -432,6 +454,7 @@ export interface FileRouteTypes {
     | '/container-shipping'
     | '/delivered-vehicles'
     | '/faq'
+    | '/how-it-works'
     | '/import-canada'
     | '/import-europe'
     | '/import-korea'
@@ -442,6 +465,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -471,6 +495,7 @@ export interface RootRouteChildren {
   ContainerShippingRoute: typeof ContainerShippingRoute
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   FaqRoute: typeof FaqRoute
+  HowItWorksRoute: typeof HowItWorksRoute
   ImportCanadaRoute: typeof ImportCanadaRoute
   ImportEuropeRoute: typeof ImportEuropeRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
@@ -481,6 +506,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
@@ -502,6 +528,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/why-alpha-worldwide': {
+      id: '/why-alpha-worldwide'
+      path: '/why-alpha-worldwide'
+      fullPath: '/why-alpha-worldwide'
+      preLoaderRoute: typeof WhyAlphaWorldwideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -570,6 +603,13 @@ declare module '@tanstack/react-router' {
       path: '/import-canada'
       fullPath: '/import-canada'
       preLoaderRoute: typeof ImportCanadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -767,6 +807,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContainerShippingRoute: ContainerShippingRoute,
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   FaqRoute: FaqRoute,
+  HowItWorksRoute: HowItWorksRoute,
   ImportCanadaRoute: ImportCanadaRoute,
   ImportEuropeRoute: ImportEuropeRoute,
   ImportKoreaRoute: ImportKoreaRoute,
@@ -777,6 +818,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
@@ -798,13 +840,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
