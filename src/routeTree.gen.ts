@@ -10,10 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
+import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
@@ -53,6 +55,11 @@ const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
   path: '/why-alpha-worldwide',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VehicleHistoryCheckRoute = VehicleHistoryCheckRouteImport.update({
+  id: '/vehicle-history-check',
+  path: '/vehicle-history-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -71,6 +78,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const RoroShippingRoute = RoroShippingRouteImport.update({
   id: '/roro-shipping',
   path: '/roro-shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InspectionServiceRoute = InspectionServiceRouteImport.update({
@@ -258,10 +270,12 @@ export interface FileRoutesByFullPath {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -298,10 +312,12 @@ export interface FileRoutesByTo {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -339,10 +355,12 @@ export interface FileRoutesById {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -381,10 +399,12 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -421,10 +441,12 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -461,10 +483,12 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/sitemap.xml'
+    | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -502,10 +526,12 @@ export interface RootRouteChildren {
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
   InspectionServiceRoute: typeof InspectionServiceRoute
+  ReviewsRoute: typeof ReviewsRoute
   RoroShippingRoute: typeof RoroShippingRoute
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
@@ -535,6 +561,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhyAlphaWorldwideRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vehicle-history-check': {
+      id: '/vehicle-history-check'
+      path: '/vehicle-history-check'
+      fullPath: '/vehicle-history-check'
+      preLoaderRoute: typeof VehicleHistoryCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -561,6 +594,13 @@ declare module '@tanstack/react-router' {
       path: '/roro-shipping'
       fullPath: '/roro-shipping'
       preLoaderRoute: typeof RoroShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inspection-service': {
@@ -814,10 +854,12 @@ const rootRouteChildren: RootRouteChildren = {
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
   InspectionServiceRoute: InspectionServiceRoute,
+  ReviewsRoute: ReviewsRoute,
   RoroShippingRoute: RoroShippingRoute,
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
