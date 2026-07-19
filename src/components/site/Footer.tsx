@@ -7,6 +7,11 @@ import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 const COMPANY_LINKS = [
   { to: "/about", label: "About" },
+  { to: "/why-alpha-worldwide", label: "Why Alpha Worldwide" },
+  { to: "/how-it-works", label: "How It Works" },
+  { to: "/reviews", label: "Reviews" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/vehicle-history-check", label: "Vehicle History Check" },
   { to: "/contact", label: "Contact" },
   { to: "/delivered-vehicles", label: "Delivered Vehicles" },
 ];
