@@ -22,8 +22,10 @@ import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
 import { Route as ImportGermanyRouteImport } from './routes/import-germany'
+import { Route as ImportFranceRouteImport } from './routes/import-france'
 import { Route as ImportEuropeRouteImport } from './routes/import-europe'
 import { Route as ImportCanadaRouteImport } from './routes/import-canada'
+import { Route as ImportBelgiumRouteImport } from './routes/import-belgium'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
@@ -117,6 +119,11 @@ const ImportGermanyRoute = ImportGermanyRouteImport.update({
   path: '/import-germany',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImportFranceRoute = ImportFranceRouteImport.update({
+  id: '/import-france',
+  path: '/import-france',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImportEuropeRoute = ImportEuropeRouteImport.update({
   id: '/import-europe',
   path: '/import-europe',
@@ -125,6 +132,11 @@ const ImportEuropeRoute = ImportEuropeRouteImport.update({
 const ImportCanadaRoute = ImportCanadaRouteImport.update({
   id: '/import-canada',
   path: '/import-canada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportBelgiumRoute = ImportBelgiumRouteImport.update({
+  id: '/import-belgium',
+  path: '/import-belgium',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -276,8 +288,10 @@ export interface FileRoutesByFullPath {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
+  '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
@@ -320,8 +334,10 @@ export interface FileRoutesByTo {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
+  '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
@@ -365,8 +381,10 @@ export interface FileRoutesById {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
+  '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
@@ -411,8 +429,10 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
+    | '/import-france'
     | '/import-germany'
     | '/import-korea'
     | '/import-netherlands'
@@ -455,8 +475,10 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
+    | '/import-france'
     | '/import-germany'
     | '/import-korea'
     | '/import-netherlands'
@@ -499,8 +521,10 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
+    | '/import-france'
     | '/import-germany'
     | '/import-korea'
     | '/import-netherlands'
@@ -544,8 +568,10 @@ export interface RootRouteChildren {
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  ImportBelgiumRoute: typeof ImportBelgiumRoute
   ImportCanadaRoute: typeof ImportCanadaRoute
   ImportEuropeRoute: typeof ImportEuropeRoute
+  ImportFranceRoute: typeof ImportFranceRoute
   ImportGermanyRoute: typeof ImportGermanyRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportNetherlandsRoute: typeof ImportNetherlandsRoute
@@ -671,6 +697,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportGermanyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/import-france': {
+      id: '/import-france'
+      path: '/import-france'
+      fullPath: '/import-france'
+      preLoaderRoute: typeof ImportFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/import-europe': {
       id: '/import-europe'
       path: '/import-europe'
@@ -683,6 +716,13 @@ declare module '@tanstack/react-router' {
       path: '/import-canada'
       fullPath: '/import-canada'
       preLoaderRoute: typeof ImportCanadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-belgium': {
+      id: '/import-belgium'
+      path: '/import-belgium'
+      fullPath: '/import-belgium'
+      preLoaderRoute: typeof ImportBelgiumRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -888,8 +928,10 @@ const rootRouteChildren: RootRouteChildren = {
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
+  ImportBelgiumRoute: ImportBelgiumRoute,
   ImportCanadaRoute: ImportCanadaRoute,
   ImportEuropeRoute: ImportEuropeRoute,
+  ImportFranceRoute: ImportFranceRoute,
   ImportGermanyRoute: ImportGermanyRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportNetherlandsRoute: ImportNetherlandsRoute,
