@@ -21,6 +21,7 @@ import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
+import { Route as ImportItalyRouteImport } from './routes/import-italy'
 import { Route as ImportGermanyRouteImport } from './routes/import-germany'
 import { Route as ImportFranceRouteImport } from './routes/import-france'
 import { Route as ImportEuropeRouteImport } from './routes/import-europe'
@@ -112,6 +113,11 @@ const ImportNetherlandsRoute = ImportNetherlandsRouteImport.update({
 const ImportKoreaRoute = ImportKoreaRouteImport.update({
   id: '/import-korea',
   path: '/import-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportItalyRoute = ImportItalyRouteImport.update({
+  id: '/import-italy',
+  path: '/import-italy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImportGermanyRoute = ImportGermanyRouteImport.update({
@@ -293,6 +299,7 @@ export interface FileRoutesByFullPath {
   '/import-europe': typeof ImportEuropeRoute
   '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
+  '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
   '/import-uae': typeof ImportUaeRoute
@@ -339,6 +346,7 @@ export interface FileRoutesByTo {
   '/import-europe': typeof ImportEuropeRoute
   '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
+  '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
   '/import-uae': typeof ImportUaeRoute
@@ -386,6 +394,7 @@ export interface FileRoutesById {
   '/import-europe': typeof ImportEuropeRoute
   '/import-france': typeof ImportFranceRoute
   '/import-germany': typeof ImportGermanyRoute
+  '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
   '/import-uae': typeof ImportUaeRoute
@@ -434,6 +443,7 @@ export interface FileRouteTypes {
     | '/import-europe'
     | '/import-france'
     | '/import-germany'
+    | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
     | '/import-uae'
@@ -480,6 +490,7 @@ export interface FileRouteTypes {
     | '/import-europe'
     | '/import-france'
     | '/import-germany'
+    | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
     | '/import-uae'
@@ -526,6 +537,7 @@ export interface FileRouteTypes {
     | '/import-europe'
     | '/import-france'
     | '/import-germany'
+    | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
     | '/import-uae'
@@ -573,6 +585,7 @@ export interface RootRouteChildren {
   ImportEuropeRoute: typeof ImportEuropeRoute
   ImportFranceRoute: typeof ImportFranceRoute
   ImportGermanyRoute: typeof ImportGermanyRoute
+  ImportItalyRoute: typeof ImportItalyRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportNetherlandsRoute: typeof ImportNetherlandsRoute
   ImportUaeRoute: typeof ImportUaeRoute
@@ -688,6 +701,13 @@ declare module '@tanstack/react-router' {
       path: '/import-korea'
       fullPath: '/import-korea'
       preLoaderRoute: typeof ImportKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-italy': {
+      id: '/import-italy'
+      path: '/import-italy'
+      fullPath: '/import-italy'
+      preLoaderRoute: typeof ImportItalyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/import-germany': {
@@ -933,6 +953,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImportEuropeRoute: ImportEuropeRoute,
   ImportFranceRoute: ImportFranceRoute,
   ImportGermanyRoute: ImportGermanyRoute,
+  ImportItalyRoute: ImportItalyRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportNetherlandsRoute: ImportNetherlandsRoute,
   ImportUaeRoute: ImportUaeRoute,
@@ -966,3 +987,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
