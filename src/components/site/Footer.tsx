@@ -27,7 +27,12 @@ const POPULAR_ROUTES = [
 
 const DESTINATIONS = [
   { to: "/en/albania", label: "Albania" },
-  { to: "/en/netherlands", label: "Netherlands" },
+  { to: "/en/netherlands", label: "Netherlands (Rotterdam Route)" },
+  { to: "/import-netherlands", label: "Import to Netherlands" },
+  { to: "/import-germany", label: "Import to Germany" },
+  { to: "/import-belgium", label: "Import to Belgium" },
+  { to: "/import-france", label: "Import to France" },
+  { to: "/import-italy", label: "Import to Italy" },
 ];
 
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
