@@ -19,6 +19,7 @@ import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
+import { Route as ImportSwitzerlandRouteImport } from './routes/import-switzerland'
 import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
 import { Route as ImportItalyRouteImport } from './routes/import-italy'
@@ -27,6 +28,7 @@ import { Route as ImportFranceRouteImport } from './routes/import-france'
 import { Route as ImportEuropeRouteImport } from './routes/import-europe'
 import { Route as ImportCanadaRouteImport } from './routes/import-canada'
 import { Route as ImportBelgiumRouteImport } from './routes/import-belgium'
+import { Route as ImportAustriaRouteImport } from './routes/import-austria'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
@@ -105,6 +107,11 @@ const ImportUaeRoute = ImportUaeRouteImport.update({
   path: '/import-uae',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImportSwitzerlandRoute = ImportSwitzerlandRouteImport.update({
+  id: '/import-switzerland',
+  path: '/import-switzerland',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImportNetherlandsRoute = ImportNetherlandsRouteImport.update({
   id: '/import-netherlands',
   path: '/import-netherlands',
@@ -143,6 +150,11 @@ const ImportCanadaRoute = ImportCanadaRouteImport.update({
 const ImportBelgiumRoute = ImportBelgiumRouteImport.update({
   id: '/import-belgium',
   path: '/import-belgium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportAustriaRoute = ImportAustriaRouteImport.update({
+  id: '/import-austria',
+  path: '/import-austria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -294,6 +306,7 @@ export interface FileRoutesByFullPath {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
@@ -302,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
@@ -341,6 +355,7 @@ export interface FileRoutesByTo {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
@@ -349,6 +364,7 @@ export interface FileRoutesByTo {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
@@ -389,6 +405,7 @@ export interface FileRoutesById {
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
   '/import-canada': typeof ImportCanadaRoute
   '/import-europe': typeof ImportEuropeRoute
@@ -397,6 +414,7 @@ export interface FileRoutesById {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
@@ -438,6 +456,7 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-austria'
     | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
@@ -446,6 +465,7 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
@@ -485,6 +505,7 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-austria'
     | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
@@ -493,6 +514,7 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
@@ -532,6 +554,7 @@ export interface FileRouteTypes {
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
+    | '/import-austria'
     | '/import-belgium'
     | '/import-canada'
     | '/import-europe'
@@ -540,6 +563,7 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
@@ -580,6 +604,7 @@ export interface RootRouteChildren {
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  ImportAustriaRoute: typeof ImportAustriaRoute
   ImportBelgiumRoute: typeof ImportBelgiumRoute
   ImportCanadaRoute: typeof ImportCanadaRoute
   ImportEuropeRoute: typeof ImportEuropeRoute
@@ -588,6 +613,7 @@ export interface RootRouteChildren {
   ImportItalyRoute: typeof ImportItalyRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportNetherlandsRoute: typeof ImportNetherlandsRoute
+  ImportSwitzerlandRoute: typeof ImportSwitzerlandRoute
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
   InspectionServiceRoute: typeof InspectionServiceRoute
@@ -689,6 +715,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportUaeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/import-switzerland': {
+      id: '/import-switzerland'
+      path: '/import-switzerland'
+      fullPath: '/import-switzerland'
+      preLoaderRoute: typeof ImportSwitzerlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/import-netherlands': {
       id: '/import-netherlands'
       path: '/import-netherlands'
@@ -743,6 +776,13 @@ declare module '@tanstack/react-router' {
       path: '/import-belgium'
       fullPath: '/import-belgium'
       preLoaderRoute: typeof ImportBelgiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-austria': {
+      id: '/import-austria'
+      path: '/import-austria'
+      fullPath: '/import-austria'
+      preLoaderRoute: typeof ImportAustriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -948,6 +988,7 @@ const rootRouteChildren: RootRouteChildren = {
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
+  ImportAustriaRoute: ImportAustriaRoute,
   ImportBelgiumRoute: ImportBelgiumRoute,
   ImportCanadaRoute: ImportCanadaRoute,
   ImportEuropeRoute: ImportEuropeRoute,
@@ -956,6 +997,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImportItalyRoute: ImportItalyRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportNetherlandsRoute: ImportNetherlandsRoute,
+  ImportSwitzerlandRoute: ImportSwitzerlandRoute,
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
   InspectionServiceRoute: InspectionServiceRoute,
@@ -987,13 +1029,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
