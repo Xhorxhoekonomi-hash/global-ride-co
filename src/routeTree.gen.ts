@@ -20,6 +20,8 @@ import { Route as InspectionServiceRouteImport } from './routes/inspection-servi
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportSwitzerlandRouteImport } from './routes/import-switzerland'
+import { Route as ImportSpainRouteImport } from './routes/import-spain'
+import { Route as ImportPolandRouteImport } from './routes/import-poland'
 import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
 import { Route as ImportKoreaRouteImport } from './routes/import-korea'
 import { Route as ImportItalyRouteImport } from './routes/import-italy'
@@ -110,6 +112,16 @@ const ImportUaeRoute = ImportUaeRouteImport.update({
 const ImportSwitzerlandRoute = ImportSwitzerlandRouteImport.update({
   id: '/import-switzerland',
   path: '/import-switzerland',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportSpainRoute = ImportSpainRouteImport.update({
+  id: '/import-spain',
+  path: '/import-spain',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportPolandRoute = ImportPolandRouteImport.update({
+  id: '/import-poland',
+  path: '/import-poland',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImportNetherlandsRoute = ImportNetherlandsRouteImport.update({
@@ -315,6 +327,8 @@ export interface FileRoutesByFullPath {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-poland': typeof ImportPolandRoute
+  '/import-spain': typeof ImportSpainRoute
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
@@ -364,6 +378,8 @@ export interface FileRoutesByTo {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-poland': typeof ImportPolandRoute
+  '/import-spain': typeof ImportSpainRoute
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
@@ -414,6 +430,8 @@ export interface FileRoutesById {
   '/import-italy': typeof ImportItalyRoute
   '/import-korea': typeof ImportKoreaRoute
   '/import-netherlands': typeof ImportNetherlandsRoute
+  '/import-poland': typeof ImportPolandRoute
+  '/import-spain': typeof ImportSpainRoute
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
@@ -465,6 +483,8 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-poland'
+    | '/import-spain'
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
@@ -514,6 +534,8 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-poland'
+    | '/import-spain'
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
@@ -563,6 +585,8 @@ export interface FileRouteTypes {
     | '/import-italy'
     | '/import-korea'
     | '/import-netherlands'
+    | '/import-poland'
+    | '/import-spain'
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
@@ -613,6 +637,8 @@ export interface RootRouteChildren {
   ImportItalyRoute: typeof ImportItalyRoute
   ImportKoreaRoute: typeof ImportKoreaRoute
   ImportNetherlandsRoute: typeof ImportNetherlandsRoute
+  ImportPolandRoute: typeof ImportPolandRoute
+  ImportSpainRoute: typeof ImportSpainRoute
   ImportSwitzerlandRoute: typeof ImportSwitzerlandRoute
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
@@ -720,6 +746,20 @@ declare module '@tanstack/react-router' {
       path: '/import-switzerland'
       fullPath: '/import-switzerland'
       preLoaderRoute: typeof ImportSwitzerlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-spain': {
+      id: '/import-spain'
+      path: '/import-spain'
+      fullPath: '/import-spain'
+      preLoaderRoute: typeof ImportSpainRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-poland': {
+      id: '/import-poland'
+      path: '/import-poland'
+      fullPath: '/import-poland'
+      preLoaderRoute: typeof ImportPolandRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/import-netherlands': {
@@ -997,6 +1037,8 @@ const rootRouteChildren: RootRouteChildren = {
   ImportItalyRoute: ImportItalyRoute,
   ImportKoreaRoute: ImportKoreaRoute,
   ImportNetherlandsRoute: ImportNetherlandsRoute,
+  ImportPolandRoute: ImportPolandRoute,
+  ImportSpainRoute: ImportSpainRoute,
   ImportSwitzerlandRoute: ImportSwitzerlandRoute,
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
