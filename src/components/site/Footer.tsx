@@ -33,6 +33,12 @@ const DESTINATIONS = [
   { to: "/import-belgium", label: "Import to Belgium" },
   { to: "/import-france", label: "Import to France" },
   { to: "/import-italy", label: "Import to Italy" },
+  { to: "/import-switzerland", label: "Import to Switzerland" },
+  { to: "/import-austria", label: "Import to Austria" },
+  { to: "/import-spain", label: "Import to Spain" },
+  { to: "/import-poland", label: "Import to Poland" },
+  { to: "/import-czech-republic", label: "Import to Czech Republic" },
+  { to: "/import-romania", label: "Import to Romania" },
 ];
 
 const FOOTER_SERVICES = SERVICES.filter((s) => s.hasDedicatedPage);
