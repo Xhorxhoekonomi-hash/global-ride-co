@@ -32,7 +32,7 @@ const FAQS = [
   { q: "Which Spanish port handles most vehicle imports?", a: "Depending on the shipping route, vehicles commonly arrive at Barcelona or Valencia on the Mediterranean coast, or Algeciras near the Strait of Gibraltar." },
   { q: "Why might a shipment route through Algeciras instead of Barcelona?", a: "Algeciras is one of the busiest ports in the Mediterranean and a common routing point for vessels arriving from further afield — the specific port depends on the shipping line and schedule." },
   { q: "What does vehicle conformity mean for imports into Spain?", a: "Spanish registration typically requires proof that the vehicle conforms to applicable technical standards, alongside standard import documentation. Requirements vary and should always be confirmed with the local registration authority." },
-  { q: "Can I get a vehicle inspected before shipping it to Spain?", a: "Where operationally possible, we coordinate pre-purchase inspection at origin — never guaranteed for every listing." },
+  { q: "Can I get a vehicle inspected before shipping it to Spain?", a: "Where operationally possible, we coordinate pre-purchase inspection at origin — availability depends on the seller, the auction, and access to the vehicle." },
   { q: "Do you coordinate Spanish customs clearance?", a: "We coordinate customs paperwork with licensed local agents at the port of entry. Customs values, taxes, and clearance decisions are set by the relevant customs authority, not by Alpha Worldwide." },
 ];
 
