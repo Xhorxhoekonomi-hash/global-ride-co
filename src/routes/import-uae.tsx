@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { Phone, MapPin, ShoppingBag, ShieldCheck, FileText, Truck, Ship, Plane, MessageCircle, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Truck, Ship, Plane, MessageCircle, ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";

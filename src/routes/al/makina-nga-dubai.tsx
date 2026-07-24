@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Gem, ShieldCheck, FileText, Ship, Plane, MessageCircle, MapPin } from "lucide-react";
+import { Gem, ShieldCheck, Ship, Plane, MessageCircle, MapPin } from "lucide-react";
 import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
