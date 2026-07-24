@@ -43,7 +43,9 @@ import { Route as AuctionAccessRouteImport } from './routes/auction-access'
 import { Route as AirfreightRouteImport } from './routes/airfreight'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
+import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
@@ -231,11 +233,22 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIndexRoute = AlIndexRouteImport.update({
   id: '/al/',
   path: '/al/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesHowToBuyACarFromUsaAuctionsRoute =
+  GuidesHowToBuyACarFromUsaAuctionsRouteImport.update({
+    id: '/guides/how-to-buy-a-car-from-usa-auctions',
+    path: '/guides/how-to-buy-a-car-from-usa-auctions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   id: '/en/netherlands',
   path: '/en/netherlands',
@@ -369,7 +382,9 @@ export interface FileRoutesByFullPath {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al/': typeof AlIndexRoute
+  '/guides/': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesByTo {
@@ -422,7 +437,9 @@ export interface FileRoutesByTo {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al': typeof AlIndexRoute
+  '/guides': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRoutesById {
@@ -476,7 +493,9 @@ export interface FileRoutesById {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al/': typeof AlIndexRoute
+  '/guides/': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
 }
 export interface FileRouteTypes {
@@ -531,7 +550,9 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al/'
+    | '/guides/'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -584,7 +605,9 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al'
+    | '/guides'
     | '/en/shipping/south-korea-to-rotterdam'
   id:
     | '__root__'
@@ -637,7 +660,9 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al/'
+    | '/guides/'
     | '/en/shipping/south-korea-to-rotterdam'
   fileRoutesById: FileRoutesById
 }
@@ -691,7 +716,9 @@ export interface RootRouteChildren {
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   AlIndexRoute: typeof AlIndexRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
 }
 
@@ -935,11 +962,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/': {
       id: '/al/'
       path: '/al'
       fullPath: '/al/'
       preLoaderRoute: typeof AlIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-to-buy-a-car-from-usa-auctions': {
+      id: '/guides/how-to-buy-a-car-from-usa-auctions'
+      path: '/guides/how-to-buy-a-car-from-usa-auctions'
+      fullPath: '/guides/how-to-buy-a-car-from-usa-auctions'
+      preLoaderRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/netherlands': {
@@ -1107,19 +1148,12 @@ const rootRouteChildren: RootRouteChildren = {
   AlTransportRoroRoute: AlTransportRoroRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  GuidesHowToBuyACarFromUsaAuctionsRoute:
+    GuidesHowToBuyACarFromUsaAuctionsRoute,
   AlIndexRoute: AlIndexRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
