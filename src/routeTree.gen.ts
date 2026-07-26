@@ -45,6 +45,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
+import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './routes/guides/how-to-check-a-used-car-before-buying'
 import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
 import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
 import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
@@ -245,6 +247,18 @@ const AlIndexRoute = AlIndexRouteImport.update({
   path: '/al/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesVehicleImportDocumentsRoute =
+  GuidesVehicleImportDocumentsRouteImport.update({
+    id: '/guides/vehicle-import-documents',
+    path: '/guides/vehicle-import-documents',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesHowToCheckAUsedCarBeforeBuyingRoute =
+  GuidesHowToCheckAUsedCarBeforeBuyingRouteImport.update({
+    id: '/guides/how-to-check-a-used-car-before-buying',
+    path: '/guides/how-to-check-a-used-car-before-buying',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesHowToBuyACarFromUsaAuctionsRoute =
   GuidesHowToBuyACarFromUsaAuctionsRouteImport.update({
     id: '/guides/how-to-buy-a-car-from-usa-auctions',
@@ -398,6 +412,8 @@ export interface FileRoutesByFullPath {
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
+  '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
@@ -455,6 +471,8 @@ export interface FileRoutesByTo {
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
+  '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
@@ -513,6 +531,8 @@ export interface FileRoutesById {
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
+  '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
@@ -572,6 +592,8 @@ export interface FileRouteTypes {
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
+    | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
     | '/en/shipping/south-korea-to-rotterdam'
@@ -629,6 +651,8 @@ export interface FileRouteTypes {
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
+    | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/vehicle-import-documents'
     | '/al'
     | '/guides'
     | '/en/shipping/south-korea-to-rotterdam'
@@ -686,6 +710,8 @@ export interface FileRouteTypes {
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
+    | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
     | '/en/shipping/south-korea-to-rotterdam'
@@ -744,6 +770,8 @@ export interface RootRouteChildren {
   GuidesContainerVsRoroCarShippingRoute: typeof GuidesContainerVsRoroCarShippingRoute
   GuidesCopartVsIaaiRoute: typeof GuidesCopartVsIaaiRoute
   GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
+  GuidesHowToCheckAUsedCarBeforeBuyingRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
@@ -1003,6 +1031,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/vehicle-import-documents': {
+      id: '/guides/vehicle-import-documents'
+      path: '/guides/vehicle-import-documents'
+      fullPath: '/guides/vehicle-import-documents'
+      preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-to-check-a-used-car-before-buying': {
+      id: '/guides/how-to-check-a-used-car-before-buying'
+      path: '/guides/how-to-check-a-used-car-before-buying'
+      fullPath: '/guides/how-to-check-a-used-car-before-buying'
+      preLoaderRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/how-to-buy-a-car-from-usa-auctions': {
       id: '/guides/how-to-buy-a-car-from-usa-auctions'
       path: '/guides/how-to-buy-a-car-from-usa-auctions'
@@ -1193,6 +1235,9 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesCopartVsIaaiRoute: GuidesCopartVsIaaiRoute,
   GuidesHowToBuyACarFromUsaAuctionsRoute:
     GuidesHowToBuyACarFromUsaAuctionsRoute,
+  GuidesHowToCheckAUsedCarBeforeBuyingRoute:
+    GuidesHowToCheckAUsedCarBeforeBuyingRoute,
+  GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
