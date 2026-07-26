@@ -46,6 +46,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
+import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
+import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
@@ -249,6 +251,17 @@ const GuidesHowToBuyACarFromUsaAuctionsRoute =
     path: '/guides/how-to-buy-a-car-from-usa-auctions',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesCopartVsIaaiRoute = GuidesCopartVsIaaiRouteImport.update({
+  id: '/guides/copart-vs-iaai',
+  path: '/guides/copart-vs-iaai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesContainerVsRoroCarShippingRoute =
+  GuidesContainerVsRoroCarShippingRouteImport.update({
+    id: '/guides/container-vs-roro-car-shipping',
+    path: '/guides/container-vs-roro-car-shipping',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   id: '/en/netherlands',
   path: '/en/netherlands',
@@ -382,6 +395,8 @@ export interface FileRoutesByFullPath {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
+  '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
@@ -437,6 +452,8 @@ export interface FileRoutesByTo {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
+  '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
@@ -493,6 +510,8 @@ export interface FileRoutesById {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
+  '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
@@ -550,6 +569,8 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/container-vs-roro-car-shipping'
+    | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al/'
     | '/guides/'
@@ -605,6 +626,8 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/container-vs-roro-car-shipping'
+    | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al'
     | '/guides'
@@ -660,6 +683,8 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/container-vs-roro-car-shipping'
+    | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/al/'
     | '/guides/'
@@ -716,6 +741,8 @@ export interface RootRouteChildren {
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  GuidesContainerVsRoroCarShippingRoute: typeof GuidesContainerVsRoroCarShippingRoute
+  GuidesCopartVsIaaiRoute: typeof GuidesCopartVsIaaiRoute
   GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
@@ -983,6 +1010,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/copart-vs-iaai': {
+      id: '/guides/copart-vs-iaai'
+      path: '/guides/copart-vs-iaai'
+      fullPath: '/guides/copart-vs-iaai'
+      preLoaderRoute: typeof GuidesCopartVsIaaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/container-vs-roro-car-shipping': {
+      id: '/guides/container-vs-roro-car-shipping'
+      path: '/guides/container-vs-roro-car-shipping'
+      fullPath: '/guides/container-vs-roro-car-shipping'
+      preLoaderRoute: typeof GuidesContainerVsRoroCarShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/netherlands': {
       id: '/en/netherlands'
       path: '/en/netherlands'
@@ -1148,6 +1189,8 @@ const rootRouteChildren: RootRouteChildren = {
   AlTransportRoroRoute: AlTransportRoroRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  GuidesContainerVsRoroCarShippingRoute: GuidesContainerVsRoroCarShippingRoute,
+  GuidesCopartVsIaaiRoute: GuidesCopartVsIaaiRoute,
   GuidesHowToBuyACarFromUsaAuctionsRoute:
     GuidesHowToBuyACarFromUsaAuctionsRoute,
   AlIndexRoute: AlIndexRoute,
@@ -1157,13 +1200,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
