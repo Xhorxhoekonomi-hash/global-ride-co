@@ -138,7 +138,7 @@ function GuideImportDocuments() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><AlertTriangle className="h-5 w-5 text-teal" /> Requirements genuinely vary</h2>
-            <p className="mt-3 text-slate-body">This list is not universal or legally exhaustive. What you actually need depends on the origin country, the destination country, the specific vehicle, the shipping method, and the local customs andrideshare procedure that applies. We're not a law firm or tax advisor — for anything with legal or tax implications, confirm directly with the relevant authority. See our <Link to="/how-it-works" className="text-teal hover:underline">full process overview</Link> for how documentation fits into the bigger picture.</p>
+            <p className="mt-3 text-slate-body">This list is not universal or legally exhaustive. What you actually need depends on the origin country, the destination country, the specific vehicle, the shipping method, and the local customs and registration procedure that applies. We're not a law firm or tax advisor — for anything with legal or tax implications, confirm directly with the relevant authority. See our <Link to="/how-it-works" className="text-teal hover:underline">full process overview</Link> for how documentation fits into the bigger picture.</p>
           </div>
         </div>
       </section>
