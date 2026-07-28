@@ -50,6 +50,7 @@ import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './rout
 import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
 import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
 import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
+import { Route as GuidesCarShippingCostsExplainedRouteImport } from './routes/guides/car-shipping-costs-explained'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
@@ -276,6 +277,12 @@ const GuidesContainerVsRoroCarShippingRoute =
     path: '/guides/container-vs-roro-car-shipping',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesCarShippingCostsExplainedRoute =
+  GuidesCarShippingCostsExplainedRouteImport.update({
+    id: '/guides/car-shipping-costs-explained',
+    path: '/guides/car-shipping-costs-explained',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   id: '/en/netherlands',
   path: '/en/netherlands',
@@ -409,6 +416,7 @@ export interface FileRoutesByFullPath {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
@@ -468,6 +476,7 @@ export interface FileRoutesByTo {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
@@ -528,6 +537,7 @@ export interface FileRoutesById {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
@@ -589,6 +599,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-shipping-costs-explained'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
@@ -648,6 +659,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-shipping-costs-explained'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
@@ -707,6 +719,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-shipping-costs-explained'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
@@ -767,6 +780,7 @@ export interface RootRouteChildren {
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  GuidesCarShippingCostsExplainedRoute: typeof GuidesCarShippingCostsExplainedRoute
   GuidesContainerVsRoroCarShippingRoute: typeof GuidesContainerVsRoroCarShippingRoute
   GuidesCopartVsIaaiRoute: typeof GuidesCopartVsIaaiRoute
   GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
@@ -1066,6 +1080,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesContainerVsRoroCarShippingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/car-shipping-costs-explained': {
+      id: '/guides/car-shipping-costs-explained'
+      path: '/guides/car-shipping-costs-explained'
+      fullPath: '/guides/car-shipping-costs-explained'
+      preLoaderRoute: typeof GuidesCarShippingCostsExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/netherlands': {
       id: '/en/netherlands'
       path: '/en/netherlands'
@@ -1231,6 +1252,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlTransportRoroRoute: AlTransportRoroRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  GuidesCarShippingCostsExplainedRoute: GuidesCarShippingCostsExplainedRoute,
   GuidesContainerVsRoroCarShippingRoute: GuidesContainerVsRoroCarShippingRoute,
   GuidesCopartVsIaaiRoute: GuidesCopartVsIaaiRoute,
   GuidesHowToBuyACarFromUsaAuctionsRoute:
@@ -1245,13 +1267,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
