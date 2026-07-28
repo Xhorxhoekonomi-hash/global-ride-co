@@ -11,6 +11,7 @@ const COMPANY_LINKS = [
   { to: "/how-it-works", label: "How It Works" },
   { to: "/reviews", label: "Reviews" },
   { to: "/faq", label: "FAQ" },
+  { to: "/guides", label: "Guides" },
   { to: "/vehicle-history-check", label: "Vehicle History Check" },
   { to: "/contact", label: "Contact" },
   { to: "/delivered-vehicles", label: "Delivered Vehicles" },
