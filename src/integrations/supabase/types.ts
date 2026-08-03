@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          created_at: string
+          destination: string | null
+          email: string | null
+          id: string
+          locale: string | null
+          message: string | null
+          model: string | null
+          name: string
+          origin: string
+          phone: string
+          referrer: string | null
+          service: string | null
+          source: string
+          source_page: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          vehicle_link: string | null
+        }
+        Insert: {
+          created_at?: string
+          destination?: string | null
+          email?: string | null
+          id?: string
+          locale?: string | null
+          message?: string | null
+          model?: string | null
+          name: string
+          origin: string
+          phone: string
+          referrer?: string | null
+          service?: string | null
+          source: string
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          vehicle_link?: string | null
+        }
+        Update: {
+          created_at?: string
+          destination?: string | null
+          email?: string | null
+          id?: string
+          locale?: string | null
+          message?: string | null
+          model?: string | null
+          name?: string
+          origin?: string
+          phone?: string
+          referrer?: string | null
+          service?: string | null
+          source?: string
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          vehicle_link?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
