@@ -79,7 +79,7 @@ export function Footer() {
             <a href="#" aria-label="Facebook" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 hover:border-teal hover:text-teal">
               <Facebook className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 hover:border-teal hover:text-teal">
+            <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 hover:border-teal hover:text-teal">
               <Instagram className="h-4 w-4" />
             </a>
           </div>

@@ -72,7 +72,7 @@ function Contact() {
                 <a href="#" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-border text-navy hover:border-teal hover:text-teal">
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-border text-navy hover:border-teal hover:text-teal">
+                <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-border text-navy hover:border-teal hover:text-teal">
                   <Instagram className="h-4 w-4" />
                 </a>
               </div>
