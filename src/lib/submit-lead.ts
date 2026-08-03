@@ -1,5 +1,6 @@
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { supabase } from "@/integrations/supabase/client";
 
 export type LeadPayload = {
   name: string;
@@ -101,9 +102,27 @@ function buildWhatsAppMessage(lead: LeadPayload): string {
 
 async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Promise<{ ok: boolean; error?: string }> {
   try {
-    if (import.meta.env.DEV) {
-      console.info("[lead:stub] would persist lead ->", { ...lead, ...attribution });
-    }
+    const { error } = await supabase.from("leads").insert({
+      name: lead.name,
+      phone: lead.phone,
+      email: lead.email ?? null,
+      origin: lead.origin,
+      destination: lead.destination ?? null,
+      vehicle_link: lead.vehicleLink ?? null,
+      model: lead.model ?? null,
+      service: lead.service ?? null,
+      message: lead.message ?? null,
+      source: lead.source,
+      locale: lead.locale ?? null,
+      source_page: attribution.source_page || null,
+      referrer: attribution.referrer || null,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_term: attribution.utm_term,
+      utm_content: attribution.utm_content,
+    });
+    if (error) return { ok: false, error: error.message };
     return { ok: true };
   } catch (err) {
     return { ok: false, error: err instanceof Error ? err.message : "Unknown error" };
@@ -113,7 +132,12 @@ async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Pro
 export async function submitLead(lead: LeadPayload): Promise<{ ok: boolean; whatsappUrl: string }> {
   const locale = lead.locale ?? "en";
   const attribution = captureAttribution(locale);
-  await persistLead(lead, attribution);
+  // Fire-and-forget: a failed DB insert must never block or delay the WhatsApp redirect.
+  void persistLead(lead, attribution).then((res) => {
+    if (!res.ok && import.meta.env.DEV) {
+      console.warn("[lead] persist failed ->", res.error);
+    }
+  });
   trackEvent("quote_submitted", { source: lead.source, origin: lead.origin, locale });
   if (lead.vehicleLink) {
     trackEvent("vehicle_link_submitted", { source: lead.source, origin: lead.origin });
