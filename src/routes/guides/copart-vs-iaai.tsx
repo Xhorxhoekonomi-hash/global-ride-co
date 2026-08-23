@@ -3,6 +3,8 @@ import { Scale, AlertTriangle, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { AuthorBox } from "@/components/guides/AuthorBox";
+import { GuideMeta } from "@/components/guides/GuideMeta";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -70,7 +72,7 @@ function GuideCopartVsIaai() {
         <img src={heroImg} alt="Salvage auction vehicles ready for buyer inspection" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
         <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
-          <div className="eyebrow text-teal-glow">Guide · Auctions</div>
+          <GuideMeta category="auctions" readingTime="4 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Copart vs IAAI: A Neutral Comparison</h1>
           <p className="mt-4 max-w-2xl text-white/75">Two of the largest US salvage auction platforms, compared honestly — including where they're more similar than different.</p>
         </div>
@@ -157,6 +159,9 @@ function GuideCopartVsIaai() {
         </div>
       </section>
 
+      <section className="bg-background">
+        <div className="container-page py-12 md:py-14"><AuthorBox /></div>
+      </section>
       <section className="section-mist">
         <div className="container-page py-12 text-center md:py-14">
           <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3">
