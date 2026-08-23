@@ -76,6 +76,7 @@ import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
@@ -424,6 +425,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/admin/leads',
+  path: '/admin/leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -470,6 +476,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -540,6 +547,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -611,6 +619,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -683,6 +692,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -753,6 +763,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -823,6 +834,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
@@ -894,6 +906,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
+  AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
@@ -1397,6 +1410,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/admin/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -1446,6 +1466,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
+  AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
