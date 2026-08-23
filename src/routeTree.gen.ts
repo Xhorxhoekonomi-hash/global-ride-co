@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
 import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShippingEstimateDisclaimerRouteImport } from './routes/shipping-estimate-disclaimer'
 import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
 import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
@@ -36,6 +39,7 @@ import { Route as ImportAustriaRouteImport } from './routes/import-austria'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
@@ -83,11 +87,22 @@ const VehicleHistoryCheckRoute = VehicleHistoryCheckRouteImport.update({
   path: '/vehicle-history-check',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShippingEstimateDisclaimerRoute =
+  ShippingEstimateDisclaimerRouteImport.update({
+    id: '/shipping-estimate-disclaimer',
+    path: '/shipping-estimate-disclaimer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ShippingCalculatorRoute = ShippingCalculatorRouteImport.update({
   id: '/shipping-calculator',
   path: '/shipping-calculator',
@@ -106,6 +121,11 @@ const RoroShippingRoute = RoroShippingRouteImport.update({
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InspectionServiceRoute = InspectionServiceRouteImport.update({
@@ -206,6 +226,11 @@ const FaqRoute = FaqRouteImport.update({
 const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
   id: '/delivered-vehicles',
   path: '/delivered-vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContainerShippingRoute = ContainerShippingRouteImport.update({
@@ -408,6 +433,7 @@ export interface FileRoutesByFullPath {
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -428,11 +454,14 @@ export interface FileRoutesByFullPath {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
+  '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
@@ -473,6 +502,7 @@ export interface FileRoutesByTo {
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -493,11 +523,14 @@ export interface FileRoutesByTo {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
+  '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
@@ -539,6 +572,7 @@ export interface FileRoutesById {
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -559,11 +593,14 @@ export interface FileRoutesById {
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
+  '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
@@ -606,6 +643,7 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/container-shipping'
+    | '/cookie-policy'
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
@@ -626,11 +664,14 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
+    | '/shipping-estimate-disclaimer'
     | '/sitemap.xml'
+    | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
@@ -671,6 +712,7 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/container-shipping'
+    | '/cookie-policy'
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
@@ -691,11 +733,14 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
+    | '/shipping-estimate-disclaimer'
     | '/sitemap.xml'
+    | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
@@ -736,6 +781,7 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/container-shipping'
+    | '/cookie-policy'
     | '/delivered-vehicles'
     | '/faq'
     | '/how-it-works'
@@ -756,11 +802,14 @@ export interface FileRouteTypes {
     | '/import-uae'
     | '/import-usa'
     | '/inspection-service'
+    | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
+    | '/shipping-estimate-disclaimer'
     | '/sitemap.xml'
+    | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
     | '/al/ankande-amerikane'
@@ -802,6 +851,7 @@ export interface RootRouteChildren {
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   ContainerShippingRoute: typeof ContainerShippingRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
@@ -822,11 +872,14 @@ export interface RootRouteChildren {
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
   InspectionServiceRoute: typeof InspectionServiceRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReviewsRoute: typeof ReviewsRoute
   RoroShippingRoute: typeof RoroShippingRoute
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
+  ShippingEstimateDisclaimerRoute: typeof ShippingEstimateDisclaimerRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
@@ -876,11 +929,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehicleHistoryCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-estimate-disclaimer': {
+      id: '/shipping-estimate-disclaimer'
+      path: '/shipping-estimate-disclaimer'
+      fullPath: '/shipping-estimate-disclaimer'
+      preLoaderRoute: typeof ShippingEstimateDisclaimerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shipping-calculator': {
@@ -909,6 +976,13 @@ declare module '@tanstack/react-router' {
       path: '/reviews'
       fullPath: '/reviews'
       preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inspection-service': {
@@ -1049,6 +1123,13 @@ declare module '@tanstack/react-router' {
       path: '/delivered-vehicles'
       fullPath: '/delivered-vehicles'
       preLoaderRoute: typeof DeliveredVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/container-shipping': {
@@ -1314,6 +1395,7 @@ const rootRouteChildren: RootRouteChildren = {
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   ContainerShippingRoute: ContainerShippingRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
@@ -1334,11 +1416,14 @@ const rootRouteChildren: RootRouteChildren = {
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
   InspectionServiceRoute: InspectionServiceRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReviewsRoute: ReviewsRoute,
   RoroShippingRoute: RoroShippingRoute,
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
+  ShippingEstimateDisclaimerRoute: ShippingEstimateDisclaimerRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,

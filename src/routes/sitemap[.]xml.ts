@@ -64,6 +64,10 @@ const PATHS = [
   "/al/transport-roro",
   "/al/transport-ajror-makinash",
   "/al/kontakt",
+  "/privacy-policy",
+  "/cookie-policy",
+  "/terms",
+  "/shipping-estimate-disclaimer",
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
