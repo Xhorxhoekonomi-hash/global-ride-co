@@ -55,6 +55,7 @@ import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-v
 import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
 import { Route as GuidesCommonCarImportMistakesRouteImport } from './routes/guides/common-car-import-mistakes'
 import { Route as GuidesCarShippingCostsExplainedRouteImport } from './routes/guides/car-shipping-costs-explained'
+import { Route as GuidesCarImportGlossaryRouteImport } from './routes/guides/car-import-glossary'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
@@ -311,6 +312,11 @@ const GuidesCarShippingCostsExplainedRoute =
     path: '/guides/car-shipping-costs-explained',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesCarImportGlossaryRoute = GuidesCarImportGlossaryRouteImport.update({
+  id: '/guides/car-import-glossary',
+  path: '/guides/car-import-glossary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
   id: '/en/netherlands',
   path: '/en/netherlands',
@@ -444,6 +450,7 @@ export interface FileRoutesByFullPath {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
@@ -508,6 +515,7 @@ export interface FileRoutesByTo {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
@@ -573,6 +581,7 @@ export interface FileRoutesById {
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
+  '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
   '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
@@ -639,6 +648,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-import-glossary'
     | '/guides/car-shipping-costs-explained'
     | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
@@ -703,6 +713,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-import-glossary'
     | '/guides/car-shipping-costs-explained'
     | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
@@ -767,6 +778,7 @@ export interface FileRouteTypes {
     | '/al/transport-roro'
     | '/en/albania'
     | '/en/netherlands'
+    | '/guides/car-import-glossary'
     | '/guides/car-shipping-costs-explained'
     | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
@@ -832,6 +844,7 @@ export interface RootRouteChildren {
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
+  GuidesCarImportGlossaryRoute: typeof GuidesCarImportGlossaryRoute
   GuidesCarShippingCostsExplainedRoute: typeof GuidesCarShippingCostsExplainedRoute
   GuidesCommonCarImportMistakesRoute: typeof GuidesCommonCarImportMistakesRoute
   GuidesContainerVsRoroCarShippingRoute: typeof GuidesContainerVsRoroCarShippingRoute
@@ -1171,6 +1184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesCarShippingCostsExplainedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/car-import-glossary': {
+      id: '/guides/car-import-glossary'
+      path: '/guides/car-import-glossary'
+      fullPath: '/guides/car-import-glossary'
+      preLoaderRoute: typeof GuidesCarImportGlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/netherlands': {
       id: '/en/netherlands'
       path: '/en/netherlands'
@@ -1336,6 +1356,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlTransportRoroRoute: AlTransportRoroRoute,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
+  GuidesCarImportGlossaryRoute: GuidesCarImportGlossaryRoute,
   GuidesCarShippingCostsExplainedRoute: GuidesCarShippingCostsExplainedRoute,
   GuidesCommonCarImportMistakesRoute: GuidesCommonCarImportMistakesRoute,
   GuidesContainerVsRoroCarShippingRoute: GuidesContainerVsRoroCarShippingRoute,
