@@ -216,6 +216,12 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 md:flex-row">
           <div>© {new Date().getFullYear()} Alpha Worldwide. {isAlbanian ? "Të gjitha të drejtat e rezervuara." : "All rights reserved."}</div>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link to="/privacy-policy" className="hover:text-teal-glow">{isAlbanian ? "Politika e Privatësisë" : "Privacy Policy"}</Link>
+            <Link to="/cookie-policy" className="hover:text-teal-glow">{isAlbanian ? "Politika e Cookies" : "Cookie Policy"}</Link>
+            <Link to="/terms" className="hover:text-teal-glow">{isAlbanian ? "Kushtet e Shërbimit" : "Terms of Service"}</Link>
+            <Link to="/shipping-estimate-disclaimer" className="hover:text-teal-glow">{isAlbanian ? "Vërejtje mbi Vlerësimet" : "Shipping Estimate Disclaimer"}</Link>
+          </div>
         </div>
       </div>
     </footer>
