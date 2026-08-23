@@ -50,8 +50,10 @@ import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/i
 import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './routes/guides/how-to-check-a-used-car-before-buying'
 import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
+import { Route as GuidesHowLongDoesCarShippingTakeRouteImport } from './routes/guides/how-long-does-car-shipping-take'
 import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
 import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
+import { Route as GuidesCommonCarImportMistakesRouteImport } from './routes/guides/common-car-import-mistakes'
 import { Route as GuidesCarShippingCostsExplainedRouteImport } from './routes/guides/car-shipping-costs-explained'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
@@ -280,6 +282,12 @@ const GuidesHowToBuyACarFromUsaAuctionsRoute =
     path: '/guides/how-to-buy-a-car-from-usa-auctions',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesHowLongDoesCarShippingTakeRoute =
+  GuidesHowLongDoesCarShippingTakeRouteImport.update({
+    id: '/guides/how-long-does-car-shipping-take',
+    path: '/guides/how-long-does-car-shipping-take',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesCopartVsIaaiRoute = GuidesCopartVsIaaiRouteImport.update({
   id: '/guides/copart-vs-iaai',
   path: '/guides/copart-vs-iaai',
@@ -289,6 +297,12 @@ const GuidesContainerVsRoroCarShippingRoute =
   GuidesContainerVsRoroCarShippingRouteImport.update({
     id: '/guides/container-vs-roro-car-shipping',
     path: '/guides/container-vs-roro-car-shipping',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCommonCarImportMistakesRoute =
+  GuidesCommonCarImportMistakesRouteImport.update({
+    id: '/guides/common-car-import-mistakes',
+    path: '/guides/common-car-import-mistakes',
     getParentRoute: () => rootRouteImport,
   } as any)
 const GuidesCarShippingCostsExplainedRoute =
@@ -431,8 +445,10 @@ export interface FileRoutesByFullPath {
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
+  '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
+  '/guides/how-long-does-car-shipping-take': typeof GuidesHowLongDoesCarShippingTakeRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
@@ -493,8 +509,10 @@ export interface FileRoutesByTo {
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
+  '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
+  '/guides/how-long-does-car-shipping-take': typeof GuidesHowLongDoesCarShippingTakeRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
@@ -556,8 +574,10 @@ export interface FileRoutesById {
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-shipping-costs-explained': typeof GuidesCarShippingCostsExplainedRoute
+  '/guides/common-car-import-mistakes': typeof GuidesCommonCarImportMistakesRoute
   '/guides/container-vs-roro-car-shipping': typeof GuidesContainerVsRoroCarShippingRoute
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
+  '/guides/how-long-does-car-shipping-take': typeof GuidesHowLongDoesCarShippingTakeRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
@@ -620,8 +640,10 @@ export interface FileRouteTypes {
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-shipping-costs-explained'
+    | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
+    | '/guides/how-long-does-car-shipping-take'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
     | '/guides/importing-electric-cars'
@@ -682,8 +704,10 @@ export interface FileRouteTypes {
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-shipping-costs-explained'
+    | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
+    | '/guides/how-long-does-car-shipping-take'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
     | '/guides/importing-electric-cars'
@@ -744,8 +768,10 @@ export interface FileRouteTypes {
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-shipping-costs-explained'
+    | '/guides/common-car-import-mistakes'
     | '/guides/container-vs-roro-car-shipping'
     | '/guides/copart-vs-iaai'
+    | '/guides/how-long-does-car-shipping-take'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
     | '/guides/importing-electric-cars'
@@ -807,8 +833,10 @@ export interface RootRouteChildren {
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
   GuidesCarShippingCostsExplainedRoute: typeof GuidesCarShippingCostsExplainedRoute
+  GuidesCommonCarImportMistakesRoute: typeof GuidesCommonCarImportMistakesRoute
   GuidesContainerVsRoroCarShippingRoute: typeof GuidesContainerVsRoroCarShippingRoute
   GuidesCopartVsIaaiRoute: typeof GuidesCopartVsIaaiRoute
+  GuidesHowLongDoesCarShippingTakeRoute: typeof GuidesHowLongDoesCarShippingTakeRoute
   GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   GuidesHowToCheckAUsedCarBeforeBuyingRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
   GuidesImportingElectricCarsRoute: typeof GuidesImportingElectricCarsRoute
@@ -1108,6 +1136,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/how-long-does-car-shipping-take': {
+      id: '/guides/how-long-does-car-shipping-take'
+      path: '/guides/how-long-does-car-shipping-take'
+      fullPath: '/guides/how-long-does-car-shipping-take'
+      preLoaderRoute: typeof GuidesHowLongDoesCarShippingTakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/copart-vs-iaai': {
       id: '/guides/copart-vs-iaai'
       path: '/guides/copart-vs-iaai'
@@ -1120,6 +1155,13 @@ declare module '@tanstack/react-router' {
       path: '/guides/container-vs-roro-car-shipping'
       fullPath: '/guides/container-vs-roro-car-shipping'
       preLoaderRoute: typeof GuidesContainerVsRoroCarShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/common-car-import-mistakes': {
+      id: '/guides/common-car-import-mistakes'
+      path: '/guides/common-car-import-mistakes'
+      fullPath: '/guides/common-car-import-mistakes'
+      preLoaderRoute: typeof GuidesCommonCarImportMistakesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/car-shipping-costs-explained': {
@@ -1295,8 +1337,10 @@ const rootRouteChildren: RootRouteChildren = {
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
   GuidesCarShippingCostsExplainedRoute: GuidesCarShippingCostsExplainedRoute,
+  GuidesCommonCarImportMistakesRoute: GuidesCommonCarImportMistakesRoute,
   GuidesContainerVsRoroCarShippingRoute: GuidesContainerVsRoroCarShippingRoute,
   GuidesCopartVsIaaiRoute: GuidesCopartVsIaaiRoute,
+  GuidesHowLongDoesCarShippingTakeRoute: GuidesHowLongDoesCarShippingTakeRoute,
   GuidesHowToBuyACarFromUsaAuctionsRoute:
     GuidesHowToBuyACarFromUsaAuctionsRoute,
   GuidesHowToCheckAUsedCarBeforeBuyingRoute:
