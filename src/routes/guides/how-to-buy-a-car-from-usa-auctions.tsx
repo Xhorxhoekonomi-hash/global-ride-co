@@ -3,6 +3,8 @@ import { AlertTriangle, CheckCircle2, MessageCircle, Calculator } from "lucide-r
 import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { AuthorBox } from "@/components/guides/AuthorBox";
+import { GuideMeta } from "@/components/guides/GuideMeta";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -73,7 +75,7 @@ function GuideUsaAuctions() {
         <img src={heroImg} alt="Vehicles at a US auction yard" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
         <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
-          <div className="eyebrow text-teal-glow">Guide · Auctions</div>
+          <GuideMeta category="auctions" readingTime="5 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How to Buy a Car From USA Auctions</h1>
           <p className="mt-4 max-w-2xl text-white/75">From choosing between Copart, IAAI, Manheim, and ADESA to the paperwork that follows a winning bid — the full process, including the parts most guides skip.</p>
         </div>
@@ -188,6 +190,9 @@ function GuideUsaAuctions() {
         </div>
       </section>
 
+      <section className="bg-background">
+        <div className="container-page py-12 md:py-14"><AuthorBox /></div>
+      </section>
       <section className="bg-background">
         <div className="container-page py-12 text-center md:py-14">
           <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3">

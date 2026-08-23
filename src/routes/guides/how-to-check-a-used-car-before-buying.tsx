@@ -3,6 +3,8 @@ import { Search, ShieldAlert, Calculator, CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { AuthorBox } from "@/components/guides/AuthorBox";
+import { GuideMeta } from "@/components/guides/GuideMeta";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -69,7 +71,7 @@ function GuideUsedCarCheck() {
         <img src={heroImg} alt="Technician checking a used vehicle before purchase" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
         <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
-          <div className="eyebrow text-teal-glow">Guide · Inspection</div>
+          <GuideMeta category="inspection" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How to Check a Used Car Before Buying</h1>
           <p className="mt-4 max-w-2xl text-white/75">A practical, honest checklist — including where inspection limits genuinely are, not just what to look for.</p>
         </div>
@@ -128,6 +130,9 @@ function GuideUsedCarCheck() {
         </div>
       </section>
 
+      <section className="bg-background">
+        <div className="container-page py-12 md:py-14"><AuthorBox /></div>
+      </section>
       <section className="bg-background">
         <div className="container-page py-12 text-center md:py-14">
           <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3">
