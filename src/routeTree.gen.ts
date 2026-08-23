@@ -46,6 +46,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
+import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './routes/guides/how-to-check-a-used-car-before-buying'
 import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
 import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
@@ -254,6 +256,18 @@ const GuidesVehicleImportDocumentsRoute =
     path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesImportingLuxuryCarsRoute =
+  GuidesImportingLuxuryCarsRouteImport.update({
+    id: '/guides/importing-luxury-cars',
+    path: '/guides/importing-luxury-cars',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesImportingElectricCarsRoute =
+  GuidesImportingElectricCarsRouteImport.update({
+    id: '/guides/importing-electric-cars',
+    path: '/guides/importing-electric-cars',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesHowToCheckAUsedCarBeforeBuyingRoute =
   GuidesHowToCheckAUsedCarBeforeBuyingRouteImport.update({
     id: '/guides/how-to-check-a-used-car-before-buying',
@@ -421,6 +435,8 @@ export interface FileRoutesByFullPath {
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
+  '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
@@ -481,6 +497,8 @@ export interface FileRoutesByTo {
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
+  '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
@@ -542,6 +560,8 @@ export interface FileRoutesById {
   '/guides/copart-vs-iaai': typeof GuidesCopartVsIaaiRoute
   '/guides/how-to-buy-a-car-from-usa-auctions': typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   '/guides/how-to-check-a-used-car-before-buying': typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
+  '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
@@ -604,6 +624,8 @@ export interface FileRouteTypes {
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/importing-electric-cars'
+    | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
@@ -664,6 +686,8 @@ export interface FileRouteTypes {
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/importing-electric-cars'
+    | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
     | '/al'
     | '/guides'
@@ -724,6 +748,8 @@ export interface FileRouteTypes {
     | '/guides/copart-vs-iaai'
     | '/guides/how-to-buy-a-car-from-usa-auctions'
     | '/guides/how-to-check-a-used-car-before-buying'
+    | '/guides/importing-electric-cars'
+    | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
@@ -785,6 +811,8 @@ export interface RootRouteChildren {
   GuidesCopartVsIaaiRoute: typeof GuidesCopartVsIaaiRoute
   GuidesHowToBuyACarFromUsaAuctionsRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRoute
   GuidesHowToCheckAUsedCarBeforeBuyingRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRoute
+  GuidesImportingElectricCarsRoute: typeof GuidesImportingElectricCarsRoute
+  GuidesImportingLuxuryCarsRoute: typeof GuidesImportingLuxuryCarsRoute
   GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
@@ -1052,6 +1080,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/importing-luxury-cars': {
+      id: '/guides/importing-luxury-cars'
+      path: '/guides/importing-luxury-cars'
+      fullPath: '/guides/importing-luxury-cars'
+      preLoaderRoute: typeof GuidesImportingLuxuryCarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/importing-electric-cars': {
+      id: '/guides/importing-electric-cars'
+      path: '/guides/importing-electric-cars'
+      fullPath: '/guides/importing-electric-cars'
+      preLoaderRoute: typeof GuidesImportingElectricCarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/how-to-check-a-used-car-before-buying': {
       id: '/guides/how-to-check-a-used-car-before-buying'
       path: '/guides/how-to-check-a-used-car-before-buying'
@@ -1259,6 +1301,8 @@ const rootRouteChildren: RootRouteChildren = {
     GuidesHowToBuyACarFromUsaAuctionsRoute,
   GuidesHowToCheckAUsedCarBeforeBuyingRoute:
     GuidesHowToCheckAUsedCarBeforeBuyingRoute,
+  GuidesImportingElectricCarsRoute: GuidesImportingElectricCarsRoute,
+  GuidesImportingLuxuryCarsRoute: GuidesImportingLuxuryCarsRoute,
   GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
