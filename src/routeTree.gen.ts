@@ -75,6 +75,7 @@ import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
@@ -418,6 +419,11 @@ const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
   path: '/al/ankande-amerikane',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -464,6 +470,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -533,6 +540,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -603,6 +611,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
+  '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
@@ -674,6 +683,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -743,6 +753,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -812,6 +823,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/vehicle-history-check'
     | '/why-alpha-worldwide'
+    | '/admin/login'
     | '/al/ankande-amerikane'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
@@ -882,6 +894,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
+  AdminLoginRoute: typeof AdminLoginRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
@@ -1377,6 +1390,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -1426,6 +1446,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
+  AdminLoginRoute: AdminLoginRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
