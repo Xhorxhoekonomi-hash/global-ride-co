@@ -60,6 +60,8 @@ const FAQS = [
   { q: "Which platform has better vehicle condition information?", a: "Both platforms provide auction-generated photos and damage descriptions using broadly similar formats. Neither publishes an independent mechanical inspection by default — that's a separate step you coordinate yourself." },
   { q: "Can the same vehicle appear on both platforms?", a: "No — a given vehicle is listed on one platform at a time, though similar vehicles (same make, model, and damage type) commonly appear on both." },
   { q: "Does one platform make pickup and storage easier?", a: "Both platforms operate on a similar model: a limited free storage window after the sale, followed by daily storage fees. Planning transport promptly after a win matters on either platform." },
+  { q: "Do Copart and IAAI operate in different regions of the US?", a: "Both operate a large network of yards across the country, though the specific mix of yards and inventory in any given region can differ. A vehicle's location affects inland transport distance and cost regardless of which platform it's listed on." },
+  { q: "Should I set up an account on both platforms?", a: "Many buyers do, simply because it widens the pool of available vehicles. There's no requirement to commit to a single platform, and comparing listings for the same type of vehicle across both is a reasonable way to shop." },
 ];
 
 function GuideCopartVsIaai() {
@@ -83,6 +85,7 @@ function GuideCopartVsIaai() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> Copart and IAAI are more alike than different — similar inventory profile, similar condition-reporting format, similar fee structure. Neither one is reliably cheaper or safer across the board. The better question is usually which platform has the specific vehicle you want, at a condition and price that make sense.</p>
           </div>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Both are among the largest vehicle auction networks in the United States, processing enormous volumes of insurance total-loss, salvage, and fleet vehicles every week across hundreds of yards nationwide. For an international buyer, the choice of platform can feel like it should matter more than it usually does in practice — this guide breaks down where the real differences are, and where the two platforms are functionally interchangeable.</p>
         </div>
       </section>
 
@@ -119,8 +122,13 @@ function GuideCopartVsIaai() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
+              <h2 className="font-display text-2xl font-bold text-navy">How bidding actually works on each platform</h2>
+              <p className="mt-3 text-slate-body">Both platforms run timed online auctions with a live bidding window for each lot, and both offer some form of proxy or pre-bid system, where you set a maximum and the system bids incrementally on your behalf up to that limit. The mechanics differ slightly in interface and terminology, but the underlying concept — set a ceiling, let the system handle the increments, don't get drawn into bidding past your limit in the final moments — applies equally to both.</p>
+            </div>
+            <div>
               <h2 className="font-display text-2xl font-bold text-navy">Which platform suits which buyer</h2>
               <p className="mt-3 text-slate-body">Neither platform is the "better" choice in the abstract. Buyers focused on repairable damage at the lowest entry price will find comparable options on both. Buyers who want a slightly wider net for a specific make or model often check both platforms rather than committing to one. The deciding factor is usually the specific listing, not the platform brand.</p>
+              <p className="mt-3 text-slate-body">If you're sourcing a common model, you'll likely find comparable listings on both platforms at similar prices, and the decision often comes down to which specific vehicle has the best condition and history for your budget. If you're after something less common, availability on a given week can matter more than platform preference — checking both regularly, or having someone check on your behalf, widens your options meaningfully.</p>
             </div>
             <div>
               <h2 className="font-display text-2xl font-bold text-navy">Why neither platform eliminates purchase risk</h2>
@@ -128,7 +136,11 @@ function GuideCopartVsIaai() {
             </div>
             <div>
               <h2 className="font-display text-2xl font-bold text-navy">Inspection availability</h2>
-              <p className="mt-3 text-slate-body">Inspection access depends on the yard's individual policy and the specific vehicle, not just the platform overall. We check feasibility for a given lot before you commit rather than assuming access in advance.</p>
+              <p className="mt-3 text-slate-body">Inspection access depends on the yard's individual policy and the specific vehicle, not just the platform overall. Some yards are more accommodating of third-party inspectors than others, and this can vary between locations within the same platform, not just between Copart and IAAI as brands. We check feasibility for a given lot before you commit rather than assuming access in advance.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">Logistics after a winning bid</h2>
+              <p className="mt-3 text-slate-body">Once you've won a lot on either platform, the practical next steps are the same: arrange inland transport from the yard, confirm your shipping method, and prepare export documentation. See our <Link to="/guides/how-to-buy-a-car-from-usa-auctions" className="text-teal hover:underline">full auction buying guide</Link> for the complete process from bid to delivery, and our <Link to="/guides/container-vs-roro-car-shipping" className="text-teal hover:underline">container vs RoRo comparison</Link> for choosing a shipping method.</p>
             </div>
           </div>
         </div>
@@ -136,9 +148,15 @@ function GuideCopartVsIaai() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><AlertTriangle className="h-5 w-5 text-teal" /> A note on comparison sites</h2>
-            <p className="mt-3 text-slate-body">Fee tables and "which is cheaper" claims circulate widely online, but auction fee schedules change and vary by account tier — a number that was accurate a year ago may not be now. We verify current terms for a specific listing rather than repeating a static table that could mislead you.</p>
+          <div className="mx-auto max-w-3xl space-y-10">
+            <div>
+              <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><AlertTriangle className="h-5 w-5 text-teal" /> A note on comparison sites</h2>
+              <p className="mt-3 text-slate-body">Fee tables and "which is cheaper" claims circulate widely online, but auction fee schedules change and vary by account tier — a number that was accurate a year ago may not be now. We verify current terms for a specific listing rather than repeating a static table that could mislead you.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">What actually decides your total cost</h2>
+              <p className="mt-3 text-slate-body">Regardless of which platform a vehicle comes from, the total cost of getting it to your driveway breaks down the same way: the hammer price, buyer fees layered on top, inland transport from the yard, shipping, and destination duties and taxes. Platform choice affects the first two of these — the price and fee structure — but has little bearing on the rest. See our <Link to="/guides/car-shipping-costs-explained" className="text-teal hover:underline">shipping costs guide</Link> for the full breakdown.</p>
+            </div>
           </div>
         </div>
       </section>
