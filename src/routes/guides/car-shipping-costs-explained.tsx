@@ -57,6 +57,8 @@ const FAQS = [
   { q: "What's the biggest cost people forget to budget for?", a: "Demurrage and detention — charges that apply if a container or piece of shipping equipment is held at the port longer than the included free time. Prompt customs clearance and collection avoid these." },
   { q: "Can the shipping cost change after I get a quote?", a: "Freight rates and schedules can shift between quote and booking, and currency movement can affect the final figure. We confirm current numbers at the point of booking rather than treating an early estimate as locked in indefinitely." },
   { q: "Why does vehicle size affect the cost?", a: "Larger or oversized vehicles can require more container space, different loading equipment, or affect eligibility for a shared container — all of which factor into the logistics cost, separate from the vehicle's purchase price." },
+  { q: "Is a shared container always cheaper than a dedicated one?", a: "Usually, since the cost is split across multiple shipments, but a shared container can also mean waiting longer for it to fill before departure. A dedicated container costs more but moves on your schedule rather than waiting on other cargo." },
+  { q: "How much should I budget for destination duties and taxes?", a: "This varies significantly by country and vehicle, and is set by your destination's customs and tax authority rather than by Alpha Worldwide — we recommend checking your specific destination's current rates directly, since these figures change and differ meaningfully between countries." },
 ];
 
 function GuideShippingCosts() {
@@ -80,6 +82,7 @@ function GuideShippingCosts() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> total cost breaks into three distinct categories — logistics charges we estimate directly (purchase, fees, freight), destination charges set independently by tax and customs authorities, and variable costs that depend on timing or circumstances. Confusing these categories is the most common source of budget surprises.</p>
           </div>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">A vehicle import rarely has a single price tag — it's a sum of separate charges from different parties at different stages, and the final number depends on decisions you make along the way, like shipping method and vehicle condition, as much as on the vehicle's purchase price itself. Understanding which category each cost belongs to is the difference between a budget that holds up and one that gets derailed by a charge nobody mentioned.</p>
         </div>
       </section>
 
@@ -121,9 +124,19 @@ function GuideShippingCosts() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Getting a real number</h2>
-            <p className="mt-3 text-slate-body">The most reliable way to see logistics costs for your specific vehicle and route is our <Link to="/calculator" className="text-teal hover:underline">shipping calculator</Link> — it gives an itemized estimate rather than a single vague figure. For destination taxes and registration costs, we point you toward what to expect, but final numbers come from the local authority.</p>
+          <div className="mx-auto max-w-3xl space-y-10">
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">Getting a real number</h2>
+              <p className="mt-3 text-slate-body">The most reliable way to see logistics costs for your specific vehicle and route is our <Link to="/calculator" className="text-teal hover:underline">shipping calculator</Link> — it gives an itemized estimate rather than a single vague figure. For destination taxes and registration costs, we point you toward what to expect, but final numbers come from the local authority.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">How shipping method affects the total</h2>
+              <p className="mt-3 text-slate-body">Your choice between container and RoRo shipping is one of the bigger cost levers within your control. RoRo tends to be more economical for standard, running vehicles where it's available, while container shipping — necessary for non-running or high-value vehicles — typically costs more but includes full protection from weather and handling exposure. See our <Link to="/guides/container-vs-roro-car-shipping" className="text-teal hover:underline">container vs RoRo guide</Link> for the full comparison.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">Budgeting realistically</h2>
+              <p className="mt-3 text-slate-body">A workable approach is to budget for the estimated logistics cost from the calculator, then separately research the approximate customs duty and tax rate that applies to vehicle imports in your destination country, since that's often the single largest cost outside the vehicle's own price. Treating these as one combined number, rather than two separate ones with different sources, is where budgets tend to go wrong.</p>
+            </div>
           </div>
         </div>
       </section>
