@@ -60,6 +60,8 @@ const FAQS = [
   { q: "Is container shipping always more expensive than RoRo?", a: "Not always — the actual cost gap depends on the route, current freight rates, and whether you're using a shared or dedicated container. We compare both options for your specific route rather than assuming one is cheaper." },
   { q: "Can I ship personal belongings inside the vehicle?", a: "This depends on the shipping line, the destination customs authority, and the shipping method — restrictions vary and we confirm what's allowed for your specific shipment before loading." },
   { q: "Are electric vehicles restricted on certain shipping methods?", a: "Some shipping lines apply additional requirements or restrictions to EVs due to battery-related cargo classifications. We check current restrictions for your specific vehicle and route before booking." },
+  { q: "How is a vehicle secured inside a shipping container?", a: "The vehicle is driven or winched in, then fixed in place with lashing straps and wheel chocks anchored to the container floor, following standard loading practices to prevent movement during the ocean crossing." },
+  { q: "What happens if my route doesn't have RoRo service?", a: "If RoRo isn't available for your specific origin-destination pair, container shipping becomes the practical default rather than a matter of preference — we confirm actual route availability before recommending either option." },
 ];
 
 function GuideContainerVsRoro() {
@@ -83,6 +85,7 @@ function GuideContainerVsRoro() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> RoRo (Roll-on/Roll-off) is often the simpler, more economical option for a standard, functional vehicle on a route where it's available. Container shipping — shared or dedicated — is the better fit for non-running vehicles, high-value cars, heavy modifications, or routes without RoRo service.</p>
           </div>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">This is one of the first practical decisions you'll make once a vehicle is purchased, and it affects cost, protection, and how quickly your vehicle can move once it reaches port. There's no single right answer — the correct choice depends on the vehicle itself, the route, and what you're prioritizing between cost and peace of mind.</p>
         </div>
       </section>
 
@@ -124,9 +127,19 @@ function GuideContainerVsRoro() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">When airfreight enters the conversation</h2>
-            <p className="mt-3 text-slate-body">For genuinely urgent timelines or exceptionally high-value vehicles, <Link to="/airfreight" className="text-teal hover:underline">airfreight</Link> is a third option worth considering — at a materially higher cost than either sea-freight method. It's the exception rather than the default for most imports.</p>
+          <div className="mx-auto max-w-3xl space-y-10">
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">Loading and terminal handling</h2>
+              <p className="mt-3 text-slate-body">For container shipments, the vehicle is driven or winched into the container at an origin terminal, then secured with lashing straps and wheel chocks before the doors close for the voyage. For RoRo, the vehicle is driven onto the vessel via a ramp system at the terminal and parked on a designated deck, where it's similarly secured for transit. Both processes follow standard industry practices designed to prevent movement during the crossing, and both require the vehicle to physically reach the terminal in a condition suitable for that specific loading method.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">When airfreight enters the conversation</h2>
+              <p className="mt-3 text-slate-body">For genuinely urgent timelines or exceptionally high-value vehicles, <Link to="/airfreight" className="text-teal hover:underline">airfreight</Link> is a third option worth considering — at a materially higher cost than either sea-freight method. It's the exception rather than the default for most imports, but worth knowing about if your situation is time-sensitive enough to justify it. See our <Link to="/guides/importing-luxury-cars" className="text-teal hover:underline">luxury car import guide</Link> for more on when this makes sense.</p>
+            </div>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">Making the decision for your vehicle</h2>
+              <p className="mt-3 text-slate-body">A practical way to approach this: start by checking whether RoRo is even available on your route, since that immediately narrows the decision. If it is, and your vehicle is standard, running, and not heavily modified, RoRo is worth strong consideration for the cost savings. If your vehicle is non-running, particularly valuable, extensively modified, or your route simply doesn't have RoRo service, container shipping is the more straightforward choice regardless of cost comparison.</p>
+            </div>
           </div>
         </div>
       </section>
