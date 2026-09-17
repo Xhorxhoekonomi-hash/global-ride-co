@@ -70,6 +70,19 @@ const emptyState = (originOptions: Option[], destinationOptions: Option[], servi
   message: "",
 });
 
+const UNSAVED_COPY: Record<Locale, { title: string; body: string; reopen: string }> = {
+  en: {
+    title: "Please send the WhatsApp message",
+    body: "We could not confirm that your details were saved on our side. Please send the WhatsApp message so your request definitely reaches our team.",
+    reopen: "Open WhatsApp again",
+  },
+  sq: {
+    title: "Ju lutem dërgoni mesazhin në WhatsApp",
+    body: "Nuk arritëm të konfirmojmë ruajtjen e të dhënave tuaja. Ju lutem dërgoni mesazhin në WhatsApp që kërkesa juaj të mbërrijë me siguri te ekipi ynë.",
+    reopen: "Hap përsëri WhatsApp",
+  },
+};
+
 const PHONE_RE = /^[+()\d][\d\s\-()]{6,}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -99,6 +112,8 @@ export function QuoteForm({
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [started, setStarted] = useState(false);
+  const [saved, setSaved] = useState(true);
+  const [lastWhatsappUrl, setLastWhatsappUrl] = useState("");
   const [honeypot, setHoneypot] = useState("");
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -136,7 +151,7 @@ export function QuoteForm({
 
     setStatus("submitting");
     try {
-      const { whatsappUrl } = await submitLead({
+      const { whatsappUrl, saved: didSave } = await submitLead({
         name: values.name.trim(),
         phone: values.phone.trim(),
         email: values.email.trim() || undefined,
@@ -150,6 +165,8 @@ export function QuoteForm({
         locale,
       });
 
+      setSaved(didSave);
+      setLastWhatsappUrl(whatsappUrl);
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setStatus("success");
     } catch {
@@ -177,14 +194,35 @@ export function QuoteForm({
           onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
         }`}
       >
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-teal/15 text-teal">
-          <CheckCircle2 className="h-7 w-7" />
+        <div
+          className={`mx-auto grid h-14 w-14 place-items-center rounded-full ${
+            saved ? "bg-teal/15 text-teal" : "bg-amber-500/15 text-amber-600"
+          }`}
+        >
+          {saved ? <CheckCircle2 className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
         </div>
         <h3 className={`font-display mt-4 text-2xl font-bold ${onDark ? "text-white" : "text-navy"}`}>
-          {L.successTitle}
+          {saved ? L.successTitle : UNSAVED_COPY[locale].title}
         </h3>
+        {!saved && (
+          <>
+            <p className={`mt-2 text-sm ${onDark ? "text-white/70" : "text-slate-body"}`}>
+              {UNSAVED_COPY[locale].body}
+            </p>
+            {lastWhatsappUrl && (
+              <a
+                href={lastWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                {UNSAVED_COPY[locale].reopen}
+              </a>
+            )}
+          </>
+        )}
         <p className={`mt-2 text-sm ${onDark ? "text-white/70" : "text-slate-body"}`}>
-          {L.successBody}{" "}
+          {saved ? `${L.successBody} ` : ""}
           <button
             type="button"
             className="font-semibold text-teal underline underline-offset-2"

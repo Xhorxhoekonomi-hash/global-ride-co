@@ -1,4 +1,4 @@
-CREATE TABLE public.leads (
+CREATE TABLE IF NOT EXISTS public.leads (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   created_at timestamptz NOT NULL DEFAULT now(),
   name text NOT NULL,
@@ -27,11 +27,15 @@ GRANT ALL ON public.leads TO service_role;
 
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Anyone can submit a lead" ON public.leads;
+
 CREATE POLICY "Anyone can submit a lead"
 ON public.leads
 FOR INSERT
 TO anon, authenticated
 WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Authenticated users can view leads" ON public.leads;
 
 CREATE POLICY "Authenticated users can view leads"
 ON public.leads
