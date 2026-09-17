@@ -138,7 +138,7 @@ export function QuoteForm({
 
     setStatus("submitting");
     try {
-      const { whatsappUrl } = await submitLead({
+      const { whatsappUrl, saved: didSave } = await submitLead({
         name: values.name.trim(),
         phone: values.phone.trim(),
         email: values.email.trim() || undefined,
@@ -152,6 +152,8 @@ export function QuoteForm({
         locale,
       });
 
+      setSaved(didSave);
+      setLastWhatsappUrl(whatsappUrl);
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setStatus("success");
     } catch {
