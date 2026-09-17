@@ -155,5 +155,5 @@ export async function submitLead(
   const message = buildWhatsAppMessage(lead);
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
 
-  return { ok: true, whatsappUrl };
+  return { ok: true, saved, whatsappUrl };
 }
