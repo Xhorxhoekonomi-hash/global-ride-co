@@ -181,8 +181,12 @@ export function QuoteForm({
           onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
         }`}
       >
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-teal/15 text-teal">
-          <CheckCircle2 className="h-7 w-7" />
+        <div
+          className={`mx-auto grid h-14 w-14 place-items-center rounded-full ${
+            saved ? "bg-teal/15 text-teal" : "bg-amber-500/15 text-amber-600"
+          }`}
+        >
+          {saved ? <CheckCircle2 className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
         </div>
         <h3 className={`font-display mt-4 text-2xl font-bold ${onDark ? "text-white" : "text-navy"}`}>
           {L.successTitle}
