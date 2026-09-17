@@ -70,6 +70,19 @@ const emptyState = (originOptions: Option[], destinationOptions: Option[], servi
   message: "",
 });
 
+const UNSAVED_COPY: Record<Locale, { title: string; body: string; reopen: string }> = {
+  en: {
+    title: "Please send the WhatsApp message",
+    body: "We could not confirm that your details were saved on our side. Please send the WhatsApp message so your request definitely reaches our team.",
+    reopen: "Open WhatsApp again",
+  },
+  sq: {
+    title: "Ju lutem dërgoni mesazhin në WhatsApp",
+    body: "Nuk arritëm të konfirmojmë ruajtjen e të dhënave tuaja. Ju lutem dërgoni mesazhin në WhatsApp që kërkesa juaj të mbërrijë me siguri te ekipi ynë.",
+    reopen: "Hap përsëri WhatsApp",
+  },
+};
+
 const PHONE_RE = /^[+()\d][\d\s\-()]{6,}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
