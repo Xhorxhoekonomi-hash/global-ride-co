@@ -129,15 +129,24 @@ async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Pro
   }
 }
 
-export async function submitLead(lead: LeadPayload): Promise<{ ok: boolean; whatsappUrl: string }> {
+const PERSIST_TIMEOUT_MS = 3500;
+
+export async function submitLead(
+  lead: LeadPayload,
+): Promise<{ ok: boolean; saved: boolean; whatsappUrl: string }> {
   const locale = lead.locale ?? "en";
   const attribution = captureAttribution(locale);
-  // Fire-and-forget: a failed DB insert must never block or delay the WhatsApp redirect.
-  void persistLead(lead, attribution).then((res) => {
-    if (!res.ok && import.meta.env.DEV) {
-      console.warn("[lead] persist failed ->", res.error);
-    }
-  });
+
+  // Awaited, but raced against a timeout so a slow/failed save can never block the WhatsApp redirect.
+  const timeout = new Promise<{ ok: false; error: string }>((resolve) =>
+    setTimeout(() => resolve({ ok: false, error: "timeout" }), PERSIST_TIMEOUT_MS),
+  );
+  const result = await Promise.race([persistLead(lead, attribution), timeout]);
+  if (!result.ok) {
+    console.warn("[lead] persist failed ->", result.error);
+  }
+  const saved = result.ok;
+
   trackEvent("quote_submitted", { source: lead.source, origin: lead.origin, locale });
   if (lead.vehicleLink) {
     trackEvent("vehicle_link_submitted", { source: lead.source, origin: lead.origin });
