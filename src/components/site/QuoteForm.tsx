@@ -189,10 +189,27 @@ export function QuoteForm({
           {saved ? <CheckCircle2 className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
         </div>
         <h3 className={`font-display mt-4 text-2xl font-bold ${onDark ? "text-white" : "text-navy"}`}>
-          {L.successTitle}
+          {saved ? L.successTitle : UNSAVED_COPY[locale].title}
         </h3>
+        {!saved && (
+          <>
+            <p className={`mt-2 text-sm ${onDark ? "text-white/70" : "text-slate-body"}`}>
+              {UNSAVED_COPY[locale].body}
+            </p>
+            {lastWhatsappUrl && (
+              <a
+                href={lastWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                {UNSAVED_COPY[locale].reopen}
+              </a>
+            )}
+          </>
+        )}
         <p className={`mt-2 text-sm ${onDark ? "text-white/70" : "text-slate-body"}`}>
-          {L.successBody}{" "}
+          {saved ? `${L.successBody} ` : ""}
           <button
             type="button"
             className="font-semibold text-teal underline underline-offset-2"
