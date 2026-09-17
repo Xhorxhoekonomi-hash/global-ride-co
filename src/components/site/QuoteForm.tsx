@@ -99,6 +99,8 @@ export function QuoteForm({
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [started, setStarted] = useState(false);
+  const [saved, setSaved] = useState(true);
+  const [lastWhatsappUrl, setLastWhatsappUrl] = useState("");
   const [honeypot, setHoneypot] = useState("");
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
