@@ -24,6 +24,17 @@ export const Route = createFileRoute("/admin/leads")({
   beforeLoad: async () => {
     const { data, error } = await supabase.auth.getUser();
     if (error || !data.user) throw redirect({ to: "/admin/login" });
+
+    const { data: staff, error: staffError } = await supabase
+      .from("staff_users")
+      .select("user_id")
+      .eq("user_id", data.user.id)
+      .maybeSingle();
+
+    if (staffError || !staff) {
+      await supabase.auth.signOut();
+      throw redirect({ to: "/admin/login" });
+    }
   },
   head: () =>
     buildHead({
