@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertTriangle, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/guides/common-car-import-mistakes")({
       title: "Common Car Import Mistakes | What to Avoid",
       description: "The most common mistakes buyers make when importing a vehicle — missing documents, buying unseen, fake sellers, customs misconceptions, storage charges, and more.",
       path: "/guides/common-car-import-mistakes",
-      image: heroImg,
     });
     return {
       ...base,
@@ -50,15 +49,13 @@ function GuideCommonMistakes() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Common Import Mistakes" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle import paperwork and planning" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero>
+        <div>
           <GuideMeta category="buying" readingTime="6 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Common Car Import Mistakes</h1>
-          <p className="mt-4 max-w-2xl text-white/75">The mistakes that cost buyers the most time and money — and how to avoid each one.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">The mistakes that cost buyers the most time and money — and how to avoid each one.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

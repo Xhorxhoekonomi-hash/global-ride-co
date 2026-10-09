@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock, Ship, Landmark, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +15,6 @@ export const Route = createFileRoute("/guides/how-long-does-car-shipping-take")(
       title: "How Long Does Car Shipping Take? | Stage-by-Stage Timeline",
       description: "A stage-by-stage look at what affects vehicle shipping timelines — from origin pickup through consolidation, sailing, and destination customs. Ranges, not promises.",
       path: "/guides/how-long-does-car-shipping-take",
-      image: heroImg,
     });
     return {
       ...base,
@@ -49,15 +49,13 @@ function GuideShippingTime() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Shipping Timelines" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle at port awaiting shipment" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero photo={PHOTO_SELECTIONS.urus}>
+        <div>
           <GuideMeta category="shipping" readingTime="5 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How Long Does Car Shipping Take?</h1>
-          <p className="mt-4 max-w-2xl text-white/75">A stage-by-stage look at what actually determines your timeline — in ranges, never as a fixed promise.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">A stage-by-stage look at what actually determines your timeline — in ranges, never as a fixed promise.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

@@ -1,9 +1,9 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Gavel, ShieldCheck, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, Package } from "lucide-react";
-import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
@@ -22,7 +22,6 @@ export const Route = createFileRoute("/al/makina-nga-amerika")({
         { lang: "sq", path: "/al/makina-nga-amerika" },
       ],
       xDefault: "/import-usa",
-      image: heroImg,
     });
     return {
       ...base,
@@ -99,7 +98,7 @@ function MakinaNgaAmerika() {
 
   return (
     <>
-      <InnerPageHero eyebrow="Import automjetesh nga SHBA-ja" title="Blej dhe transporto një makinë nga Amerika" description="Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri." image={heroImg} imageAlt="Port amerikan me automjete">
+      <InnerPageHero eyebrow="Import automjetesh nga SHBA-ja" title="Blej dhe transporto një makinë nga Amerika" description="Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri." image={PHOTO_SELECTIONS.porsche.src} imageAlt={PHOTO_SELECTIONS.porsche.sq}>
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}

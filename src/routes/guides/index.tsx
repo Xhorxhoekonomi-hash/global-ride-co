@@ -1,7 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Gavel, Scale, Ship, Search, FileText, Calculator, ArrowRight, Battery, Gem, Clock, AlertTriangle, BookOpen } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { GUIDE_CATEGORIES, type GuideCategory } from "@/components/guides/GuideMeta";
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/guides/")({
       title: "Vehicle Import Guides | Alpha Worldwide",
       description: "Practical, plain-language guides on buying from US auctions, comparing Copart and IAAI, container vs RoRo shipping, pre-purchase inspection, import documents, EVs, luxury cars, and shipping costs.",
       path: "/guides",
-      image: heroImg,
     });
     return {
       ...base,
@@ -86,15 +85,13 @@ function GuidesHub() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Reference documents used when planning a vehicle import" width={1920} height={700} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[40vh] flex-col justify-end py-24">
-          <div className="eyebrow text-teal-glow">Guides</div>
+      <EditorialHero>
+        <div>
+          <div className="eyebrow text-primary">Guides</div>
           <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Vehicle Import Guides</h1>
-          <p className="mt-4 max-w-2xl text-white/75">Practical answers to the questions that come up before, during, and after buying a vehicle abroad — written to help you decide, not to sell you.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">Practical answers to the questions that come up before, during, and after buying a vehicle abroad — written to help you decide, not to sell you.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">

@@ -1,7 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ShoppingBag, ShieldCheck, FileText, Ship, Landmark, Truck, MessageCircle, Calculator, Package } from "lucide-react";
-import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -58,7 +58,6 @@ export const Route = createFileRoute("/en/shipping/south-korea-to-rotterdam")({
       title: "Car Shipping from South Korea to Rotterdam | Alpha Worldwide",
       description: "Vehicle sourcing, inspection, and shipping from South Korea to Rotterdam — with onward delivery to the Netherlands, Germany, Belgium, and France.",
       path: "/en/shipping/south-korea-to-rotterdam",
-      image: heroImg,
     });
     return {
       ...base,
@@ -102,16 +101,14 @@ function KoreaToRotterdam() {
     <>
       <Breadcrumbs items={[{ label: "Import From South Korea", to: "/import-korea" }, { label: "Shipping to Rotterdam" }]} />
 
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Container terminal at the Port of Rotterdam" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">South Korea → Rotterdam</div>
+            <div className="eyebrow text-primary">South Korea → Rotterdam</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Vehicle Shipping from South Korea to Rotterdam
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Sourcing, inspection, and ocean freight from Busan or Incheon to Rotterdam — with onward delivery across the Netherlands, Germany, Belgium, and France.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -127,14 +124,14 @@ function KoreaToRotterdam() {
               <a
                 href="/calculator"
                 onClick={() => trackEvent("calculator_started", { source: "korea-rotterdam-hero" })}
-                className="btn-outline-light"
+                className="btn-outline-dark"
               >
                 <Calculator className="h-4 w-4" /> Calculate Shipping Cost
               </a>
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

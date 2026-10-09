@@ -1,8 +1,8 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Eye, FileCheck, ShoppingBag, CreditCard, FileText, Ship, Anchor, Landmark, PackageCheck, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CONTACT } from "@/lib/site-data";
@@ -27,7 +27,6 @@ export const Route = createFileRoute("/how-it-works")({
       title: "How It Works | Vehicle Import Process | Alpha Worldwide",
       description: "The complete Alpha Worldwide process, step by step — from choosing a vehicle to collection, with inspection, purchase, export, shipping, and customs coordination explained.",
       path: "/how-it-works",
-      image: heroImg,
     });
     return {
       ...base,
@@ -71,7 +70,7 @@ function HowItWorks() {
   return (
     <>
       <Breadcrumbs items={[{ label: "How It Works" }]} />
-      <InnerPageHero eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control." image={heroImg} imageAlt="Vehicle logistics coordination from sourcing to delivery">
+      <InnerPageHero eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control." image={PHOTO_SELECTIONS.transporter.src} imageAlt={PHOTO_SELECTIONS.transporter.en}>
 
       </InnerPageHero>
 

@@ -1,13 +1,14 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Clock, DollarSign, Ship } from "lucide-react";
-import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/roro-shipping")({
   head: () => {
-    const base = buildHead({ title: "RoRo Car Shipping to Albania | Alpha Worldwide", description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports from USA, Korea, UAE and Canada — fast, economical, scheduled sailings.", path: "/roro-shipping", image: heroImg });
+    const base = buildHead({ title: "RoRo Car Shipping to Albania | Alpha Worldwide", description: "Roll-on/Roll-off vehicle shipping to Durrës, Albania and European ports from USA, Korea, UAE and Canada — fast, economical, scheduled sailings.", path: "/roro-shipping", });
     return {
       ...base,
       scripts: [
@@ -43,21 +44,19 @@ function RoroShipping() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "RoRo Shipping" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="RoRo vessel shipping" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.transporter}>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">RoRo shipping</div>
+            <div className="eyebrow text-primary">RoRo shipping</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               The Fast, Economical Route to Albania
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Roll-on/Roll-off shipping to Durrës, Albania and European ports — the standard choice for everyday vehicles.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

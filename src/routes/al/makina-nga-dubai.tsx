@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gem, ShieldCheck, Ship, Plane, MessageCircle, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT, OFFICES } from "@/lib/site-data";
@@ -13,7 +14,6 @@ export const Route = createFileRoute("/al/makina-nga-dubai")({
       description: "Import automjetesh nga Dubai dhe Emiratet e Bashkuara Arabe — makina luksoze, supercars dhe SUV, me inspektim, dokumentacion dhe transport drejt Shqipërisë.",
       path: "/al/makina-nga-dubai",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -81,16 +81,14 @@ function MakinaNgaDubai() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Automjet luksoz në Dubai" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.blueFerrari} locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Import nga Dubai</div>
+            <div className="eyebrow text-primary">Import nga Dubai</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Makina nga Dubai, drejt Shqipërisë
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Nga makina luksoze dhe supercars te SUV standarde — ju ndihmojmë të blini nga dealerë dhe shitës privatë në Dubai dhe të transportoni automjetin në mënyrë të sigurt.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -106,7 +104,7 @@ function MakinaNgaDubai() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

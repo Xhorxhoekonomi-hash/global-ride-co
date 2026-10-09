@@ -1,13 +1,13 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/auction-access")({
   head: () => {
-    const base = buildHead({ title: "Copart & IAAI Albania Broker | Auction Access", description: "Licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction — no local account required.", path: "/auction-access", image: heroImg });
+    const base = buildHead({ title: "Copart & IAAI Albania Broker | Auction Access", description: "Licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction — no local account required.", path: "/auction-access", });
     return {
       ...base,
       scripts: [
@@ -43,21 +43,19 @@ function AuctionAccess() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Auction Access" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle auction access" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Auction access</div>
+            <div className="eyebrow text-primary">Auction access</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Bid on Any Major Auction — Without a Local Account
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Auction brokerage Albania — licensed Copart Albania broker and IAAI Albania broker with access to Manheim, Encar, Autowini, Dubizzle and Emirates Auction, wherever you're based.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <PlatformBadges />
 

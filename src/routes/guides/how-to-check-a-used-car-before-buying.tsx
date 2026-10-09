@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, ShieldAlert, Calculator, CheckCircle2 } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/guides/how-to-check-a-used-car-before-buy
       title: "How to Check a Used Car Before Buying | Practical Checklist",
       description: "A practical checklist for evaluating a used vehicle before purchase — VIN, service history, mechanical checks, OBD scans, and where inspection limits genuinely are.",
       path: "/guides/how-to-check-a-used-car-before-buying",
-      image: heroImg,
     });
     return {
       ...base,
@@ -69,15 +68,13 @@ function GuideUsedCarCheck() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Checking a Used Car" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Technician checking a used vehicle before purchase" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero>
+        <div>
           <GuideMeta category="inspection" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How to Check a Used Car Before Buying</h1>
-          <p className="mt-4 max-w-2xl text-white/75">A practical, honest checklist — including where inspection limits genuinely are, not just what to look for.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">A practical, honest checklist — including where inspection limits genuinely are, not just what to look for.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

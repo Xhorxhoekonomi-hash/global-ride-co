@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gavel, Search, ShieldCheck, FileText, Truck, Ship, Landmark, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/al/ankande-amerikane")({
       description: "Krahasim i platformave të ankandeve amerikane — Copart, IAAI, Manheim dhe ADESA — dhe si ju ndihmon Alpha Worldwide të blini e të transportoni automjetin e duhur në Shqipëri.",
       path: "/al/ankande-amerikane",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -85,16 +84,14 @@ function AnkandeAmerikane() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Oborr ankandi automjetesh në Amerikë" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Ankandet amerikane</div>
+            <div className="eyebrow text-primary">Ankandet amerikane</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Copart, IAAI, Manheim apo ADESA — cila platformë ju përshtatet?
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Ne asistojmë klientët në blerjen e automjeteve nga këto platforma dhe ju ndihmojmë të zgjidhni atë që i shkon më mirë nevojave tuaja.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -110,14 +107,14 @@ function AnkandeAmerikane() {
               <Link
                 to="/al/inspektim-makinash"
                 onClick={() => trackEvent("inspection_requested", { source: "al-auctions-hero" })}
-                className="btn-outline-light"
+                className="btn-outline-dark"
               >
                 <ShieldCheck className="h-4 w-4" /> Shërbimi i inspektimit
               </Link>
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

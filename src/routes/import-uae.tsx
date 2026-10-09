@@ -1,10 +1,10 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Phone, MapPin, Truck, Ship, Plane, MessageCircle, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT, OFFICES } from "@/lib/site-data";
@@ -17,7 +17,6 @@ export const Route = createFileRoute("/import-uae")({
       title: "Import a Car from Dubai/UAE | Alpha Worldwide",
       description: "Vehicle sourcing from Dubai, Abu Dhabi and Sharjah — luxury, standard, and dealer inventory — with inspection, export coordination, and shipping to Albania and Europe.",
       path: "/import-uae",
-      image: heroImg,
     });
     return {
       ...base,
@@ -100,7 +99,7 @@ function ImportUAE() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} />
-      <InnerPageHero eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters." image={heroImg} imageAlt="Dubai skyline with luxury vehicle">
+      <InnerPageHero eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters." image={PHOTO_SELECTIONS.blueFerrari.src} imageAlt={PHOTO_SELECTIONS.blueFerrari.en}>
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}

@@ -2,7 +2,6 @@ import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Mail, Phone, Clock, Instagram } from "lucide-react";
-import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
@@ -20,7 +19,6 @@ export const Route = createFileRoute("/contact")({
         { lang: "sq", path: "/al/kontakt" },
       ],
       xDefault: "/contact",
-      image: heroImg,
     }),
   component: Contact,
 });

@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Globe2, ShieldCheck, Gavel, Package, Plane, Users, Eye, MessageCircle, Calculator, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-about.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CONTACT, OFFICES } from "@/lib/site-data";
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/why-alpha-worldwide")({
       title: "Why Alpha Worldwide | International Vehicle Sourcing & Shipping",
       description: "10+ years sourcing, inspecting, and shipping vehicles worldwide — Dubai headquarters, Durrës operations, and a transparent process built on verified experience, not exaggerated claims.",
       path: "/why-alpha-worldwide",
-      image: heroImg,
     });
     return {
       ...base,
@@ -102,16 +101,14 @@ function WhyAlphaWorldwide() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Why Alpha Worldwide" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Alpha Worldwide team coordinating international vehicle logistics" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Why Alpha Worldwide</div>
+            <div className="eyebrow text-primary">Why Alpha Worldwide</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               10+ Years Sourcing and Shipping Vehicles Worldwide
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               15,000+ vehicles bought and transported — from auction lots and dealer listings to a delivered vehicle at your door, coordinated from {dubai.city} and {durres.city}.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -127,7 +124,7 @@ function WhyAlphaWorldwide() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       {SECTIONS.map((s, i) => (
         <section key={s.title} className={i % 2 === 0 ? "bg-background" : "section-mist"}>

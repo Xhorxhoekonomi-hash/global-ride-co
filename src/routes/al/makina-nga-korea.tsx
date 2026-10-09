@@ -3,7 +3,6 @@ import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gauge, ShieldCheck, FileText, Ship, Container, Landmark, MessageCircle, Calculator, ClipboardCheck, Truck } from "lucide-react";
-import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -21,7 +20,6 @@ export const Route = createFileRoute("/al/makina-nga-korea")({
         { lang: "sq", path: "/al/makina-nga-korea" },
       ],
       xDefault: "/import-korea",
-      image: heroImg,
     });
     return {
       ...base,
@@ -125,7 +123,7 @@ function MakinaNgaKorea() {
 
   return (
     <>
-      <InnerPageHero eyebrow="Import automjetesh nga Koreja e Jugut" title="Blej dhe transporto një makinë nga Koreja e Jugut" description="Ju ndihmojmë të gjeni automjete me kilometrazh të ulët dhe dokumentacion të plotë nga Encar, Autowini, KB Chachacha dhe shitës të përzgjedhur, me transport deri në Portin e Durrësit." image={heroImg} imageAlt="Port në Korenë e Jugut">
+      <InnerPageHero eyebrow="Import automjetesh nga Koreja e Jugut" title="Blej dhe transporto një makinë nga Koreja e Jugut" description="Ju ndihmojmë të gjeni automjete me kilometrazh të ulët dhe dokumentacion të plotë nga Encar, Autowini, KB Chachacha dhe shitës të përzgjedhur, me transport deri në Portin e Durrësit.">
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}

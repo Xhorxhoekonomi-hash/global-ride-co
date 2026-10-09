@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FileText, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +15,6 @@ export const Route = createFileRoute("/guides/importing-luxury-cars")({
       title: "Importing Luxury Cars | Ferrari, Lamborghini, Bentley & More",
       description: "What to consider when importing a luxury or performance vehicle — Ferrari, Lamborghini, Bentley, Rolls-Royce, Porsche — insurance, inspection, enclosed transport, and COC.",
       path: "/guides/importing-luxury-cars",
-      image: heroImg,
     });
     return {
       ...base,
@@ -42,15 +42,13 @@ function GuideLuxuryCars() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Importing Luxury Cars" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Luxury vehicle prepared for international transport" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero photo={PHOTO_SELECTIONS.rollsRoyce}>
+        <div>
           <GuideMeta category="buying" readingTime="6 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Importing Luxury Cars</h1>
-          <p className="mt-4 max-w-2xl text-white/75">What changes when the vehicle is a Ferrari, Lamborghini, Bentley, Rolls-Royce, or Porsche rather than a standard passenger car.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">What changes when the vehicle is a Ferrari, Lamborghini, Bentley, Rolls-Royce, or Porsche rather than a standard passenger car.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

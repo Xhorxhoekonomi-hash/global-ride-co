@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Plane, Clock, ShieldCheck, FileText, Package, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +14,6 @@ export const Route = createFileRoute("/al/transport-ajror-makinash")({
       description: "Transport ajror për automjete luksoze, klasike, ose me urgjencë kohore — përmes aeroporteve kryesore evropiane të mallrave, me koordinim doganor dhe sigurim.",
       path: "/al/transport-ajror-makinash",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -84,16 +84,14 @@ function TransportAjrorMakinash() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Aeroplan mallrash në aeroport evropian" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.loading} locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Transport ajror</div>
+            <div className="eyebrow text-primary">Transport ajror</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Kur shpejtësia ka rëndësi më shumë se kostoja
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -109,7 +107,7 @@ function TransportAjrorMakinash() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
