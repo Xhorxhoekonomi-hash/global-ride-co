@@ -43,8 +43,6 @@ function CalculatorPage() {
       faqs={CALCULATOR_FAQS_EN}
       source="en-calculator"
       contactHref="/contact"
-      heroImgSrc={undefined}
-      heroImgAlt="Vehicle shipping cost calculator"
     />
   );
 }

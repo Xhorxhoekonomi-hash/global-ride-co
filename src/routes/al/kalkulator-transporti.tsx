@@ -46,8 +46,6 @@ function KalkulatorTransporti() {
       faqs={CALCULATOR_FAQS_AL}
       source="al-calculator"
       contactHref="/al/kontakt"
-      heroImgSrc={undefined}
-      heroImgAlt="Kalkulator i kostos së transportit të automjetit"
       koreaIncludes={KOREA_INCLUDES_AL}
     />
   );
