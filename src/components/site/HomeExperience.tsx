@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
-import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
+import { ALPHA_ALBUMS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -44,6 +44,8 @@ const TASK_ICONS = [CarFront, Ship, Calculator, ScanLine];
 const STEP_ICONS = [Link2, ScanLine, Gavel, Ship];
 const GUIDE_ROUTES = ["/guides/how-to-buy-a-car-from-usa-auctions", "/guides/container-vs-roro-car-shipping", "/guides/how-to-check-a-used-car-before-buying"];
 const GUIDE_IMAGES = [PHOTO_SELECTIONS.porsche, PHOTO_SELECTIONS.container, PHOTO_SELECTIONS.silverFerrari];
+const HOME_GALLERY_PHOTOS = ALPHA_ALBUMS.filter((album) => ["urus", "porsche", "blue-ferrari", "silver-ferrari", "green-ferrari", "cybertruck"].includes(album.id)).flatMap((album) => album.photos);
+const ORIGIN_PHOTOS = [PHOTO_SELECTIONS.porsche, undefined, PHOTO_SELECTIONS.blueFerrari, undefined];
 
 export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Faq[] }) {
   const al = locale === "sq";
@@ -56,7 +58,6 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const air = al ? "/al/transport-ajror-makinash" : "/airfreight";
   const origins = al ? ["/al/makina-nga-amerika", "/al/makina-nga-korea", "/al/makina-nga-dubai", "/import-europe"] : ["/import-usa", "/import-korea", "/import-uae", "/import-europe"];
   const taskRoutes = [al ? "/al/ankande-amerikane" : "/auction-access", container, calculator, inspect];
-  const originIcons = [Gavel, CarFront, MapPin, Globe2];
   const whatsapp = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(al ? "Përshëndetje Alpha Worldwide, dua të importoj një makinë në Shqipëri." : "Hello Alpha Worldwide, I found a vehicle I'd like help with.")}`;
   const heroSource = al ? "al-home-hero" : "hero";
   return <div className="bg-background text-foreground">
@@ -71,7 +72,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
         </div>
         <a href={whatsapp} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: heroSource })} className="mt-4 inline-flex min-h-11 items-center gap-2 text-xs font-medium text-muted-foreground hover:text-primary"><MessageCircle className="h-4 w-4" />{c.chat}<ArrowRight className="h-3 w-3" /></a>
       </div>
-      <figure className="mx-auto w-full max-w-md"><img src={PHOTO_SELECTIONS.urus.src} alt={PHOTO_SELECTIONS.urus[locale]} width={1086} height={1448} fetchPriority="high" className="home-hero-image rounded-lg" /><figcaption className="mt-3 text-xs text-muted-foreground">{PHOTO_SELECTIONS.urus[locale]}</figcaption></figure></div>
+      <div className="home-hero-media"><img src={PHOTO_SELECTIONS.urus.src} alt={PHOTO_SELECTIONS.urus[locale]} width={1086} height={1448} fetchPriority="high" className="home-hero-image" /></div></div>
     </section>
 
     <section className="border-y border-border bg-background" aria-label={c.start}>
@@ -84,8 +85,8 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section"><div className="container-page">
       <p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading max-w-2xl">{c.originsTitle}</h2><p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{c.originsBody}</p>
-      <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{c.countries.map((name, i) => <Link to={origins[i]} key={name} className="group overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-card">
-        <div className="flex h-28 items-center justify-between border-b border-border bg-accent px-5 text-primary">{(() => { const Icon = originIcons[i]; return <Icon className="h-10 w-10" aria-hidden="true" />; })()}<span className="text-xs font-semibold">0{i + 1}</span></div>
+      <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{c.countries.map((name, i) => <Link to={origins[i]} key={name} className="home-origin-card group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-card">
+        <div className="home-origin-media">{ORIGIN_PHOTOS[i] ? <img src={ORIGIN_PHOTOS[i]?.src} alt={ORIGIN_PHOTOS[i]?.[locale]} width={600} height={400} loading="lazy" className={`home-origin-photo ${i === 0 ? "home-origin-photo-yard" : "home-origin-photo-city"}`} /> : <div className={`home-route-art ${i === 1 ? "home-route-art-korea" : "home-route-art-europe"}`} aria-hidden="true"><Globe2 className="home-route-globe" strokeWidth={0.6} /><span className="home-route-line" /><span className="home-route-point home-route-point-start"><MapPin /></span><span className="home-route-point home-route-point-end"><Ship /></span><span className="home-route-code">{i === 1 ? "KR" : "EU"}</span><span className="home-route-destination">AL</span></div>}</div>
         <div className="p-5"><h3 className="text-xl font-semibold text-navy">{name}</h3><p className="mt-2 text-xs leading-relaxed text-muted-foreground">{c.countryBodies[i]}</p><span className="mt-5 flex items-center justify-between text-xs font-semibold text-primary">{c.originLink}{al && i === 3 ? " (EN)" : ""}<ArrowRight className="h-4 w-4" /></span></div>
       </Link>)}</div>
       <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground"><Globe2 className="h-4 w-4 text-primary" />{c.canada}<Link to="/import-canada" className="inline-flex min-h-8 items-center gap-1 font-semibold text-primary hover:underline">{c.canadaLink}<ChevronRight className="h-3 w-3" /></Link></div>
@@ -100,7 +101,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     <section className="home-section"><div className="container-page">
       <div className="grid items-end gap-5 md:grid-cols-[minmax(0,1fr)_auto]"><div className="min-w-0"><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link" className="justify-start px-0"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
       <div className="mt-9 grid gap-7 lg:grid-cols-[1.2fr_1fr]">
-        <div className="overflow-hidden rounded-lg border border-border"><img src={PHOTO_SELECTIONS.container.src} alt={PHOTO_SELECTIONS.container[locale]} width={800} height={450} loading="lazy" className="aspect-[4/3] w-full bg-mist object-contain" /><div className="p-6"><div className="flex items-center gap-3"><Ship className="h-5 w-5 text-primary" /><h3 className="text-xl font-semibold text-navy">{c.serviceNames[0]}</h3></div><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.serviceBodies[0]}</p><div className="mt-5 flex flex-wrap gap-3"><Button asChild variant="outline"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="outline"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div></div>
+        <div className="overflow-hidden rounded-lg border border-border"><img src={PHOTO_SELECTIONS.container.src} alt={PHOTO_SELECTIONS.container[locale]} width={800} height={450} loading="lazy" className="home-service-image" /><div className="p-6"><div className="flex items-center gap-3"><Ship className="h-5 w-5 text-primary" /><h3 className="text-xl font-semibold text-navy">{c.serviceNames[0]}</h3></div><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.serviceBodies[0]}</p><div className="mt-5 flex flex-wrap gap-3"><Button asChild variant="outline"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="outline"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div></div>
         <div className="divide-y divide-border">{[1, 2].map(i => { const Icon = i === 1 ? ScanLine : Plane; return <article key={i} className="py-7 first:pt-2"><Icon className="h-8 w-8 text-primary" /><h3 className="mt-5 text-xl font-semibold text-navy">{c.serviceNames[i]}</h3><p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{c.serviceBodies[i]}</p><Button variant="link" asChild className="mt-4 px-0"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>; })}</div>
       </div>
     </div></section>
@@ -120,13 +121,13 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section bg-mist"><div className="container-page">
       <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="home-kicker">{al ? "Foto origjinale të ekipit" : "Original photos from our team"}</p><h2 className="home-heading">{al ? "Automjete në duart tona." : "Vehicles in our hands."}</h2></div><Button asChild variant="outline"><Link to="/delivered-vehicles">{al ? "Shiko galerinë (EN)" : "View the full gallery"}<ArrowRight /></Link></Button></div>
-      <div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} locale={locale} limit={6} /></div>
+      <div className="home-gallery-preview mt-8"><PhotoGallery photos={HOME_GALLERY_PHOTOS} locale={locale} limit={6} /></div>
     </div></section>
 
 
     <section className="home-section bg-mist"><div className="container-page">
       <div className="grid items-end gap-5 md:grid-cols-[minmax(0,1fr)_auto]"><div className="min-w-0"><p className="home-kicker">{c.guidesKicker}</p><h2 className="home-heading max-w-2xl">{c.guidesTitle}</h2></div><Button variant="link" asChild className="justify-start px-0"><Link to="/guides">{c.guidesLink}<ArrowRight /></Link></Button></div>
-      <div className="mt-9 grid gap-6 md:grid-cols-3">{c.guideTitles.map((title, i) => <Link key={title} to={GUIDE_ROUTES[i]} className="group overflow-hidden rounded-lg border border-border bg-background transition-shadow hover:shadow-card" lang={al ? "en" : undefined}><img src={GUIDE_IMAGES[i].src} alt={GUIDE_IMAGES[i][locale]} width={640} height={400} loading="lazy" className="aspect-[4/3] w-full bg-mist object-contain" /><div className="p-6"><p className="text-xs font-medium text-primary">{c.guideCategory[i]}</p><h3 className="mt-3 text-lg font-semibold leading-snug text-navy">{title}</h3><span className="mt-6 flex items-center justify-between text-xs font-semibold text-primary">{c.read}<BookOpen className="h-4 w-4" /></span></div></Link>)}</div>
+      <div className="mt-9 grid gap-6 md:grid-cols-3">{c.guideTitles.map((title, i) => <Link key={title} to={GUIDE_ROUTES[i]} className="group overflow-hidden rounded-lg border border-border bg-background transition-shadow hover:shadow-card" lang={al ? "en" : undefined}><img src={GUIDE_IMAGES[i].src} alt={GUIDE_IMAGES[i][locale]} width={640} height={400} loading="lazy" className={`home-guide-image home-guide-image-${i}`} /><div className="p-6"><p className="text-xs font-medium text-primary">{c.guideCategory[i]}</p><h3 className="mt-3 text-lg font-semibold leading-snug text-navy">{title}</h3><span className="mt-6 flex items-center justify-between text-xs font-semibold text-primary">{c.read}<BookOpen className="h-4 w-4" /></span></div></Link>)}</div>
     </div></section>
 
     <section className="home-section"><div className="container-page grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
