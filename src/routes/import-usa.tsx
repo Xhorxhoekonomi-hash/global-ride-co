@@ -1,3 +1,6 @@
+import { JourneySteps } from "@/components/site/JourneySteps";
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Search, Gavel, ShieldCheck, DollarSign, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, ArrowRight, Package, PackageCheck } from "lucide-react";
@@ -99,19 +102,8 @@ function ImportUSA() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="US port with vehicles" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Import from · USA</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Purchase and Ship a Vehicle from the United States
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." image={heroImg} imageAlt="US port with vehicles">
+
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -128,48 +120,35 @@ function ImportUSA() {
               >
                 <Calculator className="h-4 w-4" /> Calculate Shipping Cost
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            
+      </InnerPageHero>
 
       <PlatformBadges />
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">11-step process</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">From US Listing to Your Driveway</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">From US Listing to Your Driveway</h2>
           </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal">
-                  <s.icon className="h-5 w-5" />
-                </div>
-                <div className="font-display mt-3 text-xs font-bold uppercase tracking-wider text-teal">Step {s.n}</div>
-                <h3 className="font-display mt-1 text-lg font-bold text-navy">{s.title}</h3>
-                <p className="mt-2 text-sm text-slate-body">{s.body}</p>
-              </div>
-            ))}
-          </div>
+          <JourneySteps steps={STEPS} />
         </div>
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Shipping methods</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Shared or Full Container</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Shared or Full Container</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {SHIPPING_METHODS.map((m) => (
-              <div key={m.title} className="rounded-2xl border border-border bg-card p-7 shadow-card">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
+              <div key={m.title} className="rounded-lg border border-border bg-card p-7 shadow-card">
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                   <m.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-xl font-bold text-navy">{m.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{m.body}</p>
+                <h3 className="font-display mt-4 text-xl font-bold text-secondary">{m.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
               </div>
             ))}
           </div>
@@ -177,17 +156,17 @@ function ImportUSA() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Where we ship to</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Destination Options</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Destination Options</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {DESTINATIONS.map((d) => (
-              <Link key={d.name} to={d.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-                <h3 className="font-display text-base font-bold text-navy">{d.name}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-body">{d.body}</p>
-                <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-teal opacity-0 transition-opacity group-hover:opacity-100">
+              <Link key={d.name} to={d.to} className="group rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
+                <h3 className="font-display text-base font-bold text-secondary">{d.name}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{d.body}</p>
+                <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors">
                   Learn more <ArrowRight className="h-3 w-3" />
                 </div>
               </Link>
@@ -197,37 +176,37 @@ function ImportUSA() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Frequently Asked</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">
+                <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">
                   {f.q}
-                  <span className="text-teal transition-transform group-open:rotate-45">+</span>
+                  <span className="text-primary transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+      <section className="bg-accent border-y border-border">
+        <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="eyebrow text-teal-glow">Start today</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <div className="eyebrow text-primary">Start today</div>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
               Send Us Your Lot Number or Vehicle Link
             </h2>
-            <p className="mt-5 max-w-md text-white/70">
+            <p className="mt-5 max-w-md text-muted-foreground">
               Share a Copart or IAAI lot, a Manheim or ADESA listing, or a dealer URL. We'll return a full delivered-price quote.
             </p>
           </div>
-          <QuoteForm variant="full" onDark />
+          <QuoteForm variant="full" />
         </div>
       </section>
     </>

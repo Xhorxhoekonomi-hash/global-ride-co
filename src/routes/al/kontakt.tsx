@@ -1,5 +1,7 @@
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Mail } from "lucide-react";
+import { MessageCircle, MapPin, Mail } from "lucide-react";
 import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
@@ -29,38 +31,26 @@ function KontaktAL() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Terminal portual për transportin ndërkombëtar të automjeteve" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Na kontaktoni</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Transportoni makinën tuaj me siguri dhe transparencë
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero eyebrow="Na kontaktoni" title="Transportoni makinën tuaj me siguri dhe transparencë" description="Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit." imageAlt="Terminal portual për transportin ndërkombëtar të automjeteve">
+        <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
+      </InnerPageHero>
 
       <section className="bg-background">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Kontakti</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Na shkruani</h2>
+            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Na shkruani</h2>
 
             <div className="mt-8 space-y-6">
               <div className="flex gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
-                  <div className="font-semibold text-navy">{durres.role.replace("European & Albanian Operations", "Operacionet në Evropë dhe Shqipëri")}</div>
-                  <div className="text-sm text-slate-body">{durres.city}, Shqipëri</div>
-                  <div className="mt-1 text-sm text-slate-body">
+                  <div className="font-semibold text-secondary">{durres.role.replace("European & Albanian Operations", "Operacionet në Evropë dhe Shqipëri")}</div>
+                  <div className="text-sm text-muted-foreground">{durres.city}, Shqipëri</div>
+                  <div className="mt-1 text-sm text-muted-foreground">
                     {durres.phones.map((p, i) => (
                       <span key={p}>
-                        <a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "al-kontakt-durres" })} className="hover:text-teal">{p}</a>
+                        <a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "al-kontakt-durres" })} className="inline-flex min-h-11 items-center hover:text-primary">{p}</a>
                         {i < durres.phones.length - 1 && ", "}
                       </span>
                     ))}
@@ -69,20 +59,20 @@ function KontaktAL() {
               </div>
 
               <div className="flex gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal/50" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
-                  <div className="font-semibold text-navy/70">Selia qendrore — {dubai.city}</div>
-                  <div className="mt-1 text-sm text-slate-body">
-                    <a href={`tel:${dubai.phone.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "al-kontakt-dubai" })} className="hover:text-teal">{dubai.phone}</a>
+                  <div className="font-semibold text-muted-foreground">Selia qendrore — {dubai.city}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    <a href={`tel:${dubai.phone.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "al-kontakt-dubai" })} className="inline-flex min-h-11 items-center hover:text-primary">{dubai.phone}</a>
                   </div>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
-                  <div className="font-semibold text-navy">Email</div>
-                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "al-kontakt" })} className="text-sm text-slate-body hover:text-teal">{CONTACT.email}</a>
+                  <div className="font-semibold text-secondary">Email</div>
+                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "al-kontakt" })} className="inline-flex min-h-11 items-center break-all text-sm text-muted-foreground hover:text-primary">{CONTACT.email}</a>
                 </div>
               </div>
             </div>

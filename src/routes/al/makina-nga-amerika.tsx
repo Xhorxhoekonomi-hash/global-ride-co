@@ -1,3 +1,6 @@
+import { JourneySteps } from "@/components/site/JourneySteps";
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Gavel, ShieldCheck, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, Package } from "lucide-react";
 import heroImg from "@/assets/hero-usa.jpg";
@@ -96,19 +99,8 @@ function MakinaNgaAmerika() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Port amerikan me automjete" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Import automjetesh nga SHBA-ja</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Blej dhe transporto një makinë nga Amerika
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+      <InnerPageHero eyebrow="Import automjetesh nga SHBA-ja" title="Blej dhe transporto një makinë nga Amerika" description="Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri." image={heroImg} imageAlt="Port amerikan me automjete">
+
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -125,65 +117,52 @@ function MakinaNgaAmerika() {
               >
                 <Calculator className="h-4 w-4" /> Llogarit koston
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
+            
+      </InnerPageHero>
 
       <PlatformBadges locale="sq" />
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Procesi në 11 hapa</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Nga ankandi deri te dera juaj</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Nga ankandi deri te dera juaj</h2>
           </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {STEPS_AL.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal">
-                  <s.icon className="h-5 w-5" />
-                </div>
-                <div className="font-display mt-3 text-xs font-bold uppercase tracking-wider text-teal">Hapi {s.n}</div>
-                <h3 className="font-display mt-1 text-lg font-bold text-navy">{s.title}</h3>
-                <p className="mt-2 text-sm text-slate-body">{s.body}</p>
-              </div>
-            ))}
-          </div>
+          <JourneySteps steps={STEPS_AL} stepLabel="Hapi" />
         </div>
       </section>
 
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë përfshihet</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
-              {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
+          <div className="rounded-lg border border-border bg-card p-7 shadow-card">
+            <h3 className="font-display text-lg font-bold text-secondary">Çfarë përfshihet</h3>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-primary">•</span>{i}</li>)}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë nuk përfshihet</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
-              {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
+          <div className="rounded-lg border border-border bg-card p-7 shadow-card">
+            <h3 className="font-display text-lg font-bold text-secondary">Çfarë nuk përfshihet</h3>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-muted-foreground">•</span>{i}</li>)}
             </ul>
           </div>
         </div>
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">
+                <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">
                   {f.q}
-                  <span className="text-teal transition-transform group-open:rotate-45">+</span>
+                  <span className="text-primary transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
@@ -194,38 +173,38 @@ function MakinaNgaAmerika() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Faqe të lidhura</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Vazhdoni të lexoni</h2>
+            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Vazhdoni të lexoni</h2>
           </div>
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
-            <Link to="/al/copart-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-              <div className="font-display text-base font-bold text-navy">Copart Shqipëri</div>
-              <p className="mt-1.5 text-xs text-slate-body">Ofertim dhe blerje në Copart me asistencë të plotë.</p>
+            <Link to="/al/copart-shqiperi" className="group rounded-lg border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
+              <div className="font-display text-base font-bold text-secondary">Copart Shqipëri</div>
+              <p className="mt-1.5 text-xs text-muted-foreground">Ofertim dhe blerje në Copart me asistencë të plotë.</p>
             </Link>
-            <Link to="/al/iaai-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-              <div className="font-display text-base font-bold text-navy">IAAI Shqipëri</div>
-              <p className="mt-1.5 text-xs text-slate-body">Blerje në IAAI, nga leximi i lotit deri në Durrës.</p>
+            <Link to="/al/iaai-shqiperi" className="group rounded-lg border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
+              <div className="font-display text-base font-bold text-secondary">IAAI Shqipëri</div>
+              <p className="mt-1.5 text-xs text-muted-foreground">Blerje në IAAI, nga leximi i lotit deri në Durrës.</p>
             </Link>
-            <Link to="/calculator" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-              <div className="font-display text-base font-bold text-navy">Kalkulatori</div>
-              <p className="mt-1.5 text-xs text-slate-body">Llogaritni koston deri në Durrës me tarifat aktuale.</p>
+            <Link to="/al/kalkulator-transporti" className="group rounded-lg border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
+              <div className="font-display text-base font-bold text-secondary">Kalkulatori</div>
+              <p className="mt-1.5 text-xs text-muted-foreground">Llogaritni koston deri në Durrës me tarifat aktuale.</p>
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="section-dark">
+      <section className="bg-accent border-y border-border">
 
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <div className="eyebrow text-primary">Filloni sot</div>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
               Na dërgoni lotin ose linkun e automjetit
             </h2>
-            <p className="mt-5 max-w-md text-white/70">
+            <p className="mt-5 max-w-md text-muted-foreground">
               Na dërgoni numrin e lotit nga Copart ose IAAI, shpalljen nga Manheim ose ADESA, ose linkun e automjetit.
             </p>
           </div>
-          <QuoteForm variant="full" onDark locale="sq" source="al-usa" />
+          <QuoteForm variant="full" locale="sq" source="al-usa" />
         </div>
       </section>
     </>

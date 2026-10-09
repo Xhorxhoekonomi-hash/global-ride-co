@@ -1,6 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
+import { ArrowRight, Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -46,54 +48,42 @@ function InspectionService() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Vehicle Inspection" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle inspection" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Inspection service</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Know Exactly What You're Buying
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero eyebrow="Inspection service" title="Know Exactly What You're Buying" description="155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves." imageAlt="Vehicle inspection">
+        <Button asChild><Link to="/contact">Request an Inspection <ArrowRight /></Link></Button>
+      </InnerPageHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">What's included</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Every inspection covers</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Every inspection covers</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CHECKS.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
+              <div key={c.title} className="rounded-lg border border-border bg-card p-6 shadow-card">
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                   <c.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-body">{c.body}</p>
+                <h3 className="font-display mt-4 text-lg font-bold text-secondary">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+      <section className="bg-accent border-y border-border">
+        <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div className="eyebrow text-teal-glow">Book an inspection</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <div className="eyebrow text-primary">Book an inspection</div>
+            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
               Request Inspection Before You Buy
             </h2>
-            <p className="mt-5 max-w-md text-white/70">
+            <p className="mt-5 max-w-md text-muted-foreground">
               Send us the listing or lot number. We'll arrange inspection and send you the full report before you commit.
             </p>
           </div>
-          <QuoteForm variant="full" onDark />
+          <QuoteForm variant="full" />
         </div>
       </section>
     </>

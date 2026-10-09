@@ -1,5 +1,7 @@
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Mail, Phone, Clock, Facebook, Instagram } from "lucide-react";
+import { MessageCircle, MapPin, Mail, Phone, Clock, Instagram } from "lucide-react";
 import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
@@ -26,59 +28,44 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Durrës port at sunset" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[55vh] flex-col justify-end py-32">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Contact us</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Ship your car with ease and peace of mind.
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Contact us today for reliable and affordable vehicle sourcing, inspection and shipping services.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero eyebrow="Contact us" title="Ship your car with ease and peace of mind." description="Contact us today for reliable and affordable vehicle sourcing, inspection and shipping services." imageAlt="Durrës port at sunset">
+        <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
+      </InnerPageHero>
 
       <section className="bg-background">
-        <div className="container-page grid gap-10 py-20 md:py-24 lg:grid-cols-5 lg:gap-12">
+        <div className="container-page grid gap-10 py-14 md:py-18 lg:grid-cols-5 lg:gap-12">
           {/* Contact card */}
           <div className="lg:col-span-2">
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+            <div className="rounded-lg border border-border bg-card p-8 shadow-card">
               <div className="eyebrow">Reach us</div>
-              <h2 className="font-display mt-3 text-2xl font-bold text-navy">Alpha Worldwide Albania</h2>
+              <h2 className="font-display mt-3 text-2xl font-bold text-secondary">Alpha Worldwide Albania</h2>
 
               <div className="mt-6 space-y-5">
                 <Info icon={MapPin} label="Location">{CONTACT.location}</Info>
                 <Info icon={Mail} label="Email">
-                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "contact_page" })} className="text-navy hover:text-teal">{CONTACT.email}</a>
+                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "contact_page" })} className="inline-flex min-h-11 items-center break-all text-secondary hover:text-primary">{CONTACT.email}</a>
                 </Info>
                 <Info icon={Phone} label="Albania">
                   <div className="space-y-1">
                     {CONTACT.phones.map((p) => (
-                      <div key={p}><a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_albania" })} className="text-navy hover:text-teal">{p}</a></div>
+                      <div key={p}><a href={`tel:${p.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_albania" })} className="inline-flex min-h-11 items-center text-secondary hover:text-primary">{p}</a></div>
                     ))}
                   </div>
                 </Info>
                 <Info icon={Phone} label="UAE">
-                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_uae" })} className="text-navy hover:text-teal">{CONTACT.uae}</a>
+                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_uae" })} className="text-secondary hover:text-primary">{CONTACT.uae}</a>
                 </Info>
                 <Info icon={Clock} label="Hours">{CONTACT.hours}</Info>
               </div>
 
               <div className="mt-6 flex gap-3">
-                <a href="#" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-border text-navy hover:border-teal hover:text-teal">
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-border text-navy hover:border-teal hover:text-teal">
+                <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-11 w-11 place-items-center rounded-lg border border-border text-secondary hover:border-primary hover:text-primary">
                   <Instagram className="h-4 w-4" />
                 </a>
               </div>
             </div>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-border shadow-card">
+            <div className="mt-5 overflow-hidden rounded-lg border border-border shadow-card">
               <iframe
                 title="Durrës, Albania map"
                 src="https://www.google.com/maps?q=Durres,Albania&output=embed"
@@ -86,7 +73,7 @@ function Contact() {
                 height="280"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0, display: "block" }}
+                className="block border-0"
               />
             </div>
           </div>
@@ -94,8 +81,8 @@ function Contact() {
           {/* Form */}
           <div className="lg:col-span-3">
             <div className="eyebrow">Request a quote</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Tell us about your vehicle</h2>
-            <p className="mt-3 text-slate-body">
+            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Tell us about your vehicle</h2>
+            <p className="mt-3 text-muted-foreground">
               Complete the form and our team will contact you shortly with a full delivered-price quote.
             </p>
             <div className="mt-6">
@@ -111,12 +98,12 @@ function Contact() {
 function Info({ icon: Icon, label, children }: { icon: React.ElementType; label: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-4">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-teal/10 text-teal">
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent text-primary">
         <Icon className="h-4 w-4" />
       </div>
       <div className="min-w-0">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-navy/60">{label}</div>
-        <div className="mt-1 text-sm text-slate-body">{children}</div>
+        <div className="text-xs font-semibold uppercase tracking-normal text-muted-foreground">{label}</div>
+        <div className="mt-1 text-sm text-muted-foreground">{children}</div>
       </div>
     </div>
   );
