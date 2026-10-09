@@ -66,8 +66,8 @@ function ServicesPage() {
   return (
     <>
       <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={heroImg} imageAlt="Car carrier ship at sea">
-        <Button asChild><Link to="/contact">Get a Quote <ArrowRight /></Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+        <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><Link to="/contact">Get a Quote <ArrowRight /></Link></Button>
+        <Button asChild variant="outline" className="h-auto min-h-12 whitespace-normal py-3"><Link to="/calculator">Calculate Shipping</Link></Button>
       </InnerPageHero>
 
       <PlatformBadges />

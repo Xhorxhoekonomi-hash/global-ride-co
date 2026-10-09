@@ -53,7 +53,7 @@ function Contact() {
                   </div>
                 </Info>
                 <Info icon={Phone} label="UAE">
-                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_uae" })} className="text-secondary hover:text-primary">{CONTACT.uae}</a>
+                  <a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "contact_page_uae" })} className="inline-flex min-h-11 items-center text-secondary hover:text-primary">{CONTACT.uae}</a>
                 </Info>
                 <Info icon={Clock} label="Hours">{CONTACT.hours}</Info>
               </div>
