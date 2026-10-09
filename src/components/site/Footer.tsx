@@ -62,7 +62,7 @@ export function Footer() {
   const isAlbanian = pathname.startsWith("/al");
 
   return (
-    <footer className="bg-mist text-navy border-t border-border">
+    <footer className="alpha-footer bg-mist text-navy border-t border-border">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <BrandLogo className="w-48" />
@@ -72,7 +72,7 @@ export function Footer() {
               : "International vehicle sourcing, auction brokerage, inspection, import & export — fully managed from origin to your door."}
           </p>
           <div className="mt-5 flex gap-3">
-            <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:border-teal hover:text-teal">
+            <a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="grid h-11 w-11 place-items-center rounded-md border border-border text-muted-foreground hover:border-teal hover:text-teal">
               <Instagram className="h-4 w-4" />
             </a>
           </div>

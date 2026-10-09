@@ -64,7 +64,7 @@ const FAQS = [
 function ServicesPage() {
   return (
     <>
-      <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={PHOTO_SELECTIONS.mercedesContainer.src} imageAlt={PHOTO_SELECTIONS.mercedesContainer.en}>
+      <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={PHOTO_SELECTIONS.loading.src} imageAlt={PHOTO_SELECTIONS.loading.en}>
         <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><Link to="/contact">Get a Quote <ArrowRight /></Link></Button>
         <Button asChild variant="outline" className="h-auto min-h-12 whitespace-normal py-3"><Link to="/calculator">Calculate Shipping</Link></Button>
       </InnerPageHero>
@@ -78,7 +78,7 @@ function ServicesPage() {
               <Link
                 key={s.slug}
                 to={s.to}
-                className="group rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary"
+                className="group border-t border-border py-8 pr-6 transition-colors hover:border-primary"
               >
                 <h3 className="font-display text-lg font-bold text-secondary">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
@@ -103,7 +103,7 @@ function ServicesPage() {
               { to: "/import-korea", name: "South Korea", body: "Encar and Autowini sourcing, local inspection, Busan/Incheon export, delivery to Durrës or EU ports." },
               { to: "/import-uae", name: "UAE", body: "Dubizzle, Emirates Auction and dealership sourcing, RTA export clearance, direct shipping to Europe." },
             ].map((m) => (
-              <Link key={m.name} to={m.to} className="rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
+              <Link key={m.name} to={m.to} className="border-t border-border py-8 pr-6 transition-colors hover:border-primary">
                 <div className="eyebrow">Import from</div>
                 <h3 className="font-display mt-2 text-2xl font-bold text-secondary">{m.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
