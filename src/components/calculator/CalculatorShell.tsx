@@ -12,16 +12,12 @@ export function CalculatorShell({
   faqs,
   source,
   contactHref,
-  heroImgSrc,
-  heroImgAlt,
   koreaIncludes,
 }: {
   dict: CalculatorDict;
   faqs: CalculatorFAQ[];
   source: string;
   contactHref: string;
-  heroImgSrc: string;
-  heroImgAlt: string;
   koreaIncludes?: string[];
 }) {
   return (

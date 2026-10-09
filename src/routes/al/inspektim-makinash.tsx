@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Camera, Gauge, Wrench, Battery, Zap, FileCheck, MessageCircle, ShieldCheck } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/al/inspektim-makinash")({
       description: "Shërbimi i inspektimit para blerjes i Alpha Worldwide për automjete nga SHBA-ja dhe Koreja e Jugut — kontroll teknik, foto, video dhe raport i detajuar.",
       path: "/al/inspektim-makinash",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -84,16 +83,14 @@ function InspektimMakinash() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Inspektim teknik automjeti" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Shërbimi i inspektimit</div>
+            <div className="eyebrow text-primary">Shërbimi i inspektimit</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Dini gjendjen e vërtetë të automjetit para se të blini
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Kontroll teknik, foto dhe video për automjete nga ankande dhe shitës të përzgjedhur në SHBA dhe Korenë e Jugut.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -109,7 +106,7 @@ function InspektimMakinash() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

@@ -1,11 +1,11 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import heroImg from "@/assets/hero-home.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-canada")({
-  head: () => buildHead({ title: "Import a Car from Canada to Albania & Europe", description: "Sourcing, vehicle inspection before purchase, and shipping from Canadian auctions and dealers to Durrës, Albania and Europe.", path: "/import-canada", image: heroImg }),
+  head: () => buildHead({ title: "Import a Car from Canada to Albania & Europe", description: "Sourcing, vehicle inspection before purchase, and shipping from Canadian auctions and dealers to Durrës, Albania and Europe.", path: "/import-canada", }),
   component: ImportCanada,
 });
 
@@ -22,21 +22,19 @@ function ImportCanada() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From Canada" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle export from Canada" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Import from · Canada</div>
+            <div className="eyebrow text-primary">Import from · Canada</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Vehicle Sourcing & Shipping from Canada to Albania & Europe
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               We source, inspect, purchase, and ship vehicles from auctions and dealers across Canada — fully managed to your door in Albania or Europe.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

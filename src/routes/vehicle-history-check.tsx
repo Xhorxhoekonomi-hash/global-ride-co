@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileSearch, Gavel, ShieldCheck, Eye, MessageCircle } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CONTACT } from "@/lib/site-data";
@@ -52,7 +52,6 @@ export const Route = createFileRoute("/vehicle-history-check")({
       title: "Vehicle History Checks Explained | VIN, Carfax, AutoCheck",
       description: "What VIN, Carfax, and AutoCheck reports can and can't show you, how Korean vehicle history differs, and why physical inspection is still often necessary.",
       path: "/vehicle-history-check",
-      image: heroImg,
     });
     return {
       ...base,
@@ -95,21 +94,19 @@ function VehicleHistoryCheck() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Vehicle History Check" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Reviewing vehicle history and inspection documentation" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-28">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Buyer education</div>
+            <div className="eyebrow text-primary">Buyer education</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               What a Vehicle History Report Can (and Can't) Tell You
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               VIN checks, Carfax, AutoCheck, and Korean vehicle history — how they work, their real limitations, and why physical inspection is still often necessary.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">

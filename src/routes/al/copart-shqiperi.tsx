@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Hash, Camera, ShieldAlert, Gavel, DollarSign, Truck, Container, FileText, Landmark, MessageCircle, Calculator, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/al/copart-shqiperi")({
       description: "Blini automjete nga Copart për Shqipëri me asistencë në ofertim, tërheqje nga oborri, transport tokësor e detar dhe koordinim dokumentesh deri në Portin e Durrësit.",
       path: "/al/copart-shqiperi",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -101,16 +100,14 @@ function CopartShqiperi() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Oborr ankandi automjetesh në SHBA" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Copart për Shqipëri</div>
+            <div className="eyebrow text-primary">Copart për Shqipëri</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Blej në Copart, dorëzo në Durrës
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Asistencë e plotë për ofertim në Copart nga Shqipëria — nga verifikimi i lotit deri te dorëzimi në portin e Durrësit.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -126,14 +123,14 @@ function CopartShqiperi() {
               <Link
                 to="/calculator"
                 onClick={() => trackEvent("calculator_started", { source: "al-copart-hero" })}
-                className="btn-outline-light"
+                className="btn-outline-dark"
               >
                 <Calculator className="h-4 w-4" /> Llogarit koston totale
               </Link>
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

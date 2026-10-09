@@ -1,5 +1,5 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { trackEvent } from "@/lib/analytics";
@@ -97,7 +97,6 @@ export const Route = createFileRoute("/faq")({
       title: "FAQ Knowledge Center | Alpha Worldwide",
       description: "Answers on vehicle sourcing from the USA, South Korea, and Dubai, shipping by container, RoRo, or airfreight, inspections, payments, documents, and customs — organized by topic.",
       path: "/faq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -126,15 +125,13 @@ function FaqHub() {
   return (
     <>
       <Breadcrumbs items={[{ label: "FAQ" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Alpha Worldwide customer support" width={1920} height={700} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[35vh] flex-col justify-end py-24">
-          <div className="eyebrow text-teal-glow">Knowledge center</div>
+      <EditorialHero>
+        <div>
+          <div className="eyebrow text-primary">Knowledge center</div>
           <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Frequently Asked Questions</h1>
-          <p className="mt-4 max-w-2xl text-white/75">Organized by topic — every short answer links to the full detail page.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">Organized by topic — every short answer links to the full detail page.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">

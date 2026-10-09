@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ShieldCheck, Gauge, FileText, Ship, MessageCircle, Camera } from "lucide-react";
-import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/al/encar-shqiperi")({
       description: "Si funksionon Encar, pse automjetet koreane mbahen mirë, dhe si ju ndihmon Alpha Worldwide të blini nga Encar, Autowini dhe KB Chachacha drejt Shqipërisë.",
       path: "/al/encar-shqiperi",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -76,16 +75,14 @@ function EncarShqiperi() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Automjete të përdorura në Korenë e Jugut" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Encar & platformat koreane</div>
+            <div className="eyebrow text-primary">Encar & platformat koreane</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Njihuni me Encar, Autowini dhe KB Chachacha
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Automjetet koreane njihen për mirëmbajtje të mirë dhe histori të dokumentuar. Ju ndihmojmë të kuptoni platformat dhe të gjeni automjetin e duhur.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -101,7 +98,7 @@ function EncarShqiperi() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

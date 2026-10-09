@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-contact.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/guides/car-import-glossary")({
       title: "Car Import Glossary | Shipping & Auction Terms Explained",
       description: "Plain-language definitions of common vehicle import terms — Bill of Lading, COC, RoRo, FCL, LCL, demurrage, customs broker, Incoterms, salvage title, and more.",
       path: "/guides/car-import-glossary",
-      image: heroImg,
     });
     return {
       ...base,
@@ -64,15 +63,13 @@ function GuideGlossary() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Import Glossary" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Reference glossary of vehicle import terms" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[40vh] flex-col justify-end py-24">
+      <EditorialHero>
+        <div>
           <GuideMeta category="documentation" readingTime="7 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Car Import Glossary</h1>
-          <p className="mt-4 max-w-2xl text-white/75">Plain-language definitions for the terms that come up most often across auctions, shipping, and customs.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">Plain-language definitions for the terms that come up most often across auctions, shipping, and customs.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">

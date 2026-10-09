@@ -1,11 +1,11 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-europe")({
-  head: () => buildHead({ title: "Import a Car from Europe to Albania", description: "Cross-border vehicle transport from AutoScout24 and European dealers to Albania — sourcing, purchase handling and delivery.", path: "/import-europe", image: heroImg }),
+  head: () => buildHead({ title: "Import a Car from Europe to Albania", description: "Cross-border vehicle transport from AutoScout24 and European dealers to Albania — sourcing, purchase handling and delivery.", path: "/import-europe", }),
   component: ImportEurope,
 });
 
@@ -22,21 +22,19 @@ function ImportEurope() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From Europe" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle transport across Europe" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Import from · Europe</div>
+            <div className="eyebrow text-primary">Import from · Europe</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Cross-Border Vehicle Sourcing & Transport Across Europe
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Found a car on AutoScout24 or with a European dealer? We handle purchase coordination, transport, and delivery to Albania or Kosovo.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

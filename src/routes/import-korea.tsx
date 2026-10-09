@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Gauge, ShieldCheck, FileText, DollarSign, ArrowRight, ShoppingBag, MessageSquare, Camera, ClipboardCheck, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-korea.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -17,7 +16,6 @@ export const Route = createFileRoute("/import-korea")({
       title: "Import a Car from South Korea | Alpha Worldwide",
       description: "Source, inspect, and ship a vehicle from South Korea — Encar, Autowini, and KB Chachacha sourcing, with shipping to Albania and across Europe.",
       path: "/import-korea",
-      image: heroImg,
       hreflang: [
         { lang: "en", path: "/import-korea" },
         { lang: "sq", path: "/al/makina-nga-korea" },
@@ -124,7 +122,7 @@ function ImportKorea() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From South Korea" }]} />
-      <InnerPageHero eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe." image={heroImg} imageAlt="Korean port and skyline">
+      <InnerPageHero eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe.">
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}

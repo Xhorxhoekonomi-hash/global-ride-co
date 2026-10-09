@@ -28,7 +28,8 @@ export function buildHead(opts: HeadOpts): {
   links: MetaEntry[];
 } {
   const url = absUrl(opts.path);
-  const image = opts.image ? absUrl(opts.image) : undefined;
+  // Relative bundled/CDN pointers do not establish an absolute public image URL.
+  const image = opts.image?.startsWith("https://") ? opts.image : undefined;
   const lang = opts.lang ?? "en";
   const meta: MetaEntry[] = [
     { title: opts.title },

@@ -1,8 +1,8 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -16,7 +16,6 @@ export const Route = createFileRoute("/services")({
       title: "Vehicle Import Services | Sourcing, Inspection, Shipping",
       description: "Auction access, pre-purchase inspection, container and RoRo shipping, airfreight, and customs-clearance coordination — full-service vehicle import.",
       path: "/services",
-      image: heroImg,
     });
     return {
       ...base,
@@ -65,7 +64,7 @@ const FAQS = [
 function ServicesPage() {
   return (
     <>
-      <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={heroImg} imageAlt="Car carrier ship at sea">
+      <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={PHOTO_SELECTIONS.mercedesContainer.src} imageAlt={PHOTO_SELECTIONS.mercedesContainer.en}>
         <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><Link to="/contact">Get a Quote <ArrowRight /></Link></Button>
         <Button asChild variant="outline" className="h-auto min-h-12 whitespace-normal py-3"><Link to="/calculator">Calculate Shipping</Link></Button>
       </InnerPageHero>

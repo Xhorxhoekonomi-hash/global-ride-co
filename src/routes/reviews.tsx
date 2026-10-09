@@ -1,9 +1,11 @@
+import { PhotoGallery } from "@/components/site/PhotoGallery";
+import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Star, MessageCircle, ExternalLink, ShieldCheck } from "lucide-react";
-import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { CONTACT, VEHICLES, TESTIMONIALS } from "@/lib/site-data";
+import { CONTACT, TESTIMONIALS } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/reviews")({
@@ -12,7 +14,6 @@ export const Route = createFileRoute("/reviews")({
       title: "Reviews & Delivered Vehicles | Alpha Worldwide",
       description: "Real delivered vehicles and customer experiences with Alpha Worldwide's sourcing, inspection, and shipping process from the USA, South Korea, UAE, Canada, and Europe.",
       path: "/reviews",
-      image: heroImg,
     });
     const scripts: Record<string, unknown>[] = [];
     // AggregateRating is only emitted once real, verifiable reviews exist —
@@ -54,15 +55,6 @@ export const Route = createFileRoute("/reviews")({
   component: Reviews,
 });
 
-const ORIGIN_LABELS: Record<string, string> = {
-  USA: "United States",
-  Korea: "South Korea",
-  UAE: "Dubai, UAE",
-  Canada: "Canada",
-  Europe: "Europe",
-};
-
-const ORIGIN_GROUPS = ["USA", "Korea", "UAE", "Europe"] as const;
 
 function Reviews() {
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
@@ -72,21 +64,19 @@ function Reviews() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Reviews" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle delivered by Alpha Worldwide" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[50vh] flex-col justify-end py-28">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Reviews & delivered vehicles</div>
+            <div className="eyebrow text-primary">Reviews & delivered vehicles</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Real Vehicles, Real Deliveries
+              Reviews & actual operations
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              15,000+ vehicles bought and transported over 10+ years — browse recent deliveries and read what customers say on Google.
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
+              Explore our original operational photos and read customer experiences on Google.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
@@ -111,46 +101,7 @@ function Reviews() {
         </div>
       </section>
 
-      {ORIGIN_GROUPS.map((origin, gi) => {
-        const vehicles = VEHICLES.filter((v) => v.origin === origin);
-        if (vehicles.length === 0) return null;
-        return (
-          <section key={origin} className={gi % 2 === 0 ? "section-mist" : "bg-background"}>
-            <div className="container-page py-16 md:py-20">
-              <div className="mx-auto max-w-2xl text-center">
-                <div className="eyebrow">Delivered from {ORIGIN_LABELS[origin]}</div>
-                <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Recent {ORIGIN_LABELS[origin]} Deliveries</h2>
-              </div>
-              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {vehicles.map((v) => (
-                  <article key={v.id} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-                    <div className="aspect-[4/3] overflow-hidden bg-mist">
-                      <img
-                        src={v.image}
-                        alt={`${v.year} ${v.name} delivered from ${ORIGIN_LABELS[v.origin]} to ${v.destination}`}
-                        loading="lazy"
-                        width={1200}
-                        height={800}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-display text-lg font-bold text-navy">{v.year} {v.name}</h3>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-teal">{ORIGIN_LABELS[v.origin]} → {v.destination}</p>
-                      <p className="mt-2 text-sm text-slate-body">{v.caption}</p>
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {v.services.map((s) => (
-                          <span key={s} className="rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">{s}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      })}
+      <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Vehicles we’ve handled</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Original photographs of vehicle handling at warehouses, ports, transporters and containers.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} /></div></div></section>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">

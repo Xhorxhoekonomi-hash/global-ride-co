@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calculator, MessageCircle, DollarSign, Landmark, Package } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/guides/car-shipping-costs-explained")({
       title: "Car Shipping Costs Explained | What Affects the Total",
       description: "Every category that can affect the total cost of an international vehicle import — from purchase price and freight to customs duties and the costs people forget to budget for.",
       path: "/guides/car-shipping-costs-explained",
-      image: heroImg,
     });
     return {
       ...base,
@@ -67,15 +66,13 @@ function GuideShippingCosts() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Shipping Costs Explained" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle import cost planning" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero>
+        <div>
           <GuideMeta category="shipping" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Car Shipping Costs Explained</h1>
-          <p className="mt-4 max-w-2xl text-white/75">Every category that can show up on an international vehicle import, split clearly by what we estimate versus what your destination authority sets.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">Every category that can show up on an international vehicle import, split clearly by what we estimate versus what your destination authority sets.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

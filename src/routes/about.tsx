@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Plane, Check, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-about.jpg";
 import { buildHead } from "@/lib/seo";
 import { TrustStats } from "@/components/site/TrustStats";
 import { OFFICES } from "@/lib/site-data";
@@ -11,7 +12,6 @@ export const Route = createFileRoute("/about")({
       title: "About Alpha Worldwide | Dubai HQ, Durrës Operations",
       description: "Alpha Worldwide is an international vehicle logistics company headquartered in Dubai, UAE, with European operations in Durrës, Albania. 10+ years, 15,000+ vehicles moved.",
       path: "/about",
-      image: heroImg,
     }),
   component: About,
 });
@@ -35,21 +35,19 @@ const PRINCIPLES = [
 function About() {
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Alpha Worldwide international operations" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.gallardo}>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Moving Cars Worldwide</div>
+            <div className="eyebrow text-primary">Moving Cars Worldwide</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               An International Vehicle Logistics Company
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Headquartered in Dubai, UAE, with European and Albanian operations in Durrës — sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, and Canada.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-2 lg:gap-20">

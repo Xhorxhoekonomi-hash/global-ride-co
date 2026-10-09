@@ -13,3 +13,4 @@
 - The EN and SQ homepages share HomeExperience presentation with localized copy and valid existing links; route-specific SEO remains in each leaf route to preserve indexing.
 - Visual redesigns may restyle calculator presentation but must not modify calculation logic/data, lead submission, auth or database schema, keeping operational behavior independent of presentation.
 - Interior page headings use InnerPageHero and import journeys use JourneySteps so localized pages share light, accessible presentation without moving route SEO or operational content.
+- Named owner-photo selections and vehicle/session albums in alpha-photos are the single source for displayed vehicle imagery; grouping never adds unverified delivery metadata.

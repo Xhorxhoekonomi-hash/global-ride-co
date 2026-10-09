@@ -1,10 +1,10 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Search, Gavel, ShieldCheck, DollarSign, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, ArrowRight, Package, PackageCheck } from "lucide-react";
-import heroImg from "@/assets/hero-usa.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PlatformBadges } from "@/components/site/PlatformBadges";
@@ -24,7 +24,6 @@ export const Route = createFileRoute("/import-usa")({
         { lang: "sq", path: "/al/makina-nga-amerika" },
       ],
       xDefault: "/import-usa",
-      image: heroImg,
     });
     return {
       ...base,
@@ -102,7 +101,7 @@ function ImportUSA() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} />
-      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." image={heroImg} imageAlt="US port with vehicles">
+      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." image={PHOTO_SELECTIONS.porsche.src} imageAlt={PHOTO_SELECTIONS.porsche.en}>
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}

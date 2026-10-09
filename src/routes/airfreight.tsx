@@ -1,7 +1,8 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Zap, ShieldCheck, Plane, Package, FileText, Landmark, Battery, Gauge, Users, Truck, MessageCircle } from "lucide-react";
-import heroImg from "@/assets/hero-uae.jpg";
 import { buildHead } from "@/lib/seo";
 import { SITE_URL } from "@/lib/seo";
 import { AirfreightForm } from "@/components/site/AirfreightForm";
@@ -71,7 +72,6 @@ export const Route = createFileRoute("/airfreight")({
       title: "Vehicle Airfreight | Complete Service & Airport Handling",
       description: "Complete vehicle airfreight coordination or European airport handling only — Amsterdam Schiphol, Milan Malpensa, and Leipzig/Halle, with customs and transit-document support.",
       path: "/airfreight",
-      image: heroImg,
     });
     return {
       ...base,
@@ -114,16 +114,14 @@ function Airfreight() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Airfreight vehicle delivery" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.loading}>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Airfreight</div>
+            <div className="eyebrow text-primary">Airfreight</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               When It Absolutely Has to Arrive Fast
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.
             </p>
             <a
@@ -137,7 +135,7 @@ function Airfreight() {
             </a>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

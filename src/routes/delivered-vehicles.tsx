@@ -1,6 +1,6 @@
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Instagram, MessageCircle, Ship } from "lucide-react";
-import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
@@ -9,13 +9,13 @@ import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/delivered-vehicles")({
-  head: () => buildHead({ title: "Delivered Vehicles | Alpha Worldwide Albania", description: "Real vehicles sourced, inspected and shipped by Alpha Worldwide — Rolls Royce, Ferrari, Porsche, Mercedes and more delivered to Albania and Europe.", path: "/delivered-vehicles", image: heroImg }),
+  head: () => buildHead({ title: "Delivered Vehicles | Alpha Worldwide Albania", description: "Real vehicles sourced, inspected and shipped by Alpha Worldwide — Rolls Royce, Ferrari, Porsche, Mercedes and more delivered to Albania and Europe.", path: "/delivered-vehicles", }),
   component: DeliveredVehicles,
 });
 
 function DeliveredVehicles() {
   return <>
-    <InnerPageHero eyebrow="Deliveries & updates" title="Delivered Vehicles" description="Explore shipment updates from Alpha Worldwide Albania on our Instagram page.">
+    <InnerPageHero eyebrow="Deliveries & updates" title="Vehicles we’ve handled" description="Original photographs from our vehicle handling and shipping operations." image={PHOTO_SELECTIONS.silverFerrari.src} imageAlt={PHOTO_SELECTIONS.silverFerrari.en}>
       <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> See our deliveries on Instagram <ArrowRight /></a></Button>
       <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a Quote</Link></Button>
     </InnerPageHero>
@@ -23,7 +23,7 @@ function DeliveredVehicles() {
       <div className="container-page py-12 md:py-16">
         <p className="text-xs font-semibold text-primary">Original Alpha Worldwide photos</p>
         <h2 className="mt-3 text-3xl font-semibold text-secondary">Vehicle handling & shipping gallery</h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">Vehicles photographed by our team at warehouses, ports, transporters and inside shipping containers. Tap any photo to view it larger.</p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">Vehicles photographed by our team at warehouses, ports, transporters and inside shipping containers.</p>
         <div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} /></div>
       </div>
     </section>

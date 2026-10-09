@@ -1,6 +1,6 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Scale, AlertTriangle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { AuthorBox } from "@/components/guides/AuthorBox";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/guides/copart-vs-iaai")({
       title: "Copart vs IAAI: A Neutral Comparison Guide",
       description: "Comparing Copart and IAAI on inventory, condition information, buyer access, fees, and pickup logistics — without claiming one platform is always cheaper or safer.",
       path: "/guides/copart-vs-iaai",
-      image: heroImg,
     });
     return {
       ...base,
@@ -70,15 +69,13 @@ function GuideCopartVsIaai() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Copart vs IAAI" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Salvage auction vehicles ready for buyer inspection" width={1920} height={800} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[45vh] flex-col justify-end py-24">
+      <EditorialHero>
+        <div>
           <GuideMeta category="auctions" readingTime="4 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Copart vs IAAI: A Neutral Comparison</h1>
-          <p className="mt-4 max-w-2xl text-white/75">Two of the largest US salvage auction platforms, compared honestly — including where they're more similar than different.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">Two of the largest US salvage auction platforms, compared honestly — including where they're more similar than different.</p>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

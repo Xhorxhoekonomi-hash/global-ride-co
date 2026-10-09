@@ -1,6 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
+import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Package, ShieldCheck, Lock, Ship, MessageCircle, Calculator } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -13,7 +14,6 @@ export const Route = createFileRoute("/al/transport-me-kontenier")({
       description: "Si funksionon transporti me kontenier për automjete — 20ft, 40ft HC, kontenier i përbashkët apo i dedikuar — nga SHBA-ja, Koreja e Jugut, Dubai, Kanadaja dhe Evropa drejt Shqipërisë.",
       path: "/al/transport-me-kontenier",
       lang: "sq",
-      image: heroImg,
     });
     return {
       ...base,
@@ -79,16 +79,14 @@ function TransportMeKontenier() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Kontenier transporti në terminal portual" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero photo={PHOTO_SELECTIONS.container} locale="sq">
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Transport me kontenier</div>
+            <div className="eyebrow text-primary">Transport me kontenier</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Mbrojtje e plotë për automjetin tuaj gjatë transportit detar
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Kontenier 20ft, 40ft HC, i përbashkët ose i dedikuar — zgjedhim opsionin e duhur për automjetin tuaj nga SHBA-ja, Koreja e Jugut, Dubai, Kanadaja ose Evropa.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -104,7 +102,7 @@ function TransportMeKontenier() {
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

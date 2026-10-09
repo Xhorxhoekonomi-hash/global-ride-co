@@ -1,7 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Anchor, MessageCircle, Calculator, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT, COUNTRIES, SERVICES } from "@/lib/site-data";
@@ -14,7 +14,6 @@ export const Route = createFileRoute("/en/albania")({
       title: "Car Shipping to Albania | Vehicle Import & Logistics",
       description: "Vehicle sourcing, inspection, and shipping to Albania from the USA, South Korea, UAE, Canada, and Europe — coordinated through the Port of Durrës.",
       path: "/en/albania",
-      image: heroImg,
     });
     return {
       ...base,
@@ -70,16 +69,14 @@ function AlbaniaHub() {
     <>
       <Breadcrumbs items={[{ label: "Albania" }]} />
 
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="A vehicle imported and delivered by Alpha Worldwide in Albania" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[65vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Albania</div>
+            <div className="eyebrow text-primary">Albania</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Vehicle Shipping and Import Services to Albania
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Sourcing, inspection, and shipping from the USA, South Korea, UAE, Canada, and Europe — coordinated through the Port of Durrës.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -95,14 +92,14 @@ function AlbaniaHub() {
               <Link
                 to="/calculator"
                 onClick={() => trackEvent("calculator_started", { source: "albania-hub-hero" })}
-                className="btn-outline-light"
+                className="btn-outline-dark"
               >
                 <Calculator className="h-4 w-4" /> Calculate Shipping Cost
               </Link>
             </div>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

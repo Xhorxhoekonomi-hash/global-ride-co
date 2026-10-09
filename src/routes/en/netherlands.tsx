@@ -1,7 +1,7 @@
+import { EditorialHero } from "@/components/site/EditorialHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Ship, ArrowRight, MessageCircle, Calculator, ShieldCheck, Package, Plane, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
@@ -34,7 +34,6 @@ export const Route = createFileRoute("/en/netherlands")({
       title: "Vehicle Import to the Netherlands | Alpha Worldwide",
       description: "Import a vehicle into the Netherlands, or use the Port of Rotterdam as your gateway to Germany, Belgium, or France.",
       path: "/en/netherlands",
-      image: heroImg,
     });
     return {
       ...base,
@@ -77,21 +76,19 @@ function NetherlandsHub() {
     <>
       <Breadcrumbs items={[{ label: "Netherlands" }]} />
 
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Rotterdam port and Netherlands skyline" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[60vh] flex-col justify-end py-32">
+      <EditorialHero>
+        <div>
           <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">Netherlands</div>
+            <div className="eyebrow text-primary">Netherlands</div>
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Vehicle Import to the Netherlands
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Import a vehicle into the Netherlands directly, or use the Port of Rotterdam as your gateway to Germany, Belgium, and France.
             </p>
           </div>
         </div>
-      </section>
+      </EditorialHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
