@@ -104,22 +104,20 @@ function ImportUSA() {
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} />
       <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." image={heroImg} imageAlt="US port with vehicles">
 
-              <a
+              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={() => trackEvent("whatsapp_clicked", { source: "import-usa-hero" })}
-                className="btn-primary"
-              >
+                >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a>
-              <Link
+              </a></Button>
+              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
                 to="/calculator"
                 onClick={() => trackEvent("calculator_started", { source: "import-usa-hero" })}
-                className="btn-outline-light"
-              >
+                >
                 <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-              </Link>
+              </Link></Button>
             
       </InnerPageHero>
 

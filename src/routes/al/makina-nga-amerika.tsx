@@ -101,22 +101,20 @@ function MakinaNgaAmerika() {
     <>
       <InnerPageHero eyebrow="Import automjetesh nga SHBA-ja" title="Blej dhe transporto një makinë nga Amerika" description="Alpha Worldwide ju ndihmon të blini automjete nga Copart, IAAI, Manheim, ADESA dhe shitës të përzgjedhur, duke organizuar transportin deri në Shqipëri." image={heroImg} imageAlt="Port amerikan me automjete">
 
-              <a
+              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={() => trackEvent("whatsapp_clicked", { source: "al-usa-hero" })}
-                className="btn-primary"
-              >
+                >
                 <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-              <a
-                href="/calculator"
+              </a></Button>
+              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
+                to="/al/kalkulator-transporti"
                 onClick={() => trackEvent("calculator_started", { source: "al-usa-hero" })}
-                className="btn-outline-light"
-              >
+                >
                 <Calculator className="h-4 w-4" /> Llogarit koston
-              </a>
+              </Link></Button>
             
       </InnerPageHero>
 

@@ -102,19 +102,18 @@ function ImportUAE() {
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} />
       <InnerPageHero eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters." image={heroImg} imageAlt="Dubai skyline with luxury vehicle">
 
-              <a
+              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={() => trackEvent("whatsapp_clicked", { source: "import-uae-hero" })}
-                className="btn-primary"
-              >
+                >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a>
+              </a></Button>
               <a
                 href={`tel:${CONTACT.uae.replace(/\s/g, "")}`}
                 onClick={() => trackEvent("phone_clicked", { location: "import-uae-hero" })}
-                className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-4 py-2.5 text-sm font-semibold text-secondary transition-colors hover:bg-white/10"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-background px-4 py-3 text-sm font-semibold text-secondary transition-colors hover:bg-accent"
               >
                 <Phone className="h-4 w-4 text-primary" /> UAE Office: {CONTACT.uae}
               </a>

@@ -126,22 +126,20 @@ function ImportKorea() {
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From South Korea" }]} />
       <InnerPageHero eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe." image={heroImg} imageAlt="Korean port and skyline">
 
-              <a
+              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={() => trackEvent("whatsapp_clicked", { source: "import-korea-hero" })}
-                className="btn-primary"
-              >
+                >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a>
-              <Link
+              </a></Button>
+              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
                 to="/calculator"
                 onClick={() => trackEvent("calculator_started", { source: "import-korea-hero" })}
-                className="btn-outline-light"
-              >
+                >
                 <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-              </Link>
+              </Link></Button>
             
       </InnerPageHero>
 

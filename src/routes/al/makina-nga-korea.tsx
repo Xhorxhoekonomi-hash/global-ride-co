@@ -127,22 +127,20 @@ function MakinaNgaKorea() {
     <>
       <InnerPageHero eyebrow="Import automjetesh nga Koreja e Jugut" title="Blej dhe transporto një makinë nga Koreja e Jugut" description="Ju ndihmojmë të gjeni automjete me kilometrazh të ulët dhe dokumentacion të plotë nga Encar, Autowini, KB Chachacha dhe shitës të përzgjedhur, me transport deri në Portin e Durrësit." image={heroImg} imageAlt="Port në Korenë e Jugut">
 
-              <a
+              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={() => trackEvent("whatsapp_clicked", { source: "al-korea-hero" })}
-                className="btn-primary"
-              >
+                >
                 <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-              <Link
+              </a></Button>
+              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
                 to="/al/kalkulator-transporti"
                 onClick={() => trackEvent("calculator_started", { source: "al-korea-hero" })}
-                className="btn-outline-light"
-              >
+                >
                 <Calculator className="h-4 w-4" /> Llogarit koston
-              </Link>
+              </Link></Button>
             
       </InnerPageHero>
 
@@ -262,13 +260,12 @@ function MakinaNgaKorea() {
             Kalkulatori ynë përdor tarifat aktuale për transportin nga Koreja e Jugut drejt Shqipërisë, Holandës dhe Gjermanisë.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
+            <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><Link
               to="/al/kalkulator-transporti"
               onClick={() => trackEvent("calculator_started", { source: "al-korea-cta" })}
-              className="btn-primary"
-            >
+              >
               <Calculator className="h-4 w-4" /> Hap kalkulatorin
-            </Link>
+            </Link></Button>
             <Button asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to="/al/kontakt" >
               <Truck className="h-4 w-4" /> Na kontaktoni
             </Link></Button>

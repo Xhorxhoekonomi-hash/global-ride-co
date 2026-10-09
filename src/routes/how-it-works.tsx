@@ -98,7 +98,7 @@ function HowItWorks() {
                 </div>
                 {(s.n === 2 || s.n === 4 || s.n === 6 || s.n === 8) && (
                   <div className="mb-10 ml-[68px] flex flex-wrap gap-3">
-                    <a
+                    <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -127,17 +127,15 @@ function HowItWorks() {
               target="_blank"
               rel="noreferrer noopener"
               onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}
-              className="btn-primary"
-            >
+              >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
-            </a>
-            <Link
+            </a></Button>
+            <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
-              className="btn-outline-light"
-            >
+              >
               <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-            </Link>
+            </Link></Button>
           </div>
         </div>
       </section>
