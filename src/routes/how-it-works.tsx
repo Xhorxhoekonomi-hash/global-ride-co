@@ -1,3 +1,5 @@
+import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Eye, FileCheck, ShoppingBag, CreditCard, FileText, Ship, Anchor, Landmark, PackageCheck, MessageCircle, Calculator } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
@@ -69,21 +71,9 @@ function HowItWorks() {
   return (
     <>
       <Breadcrumbs items={[{ label: "How It Works" }]} />
-      <section className="relative isolate overflow-hidden text-white">
-        <img src={heroImg} alt="Vehicle logistics coordination from sourcing to delivery" width={1920} height={900} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-navy/95 via-navy/85 to-graphite/90" />
-        <div className="container-page flex min-h-[50vh] flex-col justify-end py-28">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-teal-glow">How it works</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              From Choosing a Vehicle to Collection — Ten Steps, One Team
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/75">
-              Every step explained honestly, including where availability and timing genuinely depend on factors outside our control.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control." image={heroImg} imageAlt="Vehicle logistics coordination from sourcing to delivery">
+
+      </InnerPageHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
@@ -92,31 +82,31 @@ function HowItWorks() {
               <div key={s.n}>
                 <div className="flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-teal bg-card text-teal">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-primary bg-card text-primary">
                       <s.icon className="h-5 w-5" />
                     </div>
                     {i < STEPS.length - 1 && <div className="mt-2 w-px flex-1 bg-border" />}
                   </div>
                   <div className="pb-10">
-                    <div className="text-xs font-bold uppercase tracking-wider text-teal">Step {s.n}</div>
-                    <h2 className="font-display mt-1 text-xl font-bold text-navy">{s.title}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
+                    <div className="text-xs font-bold uppercase tracking-normal text-primary">Step {s.n}</div>
+                    <h2 className="font-display mt-1 text-xl font-bold text-secondary">{s.title}</h2>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                     {s.trust && (
-                      <p className="mt-2 rounded-lg bg-mist px-3 py-2 text-xs text-navy/70">{s.trust}</p>
+                      <p className="mt-2 rounded-lg bg-mist px-3 py-2 text-xs text-muted-foreground">{s.trust}</p>
                     )}
                   </div>
                 </div>
                 {(s.n === 2 || s.n === 4 || s.n === 6 || s.n === 8) && (
                   <div className="mb-10 ml-[68px] flex flex-wrap gap-3">
-                    <a
+                    <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noreferrer noopener"
                       onClick={() => trackEvent("whatsapp_clicked", { source: `how-it-works-step-${s.n}` })}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-teal hover:text-teal"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-secondary transition-colors hover:border-primary hover:text-primary"
                     >
                       <MessageCircle className="h-3.5 w-3.5" /> Ask us about this step
-                    </a>
+                    </a></Button>
                   </div>
                 )}
               </div>
@@ -125,29 +115,27 @@ function HowItWorks() {
         </div>
       </section>
 
-      <section className="section-dark">
+      <section className="bg-accent border-y border-border">
         <div className="container-page py-20 text-center md:py-24">
-          <div className="eyebrow text-teal-glow">Ready to start?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-white md:text-5xl">
+          <div className="eyebrow text-primary">Ready to start?</div>
+          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-secondary md:text-5xl">
             Send us your first vehicle
           </h2>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a
+            <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer noopener"
               onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}
-              className="btn-primary"
-            >
+              >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
-            </a>
-            <Link
+            </a></Button>
+            <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
-              className="btn-outline-light"
-            >
+              >
               <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-            </Link>
+            </Link></Button>
           </div>
         </div>
       </section>

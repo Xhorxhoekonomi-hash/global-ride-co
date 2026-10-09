@@ -1,26 +1,27 @@
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function Step({ n, title, children }: { n: number; title: string; children: ReactNode }) {
   return (
-    <div>
-      <div className="mb-2.5 flex items-center gap-2">
-        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-navy text-[11px] font-bold text-white">{n}</span>
-        <label className="text-sm font-bold text-navy">{title}</label>
-      </div>
+    <fieldset className="min-w-0 border-t border-border pt-5">
+      <legend className="mb-3 flex items-center gap-3 pr-3">
+        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent text-sm font-semibold text-primary">{n}</span>
+        <span className="text-base font-semibold text-secondary">{title}</span>
+      </legend>
       {children}
-    </div>
+    </fieldset>
   );
 }
 
 export function StepReveal({ children }: { children: ReactNode }) {
+  const reducedMotion = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, height: 0, y: -6 }}
+      initial={reducedMotion ? false : { opacity: 0, height: 0, y: -6 }}
       animate={{ opacity: 1, height: "auto", y: 0 }}
       exit={{ opacity: 0, height: 0, y: -6 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      transition={{ duration: reducedMotion ? 0 : 0.35, ease: "easeOut" }}
       className="overflow-hidden"
     >
       {children}
@@ -30,9 +31,9 @@ export function StepReveal({ children }: { children: ReactNode }) {
 
 export function Row({ label, value, bold = false }: { label: string; value: string; bold?: boolean }) {
   return (
-    <div className={cn("flex items-baseline justify-between py-0.5", bold && "font-bold text-navy")}>
-      <span className={cn("text-xs", bold ? "text-navy" : "text-slate-body")}>{label}</span>
-      <span className={cn("text-xs tabular-nums", bold ? "text-navy" : "text-navy/80")}>{value}</span>
+    <div className={cn("grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 py-1.5", bold && "font-semibold text-secondary")}>
+      <span className={cn("min-w-0 text-sm", bold ? "text-secondary" : "text-muted-foreground")}>{label}</span>
+      <span className={cn("shrink-0 text-right text-sm tabular-nums", bold ? "text-secondary" : "text-muted-foreground")}>{value}</span>
     </div>
   );
 }

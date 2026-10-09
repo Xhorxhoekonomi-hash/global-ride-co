@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Check, MessageCircle } from "lucide-react";
@@ -70,25 +72,26 @@ export function KoreaCalculator({
   const showDest = showPrice && priceNumber > 0;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_minmax(0,26rem)] lg:items-start">
-      <div className="space-y-6">
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-start">
+      <div className="min-w-0 space-y-8">
         <Step n={1} title={D.step1.title}>
           <div className="grid gap-3 sm:grid-cols-3">
             {D.step1.types.map((t) => (
-              <button
+              <Button variant="ghost"
                 key={t.value}
                 type="button"
-                onClick={() => setType(t.value)}
+                aria-pressed={type === t.value}
+                 onClick={() => setType(t.value)}
                 className={cn(
-                  "rounded-2xl border p-4 text-left transition-all",
-                  type === t.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
+                  "h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
+                  type === t.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary",
                 )}
               >
-                <div className="text-sm font-bold text-navy">{t.label}</div>
-              </button>
+                <div className="text-sm font-bold text-secondary">{t.label}</div>
+              </Button>
             ))}
           </div>
-          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold text-teal">
+          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary">
             {D.step1.roroTag}
           </div>
         </Step>
@@ -97,8 +100,8 @@ export function KoreaCalculator({
           {showPrice && (
             <StepReveal key="kp">
               <Step n={2} title={D.step2.title}>
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                  <div className="relative min-w-0">
                     <input
                       type="number"
                       inputMode="numeric"
@@ -106,27 +109,29 @@ export function KoreaCalculator({
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                       placeholder="0"
-                      className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+                      aria-label={D.step2.title}
+                     className="min-h-12 w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/25"
                     />
                   </div>
                   <div className="flex overflow-hidden rounded-md border border-border">
                     {(["KRW", "EUR"] as const).map((c) => (
-                      <button
+                      <Button variant="ghost"
                         key={c}
                         type="button"
-                        onClick={() => setCurrency(c)}
+                        aria-pressed={currency === c}
+                         onClick={() => setCurrency(c)}
                         className={cn(
-                          "px-4 text-sm font-semibold transition-colors",
-                          currency === c ? "bg-navy text-white" : "bg-background text-slate-body",
+                          "min-h-12 rounded-none px-3 text-sm font-semibold transition-colors",
+                          currency === c ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground",
                         )}
                       >
                         {c === "KRW" ? "₩ KRW" : "€ EUR"}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 </div>
                 {priceNumber > 0 && (
-                  <p className="mt-1.5 text-xs text-slate-body">
+                  <p className="mt-1.5 text-xs text-muted-foreground">
                     {D.step2.helper(currency === "KRW" ? `€${fmtInt(priceEur)}` : `₩${fmtInt(priceKrw)}`)}
                   </p>
                 )}
@@ -141,19 +146,20 @@ export function KoreaCalculator({
               <Step n={3} title={D.step3.title}>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {D.step3.destinations.map((d) => (
-                    <button
+                    <Button variant="ghost"
                       key={d.value}
                       type="button"
-                      onClick={() => setDestination(d.value)}
+                      aria-pressed={destination === d.value}
+                       onClick={() => setDestination(d.value)}
                       className={cn(
-                        "rounded-2xl border p-4 text-left transition-all",
-                        destination === d.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
+                        "h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
+                        destination === d.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary",
                       )}
                     >
-                      <div className="text-xs font-bold tracking-[0.14em] text-teal">{d.code}</div>
-                      <div className="mt-2 text-sm font-bold text-navy">{d.label}</div>
-                      <div className="mt-1 text-xs text-slate-body">{d.port}</div>
-                    </button>
+                      <div className="text-xs font-bold tracking-normal text-primary">{d.code}</div>
+                      <div className="mt-2 text-sm font-bold text-secondary">{d.label}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{d.port}</div>
+                    </Button>
                   ))}
                 </div>
               </Step>
@@ -171,56 +177,55 @@ export function KoreaCalculator({
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="overflow-hidden rounded-2xl border border-border bg-card shadow-elegant"
+              className="overflow-hidden rounded-lg border border-border bg-card shadow-card"
             >
               <div className="border-b border-border p-5">
-                <div className="text-xs font-bold uppercase tracking-wider text-teal">{D.breakdown.title(destinationLabel(destination))}</div>
-                <div className="mt-1 text-xs text-slate-body">{D.breakdown.vehicleLine(type)}</div>
+                <div className="text-xs font-bold uppercase tracking-normal text-primary">{D.breakdown.title(destinationLabel(destination))}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{D.breakdown.vehicleLine(type)}</div>
               </div>
 
               <div className="space-y-5 p-5 text-sm">
                 <Row label={D.breakdown.vehiclePrice} value={`₩${fmtInt(priceKrw)} (~€${fmtInt(priceEur)})`} />
 
                 <div>
-                  <div className="mb-1.5 text-xs font-bold uppercase tracking-wider text-navy/60">{D.breakdown.allInTitle}</div>
+                  <div className="mb-1.5 text-xs font-bold uppercase tracking-normal text-muted-foreground">{D.breakdown.allInTitle}</div>
                   <ul className="mb-2 space-y-1">
                     {includes.map((i) => (
-                      <li key={i} className="flex items-center gap-1.5 text-xs text-slate-body">
-                        <Check className="h-3.5 w-3.5 text-teal" /> {i}
+                      <li key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Check className="h-3.5 w-3.5 text-primary" /> {i}
                       </li>
                     ))}
                   </ul>
                   <Row label={D.breakdown.fixedShipping} value={`€${fmtInt(shippingEur)}`} bold />
                 </div>
 
-                <div className="rounded-xl bg-mist p-4">
+                <div className="border-t border-border bg-accent p-4">
                   <Row label={D.breakdown.vehiclePrice} value={`€${fmtInt(priceEur)}`} />
                   <Row label={D.breakdown.plusShipping} value={`€${fmtInt(shippingEur)}`} />
                   <div className="my-2 border-t border-border" />
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-sm font-bold text-navy">{D.breakdown.estimatedTotal}</span>
-                    <span className="font-display text-2xl font-bold text-teal">€{fmtInt(totalEur)}</span>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3">
+                    <span className="text-sm font-bold text-secondary">{D.breakdown.estimatedTotal}</span>
+                    <span className="font-display text-2xl font-bold text-primary">€{fmtInt(totalEur)}</span>
                   </div>
                 </div>
 
-                <ul className="space-y-1 text-[11px] leading-relaxed text-slate-body">
-                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.customsWarning}</li>
-                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.estimatesWarning}</li>
+                <ul className="space-y-1 text-[11px] leading-relaxed text-muted-foreground">
+                  <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.customsWarning}</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.estimatesWarning}</li>
                 </ul>
               </div>
 
               <div className="border-t border-border p-5">
-                <button
+                <Button variant="ghost"
                   onClick={onWhatsApp}
                   type="button"
-                  className="flex w-full items-center justify-center gap-2 rounded-md py-3 text-sm font-semibold text-white shadow-sm"
-                  style={{ backgroundColor: "oklch(0.66 0.17 145)" }}
+                  className="h-auto min-h-12 w-full whitespace-normal bg-primary py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
                 >
                   <MessageCircle className="h-4 w-4" /> {D.requestOnWhatsApp}
-                </button>
-                <a href={contactHref} className="mt-3 block text-center text-sm font-semibold text-teal hover:underline">
+                </Button>
+                <Button asChild variant="link" className="mt-3 h-auto min-h-11 w-full whitespace-normal"><Link to={contactHref}>
                   {D.requestFullQuote}
-                </a>
+                </Link></Button>
               </div>
             </motion.div>
           ) : (
@@ -229,7 +234,7 @@ export function KoreaCalculator({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="rounded-2xl border border-dashed border-border p-8 text-center text-sm text-slate-body"
+              className="rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground"
             >
               {D.emptyState}
             </motion.div>
