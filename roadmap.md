@@ -25,6 +25,6 @@
 - [x] Check EN/SQ at 360/390/1280, gallery and calls to action, plus three interior pages; no deployment.
 
 # Editorial design rebuild
-- [ ] Recompose localized homepages with original-car hero, guided tasks, cartographic origins, service chapters, functional calculator teaser and four-cover filmstrip.
-- [ ] Align shared header, footer and interior heading conventions; preserve originals and operational behavior.
-- [ ] Verify EN/SQ and three interior pages at desktop/mobile sizes, image loading, CTAs and all-angle gallery; document exact changes without publishing.
+- [x] Recompose localized homepages with original-car hero, guided tasks, cartographic origins, service chapters, functional calculator teaser and four-cover filmstrip.
+- [x] Align shared header, footer and interior heading conventions; preserve originals and operational behavior.
+- [x] Verify EN/SQ and three interior pages at 1440/1280/390/360, all 30 image decodes, CTAs and all-angle gallery; automatic build OK; document exact changes in docs/editorial-design-review.md without publishing.
