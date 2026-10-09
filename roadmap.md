@@ -18,3 +18,8 @@
 - [x] Curate named owner-photo selections and grouped albums preserving all 30 originals.
 - [x] Remove unverified delivery records from reviews and preserve operational behavior.
 - [x] Verify English/Albanian pages, gallery navigation, image loading and mobile/desktop layout; record exact changes in docs/real-photo-first-review.md.
+
+# Focused premium layout refinement
+- [ ] Compose bounded landscape homepage and interior hero media without captions.
+- [ ] Restore four balanced media-first origins and wide service/guide frames; curate six gallery covers.
+- [ ] Check EN/SQ at 360/390/1280, gallery and calls to action, plus three interior pages; no deployment.
