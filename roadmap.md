@@ -7,8 +7,8 @@
 - [x] Original TD_LOGO_2023.png reused unchanged through BrandLogo; no reconstruction or deployment.
 
 # Phase 2 interior-page visual implementation
-- [ ] Shared light headings and scan-friendly journeys; services and USA/Korea/UAE imports, including SQ USA/Korea.
-- [ ] Calculator shell, controls and summary presentation in EN/SQ; all calculations/data unchanged.
-- [ ] Contact EN/SQ, safe delivered-vehicles page, how-it-works and inspection-service.
-- [ ] Desktop 1280/1440 and mobile 360/390 checks, calculator flows, form validation, locale links and automatic build.
-- [ ] Report exact changed pages and preview; delivery gallery blocked by unverified photo provenance; no deployment.
+- [x] Shared light headings and scan-friendly journeys; services and USA/Korea/UAE imports, including SQ USA/Korea.
+- [x] Calculator shell, controls and summary presentation in EN/SQ; all calculations/data unchanged.
+- [x] Contact EN/SQ, safe delivered-vehicles page, how-it-works and inspection-service.
+- [x] Desktop 1280/1440 and mobile 360/390 checks, calculator flows, form validation, locale links and automatic build.
+- [x] Exact changed pages and QA recorded in docs/phase-2-visual-review.md; review in the existing Lovable preview; delivery gallery blocked by unverified photo provenance; no deployment.
