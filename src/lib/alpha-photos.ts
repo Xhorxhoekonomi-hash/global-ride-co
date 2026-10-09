@@ -67,3 +67,60 @@ export const ALPHA_PHOTOS: AlphaPhoto[] = [
 ];
 
 export const CONTAINER_PHOTOS = ALPHA_PHOTOS.filter((p) => p.container);
+
+// Named selections refer to the original manifest objects, never array positions.
+function original(src: string): AlphaPhoto {
+  const photo = ALPHA_PHOTOS.find((item) => item.src === src);
+  if (!photo) throw new Error("Owner photo is missing from the manifest");
+  return photo;
+}
+export const PHOTO_SELECTIONS = {
+  urus: original(p1.url),
+  porsche: original(p24.url),
+  blueFerrari: original(p2.url),
+  audi: original(p10.url),
+  gallardo: original(p7.url),
+  container: original(p5.url),
+  mercedesContainer: original(p6.url),
+  darkFerrariContainer: original(p18.url),
+  silverFerrari: original(p15.url),
+  greenFerrari: original(p20.url),
+  greenContainer: original(p21.url),
+  loading: original(p8.url),
+  transporter: original(p28.url),
+  cybertruck: original(p26.url),
+  rollsRoyce: original(p12.url),
+};
+
+export type AlphaAlbum = { id: string; en: string; sq: string; photos: AlphaPhoto[] };
+function album(id: string, en: string, sq: string, sources: string[]): AlphaAlbum {
+  return { id, en, sq, photos: sources.map(original) };
+}
+export const ALPHA_ALBUMS: AlphaAlbum[] = [
+  album("urus", "Lamborghini Urus at port", "Lamborghini Urus në port", [p1.url, p0.url]),
+  album("porsche", "Porsche 911 at warehouse", "Porsche 911 në magazinë", [p24.url, p22.url, p23.url, p25.url]),
+  album("blue-ferrari", "Blue Ferrari", "Ferrari blu", [p2.url]),
+  album("silver-ferrari", "Silver Ferrari", "Ferrari argjendi", [p15.url, p14.url, p16.url]),
+  album("green-ferrari", "Green Ferrari · yard & container", "Ferrari jeshile · parkim dhe kontenier", [p20.url, p21.url]),
+  album("yellow-huracan", "Lamborghini Huracán · warehouse & container", "Lamborghini Huracán · magazinë dhe kontenier", [p3.url, p4.url]),
+  album("sls", "Mercedes-Benz SLS AMG in container", "Mercedes-Benz SLS AMG në kontenier", [p5.url]),
+  album("cl63", "Mercedes-Benz CL63 AMG in container", "Mercedes-Benz CL63 AMG në kontenier", [p6.url]),
+  album("gallardo", "Lamborghini Gallardo at warehouse", "Lamborghini Gallardo në magazinë", [p7.url]),
+  album("loading", "Ferrari on vehicle transporter", "Ferrari në transportues automjetesh", [p8.url]),
+  album("mclaren", "McLaren at warehouse", "McLaren në magazinë", [p9.url]),
+  album("audi", "Audi SUV at vehicle lot", "Audi SUV në parkim", [p10.url]),
+  // Front/rear sessions cannot all be corroborated; keep these separate.
+  album("rolls-front", "Rolls-Royce SUV at lot", "Rolls-Royce SUV në parkim", [p11.url]),
+  album("rolls-yard", "Rolls-Royce SUV · front view", "Rolls-Royce SUV · pamje përpara", [p12.url]),
+  album("rolls-rear", "Rolls-Royce SUV · rear view", "Rolls-Royce SUV · pamje pas", [p13.url]),
+  album("dark-ferrari", "Ferrari inside container", "Ferrari në kontenier", [p17.url, p18.url]),
+  album("performance-container", "Sports car inside container", "Makinë sportive në kontenier", [p19.url]),
+  album("cybertruck", "Tesla Cybertruck at vehicle yard", "Tesla Cybertruck në parkim", [p26.url, p27.url]),
+  album("road-transporter", "Vehicles on road transporter", "Automjete në transportues rrugor", [p28.url]),
+  album("yellow-container", "Yellow sports car in container", "Makinë sportive e verdhë në kontenier", [p29.url]),
+];
+
+export function albumsForPhotos(photos: AlphaPhoto[]): AlphaAlbum[] {
+  const sources = new Set(photos.map((photo) => photo.src));
+  return ALPHA_ALBUMS.map((entry) => ({ ...entry, photos: entry.photos.filter((photo) => sources.has(photo.src)) })).filter((entry) => entry.photos.length > 0);
+}

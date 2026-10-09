@@ -19,8 +19,8 @@ export type GuideCategory = keyof typeof GUIDE_CATEGORIES;
 export function GuideMeta({ category, readingTime }: { category: GuideCategory; readingTime: string }) {
   return (
     <div className="flex flex-wrap items-center gap-3 text-xs">
-      <span className="rounded-full bg-teal/15 px-3 py-1 font-semibold text-teal-glow">{GUIDE_CATEGORIES[category]}</span>
-      <span className="text-white/60">{readingTime} read</span>
+      <span className="rounded-full bg-accent px-3 py-1 font-semibold text-primary">{GUIDE_CATEGORIES[category]}</span>
+      <span className="text-muted-foreground">{readingTime} read</span>
     </div>
   );
 }
