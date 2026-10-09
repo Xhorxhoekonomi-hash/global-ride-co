@@ -4,6 +4,8 @@ import heroImg from "@/assets/hero-delivered.jpg";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PhotoGallery } from "@/components/site/PhotoGallery";
+import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/delivered-vehicles")({
@@ -18,6 +20,14 @@ function DeliveredVehicles() {
       <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a Quote</Link></Button>
     </InnerPageHero>
     <section className="bg-background">
+      <div className="container-page py-12 md:py-16">
+        <p className="text-xs font-semibold text-primary">Original Alpha Worldwide photos</p>
+        <h2 className="mt-3 text-3xl font-semibold text-secondary">Vehicle handling & shipping gallery</h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">Vehicles photographed by our team at warehouses, ports, transporters and inside shipping containers. Tap any photo to view it larger.</p>
+        <div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} /></div>
+      </div>
+    </section>
+    <section className="border-t border-border bg-background">
       <div className="container-page grid gap-12 py-14 md:py-20 lg:grid-cols-2">
         <div className="min-w-0">
           <Ship className="h-9 w-9 text-primary" aria-hidden="true" />

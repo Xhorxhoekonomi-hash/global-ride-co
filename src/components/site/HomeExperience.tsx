@@ -3,6 +3,8 @@ import { ArrowRight, CarFront, Ship, Calculator, ScanLine, Link2, ShieldCheck, G
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { QuoteForm } from "@/components/site/QuoteForm";
+import { PhotoGallery } from "@/components/site/PhotoGallery";
+import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import heroCar from "@/assets/car-porsche.jpg";
@@ -120,6 +122,12 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
       <div><p className="home-kicker">{c.presenceKicker}</p><h2 className="home-heading max-w-lg">{c.presenceTitle}</h2><p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">{c.presenceBody}</p><div className="mt-7 grid gap-6 sm:grid-cols-2">{[c.headquarters, c.operations].map((role, i) => <div key={role} className="flex items-start gap-3"><MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" /><div><p className="text-xs text-muted-foreground">{role}</p><p className="mt-1 text-lg font-semibold text-navy">{i === 0 ? "Dubai, UAE" : "Durrës, Albania"}</p></div></div>)}</div><Button asChild variant="link" className="mt-5 px-0"><Link to="/en/albania">{c.destinations}<ArrowRight /></Link></Button><div className="flex flex-wrap gap-x-4 text-xs text-muted-foreground">{["Albania", "Netherlands", "Germany", "Belgium", "France", "Italy", "Kosovo"].map((name, i) => <Link key={name} to={i === 0 ? "/en/albania" : i === 1 ? "/en/netherlands" : contact} className="inline-flex min-h-8 items-center hover:text-primary">{name}</Link>)}</div></div>
       <div className="flex flex-col justify-center border-l-2 border-teal pl-7"><Globe2 className="h-9 w-9 text-primary" /><h3 className="mt-5 text-2xl font-semibold text-navy">{c.delivery}</h3><p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">{c.deliveryBody}</p><div className="mt-5 flex flex-wrap gap-3"><Button variant="outline" asChild className="whitespace-normal text-left"><Link to="/delivered-vehicles">{c.deliveryLink}<ArrowRight /></Link></Button><Button variant="link" asChild className="px-0"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener">{c.instagram}<ArrowRight /></a></Button></div></div>
     </div></section>
+
+    <section className="home-section bg-mist"><div className="container-page">
+      <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="home-kicker">{al ? "Foto origjinale të ekipit" : "Original photos from our team"}</p><h2 className="home-heading">{al ? "Automjete në duart tona." : "Vehicles in our hands."}</h2></div><Button asChild variant="outline"><Link to="/delivered-vehicles">{al ? "Shiko galerinë (EN)" : "View the full gallery"}<ArrowRight /></Link></Button></div>
+      <div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} locale={locale} limit={8} /></div>
+    </div></section>
+
 
     <section className="home-section bg-mist"><div className="container-page">
       <div className="grid items-end gap-5 md:grid-cols-[minmax(0,1fr)_auto]"><div className="min-w-0"><p className="home-kicker">{c.guidesKicker}</p><h2 className="home-heading max-w-2xl">{c.guidesTitle}</h2></div><Button variant="link" asChild className="justify-start px-0"><Link to="/guides">{c.guidesLink}<ArrowRight /></Link></Button></div>
