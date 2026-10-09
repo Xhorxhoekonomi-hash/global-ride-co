@@ -20,6 +20,6 @@
 - [x] Verify English/Albanian pages, gallery navigation, image loading and mobile/desktop layout; record exact changes in docs/real-photo-first-review.md.
 
 # Focused premium layout refinement
-- [ ] Compose bounded landscape homepage and interior hero media without captions.
-- [ ] Restore four balanced media-first origins and wide service/guide frames; curate six gallery covers.
-- [ ] Check EN/SQ at 360/390/1280, gallery and calls to action, plus three interior pages; no deployment.
+- [x] Compose bounded landscape homepage and interior hero media without captions.
+- [x] Restore four balanced media-first origins and wide service/guide frames; curate six gallery covers.
+- [x] Check EN/SQ at 360/390/1280, gallery and calls to action, plus three interior pages; no deployment.
