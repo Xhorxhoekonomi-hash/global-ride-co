@@ -1,39 +1,46 @@
-import { useCallback, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight, X, Images } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import type { AlphaPhoto } from "@/lib/alpha-photos";
+import { Button } from "@/components/ui/button";
+import { albumsForPhotos, type AlphaPhoto } from "@/lib/alpha-photos";
 
-/** Responsive grid of owner-supplied photos with an accessible lightbox. */
+/** Album cards with all original angles accessible in a continuous viewer. */
 export function PhotoGallery({ photos, locale = "en", limit }: { photos: AlphaPhoto[]; locale?: "en" | "sq"; limit?: number }) {
+  const albums = useMemo(() => albumsForPhotos(photos), [photos]);
+  const frames = useMemo(() => albums.flatMap((album) => album.photos.map((photo) => ({ album, photo }))), [albums]);
   const [open, setOpen] = useState<number | null>(null);
-  const shown = limit ? photos.slice(0, limit) : photos;
-  const step = useCallback((d: number) => setOpen((i) => (i === null ? i : (i + d + photos.length) % photos.length)), [photos.length]);
+  const shown = limit ? albums.slice(0, limit) : albums;
+  const step = useCallback((direction: number) => setOpen((index) => index === null || frames.length === 0 ? null : (index + direction + frames.length) % frames.length), [frames.length]);
   useEffect(() => {
     if (open === null) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") { event.preventDefault(); step(1); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); step(-1); }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, step]);
-  const label = (p: AlphaPhoto) => (locale === "sq" ? p.sq : p.en);
-  const current = open === null ? null : photos[open];
+  const current = open === null ? undefined : frames[open];
   return <>
-    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-      {shown.map((p, i) => <li key={p.src}>
-        <button type="button" onClick={() => setOpen(i)} className="group block w-full overflow-hidden rounded-lg bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${label(p)} — ${locale === "sq" ? "hap foton" : "open photo"}`}>
-          <img src={p.src} alt={label(p)} loading="lazy" decoding="async" width={600} height={800} className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
-        </button>
-      </li>)}
+    <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {shown.map((album) => {
+        const cover = album.photos[0];
+        if (!cover) return null;
+        return <li key={album.id} className="min-w-0">
+          <Button variant="ghost" onClick={() => setOpen(frames.findIndex((frame) => frame.album.id === album.id))} className="group block h-auto w-full overflow-hidden rounded-lg border border-border bg-card p-0 text-left whitespace-normal" aria-label={`${album[locale]} — ${locale === "sq" ? "hap albumin" : "open album"}`}>
+            <img src={cover.src} alt={cover[locale]} loading="lazy" decoding="async" width={600} height={800} className="aspect-[4/5] w-full bg-mist object-contain" />
+            <span className="block p-3"><span className="block text-sm font-semibold leading-snug text-secondary">{album[locale]}</span><span className="mt-2 flex items-center gap-2 text-xs text-muted-foreground"><Images className="h-4 w-4" />{album.photos.length} {locale === "sq" ? "foto" : album.photos.length === 1 ? "photo" : "photos"}</span></span>
+          </Button>
+        </li>;
+      })}
     </ul>
-    <Dialog open={open !== null} onOpenChange={(o) => !o && setOpen(null)}>
-      <DialogContent className="max-w-4xl border-none bg-background p-2 sm:p-4 [&>button]:hidden">
+    <Dialog open={open !== null} onOpenChange={(value) => { if (!value) setOpen(null); }}>
+      <DialogContent aria-describedby={undefined} className="max-h-[94dvh] max-w-4xl overflow-y-auto border-border bg-background p-3 sm:p-5 [&>button]:hidden">
         {current && <>
-          <DialogTitle className="px-1 pr-12 text-sm font-medium text-secondary">{label(current)} <span className="text-muted-foreground">· {open! + 1}/{photos.length}</span></DialogTitle>
-          <img src={current.src} alt={label(current)} className="max-h-[78vh] w-full rounded-md object-contain" />
-          <div className="flex justify-between gap-2">
-            <button type="button" onClick={() => step(-1)} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border hover:bg-mist" aria-label={locale === "sq" ? "Foto e mëparshme" : "Previous photo"}><ChevronLeft /></button>
-            <button type="button" onClick={() => setOpen(null)} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border hover:bg-mist" aria-label={locale === "sq" ? "Mbyll" : "Close"}><X /></button>
-            <button type="button" onClick={() => step(1)} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border hover:bg-mist" aria-label={locale === "sq" ? "Foto tjetër" : "Next photo"}><ChevronRight /></button>
-          </div>
+          <div className="flex min-w-0 items-center justify-between gap-3"><DialogTitle className="text-sm font-semibold leading-snug text-secondary">{current.album[locale]} <span className="text-muted-foreground">· {(open ?? 0) + 1}/{frames.length}</span></DialogTitle><Button variant="ghost" size="icon" className="h-11 w-11 shrink-0" aria-label={locale === "sq" ? "Mbyll" : "Close"} onClick={() => setOpen(null)}><X /></Button></div>
+          <img src={current.photo.src} alt={current.photo[locale]} width={960} height={1280} className="h-[52dvh] w-full bg-mist object-contain sm:h-[62dvh]" />
+          <div className="flex items-center justify-between gap-3"><Button variant="outline" size="icon" className="h-11 w-11 shrink-0" aria-label={locale === "sq" ? "Foto e mëparshme" : "Previous photo"} onClick={() => step(-1)}><ChevronLeft /></Button><p className="text-center text-xs text-muted-foreground">{current.photo[locale]}</p><Button variant="outline" size="icon" className="h-11 w-11 shrink-0" aria-label={locale === "sq" ? "Foto tjetër" : "Next photo"} onClick={() => step(1)}><ChevronRight /></Button></div>
+          <div className="flex flex-wrap justify-center gap-2" aria-label={locale === "sq" ? "Këndet e automjetit" : "Vehicle angles"}>{current.album.photos.map((photo, index) => <Button key={photo.src} variant="outline" onClick={() => setOpen(frames.findIndex((frame) => frame.photo.src === photo.src))} aria-label={`${locale === "sq" ? "Këndi" : "Angle"} ${index + 1}`} aria-pressed={photo.src === current.photo.src} className="h-16 w-12 overflow-hidden p-0 aria-pressed:ring-2 aria-pressed:ring-primary"><img src={photo.src} alt="" width={60} height={80} className="h-full w-full object-contain" /></Button>)}</div>
         </>}
       </DialogContent>
     </Dialog>
