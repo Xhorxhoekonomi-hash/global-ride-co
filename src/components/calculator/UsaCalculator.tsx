@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Car, Check, ChevronsUpDown, Container, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
@@ -83,26 +85,26 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
   const selectedLoc = location ? LAND_TRANSPORT_TABLE[location] : null;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_minmax(0,26rem)] lg:items-start">
-      <div className="space-y-6">
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-start">
+      <div className="min-w-0 space-y-8">
         <Step n={1} title={D.step1.title}>
           <Popover open={comboOpen} onOpenChange={setComboOpen}>
             <PopoverTrigger asChild>
-              <button
+              <Button variant="ghost"
                 type="button"
-                className="flex w-full items-center justify-between rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground"
+                className="grid h-auto min-h-12 w-full grid-cols-[minmax(0,1fr)_auto] gap-3 whitespace-normal rounded-lg border border-border bg-background px-4 py-3 text-left text-sm text-foreground"
               >
                 {selectedLoc && location ? (
-                  <span className="font-medium">
+                  <span className="min-w-0 font-medium">
                     {location} — {toTitle(selectedLoc.city)}, {selectedLoc.state}
                   </span>
                 ) : (
-                  <span className="text-muted-foreground">{D.step1.placeholder}</span>
+                  <span className="min-w-0 text-muted-foreground">{D.step1.placeholder}</span>
                 )}
                 <ChevronsUpDown className="h-4 w-4 shrink-0 text-muted-foreground" />
-              </button>
+              </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+            <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
               <Command>
                 <CommandInput placeholder={D.step1.placeholder} />
                 <CommandList>
@@ -121,8 +123,8 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                         >
                           <Check className={cn("mr-2 h-4 w-4", location === loc ? "opacity-100" : "opacity-0")} />
                           <span className="font-semibold">{loc}</span>
-                          <span className="ml-1.5 text-slate-body">— {toTitle(l.city)}</span>
-                          <span className="ml-2 rounded bg-mist px-1.5 py-0.5 text-[10px] font-bold text-navy/70">
+                          <span className="ml-1.5 text-muted-foreground">— {toTitle(l.city)}</span>
+                          <span className="ml-2 rounded bg-mist px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
                             {l.state}
                           </span>
                         </CommandItem>
@@ -138,7 +140,7 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
               layout
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold text-teal"
+              className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary"
             >
               {D.routedVia} {land.terminalName}
             </motion.div>
@@ -153,19 +155,20 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                   {D.step2.sizes.map((s) => {
                     const Icon = SIZE_ICONS[s.value];
                     return (
-                      <button
+                      <Button variant="ghost"
                         key={s.value}
                         type="button"
-                        onClick={() => setSize(s.value)}
+                        aria-pressed={size === s.value}
+                         onClick={() => setSize(s.value)}
                         className={cn(
-                          "rounded-2xl border p-4 text-left transition-all",
-                          size === s.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
+                          "h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
+                          size === s.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary",
                         )}
                       >
-                        <Icon className="h-7 w-7 text-teal" strokeWidth={1.75} />
-                        <div className="mt-2 text-sm font-bold text-navy">{s.title}</div>
-                        <div className="mt-1 text-xs text-slate-body">{s.body}</div>
-                      </button>
+                        <Icon className="h-7 w-7 text-primary" strokeWidth={1.75} />
+                        <div className="mt-2 text-sm font-bold text-secondary">{s.title}</div>
+                        <div className="mt-1 text-xs text-muted-foreground">{s.body}</div>
+                      </Button>
                     );
                   })}
                 </div>
@@ -177,11 +180,11 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-4 flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-card p-4"
+                      className="mt-4 flex cursor-pointer items-center gap-3 rounded-lg border border-border bg-card p-4"
                     >
-                      <input type="checkbox" checked={isEV} onChange={(e) => setIsEV(e.target.checked)} className="h-4 w-4 accent-teal" />
-                      <Zap className="h-4 w-4 text-teal" />
-                      <span className="text-sm font-medium text-navy">{D.step2.evLabel}</span>
+                      <input type="checkbox" checked={isEV} onChange={(e) => setIsEV(e.target.checked)} className="h-4 w-4 accent-primary" />
+                      <Zap className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-medium text-secondary">{D.step2.evLabel}</span>
                     </motion.label>
                   )}
                 </AnimatePresence>
@@ -195,7 +198,7 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
             <StepReveal key="s4">
               <Step n={3} title={D.step3.title}>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-body">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-muted-foreground">$</span>
                   <input
                     type="number"
                     inputMode="numeric"
@@ -203,10 +206,11 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                     value={bid}
                     onChange={(e) => setBid(e.target.value)}
                     placeholder="0"
-                    className="w-full rounded-md border border-border bg-background py-3 pl-8 pr-4 text-sm text-foreground focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+                    aria-label={D.step3.title}
+                     className="min-h-12 w-full rounded-md border border-border bg-background py-3 pl-8 pr-4 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/25"
                   />
                 </div>
-                <p className="mt-1.5 text-xs text-slate-body">{D.step3.helper}</p>
+                <p className="mt-1.5 text-xs text-muted-foreground">{D.step3.helper}</p>
               </Step>
             </StepReveal>
           )}
@@ -218,19 +222,20 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
               <Step n={4} title={D.step4.title}>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {D.step4.destinations.map((d) => (
-                    <button
+                    <Button variant="ghost"
                       key={d.value}
                       type="button"
-                      onClick={() => setDestination(d.value)}
+                      aria-pressed={destination === d.value}
+                       onClick={() => setDestination(d.value)}
                       className={cn(
-                        "rounded-2xl border p-4 text-left transition-all",
-                        destination === d.value ? "border-teal bg-teal/5 shadow-card" : "border-border bg-card hover:border-teal/40",
+                        "h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
+                        destination === d.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary",
                       )}
                     >
-                      <div className="text-xs font-bold tracking-[0.14em] text-teal">{d.code}</div>
-                      <div className="mt-2 text-sm font-bold text-navy">{d.label}</div>
-                      <div className="mt-1 text-xs text-slate-body">{d.port}</div>
-                    </button>
+                      <div className="text-xs font-bold tracking-normal text-primary">{d.code}</div>
+                      <div className="mt-2 text-sm font-bold text-secondary">{d.label}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{d.port}</div>
+                    </Button>
                   ))}
                 </div>
               </Step>
@@ -248,23 +253,23 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="overflow-hidden rounded-2xl border border-border bg-card shadow-elegant"
+              className="overflow-hidden rounded-lg border border-border bg-card shadow-card"
             >
               <div className="border-b border-border p-5">
-                <div className="text-xs font-bold uppercase tracking-wider text-teal">{D.breakdown.title}</div>
+                <div className="text-xs font-bold uppercase tracking-normal text-primary">{D.breakdown.title}</div>
               </div>
 
               <div className="space-y-5 p-5 text-sm">
                 <div>
-                  <div className="mb-1.5 text-xs font-bold uppercase tracking-wider text-navy/60">{D.breakdown.landTransportSection}</div>
+                  <div className="mb-1.5 text-xs font-bold uppercase tracking-normal text-muted-foreground">{D.breakdown.landTransportSection}</div>
                   <Row label={`${location} → ${land.terminalName}`} value={fmt(land.finalCost)} />
-                  <div className="mt-1 text-[11px] text-slate-body">
+                  <div className="mt-1 text-[11px] text-muted-foreground">
                     {toTitle(selectedLoc.city)}, {selectedLoc.state}
                   </div>
                 </div>
 
                 <div>
-                  <div className="mb-1.5 text-xs font-bold uppercase tracking-wider text-navy/60">{D.breakdown.auctionFeesSection}</div>
+                  <div className="mb-1.5 text-xs font-bold uppercase tracking-normal text-muted-foreground">{D.breakdown.auctionFeesSection}</div>
                   <Row label={D.breakdown.buyerFee(fmt(bidNumber + 100))} value={fmt(fees.buyerFee)} />
                   <Row label={D.breakdown.virtualBidFee} value={fmt(fees.virtualBidFee)} />
                   <Row label={D.breakdown.gateFee} value={fmt(fees.gateFee)} />
@@ -277,49 +282,49 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                 </div>
 
                 <div>
-                  <div className="mb-1.5 text-xs font-bold uppercase tracking-wider text-navy/60">{D.breakdown.oceanSection}</div>
+                  <div className="mb-1.5 text-xs font-bold uppercase tracking-normal text-muted-foreground">{D.breakdown.oceanSection}</div>
                   <Row label={D.breakdown.terminalToDest(land.terminalName, destinationLabel(destination))} value={fmt(ocean)} />
                   <Row label={D.breakdown.unloadingAt(destinationLabel(destination))} value={fmt(unloading.amount)} />
                   <div className="my-1 border-t border-border" />
                   <Row label={D.breakdown.totalShipping} value={fmt(ocean + unloading.amount)} bold />
                 </div>
 
-                <div className="rounded-xl bg-mist p-4">
+                <div className="border-t border-border bg-accent p-4">
                   <Row label={D.breakdown.winningBid} value={fmt(bidNumber)} />
                   <Row label={D.breakdown.plusAuctionFees} value={fmt(fees.total)} />
                   <Row label={D.breakdown.plusLandTransport} value={fmt(land.finalCost)} />
                   <Row label={D.breakdown.plusOceanUnloading} value={fmt(ocean + unloading.amount)} />
                   <div className="my-2 border-t border-border" />
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-sm font-bold text-navy">{D.breakdown.estimatedTotalUsd}</span>
-                    <span className="font-display text-2xl font-bold text-teal">{fmt(totalUsd)}</span>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3">
+                    <span className="text-sm font-bold text-secondary">{D.breakdown.estimatedTotalUsd}</span>
+                    <span className="font-display text-2xl font-bold text-primary">{fmt(totalUsd)}</span>
                   </div>
-                  <div className="flex items-baseline justify-between text-slate-body">
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3 text-muted-foreground">
                     <span className="text-xs">{D.breakdown.estimatedTotalEurApprox}</span>
                     <span className="text-sm font-semibold">{fmt(totalEur, "€")}</span>
                   </div>
                 </div>
 
-                <ul className="space-y-1 text-[11px] leading-relaxed text-slate-body">
+                <ul className="space-y-1 text-[11px] leading-relaxed text-muted-foreground">
                   <li>{D.breakdown.notes.buyerFeeNote}</li>
                   <li>{D.breakdown.notes.containerNote}</li>
                   {unloading.isEstimate && <li>* {unloading.note}</li>}
                   <li>{D.breakdown.notes.usdEurNote}</li>
-                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.customsWarning}</li>
-                  <li className="flex items-start gap-1.5 font-semibold text-amber-700"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.estimatesWarning}</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.customsWarning}</li>
+                  <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.estimatesWarning}</li>
                 </ul>
               </div>
 
               <div className="space-y-2 border-t border-border p-5">
-                <button
+                <Button variant="ghost"
                   onClick={onWhatsApp}
                   type="button"
-                  className="flex w-full items-center justify-center gap-2 rounded-md py-3 text-sm font-semibold text-white shadow-sm"
+                  className="flex w-full items-center justify-center gap-2 rounded-md py-3 text-sm font-semibold text-primary-foreground shadow-sm"
                   style={{ backgroundColor: "oklch(0.66 0.17 145)" }}
                 >
                   <MessageCircle className="h-4 w-4" /> {D.requestOnWhatsApp}
-                </button>
-                <a href={contactHref} className="block text-center text-sm font-semibold text-teal hover:underline">
+                </Button>
+                <Button asChild variant="link" className="h-auto min-h-11 w-full whitespace-normal"><Link to={contactHref}>
                   {D.requestFullQuote}
                 </a>
               </div>
@@ -330,7 +335,7 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="rounded-2xl border border-dashed border-border p-8 text-center text-sm text-slate-body"
+              className="rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground"
             >
               {D.emptyState}
             </motion.div>

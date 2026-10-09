@@ -45,6 +45,7 @@
   --color-mist: var(--mist);
   --color-slate-body: var(--slate-body);
   --color-whatsapp: var(--whatsapp);
+  --color-warning: var(--warning);
 
   --shadow-elegant: 0 20px 60px -20px oklch(0.25 0.06 240 / 0.35);
   --shadow-card: 0 4px 20px -4px oklch(0.15 0.03 240 / 0.08);
@@ -63,6 +64,7 @@
   --mist: oklch(0.976 0.005 258);         /* #F5F7F8 */
   --slate-body: oklch(0.45 0.02 260);    /* #4B5563 */
   --whatsapp: oklch(0.66 0.17 145);
+  --warning: oklch(0.47 0.11 65);
 
   /* Semantic */
   --background: oklch(1 0 0);
@@ -99,6 +101,7 @@
   --accent-foreground: oklch(1 0 0);
   --border: oklch(1 0 0 / 0.08);
   --input: oklch(1 0 0 / 0.12);
+  --warning: oklch(0.85 0.12 80);
 }
 
 @layer base {
