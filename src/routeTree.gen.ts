@@ -9,239 +9,94 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AirfreightRouteImport } from './routes/airfreight'
-import { Route as AuctionAccessRouteImport } from './routes/auction-access'
-import { Route as CalculatorRouteImport } from './routes/calculator'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
-import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
-import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as ImportAustriaRouteImport } from './routes/import-austria'
-import { Route as ImportBelgiumRouteImport } from './routes/import-belgium'
-import { Route as ImportCanadaRouteImport } from './routes/import-canada'
-import { Route as ImportCzechRepublicRouteImport } from './routes/import-czech-republic'
-import { Route as ImportEuropeRouteImport } from './routes/import-europe'
-import { Route as ImportFranceRouteImport } from './routes/import-france'
-import { Route as ImportGermanyRouteImport } from './routes/import-germany'
-import { Route as ImportItalyRouteImport } from './routes/import-italy'
-import { Route as ImportKoreaRouteImport } from './routes/import-korea'
-import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
-import { Route as ImportPolandRouteImport } from './routes/import-poland'
-import { Route as ImportRomaniaRouteImport } from './routes/import-romania'
-import { Route as ImportSpainRouteImport } from './routes/import-spain'
-import { Route as ImportSwitzerlandRouteImport } from './routes/import-switzerland'
-import { Route as ImportUaeRouteImport } from './routes/import-uae'
-import { Route as ImportUsaRouteImport } from './routes/import-usa'
-import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
-import { Route as ShippingEstimateDisclaimerRouteImport } from './routes/shipping-estimate-disclaimer'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
-import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
-import { Route as AdminLoginRouteImport } from './routes/admin/login'
-import { Route as AlIndexRouteImport } from './routes/al/index'
-import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
-import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
-import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
-import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
-import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
-import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
-import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
-import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
-import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
-import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
-import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
-import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
-import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
-import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
-import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
+import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShippingEstimateDisclaimerRouteImport } from './routes/shipping-estimate-disclaimer'
+import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
+import { Route as ImportUsaRouteImport } from './routes/import-usa'
+import { Route as ImportUaeRouteImport } from './routes/import-uae'
+import { Route as ImportSwitzerlandRouteImport } from './routes/import-switzerland'
+import { Route as ImportSpainRouteImport } from './routes/import-spain'
+import { Route as ImportRomaniaRouteImport } from './routes/import-romania'
+import { Route as ImportPolandRouteImport } from './routes/import-poland'
+import { Route as ImportNetherlandsRouteImport } from './routes/import-netherlands'
+import { Route as ImportKoreaRouteImport } from './routes/import-korea'
+import { Route as ImportItalyRouteImport } from './routes/import-italy'
+import { Route as ImportGermanyRouteImport } from './routes/import-germany'
+import { Route as ImportFranceRouteImport } from './routes/import-france'
+import { Route as ImportEuropeRouteImport } from './routes/import-europe'
+import { Route as ImportCzechRepublicRouteImport } from './routes/import-czech-republic'
+import { Route as ImportCanadaRouteImport } from './routes/import-canada'
+import { Route as ImportBelgiumRouteImport } from './routes/import-belgium'
+import { Route as ImportAustriaRouteImport } from './routes/import-austria'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as AuctionAccessRouteImport } from './routes/auction-access'
+import { Route as AirfreightRouteImport } from './routes/airfreight'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
-import { Route as GuidesCarImportGlossaryRouteImport } from './routes/guides/car-import-glossary'
-import { Route as GuidesCarShippingCostsExplainedRouteImport } from './routes/guides/car-shipping-costs-explained'
-import { Route as GuidesCommonCarImportMistakesRouteImport } from './routes/guides/common-car-import-mistakes'
-import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
-import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
-import { Route as GuidesHowLongDoesCarShippingTakeRouteImport } from './routes/guides/how-long-does-car-shipping-take'
-import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
-import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './routes/guides/how-to-check-a-used-car-before-buying'
-import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
-import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
+import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
+import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
+import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './routes/guides/how-to-check-a-used-car-before-buying'
+import { Route as GuidesHowToBuyACarFromUsaAuctionsRouteImport } from './routes/guides/how-to-buy-a-car-from-usa-auctions'
+import { Route as GuidesHowLongDoesCarShippingTakeRouteImport } from './routes/guides/how-long-does-car-shipping-take'
+import { Route as GuidesCopartVsIaaiRouteImport } from './routes/guides/copart-vs-iaai'
+import { Route as GuidesContainerVsRoroCarShippingRouteImport } from './routes/guides/container-vs-roro-car-shipping'
+import { Route as GuidesCommonCarImportMistakesRouteImport } from './routes/guides/common-car-import-mistakes'
+import { Route as GuidesCarShippingCostsExplainedRouteImport } from './routes/guides/car-shipping-costs-explained'
+import { Route as GuidesCarImportGlossaryRouteImport } from './routes/guides/car-import-glossary'
+import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
+import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
+import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
+import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
+import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
+import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
+import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
+import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
+import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
+import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
+import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
+import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
+import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
+  id: '/why-alpha-worldwide',
+  path: '/why-alpha-worldwide',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const VehicleHistoryCheckRoute = VehicleHistoryCheckRouteImport.update({
+  id: '/vehicle-history-check',
+  path: '/vehicle-history-check',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AirfreightRoute = AirfreightRouteImport.update({
-  id: '/airfreight',
-  path: '/airfreight',
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuctionAccessRoute = AuctionAccessRouteImport.update({
-  id: '/auction-access',
-  path: '/auction-access',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CalculatorRoute = CalculatorRouteImport.update({
-  id: '/calculator',
-  path: '/calculator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContainerShippingRoute = ContainerShippingRouteImport.update({
-  id: '/container-shipping',
-  path: '/container-shipping',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CookiePolicyRoute = CookiePolicyRouteImport.update({
-  id: '/cookie-policy',
-  path: '/cookie-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
-  id: '/delivered-vehicles',
-  path: '/delivered-vehicles',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HowItWorksRoute = HowItWorksRouteImport.update({
-  id: '/how-it-works',
-  path: '/how-it-works',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportAustriaRoute = ImportAustriaRouteImport.update({
-  id: '/import-austria',
-  path: '/import-austria',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportBelgiumRoute = ImportBelgiumRouteImport.update({
-  id: '/import-belgium',
-  path: '/import-belgium',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportCanadaRoute = ImportCanadaRouteImport.update({
-  id: '/import-canada',
-  path: '/import-canada',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportCzechRepublicRoute = ImportCzechRepublicRouteImport.update({
-  id: '/import-czech-republic',
-  path: '/import-czech-republic',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportEuropeRoute = ImportEuropeRouteImport.update({
-  id: '/import-europe',
-  path: '/import-europe',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportFranceRoute = ImportFranceRouteImport.update({
-  id: '/import-france',
-  path: '/import-france',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportGermanyRoute = ImportGermanyRouteImport.update({
-  id: '/import-germany',
-  path: '/import-germany',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportItalyRoute = ImportItalyRouteImport.update({
-  id: '/import-italy',
-  path: '/import-italy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportKoreaRoute = ImportKoreaRouteImport.update({
-  id: '/import-korea',
-  path: '/import-korea',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportNetherlandsRoute = ImportNetherlandsRouteImport.update({
-  id: '/import-netherlands',
-  path: '/import-netherlands',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportPolandRoute = ImportPolandRouteImport.update({
-  id: '/import-poland',
-  path: '/import-poland',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportRomaniaRoute = ImportRomaniaRouteImport.update({
-  id: '/import-romania',
-  path: '/import-romania',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportSpainRoute = ImportSpainRouteImport.update({
-  id: '/import-spain',
-  path: '/import-spain',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportSwitzerlandRoute = ImportSwitzerlandRouteImport.update({
-  id: '/import-switzerland',
-  path: '/import-switzerland',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportUaeRoute = ImportUaeRouteImport.update({
-  id: '/import-uae',
-  path: '/import-uae',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportUsaRoute = ImportUsaRouteImport.update({
-  id: '/import-usa',
-  path: '/import-usa',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InspectionServiceRoute = InspectionServiceRouteImport.update({
-  id: '/inspection-service',
-  path: '/inspection-service',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoroShippingRoute = RoroShippingRouteImport.update({
-  id: '/roro-shipping',
-  path: '/roro-shipping',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShippingCalculatorRoute = ShippingCalculatorRouteImport.update({
-  id: '/shipping-calculator',
-  path: '/shipping-calculator',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShippingEstimateDisclaimerRoute =
@@ -250,115 +105,169 @@ const ShippingEstimateDisclaimerRoute =
     path: '/shipping-estimate-disclaimer',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const ShippingCalculatorRoute = ShippingCalculatorRouteImport.update({
+  id: '/shipping-calculator',
+  path: '/shipping-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VehicleHistoryCheckRoute = VehicleHistoryCheckRouteImport.update({
-  id: '/vehicle-history-check',
-  path: '/vehicle-history-check',
+const RoroShippingRoute = RoroShippingRouteImport.update({
+  id: '/roro-shipping',
+  path: '/roro-shipping',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
-  id: '/why-alpha-worldwide',
-  path: '/why-alpha-worldwide',
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLeadsRoute = AdminLeadsRouteImport.update({
-  id: '/admin/leads',
-  path: '/admin/leads',
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const InspectionServiceRoute = InspectionServiceRouteImport.update({
+  id: '/inspection-service',
+  path: '/inspection-service',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlIndexRoute = AlIndexRouteImport.update({
-  id: '/al/',
-  path: '/al/',
+const ImportUsaRoute = ImportUsaRouteImport.update({
+  id: '/import-usa',
+  path: '/import-usa',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
-  id: '/al/ankande-amerikane',
-  path: '/al/ankande-amerikane',
+const ImportUaeRoute = ImportUaeRouteImport.update({
+  id: '/import-uae',
+  path: '/import-uae',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
-  id: '/al/copart-shqiperi',
-  path: '/al/copart-shqiperi',
+const ImportSwitzerlandRoute = ImportSwitzerlandRouteImport.update({
+  id: '/import-switzerland',
+  path: '/import-switzerland',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
-  id: '/al/encar-shqiperi',
-  path: '/al/encar-shqiperi',
+const ImportSpainRoute = ImportSpainRouteImport.update({
+  id: '/import-spain',
+  path: '/import-spain',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
-  id: '/al/iaai-shqiperi',
-  path: '/al/iaai-shqiperi',
+const ImportRomaniaRoute = ImportRomaniaRouteImport.update({
+  id: '/import-romania',
+  path: '/import-romania',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlInspektimMakinashRoute = AlInspektimMakinashRouteImport.update({
-  id: '/al/inspektim-makinash',
-  path: '/al/inspektim-makinash',
+const ImportPolandRoute = ImportPolandRouteImport.update({
+  id: '/import-poland',
+  path: '/import-poland',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlKalkulatorTransportiRoute = AlKalkulatorTransportiRouteImport.update({
-  id: '/al/kalkulator-transporti',
-  path: '/al/kalkulator-transporti',
+const ImportNetherlandsRoute = ImportNetherlandsRouteImport.update({
+  id: '/import-netherlands',
+  path: '/import-netherlands',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlKontaktRoute = AlKontaktRouteImport.update({
-  id: '/al/kontakt',
-  path: '/al/kontakt',
+const ImportKoreaRoute = ImportKoreaRouteImport.update({
+  id: '/import-korea',
+  path: '/import-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
-  id: '/al/makina-nga-amerika',
-  path: '/al/makina-nga-amerika',
+const ImportItalyRoute = ImportItalyRouteImport.update({
+  id: '/import-italy',
+  path: '/import-italy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlMakinaNgaDubaiRoute = AlMakinaNgaDubaiRouteImport.update({
-  id: '/al/makina-nga-dubai',
-  path: '/al/makina-nga-dubai',
+const ImportGermanyRoute = ImportGermanyRouteImport.update({
+  id: '/import-germany',
+  path: '/import-germany',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
-  id: '/al/makina-nga-korea',
-  path: '/al/makina-nga-korea',
+const ImportFranceRoute = ImportFranceRouteImport.update({
+  id: '/import-france',
+  path: '/import-france',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlTransportAjrorMakinashRoute =
-  AlTransportAjrorMakinashRouteImport.update({
-    id: '/al/transport-ajror-makinash',
-    path: '/al/transport-ajror-makinash',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
-  id: '/al/transport-me-kontenier',
-  path: '/al/transport-me-kontenier',
+const ImportEuropeRoute = ImportEuropeRouteImport.update({
+  id: '/import-europe',
+  path: '/import-europe',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlTransportRoroRoute = AlTransportRoroRouteImport.update({
-  id: '/al/transport-roro',
-  path: '/al/transport-roro',
+const ImportCzechRepublicRoute = ImportCzechRepublicRouteImport.update({
+  id: '/import-czech-republic',
+  path: '/import-czech-republic',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
-  id: '/en/albania',
-  path: '/en/albania',
+const ImportCanadaRoute = ImportCanadaRouteImport.update({
+  id: '/import-canada',
+  path: '/import-canada',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
-  id: '/en/netherlands',
-  path: '/en/netherlands',
+const ImportBelgiumRoute = ImportBelgiumRouteImport.update({
+  id: '/import-belgium',
+  path: '/import-belgium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportAustriaRoute = ImportAustriaRouteImport.update({
+  id: '/import-austria',
+  path: '/import-austria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
+  id: '/delivered-vehicles',
+  path: '/delivered-vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContainerShippingRoute = ContainerShippingRouteImport.update({
+  id: '/container-shipping',
+  path: '/container-shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuctionAccessRoute = AuctionAccessRouteImport.update({
+  id: '/auction-access',
+  path: '/auction-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightRoute = AirfreightRouteImport.update({
+  id: '/airfreight',
+  path: '/airfreight',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
@@ -366,56 +275,15 @@ const GuidesIndexRoute = GuidesIndexRouteImport.update({
   path: '/guides/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuidesCarImportGlossaryRoute = GuidesCarImportGlossaryRouteImport.update({
-  id: '/guides/car-import-glossary',
-  path: '/guides/car-import-glossary',
+const AlIndexRoute = AlIndexRouteImport.update({
+  id: '/al/',
+  path: '/al/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuidesCarShippingCostsExplainedRoute =
-  GuidesCarShippingCostsExplainedRouteImport.update({
-    id: '/guides/car-shipping-costs-explained',
-    path: '/guides/car-shipping-costs-explained',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesCommonCarImportMistakesRoute =
-  GuidesCommonCarImportMistakesRouteImport.update({
-    id: '/guides/common-car-import-mistakes',
-    path: '/guides/common-car-import-mistakes',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesContainerVsRoroCarShippingRoute =
-  GuidesContainerVsRoroCarShippingRouteImport.update({
-    id: '/guides/container-vs-roro-car-shipping',
-    path: '/guides/container-vs-roro-car-shipping',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesCopartVsIaaiRoute = GuidesCopartVsIaaiRouteImport.update({
-  id: '/guides/copart-vs-iaai',
-  path: '/guides/copart-vs-iaai',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GuidesHowLongDoesCarShippingTakeRoute =
-  GuidesHowLongDoesCarShippingTakeRouteImport.update({
-    id: '/guides/how-long-does-car-shipping-take',
-    path: '/guides/how-long-does-car-shipping-take',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesHowToBuyACarFromUsaAuctionsRoute =
-  GuidesHowToBuyACarFromUsaAuctionsRouteImport.update({
-    id: '/guides/how-to-buy-a-car-from-usa-auctions',
-    path: '/guides/how-to-buy-a-car-from-usa-auctions',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesHowToCheckAUsedCarBeforeBuyingRoute =
-  GuidesHowToCheckAUsedCarBeforeBuyingRouteImport.update({
-    id: '/guides/how-to-check-a-used-car-before-buying',
-    path: '/guides/how-to-check-a-used-car-before-buying',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const GuidesImportingElectricCarsRoute =
-  GuidesImportingElectricCarsRouteImport.update({
-    id: '/guides/importing-electric-cars',
-    path: '/guides/importing-electric-cars',
+const GuidesVehicleImportDocumentsRoute =
+  GuidesVehicleImportDocumentsRouteImport.update({
+    id: '/guides/vehicle-import-documents',
+    path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
 const GuidesImportingLuxuryCarsRoute =
@@ -424,12 +292,144 @@ const GuidesImportingLuxuryCarsRoute =
     path: '/guides/importing-luxury-cars',
     getParentRoute: () => rootRouteImport,
   } as any)
-const GuidesVehicleImportDocumentsRoute =
-  GuidesVehicleImportDocumentsRouteImport.update({
-    id: '/guides/vehicle-import-documents',
-    path: '/guides/vehicle-import-documents',
+const GuidesImportingElectricCarsRoute =
+  GuidesImportingElectricCarsRouteImport.update({
+    id: '/guides/importing-electric-cars',
+    path: '/guides/importing-electric-cars',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesHowToCheckAUsedCarBeforeBuyingRoute =
+  GuidesHowToCheckAUsedCarBeforeBuyingRouteImport.update({
+    id: '/guides/how-to-check-a-used-car-before-buying',
+    path: '/guides/how-to-check-a-used-car-before-buying',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesHowToBuyACarFromUsaAuctionsRoute =
+  GuidesHowToBuyACarFromUsaAuctionsRouteImport.update({
+    id: '/guides/how-to-buy-a-car-from-usa-auctions',
+    path: '/guides/how-to-buy-a-car-from-usa-auctions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesHowLongDoesCarShippingTakeRoute =
+  GuidesHowLongDoesCarShippingTakeRouteImport.update({
+    id: '/guides/how-long-does-car-shipping-take',
+    path: '/guides/how-long-does-car-shipping-take',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCopartVsIaaiRoute = GuidesCopartVsIaaiRouteImport.update({
+  id: '/guides/copart-vs-iaai',
+  path: '/guides/copart-vs-iaai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesContainerVsRoroCarShippingRoute =
+  GuidesContainerVsRoroCarShippingRouteImport.update({
+    id: '/guides/container-vs-roro-car-shipping',
+    path: '/guides/container-vs-roro-car-shipping',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCommonCarImportMistakesRoute =
+  GuidesCommonCarImportMistakesRouteImport.update({
+    id: '/guides/common-car-import-mistakes',
+    path: '/guides/common-car-import-mistakes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCarShippingCostsExplainedRoute =
+  GuidesCarShippingCostsExplainedRouteImport.update({
+    id: '/guides/car-shipping-costs-explained',
+    path: '/guides/car-shipping-costs-explained',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCarImportGlossaryRoute = GuidesCarImportGlossaryRouteImport.update({
+  id: '/guides/car-import-glossary',
+  path: '/guides/car-import-glossary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnNetherlandsRoute = EnNetherlandsRouteImport.update({
+  id: '/en/netherlands',
+  path: '/en/netherlands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
+  id: '/en/albania',
+  path: '/en/albania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTransportRoroRoute = AlTransportRoroRouteImport.update({
+  id: '/al/transport-roro',
+  path: '/al/transport-roro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
+  id: '/al/transport-me-kontenier',
+  path: '/al/transport-me-kontenier',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTransportAjrorMakinashRoute =
+  AlTransportAjrorMakinashRouteImport.update({
+    id: '/al/transport-ajror-makinash',
+    path: '/al/transport-ajror-makinash',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
+  id: '/al/makina-nga-korea',
+  path: '/al/makina-nga-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlMakinaNgaDubaiRoute = AlMakinaNgaDubaiRouteImport.update({
+  id: '/al/makina-nga-dubai',
+  path: '/al/makina-nga-dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
+  id: '/al/makina-nga-amerika',
+  path: '/al/makina-nga-amerika',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlKontaktRoute = AlKontaktRouteImport.update({
+  id: '/al/kontakt',
+  path: '/al/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlKalkulatorTransportiRoute = AlKalkulatorTransportiRouteImport.update({
+  id: '/al/kalkulator-transporti',
+  path: '/al/kalkulator-transporti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlInspektimMakinashRoute = AlInspektimMakinashRouteImport.update({
+  id: '/al/inspektim-makinash',
+  path: '/al/inspektim-makinash',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
+  id: '/al/iaai-shqiperi',
+  path: '/al/iaai-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
+  id: '/al/encar-shqiperi',
+  path: '/al/encar-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
+  id: '/al/copart-shqiperi',
+  path: '/al/copart-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
+  id: '/al/ankande-amerikane',
+  path: '/al/ankande-amerikane',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/admin/leads',
+  path: '/admin/leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -941,256 +941,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/airfreight': {
-      id: '/airfreight'
-      path: '/airfreight'
-      fullPath: '/airfreight'
-      preLoaderRoute: typeof AirfreightRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auction-access': {
-      id: '/auction-access'
-      path: '/auction-access'
-      fullPath: '/auction-access'
-      preLoaderRoute: typeof AuctionAccessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/calculator': {
-      id: '/calculator'
-      path: '/calculator'
-      fullPath: '/calculator'
-      preLoaderRoute: typeof CalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/container-shipping': {
-      id: '/container-shipping'
-      path: '/container-shipping'
-      fullPath: '/container-shipping'
-      preLoaderRoute: typeof ContainerShippingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cookie-policy': {
-      id: '/cookie-policy'
-      path: '/cookie-policy'
-      fullPath: '/cookie-policy'
-      preLoaderRoute: typeof CookiePolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/delivered-vehicles': {
-      id: '/delivered-vehicles'
-      path: '/delivered-vehicles'
-      fullPath: '/delivered-vehicles'
-      preLoaderRoute: typeof DeliveredVehiclesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-it-works': {
-      id: '/how-it-works'
-      path: '/how-it-works'
-      fullPath: '/how-it-works'
-      preLoaderRoute: typeof HowItWorksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-austria': {
-      id: '/import-austria'
-      path: '/import-austria'
-      fullPath: '/import-austria'
-      preLoaderRoute: typeof ImportAustriaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-belgium': {
-      id: '/import-belgium'
-      path: '/import-belgium'
-      fullPath: '/import-belgium'
-      preLoaderRoute: typeof ImportBelgiumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-canada': {
-      id: '/import-canada'
-      path: '/import-canada'
-      fullPath: '/import-canada'
-      preLoaderRoute: typeof ImportCanadaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-czech-republic': {
-      id: '/import-czech-republic'
-      path: '/import-czech-republic'
-      fullPath: '/import-czech-republic'
-      preLoaderRoute: typeof ImportCzechRepublicRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-europe': {
-      id: '/import-europe'
-      path: '/import-europe'
-      fullPath: '/import-europe'
-      preLoaderRoute: typeof ImportEuropeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-france': {
-      id: '/import-france'
-      path: '/import-france'
-      fullPath: '/import-france'
-      preLoaderRoute: typeof ImportFranceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-germany': {
-      id: '/import-germany'
-      path: '/import-germany'
-      fullPath: '/import-germany'
-      preLoaderRoute: typeof ImportGermanyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-italy': {
-      id: '/import-italy'
-      path: '/import-italy'
-      fullPath: '/import-italy'
-      preLoaderRoute: typeof ImportItalyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-korea': {
-      id: '/import-korea'
-      path: '/import-korea'
-      fullPath: '/import-korea'
-      preLoaderRoute: typeof ImportKoreaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-netherlands': {
-      id: '/import-netherlands'
-      path: '/import-netherlands'
-      fullPath: '/import-netherlands'
-      preLoaderRoute: typeof ImportNetherlandsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-poland': {
-      id: '/import-poland'
-      path: '/import-poland'
-      fullPath: '/import-poland'
-      preLoaderRoute: typeof ImportPolandRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-romania': {
-      id: '/import-romania'
-      path: '/import-romania'
-      fullPath: '/import-romania'
-      preLoaderRoute: typeof ImportRomaniaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-spain': {
-      id: '/import-spain'
-      path: '/import-spain'
-      fullPath: '/import-spain'
-      preLoaderRoute: typeof ImportSpainRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-switzerland': {
-      id: '/import-switzerland'
-      path: '/import-switzerland'
-      fullPath: '/import-switzerland'
-      preLoaderRoute: typeof ImportSwitzerlandRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-uae': {
-      id: '/import-uae'
-      path: '/import-uae'
-      fullPath: '/import-uae'
-      preLoaderRoute: typeof ImportUaeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-usa': {
-      id: '/import-usa'
-      path: '/import-usa'
-      fullPath: '/import-usa'
-      preLoaderRoute: typeof ImportUsaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/inspection-service': {
-      id: '/inspection-service'
-      path: '/inspection-service'
-      fullPath: '/inspection-service'
-      preLoaderRoute: typeof InspectionServiceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/roro-shipping': {
-      id: '/roro-shipping'
-      path: '/roro-shipping'
-      fullPath: '/roro-shipping'
-      preLoaderRoute: typeof RoroShippingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shipping-calculator': {
-      id: '/shipping-calculator'
-      path: '/shipping-calculator'
-      fullPath: '/shipping-calculator'
-      preLoaderRoute: typeof ShippingCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shipping-estimate-disclaimer': {
-      id: '/shipping-estimate-disclaimer'
-      path: '/shipping-estimate-disclaimer'
-      fullPath: '/shipping-estimate-disclaimer'
-      preLoaderRoute: typeof ShippingEstimateDisclaimerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
+    '/why-alpha-worldwide': {
+      id: '/why-alpha-worldwide'
+      path: '/why-alpha-worldwide'
+      fullPath: '/why-alpha-worldwide'
+      preLoaderRoute: typeof WhyAlphaWorldwideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vehicle-history-check': {
@@ -1200,137 +955,256 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehicleHistoryCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/why-alpha-worldwide': {
-      id: '/why-alpha-worldwide'
-      path: '/why-alpha-worldwide'
-      fullPath: '/why-alpha-worldwide'
-      preLoaderRoute: typeof WhyAlphaWorldwideRouteImport
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/leads': {
-      id: '/admin/leads'
-      path: '/admin/leads'
-      fullPath: '/admin/leads'
-      preLoaderRoute: typeof AdminLeadsRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/shipping-estimate-disclaimer': {
+      id: '/shipping-estimate-disclaimer'
+      path: '/shipping-estimate-disclaimer'
+      fullPath: '/shipping-estimate-disclaimer'
+      preLoaderRoute: typeof ShippingEstimateDisclaimerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/': {
-      id: '/al/'
-      path: '/al'
-      fullPath: '/al/'
-      preLoaderRoute: typeof AlIndexRouteImport
+    '/shipping-calculator': {
+      id: '/shipping-calculator'
+      path: '/shipping-calculator'
+      fullPath: '/shipping-calculator'
+      preLoaderRoute: typeof ShippingCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/ankande-amerikane': {
-      id: '/al/ankande-amerikane'
-      path: '/al/ankande-amerikane'
-      fullPath: '/al/ankande-amerikane'
-      preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/copart-shqiperi': {
-      id: '/al/copart-shqiperi'
-      path: '/al/copart-shqiperi'
-      fullPath: '/al/copart-shqiperi'
-      preLoaderRoute: typeof AlCopartShqiperiRouteImport
+    '/roro-shipping': {
+      id: '/roro-shipping'
+      path: '/roro-shipping'
+      fullPath: '/roro-shipping'
+      preLoaderRoute: typeof RoroShippingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/encar-shqiperi': {
-      id: '/al/encar-shqiperi'
-      path: '/al/encar-shqiperi'
-      fullPath: '/al/encar-shqiperi'
-      preLoaderRoute: typeof AlEncarShqiperiRouteImport
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/iaai-shqiperi': {
-      id: '/al/iaai-shqiperi'
-      path: '/al/iaai-shqiperi'
-      fullPath: '/al/iaai-shqiperi'
-      preLoaderRoute: typeof AlIaaiShqiperiRouteImport
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/inspektim-makinash': {
-      id: '/al/inspektim-makinash'
-      path: '/al/inspektim-makinash'
-      fullPath: '/al/inspektim-makinash'
-      preLoaderRoute: typeof AlInspektimMakinashRouteImport
+    '/inspection-service': {
+      id: '/inspection-service'
+      path: '/inspection-service'
+      fullPath: '/inspection-service'
+      preLoaderRoute: typeof InspectionServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/kalkulator-transporti': {
-      id: '/al/kalkulator-transporti'
-      path: '/al/kalkulator-transporti'
-      fullPath: '/al/kalkulator-transporti'
-      preLoaderRoute: typeof AlKalkulatorTransportiRouteImport
+    '/import-usa': {
+      id: '/import-usa'
+      path: '/import-usa'
+      fullPath: '/import-usa'
+      preLoaderRoute: typeof ImportUsaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/kontakt': {
-      id: '/al/kontakt'
-      path: '/al/kontakt'
-      fullPath: '/al/kontakt'
-      preLoaderRoute: typeof AlKontaktRouteImport
+    '/import-uae': {
+      id: '/import-uae'
+      path: '/import-uae'
+      fullPath: '/import-uae'
+      preLoaderRoute: typeof ImportUaeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/makina-nga-amerika': {
-      id: '/al/makina-nga-amerika'
-      path: '/al/makina-nga-amerika'
-      fullPath: '/al/makina-nga-amerika'
-      preLoaderRoute: typeof AlMakinaNgaAmerikaRouteImport
+    '/import-switzerland': {
+      id: '/import-switzerland'
+      path: '/import-switzerland'
+      fullPath: '/import-switzerland'
+      preLoaderRoute: typeof ImportSwitzerlandRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/makina-nga-dubai': {
-      id: '/al/makina-nga-dubai'
-      path: '/al/makina-nga-dubai'
-      fullPath: '/al/makina-nga-dubai'
-      preLoaderRoute: typeof AlMakinaNgaDubaiRouteImport
+    '/import-spain': {
+      id: '/import-spain'
+      path: '/import-spain'
+      fullPath: '/import-spain'
+      preLoaderRoute: typeof ImportSpainRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/makina-nga-korea': {
-      id: '/al/makina-nga-korea'
-      path: '/al/makina-nga-korea'
-      fullPath: '/al/makina-nga-korea'
-      preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+    '/import-romania': {
+      id: '/import-romania'
+      path: '/import-romania'
+      fullPath: '/import-romania'
+      preLoaderRoute: typeof ImportRomaniaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/transport-ajror-makinash': {
-      id: '/al/transport-ajror-makinash'
-      path: '/al/transport-ajror-makinash'
-      fullPath: '/al/transport-ajror-makinash'
-      preLoaderRoute: typeof AlTransportAjrorMakinashRouteImport
+    '/import-poland': {
+      id: '/import-poland'
+      path: '/import-poland'
+      fullPath: '/import-poland'
+      preLoaderRoute: typeof ImportPolandRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/transport-me-kontenier': {
-      id: '/al/transport-me-kontenier'
-      path: '/al/transport-me-kontenier'
-      fullPath: '/al/transport-me-kontenier'
-      preLoaderRoute: typeof AlTransportMeKontenierRouteImport
+    '/import-netherlands': {
+      id: '/import-netherlands'
+      path: '/import-netherlands'
+      fullPath: '/import-netherlands'
+      preLoaderRoute: typeof ImportNetherlandsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/transport-roro': {
-      id: '/al/transport-roro'
-      path: '/al/transport-roro'
-      fullPath: '/al/transport-roro'
-      preLoaderRoute: typeof AlTransportRoroRouteImport
+    '/import-korea': {
+      id: '/import-korea'
+      path: '/import-korea'
+      fullPath: '/import-korea'
+      preLoaderRoute: typeof ImportKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/albania': {
-      id: '/en/albania'
-      path: '/en/albania'
-      fullPath: '/en/albania'
-      preLoaderRoute: typeof EnAlbaniaRouteImport
+    '/import-italy': {
+      id: '/import-italy'
+      path: '/import-italy'
+      fullPath: '/import-italy'
+      preLoaderRoute: typeof ImportItalyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/netherlands': {
-      id: '/en/netherlands'
-      path: '/en/netherlands'
-      fullPath: '/en/netherlands'
-      preLoaderRoute: typeof EnNetherlandsRouteImport
+    '/import-germany': {
+      id: '/import-germany'
+      path: '/import-germany'
+      fullPath: '/import-germany'
+      preLoaderRoute: typeof ImportGermanyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-france': {
+      id: '/import-france'
+      path: '/import-france'
+      fullPath: '/import-france'
+      preLoaderRoute: typeof ImportFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-europe': {
+      id: '/import-europe'
+      path: '/import-europe'
+      fullPath: '/import-europe'
+      preLoaderRoute: typeof ImportEuropeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-czech-republic': {
+      id: '/import-czech-republic'
+      path: '/import-czech-republic'
+      fullPath: '/import-czech-republic'
+      preLoaderRoute: typeof ImportCzechRepublicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-canada': {
+      id: '/import-canada'
+      path: '/import-canada'
+      fullPath: '/import-canada'
+      preLoaderRoute: typeof ImportCanadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-belgium': {
+      id: '/import-belgium'
+      path: '/import-belgium'
+      fullPath: '/import-belgium'
+      preLoaderRoute: typeof ImportBelgiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/import-austria': {
+      id: '/import-austria'
+      path: '/import-austria'
+      fullPath: '/import-austria'
+      preLoaderRoute: typeof ImportAustriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delivered-vehicles': {
+      id: '/delivered-vehicles'
+      path: '/delivered-vehicles'
+      fullPath: '/delivered-vehicles'
+      preLoaderRoute: typeof DeliveredVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/container-shipping': {
+      id: '/container-shipping'
+      path: '/container-shipping'
+      fullPath: '/container-shipping'
+      preLoaderRoute: typeof ContainerShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auction-access': {
+      id: '/auction-access'
+      path: '/auction-access'
+      fullPath: '/auction-access'
+      preLoaderRoute: typeof AuctionAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight': {
+      id: '/airfreight'
+      path: '/airfreight'
+      fullPath: '/airfreight'
+      preLoaderRoute: typeof AirfreightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/': {
@@ -1340,67 +1214,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides/car-import-glossary': {
-      id: '/guides/car-import-glossary'
-      path: '/guides/car-import-glossary'
-      fullPath: '/guides/car-import-glossary'
-      preLoaderRoute: typeof GuidesCarImportGlossaryRouteImport
+    '/al/': {
+      id: '/al/'
+      path: '/al'
+      fullPath: '/al/'
+      preLoaderRoute: typeof AlIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides/car-shipping-costs-explained': {
-      id: '/guides/car-shipping-costs-explained'
-      path: '/guides/car-shipping-costs-explained'
-      fullPath: '/guides/car-shipping-costs-explained'
-      preLoaderRoute: typeof GuidesCarShippingCostsExplainedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/common-car-import-mistakes': {
-      id: '/guides/common-car-import-mistakes'
-      path: '/guides/common-car-import-mistakes'
-      fullPath: '/guides/common-car-import-mistakes'
-      preLoaderRoute: typeof GuidesCommonCarImportMistakesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/container-vs-roro-car-shipping': {
-      id: '/guides/container-vs-roro-car-shipping'
-      path: '/guides/container-vs-roro-car-shipping'
-      fullPath: '/guides/container-vs-roro-car-shipping'
-      preLoaderRoute: typeof GuidesContainerVsRoroCarShippingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/copart-vs-iaai': {
-      id: '/guides/copart-vs-iaai'
-      path: '/guides/copart-vs-iaai'
-      fullPath: '/guides/copart-vs-iaai'
-      preLoaderRoute: typeof GuidesCopartVsIaaiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/how-long-does-car-shipping-take': {
-      id: '/guides/how-long-does-car-shipping-take'
-      path: '/guides/how-long-does-car-shipping-take'
-      fullPath: '/guides/how-long-does-car-shipping-take'
-      preLoaderRoute: typeof GuidesHowLongDoesCarShippingTakeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/how-to-buy-a-car-from-usa-auctions': {
-      id: '/guides/how-to-buy-a-car-from-usa-auctions'
-      path: '/guides/how-to-buy-a-car-from-usa-auctions'
-      fullPath: '/guides/how-to-buy-a-car-from-usa-auctions'
-      preLoaderRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/how-to-check-a-used-car-before-buying': {
-      id: '/guides/how-to-check-a-used-car-before-buying'
-      path: '/guides/how-to-check-a-used-car-before-buying'
-      fullPath: '/guides/how-to-check-a-used-car-before-buying'
-      preLoaderRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guides/importing-electric-cars': {
-      id: '/guides/importing-electric-cars'
-      path: '/guides/importing-electric-cars'
-      fullPath: '/guides/importing-electric-cars'
-      preLoaderRoute: typeof GuidesImportingElectricCarsRouteImport
+    '/guides/vehicle-import-documents': {
+      id: '/guides/vehicle-import-documents'
+      path: '/guides/vehicle-import-documents'
+      fullPath: '/guides/vehicle-import-documents'
+      preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/importing-luxury-cars': {
@@ -1410,11 +1235,186 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesImportingLuxuryCarsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides/vehicle-import-documents': {
-      id: '/guides/vehicle-import-documents'
-      path: '/guides/vehicle-import-documents'
-      fullPath: '/guides/vehicle-import-documents'
-      preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
+    '/guides/importing-electric-cars': {
+      id: '/guides/importing-electric-cars'
+      path: '/guides/importing-electric-cars'
+      fullPath: '/guides/importing-electric-cars'
+      preLoaderRoute: typeof GuidesImportingElectricCarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-to-check-a-used-car-before-buying': {
+      id: '/guides/how-to-check-a-used-car-before-buying'
+      path: '/guides/how-to-check-a-used-car-before-buying'
+      fullPath: '/guides/how-to-check-a-used-car-before-buying'
+      preLoaderRoute: typeof GuidesHowToCheckAUsedCarBeforeBuyingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-to-buy-a-car-from-usa-auctions': {
+      id: '/guides/how-to-buy-a-car-from-usa-auctions'
+      path: '/guides/how-to-buy-a-car-from-usa-auctions'
+      fullPath: '/guides/how-to-buy-a-car-from-usa-auctions'
+      preLoaderRoute: typeof GuidesHowToBuyACarFromUsaAuctionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-long-does-car-shipping-take': {
+      id: '/guides/how-long-does-car-shipping-take'
+      path: '/guides/how-long-does-car-shipping-take'
+      fullPath: '/guides/how-long-does-car-shipping-take'
+      preLoaderRoute: typeof GuidesHowLongDoesCarShippingTakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/copart-vs-iaai': {
+      id: '/guides/copart-vs-iaai'
+      path: '/guides/copart-vs-iaai'
+      fullPath: '/guides/copart-vs-iaai'
+      preLoaderRoute: typeof GuidesCopartVsIaaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/container-vs-roro-car-shipping': {
+      id: '/guides/container-vs-roro-car-shipping'
+      path: '/guides/container-vs-roro-car-shipping'
+      fullPath: '/guides/container-vs-roro-car-shipping'
+      preLoaderRoute: typeof GuidesContainerVsRoroCarShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/common-car-import-mistakes': {
+      id: '/guides/common-car-import-mistakes'
+      path: '/guides/common-car-import-mistakes'
+      fullPath: '/guides/common-car-import-mistakes'
+      preLoaderRoute: typeof GuidesCommonCarImportMistakesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/car-shipping-costs-explained': {
+      id: '/guides/car-shipping-costs-explained'
+      path: '/guides/car-shipping-costs-explained'
+      fullPath: '/guides/car-shipping-costs-explained'
+      preLoaderRoute: typeof GuidesCarShippingCostsExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/car-import-glossary': {
+      id: '/guides/car-import-glossary'
+      path: '/guides/car-import-glossary'
+      fullPath: '/guides/car-import-glossary'
+      preLoaderRoute: typeof GuidesCarImportGlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/netherlands': {
+      id: '/en/netherlands'
+      path: '/en/netherlands'
+      fullPath: '/en/netherlands'
+      preLoaderRoute: typeof EnNetherlandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/albania': {
+      id: '/en/albania'
+      path: '/en/albania'
+      fullPath: '/en/albania'
+      preLoaderRoute: typeof EnAlbaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-roro': {
+      id: '/al/transport-roro'
+      path: '/al/transport-roro'
+      fullPath: '/al/transport-roro'
+      preLoaderRoute: typeof AlTransportRoroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-me-kontenier': {
+      id: '/al/transport-me-kontenier'
+      path: '/al/transport-me-kontenier'
+      fullPath: '/al/transport-me-kontenier'
+      preLoaderRoute: typeof AlTransportMeKontenierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash': {
+      id: '/al/transport-ajror-makinash'
+      path: '/al/transport-ajror-makinash'
+      fullPath: '/al/transport-ajror-makinash'
+      preLoaderRoute: typeof AlTransportAjrorMakinashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-korea': {
+      id: '/al/makina-nga-korea'
+      path: '/al/makina-nga-korea'
+      fullPath: '/al/makina-nga-korea'
+      preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-dubai': {
+      id: '/al/makina-nga-dubai'
+      path: '/al/makina-nga-dubai'
+      fullPath: '/al/makina-nga-dubai'
+      preLoaderRoute: typeof AlMakinaNgaDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-amerika': {
+      id: '/al/makina-nga-amerika'
+      path: '/al/makina-nga-amerika'
+      fullPath: '/al/makina-nga-amerika'
+      preLoaderRoute: typeof AlMakinaNgaAmerikaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/kontakt': {
+      id: '/al/kontakt'
+      path: '/al/kontakt'
+      fullPath: '/al/kontakt'
+      preLoaderRoute: typeof AlKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/kalkulator-transporti': {
+      id: '/al/kalkulator-transporti'
+      path: '/al/kalkulator-transporti'
+      fullPath: '/al/kalkulator-transporti'
+      preLoaderRoute: typeof AlKalkulatorTransportiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/inspektim-makinash': {
+      id: '/al/inspektim-makinash'
+      path: '/al/inspektim-makinash'
+      fullPath: '/al/inspektim-makinash'
+      preLoaderRoute: typeof AlInspektimMakinashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/iaai-shqiperi': {
+      id: '/al/iaai-shqiperi'
+      path: '/al/iaai-shqiperi'
+      fullPath: '/al/iaai-shqiperi'
+      preLoaderRoute: typeof AlIaaiShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/encar-shqiperi': {
+      id: '/al/encar-shqiperi'
+      path: '/al/encar-shqiperi'
+      fullPath: '/al/encar-shqiperi'
+      preLoaderRoute: typeof AlEncarShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/copart-shqiperi': {
+      id: '/al/copart-shqiperi'
+      path: '/al/copart-shqiperi'
+      fullPath: '/al/copart-shqiperi'
+      preLoaderRoute: typeof AlCopartShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/ankande-amerikane': {
+      id: '/al/ankande-amerikane'
+      path: '/al/ankande-amerikane'
+      fullPath: '/al/ankande-amerikane'
+      preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/admin/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/shipping/south-korea-to-rotterdam': {
