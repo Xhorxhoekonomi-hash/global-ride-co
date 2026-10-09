@@ -11,7 +11,7 @@
 - Existing root error-component typing repaired for the current router version.
 
 ## Verification
-- Automatic build: OK after presentation edits; final test typing correction checked separately.
+- Automatic build: OK, including the permanent test files after their typing correction.
 - 61 changed content routes checked at 360 and 1440; 21 key pages also checked at 390 and 1280. No overflow, broken images, missing headings, page errors or broken internal links (65 links checked).
 - Gallery: 20 cards, all 30 distinct photos navigable; angle thumbnails, keyboard arrows, Escape and SQ next/close controls exercised. Screenshots inspected for homepage and viewer.
 - Four photo-manifest rule tests passed.

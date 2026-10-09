@@ -14,7 +14,7 @@
 - [x] Exact changed pages and QA recorded in docs/phase-2-visual-review.md; review in the existing Lovable preview; delivery gallery blocked by unverified photo provenance; no deployment.
 
 # Real-photo-first sitewide presentation
-- [ ] Replace synthetic imagery on all rendered surfaces and remove synthetic SEO references.
-- [ ] Curate named owner-photo selections and grouped albums preserving all 30 originals.
-- [ ] Remove unverified delivery records from reviews and preserve operational behavior.
-- [ ] Verify English/Albanian pages, gallery navigation, image loading and mobile/desktop layout; record exact changes.
+- [x] Replace synthetic imagery on all rendered surfaces and remove synthetic SEO references.
+- [x] Curate named owner-photo selections and grouped albums preserving all 30 originals.
+- [x] Remove unverified delivery records from reviews and preserve operational behavior.
+- [x] Verify English/Albanian pages, gallery navigation, image loading and mobile/desktop layout; record exact changes in docs/real-photo-first-review.md.
