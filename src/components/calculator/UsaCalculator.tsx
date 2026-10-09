@@ -319,14 +319,13 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
                 <Button variant="ghost"
                   onClick={onWhatsApp}
                   type="button"
-                  className="flex w-full items-center justify-center gap-2 rounded-md py-3 text-sm font-semibold text-primary-foreground shadow-sm"
-                  style={{ backgroundColor: "oklch(0.66 0.17 145)" }}
+                  className="h-auto min-h-12 w-full whitespace-normal bg-primary py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
                 >
                   <MessageCircle className="h-4 w-4" /> {D.requestOnWhatsApp}
                 </Button>
                 <Button asChild variant="link" className="h-auto min-h-11 w-full whitespace-normal"><Link to={contactHref}>
                   {D.requestFullQuote}
-                </a>
+                </Link></Button>
               </div>
             </motion.div>
           ) : (

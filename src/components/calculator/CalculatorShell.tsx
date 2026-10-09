@@ -138,7 +138,7 @@ export function CalculatorShell({
             {dict.relatedCta.links.map((l) => (
               <Button key={l.to} asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to={l.to}>
                 {l.label}
-              </Link>
+              </Link></Button>
             ))}
           </div>
         </div>
