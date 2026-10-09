@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { FAQS } from "@/lib/site-data";
 import { HomeExperience } from "@/components/site/HomeExperience";
+import heroImg from "@/assets/hero-home.jpg";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/")({
         { lang: "sq", path: "/al/" },
       ],
       xDefault: "/",
+      image: heroImg,
     }),
   component: Home_,
 });
