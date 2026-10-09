@@ -243,14 +243,39 @@
 .home-section { padding-block: 4.5rem; }
 .home-heading { font-size: 2rem; font-weight: 650; line-height: 1.2; color: var(--navy); }
 .home-kicker { font-size: 0.75rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 0.8rem; }
-.home-hero-image { height: 340px; width: 100%; object-fit: contain; background: var(--mist); }
+.home-hero-media, .inner-hero-media { width: 100%; aspect-ratio: 16 / 9; max-height: 340px; overflow: hidden; border-radius: var(--radius); background: var(--accent); box-shadow: var(--shadow-card); }
+.home-hero-image { height: 100%; width: 100%; object-fit: cover; object-position: 50% 85%; }
+.inner-hero-image { height: 100%; width: 100%; object-fit: cover; object-position: 50% 65%; }
+.home-origin-media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--mist); }
+.home-origin-photo { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.home-origin-photo-yard { object-position: 50% 64%; }
+.home-origin-photo-city { object-position: 50% 67%; }
+.home-origin-card:hover .home-origin-photo { transform: scale(1.025); }
+.home-route-art { position: relative; width: 100%; height: 100%; overflow: hidden; color: var(--primary); background-color: var(--accent); background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 32px 32px; }
+.home-route-art-europe { background-color: var(--mist); }
+.home-route-globe { position: absolute; height: 190%; width: 100%; left: -25%; top: -45%; opacity: .2; }
+.home-route-line { position: absolute; width: 53%; height: 40%; left: 24%; top: 29%; border: 2px dashed var(--primary); border-bottom: 0; border-left: 0; border-radius: 0 60% 0 0; transform: rotate(-12deg); }
+.home-route-point { position: absolute; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 50%; background: var(--background); box-shadow: var(--shadow-card); }
+.home-route-point svg { width: 17px; height: 17px; }
+.home-route-point-start { left: 18%; top: 27%; }
+.home-route-point-end { right: 17%; bottom: 23%; }
+.home-route-code, .home-route-destination { position: absolute; font-size: 12px; font-weight: 650; color: var(--navy); }
+.home-route-code { left: 21%; top: 57%; }
+.home-route-destination { right: 20%; bottom: 12%; }
+.home-service-image, .home-guide-image { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; background: var(--mist); }
+.home-service-image { max-height: 300px; object-position: 50% 62%; }
+.home-guide-image-0 { object-position: 50% 64%; }
+.home-guide-image-1 { object-position: 50% 62%; }
+.home-guide-image-2 { object-position: 50% 67%; }
+.home-gallery-preview ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-gallery-preview li > button > img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 65%; }
 .home-task { border-bottom: 3px solid transparent; }
 .home-task:hover { border-bottom-color: var(--teal); }
 .home-reveal { animation: fade-up 0.6s ease-out both; }
 @media (min-width: 768px) {
   .home-section { padding-block: 5.5rem; }
   .home-heading { font-size: 2.5rem; }
-  .home-hero-image { height: 470px; }
+  .home-gallery-preview ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
