@@ -1,6 +1,7 @@
 import { EditorialHero } from "@/components/site/EditorialHero";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -56,6 +57,7 @@ function ContainerShipping() {
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Container car shipping to Europe and vehicle shipping to Durrës, fully enclosed from origin port to Albania — the safest way to move a high-value or modified vehicle.
             </p>
+            <div className="interior-actions"><Button asChild><Link to="/contact">Get a Quote</Link></Button><Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button></div>
           </div>
         </div>
       </EditorialHero>

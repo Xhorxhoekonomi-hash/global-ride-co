@@ -39,3 +39,9 @@
 - [x] Replace detached homepage framing with immersive original-car mobile hero and dedicated desktop composition.
 - [x] Remove service/guide/interior letterboxes and retain working localized tools and original gallery.
 - [x] Verify EN/SQ phone and desktop screenshots, CTAs, task controls, images and automatic build; no publication. See docs/mobile-photo-display-review.md.
+
+# Shared sitewide photo presentation
+- [x] Census every public route and owner photo consumer.
+- [x] Centralize per-photo composition and migrate shared heroes, homepage stories/guides and gallery covers.
+- [x] Verify all 66 public routes at five widths, image decoding, localized CTAs and all-original viewer; preserve operational behavior.
+- [x] Record exact changes, checks and exceptions in docs/sitewide-photo-presentation-review.md; do not publish.

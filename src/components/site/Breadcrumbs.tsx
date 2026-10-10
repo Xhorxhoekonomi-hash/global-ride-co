@@ -19,7 +19,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="mt-18 border-b border-border bg-mist">
+    <nav aria-label="Breadcrumb" className="border-b border-border bg-mist">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ol className="container-page flex flex-wrap items-center gap-1.5 py-3 text-xs text-slate-body">
         {full.map((crumb, i) => (
