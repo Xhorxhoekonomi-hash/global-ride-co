@@ -41,7 +41,7 @@
 - [x] Verify EN/SQ phone and desktop screenshots, CTAs, task controls, images and automatic build; no publication. See docs/mobile-photo-display-review.md.
 
 # Shared sitewide photo presentation
-- [ ] Census every public route and owner photo consumer.
-- [ ] Centralize per-photo composition and migrate shared heroes, homepage stories/guides and gallery covers.
+- [x] Census every public route and owner photo consumer.
+- [x] Centralize per-photo composition and migrate shared heroes, homepage stories/guides and gallery covers.
 - [ ] Verify representative page types at five widths and every public route for image failures; preserve operational behavior.
 - [ ] Record exact changes, checks and exceptions; do not publish.
