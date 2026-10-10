@@ -65,17 +65,18 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
         <div className="alpha-hero-copy home-reveal">
           <p className="alpha-overline">Alpha Worldwide Albania</p>
           <h1>{c.title}<br /><span>{c.titleEnd}</span></h1>
-          <p className="alpha-hero-intro">{c.intro}</p>
+          <p className="alpha-hero-intro">{al ? "Blerje, inspektim dhe transport nga Amerika, Koreja, Dubai dhe Evropa." : "Purchase support, inspection and shipping from the USA, Korea, Dubai and Europe."}</p>
           <div className="alpha-hero-actions">
-            <Button asChild size="lg" className="h-13"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: heroSource })}>{c.calculate}<ArrowRight /></Link></Button>
+            <Button asChild size="lg" className="h-13"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: heroSource })}>{c.calculate}</Link></Button>
             <Button variant="outline" asChild size="lg" className="h-13"><Link to={contact} onClick={() => trackEvent("quote_started", { source: heroSource })}>{c.quote}</Link></Button>
           </div>
           <a href={whatsapp} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: heroSource })} className="alpha-contact-link"><MessageCircle className="h-4 w-4" />{c.chat}<ArrowRight className="h-4 w-4" /></a>
         </div>
         <div className="alpha-hero-stage">
-          <div className="alpha-stage-rule" aria-hidden="true" />
-          <img src={PHOTO_SELECTIONS.silverFerrari.src} alt={PHOTO_SELECTIONS.silverFerrari[locale]} width={1086} height={1448} fetchPriority="high" className="alpha-hero-photo" />
-          <div className="alpha-stage-foot"><span>{al ? "Nga arkivi Alpha" : "The Alpha archive"}</span><span>{al ? "Automjete. Kujdes. Lidhje." : "Vehicles. Care. Connection."}</span></div>
+          <picture>
+            <source media="(max-width: 767px)" srcSet={PHOTO_SELECTIONS.urusFront.src} />
+            <img src={PHOTO_SELECTIONS.urus.src} alt={PHOTO_SELECTIONS.urus[locale]} width={1086} height={1448} fetchPriority="high" className="alpha-hero-photo" />
+          </picture>
         </div>
       </div>
     </section>
@@ -96,7 +97,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
-      <div className="alpha-service-chapter"><div className="alpha-service-visual"><img src={PHOTO_SELECTIONS.loading.src} alt={PHOTO_SELECTIONS.loading[locale]} width={1086} height={1448} loading="lazy" /><span>Alpha Worldwide / {al ? "Trajtim automjetesh" : "Vehicle handling"}</span></div><div className="alpha-service-copy"><span className="alpha-chapter-no">01 / {al ? "Transport" : "Transport"}</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div><div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div></div></div>
+      <div className="alpha-service-chapter"><div className="alpha-service-visual"><img src={PHOTO_SELECTIONS.darkFerrariContainer.src} alt={PHOTO_SELECTIONS.darkFerrariContainer[locale]} width={1086} height={1448} loading="lazy" /></div><div className="alpha-service-copy"><span className="alpha-chapter-no">01 / {al ? "Transport" : "Transport"}</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div><div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div></div></div>
     </div></section>
 
     <section className="home-section alpha-calculator-band"><div className="container-page grid items-center gap-12 lg:grid-cols-2">
