@@ -17,7 +17,7 @@ export function InnerPageHero({ eyebrow, title, description, image, imageAlt = "
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{description}</p>
         {children && <div className="mt-7 flex flex-wrap items-center gap-3">{children}</div>}
       </div>
-      {image && <div className="alpha-inner-stage"><span aria-hidden="true" className="alpha-stage-rule" /><div className="inner-hero-media"><img src={image} alt={imageAlt} width={960} height={1280} fetchPriority="high" className="inner-hero-image" /></div><span className="alpha-inner-signature">Alpha Worldwide / {eyebrow}</span></div>}
+      {image && <div className="alpha-inner-stage"><span aria-hidden="true" className="alpha-stage-rule" /><div className="inner-hero-media"><img src={image} alt={imageAlt} width={960} height={1280} fetchPriority="high" className="inner-hero-image" /></div></div>}
     </div>
   </section>;
 }

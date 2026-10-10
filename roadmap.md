@@ -28,3 +28,9 @@
 - [x] Recompose localized homepages with original-car hero, guided tasks, cartographic origins, service chapters, functional calculator teaser and four-cover filmstrip.
 - [x] Align shared header, footer and interior heading conventions; preserve originals and operational behavior.
 - [x] Verify EN/SQ and three interior pages at 1440/1280/390/360, all 30 image decodes, CTAs and all-angle gallery; automatic build OK; document exact changes in docs/editorial-design-review.md without publishing.
+
+# Customer-first refinement
+- [x] Recompose EN/SQ hero and add a stateful four-path entry tool with working origin choices.
+- [x] Regroup desktop/mobile navigation and add a purposeful interactive four-step journey.
+- [x] Refine shared media, origin composition, gallery and selected interior presentation without operational changes.
+- [x] Verify four screen widths, localized tools/navigation, photos and gallery; record actual checks and limitations in docs/customer-first-review.md without publication.

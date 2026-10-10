@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
+import { CustomerEntry } from "@/components/site/CustomerEntry";
+import { HomeJourney } from "@/components/site/HomeJourney";
 import routeRelief from "@/assets/abstract_route_relief.jpg";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
@@ -12,8 +14,8 @@ import { trackEvent } from "@/lib/analytics";
 const COPY = {
   en: {
     eyebrow: "ALPHA WORLDWIDE ALBANIA · INTERNATIONAL VEHICLE LOGISTICS",
-    title: "The world is", titleEnd: "your showroom.",
-    intro: "From finding the right car to bringing it home. Sourcing, inspections and shipping from the USA, South Korea, Dubai and Europe.",
+    title: "Source. Inspect.", titleEnd: "Ship worldwide.",
+    intro: "Your next car, without borders. Purchase support, inspections and transport from the USA, South Korea, Dubai and Europe.",
     calculate: "Calculate Shipping", quote: "Get a Quote", chat: "Talk to our team", start: "What would you like to do?",
     tasks: ["Buy a Car", "Ship a Car", "Calculate Costs", "Inspect Before Purchase"], taskBodies: ["Find it. We’ll help with the rest.", "From origin to your destination.", "See your shipping breakdown.", "Know more before you buy."],
     originsKicker: "A world of possibilities", originsTitle: "Where will your next car come from?", originsBody: "Choose your origin. Explore the process, then let us take care of the logistics.",
@@ -27,8 +29,8 @@ const COPY = {
   },
   sq: {
     eyebrow: "ALPHA WORLDWIDE ALBANIA · TRANSPORT NDËRKOMBËTAR AUTOMJETESH",
-    title: "Bota është", titleEnd: "salloni juaj.",
-    intro: "Nga gjetja e makinës së duhur deri te mbërritja e saj. Blerje, inspektim dhe transport nga Amerika, Koreja e Jugut, Dubai dhe Evropa.",
+    title: "Bli. Inspekto.", titleEnd: "Transporto kudo.",
+    intro: "Makina juaj e radhës, pa kufij. Mbështetje në blerje, inspektim dhe transport nga Amerika, Koreja e Jugut, Dubai dhe Evropa.",
     calculate: "Llogarit transportin", quote: "Merr një ofertë", chat: "Fol me ekipin", start: "Çfarë dëshironi të bëni?",
     tasks: ["Bli një makinë", "Transporto makinën", "Llogarit kostot", "Inspekto para blerjes"], taskBodies: ["Gjeni makinën. Ne ju ndihmojmë më tej.", "Nga origjina në destinacionin tuaj.", "Shihni ndarjen e kostove të transportit.", "Më shumë siguri para blerjes."],
     originsKicker: "Mundësi përtej kufijve", originsTitle: "Nga do të vijë makina juaj e radhës?", originsBody: "Zgjidhni origjinën. Njihuni me procesin dhe na lini neve logjistikën.",
@@ -41,10 +43,7 @@ const COPY = {
     faqKicker: "Pyetje të mira. Përgjigje të qarta.", faqTitle: "Le ta bëjmë më të thjeshtë.", allFaq: "Më shumë pyetje? (EN)", finalKicker: "Hapi juaj i radhës", finalTitle: "E keni gjetur makinën?", finalBody: "Na dërgoni linkun. Shqyrtojmë të dhënat dhe ju ndihmojmë me hapat e tjerë.", finalTrust: ["Kontakt direkt në WhatsApp", "Inspektim sipas disponueshmërisë", "Ofertë e konfirmuar para rezervimit"],
   },
 };
-const TASK_ICONS = [CarFront, Ship, Calculator, ScanLine];
-const STEP_ICONS = [Link2, ScanLine, Gavel, Ship];
 const GUIDE_ROUTES = ["/guides/how-to-buy-a-car-from-usa-auctions", "/guides/container-vs-roro-car-shipping", "/guides/how-to-check-a-used-car-before-buying"];
-const GUIDE_IMAGES = [PHOTO_SELECTIONS.porsche, PHOTO_SELECTIONS.container, PHOTO_SELECTIONS.silverFerrari];
 
 
 
@@ -58,14 +57,13 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const roro = al ? "/al/transport-roro" : "/roro-shipping";
   const air = al ? "/al/transport-ajror-makinash" : "/airfreight";
   const origins = al ? ["/al/makina-nga-amerika", "/al/makina-nga-korea", "/al/makina-nga-dubai", "/import-europe"] : ["/import-usa", "/import-korea", "/import-uae", "/import-europe"];
-  const taskRoutes = [al ? "/al/ankande-amerikane" : "/auction-access", container, calculator, inspect];
   const whatsapp = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(al ? "Përshëndetje Alpha Worldwide, dua të importoj një makinë në Shqipëri." : "Hello Alpha Worldwide, I found a vehicle I'd like help with.")}`;
   const heroSource = al ? "al-home-hero" : "hero";
   return <div className="editorial-home bg-background text-foreground">
     <section className="alpha-hero">
       <div className="container-page alpha-hero-grid">
         <div className="alpha-hero-copy home-reveal">
-          <p className="alpha-overline">Alpha Worldwide Albania <span> / </span> {al ? "Përtej kufijve" : "Beyond borders"}</p>
+          <p className="alpha-overline">Alpha Worldwide Albania</p>
           <h1>{c.title}<br /><span>{c.titleEnd}</span></h1>
           <p className="alpha-hero-intro">{c.intro}</p>
           <div className="alpha-hero-actions">
@@ -76,19 +74,13 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
         </div>
         <div className="alpha-hero-stage">
           <div className="alpha-stage-rule" aria-hidden="true" />
-          <p className="alpha-photo-index">01 / {al ? "Nga arkivi ynë" : "From our archive"}</p>
           <img src={PHOTO_SELECTIONS.silverFerrari.src} alt={PHOTO_SELECTIONS.silverFerrari[locale]} width={1086} height={1448} fetchPriority="high" className="alpha-hero-photo" />
-          <div className="alpha-stage-foot"><span>{al ? "Blerje · Inspektim · Transport" : "Source · Inspect · Ship"}</span><span>USA / KR / UAE / EU</span></div>
+          <div className="alpha-stage-foot"><span>{al ? "Nga arkivi Alpha" : "The Alpha archive"}</span><span>{al ? "Automjete. Kujdes. Lidhje." : "Vehicles. Care. Connection."}</span></div>
         </div>
       </div>
     </section>
 
-    <section className="alpha-paths" aria-label={c.start}><div className="container-page">
-      <div className="alpha-path-heading"><p>{c.start}</p><span aria-hidden="true">↘</span></div>
-      <div className="alpha-path-grid">{c.tasks.map((task, i) => { const Icon = TASK_ICONS[i]; return <Link key={task} to={taskRoutes[i]} className="alpha-path group" onClick={() => { if (i === 2) trackEvent("calculator_started", { source: heroSource }); if (i === 3) trackEvent("inspection_requested", { source: "hero" }); }}>
-        <div className="alpha-path-top"><span>0{i + 1}</span><Icon className="h-5 w-5" /></div><h2>{task}</h2><p>{c.taskBodies[i]}</p><ArrowRight className="alpha-path-arrow h-5 w-5" />
-      </Link>; })}</div>
-    </div></section>
+    <CustomerEntry locale={locale} />
 
     <section className="home-section alpha-origins"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
@@ -99,7 +91,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section alpha-journey"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.stepsKicker}</p><h2 className="home-heading">{c.stepsTitle}</h2></div><Button asChild variant="link"><Link to="/how-it-works">{c.process}<ArrowRight /></Link></Button></div>
-      <ol className="alpha-step-grid">{c.steps.map((title,i) => <li key={title}><span className="alpha-step-number">0{i+1}</span><h3>{title}</h3><p>{c.stepBodies[i]}</p></li>)}</ol>
+      <HomeJourney locale={locale} titles={c.steps} bodies={c.stepBodies} />
     </div></section>
 
     <section className="home-section"><div className="container-page">
