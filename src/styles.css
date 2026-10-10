@@ -478,7 +478,7 @@
 .alpha-hero-intro { margin-top: 22px; font-size: 17px; }
 .alpha-hero-stage { padding: 18px; border-radius: 8px; }
 .alpha-stage-rule { width: 25%; border-top-right-radius: 8px; }
-.alpha-hero-photo { height: 360px; object-fit: contain; background: var(--studio); border-radius: 6px; }
+.alpha-hero-photo { height: 360px; object-fit: cover; object-position: 50% 65%; background: var(--studio); border-radius: 6px; }
 .alpha-stage-foot { padding-top: 14px; font-size: 12px; }
 .customer-entry { border-block: 1px solid var(--border); padding-block: 28px 32px; background: var(--background); }
 .customer-entry-heading { font-size: 20px; font-weight: 600; color: var(--secondary); margin-bottom: 20px; }
@@ -494,12 +494,13 @@
 .customer-origin label { display: block; font-size: 13px; color: var(--muted-foreground); margin-bottom: 7px; }
 .customer-panel-actions > a { min-width: 150px; }
 .editorial-home .home-section { padding-block: 80px; }
-.alpha-atlas { min-height: 330px; border-radius: 8px; }
-.alpha-atlas-art { opacity: .65; }
-.alpha-origin-grid { min-height: 330px; }
-.alpha-origin { padding: 28px; background: linear-gradient(180deg,transparent,var(--background)); }
-.alpha-origin:nth-child(2) { background: linear-gradient(180deg,transparent,var(--accent)); }
-.alpha-origin:nth-child(4) { background: linear-gradient(180deg,transparent,var(--mist)); }
+.alpha-atlas { min-height: 390px; border-radius: 8px; padding-top: 160px; }
+.alpha-atlas-art { opacity: .65; height: 160px; }
+.alpha-origin-grid { min-height: 230px; }
+.alpha-origin { padding: 24px 28px; background: var(--background); gap: 24px; }
+.alpha-origin:nth-child(2) { background: var(--accent); }
+.alpha-origin:nth-child(4) { background: var(--mist); }
+.alpha-origin:hover { background: var(--accent); }
 .alpha-origin-code { font-size: 14px; }
 .alpha-origin p, .alpha-origin-link { font-size: 14px; }
 .home-journey-tool { margin-top: 40px; }
@@ -525,7 +526,7 @@
 .alpha-inner-hero h1 { font-weight: 600; }
 .alpha-inner-stage { padding: 16px; border-radius: 8px; }
 .alpha-inner-stage .inner-hero-media { aspect-ratio: 16/10; background: var(--studio); border-radius: 6px; }
-.alpha-inner-stage .inner-hero-image { object-fit: contain; }
+.alpha-inner-stage .inner-hero-image { object-fit: cover; object-position: 50% 66%; }
 @media (max-width: 1279px) { .alpha-hero-copy h1 { font-size: 56px; } }
 @media (max-width: 767px) {
  .alpha-header > .container-page { height: 72px; }
@@ -537,7 +538,7 @@
  .alpha-hero-actions a { font-size: 13px; }
  .alpha-contact-link { font-size: 13px; }
  .alpha-hero-stage { padding: 10px; }
- .alpha-hero-photo { height: 200px; }
+ .alpha-hero-photo { height: 200px; object-position: 50% 65%; }
  .alpha-stage-foot { font-size: 11px; padding-top: 10px; }
  .customer-entry { padding-block: 24px; }
  .customer-entry-heading { font-size: 19px; }
@@ -552,6 +553,8 @@
  .customer-panel-actions > a:only-child { grid-column: 1/-1; }
  .editorial-home .home-section { padding-block: 56px; }
  .alpha-origin { padding: 20px 16px; }
+ .alpha-atlas { padding-top: 130px; }
+ .alpha-atlas-art { height: 130px; }
  .alpha-origin-grid { min-height: 460px; }
  .alpha-origin { min-height: 230px; }
  .alpha-origin h3 { font-size: 23px; }
