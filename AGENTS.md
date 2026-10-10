@@ -14,6 +14,6 @@
 - Visual redesigns may restyle calculator presentation but must not modify calculation logic/data, lead submission, auth or database schema, keeping operational behavior independent of presentation.
 - Interior page headings use InnerPageHero and import journeys use JourneySteps so localized pages share light, accessible presentation without moving route SEO or operational content.
 - Named owner-photo selections and vehicle/session albums in alpha-photos are the single source for displayed vehicle imagery; grouping never adds unverified delivery metadata.
-- Homepage hero uses a single responsive picture with named original-photo selections and authoritative immersive-stage CSS; interior/service stages use full-bleed safe crops, while gallery lightboxes preserve full originals so presentation cannot alter source photos.
+- EditorialMedia and photo-presentation are the shared boundary for original-photo dimensions, responsive focal points and role-specific framing; homepage, interior, story, guide and album media use it so layouts cannot drift, while the full-size viewer preserves complete originals.
 - Customer entry destinations are resolved in the shared customer-paths module, with explicit localized routes and English fallbacks, so selected tasks and origins cannot drift from tested navigation.
 - Homepage entry and journey interactions are presentational tabs independent of operational calculators and forms, so discovery improvements do not affect lead or pricing behavior.

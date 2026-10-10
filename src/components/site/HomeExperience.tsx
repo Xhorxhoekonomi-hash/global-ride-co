@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
+import { EditorialMedia } from "@/components/site/EditorialMedia";
 import routeRelief from "@/assets/abstract_route_relief.jpg";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
@@ -73,10 +74,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
           <a href={whatsapp} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: heroSource })} className="alpha-contact-link"><MessageCircle className="h-4 w-4" />{c.chat}<ArrowRight className="h-4 w-4" /></a>
         </div>
         <div className="alpha-hero-stage">
-          <picture>
-            <source media="(max-width: 767px)" srcSet={PHOTO_SELECTIONS.urusFront.src} />
-            <img src={PHOTO_SELECTIONS.urus.src} alt={PHOTO_SELECTIONS.urus[locale]} width={1086} height={1448} fetchPriority="high" className="alpha-hero-photo" />
-          </picture>
+          <EditorialMedia photo={PHOTO_SELECTIONS.urus} mobilePhoto={PHOTO_SELECTIONS.urusFront} locale={locale} role="hero" priority />
         </div>
       </div>
     </section>
@@ -97,7 +95,11 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
-      <div className="alpha-service-chapter"><div className="alpha-service-visual"><img src={PHOTO_SELECTIONS.darkFerrariContainer.src} alt={PHOTO_SELECTIONS.darkFerrariContainer[locale]} width={1086} height={1448} loading="lazy" /></div><div className="alpha-service-copy"><span className="alpha-chapter-no">01 / {al ? "Transport" : "Transport"}</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div><div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div></div></div>
+      <div className="alpha-service-chapter">
+        <div className="alpha-service-copy"><span className="alpha-chapter-no">01 / Transport</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div>
+        <EditorialMedia photo={PHOTO_SELECTIONS.container} locale={locale} role="story" className="alpha-service-visual" />
+        <div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div>
+      </div>
     </div></section>
 
     <section className="home-section alpha-calculator-band"><div className="container-page grid items-center gap-12 lg:grid-cols-2">
@@ -110,7 +112,10 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
       <div className="mt-10"><PhotoGallery photos={ALPHA_PHOTOS} locale={locale} variant="filmstrip" coverAlbumIds={["urus", "silver-ferrari", "porsche", "sls"]} /></div>
     </div></section>
 
-    <section className="home-section alpha-guides"><div className="container-page"><div className="alpha-section-heading"><div><p className="home-kicker">{c.guidesKicker}</p><h2 className="home-heading">{c.guidesTitle}</h2></div><Button asChild variant="link"><Link to="/guides">{c.guidesLink}<ArrowRight /></Link></Button></div><div className="alpha-guide-layout"><div className="alpha-guide-image"><img src={PHOTO_SELECTIONS.porsche.src} alt={PHOTO_SELECTIONS.porsche[locale]} width={1086} height={1448} loading="lazy" /></div><div>{c.guideTitles.map((title,i) => <Link key={title} to={GUIDE_ROUTES[i]} className="alpha-guide-link" lang={al ? "en" : undefined}><span className="text-sm text-primary">{c.guideCategory[i]}</span><h3>{title}</h3><span className="alpha-guide-read">{c.read}<ArrowRight className="h-5 w-5" /></span></Link>)}</div></div></div></section>
+    <section className="home-section alpha-guides"><div className="container-page"><div className="alpha-section-heading"><div><p className="home-kicker">{c.guidesKicker}</p><h2 className="home-heading">{c.guidesTitle}</h2></div><Button asChild variant="link"><Link to="/guides">{c.guidesLink}<ArrowRight /></Link></Button></div><div className="alpha-guide-layout">
+      <Link to={GUIDE_ROUTES[0]} className="alpha-guide-feature" lang={al ? "en" : undefined}><EditorialMedia photo={PHOTO_SELECTIONS.porsche} locale={locale} role="guide" /><div className="alpha-guide-feature-copy"><span className="text-sm text-primary">{c.guideCategory[0]}</span><h3>{c.guideTitles[0]}</h3><span className="alpha-guide-read">{c.read}<ArrowRight className="h-5 w-5" /></span></div></Link>
+      <div>{c.guideTitles.slice(1).map((title,i) => <Link key={title} to={GUIDE_ROUTES[i + 1]} className="alpha-guide-link" lang={al ? "en" : undefined}><span className="text-sm text-primary">{c.guideCategory[i + 1]}</span><h3>{title}</h3><span className="alpha-guide-read">{c.read}<ArrowRight className="h-5 w-5" /></span></Link>)}</div>
+    </div></div></section>
 
     <section className="home-section"><div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]"><div><p className="home-kicker">{c.faqKicker}</p><h2 className="home-heading">{c.faqTitle}</h2><Button variant="link" asChild className="mt-6 px-0"><Link to="/faq">{c.allFaq}<ArrowRight /></Link></Button></div><Accordion type="single" collapsible>{faqs.map((faq,i) => <AccordionItem value={`faq-${i}`} key={faq.q}><AccordionTrigger className="py-6 text-left text-base font-medium leading-relaxed text-navy hover:no-underline">{faq.q}</AccordionTrigger><AccordionContent className="text-base leading-relaxed text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
 
