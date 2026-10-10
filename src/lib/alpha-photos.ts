@@ -76,6 +76,7 @@ function original(src: string): AlphaPhoto {
 }
 export const PHOTO_SELECTIONS = {
   urus: original(p1.url),
+  urusFront: original(p0.url),
   porsche: original(p24.url),
   blueFerrari: original(p2.url),
   audi: original(p10.url),

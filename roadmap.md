@@ -34,3 +34,8 @@
 - [x] Regroup desktop/mobile navigation and add a purposeful interactive four-step journey.
 - [x] Refine shared media, origin composition, gallery and selected interior presentation without operational changes.
 - [x] Verify four screen widths, localized tools/navigation, photos and gallery; record actual checks and limitations in docs/customer-first-review.md without publication.
+
+# Immersive mobile photography correction
+- [x] Replace detached homepage framing with immersive original-car mobile hero and dedicated desktop composition.
+- [x] Remove service/guide/interior letterboxes and retain working localized tools and original gallery.
+- [x] Verify EN/SQ phone and desktop screenshots, CTAs, task controls, images and automatic build; no publication. See docs/mobile-photo-display-review.md.
