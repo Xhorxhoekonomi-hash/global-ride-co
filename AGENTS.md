@@ -17,3 +17,4 @@
 - EditorialMedia and photo-presentation are the shared boundary for original-photo dimensions, responsive focal points and role-specific framing; homepage, interior, story, guide and album media use it so layouts cannot drift, while the full-size viewer preserves complete originals.
 - Customer entry destinations are resolved in the shared customer-paths module, with explicit localized routes and English fallbacks, so selected tasks and origins cannot drift from tested navigation.
 - Homepage entry and journey interactions are presentational tabs independent of operational calculators and forms, so discovery improvements do not affect lead or pricing behavior.
+- Cinematic stages pair a contained unchanged owner photo with a softened duplicate backdrop; this fills wide viewports without cutting the vehicle or inventing scene evidence.
