@@ -7,6 +7,7 @@ import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
+import { GuideFeature } from "@/components/site/GuideFeature";
 import routeRelief from "@/assets/abstract_route_relief.jpg";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
@@ -113,7 +114,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     </div></section>
 
     <section className="home-section alpha-guides"><div className="container-page"><div className="alpha-section-heading"><div><p className="home-kicker">{c.guidesKicker}</p><h2 className="home-heading">{c.guidesTitle}</h2></div><Button asChild variant="link"><Link to="/guides">{c.guidesLink}<ArrowRight /></Link></Button></div><div className="alpha-guide-layout">
-      <Link to={GUIDE_ROUTES[0]} className="alpha-guide-feature" lang={al ? "en" : undefined}><EditorialMedia photo={PHOTO_SELECTIONS.porsche} locale={locale} role="guide" /><div className="alpha-guide-feature-copy"><span className="text-sm text-primary">{c.guideCategory[0]}</span><h3>{c.guideTitles[0]}</h3><span className="alpha-guide-read">{c.read}<ArrowRight className="h-5 w-5" /></span></div></Link>
+      <GuideFeature locale={locale} title={c.guideTitles[0]} category={c.guideCategory[0]} read={c.read} />
       <div>{c.guideTitles.slice(1).map((title,i) => <Link key={title} to={GUIDE_ROUTES[i + 1]} className="alpha-guide-link" lang={al ? "en" : undefined}><span className="text-sm text-primary">{c.guideCategory[i + 1]}</span><h3>{title}</h3><span className="alpha-guide-read">{c.read}<ArrowRight className="h-5 w-5" /></span></Link>)}</div>
     </div></div></section>
 

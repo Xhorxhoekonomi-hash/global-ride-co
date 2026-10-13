@@ -45,3 +45,9 @@
 - [x] Centralize per-photo composition and migrate shared heroes, homepage stories/guides and gallery covers.
 - [x] Verify all 66 public routes at five widths, image decoding, localized CTAs and all-original viewer; preserve operational behavior.
 - [x] Record exact changes, checks and exceptions in docs/sitewide-photo-presentation-review.md; do not publish.
+
+# October 13 composition rebuild
+- [ ] Audit route families and replace universal photo heroes with purpose-specific compositions.
+- [ ] Rebuild immersive homepage, logistics stories and integrated editorial guides.
+- [ ] Visually inspect before/after desktop and phone pages, verify interactions and originals.
+- [ ] Document exact scope and limitations; no deployment.
