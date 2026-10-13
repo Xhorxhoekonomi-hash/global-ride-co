@@ -51,3 +51,9 @@
 - [x] Rebuild immersive homepage, logistics stories and integrated editorial guides.
 - [x] Visually inspect before/after desktop and phone pages, verify interactions and originals.
 - [x] Document exact scope and limitations in docs/october-13-composition-review.md; no deployment.
+
+# Cinematic correction
+- [ ] Replace rejected home stage and Ocean Shipping panel with original-photo art direction.
+- [ ] Coordinate public interior archetypes without operational changes.
+- [ ] Inspect before/after desktop/mobile photography; check public routes and interactions.
+- [ ] Record actual tests, limitations and managed save; no publishing.
