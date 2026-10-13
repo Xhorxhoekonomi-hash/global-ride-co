@@ -595,11 +595,12 @@
 .alpha-hero-intro { max-width:720px; font-size:15px; line-height:1.6; color:var(--feature-ink); margin:16px auto 0; }
 .alpha-hero-actions { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:440px; max-width:calc(100% - 40px); }
 .alpha-hero-actions a { height:50px; padding-inline:12px; box-shadow:none; }
+.alpha-hero-actions a[data-variant="outline"], .alpha-hero-actions a:nth-child(2) { color:var(--secondary); background:var(--background); }
 .alpha-hero-stage { position:absolute; inset:0; overflow:hidden; }
 .alpha-hero-stage::after { content:""; position:absolute; inset:0; background:var(--cinema-top-wash),var(--cinema-side-wash); pointer-events:none; }
 .alpha-hero-stage .editorial-media { position:absolute; inset:0; height:100%; }
 .alpha-hero-ambient { filter:blur(28px) brightness(.65); transform:scale(1.08); }
-.alpha-hero-subject img { object-fit:contain; object-position:center; }
+.alpha-hero-subject img { object-fit:contain; object-position:center; mask-image:linear-gradient(90deg,transparent, var(--foreground) 16%,var(--foreground) 84%,transparent); }
 /* Ocean story: a large documentary scene and concise unboxed reading module. */
 .alpha-service-chapter { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:32px; align-items:center; margin-top:40px; background:var(--background); }
 .alpha-service-visual { grid-column:1/9; grid-row:1; height:auto; min-height:0; aspect-ratio:4/3; }
@@ -662,7 +663,7 @@
  .alpha-hero-stage { inset:0; }
  .alpha-hero-stage::after { background:var(--cinema-mobile-wash); }
  .alpha-hero-ambient { display:none; }
- .alpha-hero-subject img { object-fit:cover; object-position:50% 62%; }
+ .alpha-hero-subject img { object-fit:cover; object-position:50% 62%; mask-image:none; }
  .alpha-hero-copy { padding:24px 20px; text-align:center; }
  .alpha-hero-copy .alpha-overline { display:none; }
  .alpha-hero-copy h1 { font-size:34px; line-height:1.12; margin:0 auto; max-width:340px; color:var(--secondary); }
