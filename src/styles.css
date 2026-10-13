@@ -541,30 +541,30 @@
 .hero-documentary-stage figcaption { display:flex; justify-content:space-between; gap:16px; font-size:12px; color:var(--muted-foreground); padding-top:14px; line-height:1.5; }
 .hero-documentary-primary .editorial-media { aspect-ratio:4/3; }
 .hero-documentary-detail .editorial-media { aspect-ratio:1/1; }
-/* Logistics: heading first, followed by a documentary diptych. */
-.hero-composition--logistics { background:var(--story-surface); }
-.hero-composition--logistics .hero-composition-copy { max-width:1050px; }
-.hero-composition--logistics .hero-composition-copy > div > div { max-width:none; }
-.hero-composition--logistics .hero-documentary-stage { margin-top:38px; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); align-items:end; gap:32px; max-width:1120px; margin-inline:auto; }
-.hero-composition--logistics .hero-documentary-primary .editorial-media { aspect-ratio:4/3; }
-.hero-composition--logistics .hero-documentary-detail { padding-bottom:24px; }
-.hero-composition--logistics .hero-documentary-detail .editorial-media { aspect-ratio:5/4; }
-/* Service: a compact offset photographic story, not an isolated portrait. */
-.hero-composition--service.hero-composition--photo > .container-page { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:center; gap:60px; padding-block:64px; }
-.hero-composition--service.hero-composition--photo { background:var(--story-surface); }
-.hero-composition--service .hero-documentary-stage { grid-template-columns:minmax(0,1fr) minmax(0,.5fr); gap:18px; align-items:end; }
-.hero-composition--service .hero-documentary-primary { grid-column:1/-1; }
-.hero-composition--service .hero-documentary-detail { grid-column:2; margin-top:-90px; position:relative; border:6px solid var(--background); }
-.hero-composition--service .hero-documentary-detail figcaption { display:none; }
+/* Documentary bands: centered typography and panoramic complete-original staging. */
+.hero-composition--logistics, .hero-composition--service.hero-composition--photo { background:var(--background); }
+.hero-composition--logistics > .container-page,.hero-composition--service.hero-composition--photo > .container-page { max-width:none; padding:36px 0 0; }
+.hero-composition--logistics .hero-composition-copy,.hero-composition--service.hero-composition--photo .hero-composition-copy { max-width:1040px; margin:auto; padding:0 32px 32px; text-align:center; }
+.hero-composition--logistics .interior-copy h1,.hero-composition--service.hero-composition--photo .interior-copy h1 { font-size:42px; max-width:960px; margin-inline:auto; }
+.hero-composition--logistics .interior-copy p,.hero-composition--service.hero-composition--photo .interior-copy p { margin-inline:auto; }
+.hero-composition--logistics .interior-actions,.hero-composition--service.hero-composition--photo .interior-actions { justify-content:center; }
+.hero-composition--logistics .hero-documentary-stage,.hero-composition--service.hero-composition--photo .hero-documentary-stage { position:relative; display:block; margin:0; height:400px; overflow:hidden; background:var(--feature-surface); }
+.hero-composition--logistics .hero-documentary-primary,.hero-composition--service.hero-composition--photo .hero-documentary-primary { position:relative; height:100%; }
+.hero-composition--logistics .hero-documentary-primary .editorial-media,.hero-composition--service.hero-composition--photo .hero-documentary-primary .editorial-media { position:absolute; inset:0; height:100%; aspect-ratio:auto; }
+.hero-composition--logistics .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img,.hero-composition--service.hero-composition--photo .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img { object-fit:contain; object-position:center; mask-image:linear-gradient(90deg,transparent,var(--foreground) 12%,var(--foreground) 88%,transparent); }
+.hero-documentary-ambient { display:none; }
+.hero-composition--logistics .hero-documentary-ambient,.hero-composition--service.hero-composition--photo .hero-documentary-ambient { display:block; filter:blur(30px) brightness(.65); transform:scale(1.1); }
+.hero-composition--logistics .hero-documentary-primary figcaption,.hero-composition--service.hero-composition--photo .hero-documentary-primary figcaption { display:none; }
+.hero-composition--logistics .hero-documentary-detail,.hero-composition--service.hero-composition--photo .hero-documentary-detail { display:none; }
 /* Markets: clear shopper paths and explicitly nonphotographic route art. */
-.hero-composition--market > .container-page { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:center; gap:64px; padding-block:64px; }
-.hero-composition--market { background:var(--route-surface); }
-.market-route-art { position:relative; min-width:0; height:340px; overflow:hidden; border-block:1px solid var(--border); color:var(--primary); }
-.market-globe { position:absolute; width:320px; height:320px; right:-70px; top:-45px; stroke-width:.5; opacity:.2; }
-.market-route-track { position:absolute; left:30px; top:35px; width:65%; height:65%; border:2px dashed var(--primary); border-left:0; border-bottom:0; border-radius:0 70% 0 0; }
+.hero-composition--market > .container-page { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr); align-items:center; gap:48px; padding-block:44px; }
+.hero-composition--market { background:var(--mist); }
+.market-route-art { position:relative; min-width:0; height:240px; overflow:hidden; border-block:1px solid var(--border); color:var(--primary); }
+.market-globe { display:none; position:absolute; width:320px; height:320px; right:-70px; top:-45px; stroke-width:.5; opacity:.2; }
+.market-route-track { display:none; position:absolute; left:30px; top:35px; width:65%; height:65%; border:2px dashed var(--primary); border-left:0; border-bottom:0; border-radius:0 70% 0 0; }
 .market-route-label { position:absolute; inset:auto 0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:14px; color:var(--secondary); }
 .market-route-label svg { width:16px; color:var(--primary); }
-.market-region { position:absolute; top:60px; left:26px; font-size:96px; font-weight:500; letter-spacing:-.07em; color:var(--secondary); }
+.market-region { position:absolute; top:60px; left:26px; font-size:96px; font-weight:500; letter-spacing:0; color:var(--secondary); }
 .market-route-art--kr .market-route-track { transform:rotate(12deg); }
 .market-route-art--ae .market-route-track { transform:rotate(-14deg); }
 .service-evidence-art { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:960px; margin-top:32px; border-block:1px solid var(--border); }
@@ -578,7 +578,11 @@
 .hero-composition--editorial .hero-composition-copy { max-width:960px; }
 .hero-composition--editorial .hero-documentary-stage { margin-top:30px; max-width:620px; }
 .hero-composition--editorial .hero-documentary-primary .editorial-media { aspect-ratio:16/9; }
-.hero-composition--gallery.hero-composition--photo > .container-page { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.65fr); gap:64px; align-items:center; }
+.hero-composition--gallery > .container-page { padding-block:44px; }
+.hero-composition--gallery .hero-composition-copy { text-align:center; max-width:960px; margin:auto; }
+.hero-composition--gallery .interior-copy h1,.hero-composition--gallery .interior-copy p { margin-inline:auto; }
+.hero-composition--gallery .interior-actions { justify-content:center; }
+.hero-composition--gallery .hero-documentary-stage { display:none; }
 .hero-composition--gallery .hero-documentary-primary .editorial-media { aspect-ratio:16/9; }
 .hero-composition--contact .interior-copy { max-width:860px; }
 /* Cinematic original-car stage: centered copy, complete subject, two actions. */
@@ -642,13 +646,12 @@
  .interior-copy p { font-size:15px; line-height:1.65; }
  .interior-actions { gap:8px; margin-top:22px; }
  .interior-actions a { white-space:normal; font-size:13px; min-height:48px; }
- .hero-documentary-stage,.hero-composition--logistics .hero-documentary-stage { margin-top:28px; gap:14px; }
- .hero-composition--service .hero-documentary-stage { margin-top:30px; }
- .hero-composition--logistics .hero-documentary-stage { grid-template-columns:minmax(0,1fr); }
- .hero-composition--logistics .hero-documentary-primary .editorial-media { aspect-ratio:4/3; }
- .hero-composition--logistics .hero-documentary-detail { max-width:70%; margin-left:auto; padding-bottom:0; }
- .hero-composition--logistics .hero-documentary-detail .editorial-media { aspect-ratio:4/3; }
- .hero-composition--service .hero-documentary-detail { margin-top:-60px; }
+ .hero-composition--logistics > .container-page,.hero-composition--service.hero-composition--photo > .container-page { padding:28px 0 0; }
+ .hero-composition--logistics .hero-composition-copy,.hero-composition--service.hero-composition--photo .hero-composition-copy { padding:0 20px 28px; text-align:left; }
+ .hero-composition--logistics .interior-copy h1,.hero-composition--service.hero-composition--photo .interior-copy h1 { font-size:30px; }
+ .hero-composition--logistics .interior-actions,.hero-composition--service.hero-composition--photo .interior-actions { justify-content:flex-start; }
+ .hero-composition--logistics .hero-documentary-stage,.hero-composition--service.hero-composition--photo .hero-documentary-stage { height:300px; margin:0; }
+ .hero-composition--logistics .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img,.hero-composition--service.hero-composition--photo .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img { mask-image:none; }
  .hero-documentary-stage figcaption { font-size:11px; }
  .market-route-art { height:160px; margin-top:24px; }
  .market-globe { height:240px; width:240px; right:0; top:-80px; }
