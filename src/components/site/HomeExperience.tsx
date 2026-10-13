@@ -66,16 +66,16 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
       <div className="container-page alpha-hero-grid">
         <div className="alpha-hero-copy home-reveal">
           <p className="alpha-overline">Alpha Worldwide Albania</p>
-          <h1>{c.title}<br /><span>{c.titleEnd}</span></h1>
+          <h1>{al ? "Makina juaj. Pa kufij." : "Your car. Without borders."}</h1>
           <p className="alpha-hero-intro">{al ? "Blerje, inspektim dhe transport nga Amerika, Koreja, Dubai dhe Evropa." : "Purchase support, inspection and shipping from the USA, Korea, Dubai and Europe."}</p>
           <div className="alpha-hero-actions">
             <Button asChild size="lg" className="h-13"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: heroSource })}>{c.calculate}</Link></Button>
             <Button variant="outline" asChild size="lg" className="h-13"><Link to={contact} onClick={() => trackEvent("quote_started", { source: heroSource })}>{c.quote}</Link></Button>
           </div>
-          <a href={whatsapp} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: heroSource })} className="alpha-contact-link"><MessageCircle className="h-4 w-4" />{c.chat}<ArrowRight className="h-4 w-4" /></a>
         </div>
         <div className="alpha-hero-stage">
-          <EditorialMedia photo={PHOTO_SELECTIONS.urus} mobilePhoto={PHOTO_SELECTIONS.urusFront} locale={locale} role="hero" priority />
+          <EditorialMedia photo={PHOTO_SELECTIONS.gallardo} locale={locale} role="hero" className="alpha-hero-ambient" alt="" />
+          <EditorialMedia photo={PHOTO_SELECTIONS.gallardo} mobilePhoto={PHOTO_SELECTIONS.urusFront} locale={locale} role="hero" className="alpha-hero-subject" priority />
         </div>
       </div>
     </section>
@@ -94,13 +94,13 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
       <HomeJourney locale={locale} titles={c.steps} bodies={c.stepBodies} />
     </div></section>
 
-    <section className="home-section"><div className="container-page">
+    <section className="home-section alpha-services-section"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
       <div className="alpha-service-chapter">
         <div className="alpha-service-copy"><span className="alpha-chapter-no">01 / Transport</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div>
         <EditorialMedia photo={PHOTO_SELECTIONS.container} locale={locale} role="story" className="alpha-service-visual" />
-        <div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div>
       </div>
+      <div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div>
     </div></section>
 
     <section className="home-section alpha-calculator-band"><div className="container-page grid items-center gap-12 lg:grid-cols-2">
