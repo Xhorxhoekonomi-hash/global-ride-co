@@ -8,8 +8,7 @@ import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
 import { GuideFeature } from "@/components/site/GuideFeature";
-import grandTour from "@/assets/alpha-editorial-grand-tour.jpg";
-import grandTourMobile from "@/assets/alpha-editorial-grand-tour-mobile.jpg";
+import ferrariHero from "@/assets/alpha-ferrari-logistics-hero.png.asset.json";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
@@ -64,7 +63,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const heroSource = al ? "al-home-hero" : "hero";
   return <div className="editorial-home bg-background text-foreground">
     <section className="alpha-hero">
-      <picture className="alpha-brand-scene"><source media="(max-width: 767px)" srcSet={grandTourMobile} /><img src={grandTour} width={1920} height={1088} fetchPriority="high" alt={al ? "Ilustrim editorial: automjet sportiv në një tarracë bregdetare; jo dorëzim i dokumentuar." : "Editorial artwork: a grand touring car on a coastal terrace, not a documented delivery."} /></picture>
+      <picture className="alpha-brand-scene"><img src={ferrariHero.url} width={1672} height={941} fetchPriority="high" decoding="async" alt={al ? "Ilustrim i markës: Ferrari jeshil me vija të verdha dhe targë Alpha Worldwide në një port me vinça dhe kontejnerë; sfond i përpunuar me AI, jo provë dorëzimi." : "Brand illustration: green Ferrari with yellow stripes and an Alpha Worldwide plate at a container port with cranes; AI-edited background, not delivery evidence."} /></picture>
       <div className="container-page alpha-hero-grid">
         <div className="alpha-hero-copy home-reveal">
           <p className="alpha-overline">Alpha Worldwide Albania</p>
@@ -76,7 +75,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
           </div>
         </div>
       </div>
-      <span className="alpha-art-credit">{al ? "Imazh editorial" : "Editorial artwork"}</span>
+      <span className="alpha-art-credit">{al ? "Ilustrim i markës" : "Brand illustration"}</span>
     </section>
 
     <CustomerEntry locale={locale} />
