@@ -73,10 +73,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
             <Button variant="outline" asChild size="lg" className="h-13"><Link to={contact} onClick={() => trackEvent("quote_started", { source: heroSource })}>{c.quote}</Link></Button>
           </div>
         </div>
-        <div className="alpha-hero-stage">
-          <EditorialMedia photo={PHOTO_SELECTIONS.gallardo} locale={locale} role="hero" className="alpha-hero-ambient" alt="" />
-          <EditorialMedia photo={PHOTO_SELECTIONS.gallardo} mobilePhoto={PHOTO_SELECTIONS.urusFront} locale={locale} role="hero" className="alpha-hero-subject" priority />
-        </div>
+        <div className="alpha-hero-evidence">{[PHOTO_SELECTIONS.urus, PHOTO_SELECTIONS.silverFerrari, PHOTO_SELECTIONS.container].map(photo => <figure key={photo.src}><EditorialMedia photo={photo} locale={locale} role="feature" eager /><figcaption>{photo[locale]}</figcaption></figure>)}</div>
       </div>
     </section>
 
@@ -84,7 +81,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="home-section alpha-origins"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
-      <div className="alpha-atlas"><img src={routeRelief} alt="" aria-hidden="true" width={1536} height={1024} loading="lazy" className="alpha-atlas-art" /><div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin group"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]} <ArrowRight className="h-5 w-5" /></span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}{al && i === 3 ? " (EN)" : ""}</span></div></Link>)}</div></div>
+      <div className="alpha-atlas"><div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin group"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]} <ArrowRight className="h-5 w-5" /></span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}{al && i === 3 ? " (EN)" : ""}</span></div></Link>)}</div></div>
       <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground"><Globe2 className="h-4 w-4 text-primary" />{c.canada}<Link to="/import-canada" className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary">{c.canadaLink}<ChevronRight className="h-4 w-4" /></Link></div>
       {al && <div className="flex flex-wrap gap-4 text-sm text-primary"><Link to="/al/copart-shqiperi" className="inline-flex min-h-11 items-center gap-2">Copart Shqipëri<ArrowRight className="h-4 w-4" /></Link><Link to="/al/iaai-shqiperi" className="inline-flex min-h-11 items-center gap-2">IAAI Shqipëri<ArrowRight className="h-4 w-4" /></Link></div>}
     </div></section>
