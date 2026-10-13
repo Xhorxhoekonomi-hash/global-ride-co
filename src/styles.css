@@ -743,3 +743,4 @@
  .alpha-art-credit { bottom:8px; right:12px; color:#fff; text-shadow:0 1px 2px rgb(0 0 0 / .5); }
 }
 @media (min-width:768px) and (max-width:1279px) { .alpha-hero-copy h1 { font-size:38px !important; } .alpha-hero-intro { font-size:14px; max-width:320px; } }
+@media (min-width:768px) { .alpha-art-credit { right:auto; left:24px; } .alpha-hero-intro { font-weight:500; text-shadow:0 0 10px rgb(255 255 255 / .85); } }
