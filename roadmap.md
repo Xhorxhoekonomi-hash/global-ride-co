@@ -71,5 +71,5 @@
 - [x] Record asset provenance, limitations and managed save; no publishing.
 
 # Owner-selected Porsche homepage artwork
-- [ ] Save the exact uploaded composite and replace the single EN/SQ homepage image without retouching.
-- [ ] Inspect native desktop/laptop/mobile previews; verify localized CTAs, tests and automatic build; document provenance without publishing.
+- [x] Save the exact uploaded composite and replace the single EN/SQ homepage image without retouching.
+- [x] Inspect native desktop/laptop/mobile previews; verify localized CTAs, tests and automatic build; document provenance without publishing.
