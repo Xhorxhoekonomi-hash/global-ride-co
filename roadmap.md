@@ -57,3 +57,9 @@
 - [x] Coordinate public interior archetypes without operational changes.
 - [x] Inspect before/after desktop/mobile photography; check public routes and interactions.
 - [x] Record actual tests, limitations and managed save in docs/cinematic-correction-review.md; no publishing.
+
+# Photo suitability and light editorial correction
+- [x] Audit every public route/image and inspect reference sites and current preview (Tesla blocked access).
+- [x] Replace rejected warehouse/blur stages with purpose-led light layouts across home and shared page families.
+- [x] Capture desktop/mobile page-length evidence, visually review coverage, test existing user journeys.
+- [x] Document exact reviewed pages, limitations, changed files and managed save in docs/photo-suitability-review.md; no publication.
