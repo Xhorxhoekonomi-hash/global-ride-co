@@ -30,6 +30,7 @@ Preview-only presentation changes; no publishing or production deployment.
 - Language switching preserves the existing route map: container switching currently falls back to `/al`, not its localized equivalent. Both direct container routes render correctly. No route-map/business-logic changes were made.
 - Gallery opens, decodes all 30 distinct originals through keyboard navigation, wraps reliably, goes backwards, closes with Escape, and computes `object-fit: contain` in the lightbox.
 - 12 tests passed across photo manifest, photo presentation, customer paths and media layouts; automatic build reported OK.
+- Final preview server log contains an existing React `hreflang`/`hrefLang` property warning; SEO code was left untouched. Browser checks recorded zero page exceptions, not zero server warnings.
 
 ## Preservation and honest limits
 Original photo assets, plates, `alpha-photos.ts`, exact `BrandLogo`, calculators/rates, quote/lead handling, backend/auth/security, analytics and SEO configuration were not edited. Existing route copy and business actions were retained; only the guide feature has a new localized editorial extract and archive credit.
@@ -37,3 +38,5 @@ Original photo assets, plates, `alpha-photos.ts`, exact `BrandLogo`, calculators
 The 330-state sweep is runtime evidence, not a claim that every full page was visually reviewed. Visual review focused on the required and representative page families. Cover images intentionally crop surrounding context; the lightbox alone guarantees uncropped originals. Road-transporter photos are operational context, not proof of RoRo or airfreight transport. No production forms were submitted and authenticated admin behavior was not retested because neither was changed.
 
 Screenshots and browser scripts are temporary sandbox artifacts under `/tmp/browser/composition/`, not production assets. Source changes are saved by Lovable's managed history; no manual Git commit, force push or deployment was performed.
+
+Managed history checkpoint observed after implementation: `9942bc0` (`Changes`); this review addendum may receive a later automatic checkpoint.
