@@ -47,7 +47,7 @@
 - [x] Record exact changes, checks and exceptions in docs/sitewide-photo-presentation-review.md; do not publish.
 
 # October 13 composition rebuild
-- [ ] Audit route families and replace universal photo heroes with purpose-specific compositions.
-- [ ] Rebuild immersive homepage, logistics stories and integrated editorial guides.
-- [ ] Visually inspect before/after desktop and phone pages, verify interactions and originals.
-- [ ] Document exact scope and limitations; no deployment.
+- [x] Audit route families and replace universal photo heroes with purpose-specific compositions.
+- [x] Rebuild immersive homepage, logistics stories and integrated editorial guides.
+- [x] Visually inspect before/after desktop and phone pages, verify interactions and originals.
+- [x] Document exact scope and limitations in docs/october-13-composition-review.md; no deployment.
