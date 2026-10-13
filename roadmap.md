@@ -63,3 +63,9 @@
 - [x] Replace rejected warehouse/blur stages with purpose-led light layouts across home and shared page families.
 - [x] Capture desktop/mobile page-length evidence, visually review coverage, test existing user journeys.
 - [x] Document exact reviewed pages, limitations, changed files and managed save in docs/photo-suitability-review.md; no publication.
+
+# Image-led correction after fallback rejection
+- [ ] Replace rejected typography/triptych with clearly editorial landscape and mobile brand photography.
+- [ ] Restore visible laptop navigation; coordinate service, import, about and guide media.
+- [ ] Inspect native desktop/laptop/mobile screenshots, audit routes and retest navigation/calculator/gallery.
+- [ ] Record asset provenance, limitations and managed save; no publishing.
