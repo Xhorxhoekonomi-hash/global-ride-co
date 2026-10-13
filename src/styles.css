@@ -553,7 +553,7 @@
 .hero-composition--logistics .hero-documentary-primary .editorial-media,.hero-composition--service.hero-composition--photo .hero-documentary-primary .editorial-media { position:absolute; inset:0; height:100%; aspect-ratio:auto; }
 .hero-composition--logistics .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img,.hero-composition--service.hero-composition--photo .hero-documentary-primary .editorial-media:not(.hero-documentary-ambient) img { object-fit:contain; object-position:center; mask-image:linear-gradient(90deg,transparent,var(--foreground) 12%,var(--foreground) 88%,transparent); }
 .hero-documentary-ambient { display:none; }
-.hero-composition--logistics .hero-documentary-ambient,.hero-composition--service.hero-composition--photo .hero-documentary-ambient { display:block; filter:blur(30px) brightness(.65); transform:scale(1.1); }
+.hero-composition--logistics .hero-documentary-ambient,.hero-composition--service.hero-composition--photo .hero-documentary-ambient { display:block; filter:blur(64px) brightness(.4); transform:scale(1.1); }
 .hero-composition--logistics .hero-documentary-primary figcaption,.hero-composition--service.hero-composition--photo .hero-documentary-primary figcaption { display:none; }
 .hero-composition--logistics .hero-documentary-detail,.hero-composition--service.hero-composition--photo .hero-documentary-detail { display:none; }
 /* Markets: clear shopper paths and explicitly nonphotographic route art. */
@@ -604,7 +604,7 @@
 .alpha-hero-stage::after { content:""; position:absolute; inset:0; background:var(--cinema-top-wash),var(--cinema-side-wash); pointer-events:none; }
 .alpha-hero-stage .editorial-media { position:absolute; inset:0; height:100%; }
 .alpha-hero-ambient { filter:blur(28px) brightness(.65); transform:scale(1.08); }
-.alpha-hero-subject img { object-fit:contain; object-position:center; mask-image:linear-gradient(90deg,transparent, var(--foreground) 16%,var(--foreground) 84%,transparent); }
+.alpha-hero-subject img { object-fit:contain; object-position:center; mask-image:linear-gradient(90deg,transparent 12%, var(--foreground) 27%,var(--foreground) 73%,transparent 88%); }
 /* Ocean story: a large documentary scene and concise unboxed reading module. */
 .alpha-service-chapter { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:32px; align-items:center; margin-top:40px; background:var(--background); }
 .alpha-service-visual { grid-column:1/9; grid-row:1; height:auto; min-height:0; aspect-ratio:4/3; }
