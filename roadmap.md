@@ -65,7 +65,7 @@
 - [x] Document exact reviewed pages, limitations, changed files and managed save in docs/photo-suitability-review.md; no publication.
 
 # Image-led correction after fallback rejection
-- [ ] Replace rejected typography/triptych with clearly editorial landscape and mobile brand photography.
-- [ ] Restore visible laptop navigation; coordinate service, import, about and guide media.
-- [ ] Inspect native desktop/laptop/mobile screenshots, audit routes and retest navigation/calculator/gallery.
-- [ ] Record asset provenance, limitations and managed save; no publishing.
+- [x] Replace rejected typography/triptych with clearly editorial landscape and mobile brand photography.
+- [x] Restore visible laptop navigation; coordinate service, import, about and guide media.
+- [x] Inspect native desktop/laptop/mobile screenshots, audit routes and retest navigation/calculator/gallery.
+- [x] Record asset provenance, limitations and managed save; no publishing.
