@@ -582,7 +582,7 @@
 /* Editorial brand scene: one sharp image, purpose-built negative space. */
 .alpha-hero { position:relative; background:var(--mist); overflow:hidden; min-height:0; aspect-ratio:16/9; height:auto; max-height:740px; }
 .alpha-brand-scene { position:absolute; inset:0; display:block; }
-.alpha-brand-scene img { width:100%; height:100%; object-fit:cover; object-position:center; }
+.alpha-brand-scene img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 .alpha-hero-grid { position:relative; height:100%; display:flex; align-items:flex-start; padding-top:100px; }
 .alpha-hero-copy { width:44%; max-width:570px; margin:0; text-align:left; color:var(--secondary); }
 .alpha-hero-copy .alpha-overline { color:var(--secondary); font-size:14px; font-weight:600; }
@@ -610,8 +610,8 @@
 .alpha-service-secondary p { font-size:15px; max-width:470px; }
 /* Typography-first editorial feature and useful adjacent teasers. */
 .alpha-guide-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:56px; margin-top:36px; }
-.guide-lead-story { display:block; background:var(--mist); border-top:3px solid var(--primary); }
-.guide-lead-copy { padding:36px; min-width:0; }
+.guide-lead-story { display:grid; grid-template-columns:minmax(0,.65fr) minmax(0,1fr); align-items:center; gap:32px; background:var(--background); }
+.guide-lead-copy { padding:0; min-width:0; }
 .guide-lead-copy h3 { font-size:32px; line-height:1.2; font-weight:500; color:var(--secondary); margin-top:16px; text-wrap:balance; }
 .guide-lead-copy > p:not(:first-child) { font-size:16px; line-height:1.7; color:var(--muted-foreground); margin-top:20px; }
 .guide-lead-copy a { margin-top:20px; min-height:44px; }
@@ -699,12 +699,12 @@
 .hero-composition--photo:not(.hero-composition--editorial-scene) > .container-page { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:56px; }
 .hero-composition--photo:not(.hero-composition--editorial-scene) .hero-documentary-stage { max-width:600px; }
 .hero-documentary-primary .editorial-media { max-height:440px; }
-.guide-lead-story { background:var(--background); border:0; }
 .guide-feature-media { margin:0; }
-.guide-feature-media .editorial-media { aspect-ratio:var(--feature-ratio); max-height:360px; }
+.guide-feature-media .editorial-media { aspect-ratio:var(--photo-ratio); max-height:none; }
 .guide-feature-media img { object-fit:contain; object-position:center; }
 .guide-feature-media figcaption { font-size:11px; color:var(--muted-foreground); padding-top:10px; }
-.guide-lead-copy { padding:24px 0 0; }
+.alpha-guide-layout .guide-lead-story { grid-template-columns:minmax(0,.7fr) minmax(0,1fr); gap:24px; }
+.alpha-guide-layout .guide-lead-copy h3 { font-size:28px; }
 .alpha-guides .alpha-guide-link { padding-top:20px; border-top:1px solid var(--border); }
 @media (min-width:1024px) and (max-width:1279px) {
  .alpha-header > .container-page { padding-inline:24px; }
@@ -725,6 +725,8 @@
  .hero-composition--photo:not(.hero-composition--editorial-scene) > .container-page { display:block; }
  .hero-documentary-primary .editorial-media { max-height:320px; }
  .guide-feature-media .editorial-media { max-height:none; }
+ .guide-lead-story,.alpha-guide-layout .guide-lead-story { display:block; }
+ .guide-feature-media { max-width:280px; margin-inline:auto; }
  .guide-lead-copy { padding:22px 0 0; }
  .alpha-guide-layout > div:last-child { gap:16px; }
 }
