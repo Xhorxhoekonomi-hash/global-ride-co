@@ -701,8 +701,8 @@
 .hero-documentary-primary .editorial-media { max-height:440px; }
 .guide-lead-story { background:var(--background); border:0; }
 .guide-feature-media { margin:0; }
-.guide-feature-media .editorial-media { aspect-ratio:16/9; max-height:320px; }
-.guide-feature-media img { object-position:center 55%; }
+.guide-feature-media .editorial-media { aspect-ratio:var(--feature-ratio); max-height:360px; }
+.guide-feature-media img { object-fit:contain; object-position:center; }
 .guide-feature-media figcaption { font-size:11px; color:var(--muted-foreground); padding-top:10px; }
 .guide-lead-copy { padding:24px 0 0; }
 .alpha-guides .alpha-guide-link { padding-top:20px; border-top:1px solid var(--border); }
