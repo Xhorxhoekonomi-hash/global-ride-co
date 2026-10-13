@@ -69,3 +69,7 @@
 - [x] Restore visible laptop navigation; coordinate service, import, about and guide media.
 - [x] Inspect native desktop/laptop/mobile screenshots, audit routes and retest navigation/calculator/gallery.
 - [x] Record asset provenance, limitations and managed save; no publishing.
+
+# Owner-selected Porsche homepage artwork
+- [x] Save the exact uploaded composite and replace the single EN/SQ homepage image without retouching.
+- [x] Inspect native desktop/laptop/mobile previews; verify localized CTAs, tests and automatic build; document provenance without publishing.

@@ -580,12 +580,11 @@
 .hero-composition--gallery .hero-documentary-primary .editorial-media { aspect-ratio:16/9; }
 .hero-composition--contact .interior-copy { max-width:860px; }
 /* Editorial brand scene: one sharp image, purpose-built negative space. */
-.alpha-hero { position:relative; width:100%; background:var(--mist); overflow:hidden; min-height:0; aspect-ratio:1672/941; height:auto; max-height:780px; }
+.alpha-hero { position:relative; width:100%; background:var(--mist); overflow:hidden; min-height:0; aspect-ratio:1672/941; height:auto; }
 .alpha-brand-scene { position:absolute; inset:0; display:block; }
-.alpha-brand-scene img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:right center; }
+.alpha-brand-scene img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
 .alpha-hero-grid { position:relative; height:100%; display:flex; align-items:flex-start; padding-top:clamp(40px,6vw,96px); }
-.alpha-hero-copy { width:min(36%,520px) !important; }
-.alpha-hero-copy { width:44%; max-width:570px; margin:0; text-align:left; color:var(--secondary); }
+.alpha-hero-copy { width:min(36%,520px); max-width:570px; margin:0; text-align:left; color:var(--secondary); }
 .alpha-hero-copy .alpha-overline { color:var(--secondary); font-size:14px; font-weight:600; }
 .alpha-hero-copy h1 { font-size:52px; line-height:1.1; font-weight:500; margin-top:18px; color:var(--secondary); letter-spacing:0; }
 .alpha-hero-intro { max-width:430px; font-size:16px; line-height:1.6; color:var(--secondary); margin:20px 0 0; }
@@ -634,7 +633,7 @@
 @media (min-width:768px) and (max-width:1279px) {
  .alpha-hero-copy h1 { font-size:48px; }
  .alpha-hero-grid { padding-top:72px; }
- .alpha-hero-copy { width:46%; }
+ .alpha-hero-copy { width:36%; }
  .interior-copy h1 { font-size:40px; }
  .alpha-service-copy > h3 { font-size:36px; }
  .hero-composition--photo > .container-page { gap:28px; }
@@ -734,13 +733,13 @@
 
 @media (min-width:768px) and (max-width:1100px) { .hero-composition--editorial-scene > .container-page { min-height:560px; } .hero-composition--editorial-scene .interior-copy h1 { font-size:30px; } }
 
-/* Ferrari logistics hero: mobile copy above, whole image below */
+/* Owner-selected logistics artwork: mobile copy above the complete image. */
 @media (max-width: 767px) {
  .alpha-hero { aspect-ratio:auto !important; background:var(--mist); display:flex; flex-direction:column-reverse; }
  .alpha-brand-scene { position:relative !important; inset:auto; aspect-ratio:1672/941; width:100%; }
  .alpha-hero-grid { height:auto; padding-top:28px; padding-bottom:20px; }
  .alpha-hero-copy { width:100% !important; }
- .alpha-art-credit { bottom:8px; right:12px; color:#fff; text-shadow:0 1px 2px rgb(0 0 0 / .5); }
+ .alpha-art-credit { bottom:8px; right:auto; left:12px; color:var(--secondary); }
 }
 @media (min-width:768px) and (max-width:1279px) { .alpha-hero-copy h1 { font-size:38px !important; } .alpha-hero-intro { font-size:14px; max-width:320px; } }
-@media (min-width:768px) { .alpha-art-credit { right:auto; left:24px; } .alpha-hero-intro { font-weight:500; text-shadow:0 0 10px rgb(255 255 255 / .85); } }
+@media (min-width:768px) { .alpha-art-credit { right:auto; left:24px; } .alpha-hero-intro { font-weight:500; } }

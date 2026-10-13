@@ -8,7 +8,7 @@ import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
 import { GuideFeature } from "@/components/site/GuideFeature";
-import ferrariHero from "@/assets/alpha-ferrari-logistics-hero.png.asset.json";
+import porscheHero from "@/assets/alpha-porsche-logistics-hero.png.asset.json";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
@@ -63,7 +63,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const heroSource = al ? "al-home-hero" : "hero";
   return <div className="editorial-home bg-background text-foreground">
     <section className="alpha-hero">
-      <picture className="alpha-brand-scene"><img src={ferrariHero.url} width={1672} height={941} fetchPriority="high" decoding="async" alt={al ? "Ilustrim i markës: Ferrari jeshil me vija të verdha dhe targë Alpha Worldwide në një port me vinça dhe kontejnerë; sfond i përpunuar me AI, jo provë dorëzimi." : "Brand illustration: green Ferrari with yellow stripes and an Alpha Worldwide plate at a container port with cranes; AI-edited background, not delivery evidence."} /></picture>
+      <picture className="alpha-brand-scene"><img src={porscheHero.url} width={1672} height={941} fetchPriority="high" decoding="async" alt={al ? "Ilustrim i markës: Porsche bronzi i pronarit me dyer të hapura, rrota, shenja dhe targë Alpha Worldwide të ruajtura; sfond porti i përpunuar me AI, jo provë transporti apo dorëzimi." : "Brand illustration: the owner's bronze Porsche with open doors and preserved wheels, decals and Alpha Worldwide plate; AI-edited seaport background, not shipping or delivery evidence."} /></picture>
       <div className="container-page alpha-hero-grid">
         <div className="alpha-hero-copy home-reveal">
           <p className="alpha-overline">Alpha Worldwide Albania</p>
