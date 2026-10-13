@@ -581,23 +581,35 @@
 .hero-composition--gallery.hero-composition--photo > .container-page { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.65fr); gap:64px; align-items:center; }
 .hero-composition--gallery .hero-documentary-primary .editorial-media { aspect-ratio:16/9; }
 .hero-composition--contact .interior-copy { max-width:860px; }
-/* Home: one immersive stage, a blended photographic edge and decisive copy. */
-.alpha-hero { position:relative; overflow:hidden; background:var(--hero-surface); }
-.alpha-hero-grid { position:relative; min-height:650px; display:flex; align-items:center; padding-block:60px; }
-.alpha-hero-copy { position:relative; z-index:2; width:46%; min-width:0; }
-.alpha-hero-copy h1 { font-size:70px; line-height:1.04; font-weight:500; margin-top:24px; color:var(--secondary); }
-.alpha-hero-copy h1 span { color:var(--primary); }
-.alpha-hero-intro { max-width:410px; font-size:17px; line-height:1.65; color:var(--muted-foreground); margin-top:24px; }
-.alpha-hero-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:420px; margin-top:28px; }
-.alpha-hero-actions a { padding-inline:12px; box-shadow:none; }
-.alpha-hero-stage { position:absolute; inset:0 0 0 35%; overflow:hidden; }
-.alpha-hero-stage::after { content:""; position:absolute; inset:0; background:var(--hero-stage-wash); pointer-events:none; }
-.alpha-hero-stage .editorial-media { height:100%; }
-.alpha-hero-stage img { object-position:50% 80%; }
-.alpha-service-chapter { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:36px 60px; align-items:center; margin-top:40px; background:var(--mist); }
-.alpha-service-copy { padding:40px; min-width:0; }
-.alpha-service-visual { height:auto; min-height:0; aspect-ratio:4/3; }
-.alpha-service-secondary { grid-column:1/-1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; padding:0 40px 36px; }
+/* Cinematic original-car stage: centered copy, complete subject, two actions. */
+:root {
+ --cinema-side-wash: linear-gradient(90deg,color-mix(in oklab,var(--feature-surface) 60%,transparent),transparent 30%,transparent 70%,color-mix(in oklab,var(--feature-surface) 60%,transparent));
+ --cinema-top-wash: linear-gradient(180deg,color-mix(in oklab,var(--feature-surface) 72%,transparent),transparent 28%);
+ --cinema-mobile-wash: linear-gradient(180deg,var(--background),color-mix(in oklab,var(--background) 94%,transparent) 20%,transparent 43%);
+}
+.alpha-hero { position:relative; overflow:hidden; background:var(--feature-surface); height:82svh; min-height:650px; max-height:940px; }
+.alpha-hero-grid { position:relative; height:100%; max-width:none; padding:0; }
+.alpha-hero-copy { position:relative; z-index:2; width:100%; height:100%; padding:32px 24px; text-align:center; color:var(--feature-ink); }
+.alpha-hero-copy .alpha-overline { color:var(--feature-ink); font-size:12px; }
+.alpha-hero-copy h1 { font-size:56px; line-height:1.1; font-weight:500; margin-top:12px; color:var(--feature-ink); letter-spacing:0; }
+.alpha-hero-intro { max-width:720px; font-size:15px; line-height:1.6; color:var(--feature-ink); margin:16px auto 0; }
+.alpha-hero-actions { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:440px; max-width:calc(100% - 40px); }
+.alpha-hero-actions a { height:50px; padding-inline:12px; box-shadow:none; }
+.alpha-hero-stage { position:absolute; inset:0; overflow:hidden; }
+.alpha-hero-stage::after { content:""; position:absolute; inset:0; background:var(--cinema-top-wash),var(--cinema-side-wash); pointer-events:none; }
+.alpha-hero-stage .editorial-media { position:absolute; inset:0; height:100%; }
+.alpha-hero-ambient { filter:blur(28px) brightness(.65); transform:scale(1.08); }
+.alpha-hero-subject img { object-fit:contain; object-position:center; }
+/* Ocean story: a large documentary scene and concise unboxed reading module. */
+.alpha-service-chapter { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:32px; align-items:center; margin-top:40px; background:var(--background); }
+.alpha-service-visual { grid-column:1/9; grid-row:1; height:auto; min-height:0; aspect-ratio:4/3; }
+.alpha-service-copy { grid-column:9/13; grid-row:1; padding:24px 0 24px 12px; min-width:0; }
+.alpha-service-copy > h3 { font-size:52px; line-height:1.08; margin-top:20px; letter-spacing:0; }
+.alpha-service-copy > p { margin-block:24px; font-size:16px; }
+.alpha-service-secondary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:64px; padding:0; margin-top:48px; }
+.alpha-service-secondary article { padding:28px 0; }
+.alpha-service-secondary h3 { font-size:28px; }
+.alpha-service-secondary p { font-size:15px; max-width:470px; }
 /* Editorial feature: photo and article share a single useful reading composition. */
 .alpha-guide-layout { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; margin-top:36px; }
 .guide-lead-story { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:stretch; background:var(--background); }
@@ -612,8 +624,9 @@
 .alpha-guide-link h3 { font-size:26px; max-width:520px; }
 .alpha-film-frame:hover .editorial-media img { transform:scale(1.015); transition:transform .3s; }
 @media (min-width:768px) and (max-width:1279px) {
- .alpha-hero-grid { min-height:600px; }
- .alpha-hero-copy h1 { font-size:52px; }
+ .alpha-hero { min-height:610px; }
+ .alpha-hero-copy h1 { font-size:44px; }
+ .alpha-service-copy > h3 { font-size:38px; }
  .hero-composition--service.hero-composition--photo > .container-page { gap:32px; }
  .interior-copy h1 { font-size:40px; }
  .hero-composition--market > .container-page { gap:32px; }
@@ -644,23 +657,25 @@
  .market-route-track { top:16px; height:65%; width:50%; }
  .hero-composition--editorial .hero-documentary-stage { margin-top:24px; }
  .hero-composition--gallery .hero-documentary-stage { margin-top:24px; }
- .alpha-hero { height:78svh; min-height:560px; max-height:780px; }
- .alpha-hero-grid { display:block; padding:0; height:100%; min-height:0; }
+ .alpha-hero { height:80svh; min-height:580px; max-height:780px; background:var(--background); }
+ .alpha-hero-grid { padding:0; height:100%; min-height:0; }
  .alpha-hero-stage { inset:0; }
- .alpha-hero-stage::after { display:none; }
- .alpha-hero-copy { width:100%; padding:26px 20px 70px; text-align:center; background:var(--hero-copy-wash); }
+ .alpha-hero-stage::after { background:var(--cinema-mobile-wash); }
+ .alpha-hero-ambient { display:none; }
+ .alpha-hero-subject img { object-fit:cover; object-position:50% 62%; }
+ .alpha-hero-copy { padding:24px 20px; text-align:center; }
  .alpha-hero-copy .alpha-overline { display:none; }
- .alpha-hero-copy h1 { font-size:36px; line-height:1.1; margin:0; }
+ .alpha-hero-copy h1 { font-size:34px; line-height:1.12; margin:0 auto; max-width:340px; color:var(--secondary); }
  .alpha-hero-intro { font-size:14px; line-height:1.5; max-width:340px; margin:12px auto 0; color:var(--secondary); }
- .alpha-hero-actions { gap:8px; margin-top:20px; max-width:none; }
+ .alpha-hero-actions { bottom:24px; width:calc(100% - 40px); max-width:none; gap:8px; }
  .alpha-hero-actions a { height:48px; font-size:12px; padding-inline:8px; }
- .alpha-hero-copy .alpha-contact-link { display:none; }
- .alpha-hero-stage img { object-position:50% 62%; }
- .alpha-service-chapter { display:block; margin-top:28px; }
- .alpha-service-copy { padding:28px 24px; }
- .alpha-service-copy > h3 { font-size:32px; }
- .alpha-service-visual { min-height:0; aspect-ratio:4/3; }
- .alpha-service-secondary { grid-template-columns:minmax(0,1fr); gap:24px; padding:28px 24px; }
+ .alpha-service-chapter { display:flex; flex-direction:column; gap:24px; margin-top:28px; }
+ .alpha-service-copy { order:0; padding:0; width:100%; }
+ .alpha-service-copy > h3 { font-size:36px; margin-top:12px; }
+ .alpha-service-copy > p { margin-block:16px; }
+ .alpha-service-visual { order:1; min-height:0; aspect-ratio:4/3; }
+ .alpha-service-secondary { grid-template-columns:minmax(0,1fr); gap:8px; padding:0; margin-top:28px; }
+ .alpha-service-secondary h3 { font-size:25px; }
  .alpha-guide-layout { gap:28px; margin-top:28px; }
  .guide-lead-story { grid-template-columns:minmax(0,1fr); }
  .guide-lead-story .editorial-media { height:auto; aspect-ratio:4/3; min-height:0; }
