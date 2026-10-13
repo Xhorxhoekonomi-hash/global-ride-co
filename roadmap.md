@@ -53,7 +53,7 @@
 - [x] Document exact scope and limitations in docs/october-13-composition-review.md; no deployment.
 
 # Cinematic correction
-- [ ] Replace rejected home stage and Ocean Shipping panel with original-photo art direction.
-- [ ] Coordinate public interior archetypes without operational changes.
-- [ ] Inspect before/after desktop/mobile photography; check public routes and interactions.
-- [ ] Record actual tests, limitations and managed save; no publishing.
+- [x] Replace rejected home stage and Ocean Shipping panel with original-photo art direction.
+- [x] Coordinate public interior archetypes without operational changes.
+- [x] Inspect before/after desktop/mobile photography; check public routes and interactions.
+- [x] Record actual tests, limitations and managed save in docs/cinematic-correction-review.md; no publishing.
