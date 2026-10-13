@@ -12,7 +12,7 @@
 - Shared BrandLogo is the single presentation boundary for owner-supplied artwork so header and footer always use the same unchanged original asset.
 - The EN and SQ homepages share HomeExperience presentation with localized copy and valid existing links; route-specific SEO remains in each leaf route to preserve indexing.
 - Visual redesigns may restyle calculator presentation but must not modify calculation logic/data, lead submission, auth or database schema, keeping operational behavior independent of presentation.
-- Interior page headings use InnerPageHero and import journeys use JourneySteps so localized pages share light, accessible presentation without moving route SEO or operational content.
+- InnerPageHero and EditorialHero use HeroComposition with typed route-purpose variants from media-layouts; this differentiates market art, logistics stories, editorial headings and gallery introductions without moving SEO or operational content. Import journeys retain JourneySteps.
 - Named owner-photo selections and vehicle/session albums in alpha-photos are the single source for displayed vehicle imagery; grouping never adds unverified delivery metadata.
 - EditorialMedia and photo-presentation are the shared boundary for original-photo dimensions, responsive focal points and role-specific framing; homepage, interior, story, guide and album media use it so layouts cannot drift, while the full-size viewer preserves complete originals.
 - Customer entry destinations are resolved in the shared customer-paths module, with explicit localized routes and English fallbacks, so selected tasks and origins cannot drift from tested navigation.

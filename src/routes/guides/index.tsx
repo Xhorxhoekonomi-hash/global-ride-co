@@ -5,6 +5,8 @@ import { Gavel, Scale, Ship, Search, FileText, Calculator, ArrowRight, Battery, 
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { GUIDE_CATEGORIES, type GuideCategory } from "@/components/guides/GuideMeta";
+import { GuideFeature } from "@/components/site/GuideFeature";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/guides/")({
   head: () => {
@@ -85,7 +87,7 @@ function GuidesHub() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides" }]} />
-      <EditorialHero>
+      <EditorialHero variant="editorial">
         <div>
           <div className="eyebrow text-primary">Guides</div>
           <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Vehicle Import Guides</h1>
@@ -97,9 +99,10 @@ function GuidesHub() {
         <div className="container-page py-14 md:py-16">
           <div className="eyebrow">Featured guides</div>
           <h2 className="font-display mt-2 text-2xl font-bold text-navy">Start here</h2>
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
-            {featured.map((g) => (
-              <Link key={g.to} to={g.to} className="group flex flex-col rounded-2xl border border-teal/30 bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+          <div className="mt-8"><GuideFeature title="How to Buy a Car From USA Auctions" category="Buying abroad · 5 min read" read="Read the guide" /></div>
+          <div className="mt-6 grid gap-8 md:grid-cols-3">
+            {featured.slice(1).map((g) => (
+              <Link key={g.to} to={g.to} className="group flex flex-col border-t border-border py-6">
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
                 <h3 className="font-display mt-3 text-base font-bold text-navy">{g.title}</h3>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-teal">Read the guide <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" /></span>
@@ -126,15 +129,16 @@ function GuidesHub() {
           </div>
           <div className="mx-auto mt-4 flex max-w-4xl flex-wrap justify-center gap-2">
             {CATEGORY_FILTERS.map((c) => (
-              <button
+              <Button
                 key={c.value}
                 onClick={() => setCategory(c.value)}
+                variant={category === c.value ? "secondary" : "outline"}
                 className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors ${
                   category === c.value ? "border-teal bg-teal/10 text-teal" : "border-border bg-card text-navy hover:border-teal/50"
                 }`}
               >
                 {c.label}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -147,7 +151,7 @@ function GuidesHub() {
           ) : (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filtered.map((g) => (
-                <Link key={g.to} to={g.to} className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+                <Link key={g.to} to={g.to} className="group flex flex-col border-t border-border py-8 pr-5 transition-colors hover:border-primary">
                   <div className="flex items-center justify-between">
                     <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
                     <span className="rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">{GUIDE_CATEGORIES[g.category]}</span>
