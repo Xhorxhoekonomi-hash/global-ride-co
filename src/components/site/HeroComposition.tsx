@@ -11,8 +11,6 @@ export function HeroComposition({ children, photo, locale, variant, alt }: { chi
   const layout = variant ?? mediaLayout(path);
   // Origin pages deliberately use explanatory art, not undocumented geographic photos.
   const primary = layout === "market" || layout === "editorial" || layout === "gallery" || layout === "contact" || /services|roro|airfreight|ajror|how-it-works/.test(path) ? undefined : path === "/about" ? PHOTO_SELECTIONS.transporter : photo;
-  const containerStory = /container|kontenier/.test(path);
-  const secondary = layout === "logistics" || (layout === "service" && primary) ? (containerStory ? PHOTO_SELECTIONS.darkFerrariContainer : primary?.src === PHOTO_SELECTIONS.loading.src ? PHOTO_SELECTIONS.container : PHOTO_SELECTIONS.loading) : undefined;
   const region = /korea|encar/.test(path) ? "KR" : /uae|dubai/.test(path) ? "AE" : /canada/.test(path) ? "CA" : /usa|amerika|auction|ankande|copart|iaai/.test(path) ? "US" : "EU";
   return <section className={`alpha-inner-hero hero-composition hero-composition--${layout} ${primary ? "hero-composition--photo" : ""}`}>
     <div className="container-page">

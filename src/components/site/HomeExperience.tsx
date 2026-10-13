@@ -8,7 +8,6 @@ import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
 import { GuideFeature } from "@/components/site/GuideFeature";
-import routeRelief from "@/assets/abstract_route_relief.jpg";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
