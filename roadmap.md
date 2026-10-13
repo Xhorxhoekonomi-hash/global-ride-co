@@ -59,7 +59,7 @@
 - [x] Record actual tests, limitations and managed save in docs/cinematic-correction-review.md; no publishing.
 
 # Photo suitability and light editorial correction
-- [ ] Audit every public route/image and inspect reference sites and current preview.
-- [ ] Replace rejected warehouse/blur stages with purpose-led light layouts across home and shared page families.
-- [ ] Capture desktop/mobile page-length evidence, visually review coverage, test existing user journeys.
-- [ ] Document exact reviewed pages, limitations, changed files and managed save; no publication.
+- [x] Audit every public route/image and inspect reference sites and current preview (Tesla blocked access).
+- [x] Replace rejected warehouse/blur stages with purpose-led light layouts across home and shared page families.
+- [x] Capture desktop/mobile page-length evidence, visually review coverage, test existing user journeys.
+- [x] Document exact reviewed pages, limitations, changed files and managed save in docs/photo-suitability-review.md; no publication.
