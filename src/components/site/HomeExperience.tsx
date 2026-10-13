@@ -8,6 +8,8 @@ import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
 import { GuideFeature } from "@/components/site/GuideFeature";
+import grandTour from "@/assets/alpha-editorial-grand-tour.jpg";
+import grandTourMobile from "@/assets/alpha-editorial-grand-tour-mobile.jpg";
 import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
@@ -62,18 +64,19 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const heroSource = al ? "al-home-hero" : "hero";
   return <div className="editorial-home bg-background text-foreground">
     <section className="alpha-hero">
+      <picture className="alpha-brand-scene"><source media="(max-width: 767px)" srcSet={grandTourMobile} /><img src={grandTour} width={1920} height={1088} fetchPriority="high" alt={al ? "Ilustrim editorial: automjet sportiv në një tarracë bregdetare; jo dorëzim i dokumentuar." : "Editorial artwork: a grand touring car on a coastal terrace, not a documented delivery."} /></picture>
       <div className="container-page alpha-hero-grid">
         <div className="alpha-hero-copy home-reveal">
           <p className="alpha-overline">Alpha Worldwide Albania</p>
-          <h1>{al ? "Makina juaj. Pa kufij." : "Your car. Without borders."}</h1>
+          <h1>{al ? "Bli. Inspekto." : "Source. Inspect."}<br />{al ? "Transporto kudo." : "Ship worldwide."}</h1>
           <p className="alpha-hero-intro">{al ? "Blerje, inspektim dhe transport nga Amerika, Koreja, Dubai dhe Evropa." : "Purchase support, inspection and shipping from the USA, Korea, Dubai and Europe."}</p>
           <div className="alpha-hero-actions">
             <Button asChild size="lg" className="h-13"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: heroSource })}>{c.calculate}</Link></Button>
             <Button variant="outline" asChild size="lg" className="h-13"><Link to={contact} onClick={() => trackEvent("quote_started", { source: heroSource })}>{c.quote}</Link></Button>
           </div>
         </div>
-        <div className="alpha-hero-evidence">{[PHOTO_SELECTIONS.urus, PHOTO_SELECTIONS.silverFerrari, PHOTO_SELECTIONS.container].map(photo => <figure key={photo.src}><EditorialMedia photo={photo} locale={locale} role="feature" eager /><figcaption>{photo[locale]}</figcaption></figure>)}</div>
       </div>
+      <span className="alpha-art-credit">{al ? "Imazh editorial" : "Editorial artwork"}</span>
     </section>
 
     <CustomerEntry locale={locale} />

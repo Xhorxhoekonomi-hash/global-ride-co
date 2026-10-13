@@ -579,20 +579,21 @@
 .hero-composition--gallery .hero-documentary-stage { display:none; }
 .hero-composition--gallery .hero-documentary-primary .editorial-media { aspect-ratio:16/9; }
 .hero-composition--contact .interior-copy { max-width:860px; }
-/* Light introduction: clear hierarchy before bounded, honest documentary evidence. */
-.alpha-hero { position:relative; background:var(--background); overflow:hidden; }
-.alpha-hero-grid { padding-block:48px 28px; }
-.alpha-hero-copy { text-align:center; max-width:900px; margin:auto; color:var(--foreground); }
-.alpha-hero-copy .alpha-overline { color:var(--primary); font-size:13px; }
-.alpha-hero-copy h1 { font-size:64px; line-height:1.08; font-weight:500; margin-top:16px; color:var(--secondary); letter-spacing:0; }
-.alpha-hero-intro { max-width:630px; font-size:17px; line-height:1.6; color:var(--muted-foreground); margin:20px auto 0; }
-.alpha-hero-actions { display:flex; justify-content:center; gap:12px; margin-top:26px; }
-.alpha-hero-actions a { min-width:190px; height:50px; padding-inline:24px; box-shadow:none; }
-.alpha-hero-evidence { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin:36px auto 0; max-width:1020px; }
-.alpha-hero-evidence figure { margin:0; min-width:0; }
-.alpha-hero-evidence .editorial-media { height:220px; aspect-ratio:auto; }
-.alpha-hero-evidence img { object-fit:contain; object-position:center; }
-.alpha-hero-evidence figcaption { margin-top:10px; font-size:12px; color:var(--muted-foreground); text-align:center; }
+/* Editorial brand scene: one sharp image, purpose-built negative space. */
+.alpha-hero { position:relative; width:100%; background:var(--mist); overflow:hidden; min-height:0; aspect-ratio:16/9; height:auto; max-height:740px; }
+.alpha-brand-scene { position:absolute; inset:0; display:block; }
+.alpha-brand-scene img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+.alpha-hero-grid { position:relative; height:100%; display:flex; align-items:flex-start; padding-top:100px; }
+.alpha-hero-copy { width:44%; max-width:570px; margin:0; text-align:left; color:var(--secondary); }
+.alpha-hero-copy .alpha-overline { color:var(--secondary); font-size:14px; font-weight:600; }
+.alpha-hero-copy h1 { font-size:52px; line-height:1.1; font-weight:500; margin-top:18px; color:var(--secondary); letter-spacing:0; }
+.alpha-hero-intro { max-width:430px; font-size:16px; line-height:1.6; color:var(--secondary); margin:20px 0 0; }
+.alpha-hero-actions { display:flex; justify-content:flex-start; gap:12px; margin-top:26px; }
+.alpha-hero-actions a { min-width:160px; height:46px; padding-inline:20px; font-size:14px; box-shadow:none; }
+.alpha-art-credit { position:absolute; bottom:16px; right:28px; font-size:11px; color:var(--secondary); }
+.alpha-header > .container-page { height:80px; }
+.alpha-header nav { gap:4px; }
+.alpha-desktop-navigation [data-slot="button"] { font-size:13px; padding-inline:8px; }
 .alpha-atlas { padding:0; background:none; border:0; }
 .alpha-origin-grid { min-height:0; }
 .alpha-origin { min-height:210px; background:var(--mist); border:0; }
@@ -609,12 +610,12 @@
 .alpha-service-secondary p { font-size:15px; max-width:470px; }
 /* Typography-first editorial feature and useful adjacent teasers. */
 .alpha-guide-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:56px; margin-top:36px; }
-.guide-lead-story { display:block; background:var(--mist); border-top:3px solid var(--primary); }
-.guide-lead-copy { padding:36px; min-width:0; }
+.guide-lead-story { display:grid; grid-template-columns:minmax(0,320px) minmax(0,1fr); align-items:center; gap:40px; background:var(--background); }
+.guide-lead-copy { padding:0; min-width:0; }
 .guide-lead-copy h3 { font-size:32px; line-height:1.2; font-weight:500; color:var(--secondary); margin-top:16px; text-wrap:balance; }
 .guide-lead-copy > p:not(:first-child) { font-size:16px; line-height:1.7; color:var(--muted-foreground); margin-top:20px; }
 .guide-lead-copy a { margin-top:20px; min-height:44px; }
-.alpha-guide-layout > div:last-child { display:grid; gap:24px; }
+.alpha-guide-layout > div:last-child { display:grid; align-content:start; gap:24px; }
 .alpha-guide-link { padding:0 0 24px; border-bottom:1px solid var(--border); }
 .alpha-guide-link h3 { font-size:24px; line-height:1.25; margin-block:12px; }
 .alpha-service-chapter { grid-template-columns:repeat(12,minmax(0,1fr)); align-items:center; }
@@ -631,7 +632,8 @@
 .hero-composition--gallery .interior-actions { justify-content:flex-start; }
 @media (min-width:768px) and (max-width:1279px) {
  .alpha-hero-copy h1 { font-size:48px; }
- .alpha-hero-evidence .editorial-media { height:180px; }
+ .alpha-hero-grid { padding-top:72px; }
+ .alpha-hero-copy { width:46%; }
  .interior-copy h1 { font-size:40px; }
  .alpha-service-copy > h3 { font-size:36px; }
  .hero-composition--photo > .container-page { gap:28px; }
@@ -640,16 +642,15 @@
 @media (max-width:767px) {
  .editorial-media img { object-position:var(--photo-mobile); }
  .editorial-media--lightbox { height:52dvh; }
- .alpha-hero-grid { padding-block:32px 24px; }
- .alpha-hero-copy h1 { font-size:38px; line-height:1.13; margin-top:12px; }
- .alpha-hero-intro { font-size:15px; margin-top:16px; }
- .alpha-hero-actions { gap:8px; margin-top:22px; }
- .alpha-hero-actions a { min-width:0; flex:1; font-size:13px; padding-inline:8px; height:48px; }
- .alpha-hero-evidence { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; margin-top:26px; }
- .alpha-hero-evidence figure:first-child { grid-column:1/-1; }
- .alpha-hero-evidence figure:first-child .editorial-media { height:250px; }
- .alpha-hero-evidence figure:not(:first-child) { display:none; }
- .alpha-hero-evidence figcaption { font-size:12px; }
+ .alpha-hero { min-height:0; aspect-ratio:2/3; height:auto; max-height:none; }
+ .alpha-hero-grid { padding-top:32px; align-items:flex-start; }
+ .alpha-hero-copy { width:100%; max-width:none; text-align:center; }
+ .alpha-hero-copy h1 { font-size:34px; line-height:1.12; margin-top:12px; }
+ .alpha-hero-copy .alpha-overline { font-size:12px; }
+ .alpha-hero-intro { font-size:14px; line-height:1.5; max-width:340px; margin:14px auto 0; }
+ .alpha-hero-actions { gap:8px; margin-top:18px; justify-content:center; }
+ .alpha-hero-actions a { min-width:0; flex:1; font-size:13px; padding-inline:10px; height:46px; }
+ .alpha-art-credit { bottom:12px; right:20px; font-size:10px; }
  .hero-composition > .container-page,.hero-composition--market > .container-page,.hero-composition--photo > .container-page { display:block; padding-block:32px; }
  .interior-copy h1 { font-size:32px; line-height:1.15; margin-top:14px; }
  .interior-copy p { font-size:15px; line-height:1.65; }
@@ -681,3 +682,53 @@
  .alpha-guide-link h3 { font-size:23px; }
 }
 @media (prefers-reduced-motion:reduce) { .alpha-film-frame:hover .editorial-media img { transform:none; } }
+
+/* Inner introductions share the image-led identity without masquerading as proof. */
+.hero-composition--editorial-scene { position:relative; background:var(--mist); }
+.interior-brand-scene { position:absolute; inset:0; margin:0; }
+.interior-brand-scene img { width:100%; height:100%; object-fit:cover; object-position:center 58%; }
+.interior-brand-scene figcaption { position:absolute; right:24px; bottom:12px; font-size:10px; color:var(--secondary); }
+.hero-composition--editorial-scene > .container-page { position:relative; display:block; min-height:580px; padding-block:56px 48px; }
+.hero-composition--editorial-scene .hero-composition-copy { width:46%; max-width:620px; }
+.hero-composition--editorial-scene .hero-composition-copy .interior-copy { max-width:100%; }
+.hero-composition--editorial-scene .interior-copy h1 { font-size:40px; line-height:1.15; }
+.hero-composition--editorial-scene .interior-copy p { font-size:16px; color:var(--secondary); }
+.hero-composition--editorial-scene .market-route-art { height:auto; border:0; margin-top:22px; max-width:400px; }
+.hero-composition--editorial-scene .market-region { display:none; }
+.hero-composition--editorial-scene .market-route-label { position:static; justify-content:flex-start; font-size:13px; }
+.hero-composition--photo:not(.hero-composition--editorial-scene) > .container-page { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:56px; }
+.hero-composition--photo:not(.hero-composition--editorial-scene) .hero-documentary-stage { max-width:600px; }
+.hero-documentary-primary .editorial-media { max-height:440px; }
+.guide-feature-media { margin:0; }
+.guide-feature-media .editorial-media { aspect-ratio:var(--photo-ratio); max-height:none; }
+.guide-feature-media img { object-fit:contain; object-position:center; }
+.guide-feature-media figcaption { font-size:11px; color:var(--muted-foreground); padding-top:10px; }
+.alpha-guide-layout .guide-lead-story { grid-template-columns:minmax(0,.7fr) minmax(0,1fr); gap:24px; }
+.alpha-guide-layout .guide-lead-copy h3 { font-size:28px; }
+.alpha-guides .alpha-guide-link { padding-top:20px; border-top:1px solid var(--border); }
+@media (min-width:1024px) and (max-width:1279px) {
+ .alpha-header > .container-page { padding-inline:24px; }
+ .alpha-header .alpha-navigation-row { gap:12px; }
+ .alpha-navigation-row > a img { width:148px; }
+ .alpha-desktop-navigation [data-slot="button"] { font-size:12px; padding-inline:5px; gap:5px; }
+ .alpha-navigation-row > div { gap:4px; }
+ .alpha-navigation-row > div [data-slot="button"] { font-size:12px; padding-inline:10px; }
+ .alpha-hero-copy h1 { font-size:44px; }
+ .hero-composition--editorial-scene .interior-copy h1 { font-size:34px; }
+}
+@media (max-width:767px) {
+ .hero-composition--editorial-scene > .container-page { min-height:0; padding-block:30px 260px; }
+ .hero-composition--editorial-scene .hero-composition-copy { width:100%; max-width:none; }
+ .hero-composition--editorial-scene .interior-copy h1 { font-size:30px; }
+ .interior-brand-scene { top:auto; height:240px; }
+ .interior-brand-scene img { object-position:right bottom; }
+ .hero-composition--photo:not(.hero-composition--editorial-scene) > .container-page { display:block; }
+ .hero-documentary-primary .editorial-media { max-height:320px; }
+ .guide-feature-media .editorial-media { max-height:none; }
+ .guide-lead-story,.alpha-guide-layout .guide-lead-story { display:block; }
+ .guide-feature-media { max-width:280px; margin-inline:auto; }
+ .guide-lead-copy { padding:22px 0 0; }
+ .alpha-guide-layout > div:last-child { gap:16px; }
+}
+
+@media (min-width:768px) and (max-width:1100px) { .hero-composition--editorial-scene > .container-page { min-height:560px; } .hero-composition--editorial-scene .interior-copy h1 { font-size:30px; } }
