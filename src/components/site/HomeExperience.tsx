@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
-import { CustomerEntry } from "@/components/site/CustomerEntry";
+import { RouteFinder } from "@/components/site/RouteFinder";
+import { ServiceCards } from "@/components/site/ServiceCards";
+import porscheYard from "@/assets/services/porsche-ferrari-yard-1200.webp.asset.json";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { GuideFeature } from "@/components/site/GuideFeature";
 import { HeroPanel, type HeroSlide } from "@/components/site/HeroPanel";
@@ -18,8 +20,6 @@ import yellowMobile from "@/assets/heroes/yellow-mclaren-container-mobile-1080.w
 import ferrari1440 from "@/assets/heroes/ferrari-car-carrier-1440.webp.asset.json";
 import ferrari2560 from "@/assets/heroes/ferrari-car-carrier-2560.webp.asset.json";
 import ferrariMobile from "@/assets/heroes/ferrari-car-carrier-mobile-1080.webp.asset.json";
-import lambo1440 from "@/assets/heroes/lamborghini-in-container-1440.webp.asset.json";
-import lambo2560 from "@/assets/heroes/lamborghini-in-container-2560.webp.asset.json";
 import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
@@ -80,38 +80,24 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   ];
   return <div className="editorial-home bg-background text-foreground">
     <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} />
+    <RouteFinder locale={locale} />
     <StatCounter locale={locale} />
-
-    <CustomerEntry locale={locale} />
-
-    <section className="home-section alpha-origins"><div className="container-page">
-      <div className="alpha-section-heading"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
-      <div className="alpha-atlas"><div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin group"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]} <ArrowRight className="h-5 w-5" /></span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}{al && i === 3 ? " (EN)" : ""}</span></div></Link>)}</div></div>
-      <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground"><Globe2 className="h-4 w-4 text-primary" />{c.canada}<Link to="/import-canada" className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary">{c.canadaLink}<ChevronRight className="h-4 w-4" /></Link></div>
-      {al && <div className="flex flex-wrap gap-4 text-sm text-primary"><Link to="/al/copart-shqiperi" className="inline-flex min-h-11 items-center gap-2">Copart Shqipëri<ArrowRight className="h-4 w-4" /></Link><Link to="/al/iaai-shqiperi" className="inline-flex min-h-11 items-center gap-2">IAAI Shqipëri<ArrowRight className="h-4 w-4" /></Link></div>}
-    </div></section>
+    <ServiceCards locale={locale} />
 
     <section className="home-section alpha-journey"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.stepsKicker}</p><h2 className="home-heading">{c.stepsTitle}</h2></div><Button asChild variant="link"><Link to="/how-it-works">{c.process}<ArrowRight /></Link></Button></div>
       <HomeJourney locale={locale} titles={c.steps} bodies={c.stepBodies} />
     </div></section>
 
-    <section className="home-section alpha-services-section"><div className="container-page">
-      <div className="alpha-section-heading"><div><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
-      <div className="alpha-service-chapter">
-        <div className="alpha-service-copy"><span className="alpha-chapter-no">01 / Transport</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div>
-        <picture className="alpha-service-visual"><source media="(min-width: 768px)" srcSet={`${lambo1440.url} 1440w, ${lambo2560.url} 2560w`} sizes="(min-width: 768px) 60vw, 100vw" /><img src={lambo1440.url} width={1440} height={806} loading="lazy" decoding="async" alt={al ? "Lamborghini gri i siguruar me rripa të verdhë brenda një kontenieri transporti." : "Grey Lamborghini secured with yellow straps inside a shipping container."} /></picture>
-      </div>
-      <div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div>
-    </div></section>
-
-    <section className="home-section alpha-calculator-band"><div className="container-page grid items-center gap-12 lg:grid-cols-2">
-      <div><p className="home-kicker">{c.calcKicker}</p><h2 className="home-heading">{c.calcTitle}</h2><p className="mt-6 max-w-lg leading-relaxed">{c.calcBody}</p><Button asChild variant="default" className="mt-8 h-13 px-6"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: al ? "al-home-promo" : "homepage_promo" })}>{c.calcButton}<ArrowRight /></Link></Button><div className="mt-5"><Link to="/shipping-estimate-disclaimer" className="text-sm underline underline-offset-4">{c.calcDisclaimer}</Link></div></div>
-      <div className="alpha-calculator-preview"><div className="alpha-calc-title"><Calculator className="h-6 w-6 text-primary" /><h3>{c.calcLabel}</h3></div><div className="alpha-calc-origins">{[al ? "Amerikë" : "USA", al ? "Koreja e Jugut" : "South Korea"].map(name => <Button asChild variant="outline" className="h-12" key={name}><Link to={calculator}>{name}<ArrowRight /></Link></Button>)}</div><div className="alpha-calc-rows">{c.calcRows.map((row,i) => <Link to={calculator} key={row}><span><span className="text-primary">0{i+1}</span>{row}</span><ChevronRight className="h-4 w-4" /></Link>)}</div><p>{c.calcNote}</p></div>
+    <section className="home-section alpha-origins"><div className="container-page">
+      <div className="alpha-section-heading"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
+      <div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]}</span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}{al && i === 3 ? " (EN)" : ""}<ArrowRight className="h-4 w-4" /></span></div></Link>)}</div>
+      <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground"><Globe2 className="h-4 w-4 text-primary" />{c.canada}<Link to="/import-canada" className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary">{c.canadaLink}<ChevronRight className="h-4 w-4" /></Link></div>
+      {al && <div className="flex flex-wrap gap-4 text-sm text-primary"><Link to="/al/copart-shqiperi" className="inline-flex min-h-11 items-center gap-2">Copart Shqipëri<ArrowRight className="h-4 w-4" /></Link><Link to="/al/iaai-shqiperi" className="inline-flex min-h-11 items-center gap-2">IAAI Shqipëri<ArrowRight className="h-4 w-4" /></Link></div>}
     </div></section>
 
     <section className="home-section"><div className="container-page">
-      <div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Nga arkivi ynë" : "The Alpha archive"}</p><h2 className="home-heading">{al ? "Automjete në duart tona." : "Real cars. Real operations."}</h2></div><Button asChild variant="link"><Link to="/delivered-vehicles">{al ? "Eksploro punën e dokumentuar (EN)" : "Explore documented work"}<ArrowRight /></Link></Button></div>
+      <div className="archive-head"><div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Nga arkivi ynë" : "The Alpha archive"}</p><h2 className="home-heading">{al ? "Automjete në duart tona." : "Real cars. Real operations."}</h2></div><Button asChild variant="link"><Link to="/delivered-vehicles">{al ? "Eksploro punën e dokumentuar (EN)" : "Explore documented work"}<ArrowRight /></Link></Button></div><img className="archive-head-photo" src={porscheYard.url} width={1200} height={1600} loading="lazy" decoding="async" alt={al ? "Porsche 911 argjendi me numrin 70 pranë një Ferrari në një shesh logjistik." : "Silver Porsche 911 with a number 70 livery beside a Ferrari on a logistics yard."} /></div>
       <div className="mt-10"><PhotoGallery photos={ALPHA_PHOTOS} locale={locale} variant="filmstrip" coverAlbumIds={["urus", "silver-ferrari", "porsche", "sls"]} /></div>
     </div></section>
 
