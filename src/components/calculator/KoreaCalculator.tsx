@@ -18,11 +18,13 @@ export function KoreaCalculator({
   source,
   contactHref,
   koreaIncludes,
+  initialDestination,
 }: {
   dict: CalculatorDict;
   source: string;
   contactHref: string;
   koreaIncludes?: string[];
+  initialDestination?: Destination;
 }) {
   const D = dict.korea;
   const includes = koreaIncludes ?? KOREA_INCLUDES;
@@ -30,7 +32,7 @@ export function KoreaCalculator({
   const [type, setType] = useState<KoreaType | null>(null);
   const [currency, setCurrency] = useState<"KRW" | "EUR">("KRW");
   const [price, setPrice] = useState("");
-  const [destination, setDestination] = useState<Destination | null>(null);
+  const [destination, setDestination] = useState<Destination | null>(initialDestination ?? null);
 
   const priceNumber = parseFloat(price) || 0;
   const priceEur = currency === "KRW" ? priceNumber * KRW_TO_EUR_RATE : priceNumber;

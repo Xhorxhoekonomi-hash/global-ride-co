@@ -1,6 +1,8 @@
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { MotionConfig } from "framer-motion";
+import { useEffect, useState } from "react";
+import { calculatorPrefill } from "@/lib/route-finder";
 import { Link } from "@tanstack/react-router";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UsaCalculator } from "./UsaCalculator";
@@ -20,13 +22,21 @@ export function CalculatorShell({
   contactHref: string;
   koreaIncludes?: string[];
 }) {
+  // Read-only prefill from the homepage RouteFinder (?from=usa|korea&to=...). Never alters calculation.
+  const [tab, setTab] = useState("usa");
+  const [prefill, setPrefill] = useState<ReturnType<typeof calculatorPrefill>>({});
+  useEffect(() => {
+    const p = calculatorPrefill(new URLSearchParams(window.location.search));
+    if (p.tab) setTab(p.tab);
+    setPrefill(p);
+  }, []);
   return (
     <MotionConfig reducedMotion="user">
       <InnerPageHero eyebrow={dict.hero.eyebrow} title={dict.hero.title} description={dict.hero.subtitle} />
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-20">
-          <Tabs defaultValue="usa" className="mx-auto max-w-6xl">
+          <Tabs value={tab} onValueChange={setTab} className="mx-auto max-w-6xl">
             <TabsList className="mx-auto grid h-auto w-full max-w-lg grid-cols-2 gap-1 rounded-lg bg-mist p-1.5">
               <TabsTrigger value="usa" className="rounded-lg min-h-12 py-3 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                 {dict.tabs.usa}
@@ -37,10 +47,10 @@ export function CalculatorShell({
             </TabsList>
 
             <TabsContent value="usa" className="mt-10">
-              <UsaCalculator dict={dict} source={source} contactHref={contactHref} />
+              <UsaCalculator key={`u-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "usa" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} />
             </TabsContent>
             <TabsContent value="korea" className="mt-10">
-              <KoreaCalculator dict={dict} source={source} contactHref={contactHref} koreaIncludes={koreaIncludes} />
+              <KoreaCalculator key={`k-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "korea" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} koreaIncludes={koreaIncludes} />
             </TabsContent>
           </Tabs>
         </div>

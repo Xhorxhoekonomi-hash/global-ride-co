@@ -21,7 +21,7 @@ const SIZE_ICONS: Record<VehicleSize, LucideIcon> = {
   "Oversized": Container,
 };
 
-export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorDict; source: string; contactHref: string }) {
+export function UsaCalculator({ dict, source, contactHref, initialDestination }: { dict: CalculatorDict; source: string; contactHref: string; initialDestination?: Destination }) {
   const D = dict.usa;
   const locations = useMemo(() => Object.keys(LAND_TRANSPORT_TABLE).sort(), []);
   const [location, setLocation] = useState<string | null>(null);
@@ -29,7 +29,7 @@ export function UsaCalculator({ dict, source, contactHref }: { dict: CalculatorD
   const [size, setSize] = useState<VehicleSize | null>(null);
   const [isEV, setIsEV] = useState(false);
   const [bid, setBid] = useState<string>("");
-  const [destination, setDestination] = useState<Destination | null>(null);
+  const [destination, setDestination] = useState<Destination | null>(initialDestination ?? null);
 
   const bidNumber = parseFloat(bid) || 0;
   const ready = !!location && !!size && bidNumber > 0 && !!destination;

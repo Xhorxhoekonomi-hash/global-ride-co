@@ -14,6 +14,7 @@ export type AnalyticsEventName =
   | "quote_submitted"
   | "whatsapp_clicked"
   | "calculator_started"
+  | "route_finder_submitted"
   | "calculator_completed"
   | "inspection_requested"
   | "vehicle_link_submitted"
