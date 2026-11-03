@@ -72,9 +72,6 @@
   --on-dark: oklch(1 0 0);
 
   /* Dark feature band (calculator teaser) */
-  --feature-surface: oklch(0.235 0.026 239);
-  --feature-ink: oklch(0.985 0.002 235);
-  --feature-muted: oklch(0.76 0.017 229);
 
   /* Semantic */
   --background: oklch(1 0 0);
@@ -400,6 +397,8 @@
   .home-heading { font-size: 2.5rem; }
   .hero-panel-arrow { display: grid; }
   .service-cards-arrows { display: flex; }
+  .hero-panel:has(+ .route-finder-wrap) .hero-panel-dots { bottom: 84px; }
+  .hero-panel:has(+ .route-finder-wrap) .hero-panel-arrow { top: calc(50% - 36px); }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .interior-copy h1 { font-size: 40px; }

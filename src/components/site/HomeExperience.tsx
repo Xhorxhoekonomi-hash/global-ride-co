@@ -65,10 +65,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const c = COPY[locale];
   const contact = al ? "/al/kontakt" : "/contact";
   const calculator = al ? "/al/kalkulator-transporti" : "/calculator";
-  const inspect = al ? "/al/inspektim-makinash" : "/inspection-service";
   const container = al ? "/al/transport-me-kontenier" : "/container-shipping";
-  const roro = al ? "/al/transport-roro" : "/roro-shipping";
-  const air = al ? "/al/transport-ajror-makinash" : "/airfreight";
   const origins = al ? ["/al/makina-nga-amerika", "/al/makina-nga-korea", "/al/makina-nga-dubai", "/import-europe"] : ["/import-usa", "/import-korea", "/import-uae", "/import-europe"];
   const whatsapp = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(al ? "Përshëndetje Alpha Worldwide, dua të importoj një makinë në Shqipëri." : "Hello Alpha Worldwide, I found a vehicle I'd like help with.")}`;
   const heroSource = al ? "al-home-hero" : "hero";
