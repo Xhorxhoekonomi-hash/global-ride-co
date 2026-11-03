@@ -436,6 +436,10 @@
   .hero-panel-slide { aspect-ratio: 1080/1935; max-height: calc(100svh - 72px); }
   .hero-panel-copy { top: 36px; }
   .hero-panel-actions { gap: 8px; }
+  .hero-scene .hero-panel-copy { top: 24px; }
+  .hero-scene .hero-panel-copy h1 { font-size: 28px; }
+  .hero-scene .hero-panel-copy p { font-size: 14px; margin-top: 8px; }
+  .hero-scene-actions { margin-top: 16px; }
 
   .alpha-overline span { padding-inline: 5px; }
   .interior-copy h1 { font-size: 32px; line-height: 1.15; margin-top: 14px; }
