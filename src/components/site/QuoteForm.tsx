@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { quotePrefill } from "@/lib/route-finder";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { submitLead } from "@/lib/submit-lead";
 import { trackEvent } from "@/lib/analytics";
@@ -115,6 +116,13 @@ export function QuoteForm({
   const [saved, setSaved] = useState(true);
   const [lastWhatsappUrl, setLastWhatsappUrl] = useState("");
   const [honeypot, setHoneypot] = useState("");
+  // Prefill from homepage RouteFinder query params (?from=&to=&vehicle=); presentation only.
+  useEffect(() => {
+    const p = quotePrefill(new URLSearchParams(window.location.search), originOptions.map((o) => o.value), destinationOptions.map((o) => o.value));
+    if (!p) return;
+    setValues((v) => ({ ...v, origin: p.origin ?? v.origin, destination: p.destination ?? v.destination, message: v.message || p.message }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     if (!started) {
