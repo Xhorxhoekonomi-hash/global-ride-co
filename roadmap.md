@@ -80,3 +80,8 @@
 - [x] Consolidate src/styles.css into one layer; remove dead classes.
 - [x] Update AGENTS.md, roadmap and design memory to the current Project Knowledge.
 - [x] Section E checks at 1440/1024/390/360 EN/SQ; no publishing.
+# Step 2 — homepage core sections
+- [x] Save six owner portrait originals (1200px WebP, 3:4) as assets.
+- [x] RouteFinder (replaces task tabs and calculator teaser) with calculator/contact prefill and route_finder_submitted event.
+- [x] Services swipe cards, 4-step timeline, origins card row, archive side photo.
+- [x] Verify EN/SQ at 1440/1024/390/360; tests; no publishing.
