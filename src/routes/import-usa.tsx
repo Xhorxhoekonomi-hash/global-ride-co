@@ -1,6 +1,7 @@
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { CYBERTRUCK_PORT } from "@/lib/hero-scenes";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -101,7 +102,7 @@ function ImportUSA() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} />
-      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." image={PHOTO_SELECTIONS.porsche.src} imageAlt={PHOTO_SELECTIONS.porsche.en}>
+      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." scene={CYBERTRUCK_PORT.en}>
 
               <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
                 href={whatsappUrl}
