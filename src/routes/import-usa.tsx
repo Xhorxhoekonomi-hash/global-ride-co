@@ -1,4 +1,3 @@
-import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
 import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { CYBERTRUCK_PORT } from "@/lib/hero-scenes";

@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { EditorialMedia } from "@/components/site/EditorialMedia";
-import { PHOTO_SELECTIONS, type AlphaPhoto } from "@/lib/alpha-photos";
+import { type AlphaPhoto } from "@/lib/alpha-photos";
 import { mediaLayout, type HeroVariant } from "@/lib/media-layouts";
-import { ArrowUpRight, Globe2, ScanLine, FileCheck2, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ScanLine, FileCheck2, ShieldCheck } from "lucide-react";
 
 export function HeroComposition({ children, photo, locale, variant, alt }: { children: ReactNode; photo?: AlphaPhoto; locale?: "en" | "sq"; variant?: HeroVariant; alt?: string }) {
   const path = useRouterState({ select: state => state.location.pathname });
