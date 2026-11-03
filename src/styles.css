@@ -210,7 +210,7 @@
 .hero-scene .hero-panel-copy > p.hero-scene-eyebrow { margin: 0 0 12px; font-size: 13px; font-weight: 600; }
 .hero-scene-actions { max-width: 520px; }
 .hero-scene-actions > * { flex: 1 1 0; min-width: 0; min-height: 48px; border-radius: 8px; box-shadow: none; }
-.hero-scene-actions > [data-slot="button"]:not(:first-child) { background: var(--background); color: var(--navy); border-color: var(--background); }
+.hero-scene-actions > :not(:first-child) { background: var(--background); color: var(--navy); border-color: var(--background); }
 @media (min-width: 768px) {
   /* Desktop: copy sits in the left third so the centred vehicle stays clear. */
   .hero-scene .hero-panel-slide::before { inset: 0 auto 0 0; width: 60%; height: 100%; background: linear-gradient(90deg, color-mix(in oklab, var(--graphite) 72%, transparent), color-mix(in oklab, var(--graphite) 40%, transparent) 55%, transparent); }
