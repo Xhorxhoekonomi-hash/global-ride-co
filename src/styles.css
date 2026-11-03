@@ -437,6 +437,9 @@
   .hero-panel-copy { top: 36px; }
   .hero-panel-actions { gap: 8px; }
   .hero-scene .hero-panel-copy { top: 24px; }
+  .stat-grid { gap: 12px; }
+  .stat-grid > div { padding: 20px 16px; }
+  .stat-grid dd { font-size: clamp(26px,8vw,40px); }
   .hero-scene .hero-panel-copy h1 { font-size: 28px; }
   .hero-scene .hero-panel-copy p { font-size: 14px; margin-top: 8px; }
   .hero-scene-actions { margin-top: 16px; }
