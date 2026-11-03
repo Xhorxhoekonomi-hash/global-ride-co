@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { HeroComposition } from "@/components/site/HeroComposition";
+import { HeroScene, type HeroSceneImage } from "@/components/site/HeroScene";
 import type { HeroVariant } from "@/lib/media-layouts";
 import { ownerPhoto } from "@/lib/photo-presentation";
 
-/** Unframed, light interior-page heading with optional unobscured supporting media. */
-export function InnerPageHero({ eyebrow, title, description, image, imageAlt = "", children, variant }: {
+/** Interior-page heading: a full-bleed photo scene when one is supplied, otherwise the light route-purpose composition. */
+export function InnerPageHero({ eyebrow, title, description, image, imageAlt = "", children, variant, scene }: {
   eyebrow: string;
   title: ReactNode;
   description: ReactNode;
@@ -12,7 +13,9 @@ export function InnerPageHero({ eyebrow, title, description, image, imageAlt = "
   imageAlt?: string;
   children?: ReactNode;
   variant?: HeroVariant;
+  scene?: HeroSceneImage;
 }) {
+  if (scene) return <HeroScene scene={scene} eyebrow={eyebrow} title={title} description={description}>{children}</HeroScene>;
   const photo = image ? ownerPhoto(image) : undefined;
   return <HeroComposition photo={photo} variant={variant} alt={imageAlt || undefined}>
       <div className="interior-copy min-w-0 home-reveal">

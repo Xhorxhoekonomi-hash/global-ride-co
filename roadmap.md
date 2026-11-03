@@ -73,3 +73,10 @@
 # Owner-selected Porsche homepage artwork
 - [x] Save the exact uploaded composite and replace the single EN/SQ homepage image without retouching.
 - [x] Inspect native desktop/laptop/mobile previews; verify localized CTAs, tests and automatic build; document provenance without publishing.
+# Step 1 — design-system cleanup and new homepage top (Nov 2026 Project Knowledge)
+- [x] Save owner hero photos as WebP assets (2560/1440 desktop, 1080 mobile).
+- [x] Homepage HeroPanel slider, StatCounter panel, StickyActionBar (EN/SQ).
+- [x] Cybertruck port hero on /import-usa and /al/makina-nga-amerika.
+- [x] Consolidate src/styles.css into one layer; remove dead classes.
+- [x] Update AGENTS.md, roadmap and design memory to the current Project Knowledge.
+- [x] Section E checks at 1440/1024/390/360 EN/SQ; no publishing.
