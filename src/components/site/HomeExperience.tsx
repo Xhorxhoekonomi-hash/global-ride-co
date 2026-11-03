@@ -6,10 +6,21 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { CustomerEntry } from "@/components/site/CustomerEntry";
 import { HomeJourney } from "@/components/site/HomeJourney";
-import { EditorialMedia } from "@/components/site/EditorialMedia";
 import { GuideFeature } from "@/components/site/GuideFeature";
-import porscheHero from "@/assets/alpha-porsche-logistics-hero.png.asset.json";
-import { ALPHA_PHOTOS, PHOTO_SELECTIONS } from "@/lib/alpha-photos";
+import { HeroPanel, type HeroSlide } from "@/components/site/HeroPanel";
+import { StatCounter } from "@/components/site/StatCounter";
+import orange1440 from "@/assets/heroes/orange-mclaren-port-1440.webp.asset.json";
+import orange2560 from "@/assets/heroes/orange-mclaren-port-2560.webp.asset.json";
+import orangeMobile from "@/assets/heroes/orange-mclaren-port-mobile-1080.webp.asset.json";
+import yellow1440 from "@/assets/heroes/yellow-mclaren-container-1440.webp.asset.json";
+import yellow2560 from "@/assets/heroes/yellow-mclaren-container-2560.webp.asset.json";
+import yellowMobile from "@/assets/heroes/yellow-mclaren-container-mobile-1080.webp.asset.json";
+import ferrari1440 from "@/assets/heroes/ferrari-car-carrier-1440.webp.asset.json";
+import ferrari2560 from "@/assets/heroes/ferrari-car-carrier-2560.webp.asset.json";
+import ferrariMobile from "@/assets/heroes/ferrari-car-carrier-mobile-1080.webp.asset.json";
+import lambo1440 from "@/assets/heroes/lamborghini-in-container-1440.webp.asset.json";
+import lambo2560 from "@/assets/heroes/lamborghini-in-container-2560.webp.asset.json";
+import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { CONTACT, type Faq } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -61,22 +72,15 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
   const origins = al ? ["/al/makina-nga-amerika", "/al/makina-nga-korea", "/al/makina-nga-dubai", "/import-europe"] : ["/import-usa", "/import-korea", "/import-uae", "/import-europe"];
   const whatsapp = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(al ? "Përshëndetje Alpha Worldwide, dua të importoj një makinë në Shqipëri." : "Hello Alpha Worldwide, I found a vehicle I'd like help with.")}`;
   const heroSource = al ? "al-home-hero" : "hero";
+  const quote = { label: c.quote, to: contact };
+  const slides: HeroSlide[] = [
+    { id: "orange", title: "Moving Cars Worldwide", body: al ? "Blerje, inspektim dhe transport nga Amerika, Koreja, Dubai dhe Evropa." : "Purchase support, inspection and shipping from the USA, Korea, Dubai and Europe.", alt: al ? "McLaren portokalli i parkuar në një rrugë porti pranë kontenierëve dhe vinçave." : "Orange McLaren parked on a port road beside stacked containers and cranes.", desktop: orange1440.url, desktopLarge: orange2560.url, mobile: orangeMobile.url, primary: quote, secondary: { label: al ? "Llogarit koston" : "Calculate Cost", to: calculator } },
+    { id: "yellow", title: al ? "Transport me kontenier, pa merak." : "Container shipping, handled.", body: al ? "Ngarkim, sigurim dhe koordinim në port." : "Loading, securing and port coordination.", alt: al ? "McLaren i verdhë me të zeza në një shesh logjistik me kontenier të hapur në sfond." : "Yellow and black McLaren on a paved logistics yard with an open container behind it.", desktop: yellow1440.url, desktopLarge: yellow2560.url, mobile: yellowMobile.url, primary: quote, secondary: { label: al ? "Transport me kontenier" : "Container Shipping", to: container } },
+    { id: "ferrari", title: al ? "Deri te dera juaj." : "Delivered to your door.", body: al ? "Nga porti deri në adresën tuaj, të koordinuara nga ekipi ynë." : "From the port to your address, coordinated by our team.", alt: al ? "Ferrari gri me numrin 70 i ngarkuar në një kamion transportues makinash." : "Grey Ferrari with a number 70 livery loaded on a car-carrier truck.", desktop: ferrari1440.url, desktopLarge: ferrari2560.url, mobile: ferrariMobile.url, primary: quote, secondary: { label: al ? "Si funksionon" : "How It Works", to: "/how-it-works" } },
+  ];
   return <div className="editorial-home bg-background text-foreground">
-    <section className="alpha-hero">
-      <picture className="alpha-brand-scene"><img src={porscheHero.url} width={1672} height={941} fetchPriority="high" decoding="async" alt={al ? "Ilustrim i markës: Porsche bronzi i pronarit me dyer të hapura, rrota, shenja dhe targë Alpha Worldwide të ruajtura; sfond porti i përpunuar me AI, jo provë transporti apo dorëzimi." : "Brand illustration: the owner's bronze Porsche with open doors and preserved wheels, decals and Alpha Worldwide plate; AI-edited seaport background, not shipping or delivery evidence."} /></picture>
-      <div className="container-page alpha-hero-grid">
-        <div className="alpha-hero-copy home-reveal">
-          <p className="alpha-overline">Alpha Worldwide Albania</p>
-          <h1>{al ? "Bli. Inspekto." : "Source. Inspect."}<br />{al ? "Transporto kudo." : "Ship worldwide."}</h1>
-          <p className="alpha-hero-intro">{al ? "Blerje, inspektim dhe transport nga Amerika, Koreja, Dubai dhe Evropa." : "Purchase support, inspection and shipping from the USA, Korea, Dubai and Europe."}</p>
-          <div className="alpha-hero-actions">
-            <Button asChild size="lg" className="h-13"><Link to={calculator} onClick={() => trackEvent("calculator_started", { source: heroSource })}>{c.calculate}</Link></Button>
-            <Button variant="outline" asChild size="lg" className="h-13"><Link to={contact} onClick={() => trackEvent("quote_started", { source: heroSource })}>{c.quote}</Link></Button>
-          </div>
-        </div>
-      </div>
-      <span className="alpha-art-credit">{al ? "Ilustrim i markës" : "Brand illustration"}</span>
-    </section>
+    <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} />
+    <StatCounter locale={locale} />
 
     <CustomerEntry locale={locale} />
 
@@ -96,7 +100,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.servicesKicker}</p><h2 className="home-heading">{c.servicesTitle}</h2></div><Button asChild variant="link"><Link to="/services">{c.servicesLink}<ArrowRight /></Link></Button></div>
       <div className="alpha-service-chapter">
         <div className="alpha-service-copy"><span className="alpha-chapter-no">01 / Transport</span><h3>{c.serviceNames[0]}</h3><p>{c.serviceBodies[0]}</p><div className="flex flex-wrap gap-3"><Button asChild variant="outline" className="h-12"><Link to={container}>{c.container}<ArrowRight /></Link></Button><Button asChild variant="link" className="h-12"><Link to={roro}>{c.roro}<ArrowRight /></Link></Button></div></div>
-        <EditorialMedia photo={PHOTO_SELECTIONS.container} locale={locale} role="story" className="alpha-service-visual" />
+        <picture className="alpha-service-visual"><source media="(min-width: 768px)" srcSet={`${lambo1440.url} 1440w, ${lambo2560.url} 2560w`} sizes="(min-width: 768px) 60vw, 100vw" /><img src={lambo1440.url} width={1440} height={806} loading="lazy" decoding="async" alt={al ? "Lamborghini gri i siguruar me rripa të verdhë brenda një kontenieri transporti." : "Grey Lamborghini secured with yellow straps inside a shipping container."} /></picture>
       </div>
       <div className="alpha-service-secondary">{[1,2].map(i => <article key={i}><span className="alpha-chapter-no">0{i+1}</span><h3>{c.serviceNames[i]}</h3><p>{c.serviceBodies[i]}</p><Button variant="link" asChild className="h-auto min-h-11 whitespace-normal px-0 text-left"><Link to={i === 1 ? inspect : air}>{i === 1 ? c.inspection : c.air}<ArrowRight /></Link></Button></article>)}</div>
     </div></section>

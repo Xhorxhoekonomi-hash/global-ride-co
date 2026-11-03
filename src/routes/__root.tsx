@@ -17,6 +17,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { StickyActionBar } from "@/components/site/StickyActionBar";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/seo";
 
@@ -78,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Alpha Worldwide" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#1A3A5C" },
+      { name: "theme-color", content: "#003C5A" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -202,6 +203,7 @@ function RootComponent() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <StickyActionBar />
     </QueryClientProvider>
   );
 }
