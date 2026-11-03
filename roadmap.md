@@ -79,4 +79,4 @@
 - [x] Cybertruck port hero on /import-usa and /al/makina-nga-amerika.
 - [x] Consolidate src/styles.css into one layer; remove dead classes.
 - [x] Update AGENTS.md, roadmap and design memory to the current Project Knowledge.
-- [ ] Section E checks at 1440/1024/390/360 EN/SQ (in progress).
+- [x] Section E checks at 1440/1024/390/360 EN/SQ; no publishing.
