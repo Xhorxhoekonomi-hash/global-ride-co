@@ -1,3 +1,5 @@
+import { LANGUAGE_ROUTE_MAP } from "@/lib/site-data";
+
 // Central SEO helpers. Update SITE_URL here if the production domain changes.
 export const SITE_URL = "https://www.alphaworldwidealbania.com";
 
@@ -53,6 +55,11 @@ export function buildHead(opts: HeadOpts): {
   }
 
   const links: MetaEntry[] = [{ rel: "canonical", href: url }];
+  if (!opts.hreflang && !opts.robots?.includes("noindex")) {
+    // Derive reciprocal alternates from the single EN<->SQ page map; unpaired pages self-reference.
+    const pair = derivedHreflang(opts.path, lang);
+    opts = { ...opts, hreflang: pair.hreflang, xDefault: opts.xDefault ?? pair.xDefault };
+  }
   if (opts.hreflang) {
     for (const alt of opts.hreflang) {
       links.push({ rel: "alternate", hreflang: alt.lang, href: absUrl(alt.path) });
@@ -63,4 +70,13 @@ export function buildHead(opts: HeadOpts): {
   }
 
   return { meta, links };
+}
+
+/** hreflang alternates for a path from LANGUAGE_ROUTE_MAP (only real, live counterparts). */
+export function derivedHreflang(path: string, lang: string) {
+  const sqToEn = Object.entries(LANGUAGE_ROUTE_MAP).find(([, sq]) => sq === path)?.[0];
+  const en = lang === "sq" ? sqToEn : path;
+  const sq = lang === "sq" ? path : LANGUAGE_ROUTE_MAP[path];
+  const hreflang = [...(en ? [{ lang: "en", path: en }] : []), ...(sq ? [{ lang: "sq", path: sq }] : [])];
+  return { hreflang, xDefault: en ?? path };
 }

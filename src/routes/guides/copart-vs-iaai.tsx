@@ -90,7 +90,7 @@ function GuideCopartVsIaai() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="font-display text-2xl font-bold text-navy">Side-by-side comparison</h2>
-            <div className="mt-6 overflow-x-auto">
+            <div tabIndex={0} role="region" aria-label="Comparison table" className="mt-6 overflow-x-auto">
               <table className="w-full min-w-[560px] border-collapse overflow-hidden rounded-2xl border border-border text-left text-sm">
                 <thead>
                   <tr className="bg-card">

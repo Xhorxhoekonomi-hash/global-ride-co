@@ -169,7 +169,7 @@ export const IMPORT_STEPS = [
   { n: 3, title: "Professional Inspection", body: "Photos, videos, OBD scan, paint meter reading, and a full mechanical condition report before purchase." },
   { n: 4, title: "Purchase", body: "We purchase or bid on your behalf, securely and transparently, with no hidden markups." },
   { n: 5, title: "Shipping", body: "Container, RoRo, or airfreight — we choose the safest, fastest route for that specific vehicle." },
-  { n: 6, title: "Receive Your Vehicle", body: "Delivered to Albania, Kosovo, or anywhere in Europe, fully cleared through customs." },
+  { n: 6, title: "Receive Your Vehicle", body: "Delivered to Albania, Kosovo, or elsewhere in Europe, with customs coordination through licensed agents." },
 ];
 
 export type Country = {

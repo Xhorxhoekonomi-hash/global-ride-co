@@ -23,10 +23,12 @@ export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, chi
           {breadcrumbs}
           {eyebrow && <p className="hero-scene-eyebrow">{eyebrow}</p>}
           <h1>{title}</h1>
-          <p>{description}</p>
+          <p className="hero-scene-intro">{description}</p>
           {children && <div className="hero-panel-actions hero-scene-actions">{children}</div>}
         </div>
       </div>
+      {/* Phones: the intro sits below the photo so copy never covers the vehicle. */}
+      <p className="hero-scene-intro-below container-page">{description}</p>
     </section>
   );
 }

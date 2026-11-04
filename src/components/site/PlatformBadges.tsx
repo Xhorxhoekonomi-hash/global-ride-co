@@ -53,16 +53,16 @@ export function PlatformBadges({ dark = false, locale = "en" }: { dark?: boolean
               <span
                 key={p.name}
                 className={`rounded-xl border border-transparent px-4 py-2.5 font-display text-base font-bold tracking-tight ${
-                  dark ? "text-white/50" : "text-navy/40"
+                  dark ? "text-white/80" : "text-navy/80"
                 }`}
               >
-                {p.name}
+                {locale === "sq" && p.name === "Authorized Dealerships" ? "Tregtarë të autorizuar" : p.name}
               </span>
             ),
           )}
         </div>
 
-        <p className={`mt-5 text-center text-xs ${dark ? "text-white/40" : "text-slate-body"}`}>
+        <p className={`mt-5 text-center text-xs ${dark ? "text-white/75" : "text-slate-body"}`}>
           {L.footer}
         </p>
       </div>

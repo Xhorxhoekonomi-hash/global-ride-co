@@ -152,6 +152,7 @@ export function AirfreightForm() {
       <div>
         <label className={labelClass}>Enquiry Type *</label>
         <select
+          aria-label="Enquiry Type"
           value={enquiryType}
           onChange={(e) => {
             trackStart();
@@ -197,7 +198,7 @@ export function AirfreightForm() {
           </div>
           <div>
             <label className={labelClass}>Air Waybill Available?</label>
-            <select value={awbAvailable} onChange={(e) => setAwbAvailable(e.target.value)} className={inputClass(false)}>
+            <select aria-label="Air Waybill Available?" value={awbAvailable} onChange={(e) => setAwbAvailable(e.target.value)} className={inputClass(false)}>
               <option value="">Select…</option>
               <option>Yes</option>
               <option>No</option>

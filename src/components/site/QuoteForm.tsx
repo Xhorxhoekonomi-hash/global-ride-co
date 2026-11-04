@@ -310,7 +310,7 @@ export function QuoteForm({
 
         <div className={variant === "full" ? "" : "md:col-span-2"}>
           <label className={labelClass}>{L.origin}</label>
-          <select value={values.origin} onChange={set("origin")} className={inputClass(false)}>
+          <select aria-label={L.origin} value={values.origin} onChange={set("origin")} className={inputClass(false)}>
             {originOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
           </select>
         </div>
@@ -318,7 +318,7 @@ export function QuoteForm({
         {variant === "full" && (
           <div>
             <label className={labelClass}>{L.destination}</label>
-            <select value={values.destination} onChange={set("destination")} className={inputClass(false)}>
+            <select aria-label={L.destination} value={values.destination} onChange={set("destination")} className={inputClass(false)}>
               {destinationOptions.map((d) => <option key={d.value} value={d.value}>{d.label}</option>)}
             </select>
           </div>
@@ -344,7 +344,7 @@ export function QuoteForm({
             </div>
             <div>
               <label className={labelClass}>{L.service}</label>
-              <select value={values.service} onChange={set("service")} className={inputClass(false)}>
+              <select aria-label={L.service} value={values.service} onChange={set("service")} className={inputClass(false)}>
                 {serviceOptions.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
               </select>
             </div>
