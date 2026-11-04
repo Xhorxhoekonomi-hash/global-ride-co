@@ -1,3 +1,4 @@
+import { JourneySteps } from "@/components/site/JourneySteps";
 import { PageHero } from "@/components/site/PageHero";
 import { LAMBORGHINI_IN_CONTAINER } from "@/lib/hero-scenes";
 import { Button } from "@/components/ui/button";
@@ -33,15 +34,7 @@ function ImportCanada() {
             <div className="eyebrow">6-step process</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">From Canada to your driveway</h2>
           </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="font-display text-5xl font-bold text-teal">{String(s.n).padStart(2, "0")}</div>
-                <h3 className="font-display mt-3 text-lg font-bold text-navy">{s.title}</h3>
-                <p className="mt-2 text-sm text-slate-body">{s.body}</p>
-              </div>
-            ))}
-          </div>
+          <JourneySteps steps={STEPS} />
         </div>
       </section>
 
