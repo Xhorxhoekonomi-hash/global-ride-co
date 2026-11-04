@@ -60,6 +60,8 @@ import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlPyetjeTeShpeshtaRouteImport } from './routes/al/pyetje-te-shpeshta'
+import { Route as AlSherbimetRouteImport } from './routes/al/sherbimet'
 import { Route as AlSiFunksiononRouteImport } from './routes/al/si-funksionon'
 import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
 import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
@@ -336,6 +338,16 @@ const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   path: '/al/makina-nga-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlPyetjeTeShpeshtaRoute = AlPyetjeTeShpeshtaRouteImport.update({
+  id: '/al/pyetje-te-shpeshta',
+  path: '/al/pyetje-te-shpeshta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlSherbimetRoute = AlSherbimetRouteImport.update({
+  id: '/al/sherbimet',
+  path: '/al/sherbimet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlSiFunksiononRoute = AlSiFunksiononRouteImport.update({
   id: '/al/si-funksionon',
   path: '/al/si-funksionon',
@@ -494,6 +506,8 @@ export interface FileRoutesByFullPath {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
@@ -566,6 +580,8 @@ export interface FileRoutesByTo {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
@@ -639,6 +655,8 @@ export interface FileRoutesById {
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
@@ -713,6 +731,8 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/sherbimet'
     | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
@@ -785,6 +805,8 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/sherbimet'
     | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
@@ -857,6 +879,8 @@ export interface FileRouteTypes {
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-korea'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/sherbimet'
     | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
@@ -930,6 +954,8 @@ export interface RootRouteChildren {
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlPyetjeTeShpeshtaRoute: typeof AlPyetjeTeShpeshtaRoute
+  AlSherbimetRoute: typeof AlSherbimetRoute
   AlSiFunksiononRoute: typeof AlSiFunksiononRoute
   AlTransportAjrorMakinashRoute: typeof AlTransportAjrorMakinashRoute
   AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
@@ -1311,6 +1337,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/pyetje-te-shpeshta': {
+      id: '/al/pyetje-te-shpeshta'
+      path: '/al/pyetje-te-shpeshta'
+      fullPath: '/al/pyetje-te-shpeshta'
+      preLoaderRoute: typeof AlPyetjeTeShpeshtaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/sherbimet': {
+      id: '/al/sherbimet'
+      path: '/al/sherbimet'
+      fullPath: '/al/sherbimet'
+      preLoaderRoute: typeof AlSherbimetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/si-funksionon': {
       id: '/al/si-funksionon'
       path: '/al/si-funksionon'
@@ -1498,6 +1538,8 @@ const rootRouteChildren: RootRouteChildren = {
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlPyetjeTeShpeshtaRoute: AlPyetjeTeShpeshtaRoute,
+  AlSherbimetRoute: AlSherbimetRoute,
   AlSiFunksiononRoute: AlSiFunksiononRoute,
   AlTransportAjrorMakinashRoute: AlTransportAjrorMakinashRoute,
   AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
