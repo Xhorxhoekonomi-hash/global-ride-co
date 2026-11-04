@@ -13,7 +13,7 @@ export const Route = createFileRoute("/reviews")({
     const base = buildHead({
       title: "Reviews & Delivered Vehicles | Alpha Worldwide",
       description: "Real delivered vehicles and customer experiences with Alpha Worldwide's sourcing, inspection, and shipping process from the USA, South Korea, UAE, Canada, and Europe.",
-      path: "/reviews",
+      path: "/reviews", hreflang: [{ lang: "en", path: "/reviews" }, { lang: "sq", path: "/al/pervoja-e-klienteve" }], xDefault: "/reviews",
     });
     const scripts: Record<string, unknown>[] = [];
     // AggregateRating is only emitted once real, verifiable reviews exist —

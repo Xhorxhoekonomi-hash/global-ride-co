@@ -91,3 +91,9 @@
 - [x] One interior hero (PageHero): photo pages per assignment, navy airfreight hero, light text heroes elsewhere; old hero variants removed.
 - [x] Shared timeline, flat cards, guide typography/contents/related guides, closing band, header full-screen phone menu, footer slogan.
 - [x] Verify all public EN/SQ pages at 1440/390, key pages at 1024/360, phone menu, tests and build; no publishing.
+
+# Step 4 — complete Albanian site
+- [x] 18 new SQ pages with hreflang pairs and sitemap entries; EN counterparts carry reciprocal hreflang.
+- [x] All SQ menus, footer, homepage, cards, guides and breadcrumbs link to SQ pages; "(EN)" labels removed.
+- [x] Verified: 32 SQ pages crawled, zero links to English pages, switcher round-trips, tests and build OK.
+- [ ] Remaining English-only pages (9 guides, European destination pages, Albania/Netherlands hubs) have no SQ version yet; SQ links point to the nearest SQ page instead.

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/guides/how-to-check-a-used-car-before-buy
     const base = buildHead({
       title: "How to Check a Used Car Before Buying | Practical Checklist",
       description: "A practical checklist for evaluating a used vehicle before purchase — VIN, service history, mechanical checks, OBD scans, and where inspection limits genuinely are.",
-      path: "/guides/how-to-check-a-used-car-before-buying",
+      path: "/guides/how-to-check-a-used-car-before-buying", hreflang: [{ lang: "en", path: "/guides/how-to-check-a-used-car-before-buying" }, { lang: "sq", path: "/al/udhezues/si-te-kontrolloni-makinen-e-perdorur" }], xDefault: "/guides/how-to-check-a-used-car-before-buying",
     });
     return {
       ...base,

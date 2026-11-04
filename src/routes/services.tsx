@@ -16,7 +16,7 @@ export const Route = createFileRoute("/services")({
     const base = buildHead({
       title: "Vehicle Import Services | Sourcing, Inspection, Shipping",
       description: "Auction access, pre-purchase inspection, container and RoRo shipping, airfreight, and customs-clearance coordination — full-service vehicle import.",
-      path: "/services",
+      path: "/services", hreflang: [{ lang: "en", path: "/services" }, { lang: "sq", path: "/al/sherbimet" }], xDefault: "/services",
     });
     return {
       ...base,

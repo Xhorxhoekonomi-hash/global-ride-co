@@ -14,7 +14,7 @@ export const Route = createFileRoute("/guides/container-vs-roro-car-shipping")({
     const base = buildHead({
       title: "Container vs RoRo Car Shipping: Which Fits Your Vehicle",
       description: "How shared and full container shipping compare to RoRo — cost, vehicle condition requirements, schedule differences, and how to decide between them.",
-      path: "/guides/container-vs-roro-car-shipping",
+      path: "/guides/container-vs-roro-car-shipping", hreflang: [{ lang: "en", path: "/guides/container-vs-roro-car-shipping" }, { lang: "sq", path: "/al/udhezues/kontenier-apo-roro" }], xDefault: "/guides/container-vs-roro-car-shipping",
     });
     return {
       ...base,

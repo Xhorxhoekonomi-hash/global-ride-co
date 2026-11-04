@@ -51,7 +51,7 @@ export const Route = createFileRoute("/vehicle-history-check")({
     const base = buildHead({
       title: "Vehicle History Checks Explained | VIN, Carfax, AutoCheck",
       description: "What VIN, Carfax, and AutoCheck reports can and can't show you, how Korean vehicle history differs, and why physical inspection is still often necessary.",
-      path: "/vehicle-history-check",
+      path: "/vehicle-history-check", hreflang: [{ lang: "en", path: "/vehicle-history-check" }, { lang: "sq", path: "/al/historiku-i-automjetit" }], xDefault: "/vehicle-history-check",
     });
     return {
       ...base,

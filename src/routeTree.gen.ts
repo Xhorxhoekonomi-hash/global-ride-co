@@ -54,6 +54,7 @@ import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amer
 import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
+import { Route as AlHistorikuIAutomjetitRouteImport } from './routes/al/historiku-i-automjetit'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
@@ -65,6 +66,7 @@ import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dub
 import { Route as AlMakinaNgaEvropaRouteImport } from './routes/al/makina-nga-evropa'
 import { Route as AlMakinaNgaKanadajaRouteImport } from './routes/al/makina-nga-kanadaja'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlPervojaEKlienteveRouteImport } from './routes/al/pervoja-e-klienteve'
 import { Route as AlPolitikaECookiesRouteImport } from './routes/al/politika-e-cookies'
 import { Route as AlPolitikaEPrivatesiseRouteImport } from './routes/al/politika-e-privatesise'
 import { Route as AlPseAlphaWorldwideRouteImport } from './routes/al/pse-alpha-worldwide'
@@ -89,6 +91,10 @@ import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './rout
 import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as AlUdhezuesIndexRouteImport } from './routes/al/udhezues/index'
+import { Route as AlUdhezuesKontenierApoRoroRouteImport } from './routes/al/udhezues/kontenier-apo-roro'
+import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './routes/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+import { Route as AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport } from './routes/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const IndexRoute = IndexRouteImport.update({
@@ -317,6 +323,11 @@ const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
   path: '/al/encar-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlHistorikuIAutomjetitRoute = AlHistorikuIAutomjetitRouteImport.update({
+  id: '/al/historiku-i-automjetit',
+  path: '/al/historiku-i-automjetit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
   id: '/al/iaai-shqiperi',
   path: '/al/iaai-shqiperi',
@@ -371,6 +382,11 @@ const AlMakinaNgaKanadajaRoute = AlMakinaNgaKanadajaRouteImport.update({
 const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   id: '/al/makina-nga-korea',
   path: '/al/makina-nga-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPervojaEKlienteveRoute = AlPervojaEKlienteveRouteImport.update({
+  id: '/al/pervoja-e-klienteve',
+  path: '/al/pervoja-e-klienteve',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlPolitikaECookiesRoute = AlPolitikaECookiesRouteImport.update({
@@ -503,6 +519,29 @@ const GuidesVehicleImportDocumentsRoute =
     path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AlUdhezuesIndexRoute = AlUdhezuesIndexRouteImport.update({
+  id: '/al/udhezues/',
+  path: '/al/udhezues/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlUdhezuesKontenierApoRoroRoute =
+  AlUdhezuesKontenierApoRoroRouteImport.update({
+    id: '/al/udhezues/kontenier-apo-roro',
+    path: '/al/udhezues/kontenier-apo-roro',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute =
+  AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport.update({
+    id: '/al/udhezues/si-te-blini-nga-ankandet-amerikane',
+    path: '/al/udhezues/si-te-blini-nga-ankandet-amerikane',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute =
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport.update({
+    id: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur',
+    path: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -555,6 +594,7 @@ export interface FileRoutesByFullPath {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -566,6 +606,7 @@ export interface FileRoutesByFullPath {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -591,7 +632,11 @@ export interface FileRoutesByFullPath {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
+  '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues/': typeof AlUdhezuesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -638,6 +683,7 @@ export interface FileRoutesByTo {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -649,6 +695,7 @@ export interface FileRoutesByTo {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -674,7 +721,11 @@ export interface FileRoutesByTo {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
+  '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
+  '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues': typeof AlUdhezuesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -722,6 +773,7 @@ export interface FileRoutesById {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -733,6 +785,7 @@ export interface FileRoutesById {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -758,7 +811,11 @@ export interface FileRoutesById {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
+  '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues/': typeof AlUdhezuesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -807,6 +864,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -818,6 +876,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -843,7 +902,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
+    | '/al/udhezues/kontenier-apo-roro'
+    | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -890,6 +953,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -901,6 +965,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -926,7 +991,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al'
     | '/guides'
+    | '/al/udhezues/kontenier-apo-roro'
+    | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues'
   id:
     | '__root__'
     | '/'
@@ -973,6 +1042,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -984,6 +1054,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -1009,7 +1080,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
+    | '/al/udhezues/kontenier-apo-roro'
+    | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1057,6 +1132,7 @@ export interface RootRouteChildren {
   AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
+  AlHistorikuIAutomjetitRoute: typeof AlHistorikuIAutomjetitRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
   AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
@@ -1068,6 +1144,7 @@ export interface RootRouteChildren {
   AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
   AlMakinaNgaKanadajaRoute: typeof AlMakinaNgaKanadajaRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlPervojaEKlienteveRoute: typeof AlPervojaEKlienteveRoute
   AlPolitikaECookiesRoute: typeof AlPolitikaECookiesRoute
   AlPolitikaEPrivatesiseRoute: typeof AlPolitikaEPrivatesiseRoute
   AlPseAlphaWorldwideRoute: typeof AlPseAlphaWorldwideRoute
@@ -1093,7 +1170,11 @@ export interface RootRouteChildren {
   GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
+  AlUdhezuesKontenierApoRoroRoute: typeof AlUdhezuesKontenierApoRoroRoute
+  AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
+  AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1413,6 +1494,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlEncarShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/historiku-i-automjetit': {
+      id: '/al/historiku-i-automjetit'
+      path: '/al/historiku-i-automjetit'
+      fullPath: '/al/historiku-i-automjetit'
+      preLoaderRoute: typeof AlHistorikuIAutomjetitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/iaai-shqiperi': {
       id: '/al/iaai-shqiperi'
       path: '/al/iaai-shqiperi'
@@ -1488,6 +1576,13 @@ declare module '@tanstack/react-router' {
       path: '/al/makina-nga-korea'
       fullPath: '/al/makina-nga-korea'
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/pervoja-e-klienteve': {
+      id: '/al/pervoja-e-klienteve'
+      path: '/al/pervoja-e-klienteve'
+      fullPath: '/al/pervoja-e-klienteve'
+      preLoaderRoute: typeof AlPervojaEKlienteveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/politika-e-cookies': {
@@ -1658,6 +1753,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/udhezues/': {
+      id: '/al/udhezues/'
+      path: '/al/udhezues'
+      fullPath: '/al/udhezues/'
+      preLoaderRoute: typeof AlUdhezuesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/udhezues/kontenier-apo-roro': {
+      id: '/al/udhezues/kontenier-apo-roro'
+      path: '/al/udhezues/kontenier-apo-roro'
+      fullPath: '/al/udhezues/kontenier-apo-roro'
+      preLoaderRoute: typeof AlUdhezuesKontenierApoRoroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/udhezues/si-te-blini-nga-ankandet-amerikane': {
+      id: '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+      path: '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+      fullPath: '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+      preLoaderRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': {
+      id: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      path: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      fullPath: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      preLoaderRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -1713,6 +1836,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
+  AlHistorikuIAutomjetitRoute: AlHistorikuIAutomjetitRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
   AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
@@ -1724,6 +1848,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
   AlMakinaNgaKanadajaRoute: AlMakinaNgaKanadajaRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlPervojaEKlienteveRoute: AlPervojaEKlienteveRoute,
   AlPolitikaECookiesRoute: AlPolitikaECookiesRoute,
   AlPolitikaEPrivatesiseRoute: AlPolitikaEPrivatesiseRoute,
   AlPseAlphaWorldwideRoute: AlPseAlphaWorldwideRoute,
@@ -1751,7 +1876,13 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
+  AlUdhezuesKontenierApoRoroRoute: AlUdhezuesKontenierApoRoroRoute,
+  AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute:
+    AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute,
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute:
+    AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
+  AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

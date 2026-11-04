@@ -96,7 +96,7 @@ export const Route = createFileRoute("/faq")({
     const base = buildHead({
       title: "FAQ Knowledge Center | Alpha Worldwide",
       description: "Answers on vehicle sourcing from the USA, South Korea, and Dubai, shipping by container, RoRo, or airfreight, inspections, payments, documents, and customs — organized by topic.",
-      path: "/faq",
+      path: "/faq", hreflang: [{ lang: "en", path: "/faq" }, { lang: "sq", path: "/al/pyetje-te-shpeshta" }], xDefault: "/faq",
     });
     return {
       ...base,

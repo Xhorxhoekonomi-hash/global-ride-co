@@ -121,7 +121,7 @@ function CopartShqiperi() {
                 <MessageCircle className="h-4 w-4" /> Dërgo numrin e lotit
               </a>
               <Link
-                to="/calculator"
+                to="/al/kalkulator-transporti"
                 onClick={() => trackEvent("calculator_started", { source: "al-copart-hero" })}
                 className="btn-outline-dark"
               >
@@ -194,7 +194,7 @@ function CopartShqiperi() {
                   Kalkulatori ynë ndan çdo zë: ofertën fituese, tarifat e Copart, transportin tokësor deri në terminalin e eksportit, transportin detar deri në Durrës dhe shkarkimin në port.
                 </p>
                 <Link
-                  to="/calculator"
+                  to="/al/kalkulator-transporti"
                   onClick={() => trackEvent("calculator_started", { source: "al-copart-fees" })}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline"
                 >

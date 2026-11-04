@@ -134,7 +134,7 @@ function IaaiShqiperi() {
                 <MessageCircle className="h-4 w-4" /> Dërgo lotin
               </a>
               <Link
-                to="/calculator"
+                to="/al/kalkulator-transporti"
                 onClick={() => trackEvent("calculator_started", { source: "al-iaai-hero" })}
                 className="btn-outline-dark"
               >
@@ -239,7 +239,7 @@ function IaaiShqiperi() {
               Kostoja totale përfshin çmimin e fitimit, tarifat e IAAI, transportin tokësor, transportin detar dhe shkarkimin në Durrës. Kalkulatori ynë i llogarit të gjitha zërat kryesorë.
             </p>
             <Link
-              to="/calculator"
+              to="/al/kalkulator-transporti"
               onClick={() => trackEvent("calculator_started", { source: "al-iaai-shipping" })}
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline"
             >
