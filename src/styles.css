@@ -216,7 +216,7 @@
 .hero-scene-actions > :not(:first-child) { background: var(--background); color: var(--navy); border-color: var(--background); }
 @media (min-width: 768px) {
   /* Desktop: copy sits in the left third so the centred vehicle stays clear. */
-  .hero-scene .hero-panel-slide::before { inset: 0 auto 0 0; width: 60%; height: 100%; background: linear-gradient(90deg, color-mix(in oklab, var(--graphite) 72%, transparent), color-mix(in oklab, var(--graphite) 40%, transparent) 55%, transparent); }
+  .hero-scene .hero-panel-slide::before { inset: 0 auto 0 0; width: 60%; height: 100%; background: linear-gradient(90deg, color-mix(in oklab, var(--graphite) 78%, transparent), color-mix(in oklab, var(--graphite) 48%, transparent) 55%, transparent); }
   .hero-scene .hero-panel-copy { inset: clamp(32px,5vw,72px) auto auto clamp(24px,4vw,64px); width: min(40%, 540px); text-align: left; }
   .hero-scene .hero-panel-copy h1 { font-size: clamp(30px,3.2vw,46px); }
   .hero-scene .hero-panel-copy p { margin-inline: 0; font-size: clamp(14px,1.15vw,17px); }
@@ -235,11 +235,13 @@
 .breadcrumbs-list [aria-current] { color: var(--secondary); font-weight: 500; }
 .breadcrumbs--navy { background: var(--navy); }
 .breadcrumbs--navy .breadcrumbs-list, .breadcrumbs--navy [aria-current] { color: color-mix(in oklab, var(--primary-foreground) 82%, transparent); }
+.breadcrumbs--photo { background: none; }
 .breadcrumbs--photo .breadcrumbs-list { justify-content: center; padding: 0 0 12px; color: color-mix(in oklab, var(--primary-foreground) 85%, transparent); }
 .breadcrumbs--photo [aria-current] { color: var(--primary-foreground); }
 
 .text-hero { background: var(--background); }
-.text-hero-inner { max-width: 1000px; padding-block: 32px 72px; }
+.text-hero-inner { padding-block: 32px 72px; }
+.text-hero-inner > * { max-width: 960px; }
 .text-hero h1 { margin-top: 14px; max-width: 900px; font-size: clamp(34px,4.4vw,56px); font-weight: 600; line-height: 1.08; color: var(--secondary); text-wrap: balance; }
 .text-hero .eyebrow, .text-hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--primary); }
 .text-hero h1 + p, .text-hero-intro { margin-top: 20px; max-width: 720px; font-size: clamp(17px,1.4vw,20px); line-height: 1.55; color: var(--muted-foreground); }
@@ -537,7 +539,8 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
   .related-guides { padding-block: 56px; }
   .related-guides-grid { grid-template-columns: minmax(0,1fr); }
   .related-guide-card { padding: 22px; }
-  .breadcrumbs--photo .breadcrumbs-list { font-size: 12px; padding-bottom: 8px; }
+  .breadcrumbs--photo { background: none; }
+.breadcrumbs--photo .breadcrumbs-list { font-size: 12px; padding-bottom: 8px; }
 
   .sticky-action-bar { position: fixed; z-index: 50; inset: auto 0 0; display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: var(--background); border-top: 1px solid var(--border); }
   .sticky-action-whatsapp { display: grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 8px; background: var(--whatsapp); color: var(--primary-foreground); }
