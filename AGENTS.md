@@ -17,6 +17,7 @@
 - Owner hero photos live as Lovable asset pointers under src/assets/heroes (2560/1440 desktop + 1080 mobile WebP) and are mapped in src/lib/hero-scenes.ts or HomeExperience, keeping binaries out of the repo.
 - PageHero is the only interior hero (photo scene, light text, or navy text when no real photo exists); TextHero wraps bespoke light headings. Interior pages get the shared CtaBand, and guide articles get GuideToc/RelatedGuides, from __root so the pattern cannot drift per page.
 - Named owner-photo selections and vehicle/session albums in alpha-photos are the single source for documentary/proof imagery; EditorialMedia and photo-presentation own their dimensions and focal points, while the full-size viewer preserves complete originals.
+- LANGUAGE_ROUTE_MAP in site-data is the single EN↔SQ page map; shared components on SQ pages resolve links through localPath so no SQ page links to English content and the switcher round-trips.
 - Customer entry destinations are resolved in the shared customer-paths module, with explicit localized routes and English fallbacks, so selected tasks and origins cannot drift from tested navigation.
 - Homepage entry and journey interactions are presentational tabs independent of operational calculators and forms, so discovery improvements do not affect lead or pricing behavior.
 - The homepage RouteFinder resolves targets in src/lib/route-finder.ts; calculator and quote form only read its ?from/&to/&vehicle params as initial UI state, so prefill never touches pricing math or lead submission.
