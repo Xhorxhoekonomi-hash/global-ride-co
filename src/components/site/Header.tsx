@@ -55,12 +55,12 @@ export function Header() {
       { to: "/how-it-works", label: isAlbanian ? "Si funksionon (EN)" : "How it works" },
     ] },
     { type: "link", to: calculatorHref, label: isAlbanian ? "Kalkulator" : "Calculator" },
-    { type: "dropdown", label: isAlbanian ? "Puna jonë" : "Our Work", items: [
-      { to: "/delivered-vehicles", label: isAlbanian ? "Arkivi i automjeteve (EN)" : "Vehicle archive" },
-      { to: "/about", label: isAlbanian ? "Rreth Alpha (EN)" : "About Alpha" },
-      { to: "/guides", label: isAlbanian ? "Udhëzues (EN)" : "Guides" },
+    { type: "dropdown", label: isAlbanian ? "Udhëzues" : "Guides", items: [
+      { to: "/guides", label: isAlbanian ? "Të gjithë udhëzuesit (EN)" : "All guides" },
       { to: "/faq", label: isAlbanian ? "Pyetje të shpeshta (EN)" : "FAQ" },
+      { to: "/delivered-vehicles", label: isAlbanian ? "Arkivi i automjeteve (EN)" : "Vehicle archive" },
       { to: "/reviews", label: isAlbanian ? "Përvoja e klientëve (EN)" : "Customer experience" },
+      { to: "/about", label: isAlbanian ? "Rreth Alpha (EN)" : "About Alpha" },
       { to: "/why-alpha-worldwide", label: isAlbanian ? "Pse Alpha (EN)" : "Why Alpha" },
     ] },
     { type: "link", to: quoteHref, label: isAlbanian ? "Kontakt" : "Contact" },
@@ -75,12 +75,12 @@ export function Header() {
         <Button variant="ghost" asChild className="h-11 px-2 text-navy"><Link to={languageTarget} aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages className="hidden sm:block" />{isAlbanian ? "EN" : "SQ"}</Link></Button>
         <Button variant="ghost" size="icon" asChild className="hidden h-11 w-11 text-navy xl:inline-flex"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp" title="WhatsApp"><MessageCircle /></a></Button>
         <Button asChild className="hidden h-11 sm:inline-flex"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button>
-        <Button variant="ghost" size="icon" className="h-11 w-11 text-navy lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X /> : <Menu />}</Button>
+        <Button variant="ghost" className="header-menu-button lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X /> : <Menu />}<span>{open ? (isAlbanian ? "Mbyll" : "Close") : "Menu"}</span></Button>
       </div>
     </div>
-    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-border bg-background lg:hidden"><div className="container-page py-4">
-      <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Button key={item.to} variant="ghost" asChild className="flex min-h-12 w-full justify-start text-navy"><Link to={item.to}>{item.label}</Link></Button> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="min-h-12 px-4 text-base text-navy">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Button key={i.to} variant="ghost" asChild className="min-h-11 justify-start whitespace-normal text-left text-navy"><Link to={i.to}>{i.label}</Link></Button>)}</div></AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button></div>
+    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet lg:hidden"><div className="container-page py-6">
+      <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Button key={item.to} variant="ghost" asChild className="mobile-sheet-link"><Link to={item.to}>{item.label}</Link></Button> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Button key={i.to} variant="ghost" asChild className="mobile-sheet-sublink"><Link to={i.to}>{i.label}</Link></Button>)}</div></AccordionContent></AccordionItem>)}</Accordion>
+      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button></div>
     </div></nav>}
   </header>;
 }
