@@ -11,21 +11,32 @@ export function GuideToc({ path }: { path: string }) {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll<HTMLHeadingElement>("main h2")).filter(h => !h.closest(".cta-band, .related-guides"));
-    const list = nodes.map(h => { if (!h.id) h.id = slug(h.textContent ?? ""); return { id: h.id, text: h.textContent ?? "" }; }).filter(h => h.id);
-    setHeadings(list.length >= 4 ? list : []);
-    const hero = document.querySelector("main .text-hero");
-    const end = document.querySelector(".related-guides");
+    const main = document.querySelector("main");
+    if (!main) return;
     const state = { hero: true, end: false };
     const io = new IntersectionObserver(entries => {
-      for (const e of entries) { if (e.target === hero) state.hero = e.isIntersecting; if (e.target === end) state.end = e.isIntersecting || e.boundingClientRect.top < 0; }
+      for (const e of entries) {
+        if (e.target.classList.contains("text-hero")) state.hero = e.isIntersecting;
+        else state.end = e.isIntersecting || e.boundingClientRect.top < 0;
+      }
       setHidden(state.hero || state.end);
     });
-    if (hero) io.observe(hero); else state.hero = false;
-    if (end) io.observe(end);
-    setHidden(state.hero);
-    return () => io.disconnect();
+    // The article chunk can mount after this effect, so rescan whenever main's content changes.
+    const scan = () => {
+      const nodes = Array.from(main.querySelectorAll<HTMLHeadingElement>("h2")).filter(h => !h.closest(".cta-band, .related-guides, .guide-toc"));
+      const list = nodes.map(h => { if (!h.id) h.id = slug(h.textContent ?? ""); return { id: h.id, text: h.textContent ?? "" }; }).filter(h => h.id);
+      setHeadings(prev => prev.length === list.length && prev.every((p, i) => p.id === list[i].id) ? prev : list);
+      io.disconnect();
+      const hero = main.querySelector(".text-hero"); const end = main.querySelector(".related-guides");
+      if (hero) io.observe(hero); else state.hero = false;
+      if (end) io.observe(end);
+    };
+    scan();
+    const mo = new MutationObserver(scan);
+    mo.observe(main, { childList: true, subtree: true });
+    return () => { mo.disconnect(); io.disconnect(); };
   }, [path]);
+  if (headings.length < 4) return null;
   if (!headings.length) return null;
   return <nav className="guide-toc" data-hidden={hidden} aria-label="On this page">
     <p>On this page</p>
