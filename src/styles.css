@@ -439,6 +439,8 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
 @media (min-width: 1280px) {
   .guide-toc { display: block; position: fixed; z-index: 5; top: 120px; left: max(24px, calc(50% - 630px)); width: 230px; max-height: calc(100vh - 160px); overflow-y: auto; transition: opacity .2s; }
   .guide-toc[data-hidden="true"] { opacity: 0; pointer-events: none; }
+  /* Article body sits right of the fixed contents list so wide tables never run underneath it. */
+  main[data-page="guide-article"] section:not(:first-of-type) > .container-page { padding-left: 290px; }
   .guide-toc p { font-size: 13px; font-weight: 600; color: var(--muted-foreground); }
   .guide-toc ol { display: grid; gap: 2px; margin-top: 10px; border-left: 1px solid var(--border); }
   .guide-toc button { display: block; width: 100%; text-align: left; padding: 6px 0 6px 14px; font-size: 14px; line-height: 1.4; color: var(--secondary); }
