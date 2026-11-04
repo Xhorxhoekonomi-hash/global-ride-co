@@ -54,6 +54,7 @@ import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amer
 import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
+import { Route as AlHistorikuIAutomjetitRouteImport } from './routes/al/historiku-i-automjetit'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
@@ -318,6 +319,11 @@ const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
   path: '/al/encar-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlHistorikuIAutomjetitRoute = AlHistorikuIAutomjetitRouteImport.update({
+  id: '/al/historiku-i-automjetit',
+  path: '/al/historiku-i-automjetit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
   id: '/al/iaai-shqiperi',
   path: '/al/iaai-shqiperi',
@@ -561,6 +567,7 @@ export interface FileRoutesByFullPath {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -645,6 +652,7 @@ export interface FileRoutesByTo {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -730,6 +738,7 @@ export interface FileRoutesById {
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
@@ -816,6 +825,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -900,6 +910,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -984,6 +995,7 @@ export interface FileRouteTypes {
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
+    | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
@@ -1069,6 +1081,7 @@ export interface RootRouteChildren {
   AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
+  AlHistorikuIAutomjetitRoute: typeof AlHistorikuIAutomjetitRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
   AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
@@ -1426,6 +1439,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlEncarShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/historiku-i-automjetit': {
+      id: '/al/historiku-i-automjetit'
+      path: '/al/historiku-i-automjetit'
+      fullPath: '/al/historiku-i-automjetit'
+      preLoaderRoute: typeof AlHistorikuIAutomjetitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/iaai-shqiperi': {
       id: '/al/iaai-shqiperi'
       path: '/al/iaai-shqiperi'
@@ -1733,6 +1753,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
+  AlHistorikuIAutomjetitRoute: AlHistorikuIAutomjetitRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
   AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
