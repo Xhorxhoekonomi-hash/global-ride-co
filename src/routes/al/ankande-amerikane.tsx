@@ -122,7 +122,7 @@ function AnkandeAmerikane() {
             <div className="eyebrow">Krahasimi i platformave</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Cila platformë për cilën nevojë</h2>
           </div>
-          <div tabIndex={0} role="region" aria-label="Comparison table" className="mt-12 overflow-x-auto">
+          <div tabIndex={0} role="region" aria-label="Tabelë krahasuese" className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse overflow-hidden rounded-2xl border border-border text-left text-sm">
               <thead>
                 <tr className="bg-mist">
