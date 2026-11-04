@@ -319,7 +319,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
                 <Button variant="ghost"
                   onClick={onWhatsApp}
                   type="button"
-                  className="h-auto min-h-12 w-full whitespace-normal bg-primary py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+                  className="h-auto min-h-12 w-full whitespace-normal bg-primary py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-teal-dark"
                 >
                   <MessageCircle className="h-4 w-4" /> {D.requestOnWhatsApp}
                 </Button>
