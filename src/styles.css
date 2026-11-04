@@ -212,6 +212,7 @@
 .hero-panel-arrow--next { right: 24px; }
 .hero-scene .hero-panel-copy > p.hero-scene-eyebrow { margin: 0 0 12px; font-size: 13px; font-weight: 600; }
 .hero-scene-actions { max-width: 520px; }
+.hero-scene-intro-below { display: none; }
 .hero-scene-actions > * { flex: 1 1 0; min-width: 0; min-height: 48px; border-radius: 8px; box-shadow: none; }
 .hero-scene-actions > :not(:first-child) { background: var(--background); color: var(--navy); border-color: var(--background); }
 @media (min-width: 768px) {
@@ -466,7 +467,8 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
   .stat-grid > div { padding: 20px 16px; }
   .stat-grid dd { font-size: clamp(26px,8vw,40px); }
   .hero-scene .hero-panel-copy h1 { font-size: 28px; }
-  .hero-scene .hero-panel-copy p { font-size: 14px; margin-top: 8px; }
+  .hero-scene .hero-scene-intro { display: none; }
+  .hero-scene-intro-below { display: block; background: var(--background); color: var(--navy); font-size: 16px; line-height: 1.6; padding-block: 24px 8px; }
   .hero-scene-actions { margin-top: 16px; }
   /* The sticky action bar already carries "Get a Quote" on phones; interior heroes keep only their page-specific action. */
   :is(.hero-scene-actions, .text-hero-actions) > :is(a[href="/contact"], a[href="/al/kontakt"]) { display: none; }
