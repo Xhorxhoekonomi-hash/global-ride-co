@@ -1,7 +1,8 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { ROLLS_ROYCE_PORT } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
-import { createFileRoute } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock, DollarSign, Ship } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -43,20 +44,10 @@ const POINTS = [
 function RoroShipping() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "RoRo Shipping" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.transporter}>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">RoRo shipping</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              The Fast, Economical Route to Albania
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Roll-on/Roll-off shipping to Durrës, Albania and European ports — the standard choice for everyday vehicles.
-            </p>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={ROLLS_ROYCE_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "RoRo Shipping" }]} eyebrow="RoRo shipping" title={<>The Fast, Economical Route to Albania</>} description={<>Roll-on/Roll-off shipping to Durrës, Albania and European ports — the standard choice for everyday vehicles.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

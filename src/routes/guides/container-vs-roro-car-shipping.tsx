@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Ship, Truck, MessageCircle, Calculator, CheckCircle2 } from "lucide-react";
@@ -70,13 +70,13 @@ function GuideContainerVsRoro() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Container vs RoRo" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.container}>
+      <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Container vs RoRo Car Shipping</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Neither method is universally better — the right choice depends on your vehicle's condition, value, route, and priorities.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

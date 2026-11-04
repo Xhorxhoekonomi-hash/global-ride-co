@@ -1,4 +1,6 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { ORANGE_MCLAREN_PORT } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gem, ShieldCheck, Ship, Plane, MessageCircle, MapPin } from "lucide-react";
@@ -81,30 +83,10 @@ function MakinaNgaDubai() {
 
   return (
     <>
-      <EditorialHero photo={PHOTO_SELECTIONS.blueFerrari} locale="sq">
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Import nga Dubai</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Makina nga Dubai, drejt Shqipërisë
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Nga makina luksoze dhe supercars te SUV standarde — ju ndihmojmë të blini nga dealerë dhe shitës privatë në Dubai dhe të transportoni automjetin në mënyrë të sigurt.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-dubai-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={ORANGE_MCLAREN_PORT.sq} eyebrow="Import nga Dubai" title={<>Makina nga Dubai, drejt Shqipërisë</>} description={<>Nga makina luksoze dhe supercars te SUV standarde — ju ndihmojmë të blini nga dealerë dhe shitës privatë në Dubai dhe të transportoni automjetin në mënyrë të sigurt.</>}>
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

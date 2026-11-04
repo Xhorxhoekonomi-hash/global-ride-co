@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileSearch, Info, ScrollText, MessageCircle, Calculator, ArrowRight, Ship, ClipboardList, Wallet, Truck, Landmark } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -113,7 +113,7 @@ function IaaiShqiperi() {
 
   return (
     <>
-      <EditorialHero locale="sq">
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">IAAI për Shqipëri</div>
@@ -143,7 +143,7 @@ function IaaiShqiperi() {
             </div>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

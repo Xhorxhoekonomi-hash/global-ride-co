@@ -1,5 +1,6 @@
+import { PageHero } from "@/components/site/PageHero";
+import { YELLOW_MCLAREN_CONTAINER } from "@/lib/hero-scenes";
 import { JourneySteps } from "@/components/site/JourneySteps";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gauge, ShieldCheck, FileText, Ship, Container, Landmark, MessageCircle, Calculator, ClipboardCheck, Truck } from "lucide-react";
@@ -123,24 +124,10 @@ function MakinaNgaKorea() {
 
   return (
     <>
-      <InnerPageHero eyebrow="Import automjetesh nga Koreja e Jugut" title="Blej dhe transporto një makinë nga Koreja e Jugut" description="Ju ndihmojmë të gjeni automjete me kilometrazh të ulët dhe dokumentacion të plotë nga Encar, Autowini, KB Chachacha dhe shitës të përzgjedhur, me transport deri në Portin e Durrësit.">
-
-              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-korea-hero" })}
-                >
-                <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a></Button>
-              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
-                to="/al/kalkulator-transporti"
-                onClick={() => trackEvent("calculator_started", { source: "al-korea-hero" })}
-                >
-                <Calculator className="h-4 w-4" /> Llogarit koston
-              </Link></Button>
-            
-      </InnerPageHero>
+      <PageHero scene={YELLOW_MCLAREN_CONTAINER.sq} eyebrow="Import automjetesh nga Koreja e Jugut" title="Blej dhe transporto një makinë nga Koreja e Jugut" description="Ju ndihmojmë të gjeni automjete me kilometrazh të ulët dhe dokumentacion të plotë nga Encar, Autowini, KB Chachacha dhe shitës të përzgjedhur, me transport deri në Portin e Durrësit.">
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
+      </PageHero>
 
       <section className="section-mist border-y border-border">
         <div className="container-page grid gap-6 py-10 md:grid-cols-4">

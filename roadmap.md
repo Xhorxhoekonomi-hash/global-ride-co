@@ -85,3 +85,9 @@
 - [x] RouteFinder (replaces task tabs and calculator teaser) with calculator/contact prefill and route_finder_submitted event.
 - [x] Services swipe cards, 4-step timeline, origins card row, archive side photo.
 - [x] Verify EN/SQ at 1440/1024/390/360; tests; no publishing.
+
+# Step 3 — interior page templates
+- [x] Save five new owner hero photos (2560/1440 desktop, 1080 mobile WebP).
+- [x] One interior hero (PageHero): photo pages per assignment, navy airfreight hero, light text heroes elsewhere; old hero variants removed.
+- [x] Shared timeline, flat cards, guide typography/contents/related guides, closing band, header full-screen phone menu, footer slogan.
+- [x] Verify all public EN/SQ pages at 1440/390, key pages at 1024/360, phone menu, tests and build; no publishing.

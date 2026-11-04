@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ShieldCheck, Gauge, FileText, Ship, MessageCircle, Camera } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -75,7 +75,7 @@ function EncarShqiperi() {
 
   return (
     <>
-      <EditorialHero locale="sq">
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Encar & platformat koreane</div>
@@ -98,7 +98,7 @@ function EncarShqiperi() {
             </div>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

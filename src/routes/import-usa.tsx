@@ -1,9 +1,8 @@
+import { PageHero } from "@/components/site/PageHero";
 import { JourneySteps } from "@/components/site/JourneySteps";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { CYBERTRUCK_PORT } from "@/lib/hero-scenes";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Search, Gavel, ShieldCheck, DollarSign, FileText, Truck, Ship, Landmark, MessageCircle, Calculator, ArrowRight, Package, PackageCheck } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -100,25 +99,10 @@ function ImportUSA() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} />
-      <InnerPageHero eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe." scene={CYBERTRUCK_PORT.en}>
-
-              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "import-usa-hero" })}
-                >
-                <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a></Button>
-              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
-                to="/calculator"
-                onClick={() => trackEvent("calculator_started", { source: "import-usa-hero" })}
-                >
-                <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-              </Link></Button>
-            
-      </InnerPageHero>
+      <PageHero scene={CYBERTRUCK_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping Cost</Link></Button>
+      </PageHero>
 
       <PlatformBadges />
 

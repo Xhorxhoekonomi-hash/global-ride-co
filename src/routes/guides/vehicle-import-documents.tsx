@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileText, Calculator, AlertTriangle } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -99,13 +99,13 @@ function GuideImportDocuments() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Import Documents" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <GuideMeta category="documentation" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Vehicle Import Documents Explained</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">What each document actually does — from purchase invoice to customs declaration — in plain language.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

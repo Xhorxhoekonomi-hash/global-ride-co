@@ -1,4 +1,4 @@
-import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Mail } from "lucide-react";
@@ -29,9 +29,9 @@ function KontaktAL() {
 
   return (
     <>
-      <InnerPageHero eyebrow="Na kontaktoni" title="Transportoni makinën tuaj me siguri dhe transparencë" description="Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit." imageAlt="Terminal portual për transportin ndërkombëtar të automjeteve">
+      <PageHero eyebrow="Na kontaktoni" title="Transportoni makinën tuaj me siguri dhe transparencë" description="Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit.">
         <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
-      </InnerPageHero>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">

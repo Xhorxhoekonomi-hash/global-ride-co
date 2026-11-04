@@ -1,8 +1,8 @@
+import { PageHero } from "@/components/site/PageHero";
+import { YELLOW_MCLAREN_CONTAINER } from "@/lib/hero-scenes";
 import { JourneySteps } from "@/components/site/JourneySteps";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Gauge, ShieldCheck, FileText, DollarSign, ArrowRight, ShoppingBag, MessageSquare, Camera, ClipboardCheck, MessageCircle, Calculator } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -121,25 +121,10 @@ function ImportKorea() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From South Korea" }]} />
-      <InnerPageHero eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe.">
-
-              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "import-korea-hero" })}
-                >
-                <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a></Button>
-              <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
-                to="/calculator"
-                onClick={() => trackEvent("calculator_started", { source: "import-korea-hero" })}
-                >
-                <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-              </Link></Button>
-            
-      </InnerPageHero>
+      <PageHero scene={YELLOW_MCLAREN_CONTAINER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From South Korea" }]} eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping Cost</Link></Button>
+      </PageHero>
 
       <section className="section-mist border-y border-border">
         <div className="container-page grid gap-6 py-10 md:grid-cols-4">

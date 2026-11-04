@@ -1,4 +1,4 @@
-import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Mail, Phone, Clock, Instagram } from "lucide-react";
@@ -26,9 +26,9 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <>
-      <InnerPageHero eyebrow="Contact us" title="Ship your car with ease and peace of mind." description="Contact us today for reliable and affordable vehicle sourcing, inspection and shipping services." imageAlt="Durrës port at sunset">
+      <PageHero eyebrow="Contact us" title="Ship your car with ease and peace of mind." description="Contact us today for reliable and affordable vehicle sourcing, inspection and shipping services.">
         <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
-      </InnerPageHero>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page grid gap-10 py-14 md:py-18 lg:grid-cols-5 lg:gap-12">

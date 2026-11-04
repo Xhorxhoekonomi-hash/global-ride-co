@@ -1,4 +1,6 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { MCLAREN_REAR_CONTAINER } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Package, ShieldCheck, Lock, Ship, MessageCircle, Calculator } from "lucide-react";
@@ -79,30 +81,10 @@ function TransportMeKontenier() {
 
   return (
     <>
-      <EditorialHero photo={PHOTO_SELECTIONS.container} locale="sq">
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Transport me kontenier</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Mbrojtje e plotë për automjetin tuaj gjatë transportit detar
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Kontenier 20ft, 40ft HC, i përbashkët ose i dedikuar — zgjedhim opsionin e duhur për automjetin tuaj nga SHBA-ja, Koreja e Jugut, Dubai, Kanadaja ose Evropa.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-container-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={MCLAREN_REAR_CONTAINER.sq} eyebrow="Transport me kontenier" title={<>Mbrojtje e plotë për automjetin tuaj gjatë transportit detar</>} description={<>Kontenier 20ft, 40ft HC, i përbashkët ose i dedikuar — zgjedhim opsionin e duhur për automjetin tuaj nga SHBA-ja, Koreja e Jugut, Dubai, Kanadaja ose Evropa.</>}>
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

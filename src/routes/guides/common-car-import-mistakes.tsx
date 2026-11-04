@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertTriangle, MessageCircle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -49,13 +49,13 @@ function GuideCommonMistakes() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Common Import Mistakes" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <GuideMeta category="buying" readingTime="6 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Common Car Import Mistakes</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">The mistakes that cost buyers the most time and money — and how to avoid each one.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

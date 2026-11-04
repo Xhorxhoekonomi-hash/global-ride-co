@@ -1,4 +1,5 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Plane, Clock, ShieldCheck, FileText, Package, MessageCircle, Calculator } from "lucide-react";
@@ -84,30 +85,10 @@ function TransportAjrorMakinash() {
 
   return (
     <>
-      <EditorialHero photo={PHOTO_SELECTIONS.loading} locale="sq">
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Transport ajror</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Kur shpejtësia ka rëndësi më shumë se kostoja
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero tone="navy" icon={Plane} eyebrow="Transport ajror" title={<>Kur shpejtësia ka rëndësi më shumë se kostoja</>} description={<>Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.</>}>
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

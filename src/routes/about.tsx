@@ -1,4 +1,6 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { BROWN_PORSCHE_YARD } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Plane, Check, MapPin } from "lucide-react";
@@ -35,19 +37,10 @@ const PRINCIPLES = [
 function About() {
   return (
     <>
-      <EditorialHero photo={PHOTO_SELECTIONS.gallardo}>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Moving Cars Worldwide</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              An International Vehicle Logistics Company
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Headquartered in Dubai, UAE, with European and Albanian operations in Durrës — sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, and Canada.
-            </p>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={BROWN_PORSCHE_YARD.en} eyebrow="Moving Cars Worldwide" title={<>An International Vehicle Logistics Company</>} description={<>Headquartered in Dubai, UAE, with European and Albanian operations in Durrës — sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, and Canada.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/how-it-works">How It Works</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-2 lg:gap-20">

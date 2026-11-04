@@ -1,6 +1,6 @@
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Star, MessageCircle, ExternalLink, ShieldCheck } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -64,7 +64,7 @@ function Reviews() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Reviews" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Reviews & delivered vehicles</div>
@@ -76,7 +76,7 @@ function Reviews() {
             </p>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">

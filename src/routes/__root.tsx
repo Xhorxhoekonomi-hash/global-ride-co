@@ -18,6 +18,8 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { StickyActionBar } from "@/components/site/StickyActionBar";
+import { CtaBand } from "@/components/site/CtaBand";
+import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/seo";
 
@@ -186,6 +188,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isUtilityPage = pathname.startsWith("/admin");
+  const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  const isGuideArticle = /^\/guides\/[^/]+$/.test(normalized);
+  const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized);
 
   if (isUtilityPage) {
     return (
@@ -198,8 +203,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen" data-page={isGuideArticle ? "guide-article" : undefined}>
         <Outlet />
+        {isGuideArticle && <GuideToc path={normalized} />}
+        {isGuideArticle && <RelatedGuides path={normalized} />}
+        {showCtaBand && <CtaBand locale={pathname.startsWith("/al") ? "sq" : "en"} />}
       </main>
       <Footer />
       <WhatsAppFloat />

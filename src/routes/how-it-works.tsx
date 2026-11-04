@@ -1,10 +1,10 @@
+import { PageHero } from "@/components/site/PageHero";
+import { SILVER_FERRARI_YARD } from "@/lib/hero-scenes";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Eye, FileCheck, ShoppingBag, CreditCard, FileText, Ship, Anchor, Landmark, PackageCheck, MessageCircle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -69,10 +69,10 @@ function HowItWorks() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "How It Works" }]} />
-      <InnerPageHero eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control." image={PHOTO_SELECTIONS.transporter.src} imageAlt={PHOTO_SELECTIONS.transporter.en}>
-
-      </InnerPageHero>
+      <PageHero scene={SILVER_FERRARI_YARD.en} breadcrumbs={[{ label: "How It Works" }]} eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Cost</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">

@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Hash, Camera, ShieldAlert, Gavel, DollarSign, Truck, Container, FileText, Landmark, MessageCircle, Calculator, ArrowRight } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -100,7 +100,7 @@ function CopartShqiperi() {
 
   return (
     <>
-      <EditorialHero locale="sq">
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Copart për Shqipëri</div>
@@ -130,7 +130,7 @@ function CopartShqiperi() {
             </div>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

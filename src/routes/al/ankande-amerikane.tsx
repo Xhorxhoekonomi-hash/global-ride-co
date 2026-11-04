@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Gavel, Search, ShieldCheck, FileText, Truck, Ship, Landmark, MessageCircle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -84,7 +84,7 @@ function AnkandeAmerikane() {
 
   return (
     <>
-      <EditorialHero locale="sq">
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Ankandet amerikane</div>
@@ -114,7 +114,7 @@ function AnkandeAmerikane() {
             </div>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

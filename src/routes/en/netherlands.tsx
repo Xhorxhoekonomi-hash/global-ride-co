@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Ship, ArrowRight, MessageCircle, Calculator, ShieldCheck, Package, Plane, MapPin } from "lucide-react";
@@ -76,7 +76,7 @@ function NetherlandsHub() {
     <>
       <Breadcrumbs items={[{ label: "Netherlands" }]} />
 
-      <EditorialHero>
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Netherlands</div>
@@ -88,7 +88,7 @@ function NetherlandsHub() {
             </p>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

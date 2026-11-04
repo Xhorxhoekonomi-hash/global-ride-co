@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calculator, MessageCircle, DollarSign, Landmark, Package } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -66,13 +66,13 @@ function GuideShippingCosts() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Shipping Costs Explained" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="3 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Car Shipping Costs Explained</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Every category that can show up on an international vehicle import, split clearly by what we estimate versus what your destination authority sets.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
