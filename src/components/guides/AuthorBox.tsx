@@ -9,7 +9,8 @@ import { ShieldCheck, Award, MessageCircle } from "lucide-react";
  * parent page's existing Article schema (author/publisher fields) rather
  * than duplicating a separate top-level Organization block here.
  */
-export function AuthorBox() {
+export function AuthorBox({ locale = "en" }: { locale?: "en" | "sq" }) {
+  const sq = locale === "sq";
   return (
     <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
       <div className="flex flex-wrap items-start gap-4 sm:flex-nowrap">
@@ -18,14 +19,14 @@ export function AuthorBox() {
         </div>
         <div className="flex-1">
           <div className="text-sm font-bold text-navy">Alpha Worldwide</div>
-          <div className="text-xs text-slate-body">Vehicle Import Specialists</div>
+          <div className="text-xs text-slate-body">{sq ? "Specialistë të importit të automjeteve" : "Vehicle Import Specialists"}</div>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-body">
-            <span className="inline-flex items-center gap-1"><Award className="h-3.5 w-3.5 text-teal" /> 15,000+ vehicles transported</span>
-            <span className="inline-flex items-center gap-1"><Award className="h-3.5 w-3.5 text-teal" /> 10+ years experience</span>
+            <span className="inline-flex items-center gap-1"><Award className="h-3.5 w-3.5 text-teal" /> {sq ? "Mbi 15,000 automjete të transportuara" : "15,000+ vehicles transported"}</span>
+            <span className="inline-flex items-center gap-1"><Award className="h-3.5 w-3.5 text-teal" /> {sq ? "Mbi 10 vjet përvojë" : "10+ years experience"}</span>
           </div>
         </div>
-        <Link to="/contact" className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-teal hover:text-teal">
-          <MessageCircle className="h-3.5 w-3.5" /> Contact Us
+        <Link to={sq ? "/al/kontakt" : "/contact"} className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-teal hover:text-teal">
+          <MessageCircle className="h-3.5 w-3.5" /> {sq ? "Na kontaktoni" : "Contact Us"}
         </Link>
       </div>
     </div>
