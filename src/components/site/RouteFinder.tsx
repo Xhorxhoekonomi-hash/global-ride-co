@@ -18,7 +18,7 @@ const COPY = {
     origins: ["Amerikë", "Koreja e Jugut", "Dubai / EBA", "Kanada", "Evropë"],
     destinations: ["Shqipëri", "Kosovë", "Gjermani", "Holandë", "Belgjikë", "Francë", "Itali", "Tjetër"],
     vehicles: ["Makinë / SUV", "Pickup / Furgon", "Motoçikletë", "Tjetër"],
-    note: "Përllogaritjet përdorin tabelat tona aktuale të tarifave. Oferta përfundimtare konfirmohet para rezervimit.", disclaimer: "Rreth përllogaritjeve (EN)",
+    note: "Përllogaritjet përdorin tabelat tona aktuale të tarifave. Oferta përfundimtare konfirmohet para rezervimit.", disclaimer: "Rreth përllogaritjeve",
   },
 };
 
