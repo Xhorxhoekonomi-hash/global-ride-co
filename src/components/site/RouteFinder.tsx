@@ -3,6 +3,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
+import { localPath } from "@/lib/site-data";
 import { RF_DESTINATIONS, RF_ORIGINS, RF_VEHICLES, routeFinderTarget, type RfDestination, type RfOrigin, type RfVehicle } from "@/lib/route-finder";
 
 const COPY = {
@@ -24,6 +25,7 @@ const COPY = {
 
 export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
   const c = COPY[locale];
+  const L = (to: string) => localPath(to, locale === "sq");
   const navigate = useNavigate();
   const [from, setFrom] = useState<RfOrigin>("USA");
   const [to, setTo] = useState<RfDestination>("Albania");
