@@ -31,9 +31,38 @@ export const LANGUAGE_ROUTE_MAP: Record<string, string> = {
   "/": "/al",
   "/import-usa": "/al/makina-nga-amerika",
   "/import-korea": "/al/makina-nga-korea",
+  "/import-uae": "/al/makina-nga-dubai",
+  "/import-europe": "/al/makina-nga-evropa",
+  "/import-canada": "/al/makina-nga-kanadaja",
   "/calculator": "/al/kalkulator-transporti",
   "/contact": "/al/kontakt",
+  "/auction-access": "/al/ankande-amerikane",
+  "/inspection-service": "/al/inspektim-makinash",
+  "/container-shipping": "/al/transport-me-kontenier",
+  "/roro-shipping": "/al/transport-roro",
+  "/airfreight": "/al/transport-ajror-makinash",
+  "/how-it-works": "/al/si-funksionon",
+  "/services": "/al/sherbimet",
+  "/faq": "/al/pyetje-te-shpeshta",
+  "/about": "/al/rreth-nesh",
+  "/why-alpha-worldwide": "/al/pse-alpha-worldwide",
+  "/delivered-vehicles": "/al/automjete-te-dorezuara",
+  "/reviews": "/al/pervoja-e-klienteve",
+  "/vehicle-history-check": "/al/historiku-i-automjetit",
+  "/guides": "/al/udhezues",
+  "/guides/how-to-buy-a-car-from-usa-auctions": "/al/udhezues/si-te-blini-nga-ankandet-amerikane",
+  "/guides/container-vs-roro-car-shipping": "/al/udhezues/kontenier-apo-roro",
+  "/guides/how-to-check-a-used-car-before-buying": "/al/udhezues/si-te-kontrolloni-makinen-e-perdorur",
+  "/shipping-estimate-disclaimer": "/al/kushtet-e-perllogaritjes",
+  "/privacy-policy": "/al/politika-e-privatesise",
+  "/cookie-policy": "/al/politika-e-cookies",
+  "/terms": "/al/kushtet-e-sherbimit",
 };
+
+/** Albanian counterpart of an English path, or undefined when none exists. */
+export function sqPath(enPath: string): string | undefined {
+  return LANGUAGE_ROUTE_MAP[enPath];
+}
 
 export const OFFICES = [
   {
