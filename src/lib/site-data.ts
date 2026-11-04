@@ -59,6 +59,12 @@ export const LANGUAGE_ROUTE_MAP: Record<string, string> = {
   "/terms": "/al/kushtet-e-sherbimit",
 };
 
+/** Locale-aware link target: on SQ pages every English path maps to its SQ page, unmapped ones to SQ contact. */
+export function localPath(to: string, sq: boolean): string {
+  if (!sq || to.startsWith("/al")) return to;
+  return LANGUAGE_ROUTE_MAP[to] ?? "/al/kontakt";
+}
+
 /** Albanian counterpart of an English path, or undefined when none exists. */
 export function sqPath(enPath: string): string | undefined {
   return LANGUAGE_ROUTE_MAP[enPath];

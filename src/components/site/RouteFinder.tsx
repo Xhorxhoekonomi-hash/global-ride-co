@@ -51,7 +51,7 @@ export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
         {field("rf-vehicle", c.vehicle, vehicle, (v) => setVehicle(v as RfVehicle), RF_VEHICLES, c.vehicles)}
         <Button type="submit" className="route-finder-submit">{c.submit}<ArrowRight /></Button>
       </div>
-      <p className="route-finder-note">{c.note} <Link to="/shipping-estimate-disclaimer">{c.disclaimer}</Link></p>
+      <p className="route-finder-note">{c.note} <Link to={L("/shipping-estimate-disclaimer")}>{c.disclaimer}</Link></p>
     </form>
   </div></section>;
 }
