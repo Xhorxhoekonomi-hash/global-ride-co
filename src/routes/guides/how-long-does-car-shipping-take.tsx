@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock, Ship, Landmark, MessageCircle, Calculator } from "lucide-react";
@@ -49,13 +49,13 @@ function GuideShippingTime() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Shipping Timelines" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.urus}>
+      <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="5 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How Long Does Car Shipping Take?</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">A stage-by-stage look at what actually determines your timeline — in ranges, never as a fixed promise.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

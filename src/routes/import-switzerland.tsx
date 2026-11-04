@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Anchor, FileText, ShieldCheck, Ship, Truck, Car, MessageCircle, Calculator, Award } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -58,7 +58,7 @@ function ImportSwitzerland() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Import to Switzerland" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Import to · Switzerland</div>
@@ -70,7 +70,7 @@ function ImportSwitzerland() {
             </div>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">

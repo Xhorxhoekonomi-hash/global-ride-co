@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, MessageCircle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -63,13 +63,13 @@ function GuideGlossary() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Import Glossary" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <GuideMeta category="documentation" readingTime="7 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Car Import Glossary</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Plain-language definitions for the terms that come up most often across auctions, shipping, and customs.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">

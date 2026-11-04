@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Scale, AlertTriangle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -69,13 +69,13 @@ function GuideCopartVsIaai() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Copart vs IAAI" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <GuideMeta category="auctions" readingTime="4 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Copart vs IAAI: A Neutral Comparison</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Two of the largest US salvage auction platforms, compared honestly — including where they're more similar than different.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

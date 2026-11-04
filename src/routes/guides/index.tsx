@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Gavel, Scale, Ship, Search, FileText, Calculator, ArrowRight, Battery, Gem, Clock, AlertTriangle, BookOpen } from "lucide-react";
@@ -66,13 +66,13 @@ function GuidesHub() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides" }]} />
-      <EditorialHero variant="editorial">
+      <TextHero>
         <div>
           <div className="eyebrow text-primary">Guides</div>
           <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Vehicle Import Guides</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Practical answers to the questions that come up before, during, and after buying a vehicle abroad — written to help you decide, not to sell you.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">

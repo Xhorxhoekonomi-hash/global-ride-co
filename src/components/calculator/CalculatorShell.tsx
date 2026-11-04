@@ -1,4 +1,4 @@
-import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { MotionConfig } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -32,7 +32,7 @@ export function CalculatorShell({
   }, []);
   return (
     <MotionConfig reducedMotion="user">
-      <InnerPageHero eyebrow={dict.hero.eyebrow} title={dict.hero.title} description={dict.hero.subtitle} />
+      <PageHero eyebrow={dict.hero.eyebrow} title={dict.hero.title} description={dict.hero.subtitle} />
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-20">

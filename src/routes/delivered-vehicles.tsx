@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Instagram, MessageCircle, Ship } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PageHero } from "@/components/site/PageHero";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { Button } from "@/components/ui/button";
@@ -15,10 +15,10 @@ export const Route = createFileRoute("/delivered-vehicles")({
 
 function DeliveredVehicles() {
   return <>
-    <InnerPageHero eyebrow="Deliveries & updates" title="Vehicles we’ve handled" description="Original photographs from our vehicle handling and shipping operations." image={PHOTO_SELECTIONS.silverFerrari.src} imageAlt={PHOTO_SELECTIONS.silverFerrari.en}>
+    <PageHero eyebrow="Deliveries & updates" title="Vehicles we’ve handled" description="Original photographs from our vehicle handling and shipping operations.">
       <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> See our deliveries on Instagram <ArrowRight /></a></Button>
       <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a Quote</Link></Button>
-    </InnerPageHero>
+    </PageHero>
     <section className="bg-background">
       <div className="container-page py-12 md:py-16">
         <p className="text-xs font-semibold text-primary">Original Alpha Worldwide photos</p>

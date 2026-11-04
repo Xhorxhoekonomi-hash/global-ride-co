@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FileText, MessageCircle, Calculator } from "lucide-react";
@@ -42,13 +42,13 @@ function GuideLuxuryCars() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Guides", to: "/guides" }, { label: "Importing Luxury Cars" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.rollsRoyce}>
+      <TextHero>
         <div>
           <GuideMeta category="buying" readingTime="6 min" />
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Importing Luxury Cars</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">What changes when the vehicle is a Ferrari, Lamborghini, Bentley, Rolls-Royce, or Porsche rather than a standard passenger car.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">

@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -43,7 +43,7 @@ function AuctionAccess() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Auction Access" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Auction access</div>
@@ -55,7 +55,7 @@ function AuctionAccess() {
             </p>
           </div>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <PlatformBadges />
 

@@ -1,4 +1,4 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -125,13 +125,13 @@ function FaqHub() {
   return (
     <>
       <Breadcrumbs items={[{ label: "FAQ" }]} />
-      <EditorialHero>
+      <TextHero>
         <div>
           <div className="eyebrow text-primary">Knowledge center</div>
           <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Frequently Asked Questions</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Organized by topic — every short answer links to the full detail page.</p>
         </div>
-      </EditorialHero>
+      </TextHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
