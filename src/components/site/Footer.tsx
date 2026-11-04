@@ -62,10 +62,11 @@ export function Footer() {
   const isAlbanian = pathname.startsWith("/al");
 
   return (
-    <footer className="alpha-footer bg-mist text-navy border-t border-border">
+    <footer className="alpha-footer">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <BrandLogo className="w-48" />
+          <p className="footer-slogan">Moving Cars Worldwide</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             {isAlbanian
               ? "Kompani ndërkombëtare për blerjen, inspektimin dhe transportin e automjeteve — nga origjina deri në derën tuaj."

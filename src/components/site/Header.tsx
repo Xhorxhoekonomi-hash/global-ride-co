@@ -29,6 +29,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { document.body.style.overflow = open ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [open]);
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
