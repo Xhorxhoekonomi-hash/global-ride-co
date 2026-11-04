@@ -62,6 +62,7 @@ import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dub
 import { Route as AlMakinaNgaEvropaRouteImport } from './routes/al/makina-nga-evropa'
 import { Route as AlMakinaNgaKanadajaRouteImport } from './routes/al/makina-nga-kanadaja'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlPseAlphaWorldwideRouteImport } from './routes/al/pse-alpha-worldwide'
 import { Route as AlPyetjeTeShpeshtaRouteImport } from './routes/al/pyetje-te-shpeshta'
 import { Route as AlRrethNeshRouteImport } from './routes/al/rreth-nesh'
 import { Route as AlSherbimetRouteImport } from './routes/al/sherbimet'
@@ -351,6 +352,11 @@ const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   path: '/al/makina-nga-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlPseAlphaWorldwideRoute = AlPseAlphaWorldwideRouteImport.update({
+  id: '/al/pse-alpha-worldwide',
+  path: '/al/pse-alpha-worldwide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlPyetjeTeShpeshtaRoute = AlPyetjeTeShpeshtaRouteImport.update({
   id: '/al/pyetje-te-shpeshta',
   path: '/al/pyetje-te-shpeshta',
@@ -526,6 +532,7 @@ export interface FileRoutesByFullPath {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
   '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
@@ -603,6 +610,7 @@ export interface FileRoutesByTo {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
   '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
@@ -681,6 +689,7 @@ export interface FileRoutesById {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
   '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
@@ -760,6 +769,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pse-alpha-worldwide'
     | '/al/pyetje-te-shpeshta'
     | '/al/rreth-nesh'
     | '/al/sherbimet'
@@ -837,6 +847,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pse-alpha-worldwide'
     | '/al/pyetje-te-shpeshta'
     | '/al/rreth-nesh'
     | '/al/sherbimet'
@@ -914,6 +925,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pse-alpha-worldwide'
     | '/al/pyetje-te-shpeshta'
     | '/al/rreth-nesh'
     | '/al/sherbimet'
@@ -992,6 +1004,7 @@ export interface RootRouteChildren {
   AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
   AlMakinaNgaKanadajaRoute: typeof AlMakinaNgaKanadajaRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlPseAlphaWorldwideRoute: typeof AlPseAlphaWorldwideRoute
   AlPyetjeTeShpeshtaRoute: typeof AlPyetjeTeShpeshtaRoute
   AlRrethNeshRoute: typeof AlRrethNeshRoute
   AlSherbimetRoute: typeof AlSherbimetRoute
@@ -1390,6 +1403,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/pse-alpha-worldwide': {
+      id: '/al/pse-alpha-worldwide'
+      path: '/al/pse-alpha-worldwide'
+      fullPath: '/al/pse-alpha-worldwide'
+      preLoaderRoute: typeof AlPseAlphaWorldwideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/pyetje-te-shpeshta': {
       id: '/al/pyetje-te-shpeshta'
       path: '/al/pyetje-te-shpeshta'
@@ -1600,6 +1620,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
   AlMakinaNgaKanadajaRoute: AlMakinaNgaKanadajaRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlPseAlphaWorldwideRoute: AlPseAlphaWorldwideRoute,
   AlPyetjeTeShpeshtaRoute: AlPyetjeTeShpeshtaRoute,
   AlRrethNeshRoute: AlRrethNeshRoute,
   AlSherbimetRoute: AlSherbimetRoute,
