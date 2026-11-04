@@ -189,7 +189,7 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isUtilityPage = pathname.startsWith("/admin");
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
-  const isGuideArticle = /^\/guides\/[^/]+$/.test(normalized);
+  const isGuideArticle = /^\/(al\/udhezues|guides)\/[^/]+$/.test(normalized);
   const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized);
 
   if (isUtilityPage) {

@@ -24,3 +24,10 @@ export const GUIDES: Guide[] = [
   { to: "/guides/common-car-import-mistakes", icon: AlertTriangle, category: "buying", title: "Common Car Import Mistakes", summary: "The seven mistakes that cost buyers the most time and money — and how to avoid each one.", readingTime: "6 min" },
   { to: "/guides/car-import-glossary", icon: BookOpen, category: "documentation", title: "Car Import Glossary", summary: "Plain-language definitions for Bill of Lading, COC, RoRo, FCL, LCL, demurrage, and the other terms that come up most often.", readingTime: "7 min" },
 ];
+
+/** Albanian guides that exist under /al/udhezues; only these may be linked from SQ pages. */
+export const GUIDES_SQ: Guide[] = [
+  { to: "/al/udhezues/si-te-blini-nga-ankandet-amerikane", icon: Gavel, category: "auctions", title: "Si të blini makinë nga ankandet amerikane", summary: "I gjithë procesi, nga zgjedhja e platformës te regjistrimi: ofertat, tarifat, transporti brenda SHBA-së dhe gabimet që bëjnë blerësit e parë.", readingTime: "5 min", featured: true },
+  { to: "/al/udhezues/kontenier-apo-roro", icon: Ship, category: "shipping", title: "Kontenier apo RoRo për transportin e makinës", summary: "Kur ka kuptim kontenieri i përbashkët ose i dedikuar, kur RoRo është zgjidhja më praktike dhe çfarë e vendos realisht zgjedhjen.", readingTime: "3 min", featured: true },
+  { to: "/al/udhezues/si-te-kontrolloni-makinen-e-perdorur", icon: Search, category: "inspection", title: "Si të kontrolloni një makinë të përdorur para blerjes", summary: "Një listë kontrolli praktike dhe e ndershme, nga VIN-i dhe historiku i servisit te skanimi OBD dhe ndezja në të ftohtë, si dhe kufijtë realë të inspektimit.", readingTime: "3 min", featured: true },
+];

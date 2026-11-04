@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { SITE_URL } from "@/lib/seo";
 
@@ -6,7 +6,8 @@ export type Crumb = { label: string; to?: string };
 
 /** Breadcrumb trail + BreadcrumbList schema. `photo` renders inside a HeroScene over the image. */
 export function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: "light" | "navy" | "photo" }) {
-  const full: Crumb[] = [{ label: "Home", to: "/" }, ...items];
+  const sq = useRouterState({ select: (s) => s.location.pathname }).startsWith("/al");
+  const full: Crumb[] = [sq ? { label: "Kreu", to: "/al" } : { label: "Home", to: "/" }, ...items];
 
   const schema = {
     "@context": "https://schema.org",
