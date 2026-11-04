@@ -65,6 +65,7 @@ import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dub
 import { Route as AlMakinaNgaEvropaRouteImport } from './routes/al/makina-nga-evropa'
 import { Route as AlMakinaNgaKanadajaRouteImport } from './routes/al/makina-nga-kanadaja'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlPervojaEKlienteveRouteImport } from './routes/al/pervoja-e-klienteve'
 import { Route as AlPolitikaECookiesRouteImport } from './routes/al/politika-e-cookies'
 import { Route as AlPolitikaEPrivatesiseRouteImport } from './routes/al/politika-e-privatesise'
 import { Route as AlPseAlphaWorldwideRouteImport } from './routes/al/pse-alpha-worldwide'
@@ -373,6 +374,11 @@ const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   path: '/al/makina-nga-korea',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlPervojaEKlienteveRoute = AlPervojaEKlienteveRouteImport.update({
+  id: '/al/pervoja-e-klienteve',
+  path: '/al/pervoja-e-klienteve',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlPolitikaECookiesRoute = AlPolitikaECookiesRouteImport.update({
   id: '/al/politika-e-cookies',
   path: '/al/politika-e-cookies',
@@ -566,6 +572,7 @@ export interface FileRoutesByFullPath {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -649,6 +656,7 @@ export interface FileRoutesByTo {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -733,6 +741,7 @@ export interface FileRoutesById {
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
   '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/pervoja-e-klienteve': typeof AlPervojaEKlienteveRoute
   '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
   '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
   '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
@@ -818,6 +827,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -901,6 +911,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -984,6 +995,7 @@ export interface FileRouteTypes {
     | '/al/makina-nga-evropa'
     | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/pervoja-e-klienteve'
     | '/al/politika-e-cookies'
     | '/al/politika-e-privatesise'
     | '/al/pse-alpha-worldwide'
@@ -1068,6 +1080,7 @@ export interface RootRouteChildren {
   AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
   AlMakinaNgaKanadajaRoute: typeof AlMakinaNgaKanadajaRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlPervojaEKlienteveRoute: typeof AlPervojaEKlienteveRoute
   AlPolitikaECookiesRoute: typeof AlPolitikaECookiesRoute
   AlPolitikaEPrivatesiseRoute: typeof AlPolitikaEPrivatesiseRoute
   AlPseAlphaWorldwideRoute: typeof AlPseAlphaWorldwideRoute
@@ -1490,6 +1503,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/pervoja-e-klienteve': {
+      id: '/al/pervoja-e-klienteve'
+      path: '/al/pervoja-e-klienteve'
+      fullPath: '/al/pervoja-e-klienteve'
+      preLoaderRoute: typeof AlPervojaEKlienteveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/politika-e-cookies': {
       id: '/al/politika-e-cookies'
       path: '/al/politika-e-cookies'
@@ -1724,6 +1744,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
   AlMakinaNgaKanadajaRoute: AlMakinaNgaKanadajaRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlPervojaEKlienteveRoute: AlPervojaEKlienteveRoute,
   AlPolitikaECookiesRoute: AlPolitikaECookiesRoute,
   AlPolitikaEPrivatesiseRoute: AlPolitikaEPrivatesiseRoute,
   AlPseAlphaWorldwideRoute: AlPseAlphaWorldwideRoute,
