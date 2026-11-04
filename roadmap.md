@@ -97,3 +97,11 @@
 - [x] All SQ menus, footer, homepage, cards, guides and breadcrumbs link to SQ pages; "(EN)" labels removed.
 - [x] Verified: 32 SQ pages crawled, zero links to English pages, switcher round-trips, tests and build OK.
 - [ ] Remaining English-only pages (9 guides, European destination pages, Albania/Netherlands hubs) have no SQ version yet; SQ links point to the nearest SQ page instead.
+
+# Step 5 — final polish and whole-site QA
+- [x] Mobile interior heroes: hide duplicate Get a Quote (sticky bar has it); intro moves below photo on phones.
+- [x] "Tregtarë të autorizuar" on SQ pages; customs wording fix in shared import steps.
+- [x] RouteFinder → calculator prefill verified; 3 sample totals identical to pre-Step-1 rates.
+- [x] Contrast (small teal text, dark sections), form select labels, tap targets, scrollable tables, guide TOC overlap.
+- [x] hreflang derived from the EN↔SQ map on every page; full crawl at 1440/390 clean.
+- [ ] Primary button contrast (white on #0F8796 = 4.26:1) — waits on owner decision.
