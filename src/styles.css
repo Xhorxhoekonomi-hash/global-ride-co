@@ -475,6 +475,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
   .hero-scene .hero-scene-intro { display: none; }
   .hero-scene-intro-below { display: block; background: var(--background); color: var(--navy); font-size: 16px; line-height: 1.6; padding-block: 24px 8px; }
   .hero-scene-actions { margin-top: 16px; }
+  main :is(a, button).inline-flex { min-height: 44px; }
   /* The sticky action bar already carries "Get a Quote" on phones; interior heroes keep only their page-specific action. */
   :is(.hero-scene-actions, .text-hero-actions) > :is(a[href="/contact"], a[href="/al/kontakt"]) { display: none; }
 
