@@ -222,7 +222,7 @@ export function QuoteForm({
                 href={lastWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white"
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-teal-button px-5 py-2.5 text-sm font-semibold text-white"
               >
                 {UNSAVED_COPY[locale].reopen}
               </a>
