@@ -131,7 +131,9 @@
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 /* Small teal text on light surfaces uses the darker brand shade so it meets WCAG AA; #0F8796 stays for fills, icons and large figures. */
 .text-teal, .text-primary, .text-teal-dark, .eyebrow { color: var(--teal-dark); }
-:is(.bg-graphite, .bg-navy, .bg-secondary, .stat-panel, .text-hero--navy) :is(.text-teal, .text-primary, .eyebrow) { color: var(--teal-glow); }
+:is(.bg-graphite, .bg-navy, .bg-secondary, .section-dark, .stat-panel, .text-hero--navy) :is(.text-teal, .text-primary, .eyebrow), .text-teal-glow { color: var(--teal-glow); }
+.section-dark .text-white\/50 { color: color-mix(in oklab, var(--background) 72%, transparent); }
+p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offset: 3px; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
