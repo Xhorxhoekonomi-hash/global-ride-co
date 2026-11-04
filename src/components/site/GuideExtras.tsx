@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { GUIDES } from "@/lib/guides";
 
-type Heading = { id: string; text: string };
-const slug = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+type Heading = { id: string; text: string; el: HTMLHeadingElement };
 
 /** Desktop-only table of contents built from the article's h2s; shown only on long articles. */
 export function GuideToc({ path }: { path: string }) {
@@ -24,7 +23,7 @@ export function GuideToc({ path }: { path: string }) {
     // The article chunk can mount after this effect, so rescan whenever main's content changes.
     const scan = () => {
       const nodes = Array.from(main.querySelectorAll<HTMLHeadingElement>("h2")).filter(h => !h.closest(".cta-band, .related-guides, .guide-toc"));
-      const list = nodes.map(h => { if (!h.id) h.id = slug(h.textContent ?? ""); return { id: h.id, text: h.textContent ?? "" }; }).filter(h => h.id);
+      const list = nodes.map((h, i) => ({ id: `${i}-${h.textContent}`, text: h.textContent ?? "", el: h }));
       setHeadings(prev => prev.length === list.length && prev.every((p, i) => p.id === list[i].id) ? prev : list);
       io.disconnect();
       const hero = main.querySelector(".text-hero"); const end = main.querySelector(".related-guides");
@@ -40,7 +39,7 @@ export function GuideToc({ path }: { path: string }) {
   if (!headings.length) return null;
   return <nav className="guide-toc" data-hidden={hidden} aria-label="On this page">
     <p>On this page</p>
-    <ol>{headings.map(h => <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol>
+    <ol>{headings.map(h => <li key={h.id}><button type="button" onClick={() => h.el.scrollIntoView({ behavior: "smooth", block: "start" })}>{h.text}</button></li>)}</ol>
   </nav>;
 }
 
