@@ -461,6 +461,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
   .hero-panel-copy { top: 36px; }
   .hero-panel-actions { gap: 8px; }
   .hero-scene .hero-panel-copy { top: 24px; }
+  .hero-scene .hero-panel-slide::before { height: 64%; background: linear-gradient(180deg, color-mix(in oklab, var(--graphite) 72%, transparent), color-mix(in oklab, var(--graphite) 40%, transparent) 62%, transparent); }
   .stat-grid { gap: 12px; }
   .stat-grid > div { padding: 20px 16px; }
   .stat-grid dd { font-size: clamp(26px,8vw,40px); }
