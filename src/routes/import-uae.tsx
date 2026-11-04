@@ -1,9 +1,9 @@
+import { PageHero } from "@/components/site/PageHero";
+import { ORANGE_MCLAREN_PORT } from "@/lib/hero-scenes";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { JourneySteps } from "@/components/site/JourneySteps";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Phone, MapPin, Truck, Ship, Plane, MessageCircle, ArrowRight } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -98,26 +98,10 @@ function ImportUAE() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} />
-      <InnerPageHero eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters." image={PHOTO_SELECTIONS.blueFerrari.src} imageAlt={PHOTO_SELECTIONS.blueFerrari.en}>
-
-              <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "import-uae-hero" })}
-                >
-                <MessageCircle className="h-4 w-4" /> WhatsApp Quote
-              </a></Button>
-              <a
-                href={`tel:${CONTACT.uae.replace(/\s/g, "")}`}
-                onClick={() => trackEvent("phone_clicked", { location: "import-uae-hero" })}
-                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-background px-4 py-3 text-sm font-semibold text-secondary transition-colors hover:bg-accent"
-              >
-                <Phone className="h-4 w-4 text-primary" /> UAE Office: {CONTACT.uae}
-              </a>
-            
-      </InnerPageHero>
+      <PageHero scene={ORANGE_MCLAREN_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "import-uae-hero" })}>Call UAE Office</a></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">

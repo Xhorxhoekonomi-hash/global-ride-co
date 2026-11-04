@@ -1,8 +1,9 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { BROWN_PORSCHE_YARD } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Globe2, ShieldCheck, Gavel, Package, Plane, Users, Eye, MessageCircle, Calculator, MapPin } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -100,31 +101,10 @@ function WhyAlphaWorldwide() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Why Alpha Worldwide" }]} />
-      <EditorialHero>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Why Alpha Worldwide</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              10+ Years Sourcing and Shipping Vehicles Worldwide
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              15,000+ vehicles bought and transported — from auction lots and dealer listings to a delivered vehicle at your door, coordinated from {dubai.city} and {durres.city}.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "why-alpha-worldwide-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> WhatsApp Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={BROWN_PORSCHE_YARD.en} breadcrumbs={[{ label: "Why Alpha Worldwide" }]} eyebrow="Why Alpha Worldwide" title={<>10+ Years Sourcing and Shipping Vehicles Worldwide</>} description={<>15,000+ vehicles bought and transported — from auction lots and dealer listings to a delivered vehicle at your door, coordinated from {dubai.city} and {durres.city}.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "why-alpha-worldwide-hero" })}>WhatsApp Us</a></Button>
+      </PageHero>
 
       {SECTIONS.map((s, i) => (
         <section key={s.title} className={i % 2 === 0 ? "bg-background" : "section-mist"}>

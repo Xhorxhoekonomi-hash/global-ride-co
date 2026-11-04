@@ -1,7 +1,7 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Zap, ShieldCheck, Plane, Package, FileText, Landmark, Battery, Gauge, Users, Truck, MessageCircle } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { SITE_URL } from "@/lib/seo";
@@ -113,29 +113,10 @@ function Airfreight() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.loading}>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Airfreight</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              When It Absolutely Has to Arrive Fast
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.
-            </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}
-              className="btn-primary mt-8 inline-flex"
-            >
-              <MessageCircle className="h-4 w-4" /> WhatsApp Us
-            </a>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero tone="navy" icon={Plane} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp Us</a></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

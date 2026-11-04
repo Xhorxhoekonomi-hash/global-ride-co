@@ -1,8 +1,8 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { MCLAREN_REAR_CONTAINER } from "@/lib/hero-scenes";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ShieldCheck, Lock, PackageCheck } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -46,21 +46,10 @@ const POINTS = [
 function ContainerShipping() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Container Shipping" }]} />
-      <EditorialHero photo={PHOTO_SELECTIONS.container}>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Container shipping</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Maximum Protection, Ocean to Port
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Container car shipping to Europe and vehicle shipping to Durrës, fully enclosed from origin port to Albania — the safest way to move a high-value or modified vehicle.
-            </p>
-            <div className="interior-actions"><Button asChild><Link to="/contact">Get a Quote</Link></Button><Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button></div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={MCLAREN_REAR_CONTAINER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Container Shipping" }]} eyebrow="Container shipping" title={<>Maximum Protection, Ocean to Port</>} description={<>Container car shipping to Europe and vehicle shipping to Durrës, fully enclosed from origin port to Albania — the safest way to move a high-value or modified vehicle.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

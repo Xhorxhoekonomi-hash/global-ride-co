@@ -1,6 +1,7 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
-import { createFileRoute } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { PageHero } from "@/components/site/PageHero";
+import { LAMBORGHINI_IN_CONTAINER } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
@@ -21,20 +22,10 @@ const STEPS = [
 function ImportCanada() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From Canada" }]} />
-      <EditorialHero>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Import from · Canada</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Vehicle Sourcing & Shipping from Canada to Albania & Europe
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              We source, inspect, purchase, and ship vehicles from auctions and dealers across Canada — fully managed to your door in Albania or Europe.
-            </p>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={LAMBORGHINI_IN_CONTAINER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From Canada" }]} eyebrow="Import from · Canada" title={<>Vehicle Sourcing & Shipping from Canada to Albania & Europe</>} description={<>We source, inspect, purchase, and ship vehicles from auctions and dealers across Canada — fully managed to your door in Albania or Europe.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

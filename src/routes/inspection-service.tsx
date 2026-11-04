@@ -1,7 +1,7 @@
-import { InnerPageHero } from "@/components/site/InnerPageHero";
+import { PageHero } from "@/components/site/PageHero";
+import { LAMBORGHINI_HANDOVER } from "@/lib/hero-scenes";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ArrowRight, Camera, Video, Gauge, PenTool, Wrench, FileSearch } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -46,10 +46,10 @@ const CHECKS = [
 function InspectionService() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Vehicle Inspection" }]} />
-      <InnerPageHero eyebrow="Inspection service" title="Know Exactly What You're Buying" description="155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves." imageAlt="Vehicle inspection">
-        <Button asChild><Link to="/contact">Request an Inspection <ArrowRight /></Link></Button>
-      </InnerPageHero>
+      <PageHero scene={LAMBORGHINI_HANDOVER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Vehicle Inspection" }]} eyebrow="Inspection service" title="Know Exactly What You're Buying" description="155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/vehicle-history-check">Vehicle History Check</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">

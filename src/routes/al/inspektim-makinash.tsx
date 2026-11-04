@@ -1,4 +1,6 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { LAMBORGHINI_HANDOVER } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Camera, Gauge, Wrench, Battery, Zap, FileCheck, MessageCircle, ShieldCheck } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -83,30 +85,10 @@ function InspektimMakinash() {
 
   return (
     <>
-      <EditorialHero locale="sq">
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Shërbimi i inspektimit</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Dini gjendjen e vërtetë të automjetit para se të blini
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Kontroll teknik, foto dhe video për automjete nga ankande dhe shitës të përzgjedhur në SHBA dhe Korenë e Jugut.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-inspection-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> Kërko inspektim
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={LAMBORGHINI_HANDOVER.sq} eyebrow="Shërbimi i inspektimit" title={<>Dini gjendjen e vërtetë të automjetit para se të blini</>} description={<>Kontroll teknik, foto dhe video për automjete nga ankande dhe shitës të përzgjedhur në SHBA dhe Korenë e Jugut.</>}>
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-inspection-hero" })}>Kërko inspektim</a></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

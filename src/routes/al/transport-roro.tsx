@@ -1,4 +1,6 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
+import { PageHero } from "@/components/site/PageHero";
+import { ROLLS_ROYCE_PORT } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Truck, Battery, Fuel, Landmark, MessageCircle, Calculator } from "lucide-react";
@@ -71,30 +73,10 @@ function TransportRoRo() {
 
   return (
     <>
-      <EditorialHero photo={PHOTO_SELECTIONS.transporter} locale="sq">
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Transport RoRo</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Automjeti ngaset vetë — pa kontenier, pa ndërlikime
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              RoRo është shpesh një opsion ekonomik për automjete standarde, kur është operacionalisht i disponueshëm për rrugën tuaj.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={() => trackEvent("whatsapp_clicked", { source: "al-roro-hero" })}
-                className="btn-primary"
-              >
-                <MessageCircle className="h-4 w-4" /> Kontakto në WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={ROLLS_ROYCE_PORT.sq} eyebrow="Transport RoRo" title={<>Automjeti ngaset vetë — pa kontenier, pa ndërlikime</>} description={<>RoRo është shpesh një opsion ekonomik për automjete standarde, kur është operacionalisht i disponueshëm për rrugën tuaj.</>}>
+        <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

@@ -1,6 +1,7 @@
-import { EditorialHero } from "@/components/site/EditorialHero";
-import { createFileRoute } from "@tanstack/react-router";
-import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { PageHero } from "@/components/site/PageHero";
+import { FERRARI_CAR_CARRIER } from "@/lib/hero-scenes";
+import { Button } from "@/components/ui/button";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
@@ -21,20 +22,10 @@ const STEPS = [
 function ImportEurope() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Services", to: "/services" }, { label: "Import From Europe" }]} />
-      <EditorialHero>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Import from · Europe</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Cross-Border Vehicle Sourcing & Transport Across Europe
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              Found a car on AutoScout24 or with a European dealer? We handle purchase coordination, transport, and delivery to Albania or Kosovo.
-            </p>
-          </div>
-        </div>
-      </EditorialHero>
+      <PageHero scene={FERRARI_CAR_CARRIER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From Europe" }]} eyebrow="Import from · Europe" title={<>Cross-Border Vehicle Sourcing & Transport Across Europe</>} description={<>Found a car on AutoScout24 or with a European dealer? We handle purchase coordination, transport, and delivery to Albania or Kosovo.</>}>
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">

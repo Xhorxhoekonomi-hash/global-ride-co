@@ -1,5 +1,6 @@
+import { PageHero } from "@/components/site/PageHero";
+import { LAMBORGHINI_HANDOVER } from "@/lib/hero-scenes";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
-import { InnerPageHero } from "@/components/site/InnerPageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
@@ -64,10 +65,10 @@ const FAQS = [
 function ServicesPage() {
   return (
     <>
-      <InnerPageHero eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism." image={PHOTO_SELECTIONS.loading.src} imageAlt={PHOTO_SELECTIONS.loading.en}>
-        <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><Link to="/contact">Get a Quote <ArrowRight /></Link></Button>
-        <Button asChild variant="outline" className="h-auto min-h-12 whitespace-normal py-3"><Link to="/calculator">Calculate Shipping</Link></Button>
-      </InnerPageHero>
+      <PageHero scene={LAMBORGHINI_HANDOVER.en} eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism.">
+        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+      </PageHero>
 
       <PlatformBadges />
 
