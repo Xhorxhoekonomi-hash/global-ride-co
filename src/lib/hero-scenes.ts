@@ -41,23 +41,23 @@ export const CYBERTRUCK_PORT = scene(ct1440, ct2560, ctM,
   "Stainless-steel Tesla Cybertruck parked on a container terminal road, with stacked shipping containers and cranes behind.",
   "Tesla Cybertruck prej çeliku inox i parkuar në rrugën e një terminali kontejnerësh, me kontejnerë dhe vinça në sfond.");
 export const MCLAREN_REAR_CONTAINER = scene(mr1440, mr2560, mrM,
-  "McLaren supercar seen from behind, positioned at the open doors of a shipping container.",
-  "Superveturë McLaren e parë nga pas, pranë dyerve të hapura të një kontenieri.");
+  "Yellow McLaren seen from behind, parked inside an open shipping container.",
+  "McLaren e verdhë e parë nga pas, e parkuar brenda një kontenieri të hapur.");
 export const ROLLS_ROYCE_PORT = scene(rr1440, rr2560, rrM,
-  "Rolls-Royce saloon parked on an open port quay with shipping infrastructure in the background.",
-  "Rolls-Royce i parkuar në një skelë porti, me infrastrukturë portuale në sfond.");
+  "Black Rolls-Royce SUV with its doors open, parked on a concrete lot in front of buildings.",
+  "Rolls-Royce SUV i zi me dyert e hapura, i parkuar në një shesh betoni para ndërtesave.");
 export const LAMBORGHINI_HANDOVER = scene(lh1440, lh2560, lhM,
-  "Lamborghini parked outdoors during a vehicle handover, ready to be reviewed.",
-  "Lamborghini i parkuar jashtë gjatë dorëzimit të automjetit, gati për t'u kontrolluar.");
+  "Grey Lamborghini with its doors raised, parked outside a modern glass building.",
+  "Lamborghini gri me dyert e ngritura, e parkuar para një ndërtese moderne me xham.");
 export const BROWN_PORSCHE_YARD = scene(bp1440, bp2560, bpM,
-  "Bronze-brown Porsche parked in an open vehicle yard.",
-  "Porsche ngjyrë bronzi e parkuar në një shesh automjetesh.");
+  "Bronze-brown Porsche 911 parked on a paved yard beside a warehouse.",
+  "Porsche 911 ngjyrë bronzi e parkuar në një shesh të shtruar pranë një magazine.");
 export const SILVER_FERRARI_YARD = scene(sf1440, sf2560, sfM,
-  "Silver Ferrari parked in an open vehicle yard.",
-  "Ferrari ngjyrë argjendi e parkuar në një shesh automjetesh.");
+  "Silver Ferrari with yellow stripes parked on a paved yard next to other sports cars.",
+  "Ferrari ngjyrë argjendi me vija të verdha, e parkuar në një shesh pranë makinave të tjera sportive.");
 export const YELLOW_MCLAREN_CONTAINER = scene(ym1440, ym2560, ymM,
-  "Yellow McLaren next to a shipping container at a port.",
-  "McLaren e verdhë pranë një kontenieri në port.");
+  "Yellow and black McLaren parked on a paved yard near shipping containers.",
+  "McLaren e verdhë me të zezë e parkuar në një shesh pranë kontenierëve.");
 export const ORANGE_MCLAREN_PORT = scene(om1440, om2560, omM,
   "Orange McLaren parked at a port with containers and cranes behind.",
   "McLaren portokalli e parkuar në port, me kontenierë dhe vinça pas.");
