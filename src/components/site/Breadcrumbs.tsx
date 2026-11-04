@@ -1,11 +1,13 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { SITE_URL } from "@/lib/seo";
 
 export type Crumb = { label: string; to?: string };
 
-export function Breadcrumbs({ items }: { items: Crumb[] }) {
-  const full: Crumb[] = [{ label: "Home", to: "/" }, ...items];
+/** Breadcrumb trail + BreadcrumbList schema. `photo` renders inside a HeroScene over the image. */
+export function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: "light" | "navy" | "photo" }) {
+  const al = useRouterState({ select: s => s.location.pathname.startsWith("/al") });
+  const full: Crumb[] = [{ label: al ? "Kryefaqja" : "Home", to: al ? "/al" : "/" }, ...items];
 
   const schema = {
     "@context": "https://schema.org",
@@ -18,23 +20,19 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
     })),
   };
 
+  const list = <ol className="breadcrumbs-list">
+    {full.map((crumb, i) => (
+      <li key={crumb.label}>
+        {i > 0 && <ChevronRight aria-hidden="true" />}
+        {crumb.to && i < full.length - 1 ? <Link to={crumb.to}>{crumb.label}</Link> : <span aria-current="page">{crumb.label}</span>}
+      </li>
+    ))}
+  </ol>;
+
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-border bg-mist">
+    <nav aria-label="Breadcrumb" className={`breadcrumbs breadcrumbs--${tone}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <ol className="container-page flex flex-wrap items-center gap-1.5 py-3 text-xs text-slate-body">
-        {full.map((crumb, i) => (
-          <li key={crumb.label} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight className="h-3 w-3 text-slate-body/50" />}
-            {crumb.to && i < full.length - 1 ? (
-              <Link to={crumb.to} className="hover:text-teal">
-                {crumb.label}
-              </Link>
-            ) : (
-              <span className="font-medium text-navy">{crumb.label}</span>
-            )}
-          </li>
-        ))}
-      </ol>
+      {tone === "photo" ? list : <div className="container-page">{list}</div>}
     </nav>
   );
 }
