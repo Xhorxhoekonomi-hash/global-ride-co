@@ -26,7 +26,7 @@ export const Route = createFileRoute("/how-it-works")({
     const base = buildHead({
       title: "How It Works | Vehicle Import Process | Alpha Worldwide",
       description: "The complete Alpha Worldwide process, step by step — from choosing a vehicle to collection, with inspection, purchase, export, shipping, and customs coordination explained.",
-      path: "/how-it-works",
+      path: "/how-it-works", hreflang: [{ lang: "en", path: "/how-it-works" }, { lang: "sq", path: "/al/si-funksionon" }], xDefault: "/how-it-works",
     });
     return {
       ...base,

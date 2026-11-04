@@ -91,8 +91,10 @@ import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './rout
 import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as AlUdhezuesIndexRouteImport } from './routes/al/udhezues/index'
 import { Route as AlUdhezuesKontenierApoRoroRouteImport } from './routes/al/udhezues/kontenier-apo-roro'
 import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './routes/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+import { Route as AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport } from './routes/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 
 const IndexRoute = IndexRouteImport.update({
@@ -517,6 +519,11 @@ const GuidesVehicleImportDocumentsRoute =
     path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AlUdhezuesIndexRoute = AlUdhezuesIndexRouteImport.update({
+  id: '/al/udhezues/',
+  path: '/al/udhezues/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlUdhezuesKontenierApoRoroRoute =
   AlUdhezuesKontenierApoRoroRouteImport.update({
     id: '/al/udhezues/kontenier-apo-roro',
@@ -527,6 +534,12 @@ const AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute =
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport.update({
     id: '/al/udhezues/si-te-blini-nga-ankandet-amerikane',
     path: '/al/udhezues/si-te-blini-nga-ankandet-amerikane',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute =
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport.update({
+    id: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur',
+    path: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur',
     getParentRoute: () => rootRouteImport,
   } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
@@ -621,7 +634,9 @@ export interface FileRoutesByFullPath {
   '/guides/': typeof GuidesIndexRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues/': typeof AlUdhezuesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -708,7 +723,9 @@ export interface FileRoutesByTo {
   '/guides': typeof GuidesIndexRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues': typeof AlUdhezuesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -796,7 +813,9 @@ export interface FileRoutesById {
   '/guides/': typeof GuidesIndexRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
+  '/al/udhezues/': typeof AlUdhezuesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -885,7 +904,9 @@ export interface FileRouteTypes {
     | '/guides/'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -972,7 +993,9 @@ export interface FileRouteTypes {
     | '/guides'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues'
   id:
     | '__root__'
     | '/'
@@ -1059,7 +1082,9 @@ export interface FileRouteTypes {
     | '/guides/'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
+    | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
+    | '/al/udhezues/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1147,7 +1172,9 @@ export interface RootRouteChildren {
   GuidesIndexRoute: typeof GuidesIndexRoute
   AlUdhezuesKontenierApoRoroRoute: typeof AlUdhezuesKontenierApoRoroRoute
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
+  AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1726,6 +1753,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/udhezues/': {
+      id: '/al/udhezues/'
+      path: '/al/udhezues'
+      fullPath: '/al/udhezues/'
+      preLoaderRoute: typeof AlUdhezuesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/udhezues/kontenier-apo-roro': {
       id: '/al/udhezues/kontenier-apo-roro'
       path: '/al/udhezues/kontenier-apo-roro'
@@ -1738,6 +1772,13 @@ declare module '@tanstack/react-router' {
       path: '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
       fullPath: '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
       preLoaderRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': {
+      id: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      path: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      fullPath: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+      preLoaderRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/shipping/south-korea-to-rotterdam': {
@@ -1838,7 +1879,10 @@ const rootRouteChildren: RootRouteChildren = {
   AlUdhezuesKontenierApoRoroRoute: AlUdhezuesKontenierApoRoroRoute,
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute:
     AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute,
+  AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute:
+    AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
+  AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

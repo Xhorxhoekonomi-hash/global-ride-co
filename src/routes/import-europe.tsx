@@ -7,7 +7,7 @@ import { buildHead } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/import-europe")({
-  head: () => buildHead({ title: "Import a Car from Europe to Albania", description: "Cross-border vehicle transport from AutoScout24 and European dealers to Albania — sourcing, purchase handling and delivery.", path: "/import-europe", }),
+  head: () => buildHead({ title: "Import a Car from Europe to Albania", description: "Cross-border vehicle transport from AutoScout24 and European dealers to Albania — sourcing, purchase handling and delivery.", path: "/import-europe", hreflang: [{ lang: "en", path: "/import-europe" }, { lang: "sq", path: "/al/makina-nga-evropa" }], xDefault: "/import-europe", }),
   component: ImportEurope,
 });
 

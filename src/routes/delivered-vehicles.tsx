@@ -9,7 +9,7 @@ import { ALPHA_PHOTOS } from "@/lib/alpha-photos";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/delivered-vehicles")({
-  head: () => buildHead({ title: "Delivered Vehicles | Alpha Worldwide Albania", description: "Real vehicles sourced, inspected and shipped by Alpha Worldwide — Rolls Royce, Ferrari, Porsche, Mercedes and more delivered to Albania and Europe.", path: "/delivered-vehicles", }),
+  head: () => buildHead({ title: "Delivered Vehicles | Alpha Worldwide Albania", description: "Real vehicles sourced, inspected and shipped by Alpha Worldwide — Rolls Royce, Ferrari, Porsche, Mercedes and more delivered to Albania and Europe.", path: "/delivered-vehicles", hreflang: [{ lang: "en", path: "/delivered-vehicles" }, { lang: "sq", path: "/al/automjete-te-dorezuara" }], xDefault: "/delivered-vehicles", }),
   component: DeliveredVehicles,
 });
 

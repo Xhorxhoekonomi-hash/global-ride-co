@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
     buildHead({
       title: "About Alpha Worldwide | Dubai HQ, Durrës Operations",
       description: "Alpha Worldwide is an international vehicle logistics company headquartered in Dubai, UAE, with European operations in Durrës, Albania. 10+ years, 15,000+ vehicles moved.",
-      path: "/about",
+      path: "/about", hreflang: [{ lang: "en", path: "/about" }, { lang: "sq", path: "/al/rreth-nesh" }], xDefault: "/about",
     }),
   component: About,
 });

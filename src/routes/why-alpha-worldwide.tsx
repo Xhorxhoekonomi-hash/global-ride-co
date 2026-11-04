@@ -12,7 +12,7 @@ export const Route = createFileRoute("/why-alpha-worldwide")({
     const base = buildHead({
       title: "Why Alpha Worldwide | International Vehicle Sourcing & Shipping",
       description: "10+ years sourcing, inspecting, and shipping vehicles worldwide — Dubai headquarters, Durrës operations, and a transparent process built on verified experience, not exaggerated claims.",
-      path: "/why-alpha-worldwide",
+      path: "/why-alpha-worldwide", hreflang: [{ lang: "en", path: "/why-alpha-worldwide" }, { lang: "sq", path: "/al/pse-alpha-worldwide" }], xDefault: "/why-alpha-worldwide",
     });
     return {
       ...base,

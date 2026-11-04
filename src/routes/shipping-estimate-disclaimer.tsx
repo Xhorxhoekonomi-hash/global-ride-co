@@ -8,7 +8,7 @@ export const Route = createFileRoute("/shipping-estimate-disclaimer")({
     buildHead({
       title: "Shipping Estimate Disclaimer | Alpha Worldwide",
       description: "What our shipping calculator estimates include and exclude, and why figures shown are estimates rather than guaranteed final prices.",
-      path: "/shipping-estimate-disclaimer",
+      path: "/shipping-estimate-disclaimer", hreflang: [{ lang: "en", path: "/shipping-estimate-disclaimer" }, { lang: "sq", path: "/al/kushtet-e-perllogaritjes" }], xDefault: "/shipping-estimate-disclaimer",
     }),
   component: ShippingDisclaimer,
 });

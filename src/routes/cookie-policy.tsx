@@ -8,7 +8,7 @@ export const Route = createFileRoute("/cookie-policy")({
     buildHead({
       title: "Cookie Policy | Alpha Worldwide",
       description: "What cookies and similar technologies Alpha Worldwide uses on this website, and how to manage your preferences.",
-      path: "/cookie-policy",
+      path: "/cookie-policy", hreflang: [{ lang: "en", path: "/cookie-policy" }, { lang: "sq", path: "/al/politika-e-cookies" }], xDefault: "/cookie-policy",
     }),
   component: CookiePolicy,
 });

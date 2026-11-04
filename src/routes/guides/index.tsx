@@ -14,7 +14,7 @@ export const Route = createFileRoute("/guides/")({
     const base = buildHead({
       title: "Vehicle Import Guides | Alpha Worldwide",
       description: "Practical, plain-language guides on buying from US auctions, comparing Copart and IAAI, container vs RoRo shipping, pre-purchase inspection, import documents, EVs, luxury cars, and shipping costs.",
-      path: "/guides",
+      path: "/guides", hreflang: [{ lang: "en", path: "/guides" }, { lang: "sq", path: "/al/udhezues" }], xDefault: "/guides",
     });
     return {
       ...base,

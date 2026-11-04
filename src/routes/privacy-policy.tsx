@@ -8,7 +8,7 @@ export const Route = createFileRoute("/privacy-policy")({
     buildHead({
       title: "Privacy Policy | Alpha Worldwide",
       description: "How Alpha Worldwide collects, uses, and protects the personal information you share with us through our website and quote forms.",
-      path: "/privacy-policy",
+      path: "/privacy-policy", hreflang: [{ lang: "en", path: "/privacy-policy" }, { lang: "sq", path: "/al/politika-e-privatesise" }], xDefault: "/privacy-policy",
     }),
   component: PrivacyPolicy,
 });

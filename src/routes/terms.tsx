@@ -8,7 +8,7 @@ export const Route = createFileRoute("/terms")({
     buildHead({
       title: "Terms of Service | Alpha Worldwide",
       description: "The terms that apply to using the Alpha Worldwide website and engaging our vehicle sourcing, inspection, and shipping services.",
-      path: "/terms",
+      path: "/terms", hreflang: [{ lang: "en", path: "/terms" }, { lang: "sq", path: "/al/kushtet-e-sherbimit" }], xDefault: "/terms",
     }),
   component: Terms,
 });

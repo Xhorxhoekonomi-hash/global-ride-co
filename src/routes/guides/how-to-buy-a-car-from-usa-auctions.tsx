@@ -13,7 +13,7 @@ export const Route = createFileRoute("/guides/how-to-buy-a-car-from-usa-auctions
     const base = buildHead({
       title: "How to Buy a Car From USA Auctions | Step-by-Step Guide",
       description: "A practical guide to buying a vehicle from Copart, IAAI, Manheim, or ADESA — platform access, condition information, bidding, fees, shipping, and the mistakes to avoid.",
-      path: "/guides/how-to-buy-a-car-from-usa-auctions",
+      path: "/guides/how-to-buy-a-car-from-usa-auctions", hreflang: [{ lang: "en", path: "/guides/how-to-buy-a-car-from-usa-auctions" }, { lang: "sq", path: "/al/udhezues/si-te-blini-nga-ankandet-amerikane" }], xDefault: "/guides/how-to-buy-a-car-from-usa-auctions",
     });
     return {
       ...base,
