@@ -51,12 +51,14 @@ import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
+import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlKushtetEPerllogaritjesRouteImport } from './routes/al/kushtet-e-perllogaritjes'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
 import { Route as AlMakinaNgaEvropaRouteImport } from './routes/al/makina-nga-evropa'
@@ -297,6 +299,11 @@ const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
   path: '/al/ankande-amerikane',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlAutomjeteTeDorezuaraRoute = AlAutomjeteTeDorezuaraRouteImport.update({
+  id: '/al/automjete-te-dorezuara',
+  path: '/al/automjete-te-dorezuara',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
   id: '/al/copart-shqiperi',
   path: '/al/copart-shqiperi',
@@ -327,6 +334,12 @@ const AlKontaktRoute = AlKontaktRouteImport.update({
   path: '/al/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlKushtetEPerllogaritjesRoute =
+  AlKushtetEPerllogaritjesRouteImport.update({
+    id: '/al/kushtet-e-perllogaritjes',
+    path: '/al/kushtet-e-perllogaritjes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
   id: '/al/makina-nga-amerika',
   path: '/al/makina-nga-amerika',
@@ -521,12 +534,14 @@ export interface FileRoutesByFullPath {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -599,12 +614,14 @@ export interface FileRoutesByTo {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -678,12 +695,14 @@ export interface FileRoutesById {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -758,12 +777,14 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-evropa'
@@ -836,12 +857,14 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-evropa'
@@ -914,12 +937,14 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
     | '/al/makina-nga-evropa'
@@ -993,12 +1018,14 @@ export interface RootRouteChildren {
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
+  AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
   AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
+  AlKushtetEPerllogaritjesRoute: typeof AlKushtetEPerllogaritjesRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
@@ -1326,6 +1353,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/automjete-te-dorezuara': {
+      id: '/al/automjete-te-dorezuara'
+      path: '/al/automjete-te-dorezuara'
+      fullPath: '/al/automjete-te-dorezuara'
+      preLoaderRoute: typeof AlAutomjeteTeDorezuaraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/copart-shqiperi': {
       id: '/al/copart-shqiperi'
       path: '/al/copart-shqiperi'
@@ -1366,6 +1400,13 @@ declare module '@tanstack/react-router' {
       path: '/al/kontakt'
       fullPath: '/al/kontakt'
       preLoaderRoute: typeof AlKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/kushtet-e-perllogaritjes': {
+      id: '/al/kushtet-e-perllogaritjes'
+      path: '/al/kushtet-e-perllogaritjes'
+      fullPath: '/al/kushtet-e-perllogaritjes'
+      preLoaderRoute: typeof AlKushtetEPerllogaritjesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/makina-nga-amerika': {
@@ -1609,12 +1650,14 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
+  AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
   AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
+  AlKushtetEPerllogaritjesRoute: AlKushtetEPerllogaritjesRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
