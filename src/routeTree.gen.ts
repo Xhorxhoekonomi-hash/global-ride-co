@@ -51,15 +51,27 @@ import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
+import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
 import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlKushtetEPerllogaritjesRouteImport } from './routes/al/kushtet-e-perllogaritjes'
+import { Route as AlKushtetESherbimitRouteImport } from './routes/al/kushtet-e-sherbimit'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
 import { Route as AlMakinaNgaDubaiRouteImport } from './routes/al/makina-nga-dubai'
+import { Route as AlMakinaNgaEvropaRouteImport } from './routes/al/makina-nga-evropa'
+import { Route as AlMakinaNgaKanadajaRouteImport } from './routes/al/makina-nga-kanadaja'
 import { Route as AlMakinaNgaKoreaRouteImport } from './routes/al/makina-nga-korea'
+import { Route as AlPolitikaECookiesRouteImport } from './routes/al/politika-e-cookies'
+import { Route as AlPolitikaEPrivatesiseRouteImport } from './routes/al/politika-e-privatesise'
+import { Route as AlPseAlphaWorldwideRouteImport } from './routes/al/pse-alpha-worldwide'
+import { Route as AlPyetjeTeShpeshtaRouteImport } from './routes/al/pyetje-te-shpeshta'
+import { Route as AlRrethNeshRouteImport } from './routes/al/rreth-nesh'
+import { Route as AlSherbimetRouteImport } from './routes/al/sherbimet'
+import { Route as AlSiFunksiononRouteImport } from './routes/al/si-funksionon'
 import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
 import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
@@ -290,6 +302,11 @@ const AlAnkandeAmerikaneRoute = AlAnkandeAmerikaneRouteImport.update({
   path: '/al/ankande-amerikane',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlAutomjeteTeDorezuaraRoute = AlAutomjeteTeDorezuaraRouteImport.update({
+  id: '/al/automjete-te-dorezuara',
+  path: '/al/automjete-te-dorezuara',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
   id: '/al/copart-shqiperi',
   path: '/al/copart-shqiperi',
@@ -320,6 +337,17 @@ const AlKontaktRoute = AlKontaktRouteImport.update({
   path: '/al/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlKushtetEPerllogaritjesRoute =
+  AlKushtetEPerllogaritjesRouteImport.update({
+    id: '/al/kushtet-e-perllogaritjes',
+    path: '/al/kushtet-e-perllogaritjes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlKushtetESherbimitRoute = AlKushtetESherbimitRouteImport.update({
+  id: '/al/kushtet-e-sherbimit',
+  path: '/al/kushtet-e-sherbimit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlMakinaNgaAmerikaRoute = AlMakinaNgaAmerikaRouteImport.update({
   id: '/al/makina-nga-amerika',
   path: '/al/makina-nga-amerika',
@@ -330,9 +358,54 @@ const AlMakinaNgaDubaiRoute = AlMakinaNgaDubaiRouteImport.update({
   path: '/al/makina-nga-dubai',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlMakinaNgaEvropaRoute = AlMakinaNgaEvropaRouteImport.update({
+  id: '/al/makina-nga-evropa',
+  path: '/al/makina-nga-evropa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlMakinaNgaKanadajaRoute = AlMakinaNgaKanadajaRouteImport.update({
+  id: '/al/makina-nga-kanadaja',
+  path: '/al/makina-nga-kanadaja',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlMakinaNgaKoreaRoute = AlMakinaNgaKoreaRouteImport.update({
   id: '/al/makina-nga-korea',
   path: '/al/makina-nga-korea',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPolitikaECookiesRoute = AlPolitikaECookiesRouteImport.update({
+  id: '/al/politika-e-cookies',
+  path: '/al/politika-e-cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPolitikaEPrivatesiseRoute = AlPolitikaEPrivatesiseRouteImport.update({
+  id: '/al/politika-e-privatesise',
+  path: '/al/politika-e-privatesise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPseAlphaWorldwideRoute = AlPseAlphaWorldwideRouteImport.update({
+  id: '/al/pse-alpha-worldwide',
+  path: '/al/pse-alpha-worldwide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPyetjeTeShpeshtaRoute = AlPyetjeTeShpeshtaRouteImport.update({
+  id: '/al/pyetje-te-shpeshta',
+  path: '/al/pyetje-te-shpeshta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlRrethNeshRoute = AlRrethNeshRouteImport.update({
+  id: '/al/rreth-nesh',
+  path: '/al/rreth-nesh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlSherbimetRoute = AlSherbimetRouteImport.update({
+  id: '/al/sherbimet',
+  path: '/al/sherbimet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlSiFunksiononRoute = AlSiFunksiononRouteImport.update({
+  id: '/al/si-funksionon',
+  path: '/al/si-funksionon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlTransportAjrorMakinashRoute =
@@ -479,15 +552,27 @@ export interface FileRoutesByFullPath {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
+  '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
+  '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
+  '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
+  '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/rreth-nesh': typeof AlRrethNeshRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
+  '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
@@ -550,15 +635,27 @@ export interface FileRoutesByTo {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
+  '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
+  '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
+  '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
+  '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/rreth-nesh': typeof AlRrethNeshRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
+  '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
@@ -622,15 +719,27 @@ export interface FileRoutesById {
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
+  '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
+  '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
+  '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
+  '/al/makina-nga-kanadaja': typeof AlMakinaNgaKanadajaRoute
   '/al/makina-nga-korea': typeof AlMakinaNgaKoreaRoute
+  '/al/politika-e-cookies': typeof AlPolitikaECookiesRoute
+  '/al/politika-e-privatesise': typeof AlPolitikaEPrivatesiseRoute
+  '/al/pse-alpha-worldwide': typeof AlPseAlphaWorldwideRoute
+  '/al/pyetje-te-shpeshta': typeof AlPyetjeTeShpeshtaRoute
+  '/al/rreth-nesh': typeof AlRrethNeshRoute
+  '/al/sherbimet': typeof AlSherbimetRoute
+  '/al/si-funksionon': typeof AlSiFunksiononRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
@@ -695,15 +804,27 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
+    | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
+    | '/al/makina-nga-evropa'
+    | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/politika-e-cookies'
+    | '/al/politika-e-privatesise'
+    | '/al/pse-alpha-worldwide'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/rreth-nesh'
+    | '/al/sherbimet'
+    | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
@@ -766,15 +887,27 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
+    | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
+    | '/al/makina-nga-evropa'
+    | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/politika-e-cookies'
+    | '/al/politika-e-privatesise'
+    | '/al/pse-alpha-worldwide'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/rreth-nesh'
+    | '/al/sherbimet'
+    | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
@@ -837,15 +970,27 @@ export interface FileRouteTypes {
     | '/admin/leads'
     | '/admin/login'
     | '/al/ankande-amerikane'
+    | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
     | '/al/encar-shqiperi'
     | '/al/iaai-shqiperi'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/kushtet-e-perllogaritjes'
+    | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
     | '/al/makina-nga-dubai'
+    | '/al/makina-nga-evropa'
+    | '/al/makina-nga-kanadaja'
     | '/al/makina-nga-korea'
+    | '/al/politika-e-cookies'
+    | '/al/politika-e-privatesise'
+    | '/al/pse-alpha-worldwide'
+    | '/al/pyetje-te-shpeshta'
+    | '/al/rreth-nesh'
+    | '/al/sherbimet'
+    | '/al/si-funksionon'
     | '/al/transport-ajror-makinash'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
@@ -909,15 +1054,27 @@ export interface RootRouteChildren {
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
+  AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
   AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
+  AlKushtetEPerllogaritjesRoute: typeof AlKushtetEPerllogaritjesRoute
+  AlKushtetESherbimitRoute: typeof AlKushtetESherbimitRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
+  AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
+  AlMakinaNgaKanadajaRoute: typeof AlMakinaNgaKanadajaRoute
   AlMakinaNgaKoreaRoute: typeof AlMakinaNgaKoreaRoute
+  AlPolitikaECookiesRoute: typeof AlPolitikaECookiesRoute
+  AlPolitikaEPrivatesiseRoute: typeof AlPolitikaEPrivatesiseRoute
+  AlPseAlphaWorldwideRoute: typeof AlPseAlphaWorldwideRoute
+  AlPyetjeTeShpeshtaRoute: typeof AlPyetjeTeShpeshtaRoute
+  AlRrethNeshRoute: typeof AlRrethNeshRoute
+  AlSherbimetRoute: typeof AlSherbimetRoute
+  AlSiFunksiononRoute: typeof AlSiFunksiononRoute
   AlTransportAjrorMakinashRoute: typeof AlTransportAjrorMakinashRoute
   AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
   AlTransportRoroRoute: typeof AlTransportRoroRoute
@@ -1235,6 +1392,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlAnkandeAmerikaneRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/automjete-te-dorezuara': {
+      id: '/al/automjete-te-dorezuara'
+      path: '/al/automjete-te-dorezuara'
+      fullPath: '/al/automjete-te-dorezuara'
+      preLoaderRoute: typeof AlAutomjeteTeDorezuaraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/copart-shqiperi': {
       id: '/al/copart-shqiperi'
       path: '/al/copart-shqiperi'
@@ -1277,6 +1441,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlKontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/kushtet-e-perllogaritjes': {
+      id: '/al/kushtet-e-perllogaritjes'
+      path: '/al/kushtet-e-perllogaritjes'
+      fullPath: '/al/kushtet-e-perllogaritjes'
+      preLoaderRoute: typeof AlKushtetEPerllogaritjesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/kushtet-e-sherbimit': {
+      id: '/al/kushtet-e-sherbimit'
+      path: '/al/kushtet-e-sherbimit'
+      fullPath: '/al/kushtet-e-sherbimit'
+      preLoaderRoute: typeof AlKushtetESherbimitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-amerika': {
       id: '/al/makina-nga-amerika'
       path: '/al/makina-nga-amerika'
@@ -1291,11 +1469,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlMakinaNgaDubaiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/makina-nga-evropa': {
+      id: '/al/makina-nga-evropa'
+      path: '/al/makina-nga-evropa'
+      fullPath: '/al/makina-nga-evropa'
+      preLoaderRoute: typeof AlMakinaNgaEvropaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/makina-nga-kanadaja': {
+      id: '/al/makina-nga-kanadaja'
+      path: '/al/makina-nga-kanadaja'
+      fullPath: '/al/makina-nga-kanadaja'
+      preLoaderRoute: typeof AlMakinaNgaKanadajaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/makina-nga-korea': {
       id: '/al/makina-nga-korea'
       path: '/al/makina-nga-korea'
       fullPath: '/al/makina-nga-korea'
       preLoaderRoute: typeof AlMakinaNgaKoreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/politika-e-cookies': {
+      id: '/al/politika-e-cookies'
+      path: '/al/politika-e-cookies'
+      fullPath: '/al/politika-e-cookies'
+      preLoaderRoute: typeof AlPolitikaECookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/politika-e-privatesise': {
+      id: '/al/politika-e-privatesise'
+      path: '/al/politika-e-privatesise'
+      fullPath: '/al/politika-e-privatesise'
+      preLoaderRoute: typeof AlPolitikaEPrivatesiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/pse-alpha-worldwide': {
+      id: '/al/pse-alpha-worldwide'
+      path: '/al/pse-alpha-worldwide'
+      fullPath: '/al/pse-alpha-worldwide'
+      preLoaderRoute: typeof AlPseAlphaWorldwideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/pyetje-te-shpeshta': {
+      id: '/al/pyetje-te-shpeshta'
+      path: '/al/pyetje-te-shpeshta'
+      fullPath: '/al/pyetje-te-shpeshta'
+      preLoaderRoute: typeof AlPyetjeTeShpeshtaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/rreth-nesh': {
+      id: '/al/rreth-nesh'
+      path: '/al/rreth-nesh'
+      fullPath: '/al/rreth-nesh'
+      preLoaderRoute: typeof AlRrethNeshRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/sherbimet': {
+      id: '/al/sherbimet'
+      path: '/al/sherbimet'
+      fullPath: '/al/sherbimet'
+      preLoaderRoute: typeof AlSherbimetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/si-funksionon': {
+      id: '/al/si-funksionon'
+      path: '/al/si-funksionon'
+      fullPath: '/al/si-funksionon'
+      preLoaderRoute: typeof AlSiFunksiononRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/transport-ajror-makinash': {
@@ -1469,15 +1710,27 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
+  AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
   AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
+  AlKushtetEPerllogaritjesRoute: AlKushtetEPerllogaritjesRoute,
+  AlKushtetESherbimitRoute: AlKushtetESherbimitRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
+  AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
+  AlMakinaNgaKanadajaRoute: AlMakinaNgaKanadajaRoute,
   AlMakinaNgaKoreaRoute: AlMakinaNgaKoreaRoute,
+  AlPolitikaECookiesRoute: AlPolitikaECookiesRoute,
+  AlPolitikaEPrivatesiseRoute: AlPolitikaEPrivatesiseRoute,
+  AlPseAlphaWorldwideRoute: AlPseAlphaWorldwideRoute,
+  AlPyetjeTeShpeshtaRoute: AlPyetjeTeShpeshtaRoute,
+  AlRrethNeshRoute: AlRrethNeshRoute,
+  AlSherbimetRoute: AlSherbimetRoute,
+  AlSiFunksiononRoute: AlSiFunksiononRoute,
   AlTransportAjrorMakinashRoute: AlTransportAjrorMakinashRoute,
   AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
   AlTransportRoroRoute: AlTransportRoroRoute,

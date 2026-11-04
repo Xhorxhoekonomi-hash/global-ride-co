@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Mail, MapPin, Instagram } from "lucide-react";
-import { CONTACT, OFFICES, SERVICES } from "@/lib/site-data";
+import { CONTACT, OFFICES, SERVICES, localPath } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { NAV_AL, AL_FOOTER_EXTRAS } from "@/lib/i18n-al";
 import { BrandLogo } from "@/components/site/BrandLogo";
@@ -211,10 +211,10 @@ export function Footer() {
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted-foreground md:flex-row">
           <div>© {new Date().getFullYear()} Alpha Worldwide. {isAlbanian ? "Të gjitha të drejtat e rezervuara." : "All rights reserved."}</div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            <Link to="/privacy-policy" className="hover:text-primary">{isAlbanian ? "Politika e Privatësisë" : "Privacy Policy"}</Link>
-            <Link to="/cookie-policy" className="hover:text-primary">{isAlbanian ? "Politika e Cookies" : "Cookie Policy"}</Link>
-            <Link to="/terms" className="hover:text-primary">{isAlbanian ? "Kushtet e Shërbimit" : "Terms of Service"}</Link>
-            <Link to="/shipping-estimate-disclaimer" className="hover:text-primary">{isAlbanian ? "Vërejtje mbi Vlerësimet" : "Shipping Estimate Disclaimer"}</Link>
+            <Link to={localPath("/privacy-policy", isAlbanian)} className="hover:text-primary">{isAlbanian ? "Politika e Privatësisë" : "Privacy Policy"}</Link>
+            <Link to={localPath("/cookie-policy", isAlbanian)} className="hover:text-primary">{isAlbanian ? "Politika e Cookies" : "Cookie Policy"}</Link>
+            <Link to={localPath("/terms", isAlbanian)} className="hover:text-primary">{isAlbanian ? "Kushtet e Shërbimit" : "Terms of Service"}</Link>
+            <Link to={localPath("/shipping-estimate-disclaimer", isAlbanian)} className="hover:text-primary">{isAlbanian ? "Vërejtje mbi Vlerësimet" : "Shipping Estimate Disclaimer"}</Link>
           </div>
         </div>
       </div>

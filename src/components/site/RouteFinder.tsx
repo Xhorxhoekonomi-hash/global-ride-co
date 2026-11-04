@@ -3,6 +3,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
+import { localPath } from "@/lib/site-data";
 import { RF_DESTINATIONS, RF_ORIGINS, RF_VEHICLES, routeFinderTarget, type RfDestination, type RfOrigin, type RfVehicle } from "@/lib/route-finder";
 
 const COPY = {
@@ -18,12 +19,13 @@ const COPY = {
     origins: ["Amerikë", "Koreja e Jugut", "Dubai / EBA", "Kanada", "Evropë"],
     destinations: ["Shqipëri", "Kosovë", "Gjermani", "Holandë", "Belgjikë", "Francë", "Itali", "Tjetër"],
     vehicles: ["Makinë / SUV", "Pickup / Furgon", "Motoçikletë", "Tjetër"],
-    note: "Përllogaritjet përdorin tabelat tona aktuale të tarifave. Oferta përfundimtare konfirmohet para rezervimit.", disclaimer: "Rreth përllogaritjeve (EN)",
+    note: "Përllogaritjet përdorin tabelat tona aktuale të tarifave. Oferta përfundimtare konfirmohet para rezervimit.", disclaimer: "Rreth përllogaritjeve",
   },
 };
 
 export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
   const c = COPY[locale];
+  const L = (to: string) => localPath(to, locale === "sq");
   const navigate = useNavigate();
   const [from, setFrom] = useState<RfOrigin>("USA");
   const [to, setTo] = useState<RfDestination>("Albania");
@@ -51,7 +53,7 @@ export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
         {field("rf-vehicle", c.vehicle, vehicle, (v) => setVehicle(v as RfVehicle), RF_VEHICLES, c.vehicles)}
         <Button type="submit" className="route-finder-submit">{c.submit}<ArrowRight /></Button>
       </div>
-      <p className="route-finder-note">{c.note} <Link to="/shipping-estimate-disclaimer">{c.disclaimer}</Link></p>
+      <p className="route-finder-note">{c.note} <Link to={L("/shipping-estimate-disclaimer")}>{c.disclaimer}</Link></p>
     </form>
   </div></section>;
 }

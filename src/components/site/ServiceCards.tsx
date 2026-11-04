@@ -17,8 +17,8 @@ export function ServiceCards({ locale }: { locale: "en" | "sq" }) {
     { title: "Blerje dhe inspektim", body: "Mbështetje në blerje dhe inspektim para blerjes.", to: "/al/inspektim-makinash", img: handover.url, alt: "Lamborghini Aventador gri me dyert e hapura përpara një ndërtese me xhama." },
     { title: "Transport me kontenier", body: "I ngarkuar dhe i siguruar në kontenier të dedikuar.", to: "/al/transport-me-kontenier", img: ferrariContainer.url, alt: "Ferrari gri brenda një kontenieri transporti, me një punonjës pranë." },
     { title: "Transport RoRo", body: "Për automjete që lëvizin vetë.", to: "/al/transport-roro", img: rolls.url, alt: "Rolls-Royce i zi me dyert e hapura në një shesh të shtruar." },
-    { title: "Koordinim doganor", body: "Dokumentet dhe procedurat në port, të koordinuara.", to: "/how-it-works", img: cullinan.url, alt: "Rolls-Royce Cullinan i zi në një shesh me kontenierë dhe kamionë." },
-    { title: "Dorëzim", body: "Nga porti deri në adresën tuaj.", to: "/how-it-works", img: greenFerrari.url, alt: "Ferrari jeshil me vija të verdha në një shesh logjistik pranë një kamioni." },
+    { title: "Koordinim doganor", body: "Dokumentet dhe procedurat në port, të koordinuara.", to: "/al/si-funksionon", img: cullinan.url, alt: "Rolls-Royce Cullinan i zi në një shesh me kontenierë dhe kamionë." },
+    { title: "Dorëzim", body: "Nga porti deri në adresën tuaj.", to: "/al/si-funksionon", img: greenFerrari.url, alt: "Ferrari jeshil me vija të verdha në një shesh logjistik pranë një kamioni." },
     { title: "Transport ajror", body: "Për automjete urgjente dhe me vlerë të lartë.", to: "/al/transport-ajror-makinash" },
   ] : [
     { title: "Buy & Inspect", body: "Purchase support and pre-purchase inspection.", to: "/inspection-service", img: handover.url, alt: "Grey Lamborghini Aventador with its doors raised outside a glass-fronted building." },

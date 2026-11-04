@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { GUIDES } from "@/lib/guides";
+import { GUIDES, GUIDES_SQ } from "@/lib/guides";
 
 type Heading = { id: string; text: string; el: HTMLHeadingElement };
 
@@ -37,26 +37,28 @@ export function GuideToc({ path }: { path: string }) {
   }, [path]);
   if (headings.length < 4) return null;
   if (!headings.length) return null;
-  return <nav className="guide-toc" data-hidden={hidden} aria-label="On this page">
-    <p>On this page</p>
+  return <nav className="guide-toc" data-hidden={hidden} aria-label={path.startsWith("/al") ? "Në këtë faqe" : "On this page"}>
+    <p>{path.startsWith("/al") ? "Në këtë faqe" : "On this page"}</p>
     <ol>{headings.map(h => <li key={h.id}><button type="button" onClick={() => h.el.scrollIntoView({ behavior: "smooth", block: "start" })}>{h.text}</button></li>)}</ol>
   </nav>;
 }
 
 /** Three other guides as cards at the end of every guide article. */
 export function RelatedGuides({ path }: { path: string }) {
-  const current = GUIDES.find(g => g.to === path);
-  const others = GUIDES.filter(g => g.to !== path);
+  const sq = path.startsWith("/al");
+  const list = sq ? GUIDES_SQ : GUIDES;
+  const current = list.find(g => g.to === path);
+  const others = list.filter(g => g.to !== path);
   const related = [...others.filter(g => g.category === current?.category), ...others.filter(g => g.category !== current?.category)].slice(0, 3);
   return <section className="related-guides">
     <div className="container-page">
-      <h2>Related guides</h2>
+      <h2>{sq ? "Udhëzues të tjerë" : "Related guides"}</h2>
       <div className="related-guides-grid">
         {related.map(g => <Link key={g.to} to={g.to} className="related-guide-card">
           <g.icon aria-hidden="true" />
           <h3>{g.title}</h3>
           <p>{g.summary}</p>
-          <span>{g.readingTime} read <ArrowRight aria-hidden="true" /></span>
+          <span>{g.readingTime} {sq ? "lexim" : "read"} <ArrowRight aria-hidden="true" /></span>
         </Link>)}
       </div>
     </div>
