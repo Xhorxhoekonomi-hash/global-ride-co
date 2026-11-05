@@ -100,9 +100,12 @@ function buildWhatsAppMessage(lead: LeadPayload): string {
   return lines.join("\n");
 }
 
-async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Promise<{ ok: boolean; error?: string }> {
+async function persistLead(
+  lead: LeadPayload,
+  attribution: LeadAttribution,
+): Promise<{ ok: boolean; leadId?: string; error?: string }> {
   try {
-    const { error } = await supabase.from("leads").insert({
+    const { data, error } = await supabase.from("leads").insert({
       name: lead.name,
       phone: lead.phone,
       email: lead.email ?? null,
@@ -121,9 +124,11 @@ async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Pro
       utm_campaign: attribution.utm_campaign,
       utm_term: attribution.utm_term,
       utm_content: attribution.utm_content,
-    });
+    })
+      .select("id")
+      .single();
     if (error) return { ok: false, error: error.message };
-    return { ok: true };
+    return { ok: true, leadId: data?.id };
   } catch (err) {
     return { ok: false, error: err instanceof Error ? err.message : "Unknown error" };
   }
@@ -146,6 +151,14 @@ export async function submitLead(
     console.warn("[lead] persist failed ->", result.error);
   }
   const saved = result.ok;
+
+  // Notify the owner by email. Fire-and-forget: a failed email must never
+  // block the WhatsApp redirect or report the enquiry as unsaved.
+  if (saved && result.leadId) {
+    void import("@/lib/notify-lead.functions")
+      .then(({ notifyOwnerOfLead }) => notifyOwnerOfLead({ data: { leadId: result.leadId! } }))
+      .catch((err) => console.warn("[lead] owner notification failed ->", err));
+  }
 
   trackEvent("quote_submitted", { source: lead.source, origin: lead.origin, locale });
   if (lead.vehicleLink) {
