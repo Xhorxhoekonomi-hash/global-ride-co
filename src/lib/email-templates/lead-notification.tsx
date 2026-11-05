@@ -59,6 +59,9 @@ const LeadNotificationEmail = (props: Props) => (
           <Row label="Make & model" value={props.model} />
           <Row label="Service" value={props.service} />
           <Row label="Message" value={props.message} />
+          <Row label="Page" value={props.sourcePage} />
+          <Row label="Language" value={props.locale === 'sq' ? 'Albanian' : props.locale === 'en' ? 'English' : props.locale} />
+          <Row label="Submitted" value={props.submittedAt} />
         </Section>
         <Hr style={hr} />
         <Text style={subtle}>
@@ -73,7 +76,9 @@ const LeadNotificationEmail = (props: Props) => (
 export const template = {
   component: LeadNotificationEmail,
   subject: (data: Record<string, any>) =>
-    `New enquiry: ${data.name ?? 'Website visitor'} — ${data.origin ?? 'Alpha Worldwide'}`,
+    `New website enquiry — ${data.name ?? 'Website visitor'} — ${
+      data.destination ? `${data.origin ?? '?'} → ${data.destination}` : (data.origin ?? 'Alpha Worldwide')
+    }`,
   displayName: 'Owner lead notification',
   to: 'info@alphaworldwidealbania.com',
   previewData: {
