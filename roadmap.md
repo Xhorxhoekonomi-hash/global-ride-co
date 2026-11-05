@@ -1,3 +1,10 @@
+# Owner email contacts and lead notifications
+- [x] Clickable email alongside WhatsApp in shared header/menu, footer, CTA, homepage enquiry and EN/SQ contact pages.
+- [ ] Server-side notification for every lead; blocked until owner configures sending domain.
+- [x] EN/SQ TEST enquiries submitted through contact forms, confirmed in leads, then removed by their exact IDs.
+- [ ] Notification send confirmation; blocked by sender setup (no email domain configured).
+- [x] Verify contact links at 1440/390 in both languages, all 17 tests and latest build clean; no publishing.
+
 # Phase 1 visual redesign
 - [x] Light shared header, original logo and coherent footer.
 - [x] Cohesive EN/SQ homepages with real task links, origins, workflow, services, calculator, guides, FAQ and preserved enquiry form.

@@ -6,6 +6,7 @@ import { buildHead } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
+import { EmailContact } from "@/components/site/EmailContact";
 
 export const Route = createFileRoute("/al/kontakt")({
   head: () =>
@@ -31,6 +32,7 @@ function KontaktAL() {
     <>
       <PageHero eyebrow="Na kontaktoni" title="Transportoni makinën tuaj me siguri dhe transparencë" description="Na kontaktoni për një ofertë të qartë dhe të detajuar për blerjen, inspektimin dhe transportin e automjetit.">
         <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
+        <EmailContact location="al_contact_hero" />
       </PageHero>
 
       <section className="bg-background">
@@ -73,6 +75,7 @@ function KontaktAL() {
                   <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "al-kontakt" })} className="inline-flex min-h-11 items-center break-all text-sm text-muted-foreground hover:text-primary">{CONTACT.email}</a>
                 </div>
               </div>
+              <div className="flex gap-3"><MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" /><div><div className="font-semibold text-secondary">WhatsApp</div><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-primary">+355692233416</a></div></div>
             </div>
           </div>
 

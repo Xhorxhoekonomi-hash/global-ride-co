@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Shared BrandLogo is the single presentation boundary for owner-supplied artwork so header and footer always use the same unchanged original asset.
+- Shared EmailContact presents the owner mailbox beside WhatsApp; mailto links are contact options, never substitutes for stored enquiry submissions.
 - The EN and SQ homepages share HomeExperience presentation with localized copy and valid existing links; route-specific SEO remains in each leaf route to preserve indexing.
 - Visual redesigns may restyle calculator presentation but must not modify calculation logic/data, lead submission, auth or database schema, keeping operational behavior independent of presentation.
 - src/styles.css is one layer: tokens (:root + @theme inline), base, utilities, then component sections and one responsive block; replace superseded rules in place instead of appending override layers, so the cascade stays readable.

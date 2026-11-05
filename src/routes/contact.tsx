@@ -6,6 +6,7 @@ import { buildHead } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
+import { EmailContact } from "@/components/site/EmailContact";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
@@ -28,6 +29,7 @@ function Contact() {
     <>
       <PageHero eyebrow="Contact us" title="Ship your car with ease and peace of mind." description="Contact us today for reliable and affordable vehicle sourcing, inspection and shipping services.">
         <Button asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a></Button>
+        <EmailContact location="contact_hero" />
       </PageHero>
 
       <section className="bg-background">
@@ -43,6 +45,7 @@ function Contact() {
                 <Info icon={Mail} label="Email">
                   <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "contact_page" })} className="inline-flex min-h-11 items-center break-all text-secondary hover:text-primary">{CONTACT.email}</a>
                 </Info>
+                <Info icon={MessageCircle} label="WhatsApp"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-secondary hover:text-primary">+355692233416</a></Info>
                 <Info icon={Phone} label="Albania">
                   <div className="space-y-1">
                     {CONTACT.phones.map((p) => (

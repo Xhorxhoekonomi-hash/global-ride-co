@@ -4,6 +4,7 @@ import { Menu, X, MessageCircle, ChevronDown, Languages, Calculator } from "luci
 import { CONTACT, LANGUAGE_ROUTE_MAP, type NavItem } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { BrandLogo } from "@/components/site/BrandLogo";
+import { EmailContact } from "@/components/site/EmailContact";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -74,14 +75,17 @@ export function Header() {
       </nav>
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
         <Button variant="ghost" asChild className="h-11 px-2 text-navy"><Link to={languageTarget} aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages className="hidden sm:block" />{isAlbanian ? "EN" : "SQ"}</Link></Button>
-        <Button variant="ghost" size="icon" asChild className="hidden h-11 w-11 text-navy xl:inline-flex"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp" title="WhatsApp"><MessageCircle /></a></Button>
         <Button asChild className="hidden h-11 sm:inline-flex"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button>
         <Button variant="ghost" className="header-menu-button lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X /> : <Menu />}<span>{open ? (isAlbanian ? "Mbyll" : "Close") : "Menu"}</span></Button>
       </div>
     </div>
+    <div className="hidden border-t border-border lg:block"><div className="container-page flex min-h-11 flex-wrap items-center justify-end gap-x-6">
+      <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" className="inline-flex min-h-11 items-center gap-2 text-sm text-secondary"><MessageCircle className="h-5 w-5" aria-hidden="true" />WhatsApp +355692233416</a>
+      <EmailContact location="header" />
+    </div></div>
     {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet lg:hidden"><div className="container-page py-6">
       <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Button key={item.to} variant="ghost" asChild className="mobile-sheet-link"><Link to={item.to}>{item.label}</Link></Button> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Button key={i.to} variant="ghost" asChild className="mobile-sheet-sublink"><Link to={i.to}>{i.label}</Link></Button>)}</div></AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button></div>
+      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button><EmailContact location="mobile_menu" className="w-full justify-center" /></div>
     </div></nav>}
   </header>;
 }
