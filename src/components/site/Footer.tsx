@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Mail, MapPin, Instagram } from "lucide-react";
+import { MapPin, Instagram, MessageCircle } from "lucide-react";
+import { EmailContact } from "@/components/site/EmailContact";
 import { CONTACT, OFFICES, SERVICES, localPath } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { NAV_AL, AL_FOOTER_EXTRAS } from "@/lib/i18n-al";
@@ -195,12 +196,10 @@ export function Footer() {
                   </div>
                 </li>
               ))}
-              <li className="flex gap-2.5"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                <div>
-                  <div className="font-semibold text-navy">Email</div>
-                  <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "footer" })} className="hover:text-primary">{CONTACT.email}</a>
-                </div>
-              </li>
+              <li className="min-w-0 sm:col-span-2"><div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "footer" })} className="inline-flex min-h-11 items-center gap-2 text-secondary"><MessageCircle className="h-5 w-5 shrink-0" aria-hidden="true" />WhatsApp +355692233416</a>
+                <EmailContact location="footer" />
+              </div></li>
               {!isAlbanian && <li className="text-xs text-muted-foreground sm:col-span-2">{CONTACT.hours}</li>}
             </ul>
           </div>
