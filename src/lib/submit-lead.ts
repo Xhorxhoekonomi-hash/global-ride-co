@@ -100,9 +100,12 @@ function buildWhatsAppMessage(lead: LeadPayload): string {
   return lines.join("\n");
 }
 
-async function persistLead(lead: LeadPayload, attribution: LeadAttribution): Promise<{ ok: boolean; error?: string }> {
+async function persistLead(
+  lead: LeadPayload,
+  attribution: LeadAttribution,
+): Promise<{ ok: boolean; leadId?: string; error?: string }> {
   try {
-    const { error } = await supabase.from("leads").insert({
+    const { data, error } = await supabase.from("leads").insert({
       name: lead.name,
       phone: lead.phone,
       email: lead.email ?? null,
