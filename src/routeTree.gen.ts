@@ -96,6 +96,7 @@ import { Route as AlUdhezuesKontenierApoRoroRouteImport } from './routes/al/udhe
 import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './routes/al/udhezues/si-te-blini-nga-ankandet-amerikane'
 import { Route as AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport } from './routes/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -548,6 +549,12 @@ const EnShippingSouthKoreaToRotterdamRoute =
     path: '/en/shipping/south-korea-to-rotterdam',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -637,6 +644,7 @@ export interface FileRoutesByFullPath {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -726,6 +734,7 @@ export interface FileRoutesByTo {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues': typeof AlUdhezuesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -816,6 +825,7 @@ export interface FileRoutesById {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -907,6 +917,7 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -996,6 +1007,7 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -1085,6 +1097,7 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1175,6 +1188,7 @@ export interface RootRouteChildren {
   AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
   AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1788,6 +1802,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnShippingSouthKoreaToRotterdamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1883,6 +1904,7 @@ const rootRouteChildren: RootRouteChildren = {
     AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
   AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
