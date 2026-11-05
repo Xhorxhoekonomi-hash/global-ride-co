@@ -41,7 +41,11 @@ export const notifyOwnerOfLead = createServerFn({ method: "POST" })
         source: lead.source,
         locale: lead.locale ?? undefined,
         sourcePage: lead.source_page ?? undefined,
-        submittedAt: lead.created_at,
+        submittedAt: new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/Tirane",
+          dateStyle: "medium",
+          timeStyle: "short",
+        }).format(new Date(lead.created_at)),
       },
       idempotencyKey: `lead-notify-${lead.id}`,
       ...(lead.email ? { replyTo: lead.email } : {}),
