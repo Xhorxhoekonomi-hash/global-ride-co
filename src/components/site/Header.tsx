@@ -85,8 +85,7 @@ export function Header() {
     </div></div>
     {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet lg:hidden"><div className="container-page py-6">
       <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Button key={item.to} variant="ghost" asChild className="mobile-sheet-link"><Link to={item.to}>{item.label}</Link></Button> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Button key={i.to} variant="ghost" asChild className="mobile-sheet-sublink"><Link to={i.to}>{i.label}</Link></Button>)}</div></AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button></div>
-      <EmailContact location="mobile_menu" className="w-full" />
+      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button><EmailContact location="mobile_menu" className="w-full justify-center" /></div>
     </div></nav>}
   </header>;
 }
