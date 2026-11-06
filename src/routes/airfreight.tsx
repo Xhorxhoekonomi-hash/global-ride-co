@@ -1,4 +1,6 @@
 import { PageHero } from "@/components/site/PageHero";
+import { AirfreightGallery } from "@/components/site/AirfreightGallery";
+import { AIRFREIGHT_HUB_SCENE } from "@/lib/airfreight-photos";
 import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -109,7 +111,7 @@ function Airfreight() {
 
   return (
     <div className="airfreight-page">
-      <PageHero tone="navy" icon={Plane} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
+      <PageHero scene={AIRFREIGHT_HUB_SCENE.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
         <Button asChild><Link to="/contact">Get a Quote</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp Us</a></Button>
       </PageHero>
@@ -202,6 +204,7 @@ function Airfreight() {
         </div>
       </section>
 
+      <AirfreightGallery />
       <AirfreightSupplement />
 
       <section className="section-dark">
