@@ -9,10 +9,10 @@ import { AirfreightForm } from "@/components/site/AirfreightForm";
 import { EmailContact } from "@/components/site/EmailContact";
 import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
 import { airportName, airportPath, airportStatus, type Airport } from "@/lib/airports";
-import { buildHead } from "@/lib/seo";
+import { buildHead }  from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 
-const PUBLIC_ORIGIN = "https://alphaworldwidealbania.com";
+const PUBLIC_ORIGIN = SITE_URL;
 export function airportHead(airport: Airport, sq: boolean) {
   const name = airportName(airport, sq);
   const path = airportPath(airport, sq);
@@ -22,8 +22,6 @@ export function airportHead(airport: Airport, sq: boolean) {
   const description = sq ? `Transport ajror automjetesh përmes ${name}, koordinim i ngarkesës dhe doganës, dokumentacion dhe dorëzim tokësor. ${airportStatus(airport, true)}; sipas konfirmimit të dërgesës.` : `Vehicle airfreight via ${name}, cargo and customs coordination, inspection documents, airport collection and onward delivery. ${airportStatus(airport, false)}; shipment confirmation required.`;
   const base = buildHead({ title, description, path, lang: sq ? "sq" : "en", hreflang: [{ lang: "en", path: en }, { lang: "sq", path: al }], xDefault: en });
   return { ...base,
-    meta: base.meta.map(m => m.property === "og:url" ? { ...m, content: `${PUBLIC_ORIGIN}${path}` } : m),
-    links: base.links.map(l => ({ ...l, href: l.href?.replace("https://www.alphaworldwidealbania.com", PUBLIC_ORIGIN) })),
     scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "Service", name: title.split(" | ")[0], description, serviceType: sq ? "Koordinim i transportit ajror të automjeteve" : "Vehicle airfreight coordination", provider: { "@type": "Organization", name: "Alpha Worldwide", url: PUBLIC_ORIGIN }, areaServed: airport.country, url: `${PUBLIC_ORIGIN}${path}` }) },
     { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: sq ? "Kreu" : "Home", item: `${PUBLIC_ORIGIN}${sq ? "/al" : "/"}` }, { "@type": "ListItem", position: 2, name: sq ? "Transport ajror" : "Airfreight", item: `${PUBLIC_ORIGIN}${sq ? "/al/transport-ajror-makinash" : "/airfreight"}` }, { "@type": "ListItem", position: 3, name, item: `${PUBLIC_ORIGIN}${path}` }] }) }],
   };
