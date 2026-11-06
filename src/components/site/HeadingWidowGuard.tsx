@@ -22,7 +22,11 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue?.trim()) last = n as Text;
         if (!last?.nodeValue) return;
         const next = glueLastWords(last.nodeValue);
-        if (next !== last.nodeValue) last.nodeValue = next;
+        if (next === last.nodeValue) return;
+        const original = last.nodeValue;
+        last.nodeValue = next;
+        // Never let the joined pair overflow a narrow column.
+        if (h.scrollWidth > h.clientWidth + 1) last.nodeValue = original;
       });
       document.documentElement.dataset.headingsGlued = "true";
     };
