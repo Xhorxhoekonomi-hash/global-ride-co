@@ -298,6 +298,19 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .related-guide-card span { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--teal-dark); }
 .related-guide-card span svg { width: 16px; height: 16px; }
 
+
+/* Welcome overlay (one-time, client-only) */
+.welcome-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: var(--graphite); color: var(--on-dark); animation: welcome-in .6s ease-out both; }
+.welcome-inner { width: 100%; max-width: 520px; text-align: center; }
+.welcome-logo { display: inline-flex; padding: 16px 20px; border-radius: 12px; background: var(--background); }
+.welcome-slogan { margin-top: 28px; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-glow); }
+.welcome-line { margin-top: 12px; font-size: var(--fs-h3); font-weight: 600; line-height: 1.35; }
+.welcome-actions { display: flex; gap: 12px; margin-top: 32px; }
+.welcome-outline { border: 1.5px solid var(--on-dark); color: var(--on-dark); }
+.welcome-outline:hover { background: color-mix(in oklab, var(--on-dark) 12%, transparent); }
+.welcome-skip { margin-top: 20px; min-height: 44px; padding-inline: 16px; font-size: 14px; color: color-mix(in oklab, var(--on-dark) 75%, transparent); text-decoration: underline; text-underline-offset: 3px; }
+@keyframes welcome-in { from { opacity: 0; } to { opacity: 1; } }
+
 /* ================================================================
    8. Photo media (EditorialMedia)
    ================================================================ */
