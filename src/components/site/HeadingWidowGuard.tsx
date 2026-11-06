@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /**
- * Typographic widow guard: in headings of 3+ words, joins the last two words with a
+ * Typographic widow guard: in headings of 4+ words, joins the last two words with a
  * non-breaking space so a single word never sits alone on the last line. Presentation only
  * (text nodes' spacing), runs after hydration and on every page change.
  */
@@ -17,7 +17,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
     const run = () => {
       document.querySelectorAll<HTMLElement>("main h1, main h2, main h3").forEach((h) => {
         const words = (h.textContent ?? "").trim().split(/\s+/);
-        if (words.length < 3) return;
+        if (words.length < 4) return;
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
         let last: Text | null = null;
         for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue?.trim()) last = n as Text;
@@ -25,6 +25,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         const next = glueLastWords(last.nodeValue);
         if (next === last.nodeValue) return;
         const original = last.nodeValue;
+        if (!/[ \t\n]/.test(next.trim())) return;
         last.nodeValue = next;
         // Never let the joined pair overflow a narrow column.
         if (h.scrollWidth > h.clientWidth + 1) { last.nodeValue = original; tooWide.set(last, original); }
