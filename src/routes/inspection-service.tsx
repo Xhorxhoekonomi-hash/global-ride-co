@@ -55,7 +55,7 @@ function InspectionService() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">What's included</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Every inspection covers</h2>
+            <h2 className="mt-3 text-secondary">Every inspection covers</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CHECKS.map((c) => (
@@ -63,7 +63,7 @@ function InspectionService() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                   <c.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-secondary">{c.title}</h3>
+                <h3 className="mt-4 text-secondary">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
               </div>
             ))}
@@ -75,7 +75,7 @@ function InspectionService() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Book an inspection</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               Request Inspection Before You Buy
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">

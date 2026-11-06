@@ -108,7 +108,7 @@ function ImportUAE() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-3xl text-center">
             <MapPin className="mx-auto h-8 w-8 text-primary" />
-            <h2 className="font-display mt-4 text-3xl font-bold text-secondary md:text-4xl">A Dubai Headquarters Advantage</h2>
+            <h2 className="mt-4 text-secondary">A Dubai Headquarters Advantage</h2>
             <p className="mt-4 text-muted-foreground">
               Being based in {dubai.city} means local UAE sourcing coordination, direct seller and dealer communication, inspection coordination, export preparation, and inland vehicle movement all happen on the ground — not remotely.
             </p>
@@ -120,7 +120,7 @@ function ImportUAE() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Beyond luxury</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">A Broader Market Than You'd Expect</h2>
+            <h2 className="mt-3 text-secondary">A Broader Market Than You'd Expect</h2>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {MARKET_TYPES.map((m) => (
@@ -136,7 +136,7 @@ function ImportUAE() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">6-step process</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">From Dubai to Your Driveway</h2>
+            <h2 className="mt-3 text-secondary">From Dubai to Your Driveway</h2>
           </div>
           <JourneySteps steps={STEPS} />
         </div>
@@ -146,7 +146,7 @@ function ImportUAE() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Shipping options</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Container, RoRo, or Airfreight</h2>
+            <h2 className="mt-3 text-secondary">Container, RoRo, or Airfreight</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {SHIPPING_OPTIONS.map((s) => (
@@ -154,7 +154,7 @@ function ImportUAE() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-secondary">{s.title}</h3>
+                <h3 className="mt-4 text-secondary">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                 {s.title === "Airfreight" && (
                   <Link to="/airfreight" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
@@ -171,12 +171,12 @@ function ImportUAE() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Where we ship to</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Destination Options</h2>
+            <h2 className="mt-3 text-secondary">Destination Options</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {DESTINATIONS.map((d) => (
               <Link key={d.name} to={d.to} className="group rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
-                <h3 className="font-display text-base font-bold text-secondary">{d.name}</h3>
+                <h3 className="text-secondary">{d.name}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{d.body}</p>
                 <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors">
                   Learn more <ArrowRight className="h-3 w-3" />
@@ -191,7 +191,7 @@ function ImportUAE() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
@@ -211,7 +211,7 @@ function ImportUAE() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Start today</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               Send Us a Dubizzle or Emirates Auction Link
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">

@@ -1,4 +1,4 @@
-import { LANGUAGE_ROUTE_MAP } from "@/lib/site-data";
+import { CONTACT, LANGUAGE_ROUTE_MAP, OFFICES } from "@/lib/site-data";
 
 // Central SEO helpers. Update SITE_URL here if the production domain changes.
 export const SITE_URL = "https://www.alphaworldwidealbania.com";
@@ -79,4 +79,66 @@ export function derivedHreflang(path: string, lang: string) {
   const sq = lang === "sq" ? path : LANGUAGE_ROUTE_MAP[path];
   const hreflang = [...(en ? [{ lang: "en", path: en }] : []), ...(sq ? [{ lang: "sq", path: sq }] : [])];
   return { hreflang, xDefault: en ?? path };
+}
+
+/** Organization + LocalBusiness + WebSite graph for the EN and SQ home pages. */
+export function siteGraph(lang: "en" | "sq") {
+  return {
+    type: "application/ld+json",
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+                    "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Alpha Worldwide",
+          alternateName: "Alpha Worldwide Albania",
+          description:
+            "International vehicle logistics, sourcing and auction-services company headquartered in Dubai, UAE, with European operations in Durrës, Albania — serving the USA, South Korea, UAE, Canada, Albania, and wider Europe.",
+          url: SITE_URL,
+          email: CONTACT.email,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: OFFICES[0].city,
+            addressCountry: OFFICES[0].countryCode,
+          },
+          areaServed: [
+            "Albania", "United States", "South Korea", "United Arab Emirates",
+            "Canada", "Italy", "Germany", "Belgium", "Netherlands", "France",
+          ],
+          department: [
+            {
+              "@type": "LocalBusiness",
+              name: "Alpha Worldwide Albania",
+              description: "European and Albanian operations",
+              telephone: OFFICES[1].phones[0],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: OFFICES[1].city,
+                addressCountry: OFFICES[1].countryCode,
+              },
+            },
+          ],
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: OFFICES[0].phone,
+              contactType: "customer service",
+              areaServed: "AE",
+              availableLanguage: ["en", "ar"],
+            },
+            {
+              "@type": "ContactPoint",
+              telephone: OFFICES[1].phones[0],
+              contactType: "customer service",
+              areaServed: "AL",
+              availableLanguage: ["en", "sq"],
+            },
+          ],
+          sameAs: [`https://wa.me/${CONTACT.whatsapp}`],
+        },
+        { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: "Alpha Worldwide", url: lang === "sq" ? `${SITE_URL}/al` : SITE_URL, inLanguage: lang, publisher: { "@id": `${SITE_URL}/#organization` } },
+      ],
+    }),
+  };
 }

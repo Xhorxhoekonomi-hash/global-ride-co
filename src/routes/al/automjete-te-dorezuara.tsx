@@ -28,7 +28,7 @@ function AutomjeteTeDorezuara() {
     <section className="bg-background">
       <div className="container-page py-12 md:py-16">
         <p className="text-xs font-semibold text-primary">Foto origjinale të Alpha Worldwide</p>
-        <h2 className="mt-3 text-3xl font-semibold text-secondary">Galeria e trajtimit dhe transportit të automjeteve</h2>
+        <h2 className="mt-3 text-secondary">Galeria e trajtimit dhe transportit të automjeteve</h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">Automjete të fotografuara nga ekipi ynë në magazina, porte, kamionë transportues dhe brenda kontenierëve.</p>
         <div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} locale="sq" /></div>
       </div>
@@ -37,13 +37,13 @@ function AutomjeteTeDorezuara() {
       <div className="container-page grid gap-12 py-14 md:py-20 lg:grid-cols-2">
         <div className="min-w-0">
           <Ship className="h-9 w-9 text-primary" aria-hidden="true" />
-          <h2 className="mt-5 text-3xl font-semibold text-secondary">Automjeti juaj. Udhëtimi i radhës.</h2>
+          <h2 className="mt-5 text-secondary">Automjeti juaj. Udhëtimi i radhës.</h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">Na tregoni për automjetin që po mendoni dhe ku duhet të shkojë. Ekipi ynë mund të shqyrtojë me ju gjetjen, mundësinë e inspektimit dhe opsionet e transportit.</p>
           <Button asChild variant="link" className="mt-5 h-auto min-h-11 px-0"><Link to="/al/si-funksionon">Njihuni me procesin e importit <ArrowRight /></Link></Button>
         </div>
         <div className="min-w-0 border-l-2 border-primary pl-6">
           <p className="text-xs font-semibold text-primary">Flisni drejtpërdrejt me ekipin</p>
-          <h2 className="mt-4 text-2xl font-semibold text-secondary">E keni gjetur tashmë automjetin?</h2>
+          <h2 className="mt-4 text-secondary">E keni gjetur tashmë automjetin?</h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Dërgoni shpalljen ose lotin e ankandit për të diskutuar transportin, ose shihni një përllogaritje me kalkulatorin tonë për SHBA-në dhe Korenë e Jugut.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="min-h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a></Button>

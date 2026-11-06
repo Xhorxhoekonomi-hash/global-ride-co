@@ -1,5 +1,7 @@
 import { KeywordText } from "@/components/site/KeywordText";
-import { TextHero } from "@/components/site/PageHero";
+import { PageHero } from "@/components/site/PageHero";
+import { Button } from "@/components/ui/button";
+import { sceneForPath } from "@/lib/scene-library";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Anchor, FileText, ShieldCheck, Ship, Truck, Plane, Car, MessageCircle, Calculator } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -65,38 +67,22 @@ function ImportNetherlands() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Import to Netherlands" }]} />
-      <TextHero>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Import to · Netherlands</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
-              Vehicle Sourcing and Shipping to the Netherlands
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground"><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Rotterdam."} /></p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "eu-netherlands-hero" })} className="btn-primary">
-                <MessageCircle className="h-4 w-4" /> WhatsApp Us
-              </a>
-              <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-netherlands-hero" })} className="btn-outline-dark">
-                <Calculator className="h-4 w-4" /> Calculate Shipping Cost
-              </Link>
-            </div>
-          </div>
-        </div>
-      </TextHero>
+      <PageHero scene={sceneForPath("/import-netherlands").en} breadcrumbs={[{ label: "Import to Netherlands" }]} eyebrow="Import to Netherlands" title="Vehicle Sourcing and Shipping to the Netherlands" description={<><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Rotterdam."} /></>}>
+        <Button asChild><Link to="/contact" search={{ from: "", to: "Netherlands", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-netherlands-hero" })}>Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-netherlands-hero" })}>Calculate shipping cost</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div>
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">Arrival at Rotterdam</h2>
+              <h2 className="mt-4 text-navy">Arrival at Rotterdam</h2>
               <p className="mt-3 text-slate-body"><KeywordText text={"Your vehicle arrives at the Port of Rotterdam, the largest port in Europe, whether shipped by container or RoRo. We coordinate unloading and terminal handling on arrival."} /></p>
             </div>
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div>
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">Registration Overview</h2>
+              <h2 className="mt-4 text-navy">Registration Overview</h2>
               <p className="mt-3 text-slate-body">Vehicle registration in the Netherlands is handled by the RDW and typically involves an import inspection and compliance documentation. Requirements vary and should always be confirmed with the local registration authority.</p>
             </div>
           </div>
@@ -107,22 +93,22 @@ function ImportNetherlands() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Shipping options</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Container, RoRo, or Airfreight</h2>
+            <h2 className="mt-3 text-navy">Container, RoRo, or Airfreight</h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Ship className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">Container Shipping</h3>
+              <h3 className="mt-3 text-navy">Container Shipping</h3>
               <p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p>
             </Link>
             <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Truck className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">RoRo</h3>
+              <h3 className="mt-3 text-navy">RoRo</h3>
               <p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p>
             </Link>
             <Link to="/airfreight" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Plane className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">Airfreight</h3>
+              <h3 className="mt-3 text-navy">Airfreight</h3>
               <p className="mt-2 text-sm text-slate-body">For urgent or exceptionally high-value vehicles, via Amsterdam Schiphol.</p>
             </Link>
           </div>
@@ -133,7 +119,7 @@ function ImportNetherlands() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Frequently imported</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">What Customers Bring In</h2>
+            <h2 className="mt-3 text-navy">What Customers Bring In</h2>
           </div>
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -147,17 +133,17 @@ function ImportNetherlands() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Inspection & delivery</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Before and After Shipping</h2>
+            <h2 className="mt-3 text-navy">Before and After Shipping</h2>
           </div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div>
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Inspection</h3>
+              <h3 className="mt-4 text-navy">Inspection</h3>
               <p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p>
             </div>
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Truck className="h-5 w-5" /></div>
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Delivery</h3>
+              <h3 className="mt-4 text-navy">Delivery</h3>
               <p className="mt-2 text-sm text-slate-body"><KeywordText text={"Once cleared at Rotterdam, we coordinate onward delivery to your address or a nearby collection point."} /></p>
             </div>
           </div>
@@ -168,7 +154,7 @@ function ImportNetherlands() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (
@@ -199,7 +185,7 @@ function ImportNetherlands() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Get started</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Send Us a Vehicle Link</h2>
+            <h2 className="mt-3 text-white">Send Us a Vehicle Link</h2>
             <p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote to your Dutch destination.</p>
           </div>
           <QuoteForm variant="full" onDark source="eu-netherlands" />

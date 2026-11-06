@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildHead } from "@/lib/seo";
+import { buildHead, siteGraph } from "@/lib/seo";
 import { HomeExperience } from "@/components/site/HomeExperience";
 
 export const Route = createFileRoute("/al/")({
@@ -7,17 +7,18 @@ export const Route = createFileRoute("/al/")({
     const base = buildHead({
       title: "Transport makinash për Shqipëri | Alpha Worldwide",
       description: "Bli, inspekto dhe transporto makinën tënde nga SHBA-ja, Koreja e Jugut dhe Dubai drejt Shqipërisë, me një proces të qartë dhe transparent.",
-      path: "/al/",
+      path: "/al",
       lang: "sq",
       hreflang: [
         { lang: "en", path: "/" },
-        { lang: "sq", path: "/al/" },
+        { lang: "sq", path: "/al" },
       ],
       xDefault: "/",
     });
     return {
       ...base,
       scripts: [
+        siteGraph("sq"),
         {
           type: "application/ld+json",
           children: JSON.stringify({

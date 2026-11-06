@@ -5,7 +5,7 @@ export function AirfreightGallery({ sq = false }: { sq?: boolean }) {
   return (
     <section className="bg-background">
       <div className="container-page py-12 md:py-20">
-        <h2 className="text-3xl font-semibold text-secondary">{sq ? "Nga operacionet tona të transportit ajror" : "From our airfreight operations"}</h2>
+        <h2 className="text-secondary">{sq ? "Nga operacionet tona të transportit ajror" : "From our airfreight operations"}</h2>
         <ul className="mt-8 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0">
           {AIRFREIGHT_GALLERY.map((p) => (
             <li key={p.src} className="w-[72%] shrink-0 snap-start sm:w-[40%] md:w-auto">

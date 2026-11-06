@@ -23,7 +23,7 @@ const STEPS = [
 export const Route = createFileRoute("/al/si-funksionon")({
   head: () => {
     const base = buildHead({
-      title: "Si funksionon | Procesi i importit të automjetit | Alpha Worldwide",
+      title: "Si funksionon importi i automjetit | Alpha Worldwide",
       description: "Procesi i plotë i Alpha Worldwide hap pas hapi — nga zgjedhja e automjetit deri te marrja, me inspektim, blerje, eksport, transport dhe koordinim doganor të shpjeguar qartë.",
       path: "/al/si-funksionon",
       lang: "sq",
@@ -87,7 +87,7 @@ function SiFunksionon() {
                   </div>
                   <div className="pb-10">
                     <div className="text-xs font-bold uppercase tracking-normal text-primary">Hapi {s.n}</div>
-                    <h2 className="font-display mt-1 text-xl font-bold text-secondary">{s.title}</h2>
+                    <h2 className="mt-1 text-secondary">{s.title}</h2>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                     {s.trust && <p className="mt-2 rounded-lg bg-mist px-3 py-2 text-xs text-muted-foreground">{s.trust}</p>}
                   </div>
@@ -114,7 +114,7 @@ function SiFunksionon() {
       <section className="bg-accent border-y border-border">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-primary">Gati për të filluar?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-secondary md:text-5xl">Na dërgoni automjetin tuaj të parë</h2>
+          <h2 className="mx-auto mt-3 max-w-2xl text-secondary">Na dërgoni automjetin tuaj të parë</h2>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}>
               <MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp

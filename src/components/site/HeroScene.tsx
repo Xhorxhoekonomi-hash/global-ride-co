@@ -1,8 +1,9 @@
+import type React from "react";
 import type { ReactNode } from "react";
 
-export type HeroSceneImage = { desktop: string; desktopLarge: string; mobile: string; alt: string };
+export type HeroSceneImage = { desktop: string; desktopLarge: string; mobile: string; alt: string; position?: string };
 
-/** Single full-bleed photo panel for interior pages: 16:9 desktop art, 9:16 mobile art, copy over the open sky. */
+/** Single full-bleed photo panel for interior pages: 16:9 desktop art, 9:16 mobile art, copy bottom-left over a bottom fade. */
 export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, children }: {
   scene: HeroSceneImage;
   eyebrow?: string;
@@ -13,7 +14,7 @@ export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, chi
 }) {
   return (
     <section className="hero-panel hero-scene">
-      <div className="hero-panel-slide">
+      <div className="hero-panel-slide" style={scene.position ? ({ "--hero-pos": scene.position } as React.CSSProperties) : undefined}>
         <picture>
           <source media="(max-width: 767px)" srcSet={scene.mobile} width={1080} height={1935} />
           <source media="(min-width: 768px)" srcSet={`${scene.desktop} 1440w, ${scene.desktopLarge} 2560w`} sizes="100vw" width={2560} height={1434} />
@@ -27,8 +28,6 @@ export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, chi
           {children && <div className="hero-panel-actions hero-scene-actions">{children}</div>}
         </div>
       </div>
-      {/* Phones: the intro sits below the photo so copy never covers the vehicle. */}
-      <p className="hero-scene-intro-below container-page">{description}</p>
     </section>
   );
 }

@@ -36,7 +36,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/sherbimet")({
   head: () => {
     const base = buildHead({
-      title: "Shërbime importi automjetesh | Gjetje, inspektim, transport | Alpha Worldwide",
+      title: "Shërbime importi automjetesh | Alpha Worldwide",
       description: "Akses në ankande, inspektim para blerjes, transport me kontenier dhe RoRo, transport ajror dhe koordinim doganor — shërbim i plotë për importin e automjetit.",
       path: "/al/sherbimet",
       lang: "sq",
@@ -91,7 +91,7 @@ function Sherbimet() {
               const copy = SERVICE_COPY_SQ[s.slug] ?? { title: s.title, body: s.body };
               return (
                 <Link key={s.slug} to={localPath(s.to, true)} className="group border-t border-border py-8 pr-6 transition-colors hover:border-primary">
-                  <h3 className="font-display text-lg font-bold text-secondary">{copy.title}</h3>
+                  <h3 className="text-secondary">{copy.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{copy.body}</p>
                   <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors">
                     {s.hasDedicatedPage ? "Mëso më shumë" : "Na pyesni"} <ArrowRight className="h-3.5 w-3.5" />
@@ -107,7 +107,7 @@ function Sherbimet() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Import sipas tregut</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Tregjet tona kryesore të origjinës</h2>
+            <h2 className="mt-3 text-secondary">Tregjet tona kryesore të origjinës</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
@@ -117,7 +117,7 @@ function Sherbimet() {
             ].map((m) => (
               <Link key={m.name} to={m.to} className="border-t border-border py-8 pr-6 transition-colors hover:border-primary">
                 <div className="eyebrow">Import nga</div>
-                <h3 className="font-display mt-2 text-2xl font-bold text-secondary">{m.name}</h3>
+                <h3 className="mt-2 text-secondary">{m.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
                 <div className="mt-4 text-sm font-semibold text-primary">Mëso më shumë →</div>
               </Link>
@@ -132,10 +132,10 @@ function Sherbimet() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Filloni importin sot</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Një ofertë. Çdo hap i mbuluar.</h2>
+            <h2 className="mt-3 text-secondary">Një ofertë. Çdo hap i mbuluar.</h2>
             <p className="mt-5 text-muted-foreground">Na dërgoni linkun e automjetit, numrin e lotit ose shpalljen e tregtarit — do t'ju kthejmë një ofertë të plotë e të detajuar dhe kohën e parashikuar për importin.</p>
             <div className="mt-10">
-              <h3 className="font-display text-xl font-bold text-secondary">Pyetje të shpeshta</h3>
+              <h3 className="text-secondary">Pyetje të shpeshta</h3>
               <div className="mt-5 divide-y divide-border rounded-lg border border-border bg-card">
                 {FAQS.map((f) => (
                   <details key={f.q} className="group p-5">

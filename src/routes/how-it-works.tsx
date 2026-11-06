@@ -88,7 +88,7 @@ function HowItWorks() {
                   </div>
                   <div className="pb-10">
                     <div className="text-xs font-bold uppercase tracking-normal text-primary">Step {s.n}</div>
-                    <h2 className="font-display mt-1 text-xl font-bold text-secondary">{s.title}</h2>
+                    <h2 className="mt-1 text-secondary">{s.title}</h2>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                     {s.trust && (
                       <p className="mt-2 rounded-lg bg-mist px-3 py-2 text-xs text-muted-foreground">{s.trust}</p>
@@ -117,7 +117,7 @@ function HowItWorks() {
       <section className="bg-accent border-y border-border">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-primary">Ready to start?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-secondary md:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-2xl text-secondary">
             Send us your first vehicle
           </h2>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

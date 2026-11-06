@@ -52,7 +52,7 @@ function GuideCommonMistakes() {
       <TextHero>
         <div>
           <GuideMeta category="buying" readingTime="6 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Common Car Import Mistakes</h1>
+          <h1 className="mt-4 max-w-3xl">Common Car Import Mistakes</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">The mistakes that cost buyers the most time and money — and how to avoid each one.</p>
         </div>
       </TextHero>
@@ -68,7 +68,7 @@ function GuideCommonMistakes() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">The seven mistakes</h2></div>
+            <div className="flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-teal" /><h2 className="text-navy">The seven mistakes</h2></div>
             <div className="mt-6 space-y-5">
               {MISTAKES.map((m) => (
                 <div key={m.title} className="rounded-xl border border-border bg-card p-5">
@@ -84,7 +84,7 @@ function GuideCommonMistakes() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">How to avoid most of these</h2>
+            <h2 className="text-navy">How to avoid most of these</h2>
             <p className="mt-3 text-slate-body">Verify the seller, review available condition information, coordinate inspection where possible (see our <Link to="/guides/how-to-check-a-used-car-before-buying" className="text-teal hover:underline">used-car checking guide</Link>), confirm document requirements before shipping (see our <Link to="/guides/vehicle-import-documents" className="text-teal hover:underline">import documents guide</Link>), and budget realistically using our <Link to="/guides/car-shipping-costs-explained" className="text-teal hover:underline">shipping costs guide</Link>. Most of these mistakes share the same root cause — moving fast without confirming the details first.</p>
           </div>
         </div>
@@ -93,7 +93,7 @@ function GuideCommonMistakes() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
             </div>
@@ -120,7 +120,7 @@ function GuideCommonMistakes() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Want a second opinion?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Send us the listing before you commit</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Send us the listing before you commit</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-common-mistakes" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> WhatsApp Us</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-common-mistakes" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

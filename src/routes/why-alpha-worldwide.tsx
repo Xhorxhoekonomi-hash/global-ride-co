@@ -115,7 +115,7 @@ function WhyAlphaWorldwide() {
                 <s.icon className="h-6 w-6" />
               </div>
               <div>
-                <h2 className="font-display text-2xl font-bold text-navy md:text-3xl">{s.title}</h2>
+                <h2 className="text-navy">{s.title}</h2>
                 <p className="mt-3 max-w-2xl text-slate-body"><KeywordText text={s.body} /></p>
                 {s.cta.to === "whatsapp" ? (
                   <a
@@ -146,7 +146,7 @@ function WhyAlphaWorldwide() {
       <section className="section-dark">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Why customers choose us</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-white md:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-2xl text-white">
             One point of contact, from the auction to your driveway
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-white/70">

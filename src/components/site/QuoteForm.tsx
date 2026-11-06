@@ -209,7 +209,7 @@ export function QuoteForm({
         >
           {saved ? <CheckCircle2 className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
         </div>
-        <h3 className={`font-display mt-4 text-2xl font-bold ${onDark ? "text-white" : "text-navy"}`}>
+        <h3 className={`mt-4 ${onDark ? "text-white" : "text-navy"}`}>
           {saved ? L.successTitle : UNSAVED_COPY[locale].title}
         </h3>
         {!saved && (

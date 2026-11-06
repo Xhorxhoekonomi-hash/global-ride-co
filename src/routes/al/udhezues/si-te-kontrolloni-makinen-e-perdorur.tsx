@@ -31,7 +31,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/udhezues/si-te-kontrolloni-makinen-e-perdorur")({
   head: () => {
     const base = buildHead({
-      title: "Si të kontrolloni një makinë të përdorur para blerjes | Alpha Worldwide",
+      title: "Si të kontrolloni makinën e përdorur | Alpha Worldwide",
       description: "Listë kontrolli praktike dhe e ndershme, nga VIN-i dhe historiku i servisit te skanimi OBD dhe ndezja në të ftohtë — si dhe kufijtë realë të inspektimit.",
       path: PATH,
       lang: "sq",
@@ -59,7 +59,7 @@ function GuideKontrolli() {
       <TextHero>
         <div>
           <GuideMeta category="inspection" readingTime="3 min" locale="sq" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Si të kontrolloni një makinë të përdorur para blerjes</h1>
+          <h1 className="mt-4 max-w-3xl">Si të kontrolloni një makinë të përdorur para blerjes</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Një listë kontrolli praktike dhe e ndershme — përfshirë kufijtë realë të inspektimit, jo vetëm çfarë duhet parë.</p>
         </div>
       </TextHero>
@@ -78,7 +78,7 @@ function GuideKontrolli() {
           <div className="mx-auto max-w-3xl space-y-10">
             {CHECK_GROUPS.map((g) => (
               <div key={g.title}>
-                <h2 className="font-display text-xl font-bold text-navy">{g.title}</h2>
+                <h2 className="text-navy">{g.title}</h2>
                 <p className="mt-2 text-sm text-slate-body">{g.body}</p>
                 <div className="mt-4 space-y-2.5">{g.items.map((item) => <div key={item} className="flex gap-2.5 text-sm text-slate-body"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{item}</div>)}</div>
               </div>
@@ -91,18 +91,18 @@ function GuideKontrolli() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><ShieldAlert className="h-5 w-5 text-teal" /> Ku janë realisht kufijtë e inspektimit</h2>
+              <h2 className="flex items-center gap-2 text-navy"><ShieldAlert className="h-5 w-5 text-teal" /> Ku janë realisht kufijtë e inspektimit</h2>
               <div className="mt-4 space-y-3 text-sm text-slate-body">
                 <p>Një inspektim e zvogëlon rrezikun — nuk e eliminon. Raportet pasqyrojnë kushtet e dukshme dhe të testueshme në momentin e inspektimit, jo një garanci të përjetshme. Defektet e fshehura që nuk zbulohen pa çmontim mund të mbeten të pazbuluara. Aksesi te automjeti varet tërësisht nga ajo që lejon shitësi ose ankandi, dhe aksesi i plotë nuk është gjithmonë i mundur.</p>
                 <p>Pikërisht për këtë jemi të drejtpërdrejtë për atë që një inspektim mund dhe nuk mund t'ju tregojë, në vend që ta paraqesim si siguri. Shihni faqen tonë për <Link to="/al/historiku-i-automjetit" className="text-teal hover:underline">çfarë mund dhe nuk mund të tregojnë raportet e historikut</Link>.</p>
               </div>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Si ta peshoni atë që gjeni</h2>
+              <h2 className="text-navy">Si ta peshoni atë që gjeni</h2>
               <p className="mt-3 text-slate-body">Jo çdo problem i gjetur gjatë kontrollit është arsye për të hequr dorë — qëllimi është një vendim i informuar, jo një automjet i përsosur. Konsumi i vogël i pjesëve shpesh mund të negociohet në çmim ose është i pranueshëm për moshën dhe përdorimin e automjetit. Kodet e vazhdueshme dhe të pashpjeguara të defekteve, historiku i paqëndrueshëm i kilometrazhit ose një shitës që nuk lejon asnjë shqyrtim dokumentesh janë ndryshe — tregojnë të panjohura që janë më të vështira për t'u përfshirë në çmim dhe kërkojnë më shumë kujdes se një taketë frenash e konsumuar ose një gërvishtje guri.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Si përshtatet kjo në procesin e plotë të blerjes</h2>
+              <h2 className="text-navy">Si përshtatet kjo në procesin e plotë të blerjes</h2>
               <p className="mt-3 text-slate-body">Inspektimi është një hap në një proces më të gjerë — shihni <Link to="/al/udhezues/si-te-blini-nga-ankandet-amerikane" className="text-teal hover:underline">udhëzuesin e plotë për blerjen në ankand</Link> për të parë si lidhet me ofertat, transportin dhe dokumentet.</p>
             </div>
           </div>
@@ -112,7 +112,7 @@ function GuideKontrolli() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Pyetje të shpeshta</h2>
+            <h2 className="text-navy">Pyetje të shpeshta</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
@@ -139,7 +139,7 @@ function GuideKontrolli() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Po shqyrtoni një automjet konkret?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Na dërgoni shpalljen para se të blini</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Na dërgoni shpalljen para se të blini</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-used-car-check" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp</a>
             <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "guide-used-car-check" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston e transportit</Link>

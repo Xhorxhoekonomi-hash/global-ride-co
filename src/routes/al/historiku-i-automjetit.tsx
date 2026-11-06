@@ -25,7 +25,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/historiku-i-automjetit")({
   head: () => {
     const base = buildHead({
-      title: "Kontrolli i historikut të automjetit | VIN, Carfax, AutoCheck | Alpha Worldwide",
+      title: "Historiku i automjetit: VIN, Carfax | Alpha Worldwide",
       description: "Çfarë mund dhe çfarë nuk mund t'ju tregojnë raportet VIN, Carfax dhe AutoCheck, si ndryshon historiku i automjeteve koreane dhe pse inspektimi fizik shpesh mbetet i nevojshëm.",
       path: "/al/historiku-i-automjetit",
       lang: "sq",
@@ -53,7 +53,7 @@ function Historiku() {
       <TextHero>
         <div className="max-w-3xl">
           <div className="eyebrow text-primary">Informim për blerësit</div>
-          <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">Çfarë mund (dhe çfarë nuk mund) t'ju tregojë një raport historiku</h1>
+          <h1 className="mt-4">Çfarë mund (dhe çfarë nuk mund) t'ju tregojë një raport historiku</h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">Kontrolli i VIN-it, Carfax, AutoCheck dhe historiku i automjeteve koreane — si funksionojnë, kufizimet e tyre reale dhe pse inspektimi fizik shpesh mbetet i nevojshëm.</p>
         </div>
       </TextHero>
@@ -65,7 +65,7 @@ function Historiku() {
               <div key={s.title} className="flex gap-5">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-5 w-5" /></div>
                 <div>
-                  <h2 className="font-display text-xl font-bold text-navy">{s.title}</h2>
+                  <h2 className="text-navy">{s.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ function Historiku() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Lexim i lidhur</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Mësoni më shumë</h2>
+            <h2 className="mt-3 text-navy">Mësoni më shumë</h2>
           </div>
           <div className="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-3">
             <Link to="/al/inspektim-makinash" className={chip}>Shërbimi ynë i inspektimit</Link>
@@ -92,7 +92,7 @@ function Historiku() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (

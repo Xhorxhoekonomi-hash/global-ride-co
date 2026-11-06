@@ -1,3 +1,4 @@
+import { WelcomeScreen } from "@/components/site/WelcomeScreen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -20,16 +21,14 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { StickyActionBar } from "@/components/site/StickyActionBar";
 import { CtaBand } from "@/components/site/CtaBand";
 import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
-import { CONTACT, OFFICES } from "@/lib/site-data";
-import { SITE_URL } from "@/lib/seo";
 import { KeywordDirectory } from "@/components/site/KeywordDirectory";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-8xl font-bold text-navy">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h1 className="text-navy">404</h1>
+        <h2 className="mt-4 text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -51,7 +50,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-foreground">
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -91,70 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Alpha Worldwide",
-          alternateName: "Alpha Worldwide Albania",
-          description:
-            "International vehicle logistics, sourcing and auction-services company headquartered in Dubai, UAE, with European operations in Durrës, Albania — serving the USA, South Korea, UAE, Canada, Albania, and wider Europe.",
-          url: SITE_URL,
-          email: CONTACT.email,
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: OFFICES[0].city,
-            addressCountry: OFFICES[0].countryCode,
-          },
-          areaServed: [
-            "Albania", "United States", "South Korea", "United Arab Emirates",
-            "Canada", "Italy", "Germany", "Belgium", "Netherlands", "France",
-          ],
-          department: [
-            {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              description: "European and Albanian operations",
-              telephone: OFFICES[1].phones[0],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: OFFICES[1].city,
-                addressCountry: OFFICES[1].countryCode,
-              },
-            },
-          ],
-          contactPoint: [
-            {
-              "@type": "ContactPoint",
-              telephone: OFFICES[0].phone,
-              contactType: "customer service",
-              areaServed: "AE",
-              availableLanguage: ["en", "ar"],
-            },
-            {
-              "@type": "ContactPoint",
-              telephone: OFFICES[1].phones[0],
-              contactType: "customer service",
-              areaServed: "AL",
-              availableLanguage: ["en", "sq"],
-            },
-          ],
-          sameAs: [`https://wa.me/${CONTACT.whatsapp}`],
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Alpha Worldwide",
-          url: SITE_URL,
-        }),
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
   }),
@@ -203,6 +139,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <WelcomeScreen />
       <Header />
       <main className="min-h-screen" data-page={isGuideArticle ? "guide-article" : undefined}>
         <Outlet />

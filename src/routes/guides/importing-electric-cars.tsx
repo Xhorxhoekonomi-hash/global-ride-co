@@ -43,7 +43,7 @@ function GuideElectricCars() {
       <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="6 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Importing Electric Cars</h1>
+          <h1 className="mt-4 max-w-3xl">Importing Electric Cars</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">What actually changes when the vehicle you're importing runs on a battery instead of an engine.</p>
         </div>
       </TextHero>
@@ -60,19 +60,19 @@ function GuideElectricCars() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <div className="flex items-center gap-2"><Battery className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Battery-related shipping regulations</h2></div>
+              <div className="flex items-center gap-2"><Battery className="h-5 w-5 text-teal" /><h2 className="text-navy">Battery-related shipping regulations</h2></div>
               <p className="mt-3 text-slate-body">Lithium-ion batteries are classified as a cargo type that some shipping lines and ports handle under specific documentation and handling rules. This doesn't mean EVs can't ship — it means the paperwork and, in some cases, the carrier selection needs to account for it. We confirm the current requirements for your specific vehicle and route before booking, rather than assuming last year's rules still apply.</p>
             </div>
             <div>
-              <div className="flex items-center gap-2"><Ship className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">RoRo restrictions</h2></div>
+              <div className="flex items-center gap-2"><Ship className="h-5 w-5 text-teal" /><h2 className="text-navy">RoRo restrictions</h2></div>
               <p className="mt-3 text-slate-body">Not every RoRo service accepts EVs on every route — some carriers restrict battery-electric cargo on certain vessels or lanes. Where RoRo isn't available or suitable, <Link to="/container-shipping" className="text-teal hover:underline">container shipping</Link> remains a reliable option. See our broader <Link to="/guides/container-vs-roro-car-shipping" className="text-teal hover:underline">container vs RoRo comparison</Link> for the general tradeoffs.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Container recommendations</h2>
+              <h2 className="text-navy">Container recommendations</h2>
               <p className="mt-3 text-slate-body">Container shipping is often the more flexible route for EVs precisely because it sidesteps some RoRo-specific battery restrictions, while also giving the vehicle full protection from the elements during transit.</p>
             </div>
             <div>
-              <div className="flex items-center gap-2"><ShieldAlert className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Common myths</h2></div>
+              <div className="flex items-center gap-2"><ShieldAlert className="h-5 w-5 text-teal" /><h2 className="text-navy">Common myths</h2></div>
               <div className="mt-3 space-y-2">
                 {[
                   "\"The car charges itself during the voyage.\" It doesn't — there's no power connection during ocean transit.",
@@ -82,7 +82,7 @@ function GuideElectricCars() {
               </div>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Inspection considerations</h2>
+              <h2 className="text-navy">Inspection considerations</h2>
               <p className="mt-3 text-slate-body">General condition, bodywork, and interior can be assessed the same way as any vehicle. Battery state of health and remaining range are separate, more specialized checks — where operationally possible, we factor this into inspection coordination, but availability depends on the seller and access to the vehicle.</p>
             </div>
           </div>
@@ -92,7 +92,7 @@ function GuideElectricCars() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
             </div>
@@ -120,7 +120,7 @@ function GuideElectricCars() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Importing an EV?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Tell us the make and model</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us the make and model</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-electric-cars" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Ask on WhatsApp</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-electric-cars" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

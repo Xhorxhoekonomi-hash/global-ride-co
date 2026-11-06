@@ -81,7 +81,7 @@ function ServicesPage() {
                 to={s.to}
                 className="group border-t border-border py-8 pr-6 transition-colors hover:border-primary"
               >
-                <h3 className="font-display text-lg font-bold text-secondary">{s.title}</h3>
+                <h3 className="text-secondary">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                 <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors">
                   {s.hasDedicatedPage ? "Learn more" : "Enquire"} <ArrowRight className="h-3.5 w-3.5" />
@@ -96,7 +96,7 @@ function ServicesPage() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Market-specific import</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Dedicated origin markets</h2>
+            <h2 className="mt-3 text-secondary">Dedicated origin markets</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
@@ -106,7 +106,7 @@ function ServicesPage() {
             ].map((m) => (
               <Link key={m.name} to={m.to} className="border-t border-border py-8 pr-6 transition-colors hover:border-primary">
                 <div className="eyebrow">Import from</div>
-                <h3 className="font-display mt-2 text-2xl font-bold text-secondary">{m.name}</h3>
+                <h3 className="mt-2 text-secondary">{m.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
                 <div className="mt-4 text-sm font-semibold text-primary">Learn more →</div>
               </Link>
@@ -121,7 +121,7 @@ function ServicesPage() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Start Your Car Import Today</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               One quote. Every step covered.
             </h2>
             <p className="mt-5 text-muted-foreground">
@@ -129,7 +129,7 @@ function ServicesPage() {
             </p>
 
             <div className="mt-10">
-              <h3 className="font-display text-xl font-bold text-secondary">Frequently asked</h3>
+              <h3 className="text-secondary">Frequently asked</h3>
               <div className="mt-5 divide-y divide-border rounded-lg border border-border bg-card">
                 {FAQS.map((f) => (
                   <details key={f.q} className="group p-5">

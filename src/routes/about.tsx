@@ -46,7 +46,7 @@ function About() {
         <div className="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-2 lg:gap-20">
           <div>
             <div className="eyebrow">Who we are</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">
+            <h2 className="mt-3 text-navy">
               10+ years moving vehicles across continents.
             </h2>
             <p className="mt-6 text-slate-body">
@@ -84,7 +84,7 @@ function About() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">What we do</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Core capabilities</h2>
+            <h2 className="mt-3 text-navy">Core capabilities</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((s) => (
@@ -92,7 +92,7 @@ function About() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-4 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -105,7 +105,7 @@ function About() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <div className="eyebrow text-teal-glow">How we operate</div>
-              <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+              <h2 className="mt-3 text-white">
                 Operational principles.
               </h2>
             </div>
@@ -127,7 +127,7 @@ function About() {
 
       <section className="bg-background">
         <div className="container-page flex flex-col items-center gap-6 py-20 text-center md:py-24">
-          <h2 className="font-display max-w-3xl text-3xl font-bold text-navy md:text-5xl">
+          <h2 className="max-w-3xl text-navy">
             Ready to move your next vehicle?
           </h2>
           <p className="max-w-xl text-slate-body">

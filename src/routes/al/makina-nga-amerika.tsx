@@ -109,7 +109,7 @@ function MakinaNgaAmerika() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Procesi në 11 hapa</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Nga ankandi deri te dera juaj</h2>
+            <h2 className="mt-3 text-secondary">Nga ankandi deri te dera juaj</h2>
           </div>
           <JourneySteps steps={STEPS_AL} stepLabel="Hapi" />
         </div>
@@ -118,13 +118,13 @@ function MakinaNgaAmerika() {
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">Çfarë përfshihet</h3>
+            <h3 className="text-secondary">Çfarë përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-primary">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">Çfarë nuk përfshihet</h3>
+            <h3 className="text-secondary">Çfarë nuk përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-muted-foreground">•</span>{i}</li>)}
             </ul>
@@ -136,7 +136,7 @@ function MakinaNgaAmerika() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -156,7 +156,7 @@ function MakinaNgaAmerika() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Faqe të lidhura</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Vazhdoni të lexoni</h2>
+            <h2 className="mt-3 text-secondary">Vazhdoni të lexoni</h2>
           </div>
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
             <Link to="/al/copart-shqiperi" className="group rounded-lg border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
@@ -180,7 +180,7 @@ function MakinaNgaAmerika() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Filloni sot</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               Na dërgoni lotin ose linkun e automjetit
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">

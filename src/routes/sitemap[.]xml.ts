@@ -52,7 +52,7 @@ const PATHS = [
   "/en/netherlands",
   "/en/shipping/south-korea-to-rotterdam",
   "/en/albania",
-  "/al/",
+  "/al",
   "/al/makina-nga-amerika",
   "/al/makina-nga-korea",
   "/al/copart-shqiperi",
@@ -98,7 +98,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = paths.map((p) =>
           [
             `  <url>`,
-            `    <loc>https://alphaworldwidealbania.com${p}</loc>`,
+            `    <loc>${SITE_URL}${p}</loc>`,
             `    <changefreq>weekly</changefreq>`,
             `    <priority>${p === "/" ? "1.0" : "0.8"}</priority>`,
             `  </url>`,

@@ -68,7 +68,7 @@ function Reviews() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Reviews & delivered vehicles</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Reviews & actual operations
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -84,7 +84,7 @@ function Reviews() {
             <div className="flex items-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
             </div>
-            <h2 className="font-display text-2xl font-bold text-navy">See What Customers Say on Google</h2>
+            <h2 className="text-navy">See What Customers Say on Google</h2>
             <p className="max-w-md text-sm text-slate-body">
               Our verified Google reviews are the most current and unfiltered record of customer experience — we link directly rather than curating quotes here.
             </p>
@@ -101,13 +101,13 @@ function Reviews() {
         </div>
       </section>
 
-      <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Vehicles we’ve handled</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Original photographs of vehicle handling at warehouses, ports, transporters and containers.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} /></div></div></section>
+      <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-secondary">Vehicles we’ve handled</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Original photographs of vehicle handling at warehouses, ports, transporters and containers.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} /></div></div></section>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Customer testimonials</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Written Customer Stories</h2>
+            <h2 className="mt-3 text-navy">Written Customer Stories</h2>
           </div>
           {TESTIMONIALS.length > 0 ? (
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -135,7 +135,7 @@ function Reviews() {
       <section className="section-dark">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Leave a review</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-white md:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-2xl text-white">
             Already worked with us?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-white/70">

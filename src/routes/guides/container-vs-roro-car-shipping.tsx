@@ -73,7 +73,7 @@ function GuideContainerVsRoro() {
       <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="3 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Container vs RoRo Car Shipping</h1>
+          <h1 className="mt-4 max-w-3xl">Container vs RoRo Car Shipping</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Neither method is universally better — the right choice depends on your vehicle's condition, value, route, and priorities.</p>
         </div>
       </TextHero>
@@ -92,12 +92,12 @@ function GuideContainerVsRoro() {
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
-              <h2 className="font-display mt-3 text-xl font-bold text-navy">Container shipping</h2>
+              <h2 className="mt-3 text-navy">Container shipping</h2>
               <p className="mt-3 text-sm text-slate-body">A shared container splits space (and cost) with other shipments; a full container is dedicated to your vehicle alone, with more control over loading and schedule. The vehicle is fully enclosed for the ocean crossing, which limits weather and handling exposure. Personal belongings are typically restricted by customs and shipping-line policy — we confirm what's allowed before loading.</p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <Truck className="h-6 w-6 text-teal" />
-              <h2 className="font-display mt-3 text-xl font-bold text-navy">RoRo shipping</h2>
+              <h2 className="mt-3 text-navy">RoRo shipping</h2>
               <p className="mt-3 text-sm text-slate-body">The vehicle is driven onto the vessel via a ramp and secured on an open or covered deck — it needs to roll, steer, and brake under its own power. RoRo is often faster to load and unload, and can be more economical, but the vehicle is exposed to the elements during transit and RoRo service isn't available on every route.</p>
             </div>
           </div>
@@ -107,7 +107,7 @@ function GuideContainerVsRoro() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Factors that actually decide it</h2>
+            <h2 className="text-navy">Factors that actually decide it</h2>
             <div className="mt-6 space-y-5">
               {FACTORS.map((f) => (
                 <div key={f.label} className="flex gap-3">
@@ -127,15 +127,15 @@ function GuideContainerVsRoro() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Loading and terminal handling</h2>
+              <h2 className="text-navy">Loading and terminal handling</h2>
               <p className="mt-3 text-slate-body">For container shipments, the vehicle is driven or winched into the container at an origin terminal, then secured with lashing straps and wheel chocks before the doors close for the voyage. For RoRo, the vehicle is driven onto the vessel via a ramp system at the terminal and parked on a designated deck, where it's similarly secured for transit. Both processes follow standard industry practices designed to prevent movement during the crossing, and both require the vehicle to physically reach the terminal in a condition suitable for that specific loading method.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">When airfreight enters the conversation</h2>
+              <h2 className="text-navy">When airfreight enters the conversation</h2>
               <p className="mt-3 text-slate-body">For genuinely urgent timelines or exceptionally high-value vehicles, <Link to="/airfreight" className="text-teal hover:underline">airfreight</Link> is a third option worth considering — at a materially higher cost than either sea-freight method. It's the exception rather than the default for most imports, but worth knowing about if your situation is time-sensitive enough to justify it. See our <Link to="/guides/importing-luxury-cars" className="text-teal hover:underline">luxury car import guide</Link> for more on when this makes sense.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Making the decision for your vehicle</h2>
+              <h2 className="text-navy">Making the decision for your vehicle</h2>
               <p className="mt-3 text-slate-body">A practical way to approach this: start by checking whether RoRo is even available on your route, since that immediately narrows the decision. If it is, and your vehicle is standard, running, and not heavily modified, RoRo is worth strong consideration for the cost savings. If your vehicle is non-running, particularly valuable, extensively modified, or your route simply doesn't have RoRo service, container shipping is the more straightforward choice regardless of cost comparison.</p>
             </div>
           </div>
@@ -145,7 +145,7 @@ function GuideContainerVsRoro() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
@@ -175,7 +175,7 @@ function GuideContainerVsRoro() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Not sure which fits your vehicle?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Tell us the vehicle and route</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us the vehicle and route</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-container-vs-roro" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Ask on WhatsApp</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-container-vs-roro" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

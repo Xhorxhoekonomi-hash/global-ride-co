@@ -71,7 +71,7 @@ function GuideUsedCarCheck() {
       <TextHero>
         <div>
           <GuideMeta category="inspection" readingTime="3 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How to Check a Used Car Before Buying</h1>
+          <h1 className="mt-4 max-w-3xl">How to Check a Used Car Before Buying</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">A practical, honest checklist — including where inspection limits genuinely are, not just what to look for.</p>
         </div>
       </TextHero>
@@ -90,7 +90,7 @@ function GuideUsedCarCheck() {
           <div className="mx-auto max-w-3xl space-y-10">
             {CHECK_GROUPS.map((g) => (
               <div key={g.title}>
-                <h2 className="font-display text-xl font-bold text-navy">{g.title}</h2>
+                <h2 className="text-navy">{g.title}</h2>
                 <p className="mt-2 text-sm text-slate-body">{g.body}</p>
                 <div className="mt-4 space-y-2.5">
                   {g.items.map((item) => (
@@ -107,18 +107,18 @@ function GuideUsedCarCheck() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><ShieldAlert className="h-5 w-5 text-teal" /> Where inspection limits genuinely are</h2>
+              <h2 className="flex items-center gap-2 text-navy"><ShieldAlert className="h-5 w-5 text-teal" /> Where inspection limits genuinely are</h2>
               <div className="mt-4 space-y-3 text-sm text-slate-body">
                 <p>An inspection reduces risk — it does not eliminate it. Reports reflect visible and testable conditions at the time of inspection, not a lifetime guarantee. Hidden defects that aren't detectable without disassembly can remain undiscovered. Vehicle access depends entirely on what the seller or auction permits, and full access isn't always available.</p>
                 <p>This is exactly why we're direct about what any inspection can and can't tell you, rather than presenting it as a certainty. See our related guide on <Link to="/vehicle-history-check" className="text-teal hover:underline">what vehicle history reports can and can't show</Link>.</p>
               </div>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Weighing what you find</h2>
+              <h2 className="text-navy">Weighing what you find</h2>
               <p className="mt-3 text-slate-body">Not every issue found during a check is a reason to walk away — the goal is an informed decision, not a perfect vehicle. Minor wear items are often negotiable in price or acceptable given the vehicle's age and use. Persistent, unexplained fault codes, inconsistent odometer history, or a seller unwilling to allow any documentation review are different — these point to unknowns that are harder to price in, and warrant more caution than a worn brake pad or a stone chip.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">How this fits into the wider buying process</h2>
+              <h2 className="text-navy">How this fits into the wider buying process</h2>
               <p className="mt-3 text-slate-body">Inspection is one step in a larger process — see our <Link to="/guides/how-to-buy-a-car-from-usa-auctions" className="text-teal hover:underline">full auction buying guide</Link> for how it fits alongside bidding, shipping, and documentation, and our <Link to="/guides/common-car-import-mistakes" className="text-teal hover:underline">common import mistakes guide</Link> for the errors that tend to follow from skipping this step.</p>
             </div>
           </div>
@@ -128,7 +128,7 @@ function GuideUsedCarCheck() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
@@ -158,7 +158,7 @@ function GuideUsedCarCheck() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Have a vehicle in mind?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Ask us to check it before you buy</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Ask us to check it before you buy</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-used-car-inspection" })} className="btn-primary"><Search className="h-4 w-4" /> Ask About Inspection</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-used-car-inspection" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

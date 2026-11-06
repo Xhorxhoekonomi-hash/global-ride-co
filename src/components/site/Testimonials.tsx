@@ -7,7 +7,7 @@ export function Testimonials() {
       <div className="container-page py-20 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <div className="eyebrow">Client feedback</div>
-          <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="mt-3 text-navy">
             What our clients say
           </h2>
         </div>

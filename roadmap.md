@@ -121,3 +121,11 @@
 - [x] Contrast (small teal text, dark sections), form select labels, tap targets, scrollable tables, guide TOC overlap.
 - [x] hreflang derived from the EN↔SQ map on every page; full crawl at 1440/390 clean.
 - [ ] Primary button contrast (white on #0F8796 = 4.26:1) — waits on owner decision.
+
+# Full site audit fixes (Nov 6)
+- [x] www as single SITE_URL everywhere (canonical, hreflang, sitemap, og, JSON-LD, visible text)
+- [ ] Primary domain www in hosting — owner action in Settings → Domains (no tool)
+- [x] Server-side 301s for old Wix URLs + test; /al/ → /al
+- [x] One type scale + one hero layout; full-bleed photo fix; photos on keyword pages; import-country gap
+- [x] Welcome overlay (client-only, once, / and /al only, no bots)
+- [x] Unique/short titles, /al JSON-LD, internal-link test

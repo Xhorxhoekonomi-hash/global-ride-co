@@ -47,7 +47,7 @@ function AuctionAccess() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Auction access</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Bid on Any Major Auction — Without a Local Account
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -63,13 +63,13 @@ function AuctionAccess() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">How auction access works</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Three steps to a purchase</h2>
+            <h2 className="mt-3 text-navy">Three steps to a purchase</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {STEPS.map((s) => (
               <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
                 <div className="font-display text-5xl font-bold text-teal">{String(s.n).padStart(2, "0")}</div>
-                <h3 className="font-display mt-3 text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-3 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -81,7 +81,7 @@ function AuctionAccess() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Start bidding</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Send Us a Lot Number
             </h2>
             <p className="mt-5 max-w-md text-white/70">

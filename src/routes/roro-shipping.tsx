@@ -57,7 +57,7 @@ function RoroShipping() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <p.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{p.title}</h3>
+                <h3 className="mt-4 text-navy">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{p.body}</p>
               </div>
             ))}
@@ -69,7 +69,7 @@ function RoroShipping() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Get a rate</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Calculate RoRo Shipping
             </h2>
             <p className="mt-5 max-w-md text-white/70">

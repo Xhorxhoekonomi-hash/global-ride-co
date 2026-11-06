@@ -32,7 +32,7 @@ function ImportEurope() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">6-step process</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">From anywhere in Europe to your driveway</h2>
+            <h2 className="mt-3 text-navy">From anywhere in Europe to your driveway</h2>
           </div>
           <JourneySteps steps={STEPS} />
         </div>
@@ -42,7 +42,7 @@ function ImportEurope() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Start today</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Send Us a European Listing
             </h2>
             <p className="mt-5 max-w-md text-white/70">

@@ -105,7 +105,7 @@ function KoreaToRotterdam() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">South Korea → Rotterdam</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Vehicle Shipping from South Korea to Rotterdam
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -137,7 +137,7 @@ function KoreaToRotterdam() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">How it works</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">From Korea to Rotterdam</h2>
+            <h2 className="mt-3 text-navy">From Korea to Rotterdam</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WORKFLOW.map((s) => (
@@ -145,7 +145,7 @@ function KoreaToRotterdam() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{s.n}. {s.title}</h3>
+                <h3 className="mt-4 text-navy">{s.n}. {s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -156,13 +156,13 @@ function KoreaToRotterdam() {
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <div className="flex items-center gap-2 text-teal"><Package className="h-5 w-5" /><h3 className="font-display text-lg font-bold text-navy">What's Included</h3></div>
+            <div className="flex items-center gap-2 text-teal"><Package className="h-5 w-5" /><h3 className="text-navy">What's Included</h3></div>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {INCLUDED.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <div className="flex items-center gap-2 text-navy/60"><Package className="h-5 w-5" /><h3 className="font-display text-lg font-bold text-navy">What's Excluded</h3></div>
+            <div className="flex items-center gap-2 text-navy/60"><Package className="h-5 w-5" /><h3 className="text-navy">What's Excluded</h3></div>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {EXCLUDED.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
             </ul>
@@ -174,7 +174,7 @@ function KoreaToRotterdam() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Paperwork</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Documents Typically Required</h2>
+            <h2 className="mt-3 text-navy">Documents Typically Required</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -191,7 +191,7 @@ function KoreaToRotterdam() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow text-teal-glow">Beyond Rotterdam</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Onward Delivery Across Western Europe</h2>
+            <h2 className="mt-3 text-white">Onward Delivery Across Western Europe</h2>
             <p className="mt-4 text-white/70">
               Rotterdam is our entry gateway — from there we arrange onward transport to your final destination.
             </p>
@@ -210,7 +210,7 @@ function KoreaToRotterdam() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (
@@ -230,7 +230,7 @@ function KoreaToRotterdam() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Start today</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">
+            <h2 className="mt-3 text-navy">
               Send Us a Vehicle Link from South Korea
             </h2>
             <p className="mt-5 text-slate-body">

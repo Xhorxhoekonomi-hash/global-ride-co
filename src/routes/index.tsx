@@ -1,21 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildHead } from "@/lib/seo";
+import { buildHead, siteGraph } from "@/lib/seo";
 import { FAQS } from "@/lib/site-data";
 import { HomeExperience } from "@/components/site/HomeExperience";
 
 export const Route = createFileRoute("/")({
-  head: () =>
-    buildHead({
+  head: () => ({
+    ...buildHead({
       title: "International Vehicle Shipping & Import | Alpha Worldwide",
       description: "Source, inspect, and ship vehicles worldwide from the USA, South Korea, UAE, and Canada to Albania and across Europe. Dubai headquarters, Durrës operations.",
       path: "/",
       lang: "en",
       hreflang: [
         { lang: "en", path: "/" },
-        { lang: "sq", path: "/al/" },
+        { lang: "sq", path: "/al" },
       ],
       xDefault: "/",
     }),
+    scripts: [siteGraph("en")],
+  }),
   component: Home_,
 });
 

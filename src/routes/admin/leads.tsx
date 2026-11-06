@@ -95,7 +95,7 @@ function AdminLeads() {
       <div className="mx-auto max-w-[1400px] px-4 py-10">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-2xl font-bold text-navy">Lead submissions</h1>
+            <h1 className="text-navy">Lead submissions</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               {rows === null ? "Loading…" : `${rows.length} submission${rows.length === 1 ? "" : "s"}`}
             </p>

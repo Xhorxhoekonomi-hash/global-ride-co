@@ -124,7 +124,7 @@ function Airfreight() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <p.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{p.title}</h3>
+                <h3 className="mt-4 text-navy">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body"><KeywordText text={p.body} /></p>
               </div>
             ))}
@@ -136,7 +136,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Two ways we can help</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Complete Service or Handling Only</h2>
+            <h2 className="mt-3 text-navy">Complete Service or Handling Only</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {SERVICE_TYPES.map((s) => (
@@ -144,7 +144,7 @@ function Airfreight() {
                 <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display mt-4 text-xl font-bold text-navy"><KeywordText text={s.title} /></h3>
+                <h3 className="mt-4 text-navy"><KeywordText text={s.title} /></h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -156,7 +156,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Before you book</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Vehicle Acceptance Requirements</h2>
+            <h2 className="mt-3 text-navy">Vehicle Acceptance Requirements</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {ACCEPTANCE.map((a) => (
@@ -164,7 +164,7 @@ function Airfreight() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <a.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{a.title}</h3>
+                <h3 className="mt-4 text-navy">{a.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{a.body}</p>
               </div>
             ))}
@@ -179,7 +179,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Paperwork</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Documentation We Coordinate</h2>
+            <h2 className="mt-3 text-navy">Documentation We Coordinate</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -195,7 +195,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Where we handle</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Verified Airport Network</h2>
+            <h2 className="mt-3 text-navy">Verified Airport Network</h2>
           </div>
           <AirportCards />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
@@ -211,7 +211,7 @@ function Airfreight() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow text-teal-glow">Who this serves</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">Built for These Situations</h2>
+            <h2 className="mt-3 text-white">Built for These Situations</h2>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {CLIENT_TYPES.map((c) => (
@@ -227,7 +227,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (
@@ -247,7 +247,7 @@ function Airfreight() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Get started</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">
+            <h2 className="mt-3 text-navy">
               Request an Airfreight Enquiry
             </h2>
             <p className="mt-5 max-w-md text-slate-body">

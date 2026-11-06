@@ -79,7 +79,7 @@ function EncarShqiperi() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Encar & platformat koreane</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Njihuni me Encar, Autowini dhe KB Chachacha
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -104,7 +104,7 @@ function EncarShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Platformat koreane</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Cila platformë për cilin automjet</h2>
+            <h2 className="mt-3 text-navy">Cila platformë për cilin automjet</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {PLATFORM_DIFFS_AL.map((p) => (
@@ -112,7 +112,7 @@ function EncarShqiperi() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Car className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{p.name}</h3>
+                <h3 className="mt-4 text-navy">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{p.body}</p>
               </div>
             ))}
@@ -124,7 +124,7 @@ function EncarShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pse zgjedhin shumë blerës Korenë</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Gradimi, kilometrazhi dhe mirëmbajtja</h2>
+            <h2 className="mt-3 text-navy">Gradimi, kilometrazhi dhe mirëmbajtja</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {GRADING_AL.map((g) => (
@@ -132,7 +132,7 @@ function EncarShqiperi() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Gauge className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{g.title}</h3>
+                <h3 className="mt-4 text-navy">{g.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{g.body}</p>
               </div>
             ))}
@@ -147,7 +147,7 @@ function EncarShqiperi() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                 <Camera className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-navy md:text-4xl">Inspektimi para blerjes</h2>
+              <h2 className="mt-4 text-navy">Inspektimi para blerjes</h2>
               <p className="mt-4 text-slate-body">
                 Kur është i mundur, organizojmë inspektim me foto, video dhe kontroll teknik për shpalljen specifike që keni zgjedhur nga Encar, Autowini apo KB Chachacha. Disponueshmëria varet nga vendndodhja e automjetit dhe aksesi te shitësi.
               </p>
@@ -156,7 +156,7 @@ function EncarShqiperi() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                 <FileText className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-navy md:text-4xl">Dokumentacioni i eksportit</h2>
+              <h2 className="mt-4 text-navy">Dokumentacioni i eksportit</h2>
               <p className="mt-4 text-slate-body">
                 Koordinojmë dokumentacionin e pronësisë, certifikatën e eksportit dhe kërkesat doganore për transportin drejt Shqipërisë, me transport detar RoRo nga Busan ose Incheon.
               </p>
@@ -169,7 +169,7 @@ function EncarShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -209,7 +209,7 @@ function EncarShqiperi() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Dërgoni linkun e Encar
             </h2>
             <p className="mt-5 max-w-md text-white/70">

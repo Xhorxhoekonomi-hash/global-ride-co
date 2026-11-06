@@ -88,7 +88,7 @@ function PyetjeHub() {
       <TextHero>
         <div>
           <div className="eyebrow text-primary">Qendra e informacionit</div>
-          <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Pyetje të shpeshta</h1>
+          <h1 className="mt-4">Pyetje të shpeshta</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Të organizuara sipas temës — çdo përgjigje e shkurtër të çon te faqja me detajet e plota.</p>
         </div>
       </TextHero>
