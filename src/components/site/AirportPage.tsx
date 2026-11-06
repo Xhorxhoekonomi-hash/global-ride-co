@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { Plane, Package, FileText, ShieldCheck, Truck, MapPin, Warehouse, MessageCircle } from "lucide-react";
+import { Plane, Package, FileText, ShieldCheck, Truck, MapPin, Warehouse, MessageCircle, Mail } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { AirfreightGallery } from "@/components/site/AirfreightGallery";
 import { AIRPORT_SCENES } from "@/lib/airfreight-photos";
 import { Button } from "@/components/ui/button";
 import { AirportCards } from "@/components/site/AirportCards";
 import { AirfreightForm } from "@/components/site/AirfreightForm";
-import { EmailContact } from "@/components/site/EmailContact";
+import { trackEvent } from "@/lib/analytics";
 import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
 import { airportName, airportPath, airportStatus, type Airport } from "@/lib/airports";
 import { buildHead, SITE_URL } from "@/lib/seo";
