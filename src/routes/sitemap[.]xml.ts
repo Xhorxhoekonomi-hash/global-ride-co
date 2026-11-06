@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SITE_URL } from "@/lib/seo";
@@ -98,7 +99,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = paths.map((p) =>
           [
             `  <url>`,
-            `    <loc>https://alphaworldwidealbania.com${p}</loc>`,
+            `    <loc>${SITE_URL}${p}</loc>`,
             `    <changefreq>weekly</changefreq>`,
             `    <priority>${p === "/" ? "1.0" : "0.8"}</priority>`,
             `  </url>`,

@@ -9,7 +9,7 @@ import { AirfreightForm } from "@/components/site/AirfreightForm";
 import { EmailContact } from "@/components/site/EmailContact";
 import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
 import { airportName, airportPath, airportStatus, type Airport } from "@/lib/airports";
-import { buildHead }  from "@/lib/seo";
+import { buildHead, SITE_URL } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 
 const PUBLIC_ORIGIN = SITE_URL;
