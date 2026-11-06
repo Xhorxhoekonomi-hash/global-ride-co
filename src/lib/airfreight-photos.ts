@@ -27,6 +27,7 @@ const P = {
   mercedesHold: { src: mh1080.url, srcSmall: mh720.url, width: 1080, height: 1350, alt: { en: "Grey Mercedes sedan secured inside a freighter aircraft near the open cargo door", sq: "Mercedes sedan gri i siguruar brenda një avioni mallrash pranë derës së hapur të ngarkesës" } },
 } satisfies Record<string, AirfreightPortrait>;
 
+export const AIRFREIGHT_PORTRAITS = P;
 export const AIRFREIGHT_GALLERY: AirfreightPortrait[] = [P.loader, P.door, P.apron, P.brabusHold, P.mercedesHold];
 
 const WIDE = {
