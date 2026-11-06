@@ -216,16 +216,16 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
 /* ================================================================
    6. HeroPanel (homepage slider) and HeroScene (single interior panel)
    ================================================================ */
-.hero-panel { position: relative; background: var(--graphite); --hero-media-h: 125vw; }
+.hero-panel { position: relative; background: var(--graphite); --hero-media-h: 75vw; }
 .hero-panel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .hero-panel-track::-webkit-scrollbar { display: none; }
 .hero-panel-track > .hero-panel-slide { scroll-snap-align: start; }
 /* No-overlap hero: photo and copy never share space. Mobile/tablet stacked, desktop split 42/58. */
-.hero-panel-slide { position: relative; flex: 0 0 100%; width: 100%; display: grid; grid-template-areas: "media" "copy"; grid-template-rows: auto 1fr; background: var(--graphite); overflow: hidden; }
+.hero-panel-slide { position: relative; flex: 0 0 100%; width: 100%; display: grid; grid-template-areas: "media" "copy"; grid-template-rows: auto 1fr; background: var(--graphite); }
 .hero-panel-slide picture { grid-area: media; position: relative; display: block; width: 100%; height: var(--hero-media-h); overflow: hidden; }
 .hero-panel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-pos-m, 50% 72%); }
-.hero-panel-copy { grid-area: copy; width: 100%; padding: 28px 20px 40px; text-align: left; color: var(--primary-foreground); background: var(--graphite); }
-.hero-panel:not(.hero-scene) .hero-panel-copy { padding-top: 52px; }
+.hero-panel-copy { grid-area: copy; width: 100%; padding: 20px 20px 28px; text-align: left; color: var(--primary-foreground); background: var(--graphite); }
+.hero-panel:not(.hero-scene) .hero-panel-copy { padding-top: 20px; }
 .hero-panel-copy > * { max-width: 680px; }
 .hero-panel-copy p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .hero-panel-copy h2 { font-size: var(--fs-h1); line-height: 1.08; max-width: 18ch; }
@@ -233,10 +233,10 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
 .hero-panel-actions { gap: 12px; max-width: 460px; margin-top: 24px; }
 .hero-panel-actions > :not(:first-child), .hero-panel .btn-pair--light { background: transparent; color: var(--primary-foreground); border: 1.5px solid var(--primary-foreground); }
 .hero-panel-actions > :not(:first-child):hover, .hero-panel .btn-pair--light:hover { background: color-mix(in oklab, var(--primary-foreground) 14%, transparent); }
-.hero-panel-dots { position: absolute; z-index: 3; top: calc(var(--hero-media-h) + 4px); left: 20px; display: flex; }
-.hero-panel-dot { display: grid; place-items: center; width: 44px; height: 44px; }
-.hero-panel-dot span { width: 10px; height: 10px; border-radius: 50%; background: color-mix(in oklab, var(--background) 45%, transparent); }
-.hero-panel-dot[aria-current="true"] span { background: var(--background); width: 24px; border-radius: 5px; }
+.hero-panel-dots { position: absolute; z-index: 3; top: calc(var(--hero-media-h) - 40px); left: 50%; transform: translateX(-50%); display: flex; height: 32px; align-items: center; padding-inline: 4px; border-radius: 16px; background: color-mix(in oklab, var(--graphite) 55%, transparent); }
+.hero-panel-dot { display: grid; place-items: center; width: 28px; height: 44px; }
+.hero-panel-dot span { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in oklab, var(--background) 45%, transparent); }
+.hero-panel-dot[aria-current="true"] span { background: var(--background); width: 20px; border-radius: 4px; }
 .hero-panel-arrow { position: absolute; z-index: 3; top: calc(var(--hero-media-h) / 2); transform: translateY(-50%); display: none; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: color-mix(in oklab, var(--background) 80%, transparent); color: var(--navy); }
 .hero-panel-arrow--prev { left: 24px; }
 .hero-panel-arrow--next { right: 24px; }
@@ -254,7 +254,7 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
   .hero-panel-slide picture { height: auto; min-height: var(--hero-h); }
   .hero-panel-copy, .hero-panel:not(.hero-scene) .hero-panel-copy { display: flex; flex-direction: column; justify-content: center; padding: 32px clamp(24px, 3.5vw, 64px); }
   .hero-panel-copy > * { max-width: 560px; }
-  .hero-panel-dots { top: auto; bottom: 8px; left: calc(var(--hero-copy-w) + (100% - var(--hero-copy-w)) / 2); transform: translateX(-50%); }
+  .hero-panel-dots { top: auto; bottom: 16px; left: calc(var(--hero-copy-w) + (100% - var(--hero-copy-w)) / 2); transform: translateX(-50%); }
   .hero-panel-arrow--prev { left: calc(var(--hero-copy-w) + 24px); }
 }
 
@@ -508,7 +508,6 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
   .container-page { padding-inline: 20px; }
 
   .btn-pair { padding-inline: 16px; }
-  .hero-panel-slide { min-height: 78svh; }
   .hero-panel-actions { gap: 8px; }
   .stat-grid { gap: 12px; }
   .stat-grid > div { padding: 20px 16px; }
