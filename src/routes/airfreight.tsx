@@ -142,7 +142,7 @@ function Airfreight() {
                 <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display mt-4 text-xl font-bold text-navy">{s.title}</h3>
+                <h3 className="font-display mt-4 text-xl font-bold text-navy"><KeywordText text={s.title} /></h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
             ))}

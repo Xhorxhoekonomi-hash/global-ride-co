@@ -53,6 +53,7 @@ import { Route as ShippingEstimateDisclaimerRouteImport } from './routes/shippin
 import { Route as ShippingToKosovoRouteImport } from './routes/shipping-to-kosovo'
 import { Route as ShippingToMontenegroRouteImport } from './routes/shipping-to-montenegro'
 import { Route as ShippingToNorthMacedoniaRouteImport } from './routes/shipping-to-north-macedonia'
+import { Route as ShippingToSloveniaRouteImport } from './routes/shipping-to-slovenia'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StorageCoordinationRouteImport } from './routes/storage-coordination'
 import { Route as T1TransitRouteImport } from './routes/t1-transit'
@@ -116,6 +117,7 @@ import { Route as AlTransportMakinashNeKosoveRouteImport } from './routes/al/tra
 import { Route as AlTransportMakinashNeMalTeZiRouteImport } from './routes/al/transport-makinash-ne-mal-te-zi'
 import { Route as AlTransportMakinashNeMaqedonineEVeriutRouteImport } from './routes/al/transport-makinash-ne-maqedonine-e-veriut'
 import { Route as AlTransportMakinashNeShqiperiRouteImport } from './routes/al/transport-makinash-ne-shqiperi'
+import { Route as AlTransportMakinashNeSlloveniRouteImport } from './routes/al/transport-makinash-ne-slloveni'
 import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
 import { Route as AlTransportTokesorRouteImport } from './routes/al/transport-tokesor'
@@ -136,6 +138,11 @@ import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/i
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
 import { Route as LocationsDubaiRouteImport } from './routes/locations/dubai'
 import { Route as LocationsDurresRouteImport } from './routes/locations/durres'
+import { Route as LocationsElizabethRouteImport } from './routes/locations/elizabeth'
+import { Route as LocationsHoustonRouteImport } from './routes/locations/houston'
+import { Route as LocationsIndianapolisRouteImport } from './routes/locations/indianapolis'
+import { Route as LocationsLosAngelesRouteImport } from './routes/locations/los-angeles'
+import { Route as LocationsSavannahRouteImport } from './routes/locations/savannah'
 import { Route as PortsAlgecirasRouteImport } from './routes/ports/algeciras'
 import { Route as PortsAntwerpRouteImport } from './routes/ports/antwerp'
 import { Route as PortsBarcelonaRouteImport } from './routes/ports/barcelona'
@@ -180,6 +187,11 @@ import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './r
 import { Route as AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport } from './routes/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
 import { Route as AlVendndodhjetDubaiRouteImport } from './routes/al/vendndodhjet/dubai'
 import { Route as AlVendndodhjetDurresRouteImport } from './routes/al/vendndodhjet/durres'
+import { Route as AlVendndodhjetElizabethRouteImport } from './routes/al/vendndodhjet/elizabeth'
+import { Route as AlVendndodhjetHoustonRouteImport } from './routes/al/vendndodhjet/houston'
+import { Route as AlVendndodhjetIndianapolisRouteImport } from './routes/al/vendndodhjet/indianapolis'
+import { Route as AlVendndodhjetLosAngelesRouteImport } from './routes/al/vendndodhjet/los-angeles'
+import { Route as AlVendndodhjetSavannahRouteImport } from './routes/al/vendndodhjet/savannah'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -405,6 +417,11 @@ const ShippingToNorthMacedoniaRoute =
     path: '/shipping-to-north-macedonia',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ShippingToSloveniaRoute = ShippingToSloveniaRouteImport.update({
+  id: '/shipping-to-slovenia',
+  path: '/shipping-to-slovenia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -737,6 +754,12 @@ const AlTransportMakinashNeShqiperiRoute =
     path: '/al/transport-makinash-ne-shqiperi',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AlTransportMakinashNeSlloveniRoute =
+  AlTransportMakinashNeSlloveniRouteImport.update({
+    id: '/al/transport-makinash-ne-slloveni',
+    path: '/al/transport-makinash-ne-slloveni',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
   id: '/al/transport-me-kontenier',
   path: '/al/transport-me-kontenier',
@@ -844,6 +867,31 @@ const LocationsDubaiRoute = LocationsDubaiRouteImport.update({
 const LocationsDurresRoute = LocationsDurresRouteImport.update({
   id: '/locations/durres',
   path: '/locations/durres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsElizabethRoute = LocationsElizabethRouteImport.update({
+  id: '/locations/elizabeth',
+  path: '/locations/elizabeth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsHoustonRoute = LocationsHoustonRouteImport.update({
+  id: '/locations/houston',
+  path: '/locations/houston',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndianapolisRoute = LocationsIndianapolisRouteImport.update({
+  id: '/locations/indianapolis',
+  path: '/locations/indianapolis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsLosAngelesRoute = LocationsLosAngelesRouteImport.update({
+  id: '/locations/los-angeles',
+  path: '/locations/los-angeles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSavannahRoute = LocationsSavannahRouteImport.update({
+  id: '/locations/savannah',
+  path: '/locations/savannah',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortsAlgecirasRoute = PortsAlgecirasRouteImport.update({
@@ -1073,6 +1121,33 @@ const AlVendndodhjetDurresRoute = AlVendndodhjetDurresRouteImport.update({
   path: '/al/vendndodhjet/durres',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlVendndodhjetElizabethRoute = AlVendndodhjetElizabethRouteImport.update({
+  id: '/al/vendndodhjet/elizabeth',
+  path: '/al/vendndodhjet/elizabeth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetHoustonRoute = AlVendndodhjetHoustonRouteImport.update({
+  id: '/al/vendndodhjet/houston',
+  path: '/al/vendndodhjet/houston',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetIndianapolisRoute =
+  AlVendndodhjetIndianapolisRouteImport.update({
+    id: '/al/vendndodhjet/indianapolis',
+    path: '/al/vendndodhjet/indianapolis',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlVendndodhjetLosAngelesRoute =
+  AlVendndodhjetLosAngelesRouteImport.update({
+    id: '/al/vendndodhjet/los-angeles',
+    path: '/al/vendndodhjet/los-angeles',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlVendndodhjetSavannahRoute = AlVendndodhjetSavannahRouteImport.update({
+  id: '/al/vendndodhjet/savannah',
+  path: '/al/vendndodhjet/savannah',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -1131,6 +1206,7 @@ export interface FileRoutesByFullPath {
   '/shipping-to-kosovo': typeof ShippingToKosovoRoute
   '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
   '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/storage-coordination': typeof StorageCoordinationRoute
   '/t1-transit': typeof T1TransitRoute
@@ -1193,6 +1269,7 @@ export interface FileRoutesByFullPath {
   '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
   '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
   '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/al/transport-tokesor': typeof AlTransportTokesorRoute
@@ -1212,6 +1289,11 @@ export interface FileRoutesByFullPath {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/locations/dubai': typeof LocationsDubaiRoute
   '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
   '/ports/algeciras': typeof PortsAlgecirasRoute
   '/ports/antwerp': typeof PortsAntwerpRoute
   '/ports/barcelona': typeof PortsBarcelonaRoute
@@ -1257,6 +1339,11 @@ export interface FileRoutesByFullPath {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
   '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1306,6 +1393,7 @@ export interface FileRoutesByTo {
   '/shipping-to-kosovo': typeof ShippingToKosovoRoute
   '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
   '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/storage-coordination': typeof StorageCoordinationRoute
   '/t1-transit': typeof T1TransitRoute
@@ -1368,6 +1456,7 @@ export interface FileRoutesByTo {
   '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
   '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
   '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/al/transport-tokesor': typeof AlTransportTokesorRoute
@@ -1387,6 +1476,11 @@ export interface FileRoutesByTo {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/locations/dubai': typeof LocationsDubaiRoute
   '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
   '/ports/algeciras': typeof PortsAlgecirasRoute
   '/ports/antwerp': typeof PortsAntwerpRoute
   '/ports/barcelona': typeof PortsBarcelonaRoute
@@ -1432,6 +1526,11 @@ export interface FileRoutesByTo {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
   '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1482,6 +1581,7 @@ export interface FileRoutesById {
   '/shipping-to-kosovo': typeof ShippingToKosovoRoute
   '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
   '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/storage-coordination': typeof StorageCoordinationRoute
   '/t1-transit': typeof T1TransitRoute
@@ -1544,6 +1644,7 @@ export interface FileRoutesById {
   '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
   '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
   '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
   '/al/transport-tokesor': typeof AlTransportTokesorRoute
@@ -1563,6 +1664,11 @@ export interface FileRoutesById {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/locations/dubai': typeof LocationsDubaiRoute
   '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
   '/ports/algeciras': typeof PortsAlgecirasRoute
   '/ports/antwerp': typeof PortsAntwerpRoute
   '/ports/barcelona': typeof PortsBarcelonaRoute
@@ -1608,6 +1714,11 @@ export interface FileRoutesById {
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
   '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1659,6 +1770,7 @@ export interface FileRouteTypes {
     | '/shipping-to-kosovo'
     | '/shipping-to-montenegro'
     | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
     | '/storage-coordination'
     | '/t1-transit'
@@ -1721,6 +1833,7 @@ export interface FileRouteTypes {
     | '/al/transport-makinash-ne-mal-te-zi'
     | '/al/transport-makinash-ne-maqedonine-e-veriut'
     | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/al/transport-tokesor'
@@ -1740,6 +1853,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/locations/dubai'
     | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
     | '/ports/algeciras'
     | '/ports/antwerp'
     | '/ports/barcelona'
@@ -1785,6 +1903,11 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/al/vendndodhjet/dubai'
     | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -1834,6 +1957,7 @@ export interface FileRouteTypes {
     | '/shipping-to-kosovo'
     | '/shipping-to-montenegro'
     | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
     | '/storage-coordination'
     | '/t1-transit'
@@ -1896,6 +2020,7 @@ export interface FileRouteTypes {
     | '/al/transport-makinash-ne-mal-te-zi'
     | '/al/transport-makinash-ne-maqedonine-e-veriut'
     | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/al/transport-tokesor'
@@ -1915,6 +2040,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/locations/dubai'
     | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
     | '/ports/algeciras'
     | '/ports/antwerp'
     | '/ports/barcelona'
@@ -1960,6 +2090,11 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/al/vendndodhjet/dubai'
     | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues'
     | '/lovable/email/transactional/preview'
@@ -2009,6 +2144,7 @@ export interface FileRouteTypes {
     | '/shipping-to-kosovo'
     | '/shipping-to-montenegro'
     | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
     | '/storage-coordination'
     | '/t1-transit'
@@ -2071,6 +2207,7 @@ export interface FileRouteTypes {
     | '/al/transport-makinash-ne-mal-te-zi'
     | '/al/transport-makinash-ne-maqedonine-e-veriut'
     | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
     | '/al/transport-tokesor'
@@ -2090,6 +2227,11 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/locations/dubai'
     | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
     | '/ports/algeciras'
     | '/ports/antwerp'
     | '/ports/barcelona'
@@ -2135,6 +2277,11 @@ export interface FileRouteTypes {
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
     | '/al/vendndodhjet/dubai'
     | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -2185,6 +2332,7 @@ export interface RootRouteChildren {
   ShippingToKosovoRoute: typeof ShippingToKosovoRoute
   ShippingToMontenegroRoute: typeof ShippingToMontenegroRoute
   ShippingToNorthMacedoniaRoute: typeof ShippingToNorthMacedoniaRoute
+  ShippingToSloveniaRoute: typeof ShippingToSloveniaRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StorageCoordinationRoute: typeof StorageCoordinationRoute
   T1TransitRoute: typeof T1TransitRoute
@@ -2247,6 +2395,7 @@ export interface RootRouteChildren {
   AlTransportMakinashNeMalTeZiRoute: typeof AlTransportMakinashNeMalTeZiRoute
   AlTransportMakinashNeMaqedonineEVeriutRoute: typeof AlTransportMakinashNeMaqedonineEVeriutRoute
   AlTransportMakinashNeShqiperiRoute: typeof AlTransportMakinashNeShqiperiRoute
+  AlTransportMakinashNeSlloveniRoute: typeof AlTransportMakinashNeSlloveniRoute
   AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
   AlTransportRoroRoute: typeof AlTransportRoroRoute
   AlTransportTokesorRoute: typeof AlTransportTokesorRoute
@@ -2266,6 +2415,11 @@ export interface RootRouteChildren {
   GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
   LocationsDubaiRoute: typeof LocationsDubaiRoute
   LocationsDurresRoute: typeof LocationsDurresRoute
+  LocationsElizabethRoute: typeof LocationsElizabethRoute
+  LocationsHoustonRoute: typeof LocationsHoustonRoute
+  LocationsIndianapolisRoute: typeof LocationsIndianapolisRoute
+  LocationsLosAngelesRoute: typeof LocationsLosAngelesRoute
+  LocationsSavannahRoute: typeof LocationsSavannahRoute
   PortsAlgecirasRoute: typeof PortsAlgecirasRoute
   PortsAntwerpRoute: typeof PortsAntwerpRoute
   PortsBarcelonaRoute: typeof PortsBarcelonaRoute
@@ -2311,6 +2465,11 @@ export interface RootRouteChildren {
   AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
   AlVendndodhjetDubaiRoute: typeof AlVendndodhjetDubaiRoute
   AlVendndodhjetDurresRoute: typeof AlVendndodhjetDurresRoute
+  AlVendndodhjetElizabethRoute: typeof AlVendndodhjetElizabethRoute
+  AlVendndodhjetHoustonRoute: typeof AlVendndodhjetHoustonRoute
+  AlVendndodhjetIndianapolisRoute: typeof AlVendndodhjetIndianapolisRoute
+  AlVendndodhjetLosAngelesRoute: typeof AlVendndodhjetLosAngelesRoute
+  AlVendndodhjetSavannahRoute: typeof AlVendndodhjetSavannahRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
   AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -2624,6 +2783,13 @@ declare module '@tanstack/react-router' {
       path: '/shipping-to-north-macedonia'
       fullPath: '/shipping-to-north-macedonia'
       preLoaderRoute: typeof ShippingToNorthMacedoniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-to-slovenia': {
+      id: '/shipping-to-slovenia'
+      path: '/shipping-to-slovenia'
+      fullPath: '/shipping-to-slovenia'
+      preLoaderRoute: typeof ShippingToSloveniaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -3067,6 +3233,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlTransportMakinashNeShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/transport-makinash-ne-slloveni': {
+      id: '/al/transport-makinash-ne-slloveni'
+      path: '/al/transport-makinash-ne-slloveni'
+      fullPath: '/al/transport-makinash-ne-slloveni'
+      preLoaderRoute: typeof AlTransportMakinashNeSlloveniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/transport-me-kontenier': {
       id: '/al/transport-me-kontenier'
       path: '/al/transport-me-kontenier'
@@ -3205,6 +3378,41 @@ declare module '@tanstack/react-router' {
       path: '/locations/durres'
       fullPath: '/locations/durres'
       preLoaderRoute: typeof LocationsDurresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/elizabeth': {
+      id: '/locations/elizabeth'
+      path: '/locations/elizabeth'
+      fullPath: '/locations/elizabeth'
+      preLoaderRoute: typeof LocationsElizabethRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/houston': {
+      id: '/locations/houston'
+      path: '/locations/houston'
+      fullPath: '/locations/houston'
+      preLoaderRoute: typeof LocationsHoustonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/indianapolis': {
+      id: '/locations/indianapolis'
+      path: '/locations/indianapolis'
+      fullPath: '/locations/indianapolis'
+      preLoaderRoute: typeof LocationsIndianapolisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/los-angeles': {
+      id: '/locations/los-angeles'
+      path: '/locations/los-angeles'
+      fullPath: '/locations/los-angeles'
+      preLoaderRoute: typeof LocationsLosAngelesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/savannah': {
+      id: '/locations/savannah'
+      path: '/locations/savannah'
+      fullPath: '/locations/savannah'
+      preLoaderRoute: typeof LocationsSavannahRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ports/algeciras': {
@@ -3515,6 +3723,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlVendndodhjetDurresRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/vendndodhjet/elizabeth': {
+      id: '/al/vendndodhjet/elizabeth'
+      path: '/al/vendndodhjet/elizabeth'
+      fullPath: '/al/vendndodhjet/elizabeth'
+      preLoaderRoute: typeof AlVendndodhjetElizabethRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/houston': {
+      id: '/al/vendndodhjet/houston'
+      path: '/al/vendndodhjet/houston'
+      fullPath: '/al/vendndodhjet/houston'
+      preLoaderRoute: typeof AlVendndodhjetHoustonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/indianapolis': {
+      id: '/al/vendndodhjet/indianapolis'
+      path: '/al/vendndodhjet/indianapolis'
+      fullPath: '/al/vendndodhjet/indianapolis'
+      preLoaderRoute: typeof AlVendndodhjetIndianapolisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/los-angeles': {
+      id: '/al/vendndodhjet/los-angeles'
+      path: '/al/vendndodhjet/los-angeles'
+      fullPath: '/al/vendndodhjet/los-angeles'
+      preLoaderRoute: typeof AlVendndodhjetLosAngelesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/savannah': {
+      id: '/al/vendndodhjet/savannah'
+      path: '/al/vendndodhjet/savannah'
+      fullPath: '/al/vendndodhjet/savannah'
+      preLoaderRoute: typeof AlVendndodhjetSavannahRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -3577,6 +3820,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShippingToKosovoRoute: ShippingToKosovoRoute,
   ShippingToMontenegroRoute: ShippingToMontenegroRoute,
   ShippingToNorthMacedoniaRoute: ShippingToNorthMacedoniaRoute,
+  ShippingToSloveniaRoute: ShippingToSloveniaRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StorageCoordinationRoute: StorageCoordinationRoute,
   T1TransitRoute: T1TransitRoute,
@@ -3640,6 +3884,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlTransportMakinashNeMaqedonineEVeriutRoute:
     AlTransportMakinashNeMaqedonineEVeriutRoute,
   AlTransportMakinashNeShqiperiRoute: AlTransportMakinashNeShqiperiRoute,
+  AlTransportMakinashNeSlloveniRoute: AlTransportMakinashNeSlloveniRoute,
   AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
   AlTransportRoroRoute: AlTransportRoroRoute,
   AlTransportTokesorRoute: AlTransportTokesorRoute,
@@ -3661,6 +3906,11 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
   LocationsDubaiRoute: LocationsDubaiRoute,
   LocationsDurresRoute: LocationsDurresRoute,
+  LocationsElizabethRoute: LocationsElizabethRoute,
+  LocationsHoustonRoute: LocationsHoustonRoute,
+  LocationsIndianapolisRoute: LocationsIndianapolisRoute,
+  LocationsLosAngelesRoute: LocationsLosAngelesRoute,
+  LocationsSavannahRoute: LocationsSavannahRoute,
   PortsAlgecirasRoute: PortsAlgecirasRoute,
   PortsAntwerpRoute: PortsAntwerpRoute,
   PortsBarcelonaRoute: PortsBarcelonaRoute,
@@ -3712,6 +3962,11 @@ const rootRouteChildren: RootRouteChildren = {
     AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute,
   AlVendndodhjetDubaiRoute: AlVendndodhjetDubaiRoute,
   AlVendndodhjetDurresRoute: AlVendndodhjetDurresRoute,
+  AlVendndodhjetElizabethRoute: AlVendndodhjetElizabethRoute,
+  AlVendndodhjetHoustonRoute: AlVendndodhjetHoustonRoute,
+  AlVendndodhjetIndianapolisRoute: AlVendndodhjetIndianapolisRoute,
+  AlVendndodhjetLosAngelesRoute: AlVendndodhjetLosAngelesRoute,
+  AlVendndodhjetSavannahRoute: AlVendndodhjetSavannahRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
   AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

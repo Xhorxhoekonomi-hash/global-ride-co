@@ -68,7 +68,7 @@ const CONSIDERATIONS_AL = [
 
 const FAQS_AL = [
   { q: "Kur rekomandohet transporti ajror për automjete?", a: "Transporti ajror rekomandohet për automjete luksoze ose klasike me vlerë të lartë, si dhe për dërgesa urgjente kur afati kohor nuk lejon transport detar." },
-  { q: "Nëpër cilat aeroporte evropiane keni përvojë trajtimi?", a: "Kemi përvojë koordinimi përmes Amsterdam Schiphol, Milano Malpensa dhe Leipzig. Trajtimi në aeroporte të tjera evropiane mund të koordinohet me kërkesë." },
+  { q: "Nëpër cilat aeroporte evropiane keni përvojë trajtimi?", a: "Kemi përvojë koordinimi përmes Amsterdam Schiphol, Milano Malpensa dhe Leipzig/Halle. Frankfurt është në dispozicion me kërkesë, sipas konfirmimit të dërgesës. Trajtimi në aeroporte të tjera evropiane mund të koordinohet me kërkesë." },
   { q: "A garantoni një kohë të saktë tranziti?", a: "Jo. Koha e tranzitit varet nga disponueshmëria e fluturimit, kërkesat doganore dhe kapaciteti i terminalit të mallrave — ju japim një afat të përafërt të konfirmuar përpara rezervimit." },
   { q: "A ka kufizime për llojin e automjetit që mund të transportohet ajrit?", a: "Disa komponentë, si bateritë e mëdha të automjeteve elektrike, mund t'i nënshtrohen rregullave për mallra të rrezikshëm. I verifikojmë këto kërkesa për automjetin tuaj specifik përpara se të konfirmojmë rezervimin." },
   { q: "A përfshihet sigurimi në transportin ajror?", a: "Sigurimi koordinohet si pjesë e procesit të transportit — ju informojmë për opsionet e disponueshme kur konfirmojmë detajet e dërgesës." },

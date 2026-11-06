@@ -10,6 +10,7 @@ import { PlatformBadges } from "@/components/site/PlatformBadges";
 import { CONTACT } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/seo";
 import { trackEvent } from "@/lib/analytics";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/import-usa")({
   head: () => {
@@ -128,7 +129,7 @@ function ImportUSA() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                   <m.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-xl font-bold text-secondary">{m.title}</h3>
+                <h3 className="font-display mt-4 text-xl font-bold text-secondary"><KeywordText text={m.title} /></h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
               </div>
             ))}
