@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UsaCalculator } from "./UsaCalculator";
 import { KoreaCalculator } from "./KoreaCalculator";
 import type { CalculatorDict, CalculatorFAQ } from "./dict";
+import { localPath } from "@/lib/site-data";
 
 export function CalculatorShell({
   dict,
@@ -106,11 +107,11 @@ export function CalculatorShell({
             <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">{dict.ports.heading}</h2>
           </div>
           <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-3">
-            {[dict.ports.durres, dict.ports.rotterdam, dict.ports.bremerhaven].map((p) => (
-              <div key={p.title} className="rounded-lg border border-border bg-card p-6 text-center shadow-card">
+            {[dict.ports.durres, dict.ports.rotterdam, dict.ports.bremerhaven].map((p,i) => (
+              <Link to={localPath(`/ports/${["durres", "rotterdam", "bremerhaven"][i]}`, contactHref.startsWith("/al"))} key={p.title} className="rounded-lg border border-border bg-card p-6 text-center shadow-card hover:border-primary">
                 <h3 className="font-display text-base font-bold text-secondary">{p.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{p.body}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
