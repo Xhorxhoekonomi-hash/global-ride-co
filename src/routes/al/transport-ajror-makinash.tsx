@@ -1,4 +1,6 @@
 import { PageHero } from "@/components/site/PageHero";
+import { AirfreightGallery } from "@/components/site/AirfreightGallery";
+import { AIRFREIGHT_HUB_SCENE } from "@/lib/airfreight-photos";
 import { Button } from "@/components/ui/button";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -82,7 +84,7 @@ function TransportAjrorMakinash() {
 
   return (
     <div className="airfreight-page">
-      <PageHero tone="navy" icon={Plane} eyebrow="Transport ajror" title={<>Kur shpejtësia ka rëndësi më shumë se kostoja</>} description={<>Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.</>}>
+      <PageHero scene={AIRFREIGHT_HUB_SCENE.sq} breadcrumbs={[{ label: "Shërbimet", to: "/al/sherbimet" }, { label: "Transport ajror" }]} eyebrow="Transport ajror" title={<>Kur shpejtësia ka rëndësi më shumë se kostoja</>} description={<>Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.</>}>
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
       </PageHero>
@@ -122,6 +124,7 @@ function TransportAjrorMakinash() {
         </div>
       </section>
 
+      <AirfreightGallery sq />
       <AirfreightSupplement sq />
 
       <section className="bg-background">
