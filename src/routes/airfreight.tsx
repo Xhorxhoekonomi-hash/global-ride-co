@@ -8,6 +8,8 @@ import { SITE_URL } from "@/lib/seo";
 import { AirfreightForm } from "@/components/site/AirfreightForm";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { AirportCards } from "@/components/site/AirportCards";
+import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
 
 const POINTS = [
   { icon: Zap, title: "Fastest Transit", body: "Days instead of weeks — the only option when timing matters more than cost." },
@@ -41,13 +43,6 @@ const DOCUMENTATION = [
   "T1 transit support",
   "Carnet de Passage handling",
   "Temporary admission support where applicable",
-];
-
-const AIRPORTS = [
-  { name: "Amsterdam Schiphol", verified: true },
-  { name: "Milan Malpensa", verified: true },
-  { name: "Leipzig/Halle", verified: true },
-  { name: "Frankfurt", verified: false },
 ];
 
 const CLIENT_TYPES = [
@@ -112,7 +107,7 @@ function Airfreight() {
   )}`;
 
   return (
-    <>
+    <div className="airfreight-page">
       <PageHero tone="navy" icon={Plane} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
         <Button asChild><Link to="/contact">Get a Quote</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp Us</a></Button>
@@ -199,20 +194,14 @@ function Airfreight() {
             <div className="eyebrow">Where we handle</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Verified Airport Network</h2>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {AIRPORTS.map((a) => (
-              <div key={a.name} className={`rounded-2xl border p-6 text-center shadow-card ${a.verified ? "border-teal/40 bg-card" : "border-dashed border-border bg-mist"}`}>
-                <Plane className={`mx-auto h-6 w-6 ${a.verified ? "text-teal" : "text-navy/40"}`} />
-                <h3 className="font-display mt-3 text-base font-bold text-navy">{a.name}</h3>
-                <p className="mt-1 text-xs text-slate-body">{a.verified ? "Verified handling" : "Available on request"}</p>
-              </div>
-            ))}
-          </div>
+          <AirportCards />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
             Handling can also be coordinated at other major European cargo airports through Alpha Worldwide's logistics network, subject to confirmation.
           </p>
         </div>
       </section>
+
+      <AirfreightSupplement />
 
       <section className="section-dark">
         <div className="container-page py-16 md:py-20">
@@ -264,6 +253,6 @@ function Airfreight() {
           <AirfreightForm />
         </div>
       </section>
-    </>
+    </div>
   );
 }

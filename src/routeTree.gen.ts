@@ -49,6 +49,10 @@ import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-histor
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
 import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AirfreightAmsterdamSchipholRouteImport } from './routes/airfreight_.amsterdam-schiphol'
+import { Route as AirfreightFrankfurtRouteImport } from './routes/airfreight_.frankfurt'
+import { Route as AirfreightLeipzigHalleRouteImport } from './routes/airfreight_.leipzig-halle'
+import { Route as AirfreightMilanMalpensaRouteImport } from './routes/airfreight_.milan-malpensa'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
 import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
@@ -91,6 +95,10 @@ import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './rout
 import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as AlTransportAjrorMakinashAmsterdamSchipholRouteImport } from './routes/al/transport-ajror-makinash_.amsterdam-schiphol'
+import { Route as AlTransportAjrorMakinashFrankfurtRouteImport } from './routes/al/transport-ajror-makinash_.frankfurt'
+import { Route as AlTransportAjrorMakinashLeipzigHalleRouteImport } from './routes/al/transport-ajror-makinash_.leipzig-halle'
+import { Route as AlTransportAjrorMakinashMilanMalpensaRouteImport } from './routes/al/transport-ajror-makinash_.milan-malpensa'
 import { Route as AlUdhezuesIndexRouteImport } from './routes/al/udhezues/index'
 import { Route as AlUdhezuesKontenierApoRoroRouteImport } from './routes/al/udhezues/kontenier-apo-roro'
 import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './routes/al/udhezues/si-te-blini-nga-ankandet-amerikane'
@@ -297,6 +305,27 @@ const AdminLeadsRoute = AdminLeadsRouteImport.update({
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightAmsterdamSchipholRoute =
+  AirfreightAmsterdamSchipholRouteImport.update({
+    id: '/airfreight_/amsterdam-schiphol',
+    path: '/airfreight/amsterdam-schiphol',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AirfreightFrankfurtRoute = AirfreightFrankfurtRouteImport.update({
+  id: '/airfreight_/frankfurt',
+  path: '/airfreight/frankfurt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightLeipzigHalleRoute = AirfreightLeipzigHalleRouteImport.update({
+  id: '/airfreight_/leipzig-halle',
+  path: '/airfreight/leipzig-halle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightMilanMalpensaRoute = AirfreightMilanMalpensaRouteImport.update({
+  id: '/airfreight_/milan-malpensa',
+  path: '/airfreight/milan-malpensa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlIndexRoute = AlIndexRouteImport.update({
@@ -520,6 +549,30 @@ const GuidesVehicleImportDocumentsRoute =
     path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AlTransportAjrorMakinashAmsterdamSchipholRoute =
+  AlTransportAjrorMakinashAmsterdamSchipholRouteImport.update({
+    id: '/al/transport-ajror-makinash_/amsterdam-schiphol',
+    path: '/al/transport-ajror-makinash/amsterdam-schiphol',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashFrankfurtRoute =
+  AlTransportAjrorMakinashFrankfurtRouteImport.update({
+    id: '/al/transport-ajror-makinash_/frankfurt',
+    path: '/al/transport-ajror-makinash/frankfurt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashLeipzigHalleRoute =
+  AlTransportAjrorMakinashLeipzigHalleRouteImport.update({
+    id: '/al/transport-ajror-makinash_/leipzig-halle',
+    path: '/al/transport-ajror-makinash/leipzig-halle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashMilanMalpensaRoute =
+  AlTransportAjrorMakinashMilanMalpensaRouteImport.update({
+    id: '/al/transport-ajror-makinash_/milan-malpensa',
+    path: '/al/transport-ajror-makinash/milan-malpensa',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlUdhezuesIndexRoute = AlUdhezuesIndexRouteImport.update({
   id: '/al/udhezues/',
   path: '/al/udhezues/',
@@ -597,6 +650,10 @@ export interface FileRoutesByFullPath {
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -639,6 +696,10 @@ export interface FileRoutesByFullPath {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/transport-ajror-makinash/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
@@ -687,6 +748,10 @@ export interface FileRoutesByTo {
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -729,6 +794,10 @@ export interface FileRoutesByTo {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
+  '/al/transport-ajror-makinash/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
@@ -778,6 +847,10 @@ export interface FileRoutesById {
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight_/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight_/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight_/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight_/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
@@ -820,6 +893,10 @@ export interface FileRoutesById {
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/transport-ajror-makinash_/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash_/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash_/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash_/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
@@ -870,6 +947,10 @@ export interface FileRouteTypes {
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight/amsterdam-schiphol'
+    | '/airfreight/frankfurt'
+    | '/airfreight/leipzig-halle'
+    | '/airfreight/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
@@ -912,6 +993,10 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
+    | '/al/transport-ajror-makinash/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash/frankfurt'
+    | '/al/transport-ajror-makinash/leipzig-halle'
+    | '/al/transport-ajror-makinash/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
@@ -960,6 +1045,10 @@ export interface FileRouteTypes {
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight/amsterdam-schiphol'
+    | '/airfreight/frankfurt'
+    | '/airfreight/leipzig-halle'
+    | '/airfreight/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
@@ -1002,6 +1091,10 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al'
     | '/guides'
+    | '/al/transport-ajror-makinash/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash/frankfurt'
+    | '/al/transport-ajror-makinash/leipzig-halle'
+    | '/al/transport-ajror-makinash/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
@@ -1050,6 +1143,10 @@ export interface FileRouteTypes {
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight_/amsterdam-schiphol'
+    | '/airfreight_/frankfurt'
+    | '/airfreight_/leipzig-halle'
+    | '/airfreight_/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
     | '/al/copart-shqiperi'
@@ -1092,6 +1189,10 @@ export interface FileRouteTypes {
     | '/guides/vehicle-import-documents'
     | '/al/'
     | '/guides/'
+    | '/al/transport-ajror-makinash_/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash_/frankfurt'
+    | '/al/transport-ajror-makinash_/leipzig-halle'
+    | '/al/transport-ajror-makinash_/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
@@ -1141,6 +1242,10 @@ export interface RootRouteChildren {
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AirfreightAmsterdamSchipholRoute: typeof AirfreightAmsterdamSchipholRoute
+  AirfreightFrankfurtRoute: typeof AirfreightFrankfurtRoute
+  AirfreightLeipzigHalleRoute: typeof AirfreightLeipzigHalleRoute
+  AirfreightMilanMalpensaRoute: typeof AirfreightMilanMalpensaRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
@@ -1183,6 +1288,10 @@ export interface RootRouteChildren {
   GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
+  AlTransportAjrorMakinashAmsterdamSchipholRoute: typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  AlTransportAjrorMakinashFrankfurtRoute: typeof AlTransportAjrorMakinashFrankfurtRoute
+  AlTransportAjrorMakinashLeipzigHalleRoute: typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  AlTransportAjrorMakinashMilanMalpensaRoute: typeof AlTransportAjrorMakinashMilanMalpensaRoute
   AlUdhezuesKontenierApoRoroRoute: typeof AlUdhezuesKontenierApoRoroRoute
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
@@ -1471,6 +1580,34 @@ declare module '@tanstack/react-router' {
       path: '/admin/login'
       fullPath: '/admin/login'
       preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/amsterdam-schiphol': {
+      id: '/airfreight_/amsterdam-schiphol'
+      path: '/airfreight/amsterdam-schiphol'
+      fullPath: '/airfreight/amsterdam-schiphol'
+      preLoaderRoute: typeof AirfreightAmsterdamSchipholRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/frankfurt': {
+      id: '/airfreight_/frankfurt'
+      path: '/airfreight/frankfurt'
+      fullPath: '/airfreight/frankfurt'
+      preLoaderRoute: typeof AirfreightFrankfurtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/leipzig-halle': {
+      id: '/airfreight_/leipzig-halle'
+      path: '/airfreight/leipzig-halle'
+      fullPath: '/airfreight/leipzig-halle'
+      preLoaderRoute: typeof AirfreightLeipzigHalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/milan-malpensa': {
+      id: '/airfreight_/milan-malpensa'
+      path: '/airfreight/milan-malpensa'
+      fullPath: '/airfreight/milan-malpensa'
+      preLoaderRoute: typeof AirfreightMilanMalpensaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/': {
@@ -1767,6 +1904,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/transport-ajror-makinash_/amsterdam-schiphol': {
+      id: '/al/transport-ajror-makinash_/amsterdam-schiphol'
+      path: '/al/transport-ajror-makinash/amsterdam-schiphol'
+      fullPath: '/al/transport-ajror-makinash/amsterdam-schiphol'
+      preLoaderRoute: typeof AlTransportAjrorMakinashAmsterdamSchipholRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/frankfurt': {
+      id: '/al/transport-ajror-makinash_/frankfurt'
+      path: '/al/transport-ajror-makinash/frankfurt'
+      fullPath: '/al/transport-ajror-makinash/frankfurt'
+      preLoaderRoute: typeof AlTransportAjrorMakinashFrankfurtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/leipzig-halle': {
+      id: '/al/transport-ajror-makinash_/leipzig-halle'
+      path: '/al/transport-ajror-makinash/leipzig-halle'
+      fullPath: '/al/transport-ajror-makinash/leipzig-halle'
+      preLoaderRoute: typeof AlTransportAjrorMakinashLeipzigHalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/milan-malpensa': {
+      id: '/al/transport-ajror-makinash_/milan-malpensa'
+      path: '/al/transport-ajror-makinash/milan-malpensa'
+      fullPath: '/al/transport-ajror-makinash/milan-malpensa'
+      preLoaderRoute: typeof AlTransportAjrorMakinashMilanMalpensaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/udhezues/': {
       id: '/al/udhezues/'
       path: '/al/udhezues'
@@ -1853,6 +2018,10 @@ const rootRouteChildren: RootRouteChildren = {
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AirfreightAmsterdamSchipholRoute: AirfreightAmsterdamSchipholRoute,
+  AirfreightFrankfurtRoute: AirfreightFrankfurtRoute,
+  AirfreightLeipzigHalleRoute: AirfreightLeipzigHalleRoute,
+  AirfreightMilanMalpensaRoute: AirfreightMilanMalpensaRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
@@ -1897,6 +2066,14 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
+  AlTransportAjrorMakinashAmsterdamSchipholRoute:
+    AlTransportAjrorMakinashAmsterdamSchipholRoute,
+  AlTransportAjrorMakinashFrankfurtRoute:
+    AlTransportAjrorMakinashFrankfurtRoute,
+  AlTransportAjrorMakinashLeipzigHalleRoute:
+    AlTransportAjrorMakinashLeipzigHalleRoute,
+  AlTransportAjrorMakinashMilanMalpensaRoute:
+    AlTransportAjrorMakinashMilanMalpensaRoute,
   AlUdhezuesKontenierApoRoroRoute: AlUdhezuesKontenierApoRoroRoute,
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute:
     AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute,

@@ -7,6 +7,8 @@ import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { AirportCards } from "@/components/site/AirportCards";
+import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
 
 export const Route = createFileRoute("/al/transport-ajror-makinash")({
   head: () => {
@@ -56,12 +58,6 @@ const USE_CASES_AL = [
   { title: "Dërgesa urgjente", body: "Kur afati kohor nuk lejon transport detar, transporti ajror ofron një alternativë të shpejtë." },
 ];
 
-const AIRPORTS_AL = [
-  { name: "Amsterdam Schiphol", verified: true },
-  { name: "Milano Malpensa", verified: true },
-  { name: "Leipzig", verified: true },
-];
-
 const CONSIDERATIONS_AL = [
   { icon: FileText, title: "Dogana", body: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në aeroportin e mbërritjes." },
   { icon: Package, title: "Përgatitja e ngarkesës ajrore", body: "Automjeti përgatitet sipas kërkesave të kompanisë ajrore dhe terminalit të mallrave përpara ngarkimit." },
@@ -84,7 +80,7 @@ function TransportAjrorMakinash() {
   )}`;
 
   return (
-    <>
+    <div className="airfreight-page">
       <PageHero tone="navy" icon={Plane} eyebrow="Transport ajror" title={<>Kur shpejtësia ka rëndësi më shumë se kostoja</>} description={<>Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.</>}>
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
@@ -116,20 +112,14 @@ function TransportAjrorMakinash() {
             <div className="eyebrow">Ku trajtojmë</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Rrjeti ynë i aeroporteve</h2>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {AIRPORTS_AL.map((a) => (
-              <div key={a.name} className="rounded-2xl border border-teal/40 bg-card p-6 text-center shadow-card">
-                <Plane className="mx-auto h-6 w-6 text-teal" />
-                <h3 className="font-display mt-3 text-base font-bold text-navy">{a.name}</h3>
-                <p className="mt-1 text-xs text-slate-body">Trajtim i verifikuar</p>
-              </div>
-            ))}
-          </div>
+          <AirportCards sq />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
             Trajtimi mund të koordinohet edhe në aeroporte të tjera evropiane të mallrave, sipas konfirmimit.
           </p>
         </div>
       </section>
+
+      <AirfreightSupplement sq />
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
@@ -205,6 +195,6 @@ function TransportAjrorMakinash() {
           <QuoteForm variant="full" onDark locale="sq" source="al-airfreight" />
         </div>
       </section>
-    </>
+    </div>
   );
 }
