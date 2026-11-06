@@ -26,9 +26,12 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
       });
       document.documentElement.dataset.headingsGlued = "true";
     };
-    const id = requestAnimationFrame(run);
-    const late = window.setTimeout(run, 600);
-    return () => { cancelAnimationFrame(id); window.clearTimeout(late); };
+    let frame = requestAnimationFrame(run);
+    // Re-apply when React re-renders heading text (hydration, data loads, client navigation).
+    const observer = new MutationObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(run); });
+    const main = document.querySelector("main");
+    if (main) observer.observe(main, { childList: true, subtree: true, characterData: true });
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
   }, [pathname]);
   return null;
 }
