@@ -97,7 +97,7 @@ function HowItWorks() {
                 </div>
                 {(s.n === 2 || s.n === 4 || s.n === 6 || s.n === 8) && (
                   <div className="mb-10 ml-[68px] flex flex-wrap gap-3">
-                    <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><a
+                    <Button asChild variant="outline" ><a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -121,7 +121,7 @@ function HowItWorks() {
             Send us your first vehicle
           </h2>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a
+            <Button asChild ><a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer noopener"
@@ -129,7 +129,7 @@ function HowItWorks() {
               >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a></Button>
-            <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link
+            <Button asChild variant="outline" ><Link
               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
               >
