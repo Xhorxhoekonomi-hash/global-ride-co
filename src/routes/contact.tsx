@@ -38,7 +38,7 @@ function Contact() {
           <div className="lg:col-span-2">
             <div className="rounded-lg border border-border bg-card p-8 shadow-card">
               <div className="eyebrow">Reach us</div>
-              <h2 className="font-display mt-3 text-2xl font-bold text-secondary">Alpha Worldwide Albania</h2>
+              <h2 className="mt-3 text-secondary">Alpha Worldwide Albania</h2>
 
               <div className="mt-6 space-y-5">
                 <Info icon={MapPin} label="Location">{CONTACT.location}</Info>
@@ -82,7 +82,7 @@ function Contact() {
           {/* Form */}
           <div className="lg:col-span-3">
             <div className="eyebrow">Request a quote</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Tell us about your vehicle</h2>
+            <h2 className="mt-3 text-secondary">Tell us about your vehicle</h2>
             <p className="mt-3 text-muted-foreground">
               Complete the form and our team will contact you shortly with a full delivered-price quote.
             </p>

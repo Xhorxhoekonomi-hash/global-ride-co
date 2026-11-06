@@ -128,7 +128,7 @@ function FaqHub() {
       <TextHero>
         <div>
           <div className="eyebrow text-primary">Knowledge center</div>
-          <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Frequently Asked Questions</h1>
+          <h1 className="mt-4">Frequently Asked Questions</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Organized by topic — every short answer links to the full detail page.</p>
         </div>
       </TextHero>

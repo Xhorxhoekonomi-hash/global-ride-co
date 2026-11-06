@@ -30,7 +30,7 @@ function Pervoja() {
       <TextHero>
         <div className="max-w-3xl">
           <div className="eyebrow text-primary">Vlerësime dhe automjete të dorëzuara</div>
-          <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">Vlerësime dhe operacione reale</h1>
+          <h1 className="mt-4">Vlerësime dhe operacione reale</h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">Shihni fotot tona origjinale nga operacionet dhe lexoni përvojat e klientëve në Google.</p>
         </div>
       </TextHero>
@@ -39,20 +39,20 @@ function Pervoja() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-border bg-card p-8 text-center shadow-card">
             <div className="flex items-center gap-1 text-amber-500">{[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}</div>
-            <h2 className="font-display text-2xl font-bold text-navy">Shihni çfarë thonë klientët në Google</h2>
+            <h2 className="text-navy">Shihni çfarë thonë klientët në Google</h2>
             <p className="max-w-md text-sm text-slate-body">Vlerësimet tona të verifikuara në Google janë dëshmia më e freskët dhe e pafiltruar e përvojës së klientëve — ne vendosim lidhjen direkte në vend që të zgjedhim citate këtu.</p>
             <a href={GOOGLE} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "reviews-google-cta" })} className="btn-primary"><ExternalLink className="h-4 w-4" /> Lexoni vlerësimet në Google</a>
           </div>
         </div>
       </section>
 
-      <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Automjete që kemi trajtuar</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Fotografi origjinale të trajtimit të automjeteve në magazina, porte, kamionë transportues dhe kontenierë.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} locale="sq" /></div></div></section>
+      <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-secondary">Automjete që kemi trajtuar</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Fotografi origjinale të trajtimit të automjeteve në magazina, porte, kamionë transportues dhe kontenierë.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} locale="sq" /></div></div></section>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Dëshmi klientësh</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Histori të shkruara klientësh</h2>
+            <h2 className="mt-3 text-navy">Histori të shkruara klientësh</h2>
           </div>
           <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-dashed border-border bg-mist p-8 text-center">
             <ShieldCheck className="mx-auto h-8 w-8 text-teal" />
@@ -64,7 +64,7 @@ function Pervoja() {
       <section className="section-dark">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Lini një vlerësim</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-white md:text-5xl">Keni punuar tashmë me ne?</h2>
+          <h2 className="mx-auto mt-3 max-w-2xl text-white">Keni punuar tashmë me ne?</h2>
           <p className="mx-auto mt-5 max-w-xl text-white/70">Një vlerësim në Google u ndihmon blerësve të tjerë që po mendojnë të njëjtën rrugë që zgjodhët ju — dhe na tregon si ia dolëm.</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a href={GOOGLE} target="_blank" rel="noreferrer noopener" className="btn-primary"><ExternalLink className="h-4 w-4" /> Lini një vlerësim në Google</a>

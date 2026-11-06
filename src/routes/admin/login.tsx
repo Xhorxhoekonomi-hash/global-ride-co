@@ -38,7 +38,7 @@ function AdminLogin() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted px-4">
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-card">
-        <h1 className="font-display text-2xl font-bold text-navy">Admin sign in</h1>
+        <h1 className="text-navy">Admin sign in</h1>
         <p className="mt-2 text-sm text-muted-foreground">Restricted area. Authorised staff only.</p>
 
         <form onSubmit={onSubmit} className="mt-6 space-y-4">

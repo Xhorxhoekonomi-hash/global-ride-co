@@ -94,7 +94,7 @@ function InspektimMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Çfarë kontrollohet</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Kontrolli teknik hap pas hapi</h2>
+            <h2 className="mt-3 text-navy">Kontrolli teknik hap pas hapi</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CHECKS_AL.map((c) => (
@@ -102,7 +102,7 @@ function InspektimMakinash() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <c.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{c.title}</h3>
+                <h3 className="mt-4 text-navy">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{c.body}</p>
               </div>
             ))}
@@ -114,7 +114,7 @@ function InspektimMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Çfarë merrni</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Rezultatet e inspektimit</h2>
+            <h2 className="mt-3 text-navy">Rezultatet e inspektimit</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -133,7 +133,7 @@ function InspektimMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -173,7 +173,7 @@ function InspektimMakinash() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Kërkoni inspektim për automjetin tuaj
             </h2>
             <p className="mt-5 max-w-md text-white/70">

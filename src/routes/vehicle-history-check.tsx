@@ -98,7 +98,7 @@ function VehicleHistoryCheck() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Buyer education</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               What a Vehicle History Report Can (and Can't) Tell You
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -117,7 +117,7 @@ function VehicleHistoryCheck() {
                   <s.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-display text-xl font-bold text-navy">{s.title}</h2>
+                  <h2 className="text-navy">{s.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ function VehicleHistoryCheck() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Related reading</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Go Deeper</h2>
+            <h2 className="mt-3 text-navy">Go Deeper</h2>
           </div>
           <div className="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-3">
             <Link to="/inspection-service" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-teal hover:text-teal">
@@ -150,7 +150,7 @@ function VehicleHistoryCheck() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (

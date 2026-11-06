@@ -88,7 +88,7 @@ function AnkandeAmerikane() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Ankandet amerikane</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Copart, IAAI, Manheim apo ADESA — cila platformë ju përshtatet?
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -120,7 +120,7 @@ function AnkandeAmerikane() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Krahasimi i platformave</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Cila platformë për cilën nevojë</h2>
+            <h2 className="mt-3 text-navy">Cila platformë për cilën nevojë</h2>
           </div>
           <div tabIndex={0} role="region" aria-label="Tabelë krahasuese" className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse overflow-hidden rounded-2xl border border-border text-left text-sm">
@@ -149,7 +149,7 @@ function AnkandeAmerikane() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Si funksionon</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Nga zgjedhja e platformës te dera juaj</h2>
+            <h2 className="mt-3 text-navy">Nga zgjedhja e platformës te dera juaj</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WORKFLOW_AL.map((s) => (
@@ -158,7 +158,7 @@ function AnkandeAmerikane() {
                   <s.icon className="h-5 w-5" />
                 </div>
                 <div className="font-display mt-3 text-xs font-bold uppercase tracking-wider text-teal">Hapi {s.n}</div>
-                <h3 className="font-display mt-1 text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-1 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -170,7 +170,7 @@ function AnkandeAmerikane() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -210,7 +210,7 @@ function AnkandeAmerikane() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Na tregoni çfarë kërkoni
             </h2>
             <p className="mt-5 max-w-md text-white/70">

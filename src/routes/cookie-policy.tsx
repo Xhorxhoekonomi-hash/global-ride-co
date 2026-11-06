@@ -26,7 +26,7 @@ function CookiePolicy() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-3xl">
             <div className="eyebrow">Legal</div>
-            <h1 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Cookie Policy</h1>
+            <h1 className="mt-3 text-navy">Cookie Policy</h1>
             <p className="mt-3 text-sm text-slate-body">Last updated: August 2026</p>
 
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
@@ -35,7 +35,7 @@ function CookiePolicy() {
               </div>
 
               <section>
-                <h2 className="font-display text-xl font-bold text-navy">What we use</h2>
+                <h2 className="text-navy">What we use</h2>
                 <div className="mt-4 space-y-4">
                   {COOKIE_TYPES.map((c) => (
                     <div key={c.name} className="rounded-xl border border-border bg-card p-4">
@@ -47,22 +47,22 @@ function CookiePolicy() {
               </section>
 
               <section>
-                <h2 className="font-display text-xl font-bold text-navy">Analytics tools we may use</h2>
+                <h2 className="text-navy">Analytics tools we may use</h2>
                 <p className="mt-3">When active, we use standard, widely recognized analytics tools such as Google Analytics and Microsoft Clarity to understand aggregate visitor behavior. These are only loaded after you've given consent, and are never active by default.</p>
               </section>
 
               <section>
-                <h2 className="font-display text-xl font-bold text-navy">Managing your preferences</h2>
+                <h2 className="text-navy">Managing your preferences</h2>
                 <p className="mt-3">You can control cookies through your browser settings, including blocking or deleting them at any time. Blocking essential cookies may affect how the website functions, such as remembering your language preference.</p>
               </section>
 
               <section>
-                <h2 className="font-display text-xl font-bold text-navy">Third-party links</h2>
+                <h2 className="text-navy">Third-party links</h2>
                 <p className="mt-3">Links to WhatsApp, Instagram, and similar platforms take you to services with their own separate cookie and privacy practices, which this policy does not cover. See our <Link to="/privacy-policy" className="text-teal hover:underline">Privacy Policy</Link> for how we handle information you submit directly to us.</p>
               </section>
 
               <section>
-                <h2 className="font-display text-xl font-bold text-navy">Contact us</h2>
+                <h2 className="text-navy">Contact us</h2>
                 <p className="mt-3">Questions about this policy can be sent to <a href={`mailto:${CONTACT.email}`} className="text-teal hover:underline">{CONTACT.email}</a>.</p>
               </section>
             </div>

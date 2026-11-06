@@ -69,7 +69,7 @@ function GuideShippingCosts() {
       <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="3 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Car Shipping Costs Explained</h1>
+          <h1 className="mt-4 max-w-3xl">Car Shipping Costs Explained</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Every category that can show up on an international vehicle import, split clearly by what we estimate versus what your destination authority sets.</p>
         </div>
       </TextHero>
@@ -86,7 +86,7 @@ function GuideShippingCosts() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-2"><Package className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Estimated logistics charges</h2></div>
+            <div className="flex items-center gap-2"><Package className="h-5 w-5 text-teal" /><h2 className="text-navy">Estimated logistics charges</h2></div>
             <p className="mt-2 text-sm text-slate-body">These are the costs we can estimate and quote directly, based on the vehicle, route, and shipping method.</p>
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               {LOGISTICS_COSTS.map((c) => <div key={c} className="rounded-lg bg-card px-3 py-2 text-sm text-slate-body">{c}</div>)}
@@ -98,7 +98,7 @@ function GuideShippingCosts() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-2"><Landmark className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Destination taxes and authority charges</h2></div>
+            <div className="flex items-center gap-2"><Landmark className="h-5 w-5 text-teal" /><h2 className="text-navy">Destination taxes and authority charges</h2></div>
             <p className="mt-2 text-sm text-slate-body">These are set independently by the customs, tax, and registration authorities at your destination — not by Alpha Worldwide.</p>
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               {DESTINATION_COSTS.map((c) => <div key={c} className="rounded-lg bg-mist px-3 py-2 text-sm text-slate-body">{c}</div>)}
@@ -110,7 +110,7 @@ function GuideShippingCosts() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-2"><DollarSign className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Variable and easy-to-miss costs</h2></div>
+            <div className="flex items-center gap-2"><DollarSign className="h-5 w-5 text-teal" /><h2 className="text-navy">Variable and easy-to-miss costs</h2></div>
             <p className="mt-2 text-sm text-slate-body">These depend on timing, circumstances, or decisions made during the process — they're not automatic, but worth planning for.</p>
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               {VARIABLE_COSTS.map((c) => <div key={c} className="rounded-lg bg-card px-3 py-2 text-sm text-slate-body">{c}</div>)}
@@ -123,15 +123,15 @@ function GuideShippingCosts() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Getting a real number</h2>
+              <h2 className="text-navy">Getting a real number</h2>
               <p className="mt-3 text-slate-body">The most reliable way to see logistics costs for your specific vehicle and route is our <Link to="/calculator" className="text-teal hover:underline">shipping calculator</Link> — it gives an itemized estimate rather than a single vague figure. For destination taxes and registration costs, we point you toward what to expect, but final numbers come from the local authority.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">How shipping method affects the total</h2>
+              <h2 className="text-navy">How shipping method affects the total</h2>
               <p className="mt-3 text-slate-body">Your choice between container and RoRo shipping is one of the bigger cost levers within your control. RoRo tends to be more economical for standard, running vehicles where it's available, while container shipping — necessary for non-running or high-value vehicles — typically costs more but includes full protection from weather and handling exposure. See our <Link to="/guides/container-vs-roro-car-shipping" className="text-teal hover:underline">container vs RoRo guide</Link> for the full comparison.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Budgeting realistically</h2>
+              <h2 className="text-navy">Budgeting realistically</h2>
               <p className="mt-3 text-slate-body">A workable approach is to budget for the estimated logistics cost from the calculator, then separately research the approximate customs duty and tax rate that applies to vehicle imports in your destination country, since that's often the single largest cost outside the vehicle's own price. Treating these as one combined number, rather than two separate ones with different sources, is where budgets tend to go wrong.</p>
             </div>
           </div>
@@ -141,7 +141,7 @@ function GuideShippingCosts() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
@@ -171,7 +171,7 @@ function GuideShippingCosts() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Want an exact number?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Run your vehicle through the calculator</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Run your vehicle through the calculator</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-shipping-costs" })} className="btn-primary"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-shipping-costs" })} className="btn-outline-light"><MessageCircle className="h-4 w-4" /> Ask a Question</a>

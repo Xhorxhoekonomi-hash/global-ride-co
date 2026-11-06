@@ -90,7 +90,7 @@ function TransportMeKontenier() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Llojet e kontenierëve</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Cili kontenier për automjetin tuaj</h2>
+            <h2 className="mt-3 text-navy">Cili kontenier për automjetin tuaj</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {CONTAINER_TYPES_AL.map((c) => (
@@ -98,7 +98,7 @@ function TransportMeKontenier() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Package className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{c.title}</h3>
+                <h3 className="mt-4 text-navy">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{c.body}</p>
               </div>
             ))}
@@ -113,7 +113,7 @@ function TransportMeKontenier() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                 <Lock className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-navy md:text-4xl">Ngarkimi dhe sigurimi</h2>
+              <h2 className="mt-4 text-navy">Ngarkimi dhe sigurimi</h2>
               <p className="mt-4 text-slate-body">
                 Automjeti ngarkohet dhe fiksohet me rripa e pajisje sigurimi brenda kontenierit, për të parandaluar lëvizjen gjatë tranzitit detar. Procesi respekton standardet e ngarkimit që aplikojmë për çdo dërgesë.
               </p>
@@ -122,7 +122,7 @@ function TransportMeKontenier() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                 <Ship className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-navy md:text-4xl">Tranziti</h2>
+              <h2 className="mt-4 text-navy">Tranziti</h2>
               <p className="mt-4 text-slate-body">
                 Pas ngarkimit, kontenieri transportohet me anije drejt portit të destinacionit. Koha e tranzitit varet nga rruga, terminali dhe orari i anijes — ju japim një afat të përafërt përpara rezervimit.
               </p>
@@ -135,7 +135,7 @@ function TransportMeKontenier() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Avantazhet</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pse zgjedhin klientët kontenierin</h2>
+            <h2 className="mt-3 text-navy">Pse zgjedhin klientët kontenierin</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -151,7 +151,7 @@ function TransportMeKontenier() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -191,7 +191,7 @@ function TransportMeKontenier() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Kërkoni ofertë për kontenier
             </h2>
             <p className="mt-5 max-w-md text-white/70">

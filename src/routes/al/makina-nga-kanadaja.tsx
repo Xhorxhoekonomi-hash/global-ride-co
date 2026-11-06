@@ -38,7 +38,7 @@ function MakinaNgaKanadaja() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Proces me 6 hapa</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Nga Kanadaja deri te shtëpia juaj</h2>
+            <h2 className="mt-3 text-navy">Nga Kanadaja deri te shtëpia juaj</h2>
           </div>
           <JourneySteps steps={STEPS} />
         </div>
@@ -47,7 +47,7 @@ function MakinaNgaKanadaja() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Na dërgoni linkun e një automjeti nga Kanadaja</h2>
+            <h2 className="mt-3 text-white">Na dërgoni linkun e një automjeti nga Kanadaja</h2>
             <p className="mt-5 max-w-md text-white/70">Ndani linkun e shpalljes ose numrin e lotit — ne kujdesemi për inspektimin, blerjen, eksportin dhe transportin deri në destinacionin tuaj.</p>
           </div>
           <QuoteForm variant="full" onDark locale="sq" />

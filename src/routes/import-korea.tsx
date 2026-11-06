@@ -148,7 +148,7 @@ function ImportKorea() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                 <ShoppingBag className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-secondary md:text-4xl">Sourcing</h2>
+              <h2 className="mt-4 text-secondary">Sourcing</h2>
               <p className="mt-4 text-muted-foreground">
                 We assist customers with vehicles listed through Encar, Autowini, KB Chachacha and approved Korean dealers. Send us a listing, or tell us what you're looking for and we'll present curated options.
               </p>
@@ -157,7 +157,7 @@ function ImportKorea() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                 <MessageSquare className="h-5 w-5" />
               </div>
-              <h2 className="font-display mt-4 text-3xl font-bold text-secondary md:text-4xl">Purchase & Communication</h2>
+              <h2 className="mt-4 text-secondary">Purchase & Communication</h2>
               <p className="mt-4 text-muted-foreground">
                 We handle seller communication, negotiation, and the purchase process directly, so language and platform familiarity are never a barrier to buying the right vehicle.
               </p>
@@ -172,7 +172,7 @@ function ImportKorea() {
             <div className="grid h-11 w-11 mx-auto place-items-center rounded-lg bg-accent text-primary">
               <Camera className="h-5 w-5" />
             </div>
-            <h2 className="font-display mt-4 text-3xl font-semibold text-secondary md:text-4xl">Inspection & Reporting</h2>
+            <h2 className="mt-4 text-secondary">Inspection & Reporting</h2>
             <p className="mt-4 text-muted-foreground">
               Free pre-purchase inspection is available for eligible vehicles selected through Alpha Worldwide, subject to vehicle location, seller access and inspection availability.
             </p>
@@ -194,7 +194,7 @@ function ImportKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">5-step process</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">From Korea to Your Door</h2>
+            <h2 className="mt-3 text-secondary">From Korea to Your Door</h2>
           </div>
           <JourneySteps steps={STEPS} />
         </div>
@@ -203,13 +203,13 @@ function ImportKorea() {
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">What Alpha Worldwide Handles</h3>
+            <h3 className="text-secondary">What Alpha Worldwide Handles</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {WE_HANDLE.map((i) => <li key={i} className="flex gap-2"><span className="text-primary">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">What You Provide</h3>
+            <h3 className="text-secondary">What You Provide</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {YOU_PROVIDE.map((i) => <li key={i} className="flex gap-2"><span className="text-muted-foreground">•</span>{i}</li>)}
             </ul>
@@ -221,12 +221,12 @@ function ImportKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Where we ship to</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Destination Options</h2>
+            <h2 className="mt-3 text-secondary">Destination Options</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {DESTINATIONS.map((d) => (
               <Link key={d.name} to={d.to} className="group rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
-                <h3 className="font-display text-base font-bold text-secondary">{d.name}</h3>
+                <h3 className="text-secondary">{d.name}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{d.body}</p>
                 <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors">
                   Learn more <ArrowRight className="h-3 w-3" />
@@ -241,7 +241,7 @@ function ImportKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
@@ -261,7 +261,7 @@ function ImportKorea() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Start today</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               Send Us an Encar or Autowini Link
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">

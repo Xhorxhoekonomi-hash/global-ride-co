@@ -146,12 +146,12 @@ function MakinaNgaKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Nga ku sigurojmë</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Platformat dhe burimet</h2>
+            <h2 className="mt-3 text-secondary">Platformat dhe burimet</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {PLATFORMS_AL.map((p) => (
               <div key={p.name} className="rounded-lg border border-border bg-card p-6 shadow-card">
-                <h3 className="font-display text-lg font-bold text-secondary">{p.name}</h3>
+                <h3 className="text-secondary">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </div>
             ))}
@@ -163,7 +163,7 @@ function MakinaNgaKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Procesi</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Nga Koreja deri te dera juaj</h2>
+            <h2 className="mt-3 text-secondary">Nga Koreja deri te dera juaj</h2>
           </div>
           <JourneySteps steps={STEPS_AL} stepLabel="Hapi" />
         </div>
@@ -173,7 +173,7 @@ function MakinaNgaKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Inspektimi</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Çfarë kontrollohet, kur është i mundur</h2>
+            <h2 className="mt-3 text-secondary">Çfarë kontrollohet, kur është i mundur</h2>
             <p className="mt-4 text-muted-foreground">
               Inspektimi para blerjes ofrohet për automjete të përzgjedhura nga Alpha Worldwide dhe varet nga vendndodhja, aksesi i shitësit dhe disponueshmëria.
             </p>
@@ -195,14 +195,14 @@ function MakinaNgaKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Metoda e transportit</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Kontenier ose RoRo</h2>
+            <h2 className="mt-3 text-secondary">Kontenier ose RoRo</h2>
           </div>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                 <Container className="h-5 w-5" />
               </div>
-              <h3 className="font-display mt-4 text-xl font-bold text-secondary">Transport me kontenier</h3>
+              <h3 className="mt-4 text-secondary">Transport me kontenier</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Zgjidhja e zakonshme drejt Durrësit. Ofron mbrojtje të plotë dhe është e përshtatshme për automjete me vlerë të lartë ose të modifikuara.
               </p>
@@ -211,7 +211,7 @@ function MakinaNgaKorea() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                 <Ship className="h-5 w-5" />
               </div>
-              <h3 className="font-display mt-4 text-xl font-bold text-secondary">Transport me RoRo</h3>
+              <h3 className="mt-4 text-secondary">Transport me RoRo</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 RoRo mund të jetë një opsion më ekonomik për automjete standarde, por disponueshmëria varet nga rruga dhe orari i anijes. Ju konfirmojmë opsionet reale.
               </p>
@@ -223,13 +223,13 @@ function MakinaNgaKorea() {
       <section className="bg-background">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">Çfarë përfshihet</h3>
+            <h3 className="text-secondary">Çfarë përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-primary">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-secondary">Çfarë nuk përfshihet</h3>
+            <h3 className="text-secondary">Çfarë nuk përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-muted-foreground">•</span>{i}</li>)}
             </ul>
@@ -240,7 +240,7 @@ function MakinaNgaKorea() {
       <section className="bg-accent border-y border-border">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-primary">Përllogaritje transparente</div>
-          <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Llogaritni koston para se të filloni</h2>
+          <h2 className="mt-3 text-secondary">Llogaritni koston para se të filloni</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Kalkulatori ynë përdor tarifat aktuale për transportin nga Koreja e Jugut drejt Shqipërisë, Holandës dhe Gjermanisë.
           </p>
@@ -262,7 +262,7 @@ function MakinaNgaKorea() {
         <div className="container-page py-14 md:py-18">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -282,7 +282,7 @@ function MakinaNgaKorea() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Filloni sot</div>
-            <h2 className="font-display mt-3 text-3xl font-semibold text-secondary md:text-4xl">
+            <h2 className="mt-3 text-secondary">
               Na dërgoni një link nga Encar ose Autowini
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">

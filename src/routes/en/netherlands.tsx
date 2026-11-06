@@ -80,7 +80,7 @@ function NetherlandsHub() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Netherlands</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Vehicle Import to the Netherlands
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -95,14 +95,14 @@ function NetherlandsHub() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <MapPin className="h-6 w-6 text-teal" />
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">Importing Into the Netherlands</h2>
+              <h2 className="mt-4 text-navy">Importing Into the Netherlands</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-body">
                 Sourcing, inspection, shipping, and delivery for a vehicle that will be registered and used in the Netherlands.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">Rotterdam as a Gateway</h2>
+              <h2 className="mt-4 text-navy">Rotterdam as a Gateway</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-body">
                 Using the Port of Rotterdam as the ocean-freight entry point, with onward road transport to Germany, Belgium, or France as the final destination.
               </p>
@@ -115,12 +115,12 @@ function NetherlandsHub() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Where we source from</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Origin Markets</h2>
+            <h2 className="mt-3 text-navy">Origin Markets</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {ORIGIN_MARKETS.map((m) => (
               <Link key={m.name} to={m.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
-                <h3 className="font-display text-xl font-bold text-navy">{m.name}</h3>
+                <h3 className="text-navy">{m.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-body">{m.body}</p>
                 <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-teal opacity-0 transition-opacity group-hover:opacity-100">
                   {m.cta} <ArrowRight className="h-3.5 w-3.5" />
@@ -135,7 +135,7 @@ function NetherlandsHub() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Related services</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Everything Handled</h2>
+            <h2 className="mt-3 text-navy">Everything Handled</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICES_LINKS.map((s) => (
@@ -143,7 +143,7 @@ function NetherlandsHub() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-base font-bold text-navy">{s.name}</h3>
+                <h3 className="mt-4 text-navy">{s.name}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-body">{s.body}</p>
               </Link>
             ))}
@@ -154,7 +154,7 @@ function NetherlandsHub() {
       <section className="section-dark">
         <div className="container-page flex flex-col items-center gap-6 py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Real numbers, not guesses</div>
-          <h2 className="font-display max-w-2xl text-3xl font-bold text-white md:text-5xl">
+          <h2 className="max-w-2xl text-white">
             Calculate Shipping to the Netherlands
           </h2>
           <p className="max-w-xl text-white/70">
@@ -174,7 +174,7 @@ function NetherlandsHub() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (
@@ -194,7 +194,7 @@ function NetherlandsHub() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Start today</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">
+            <h2 className="mt-3 text-navy">
               Already found a vehicle?
             </h2>
             <p className="mt-5 text-slate-body">

@@ -45,7 +45,7 @@ function ImportPoland() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Import to · Poland</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">Vehicle Sourcing and Shipping to Poland</h1>
+            <h1 className="mt-4">Vehicle Sourcing and Shipping to Poland</h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground"><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through Gdynia, Gdańsk, Hamburg, or Rotterdam."} /></p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "eu-poland-hero" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> WhatsApp Us</a>
@@ -58,42 +58,42 @@ function ImportPoland() {
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div><h2 className="font-display mt-4 text-2xl font-bold text-navy">Baltic and North Sea Gateways</h2><p className="mt-3 text-slate-body"><KeywordText text={"Gdynia and Gdańsk offer direct Baltic access, while Hamburg or Rotterdam are common alternates with onward road transport into Poland."} /></p></div>
-            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Zap className="h-5 w-5" /></div><h2 className="font-display mt-4 text-2xl font-bold text-navy">Vehicle Range</h2><p className="mt-3 text-slate-body">We source commercial vehicles, SUVs, and electric vehicles alike — each with its own documentation considerations that we confirm before booking.</p></div>
+            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div><h2 className="mt-4 text-navy">Baltic and North Sea Gateways</h2><p className="mt-3 text-slate-body"><KeywordText text={"Gdynia and Gdańsk offer direct Baltic access, while Hamburg or Rotterdam are common alternates with onward road transport into Poland."} /></p></div>
+            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Zap className="h-5 w-5" /></div><h2 className="mt-4 text-navy">Vehicle Range</h2><p className="mt-3 text-slate-body">We source commercial vehicles, SUVs, and electric vehicles alike — each with its own documentation considerations that we confirm before booking.</p></div>
           </div>
         </div>
       </section>
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Shipping options</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Container or RoRo</h2></div>
+          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Shipping options</div><h2 className="mt-3 text-navy">Container or RoRo</h2></div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Ship className="h-6 w-6 text-teal" /><h3 className="font-display mt-3 text-lg font-bold text-navy">Container Shipping</h3><p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p></Link>
-            <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Truck className="h-6 w-6 text-teal" /><h3 className="font-display mt-3 text-lg font-bold text-navy">RoRo</h3><p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p></Link>
+            <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Ship className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">Container Shipping</h3><p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p></Link>
+            <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Truck className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">RoRo</h3><p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p></Link>
           </div>
         </div>
       </section>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Frequently imported</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">What Customers Bring In</h2></div>
+          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Frequently imported</div><h2 className="mt-3 text-navy">What Customers Bring In</h2></div>
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card"><ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}</ul></div>
         </div>
       </section>
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Inspection & why us</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Why Alpha Worldwide</h2></div>
+          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Inspection & why us</div><h2 className="mt-3 text-navy">Why Alpha Worldwide</h2></div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
-            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div><h3 className="font-display mt-4 text-xl font-bold text-navy">Inspection</h3><p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p></div>
-            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div><h3 className="font-display mt-4 text-xl font-bold text-navy">Documentation</h3><p className="mt-2 text-sm text-slate-body">We review available history information and prepare export paperwork before your vehicle reaches Poland.</p></div>
+            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Inspection</h3><p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p></div>
+            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Documentation</h3><p className="mt-2 text-sm text-slate-body">We review available history information and prepare export paperwork before your vehicle reaches Poland.</p></div>
           </div>
         </div>
       </section>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Questions</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2></div>
+          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Questions</div><h2 className="mt-3 text-navy">Frequently Asked</h2></div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p></details>))}
           </div>
@@ -118,7 +118,7 @@ function ImportPoland() {
 
       <section className="section-dark">
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
-          <div><div className="eyebrow text-teal-glow">Get started</div><h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Send Us a Vehicle Link</h2><p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote to your Polish destination.</p></div>
+          <div><div className="eyebrow text-teal-glow">Get started</div><h2 className="mt-3 text-white">Send Us a Vehicle Link</h2><p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote to your Polish destination.</p></div>
           <QuoteForm variant="full" onDark source="eu-poland" />
         </div>
       </section>

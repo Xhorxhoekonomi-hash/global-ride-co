@@ -104,7 +104,7 @@ function CopartShqiperi() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Copart për Shqipëri</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Blej në Copart, dorëzo në Durrës
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -136,7 +136,7 @@ function CopartShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Si funksionon</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Blerja në Copart me Alpha Worldwide</h2>
+            <h2 className="mt-3 text-navy">Blerja në Copart me Alpha Worldwide</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {HOW_IT_WORKS_AL.map((s) => (
@@ -144,7 +144,7 @@ function CopartShqiperi() {
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-3 text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-3 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -157,7 +157,7 @@ function CopartShqiperi() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Foto ankandi vs. inspektim</div>
-              <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">
+              <h2 className="mt-3 text-navy">
                 Fotot e Copart nuk janë inspektim
               </h2>
             </div>
@@ -179,17 +179,17 @@ function CopartShqiperi() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Kostoja totale</div>
-              <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Tarifat e Copart dhe transporti</h2>
+              <h2 className="mt-3 text-navy">Tarifat e Copart dhe transporti</h2>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-                <h3 className="font-display text-lg font-bold text-navy">Çfarë hyn në çmim</h3>
+                <h3 className="text-navy">Çfarë hyn në çmim</h3>
                 <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-slate-body">
                   {FEES_NOTE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
                 </ul>
               </div>
               <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-                <h3 className="font-display text-lg font-bold text-navy">Përllogaritja e detajuar</h3>
+                <h3 className="text-navy">Përllogaritja e detajuar</h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-body">
                   Kalkulatori ynë ndan çdo zë: ofertën fituese, tarifat e Copart, transportin tokësor deri në terminalin e eksportit, transportin detar deri në Durrës dhe shkarkimin në port.
                 </p>
@@ -209,13 +209,13 @@ function CopartShqiperi() {
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë garantojmë</h3>
+            <h3 className="text-navy">Çfarë garantojmë</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {WE_GUARANTEE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë nuk garantojmë</h3>
+            <h3 className="text-navy">Çfarë nuk garantojmë</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {WE_DO_NOT_GUARANTEE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
             </ul>
@@ -227,7 +227,7 @@ function CopartShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta për Copart</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta për Copart</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -247,7 +247,7 @@ function CopartShqiperi() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Faqe të lidhura</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Vazhdoni të lexoni</h2>
+            <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
           </div>
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
             <Link to="/al/makina-nga-amerika" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
@@ -270,7 +270,7 @@ function CopartShqiperi() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Dërgoni numrin e lotit të Copart
             </h2>
             <p className="mt-5 max-w-md text-white/70">

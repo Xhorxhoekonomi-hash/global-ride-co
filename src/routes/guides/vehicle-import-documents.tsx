@@ -102,7 +102,7 @@ function GuideImportDocuments() {
       <TextHero>
         <div>
           <GuideMeta category="documentation" readingTime="3 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Vehicle Import Documents Explained</h1>
+          <h1 className="mt-4 max-w-3xl">Vehicle Import Documents Explained</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">What each document actually does — from purchase invoice to customs declaration — in plain language.</p>
         </div>
       </TextHero>
@@ -121,7 +121,7 @@ function GuideImportDocuments() {
           <div className="mx-auto max-w-3xl space-y-12">
             {DOC_GROUPS.map((g) => (
               <div key={g.title}>
-                <h2 className="font-display text-xl font-bold text-navy">{g.title}</h2>
+                <h2 className="text-navy">{g.title}</h2>
                 <div className="mt-4 space-y-4">
                   {g.items.map((item) => (
                     <div key={item.name} className="rounded-xl border border-border bg-card p-4">
@@ -140,15 +140,15 @@ function GuideImportDocuments() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <h2 className="font-display flex items-center gap-2 text-2xl font-bold text-navy"><AlertTriangle className="h-5 w-5 text-teal" /> Requirements genuinely vary</h2>
+              <h2 className="flex items-center gap-2 text-navy"><AlertTriangle className="h-5 w-5 text-teal" /> Requirements genuinely vary</h2>
               <p className="mt-3 text-slate-body">This list is not universal or legally exhaustive. What you actually need depends on the origin country, the destination country, the specific vehicle, the shipping method, and the local customs and registration procedure that applies. We're not a law firm or tax advisor — for anything with legal or tax implications, confirm directly with the relevant authority. See our <Link to="/how-it-works" className="text-teal hover:underline">full process overview</Link> for how documentation fits into the bigger picture.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Keeping documents organized</h2>
+              <h2 className="text-navy">Keeping documents organized</h2>
               <p className="mt-3 text-slate-body">Since these documents come from several different sources and stages, keeping digital copies of everything as they're issued — rather than waiting to gather them at the end — makes the customs and registration stage considerably smoother. Missing a single document, particularly the bill of lading or export certificate, is one of the more common causes of delay at destination customs. See our <Link to="/guides/common-car-import-mistakes" className="text-teal hover:underline">common import mistakes guide</Link> for more on avoiding this.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Documentation by destination</h2>
+              <h2 className="text-navy">Documentation by destination</h2>
               <p className="mt-3 text-slate-body">Specific document requirements differ meaningfully by destination — a COC that's central to registration in one country may be less relevant elsewhere, and some destinations add requirements not listed here, like a Carnet de Passage for temporary importation. See our <Link to="/import-netherlands" className="text-teal hover:underline">Netherlands</Link>, <Link to="/import-germany" className="text-teal hover:underline">Germany</Link>, and other European destination pages for country-specific registration overviews.</p>
             </div>
           </div>
@@ -158,7 +158,7 @@ function GuideImportDocuments() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
@@ -188,7 +188,7 @@ function GuideImportDocuments() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Not sure what you'll need?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Tell us your route and vehicle</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us your route and vehicle</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-import-documents" })} className="btn-primary"><FileText className="h-4 w-4" /> Ask About Documents</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-import-documents" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

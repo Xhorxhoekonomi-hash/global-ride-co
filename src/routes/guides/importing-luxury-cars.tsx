@@ -45,7 +45,7 @@ function GuideLuxuryCars() {
       <TextHero>
         <div>
           <GuideMeta category="buying" readingTime="6 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">Importing Luxury Cars</h1>
+          <h1 className="mt-4 max-w-3xl">Importing Luxury Cars</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">What changes when the vehicle is a Ferrari, Lamborghini, Bentley, Rolls-Royce, or Porsche rather than a standard passenger car.</p>
         </div>
       </TextHero>
@@ -61,7 +61,7 @@ function GuideLuxuryCars() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Brands we regularly source</h2>
+            <h2 className="text-navy">Brands we regularly source</h2>
             <div className="mt-4 flex flex-wrap gap-2.5">
               {BRANDS.map((b) => <span key={b} className="rounded-full bg-card px-4 py-2 text-sm font-semibold text-navy shadow-card">{b}</span>)}
             </div>
@@ -74,19 +74,19 @@ function GuideLuxuryCars() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
-              <div className="flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Insurance during transit</h2></div>
+              <div className="flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-teal" /><h2 className="text-navy">Insurance during transit</h2></div>
               <p className="mt-3 text-slate-body">For a high-value vehicle, transit insurance terms and valuation methods are worth confirming explicitly rather than assuming a standard policy covers replacement value adequately. We discuss coverage options as part of coordinating your shipment.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Enclosed transport</h2>
+              <h2 className="text-navy">Enclosed transport</h2>
               <p className="mt-3 text-slate-body">Many owners of high-value vehicles choose enclosed container shipping over open RoRo, purely for the added weather and handling protection — not because RoRo is unsafe, but because the margin for even minor cosmetic risk feels different at this price point.</p>
             </div>
             <div>
-              <div className="flex items-center gap-2"><FileText className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">COC and conformity</h2></div>
+              <div className="flex items-center gap-2"><FileText className="h-5 w-5 text-teal" /><h2 className="text-navy">COC and conformity</h2></div>
               <p className="mt-3 text-slate-body">A Certificate of Conformity or equivalent documentation matters more here, since factory-spec deviations or aftermarket modifications can complicate registration in some destinations. See our <Link to="/guides/vehicle-import-documents" className="text-teal hover:underline">import documents guide</Link> for the general documentation landscape.</p>
             </div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy">Customs and valuation</h2>
+              <h2 className="text-navy">Customs and valuation</h2>
               <p className="mt-3 text-slate-body">Higher-value vehicles typically mean higher customs duties and taxes in absolute terms, calculated by the destination authority based on the vehicle's declared or assessed value — not by Alpha Worldwide.</p>
             </div>
           </div>
@@ -96,7 +96,7 @@ function GuideLuxuryCars() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
             </div>
@@ -123,7 +123,7 @@ function GuideLuxuryCars() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Sourcing something special?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Tell us what you're looking for</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us what you're looking for</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-luxury-cars" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> WhatsApp Us</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-luxury-cars" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

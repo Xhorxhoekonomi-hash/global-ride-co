@@ -52,7 +52,7 @@ function GuideShippingTime() {
       <TextHero>
         <div>
           <GuideMeta category="shipping" readingTime="5 min" />
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">How Long Does Car Shipping Take?</h1>
+          <h1 className="mt-4 max-w-3xl">How Long Does Car Shipping Take?</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">A stage-by-stage look at what actually determines your timeline — in ranges, never as a fixed promise.</p>
         </div>
       </TextHero>
@@ -68,7 +68,7 @@ function GuideShippingTime() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-2"><Clock className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">The six stages</h2></div>
+            <div className="flex items-center gap-2"><Clock className="h-5 w-5 text-teal" /><h2 className="text-navy">The six stages</h2></div>
             <div className="mt-6 space-y-5">
               {STAGES.map((s, i) => (
                 <div key={s.title} className="flex gap-4">
@@ -88,11 +88,11 @@ function GuideShippingTime() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl space-y-8">
             <div>
-              <div className="flex items-center gap-2"><Ship className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">Why we use ranges, not promises</h2></div>
+              <div className="flex items-center gap-2"><Ship className="h-5 w-5 text-teal" /><h2 className="text-navy">Why we use ranges, not promises</h2></div>
               <p className="mt-3 text-slate-body">Vessel schedules can shift, port congestion happens, and customs processing time varies with documentation completeness and current authority workload. A single fixed number would be more reassuring to hear, but it wouldn't be honest — see our <Link to="/guides/container-vs-roro-car-shipping" className="text-teal hover:underline">container vs RoRo guide</Link> for how the shipping method itself affects the timeline.</p>
             </div>
             <div>
-              <div className="flex items-center gap-2"><Landmark className="h-5 w-5 text-teal" /><h2 className="font-display text-2xl font-bold text-navy">What you can control</h2></div>
+              <div className="flex items-center gap-2"><Landmark className="h-5 w-5 text-teal" /><h2 className="text-navy">What you can control</h2></div>
               <p className="mt-3 text-slate-body">The stages most within your control are having complete documentation ready in advance and choosing a dedicated container if timeline certainty matters more to you than the shared-container cost saving. See our <Link to="/guides/vehicle-import-documents" className="text-teal hover:underline">import documents guide</Link> to prepare ahead.</p>
             </div>
           </div>
@@ -102,7 +102,7 @@ function GuideShippingTime() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-navy">Frequently asked</h2>
+            <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
               {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
             </div>
@@ -129,7 +129,7 @@ function GuideShippingTime() {
       <section className="section-dark">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-teal-glow">Want a realistic estimate?</div>
-          <h2 className="font-display mx-auto mt-3 max-w-xl text-3xl font-bold text-white md:text-4xl">Tell us your route</h2>
+          <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us your route</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-shipping-timeline" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Ask on WhatsApp</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-shipping-timeline" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>

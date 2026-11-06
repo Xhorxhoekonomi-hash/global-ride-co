@@ -50,7 +50,7 @@ function RrethNesh() {
         <div className="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-2 lg:gap-20">
           <div>
             <div className="eyebrow">Kush jemi</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Mbi 10 vjet duke transportuar automjete mes kontinenteve.</h2>
+            <h2 className="mt-3 text-navy">Mbi 10 vjet duke transportuar automjete mes kontinenteve.</h2>
             <p className="mt-6 text-slate-body">Alpha Worldwide është një kompani ndërkombëtare për logjistikë, gjetje automjetesh dhe shërbime ankandesh. U ndihmojmë blerësve privatë, tregtarëve dhe bizneseve të automjeteve të gjejnë, inspektojnë, blejnë dhe transportojnë automjete nga tregjet kryesore globale — SHBA, Koreja e Jugut, EBA dhe Kanadaja — drejt Shqipërisë dhe në të gjithë Evropën.</p>
             <p className="mt-4 text-slate-body">Gjatë më shumë se 10 vjetëve, kemi blerë dhe transportuar mbi 15,000 automjete përmes rrjetit tonë ndërkombëtar.</p>
           </div>
@@ -82,13 +82,13 @@ function RrethNesh() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Çfarë bëjmë</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Aftësitë kryesore</h2>
+            <h2 className="mt-3 text-navy">Aftësitë kryesore</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((s) => (
               <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-5 w-5" /></div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-4 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -101,7 +101,7 @@ function RrethNesh() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <div className="eyebrow text-teal-glow">Si punojmë</div>
-              <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Parimet tona të punës.</h2>
+              <h2 className="mt-3 text-white">Parimet tona të punës.</h2>
             </div>
             <ul className="space-y-3">
               {PRINCIPLES.map((w) => (

@@ -82,7 +82,7 @@ function TransportRoRo() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <Landmark className="mx-auto h-8 w-8 text-teal" />
-            <h2 className="font-display mt-4 text-3xl font-bold text-navy md:text-4xl">Si funksionon RoRo</h2>
+            <h2 className="mt-4 text-navy">Si funksionon RoRo</h2>
             <p className="mt-4 text-slate-body">
               Automjeti ngaset drejtpërdrejt në anije nëpërmjet një rampe dhe zbret vetë në portin e destinacionit, pa u vendosur në kontenier. Kjo e bën procesin e ngarkimit dhe shkarkimit më të shpejtë krahasuar me transportin me kontenier.
             </p>
@@ -94,7 +94,7 @@ function TransportRoRo() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Kërkesat për automjetin</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Çfarë duhet të plotësojë automjeti</h2>
+            <h2 className="mt-3 text-navy">Çfarë duhet të plotësojë automjeti</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {REQUIREMENTS_AL.map((r) => (
@@ -102,7 +102,7 @@ function TransportRoRo() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <r.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{r.title}</h3>
+                <h3 className="mt-4 text-navy">{r.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{r.body}</p>
               </div>
             ))}
@@ -114,13 +114,13 @@ function TransportRoRo() {
         <div className="container-page py-20 md:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 className="font-display text-3xl font-bold text-navy md:text-4xl">Kur RoRo është zgjedhja e mirë</h2>
+              <h2 className="text-navy">Kur RoRo është zgjedhja e mirë</h2>
               <p className="mt-4 text-slate-body">
                 Për automjete standarde, funksionale, dhe kur rruga e transportit e ofron këtë opsion, RoRo mund të jetë më i shpejtë dhe ekonomik se kontenieri.
               </p>
             </div>
             <div>
-              <h2 className="font-display text-3xl font-bold text-navy md:text-4xl">Kur kontenieri është më i përshtatshëm</h2>
+              <h2 className="text-navy">Kur kontenieri është më i përshtatshëm</h2>
               <p className="mt-4 text-slate-body">
                 Për automjete me vlerë të lartë, automjete të modifikuara, ose kur mbrojtja e plotë nga elementet është prioritet, transporti me kontenier është opsioni më i sigurt.
               </p>
@@ -133,7 +133,7 @@ function TransportRoRo() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -173,7 +173,7 @@ function TransportRoRo() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Kontrolloni nëse RoRo është opsion për ju
             </h2>
             <p className="mt-5 max-w-md text-white/70">

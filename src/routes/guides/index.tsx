@@ -69,7 +69,7 @@ function GuidesHub() {
       <TextHero>
         <div>
           <div className="eyebrow text-primary">Guides</div>
-          <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Vehicle Import Guides</h1>
+          <h1 className="mt-4">Vehicle Import Guides</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Practical answers to the questions that come up before, during, and after buying a vehicle abroad — written to help you decide, not to sell you.</p>
         </div>
       </TextHero>
@@ -77,13 +77,13 @@ function GuidesHub() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="eyebrow">Featured guides</div>
-          <h2 className="font-display mt-2 text-2xl font-bold text-navy">Start here</h2>
+          <h2 className="mt-2 text-navy">Start here</h2>
           <div className="mt-8"><GuideFeature title="How to Buy a Car From USA Auctions" category="Buying abroad · 5 min read" read="Read the guide" /></div>
           <div className="mt-6 grid gap-8 md:grid-cols-3">
             {featured.slice(1).map((g) => (
               <Link key={g.to} to={g.to} className="group flex flex-col border-t border-border py-6">
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
-                <h3 className="font-display mt-3 text-base font-bold text-navy">{g.title}</h3>
+                <h3 className="mt-3 text-navy">{g.title}</h3>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-teal">Read the guide <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" /></span>
               </Link>
             ))}
@@ -135,7 +135,7 @@ function GuidesHub() {
                     <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
                     <span className="rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">{GUIDE_CATEGORIES[g.category]}</span>
                   </div>
-                  <h2 className="font-display mt-4 text-lg font-bold text-navy">{g.title}</h2>
+                  <h2 className="mt-4 text-navy">{g.title}</h2>
                   <p className="mt-2 flex-1 text-sm text-slate-body">{g.summary}</p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-xs text-slate-body">{g.readingTime} read</span>
@@ -153,7 +153,7 @@ function GuidesHub() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="eyebrow">Newest guides</div>
-          <h2 className="font-display mt-2 text-2xl font-bold text-navy">Recently added</h2>
+          <h2 className="mt-2 text-navy">Recently added</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             {newest.map((g) => (
               <Link key={g.to} to={g.to} className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-teal hover:text-teal">

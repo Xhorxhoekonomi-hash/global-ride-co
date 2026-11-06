@@ -39,7 +39,7 @@ function KontaktAL() {
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Kontakti</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">Na shkruani</h2>
+            <h2 className="mt-3 text-secondary">Na shkruani</h2>
 
             <div className="mt-8 space-y-6">
               <div className="flex gap-3">

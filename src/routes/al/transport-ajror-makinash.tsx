@@ -89,13 +89,13 @@ function TransportAjrorMakinash() {
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
       </PageHero>
 
-      <section className="bg-muted"><div className="container-page py-12 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Çfarë përfshin transporti ajror</h2><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Transport ajror i plotë i automjetit</h3><p className="mt-3 text-muted-foreground leading-relaxed">Koordinojmë dërgesën nga origjina deri në mbërritjen evropiane dhe dorëzim — gjetjen, dokumentet, rezervimin dhe transportin përfundimtar.</p></article><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Vetëm trajtim në aeroportin evropian</h3><p className="mt-3 text-muted-foreground leading-relaxed">Kur klienti ose spedicioneri e ka rezervuar fluturimin, koordinojmë trajtimin në mbërritje, procedurat e lirimit të ngarkesës, dokumentet doganore dhe transportin e mëtejshëm.</p></article></div><h3 className="mt-8 text-xl font-semibold text-secondary">Dokumentet që koordinojmë</h3><ul className="mt-4 space-y-3 text-muted-foreground">{["Koordinimi i Air Waybill", "Shkarkimi dhe procedurat e lirimit të ngarkesës", "Koordinim doganor", "Mbështetje për tranzit T1", "Trajtimi i Carnet de Passage", "Mbështetje për pranimin e përkohshëm kur zbatohet"].map(item => <li key={item}><KeywordText text={item} sq /></li>)}</ul><p className="mt-6 text-muted-foreground leading-relaxed">Automjetet elektrike, hibride dhe ato që nuk lëvizin vetë vlerësohen sipas kërkesave të kompanisë ajrore dhe operatorit tokësor. Kufijtë e baterisë, karburantit dhe pranimi konfirmohen para rezervimit.</p></div></section>
+      <section className="bg-muted"><div className="container-page py-12 md:py-20"><h2 className="text-secondary">Çfarë përfshin transporti ajror</h2><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-secondary">Transport ajror i plotë i automjetit</h3><p className="mt-3 text-muted-foreground leading-relaxed">Koordinojmë dërgesën nga origjina deri në mbërritjen evropiane dhe dorëzim — gjetjen, dokumentet, rezervimin dhe transportin përfundimtar.</p></article><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-secondary">Vetëm trajtim në aeroportin evropian</h3><p className="mt-3 text-muted-foreground leading-relaxed">Kur klienti ose spedicioneri e ka rezervuar fluturimin, koordinojmë trajtimin në mbërritje, procedurat e lirimit të ngarkesës, dokumentet doganore dhe transportin e mëtejshëm.</p></article></div><h3 className="mt-8 text-secondary">Dokumentet që koordinojmë</h3><ul className="mt-4 space-y-3 text-muted-foreground">{["Koordinimi i Air Waybill", "Shkarkimi dhe procedurat e lirimit të ngarkesës", "Koordinim doganor", "Mbështetje për tranzit T1", "Trajtimi i Carnet de Passage", "Mbështetje për pranimin e përkohshëm kur zbatohet"].map(item => <li key={item}><KeywordText text={item} sq /></li>)}</ul><p className="mt-6 text-muted-foreground leading-relaxed">Automjetet elektrike, hibride dhe ato që nuk lëvizin vetë vlerësohen sipas kërkesave të kompanisë ajrore dhe operatorit tokësor. Kufijtë e baterisë, karburantit dhe pranimi konfirmohen para rezervimit.</p></div></section>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Kur përdoret</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Raste tipike përdorimi</h2>
+            <h2 className="mt-3 text-navy">Raste tipike përdorimi</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {USE_CASES_AL.map((u) => (
@@ -103,7 +103,7 @@ function TransportAjrorMakinash() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Plane className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-bold text-navy">{u.title}</h3>
+                <h3 className="mt-4 text-navy">{u.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{u.body}</p>
               </div>
             ))}
@@ -115,7 +115,7 @@ function TransportAjrorMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Ku trajtojmë</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Rrjeti ynë i aeroporteve</h2>
+            <h2 className="mt-3 text-navy">Rrjeti ynë i aeroporteve</h2>
           </div>
           <AirportCards sq />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
@@ -131,7 +131,7 @@ function TransportAjrorMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Çfarë duhet ditur</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Dogana, përgatitja dhe tranziti</h2>
+            <h2 className="mt-3 text-navy">Dogana, përgatitja dhe tranziti</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {CONSIDERATIONS_AL.map((c) => (
@@ -139,7 +139,7 @@ function TransportAjrorMakinash() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <c.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-base font-bold text-navy">{c.title}</h3>
+                <h3 className="mt-4 text-navy">{c.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-body">{c.body}</p>
               </div>
             ))}
@@ -151,7 +151,7 @@ function TransportAjrorMakinash() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -191,7 +191,7 @@ function TransportAjrorMakinash() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Kërkoni ofertë për transport ajror
             </h2>
             <p className="mt-5 max-w-md text-white/70">

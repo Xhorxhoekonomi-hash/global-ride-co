@@ -44,7 +44,7 @@ function Udhezues() {
       <TextHero>
         <div>
           <div className="eyebrow text-primary">Udhëzues</div>
-          <h1 className="font-display mt-4 text-4xl font-bold md:text-6xl">Udhëzues për importin e automjeteve</h1>
+          <h1 className="mt-4">Udhëzues për importin e automjeteve</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">Përgjigje praktike për pyetjet që lindin para, gjatë dhe pas blerjes së një automjeti jashtë vendit — të shkruara për t'ju ndihmuar të vendosni, jo për t'ju shitur.</p>
         </div>
       </TextHero>
@@ -52,7 +52,7 @@ function Udhezues() {
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
           <div className="eyebrow">Udhëzuesit kryesorë</div>
-          <h2 className="font-display mt-2 text-2xl font-bold text-navy">Filloni këtu</h2>
+          <h2 className="mt-2 text-navy">Filloni këtu</h2>
           <div className="mt-8"><GuideFeature locale="sq" title="Si të blini makinë nga ankandet amerikane" category="Blerje jashtë vendit · 5 min lexim" read="Lexo udhëzuesin" /></div>
         </div>
       </section>
@@ -66,7 +66,7 @@ function Udhezues() {
                   <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
                   <span className="rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">{GUIDE_CATEGORIES_SQ[g.category]}</span>
                 </div>
-                <h2 className="font-display mt-4 text-lg font-bold text-navy">{g.title}</h2>
+                <h2 className="mt-4 text-navy">{g.title}</h2>
                 <p className="mt-2 flex-1 text-sm text-slate-body">{g.summary}</p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="text-xs text-slate-body">{g.readingTime} lexim</span>

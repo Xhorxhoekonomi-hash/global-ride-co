@@ -70,7 +70,7 @@ function ImportBelgium() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">Import to · Belgium</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Vehicle Sourcing and Shipping to Belgium
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground"><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Antwerp."} /></p>
@@ -91,12 +91,12 @@ function ImportBelgium() {
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div>
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">Arrival at Antwerp</h2>
+              <h2 className="mt-4 text-navy">Arrival at Antwerp</h2>
               <p className="mt-3 text-slate-body"><KeywordText text={"Antwerp is one of Europe's largest ports for vehicle handling. We coordinate unloading and terminal handling on arrival, whether by container or RoRo."} /></p>
             </div>
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div>
-              <h2 className="font-display mt-4 text-2xl font-bold text-navy">DIV Registration Overview</h2>
+              <h2 className="mt-4 text-navy">DIV Registration Overview</h2>
               <p className="mt-3 text-slate-body">Belgian registration is managed through the DIV and typically requires a technical inspection and import paperwork. Requirements vary and should always be confirmed with the local registration authority.</p>
             </div>
           </div>
@@ -107,22 +107,22 @@ function ImportBelgium() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Shipping options</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Container, RoRo, or Airfreight</h2>
+            <h2 className="mt-3 text-navy">Container, RoRo, or Airfreight</h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Ship className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">Container Shipping</h3>
+              <h3 className="mt-3 text-navy">Container Shipping</h3>
               <p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p>
             </Link>
             <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Truck className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">RoRo</h3>
+              <h3 className="mt-3 text-navy">RoRo</h3>
               <p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p>
             </Link>
             <Link to="/airfreight" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Plane className="h-6 w-6 text-teal" />
-              <h3 className="font-display mt-3 text-lg font-bold text-navy">Airfreight</h3>
+              <h3 className="mt-3 text-navy">Airfreight</h3>
               <p className="mt-2 text-sm text-slate-body">For urgent or exceptionally high-value vehicles, via our verified European airport network.</p>
             </Link>
           </div>
@@ -133,7 +133,7 @@ function ImportBelgium() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Frequently imported</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">What Customers Bring In</h2>
+            <h2 className="mt-3 text-navy">What Customers Bring In</h2>
           </div>
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
@@ -147,17 +147,17 @@ function ImportBelgium() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Inspection & delivery</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Before and After Shipping</h2>
+            <h2 className="mt-3 text-navy">Before and After Shipping</h2>
           </div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div>
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Inspection</h3>
+              <h3 className="mt-4 text-navy">Inspection</h3>
               <p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p>
             </div>
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Truck className="h-5 w-5" /></div>
-              <h3 className="font-display mt-4 text-xl font-bold text-navy">Delivery</h3>
+              <h3 className="mt-4 text-navy">Delivery</h3>
               <p className="mt-2 text-sm text-slate-body"><KeywordText text={"Once cleared at Antwerp, we coordinate onward delivery anywhere in Belgium."} /></p>
             </div>
           </div>
@@ -168,7 +168,7 @@ function ImportBelgium() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Questions</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2>
+            <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (
@@ -199,7 +199,7 @@ function ImportBelgium() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Get started</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">Send Us a Vehicle Link</h2>
+            <h2 className="mt-3 text-white">Send Us a Vehicle Link</h2>
             <p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote to your Belgian destination.</p>
           </div>
           <QuoteForm variant="full" onDark source="eu-belgium" />

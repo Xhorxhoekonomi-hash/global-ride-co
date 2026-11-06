@@ -61,15 +61,15 @@ export function CalculatorShell({
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">{dict.howItWorks.eyebrow}</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">{dict.howItWorks.heading}</h2>
+            <h2 className="mt-3 text-secondary">{dict.howItWorks.heading}</h2>
           </div>
           <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-6 shadow-card">
-              <h3 className="font-display text-lg font-bold text-secondary">{dict.howItWorks.usaTitle}</h3>
+              <h3 className="text-secondary">{dict.howItWorks.usaTitle}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{dict.howItWorks.usaBody}</p>
             </div>
             <div className="rounded-lg border border-border bg-card p-6 shadow-card">
-              <h3 className="font-display text-lg font-bold text-secondary">{dict.howItWorks.koreaTitle}</h3>
+              <h3 className="text-secondary">{dict.howItWorks.koreaTitle}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{dict.howItWorks.koreaBody}</p>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function CalculatorShell({
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-              <h3 className="font-display text-lg font-bold text-secondary">{dict.included.title}</h3>
+              <h3 className="text-secondary">{dict.included.title}</h3>
               <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                 {dict.included.items.map((i) => (
                   <li key={i} className="flex gap-2"><span className="text-primary">•</span>{i}</li>
@@ -88,7 +88,7 @@ export function CalculatorShell({
               </ul>
             </div>
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
-              <h3 className="font-display text-lg font-bold text-secondary">{dict.excluded.title}</h3>
+              <h3 className="text-secondary">{dict.excluded.title}</h3>
               <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                 {dict.excluded.items.map((i) => (
                   <li key={i} className="flex gap-2"><span className="text-muted-foreground">•</span>{i}</li>
@@ -104,12 +104,12 @@ export function CalculatorShell({
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">{dict.ports.eyebrow}</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">{dict.ports.heading}</h2>
+            <h2 className="mt-3 text-secondary">{dict.ports.heading}</h2>
           </div>
           <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-3">
             {[dict.ports.durres, dict.ports.rotterdam, dict.ports.bremerhaven].map((p,i) => (
               <Link to={localPath(`/ports/${["durres", "rotterdam", "bremerhaven"][i]}`, contactHref.startsWith("/al"))} key={p.title} className="rounded-lg border border-border bg-card p-6 text-center shadow-card hover:border-primary">
-                <h3 className="font-display text-base font-bold text-secondary">{p.title}</h3>
+                <h3 className="text-secondary">{p.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{p.body}</p>
               </Link>
             ))}
@@ -121,7 +121,7 @@ export function CalculatorShell({
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">{dict.faq.eyebrow}</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">{dict.faq.heading}</h2>
+            <h2 className="mt-3 text-secondary">{dict.faq.heading}</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {faqs.map((f) => (
@@ -140,7 +140,7 @@ export function CalculatorShell({
       <section className="bg-accent border-y border-border">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-primary">{dict.relatedCta.eyebrow}</div>
-          <h2 className="font-display mt-3 text-3xl font-bold text-secondary md:text-4xl">{dict.relatedCta.heading}</h2>
+          <h2 className="mt-3 text-secondary">{dict.relatedCta.heading}</h2>
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3">
             {dict.relatedCta.links.map((l) => (
               <Button key={l.to} asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to={l.to}>

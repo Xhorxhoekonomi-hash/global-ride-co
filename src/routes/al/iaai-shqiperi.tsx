@@ -117,7 +117,7 @@ function IaaiShqiperi() {
         <div>
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow text-primary">IAAI për Shqipëri</div>
-            <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-4">
               Seleksiono lotin. Ne kujdesemi për pjesën tjetër.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -150,7 +150,7 @@ function IaaiShqiperi() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Zgjedhja e lotit</div>
-              <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Nga kërkesa juaj te loti i duhur</h2>
+              <h2 className="mt-3 text-navy">Nga kërkesa juaj te loti i duhur</h2>
             </div>
             <ul className="mt-10 space-y-3 text-sm leading-relaxed text-slate-body">
               {SELECTION_AL.map((s) => (
@@ -168,12 +168,12 @@ function IaaiShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Sale Information</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Si të lexoni informacionin e lotit</h2>
+            <h2 className="mt-3 text-navy">Si të lexoni informacionin e lotit</h2>
           </div>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             {SALE_INFO_AL.map((s) => (
               <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <h3 className="font-display text-lg font-bold text-navy">{s.title}</h3>
+                <h3 className="text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -185,7 +185,7 @@ function IaaiShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Ofertimi</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Si ofertohemi për ju</h2>
+            <h2 className="mt-3 text-navy">Si ofertohemi për ju</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {BIDDING_AL.map((b) => (
@@ -193,7 +193,7 @@ function IaaiShqiperi() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <b.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-base font-bold text-navy">{b.title}</h3>
+                <h3 className="mt-4 text-navy">{b.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{b.body}</p>
               </div>
             ))}
@@ -206,7 +206,7 @@ function IaaiShqiperi() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Inspektimi</div>
-              <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">A mund të inspektohet një lot IAAI?</h2>
+              <h2 className="mt-3 text-navy">A mund të inspektohet një lot IAAI?</h2>
             </div>
             <div className="mt-10 rounded-2xl border border-border bg-card p-7 shadow-card">
               <ul className="space-y-2.5 text-sm leading-relaxed text-slate-body">
@@ -221,7 +221,7 @@ function IaaiShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Transporti</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Nga oborri i IAAI në Durrës</h2>
+            <h2 className="mt-3 text-navy">Nga oborri i IAAI në Durrës</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {SHIPPING_AL.map((s) => (
@@ -229,7 +229,7 @@ function IaaiShqiperi() {
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display mt-4 text-base font-bold text-navy">{s.title}</h3>
+                <h3 className="mt-4 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -252,13 +252,13 @@ function IaaiShqiperi() {
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë përfshihet</h3>
+            <h3 className="text-navy">Çfarë përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
-            <h3 className="font-display text-lg font-bold text-navy">Çfarë nuk përfshihet</h3>
+            <h3 className="text-navy">Çfarë nuk përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
             </ul>
@@ -270,7 +270,7 @@ function IaaiShqiperi() {
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Pyetje</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Pyetje të shpeshta për IAAI</h2>
+            <h2 className="mt-3 text-navy">Pyetje të shpeshta për IAAI</h2>
           </div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS_AL.map((f) => (
@@ -290,7 +290,7 @@ function IaaiShqiperi() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="eyebrow">Faqe të lidhura</div>
-            <h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Vazhdoni të lexoni</h2>
+            <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
           </div>
           <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
             <Link to="/al/makina-nga-amerika" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
@@ -313,7 +313,7 @@ function IaaiShqiperi() {
         <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
-            <h2 className="font-display mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-white">
               Dërgoni lotin e IAAI
             </h2>
             <p className="mt-5 max-w-md text-white/70">

@@ -18,7 +18,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
       <div className="container-page py-20 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <div className="eyebrow">{sq ? "Si funksionon" : "How It Works"}</div>
-          <h2 className={`font-display mt-3 text-4xl font-bold md:text-5xl ${dark ? "text-white" : "text-navy"}`}>
+          <h2 className={`mt-3 ${dark ? "text-white" : "text-navy"}`}>
             {sq ? "Nga shpallja deri te shtëpia juaj" : "From listing to your driveway"}
           </h2>
           <p className={`mt-4 text-base ${dark ? "text-white/70" : "text-slate-body"}`}>
@@ -39,7 +39,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
               <div className="font-display text-5xl font-bold text-teal">
                 {String(s.n).padStart(2, "0")}
               </div>
-              <h3 className={`mt-3 text-lg font-semibold ${dark ? "text-white" : "text-navy"}`}>
+              <h3 className={`mt-3 ${dark ? "text-white" : "text-navy"}`}>
                 {s.title}
               </h3>
               <p className={`mt-2 text-sm leading-relaxed ${dark ? "text-white/60" : "text-slate-body"}`}>

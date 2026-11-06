@@ -69,7 +69,7 @@ function PseAlpha() {
             <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start">
               <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-6 w-6" /></div>
               <div>
-                <h2 className="font-display text-2xl font-bold text-navy md:text-3xl">{s.title}</h2>
+                <h2 className="text-navy">{s.title}</h2>
                 <p className="mt-3 max-w-2xl text-slate-body"><KeywordText text={s.body} sq /></p>
                 {s.cta.to === "whatsapp" ? (
                   <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: `why-section-${s.title}` })} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline">{s.cta.label} →</a>
@@ -85,7 +85,7 @@ function PseAlpha() {
       <section className="section-dark">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Pse na zgjedhin klientët</div>
-          <h2 className="font-display mx-auto mt-3 max-w-2xl text-3xl font-bold text-white md:text-5xl">Një pikë kontakti, nga ankandi deri te shtëpia juaj</h2>
+          <h2 className="mx-auto mt-3 max-w-2xl text-white">Një pikë kontakti, nga ankandi deri te shtëpia juaj</h2>
           <p className="mx-auto mt-5 max-w-xl text-white/70">Në vend që të koordinoheni veçmas me një ndërmjetës ankandi, një inspektor, një spedicion dhe një agjent doganor, punoni me një ekip të vetëm gjatë gjithë procesit — me përllogaritje reale kostosh, jo premtime të paqarta.</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "why-final-cta" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Filloni një bisedë</a>

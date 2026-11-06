@@ -137,7 +137,7 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-teal/15 text-teal">
           <CheckCircle2 className="h-7 w-7" />
         </div>
-        <h3 className="font-display mt-4 text-2xl font-bold text-navy">{t("Sent to WhatsApp", "Dërguar në WhatsApp")}</h3>
+        <h3 className="mt-4 text-navy">{t("Sent to WhatsApp", "Dërguar në WhatsApp")}</h3>
         <p className="mt-2 text-sm text-slate-body">
           {sq ? "Kërkesa juaj u hap në WhatsApp me të gjitha të dhënat — dërgojeni dhe ekipi do t'ju përgjigjet." : `Your ${enquiryType.toLowerCase()} request opened in WhatsApp with all your details pre-filled — send it and we'll respond shortly.`}
         </p>
