@@ -25,7 +25,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/historiku-i-automjetit")({
   head: () => {
     const base = buildHead({
-      title: "Kontrolli i historikut të automjetit | VIN, Carfax, AutoCheck | Alpha Worldwide",
+      title: "Historiku i automjetit: VIN, Carfax | Alpha Worldwide",
       description: "Çfarë mund dhe çfarë nuk mund t'ju tregojnë raportet VIN, Carfax dhe AutoCheck, si ndryshon historiku i automjeteve koreane dhe pse inspektimi fizik shpesh mbetet i nevojshëm.",
       path: "/al/historiku-i-automjetit",
       lang: "sq",

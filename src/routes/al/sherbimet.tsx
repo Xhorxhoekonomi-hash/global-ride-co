@@ -36,7 +36,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/sherbimet")({
   head: () => {
     const base = buildHead({
-      title: "Shërbime importi automjetesh | Gjetje, inspektim, transport | Alpha Worldwide",
+      title: "Shërbime importi automjetesh | Alpha Worldwide",
       description: "Akses në ankande, inspektim para blerjes, transport me kontenier dhe RoRo, transport ajror dhe koordinim doganor — shërbim i plotë për importin e automjetit.",
       path: "/al/sherbimet",
       lang: "sq",

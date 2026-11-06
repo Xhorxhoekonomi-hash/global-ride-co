@@ -13,7 +13,7 @@ import { trackEvent } from "@/lib/analytics";
 export const Route = createFileRoute("/import-czech-republic")({
   head: () => {
     const base = buildHead({
-      title: "Import a Vehicle to the Czech Republic | USA, Korea, Dubai, Canada",
+      title: "Import a Vehicle to the Czech Republic | Alpha Worldwide",
       description: "Vehicle sourcing and shipping to the Czech Republic from the USA, South Korea, Dubai, and Canada — technical approval overview, documentation, and full-service coordination.",
       path: "/import-czech-republic",
     });

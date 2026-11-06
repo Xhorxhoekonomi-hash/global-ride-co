@@ -18,7 +18,7 @@ export function airportHead(airport: Airport, sq: boolean) {
   const path = airportPath(airport, sq);
   const en = airportPath(airport, false);
   const al = airportPath(airport, true);
-  const title = sq ? `Transport ajror makinash përmes ${name} | Alpha Worldwide` : `Car Airfreight via ${name} | Alpha Worldwide`;
+  const title = sq ? `Transport ajror përmes ${name} | Alpha Worldwide` : `Car Airfreight via ${name} | Alpha Worldwide`;
   const description = sq ? `Transport ajror automjetesh përmes ${name}, koordinim i ngarkesës dhe doganës, dokumentacion dhe dorëzim tokësor. ${airportStatus(airport, true)}; sipas konfirmimit të dërgesës.` : `Vehicle airfreight via ${name}, cargo and customs coordination, inspection documents, airport collection and onward delivery. ${airportStatus(airport, false)}; shipment confirmation required.`;
   const base = buildHead({ title, description, path, lang: sq ? "sq" : "en", hreflang: [{ lang: "en", path: en }, { lang: "sq", path: al }], xDefault: en });
   return { ...base,

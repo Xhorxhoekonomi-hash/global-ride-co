@@ -31,7 +31,7 @@ const FAQS = [
 export const Route = createFileRoute("/al/udhezues/si-te-kontrolloni-makinen-e-perdorur")({
   head: () => {
     const base = buildHead({
-      title: "Si të kontrolloni një makinë të përdorur para blerjes | Alpha Worldwide",
+      title: "Si të kontrolloni makinën e përdorur | Alpha Worldwide",
       description: "Listë kontrolli praktike dhe e ndershme, nga VIN-i dhe historiku i servisit te skanimi OBD dhe ndezja në të ftohtë — si dhe kufijtë realë të inspektimit.",
       path: PATH,
       lang: "sq",

@@ -8,7 +8,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/al/makina-nga-kanadaja")({
   head: () => buildHead({
-    title: "Importo makinë nga Kanadaja në Shqipëri dhe Evropë | Alpha Worldwide",
+    title: "Importo makinë nga Kanadaja | Alpha Worldwide",
     description: "Gjetje, inspektim para blerjes dhe transport nga ankandet dhe tregtarët kanadezë drejt Durrësit dhe Evropës.",
     path: "/al/makina-nga-kanadaja",
     lang: "sq",

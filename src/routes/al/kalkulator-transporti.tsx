@@ -6,7 +6,7 @@ import { CALCULATOR_DICT_AL, CALCULATOR_FAQS_AL, KOREA_INCLUDES_AL } from "@/lib
 export const Route = createFileRoute("/al/kalkulator-transporti")({
   head: () => {
     const base = buildHead({
-      title: "Kalkulator transporti automjetesh | Copart, IAAI dhe Koreja e Jugut",
+      title: "Kalkulator transporti automjetesh | Alpha Worldwide",
       description: "Kalkulator falas për koston e transportit të automjetit nga SHBA-ja dhe Koreja e Jugut drejt Shqipërisë, Holandës dhe Gjermanisë — tarifa reale, të detajuara zë për zë.",
       path: "/al/kalkulator-transporti",
       lang: "sq",

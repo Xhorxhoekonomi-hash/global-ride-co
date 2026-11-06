@@ -23,7 +23,7 @@ const STEPS = [
 export const Route = createFileRoute("/al/si-funksionon")({
   head: () => {
     const base = buildHead({
-      title: "Si funksionon | Procesi i importit të automjetit | Alpha Worldwide",
+      title: "Si funksionon importi i automjetit | Alpha Worldwide",
       description: "Procesi i plotë i Alpha Worldwide hap pas hapi — nga zgjedhja e automjetit deri te marrja, me inspektim, blerje, eksport, transport dhe koordinim doganor të shpjeguar qartë.",
       path: "/al/si-funksionon",
       lang: "sq",

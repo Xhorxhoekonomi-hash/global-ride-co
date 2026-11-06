@@ -11,7 +11,7 @@ import { KeywordText } from "@/components/site/KeywordText";
 export const Route = createFileRoute("/al/pse-alpha-worldwide")({
   head: () => {
     const base = buildHead({
-      title: "Pse Alpha Worldwide | Gjetje dhe transport ndërkombëtar automjetesh",
+      title: "Pse Alpha Worldwide | Transport ndërkombëtar automjetesh",
       description: "Mbi 10 vjet duke gjetur, inspektuar dhe transportuar automjete në mbarë botën — seli në Dubai, operacione në Durrës dhe një proces transparent i bazuar në përvojë të verifikuar, jo në pretendime të ekzagjeruara.",
       path: "/al/pse-alpha-worldwide",
       lang: "sq",
