@@ -17,7 +17,7 @@ export const Route = createFileRoute("/al/politika-e-privatesise")({
       crumb="Politika e privatësisë"
       title="Politika e privatësisë"
       updated="Përditësuar së fundi: gusht 2026"
-      intro="Kjo politikë shpjegon çfarë informacioni mbledh Alpha Worldwide kur përdorni këtë faqe, pse e mbledhim dhe si trajtohet. Ajo vlen për alphaworldwidealbania.com dhe nënfaqet e saj, përfshirë seksionin në gjuhën shqipe."
+      intro="Kjo politikë shpjegon çfarë informacioni mbledh Alpha Worldwide kur përdorni këtë faqe, pse e mbledhim dhe si trajtohet. Ajo vlen për www.alphaworldwidealbania.com dhe nënfaqet e saj, përfshirë seksionin në gjuhën shqipe."
       sections={[
         { h: "Informacioni që mbledhim", body: <><p>Kur dërgoni një kërkesë oferte, formular kontakti ose pyetje në WhatsApp përmes kësaj faqeje, mund të mbledhim:</p><ul className="mt-3 list-disc space-y-1.5 pl-5"><li>Emrin dhe të dhënat tuaja të kontaktit (numër telefoni, adresë email-i)</li><li>Informacion për automjetin ose rrugën për të cilën pyetni (origjina, destinacioni, modeli, një link shpalljeje)</li><li>Çdo mesazh ose shënim që shtoni në kërkesë</li><li>Të dhëna bazë teknike dhe burimi (faqja nga e dërguat, faqja referuese dhe burimi i fushatës nëse erdhët përmes një linku të gjurmuar)</li></ul></> },
         { h: "Si e përdorim këtë informacion", body: <p>Informacionin që jepni e përdorim vetëm për t'iu përgjigjur kërkesës suaj, për të përgatitur një ofertë dhe për të koordinuar procesin e gjetjes, inspektimit, transportit dhe koordinimit doganor për të cilin na keni kontaktuar. Nuk ua shesim të dhënat tuaja personale palëve të treta.</p> },

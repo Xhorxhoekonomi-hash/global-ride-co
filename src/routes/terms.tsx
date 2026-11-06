@@ -26,7 +26,7 @@ function Terms() {
 
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
               <div className="rounded-2xl border border-border bg-card p-6">
-                <p>These terms govern your use of alphaworldwidealbania.com and your engagement of Alpha Worldwide's vehicle sourcing, inspection coordination, and shipping services. By using this website or engaging our services, you agree to the terms below.</p>
+                <p>These terms govern your use of www.alphaworldwidealbania.com and your engagement of Alpha Worldwide's vehicle sourcing, inspection coordination, and shipping services. By using this website or engaging our services, you agree to the terms below.</p>
               </div>
 
               <section>

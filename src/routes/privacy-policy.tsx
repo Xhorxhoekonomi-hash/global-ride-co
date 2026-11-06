@@ -26,7 +26,7 @@ function PrivacyPolicy() {
 
             <div className="prose-legal mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
               <div className="rounded-2xl border border-border bg-card p-6">
-                <p>This policy explains what information Alpha Worldwide collects when you use this website, why we collect it, and how it's handled. It applies to alphaworldwidealbania.com and its subpages, including the Albanian-language section.</p>
+                <p>This policy explains what information Alpha Worldwide collects when you use this website, why we collect it, and how it's handled. It applies to www.alphaworldwidealbania.com and its subpages, including the Albanian-language section.</p>
               </div>
 
               <section>

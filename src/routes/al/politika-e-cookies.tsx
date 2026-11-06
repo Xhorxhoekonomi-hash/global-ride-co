@@ -22,7 +22,7 @@ export const Route = createFileRoute("/al/politika-e-cookies")({
       crumb="Politika e cookies"
       title="Politika e cookies"
       updated="Përditësuar së fundi: gusht 2026"
-      intro="Cookies janë skedarë të vegjël teksti që ruhen në pajisjen tuaj dhe i ndihmojnë faqet të funksionojnë e, kur lejohet, na ndihmojnë të kuptojmë si përdoret faqja. Kjo faqe shpjegon çfarë përdorim në alphaworldwidealbania.com."
+      intro="Cookies janë skedarë të vegjël teksti që ruhen në pajisjen tuaj dhe i ndihmojnë faqet të funksionojnë e, kur lejohet, na ndihmojnë të kuptojmë si përdoret faqja. Kjo faqe shpjegon çfarë përdorim në www.alphaworldwidealbania.com."
       sections={[
         { h: "Çfarë përdorim", body: <div className="space-y-4">{COOKIE_TYPES.map((c) => <div key={c.name} className="rounded-xl border border-border bg-card p-4"><div className="text-sm font-semibold text-navy">{c.name}</div><p className="mt-1.5 text-sm text-slate-body">{c.body}</p></div>)}</div> },
         { h: "Mjetet analitike që mund të përdorim", body: <p>Kur janë aktive, përdorim mjete analitike standarde dhe të njohura gjerësisht si Google Analytics dhe Microsoft Clarity për të kuptuar sjelljen e përgjithshme të vizitorëve. Ato ngarkohen vetëm pasi të keni dhënë pëlqimin dhe nuk janë kurrë aktive si parazgjedhje.</p> },
