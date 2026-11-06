@@ -15,7 +15,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
   useEffect(() => {
     const tooWide = new WeakMap<Text, string>();
     const run = () => {
-      document.querySelectorAll<HTMLElement>("main h1, main h2, main h3, .welcome-screen h2").forEach((h) => {
+      document.querySelectorAll<HTMLElement>("main h1, main h2, main h3").forEach((h) => {
         const words = (h.textContent ?? "").trim().split(/\s+/);
         if (words.length < 3) return;
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
