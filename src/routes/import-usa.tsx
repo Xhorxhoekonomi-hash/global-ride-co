@@ -102,7 +102,7 @@ function ImportUSA() {
     <>
       <PageHero scene={CYBERTRUCK_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From USA" }]} eyebrow="Import from · USA" title="Purchase and Ship a Vehicle from the United States" description="Alpha Worldwide assists customers with vehicle purchases through Copart, IAAI, Manheim, ADESA and selected dealers — with shipping to Albania and across Europe.">
         <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping Cost</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate cost</Link></Button>
       </PageHero>
 
       <PlatformBadges />

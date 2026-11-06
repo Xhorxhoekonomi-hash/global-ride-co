@@ -120,7 +120,7 @@ function SiFunksionon() {
               <MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp
             </a></Button>
             <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}>
-              <Calculator className="h-4 w-4" /> Llogarit koston e transportit
+              <Calculator className="h-4 w-4" /> Llogarit koston
             </Link></Button>
           </div>
         </div>

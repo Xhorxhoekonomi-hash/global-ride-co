@@ -194,7 +194,7 @@ function GuideCopartVsIaai() {
           <h2 className="mx-auto mt-3 max-w-xl text-white">Send us both listings</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-copart-vs-iaai" })} className="btn-primary"><Scale className="h-4 w-4" /> Compare on WhatsApp</a>
-            <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-copart-vs-iaai" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>
+            <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-copart-vs-iaai" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate cost</Link>
           </div>
         </div>
       </section>

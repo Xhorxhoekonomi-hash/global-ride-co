@@ -16,7 +16,7 @@ export const Route = createFileRoute("/delivered-vehicles")({
 function DeliveredVehicles() {
   return <>
     <PageHero eyebrow="Deliveries & updates" title="Vehicles we’ve handled" description="Original photographs from our vehicle handling and shipping operations.">
-      <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> See our deliveries on Instagram <ArrowRight /></a></Button>
+      <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Our deliveries on Instagram <ArrowRight /></a></Button>
       <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a Quote</Link></Button>
     </PageHero>
     <section className="bg-background">

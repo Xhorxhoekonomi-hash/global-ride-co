@@ -167,7 +167,7 @@ function WhyAlphaWorldwide() {
               onClick={() => trackEvent("calculator_started", { source: "why-final-cta" })}
               className="btn-outline-light"
             >
-              <Calculator className="h-4 w-4" /> Calculate Shipping Cost
+              <Calculator className="h-4 w-4" /> Calculate cost
             </Link>
           </div>
         </div>

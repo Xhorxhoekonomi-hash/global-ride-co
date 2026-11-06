@@ -12,7 +12,7 @@ const BOT = /bot|crawl|spider|slurp|lighthouse|headless|preview|facebookexternal
 export function WelcomeScreen() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const first = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
@@ -28,7 +28,7 @@ export function WelcomeScreen() {
 
   useEffect(() => {
     if (!open) return;
-    first.current?.focus();
+    dialog.current?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") choose(null); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -44,13 +44,14 @@ export function WelcomeScreen() {
 
   if (!open) return null;
   return (
-    <div className="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div ref={dialog} tabIndex={-1} className="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
       <div className="welcome-inner">
-        <div className="welcome-logo"><BrandLogo className="w-56" /></div>
+        <BrandLogo tone="light" className="welcome-logo" />
         <p className="welcome-slogan">Moving Cars Worldwide</p>
-        <p id="welcome-title" className="welcome-line">Welcome to Alpha Worldwide<span aria-hidden="true"> · </span><span lang="sq">Mirë se vini në Alpha Worldwide</span></p>
+        <p id="welcome-title" className="welcome-line">Welcome to Alpha Worldwide</p>
+        <p className="welcome-line-sq" lang="sq">Mirë se vini në Alpha Worldwide</p>
         <div className="welcome-actions">
-          <button ref={first} type="button" className="btn-pair btn-pair--primary" onClick={() => choose("en")}>Enter — English</button>
+          <button type="button" className="btn-pair btn-pair--primary" onClick={() => choose("en")}>Enter — English</button>
           <button type="button" className="btn-pair welcome-outline" lang="sq" onClick={() => choose("sq")}>Hyr — Shqip</button>
         </div>
         <button type="button" className="welcome-skip" onClick={() => choose(null)}>Skip</button>

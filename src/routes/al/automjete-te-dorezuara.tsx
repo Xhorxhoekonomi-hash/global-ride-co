@@ -22,7 +22,7 @@ export const Route = createFileRoute("/al/automjete-te-dorezuara")({
 function AutomjeteTeDorezuara() {
   return <>
     <PageHero breadcrumbs={[{ label: "Automjete të dorëzuara" }]} eyebrow="Dorëzime dhe përditësime" title="Automjete që kemi trajtuar" description="Fotografi origjinale nga operacionet tona të trajtimit dhe transportit të automjeteve.">
-      <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Shihni dorëzimet tona në Instagram <ArrowRight /></a></Button>
+      <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Dorëzimet tona në Instagram <ArrowRight /></a></Button>
       <Button asChild variant="outline" className="min-h-12"><Link to="/al/kontakt">Merr një ofertë</Link></Button>
     </PageHero>
     <section className="bg-background">

@@ -1,0 +1,34 @@
+import { useEffect } from "react";
+
+/**
+ * Typographic widow guard: in headings of 3+ words, joins the last two words with a
+ * non-breaking space so a single word never sits alone on the last line. Presentation only
+ * (text nodes' spacing), runs after hydration and on every page change.
+ */
+export function glueLastWords(text: string): string {
+  const m = text.match(/^([\s\S]*\S)[ ]+(\S{1,16})(\s*)$/);
+  if (!m) return text;
+  return `${m[1]}\u00a0${m[2]}${m[3]}`;
+}
+
+export function HeadingWidowGuard({ pathname }: { pathname: string }) {
+  useEffect(() => {
+    const run = () => {
+      document.querySelectorAll<HTMLElement>("main h1, main h2, main h3, .welcome-screen h2").forEach((h) => {
+        const words = (h.textContent ?? "").trim().split(/\s+/);
+        if (words.length < 3) return;
+        const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+        let last: Text | null = null;
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue?.trim()) last = n as Text;
+        if (!last?.nodeValue) return;
+        const next = glueLastWords(last.nodeValue);
+        if (next !== last.nodeValue) last.nodeValue = next;
+      });
+      document.documentElement.dataset.headingsGlued = "true";
+    };
+    const id = requestAnimationFrame(run);
+    const late = window.setTimeout(run, 600);
+    return () => { cancelAnimationFrame(id); window.clearTimeout(late); };
+  }, [pathname]);
+  return null;
+}

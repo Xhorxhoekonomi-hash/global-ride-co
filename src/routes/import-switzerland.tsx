@@ -62,7 +62,7 @@ function ImportSwitzerland() {
     <>
       <PageHero scene={sceneForPath("/import-switzerland").en} breadcrumbs={[{ label: "Import to Switzerland" }]} eyebrow="Import to Switzerland" title="Vehicle Sourcing and Shipping to Switzerland" description={<>From the USA, South Korea, Dubai, or Canada — sourced, documented, and routed through an EU gateway port toward the Swiss border.</>}>
         <Button asChild><Link to="/contact" search={{ from: "", to: "Switzerland", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-switzerland-hero" })}>Get a quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-switzerland-hero" })}>Calculate shipping cost</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-switzerland-hero" })}>Calculate cost</Link></Button>
       </PageHero>
 
       <section className="bg-background">

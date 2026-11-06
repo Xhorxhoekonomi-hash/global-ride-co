@@ -69,7 +69,7 @@ function ImportItaly() {
     <>
       <PageHero scene={sceneForPath("/import-italy").en} breadcrumbs={[{ label: "Import to Italy" }]} eyebrow="Import to Italy" title="Vehicle Sourcing and Shipping to Italy" description={<><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Genoa."} /></>}>
         <Button asChild><Link to="/contact" search={{ from: "", to: "Italy", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-italy-hero" })}>Get a quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-italy-hero" })}>Calculate shipping cost</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-italy-hero" })}>Calculate cost</Link></Button>
       </PageHero>
 
       <section className="bg-background">

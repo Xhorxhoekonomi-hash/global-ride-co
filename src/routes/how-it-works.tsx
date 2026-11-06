@@ -133,7 +133,7 @@ function HowItWorks() {
               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
               >
-              <Calculator className="h-4 w-4" /> Calculate Shipping Cost
+              <Calculator className="h-4 w-4" /> Calculate cost
             </Link></Button>
           </div>
         </div>
