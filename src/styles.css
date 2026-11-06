@@ -318,18 +318,19 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 
 
 /* Welcome overlay (one-time, client-only) */
-.welcome-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: var(--graphite); color: var(--on-dark); animation: welcome-in .6s ease-out both; outline: none; }
+.welcome-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: linear-gradient(to bottom, var(--background), var(--mist)); color: var(--navy); animation: welcome-in .6s ease-out both; outline: none; }
 .welcome-inner { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; text-align: center; }
 .welcome-logo { display: block; width: min(240px, 64vw); }
-.welcome-slogan { margin-top: 28px; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-glow); }
+.welcome-slogan { margin-top: 28px; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
 .welcome-line { margin-top: 12px; font-size: var(--fs-h3); font-weight: 600; line-height: 1.3; text-wrap: balance; }
-.welcome-line-sq { margin-top: 6px; font-size: var(--fs-body); font-weight: 500; line-height: 1.4; text-wrap: balance; color: color-mix(in oklab, var(--on-dark) 72%, transparent); }
+.welcome-line-sq { margin-top: 6px; font-size: var(--fs-body); font-weight: 500; line-height: 1.4; text-wrap: balance; color: var(--muted-foreground); }
 .welcome-actions { gap: 12px; width: 100%; margin-top: 32px; }
 .welcome-actions > * { flex: 1 1 0; min-width: 0; height: var(--btn-h); padding-inline: 12px; border: 1.5px solid transparent; }
 .welcome-actions > :focus:not(:focus-visible) { outline: none; }
-.welcome-outline { border: 1.5px solid var(--on-dark); color: var(--on-dark); }
-.welcome-outline:hover { background: color-mix(in oklab, var(--on-dark) 12%, transparent); }
-.welcome-skip { margin-top: 20px; min-height: 44px; padding-inline: 16px; font-size: 14px; color: color-mix(in oklab, var(--on-dark) 75%, transparent); text-decoration: underline; text-underline-offset: 3px; }
+.welcome-outline { border: 1.5px solid var(--navy); color: var(--navy); }
+.welcome-outline:hover { background: color-mix(in oklab, var(--navy) 8%, transparent); }
+.welcome-actions > :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+.welcome-skip { margin-top: 20px; min-height: 44px; padding-inline: 16px; font-size: 14px; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
 @media (min-width: 390px) { .welcome-line, .welcome-line-sq { white-space: nowrap; } }
 @keyframes welcome-in { from { opacity: 0; } to { opacity: 1; } }
 
