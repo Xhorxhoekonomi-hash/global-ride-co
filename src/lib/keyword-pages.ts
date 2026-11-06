@@ -493,6 +493,21 @@ export const KEYWORD_PAGES: KeywordPage[] = [
     "detail": "Temporary vehicle holding may be coordinated where available. Space, conditions and charges must be confirmed for the shipment.",
     "detailSq": "Qëndrimi i përkohshëm i automjetit mund të koordinohet sipas disponueshmërisë. Hapësira, kushtet dhe tarifat konfirmohen për dërgesën.",
     "ports": []
+  },
+  ...["Savannah", "Elizabeth", "Houston", "Los Angeles", "Indianapolis"].map(name => ({
+    en: `/locations/${name.toLowerCase().replaceAll(" ", "-")}`,
+    sq: `/al/vendndodhjet/${name.toLowerCase().replaceAll(" ", "-")}`,
+    name, nameSq: name, kind: "city" as const,
+    detail: `${name} is named in our USA export-transport guidance. Collection, inland transport, export-document coordination and the onward shipping route are assessed for your vehicle. The exact facility, availability and service scope require confirmation before booking.`,
+    detailSq: `${name} përmendet në udhëzimet tona për transportin e eksportit nga SHBA-ja. Marrja, transporti tokësor, koordinimi i dokumenteve të eksportit dhe itinerari i mëtejshëm vlerësohen për automjetin tuaj. Objekti konkret, disponueshmëria dhe fusha e shërbimit konfirmohen para rezervimit.`,
+    ports: [],
+  })),
+  {
+    en: "/shipping-to-slovenia", sq: "/al/transport-makinash-ne-slloveni",
+    name: "Slovenia", nameSq: "Slloveni", kind: "destination",
+    detail: "Koper in Slovenia is named in our Austria shipping guidance. Ask us to assess vehicle transport, documentation and onward delivery for your specific destination; availability and the service scope require confirmation.",
+    detailSq: "Koperi në Slloveni përmendet në udhëzimet tona për transportin drejt Austrisë. Na kërkoni të vlerësojmë transportin e automjetit, dokumentacionin dhe dorëzimin në destinacionin tuaj; disponueshmëria dhe fusha e shërbimit duhen konfirmuar.",
+    ports: ["koper"],
   }
 ];
 
