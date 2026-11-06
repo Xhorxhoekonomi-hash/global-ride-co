@@ -22,6 +22,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/seo";
+import { KeywordDirectory } from "@/components/site/KeywordDirectory";
 
 function NotFoundComponent() {
   return (
@@ -207,6 +208,7 @@ function RootComponent() {
         <Outlet />
         {isGuideArticle && <GuideToc path={normalized} />}
         {isGuideArticle && <RelatedGuides path={normalized} />}
+        {(["/services", "/al/sherbimet", "/import-europe", "/al/makina-nga-evropa", "/en/albania", "/al/transport-makinash-ne-shqiperi", "/en/netherlands", "/al/transport-makinash-ne-holande"].includes(normalized)) && <KeywordDirectory sq={pathname.startsWith("/al")} path={normalized} />}
         {showCtaBand && <CtaBand locale={pathname.startsWith("/al") ? "sq" : "en"} />}
       </main>
       <Footer />

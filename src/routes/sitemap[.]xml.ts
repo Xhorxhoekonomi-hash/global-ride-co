@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SITE_URL } from "@/lib/seo";
+import { KEYWORD_PAGES } from "@/lib/keyword-pages";
+import { AIRPORTS, airportPath } from "@/lib/airports";
 
 const PATHS = [
   "/",
@@ -92,10 +94,11 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const urls = PATHS.map((p) =>
+        const paths = [...new Set([...PATHS, ...KEYWORD_PAGES.flatMap(p => [p.en, p.sq]), ...AIRPORTS.flatMap(a => [airportPath(a, false), airportPath(a, true)])])];
+        const urls = paths.map((p) =>
           [
             `  <url>`,
-            `    <loc>${SITE_URL}${p}</loc>`,
+            `    <loc>https://alphaworldwidealbania.com${p}</loc>`,
             `    <changefreq>weekly</changefreq>`,
             `    <priority>${p === "/" ? "1.0" : "0.8"}</priority>`,
             `  </url>`,

@@ -77,8 +77,9 @@ const SHIPPING_OPTIONS = [
 const DESTINATIONS = [
   { name: "Albania", body: "Delivered through the Port of Durrës.", to: "/en/albania" },
   { name: "Netherlands", body: "Onward delivery across Western Europe.", to: "/en/netherlands" },
-  { name: "Germany", body: "Available on request — ask us for current options.", to: "/contact" },
-  { name: "Italy & Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/contact" },
+  { name: "Germany", body: "Available on request — ask us for current options.", to: "/import-germany" },
+  { name: "Italy", body: "Additional European destinations — ask us for a route.", to: "/import-italy" },
+  { name: "Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/import-europe" },
 ];
 
 const FAQS = [

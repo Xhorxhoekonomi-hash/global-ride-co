@@ -1,4 +1,5 @@
-
+import { KEYWORD_ROUTE_MAP } from "@/lib/keyword-pages";
+import { AIRPORTS, airportPath } from "@/lib/airports";
 export type ServiceItem = {
   slug: string;
   title: string;
@@ -8,26 +9,28 @@ export type ServiceItem = {
 };
 
 export const SERVICES: ServiceItem[] = [
-  { slug: "sourcing", title: "Vehicle Sourcing", body: "We locate the exact vehicle you want across auctions, dealers, and private listings worldwide.", to: "/contact", hasDedicatedPage: false },
+  { slug: "sourcing", title: "Vehicle Sourcing", body: "We locate the exact vehicle you want across auctions, dealers, and private listings worldwide.", to: "/vehicle-sourcing", hasDedicatedPage: true },
   { slug: "auction-access", title: "Auction Access", body: "Licensed access to Copart, IAAI, Manheim, Encar, and other major platforms — we bid on your behalf.", to: "/auction-access", hasDedicatedPage: true },
-  { slug: "dealer-purchasing", title: "Dealer Purchasing Assistance", body: "Direct negotiation with dealerships on price, terms, and paperwork.", to: "/contact", hasDedicatedPage: false },
+  { slug: "dealer-purchasing", title: "Dealer Purchasing Assistance", body: "Direct negotiation with dealerships on price, terms, and paperwork.", to: "/dealer-purchasing", hasDedicatedPage: true },
   { slug: "inspection", title: "Pre-Purchase Inspection", body: "155-point inspection with photos, video, OBD scan, and paint-meter reading before you buy.", to: "/inspection-service", hasDedicatedPage: true },
-  { slug: "inland-transport", title: "Inland Transportation", body: "Insured pickup and delivery to the nearest export port in the origin country.", to: "/contact", hasDedicatedPage: false },
+  { slug: "inland-transport", title: "Inland Transportation", body: "Insured pickup and delivery to the nearest export port in the origin country.", to: "/inland-transport", hasDedicatedPage: true },
   { slug: "container-shipping", title: "Container Shipping", body: "Fully enclosed ocean shipping for high-value or modified vehicles.", to: "/container-shipping", hasDedicatedPage: true },
   { slug: "roro-shipping", title: "RoRo Shipping", body: "Roll-on/roll-off ocean shipping — the economical route for standard vehicles.", to: "/roro-shipping", hasDedicatedPage: true },
   { slug: "airfreight", title: "Vehicle Airfreight", body: "Premium airfreight for urgent or exceptionally high-value shipments.", to: "/airfreight", hasDedicatedPage: true },
-  { slug: "airport-handling", title: "European Airport Handling", body: "Arrival coordination, cargo-terminal handling, and release at major European cargo airports.", to: "/airfreight", hasDedicatedPage: true },
-  { slug: "customs", title: "Customs-Clearance Coordination", body: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry.", to: "/contact", hasDedicatedPage: false },
-  { slug: "transit", title: "T1 Transit Support", body: "Transit-document coordination for vehicles moving under bond between EU customs points.", to: "/contact", hasDedicatedPage: false },
-  { slug: "carnet", title: "Carnet de Passage Handling", body: "Coordination support for temporary vehicle admission using a Carnet de Passage.", to: "/contact", hasDedicatedPage: false },
-  { slug: "port-handling", title: "Port Handling", body: "Unloading, terminal coordination, and release at Durrës and major European ports.", to: "/contact", hasDedicatedPage: false },
-  { slug: "final-mile", title: "Final-Mile Delivery", body: "Delivery from port or airport to your exact address, anywhere in Albania or Europe.", to: "/contact", hasDedicatedPage: false },
+  { slug: "airport-handling", title: "European Airport Handling", body: "Arrival coordination, cargo-terminal handling, and release at major European cargo airports.", to: "/airport-handling", hasDedicatedPage: true },
+  { slug: "customs", title: "Customs-Clearance Coordination", body: "We coordinate customs paperwork and clearance with licensed local agents at the port of entry.", to: "/customs-coordination", hasDedicatedPage: true },
+  { slug: "transit", title: "T1 Transit Support", body: "Transit-document coordination for vehicles moving under bond between EU customs points.", to: "/t1-transit", hasDedicatedPage: true },
+  { slug: "carnet", title: "Carnet de Passage Handling", body: "Coordination support for temporary vehicle admission using a Carnet de Passage.", to: "/carnet-de-passage", hasDedicatedPage: true },
+  { slug: "port-handling", title: "Port Handling", body: "Unloading, terminal coordination, and release at Durrës and major European ports.", to: "/port-handling", hasDedicatedPage: true },
+  { slug: "final-mile", title: "Final-Mile Delivery", body: "Delivery from port or airport to your exact address, anywhere in Albania or Europe.", to: "/final-mile-delivery", hasDedicatedPage: true },
 ];
 
 // Single source of truth for the EN/SQ language switch. Only routes that
 // actually exist in both languages belong here — never generate a
 // translated URL by string manipulation. Grows as Albanian pages ship.
 export const LANGUAGE_ROUTE_MAP: Record<string, string> = {
+  ...KEYWORD_ROUTE_MAP,
+  ...Object.fromEntries(AIRPORTS.map(airport => [airportPath(airport, false), airportPath(airport, true)])),
   "/": "/al",
   "/import-usa": "/al/makina-nga-amerika",
   "/import-korea": "/al/makina-nga-korea",

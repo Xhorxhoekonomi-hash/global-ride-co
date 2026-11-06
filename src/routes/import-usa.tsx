@@ -78,9 +78,9 @@ const SHIPPING_METHODS = [
 
 const DESTINATIONS = [
   { name: "Albania", body: "Delivered through the Port of Durrës.", to: "/en/albania" },
-  { name: "Netherlands (via Rotterdam)", body: "Onward delivery across Western Europe.", to: "/en/netherlands" },
-  { name: "Germany (Bremerhaven)", body: "A dedicated route is planned — ask us for current options.", to: "/contact" },
-  { name: "Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/contact" },
+  { name: "Netherlands (via Rotterdam)", body: "Onward delivery across Western Europe.", to: "/import-netherlands" },
+  { name: "Germany (Bremerhaven)", body: "A dedicated route is planned — ask us for current options.", to: "/import-germany" },
+  { name: "Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/import-europe" },
 ];
 
 const FAQS = [

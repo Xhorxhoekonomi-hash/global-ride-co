@@ -52,13 +52,13 @@ const SECTIONS = [
     icon: MapPin,
     title: "Dubai Headquarters",
     body: "Our headquarters in Dubai enables local sourcing coordination in the UAE market, direct seller and dealer communication, and export preparation without delays from working remotely.",
-    cta: { label: "Import from Dubai", to: "/import-uae" },
+    cta: { label: "Dubai operations", to: "/locations/dubai" },
   },
   {
     icon: MapPin,
     title: "Durrës Operations",
     body: "Our European and Albanian operations are based in Durrës, at the country's main port — where we coordinate port handling, customs documentation, and final delivery.",
-    cta: { label: "Contact our Durrës team", to: "/contact" },
+    cta: { label: "Durrës operations", to: "/locations/durres" },
   },
   {
     icon: Gavel,
