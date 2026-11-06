@@ -7,6 +7,9 @@ import { buildHead, SITE_URL } from "@/lib/seo";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { AirportCards } from "@/components/site/AirportCards";
+import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/al/transport-ajror-makinash")({
   head: () => {
@@ -56,12 +59,6 @@ const USE_CASES_AL = [
   { title: "Dërgesa urgjente", body: "Kur afati kohor nuk lejon transport detar, transporti ajror ofron një alternativë të shpejtë." },
 ];
 
-const AIRPORTS_AL = [
-  { name: "Amsterdam Schiphol", verified: true },
-  { name: "Milano Malpensa", verified: true },
-  { name: "Leipzig", verified: true },
-];
-
 const CONSIDERATIONS_AL = [
   { icon: FileText, title: "Dogana", body: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në aeroportin e mbërritjes." },
   { icon: Package, title: "Përgatitja e ngarkesës ajrore", body: "Automjeti përgatitet sipas kërkesave të kompanisë ajrore dhe terminalit të mallrave përpara ngarkimit." },
@@ -71,7 +68,7 @@ const CONSIDERATIONS_AL = [
 
 const FAQS_AL = [
   { q: "Kur rekomandohet transporti ajror për automjete?", a: "Transporti ajror rekomandohet për automjete luksoze ose klasike me vlerë të lartë, si dhe për dërgesa urgjente kur afati kohor nuk lejon transport detar." },
-  { q: "Nëpër cilat aeroporte evropiane keni përvojë trajtimi?", a: "Kemi përvojë koordinimi përmes Amsterdam Schiphol, Milano Malpensa dhe Leipzig. Trajtimi në aeroporte të tjera evropiane mund të koordinohet me kërkesë." },
+  { q: "Nëpër cilat aeroporte evropiane keni përvojë trajtimi?", a: "Kemi përvojë koordinimi përmes Amsterdam Schiphol, Milano Malpensa dhe Leipzig/Halle. Frankfurt është në dispozicion me kërkesë, sipas konfirmimit të dërgesës. Trajtimi në aeroporte të tjera evropiane mund të koordinohet me kërkesë." },
   { q: "A garantoni një kohë të saktë tranziti?", a: "Jo. Koha e tranzitit varet nga disponueshmëria e fluturimit, kërkesat doganore dhe kapaciteti i terminalit të mallrave — ju japim një afat të përafërt të konfirmuar përpara rezervimit." },
   { q: "A ka kufizime për llojin e automjetit që mund të transportohet ajrit?", a: "Disa komponentë, si bateritë e mëdha të automjeteve elektrike, mund t'i nënshtrohen rregullave për mallra të rrezikshëm. I verifikojmë këto kërkesa për automjetin tuaj specifik përpara se të konfirmojmë rezervimin." },
   { q: "A përfshihet sigurimi në transportin ajror?", a: "Sigurimi koordinohet si pjesë e procesit të transportit — ju informojmë për opsionet e disponueshme kur konfirmojmë detajet e dërgesës." },
@@ -84,11 +81,13 @@ function TransportAjrorMakinash() {
   )}`;
 
   return (
-    <>
+    <div className="airfreight-page">
       <PageHero tone="navy" icon={Plane} eyebrow="Transport ajror" title={<>Kur shpejtësia ka rëndësi më shumë se kostoja</>} description={<>Për automjete luksoze, klasike, ose dërgesa urgjente — koordinojmë transportin ajror përmes aeroporteve kryesore evropiane të mallrave.</>}>
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
       </PageHero>
+
+      <section className="bg-muted"><div className="container-page py-12 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Çfarë përfshin transporti ajror</h2><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Transport ajror i plotë i automjetit</h3><p className="mt-3 text-muted-foreground leading-relaxed">Koordinojmë dërgesën nga origjina deri në mbërritjen evropiane dhe dorëzim — gjetjen, dokumentet, rezervimin dhe transportin përfundimtar.</p></article><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Vetëm trajtim në aeroportin evropian</h3><p className="mt-3 text-muted-foreground leading-relaxed">Kur klienti ose spedicioneri e ka rezervuar fluturimin, koordinojmë trajtimin në mbërritje, procedurat e lirimit të ngarkesës, dokumentet doganore dhe transportin e mëtejshëm.</p></article></div><h3 className="mt-8 text-xl font-semibold text-secondary">Dokumentet që koordinojmë</h3><ul className="mt-4 space-y-3 text-muted-foreground">{["Koordinimi i Air Waybill", "Shkarkimi dhe procedurat e lirimit të ngarkesës", "Koordinim doganor", "Mbështetje për tranzit T1", "Trajtimi i Carnet de Passage", "Mbështetje për pranimin e përkohshëm kur zbatohet"].map(item => <li key={item}><KeywordText text={item} sq /></li>)}</ul><p className="mt-6 text-muted-foreground leading-relaxed">Automjetet elektrike, hibride dhe ato që nuk lëvizin vetë vlerësohen sipas kërkesave të kompanisë ajrore dhe operatorit tokësor. Kufijtë e baterisë, karburantit dhe pranimi konfirmohen para rezervimit.</p></div></section>
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
@@ -116,20 +115,14 @@ function TransportAjrorMakinash() {
             <div className="eyebrow">Ku trajtojmë</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Rrjeti ynë i aeroporteve</h2>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {AIRPORTS_AL.map((a) => (
-              <div key={a.name} className="rounded-2xl border border-teal/40 bg-card p-6 text-center shadow-card">
-                <Plane className="mx-auto h-6 w-6 text-teal" />
-                <h3 className="font-display mt-3 text-base font-bold text-navy">{a.name}</h3>
-                <p className="mt-1 text-xs text-slate-body">Trajtim i verifikuar</p>
-              </div>
-            ))}
-          </div>
+          <AirportCards sq />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
             Trajtimi mund të koordinohet edhe në aeroporte të tjera evropiane të mallrave, sipas konfirmimit.
           </p>
         </div>
       </section>
+
+      <AirfreightSupplement sq />
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
@@ -164,7 +157,7 @@ function TransportAjrorMakinash() {
                   {f.q}
                   <span className="text-teal transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} sq /></p>
               </details>
             ))}
           </div>
@@ -205,6 +198,6 @@ function TransportAjrorMakinash() {
           <QuoteForm variant="full" onDark locale="sq" source="al-airfreight" />
         </div>
       </section>
-    </>
+    </div>
   );
 }

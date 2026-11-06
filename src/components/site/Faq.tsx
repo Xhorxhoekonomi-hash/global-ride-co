@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FAQS } from "@/lib/site-data";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export function Faq() {
   return (
@@ -23,7 +24,7 @@ export function Faq() {
                   {f.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-body md:text-base">
-                  {f.a}
+                  <KeywordText text={f.a} />
                 </AccordionContent>
               </AccordionItem>
             ))}

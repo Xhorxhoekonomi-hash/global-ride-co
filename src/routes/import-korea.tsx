@@ -101,8 +101,10 @@ const YOU_PROVIDE = [
 const DESTINATIONS = [
   { name: "Albania", body: "Delivered through the Port of Durrës.", to: "/en/albania" },
   { name: "Netherlands (via Rotterdam)", body: "A dedicated Rotterdam route, with onward delivery across Western Europe.", to: "/en/shipping/south-korea-to-rotterdam" },
-  { name: "Germany, Belgium & France", body: "Reachable via our Rotterdam gateway route.", to: "/en/shipping/south-korea-to-rotterdam" },
-  { name: "Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/contact" },
+  { name: "Germany", body: "Reachable via our Rotterdam gateway route.", to: "/import-germany" },
+  { name: "Belgium", body: "Reachable via our Rotterdam gateway route.", to: "/import-belgium" },
+  { name: "France", body: "Reachable via our Rotterdam gateway route.", to: "/import-france" },
+  { name: "Wider Europe", body: "Additional European destinations — ask us for a route.", to: "/import-europe" },
 ];
 
 const FAQS = [

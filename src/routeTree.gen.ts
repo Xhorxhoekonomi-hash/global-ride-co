@@ -12,13 +12,18 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AirfreightRouteImport } from './routes/airfreight'
+import { Route as AirportHandlingRouteImport } from './routes/airport-handling'
 import { Route as AuctionAccessRouteImport } from './routes/auction-access'
 import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as CarnetDePassageRouteImport } from './routes/carnet-de-passage'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ContainerShippingRouteImport } from './routes/container-shipping'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as CustomsCoordinationRouteImport } from './routes/customs-coordination'
+import { Route as DealerPurchasingRouteImport } from './routes/dealer-purchasing'
 import { Route as DeliveredVehiclesRouteImport } from './routes/delivered-vehicles'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FinalMileDeliveryRouteImport } from './routes/final-mile-delivery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as ImportAustriaRouteImport } from './routes/import-austria'
 import { Route as ImportBelgiumRouteImport } from './routes/import-belgium'
@@ -36,29 +41,59 @@ import { Route as ImportSpainRouteImport } from './routes/import-spain'
 import { Route as ImportSwitzerlandRouteImport } from './routes/import-switzerland'
 import { Route as ImportUaeRouteImport } from './routes/import-uae'
 import { Route as ImportUsaRouteImport } from './routes/import-usa'
+import { Route as InlandTransportRouteImport } from './routes/inland-transport'
 import { Route as InspectionServiceRouteImport } from './routes/inspection-service'
+import { Route as PortHandlingRouteImport } from './routes/port-handling'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as RoroShippingRouteImport } from './routes/roro-shipping'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ShippingCalculatorRouteImport } from './routes/shipping-calculator'
 import { Route as ShippingEstimateDisclaimerRouteImport } from './routes/shipping-estimate-disclaimer'
+import { Route as ShippingToKosovoRouteImport } from './routes/shipping-to-kosovo'
+import { Route as ShippingToMontenegroRouteImport } from './routes/shipping-to-montenegro'
+import { Route as ShippingToNorthMacedoniaRouteImport } from './routes/shipping-to-north-macedonia'
+import { Route as ShippingToSloveniaRouteImport } from './routes/shipping-to-slovenia'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StorageCoordinationRouteImport } from './routes/storage-coordination'
+import { Route as T1TransitRouteImport } from './routes/t1-transit'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
+import { Route as VehicleSourcingRouteImport } from './routes/vehicle-sourcing'
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
 import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AirfreightAmsterdamSchipholRouteImport } from './routes/airfreight_.amsterdam-schiphol'
+import { Route as AirfreightFrankfurtRouteImport } from './routes/airfreight_.frankfurt'
+import { Route as AirfreightLeipzigHalleRouteImport } from './routes/airfreight_.leipzig-halle'
+import { Route as AirfreightMilanMalpensaRouteImport } from './routes/airfreight_.milan-malpensa'
 import { Route as AlIndexRouteImport } from './routes/al/index'
 import { Route as AlAnkandeAmerikaneRouteImport } from './routes/al/ankande-amerikane'
 import { Route as AlAutomjeteTeDorezuaraRouteImport } from './routes/al/automjete-te-dorezuara'
+import { Route as AlBlerjeNgaTregtaretRouteImport } from './routes/al/blerje-nga-tregtaret'
+import { Route as AlCarnetDePassageRouteImport } from './routes/al/carnet-de-passage'
 import { Route as AlCopartShqiperiRouteImport } from './routes/al/copart-shqiperi'
+import { Route as AlDorezimNeAdreseRouteImport } from './routes/al/dorezim-ne-adrese'
 import { Route as AlEncarShqiperiRouteImport } from './routes/al/encar-shqiperi'
+import { Route as AlGjetjeAutomjetiRouteImport } from './routes/al/gjetje-automjeti'
 import { Route as AlHistorikuIAutomjetitRouteImport } from './routes/al/historiku-i-automjetit'
 import { Route as AlIaaiShqiperiRouteImport } from './routes/al/iaai-shqiperi'
+import { Route as AlImportMakinashNeAustriRouteImport } from './routes/al/import-makinash-ne-austri'
+import { Route as AlImportMakinashNeBelgjikeRouteImport } from './routes/al/import-makinash-ne-belgjike'
+import { Route as AlImportMakinashNeCekiRouteImport } from './routes/al/import-makinash-ne-ceki'
+import { Route as AlImportMakinashNeFranceRouteImport } from './routes/al/import-makinash-ne-france'
+import { Route as AlImportMakinashNeGjermaniRouteImport } from './routes/al/import-makinash-ne-gjermani'
+import { Route as AlImportMakinashNeHolandeRouteImport } from './routes/al/import-makinash-ne-holande'
+import { Route as AlImportMakinashNeItaliRouteImport } from './routes/al/import-makinash-ne-itali'
+import { Route as AlImportMakinashNePoloniRouteImport } from './routes/al/import-makinash-ne-poloni'
+import { Route as AlImportMakinashNeRumaniRouteImport } from './routes/al/import-makinash-ne-rumani'
+import { Route as AlImportMakinashNeSpanjeRouteImport } from './routes/al/import-makinash-ne-spanje'
+import { Route as AlImportMakinashNeZvicerRouteImport } from './routes/al/import-makinash-ne-zvicer'
 import { Route as AlInspektimMakinashRouteImport } from './routes/al/inspektim-makinash'
 import { Route as AlKalkulatorTransportiRouteImport } from './routes/al/kalkulator-transporti'
 import { Route as AlKontaktRouteImport } from './routes/al/kontakt'
+import { Route as AlKoordinimDoganorRouteImport } from './routes/al/koordinim-doganor'
+import { Route as AlKoordinimRuajtjejeRouteImport } from './routes/al/koordinim-ruajtjeje'
 import { Route as AlKushtetEPerllogaritjesRouteImport } from './routes/al/kushtet-e-perllogaritjes'
 import { Route as AlKushtetESherbimitRouteImport } from './routes/al/kushtet-e-sherbimit'
 import { Route as AlMakinaNgaAmerikaRouteImport } from './routes/al/makina-nga-amerika'
@@ -74,9 +109,19 @@ import { Route as AlPyetjeTeShpeshtaRouteImport } from './routes/al/pyetje-te-sh
 import { Route as AlRrethNeshRouteImport } from './routes/al/rreth-nesh'
 import { Route as AlSherbimetRouteImport } from './routes/al/sherbimet'
 import { Route as AlSiFunksiononRouteImport } from './routes/al/si-funksionon'
+import { Route as AlTrajtimNeAeroportRouteImport } from './routes/al/trajtim-ne-aeroport'
+import { Route as AlTrajtimNePortRouteImport } from './routes/al/trajtim-ne-port'
 import { Route as AlTransportAjrorMakinashRouteImport } from './routes/al/transport-ajror-makinash'
+import { Route as AlTransportMakinashNeHolandeRouteImport } from './routes/al/transport-makinash-ne-holande'
+import { Route as AlTransportMakinashNeKosoveRouteImport } from './routes/al/transport-makinash-ne-kosove'
+import { Route as AlTransportMakinashNeMalTeZiRouteImport } from './routes/al/transport-makinash-ne-mal-te-zi'
+import { Route as AlTransportMakinashNeMaqedonineEVeriutRouteImport } from './routes/al/transport-makinash-ne-maqedonine-e-veriut'
+import { Route as AlTransportMakinashNeShqiperiRouteImport } from './routes/al/transport-makinash-ne-shqiperi'
+import { Route as AlTransportMakinashNeSlloveniRouteImport } from './routes/al/transport-makinash-ne-slloveni'
 import { Route as AlTransportMeKontenierRouteImport } from './routes/al/transport-me-kontenier'
 import { Route as AlTransportRoroRouteImport } from './routes/al/transport-roro'
+import { Route as AlTransportTokesorRouteImport } from './routes/al/transport-tokesor'
+import { Route as AlTranzitT1RouteImport } from './routes/al/tranzit-t1'
 import { Route as EnAlbaniaRouteImport } from './routes/en/albania'
 import { Route as EnNetherlandsRouteImport } from './routes/en/netherlands'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
@@ -91,10 +136,62 @@ import { Route as GuidesHowToCheckAUsedCarBeforeBuyingRouteImport } from './rout
 import { Route as GuidesImportingElectricCarsRouteImport } from './routes/guides/importing-electric-cars'
 import { Route as GuidesImportingLuxuryCarsRouteImport } from './routes/guides/importing-luxury-cars'
 import { Route as GuidesVehicleImportDocumentsRouteImport } from './routes/guides/vehicle-import-documents'
+import { Route as LocationsDubaiRouteImport } from './routes/locations/dubai'
+import { Route as LocationsDurresRouteImport } from './routes/locations/durres'
+import { Route as LocationsElizabethRouteImport } from './routes/locations/elizabeth'
+import { Route as LocationsHoustonRouteImport } from './routes/locations/houston'
+import { Route as LocationsIndianapolisRouteImport } from './routes/locations/indianapolis'
+import { Route as LocationsLosAngelesRouteImport } from './routes/locations/los-angeles'
+import { Route as LocationsSavannahRouteImport } from './routes/locations/savannah'
+import { Route as PortsAlgecirasRouteImport } from './routes/ports/algeciras'
+import { Route as PortsAntwerpRouteImport } from './routes/ports/antwerp'
+import { Route as PortsBarcelonaRouteImport } from './routes/ports/barcelona'
+import { Route as PortsBremerhavenRouteImport } from './routes/ports/bremerhaven'
+import { Route as PortsBusanRouteImport } from './routes/ports/busan'
+import { Route as PortsConstantaRouteImport } from './routes/ports/constanta'
+import { Route as PortsDurresRouteImport } from './routes/ports/durres'
+import { Route as PortsGdanskRouteImport } from './routes/ports/gdansk'
+import { Route as PortsGdyniaRouteImport } from './routes/ports/gdynia'
+import { Route as PortsGenoaRouteImport } from './routes/ports/genoa'
+import { Route as PortsHamburgRouteImport } from './routes/ports/hamburg'
+import { Route as PortsIncheonRouteImport } from './routes/ports/incheon'
+import { Route as PortsKoperRouteImport } from './routes/ports/koper'
+import { Route as PortsLeHavreRouteImport } from './routes/ports/le-havre'
+import { Route as PortsMarseilleRouteImport } from './routes/ports/marseille'
+import { Route as PortsRotterdamRouteImport } from './routes/ports/rotterdam'
+import { Route as PortsValenciaRouteImport } from './routes/ports/valencia'
+import { Route as AlPortetAlgecirasRouteImport } from './routes/al/portet/algeciras'
+import { Route as AlPortetAntwerpRouteImport } from './routes/al/portet/antwerp'
+import { Route as AlPortetBarcelonaRouteImport } from './routes/al/portet/barcelona'
+import { Route as AlPortetBremerhavenRouteImport } from './routes/al/portet/bremerhaven'
+import { Route as AlPortetBusanRouteImport } from './routes/al/portet/busan'
+import { Route as AlPortetConstantaRouteImport } from './routes/al/portet/constanta'
+import { Route as AlPortetDurresRouteImport } from './routes/al/portet/durres'
+import { Route as AlPortetGdanskRouteImport } from './routes/al/portet/gdansk'
+import { Route as AlPortetGdyniaRouteImport } from './routes/al/portet/gdynia'
+import { Route as AlPortetGenoaRouteImport } from './routes/al/portet/genoa'
+import { Route as AlPortetHamburgRouteImport } from './routes/al/portet/hamburg'
+import { Route as AlPortetIncheonRouteImport } from './routes/al/portet/incheon'
+import { Route as AlPortetKoperRouteImport } from './routes/al/portet/koper'
+import { Route as AlPortetLeHavreRouteImport } from './routes/al/portet/le-havre'
+import { Route as AlPortetMarseilleRouteImport } from './routes/al/portet/marseille'
+import { Route as AlPortetRotterdamRouteImport } from './routes/al/portet/rotterdam'
+import { Route as AlPortetValenciaRouteImport } from './routes/al/portet/valencia'
+import { Route as AlTransportAjrorMakinashAmsterdamSchipholRouteImport } from './routes/al/transport-ajror-makinash_.amsterdam-schiphol'
+import { Route as AlTransportAjrorMakinashFrankfurtRouteImport } from './routes/al/transport-ajror-makinash_.frankfurt'
+import { Route as AlTransportAjrorMakinashLeipzigHalleRouteImport } from './routes/al/transport-ajror-makinash_.leipzig-halle'
+import { Route as AlTransportAjrorMakinashMilanMalpensaRouteImport } from './routes/al/transport-ajror-makinash_.milan-malpensa'
 import { Route as AlUdhezuesIndexRouteImport } from './routes/al/udhezues/index'
 import { Route as AlUdhezuesKontenierApoRoroRouteImport } from './routes/al/udhezues/kontenier-apo-roro'
 import { Route as AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRouteImport } from './routes/al/udhezues/si-te-blini-nga-ankandet-amerikane'
 import { Route as AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport } from './routes/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+import { Route as AlVendndodhjetDubaiRouteImport } from './routes/al/vendndodhjet/dubai'
+import { Route as AlVendndodhjetDurresRouteImport } from './routes/al/vendndodhjet/durres'
+import { Route as AlVendndodhjetElizabethRouteImport } from './routes/al/vendndodhjet/elizabeth'
+import { Route as AlVendndodhjetHoustonRouteImport } from './routes/al/vendndodhjet/houston'
+import { Route as AlVendndodhjetIndianapolisRouteImport } from './routes/al/vendndodhjet/indianapolis'
+import { Route as AlVendndodhjetLosAngelesRouteImport } from './routes/al/vendndodhjet/los-angeles'
+import { Route as AlVendndodhjetSavannahRouteImport } from './routes/al/vendndodhjet/savannah'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -113,6 +210,11 @@ const AirfreightRoute = AirfreightRouteImport.update({
   path: '/airfreight',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AirportHandlingRoute = AirportHandlingRouteImport.update({
+  id: '/airport-handling',
+  path: '/airport-handling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuctionAccessRoute = AuctionAccessRouteImport.update({
   id: '/auction-access',
   path: '/auction-access',
@@ -121,6 +223,11 @@ const AuctionAccessRoute = AuctionAccessRouteImport.update({
 const CalculatorRoute = CalculatorRouteImport.update({
   id: '/calculator',
   path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarnetDePassageRoute = CarnetDePassageRouteImport.update({
+  id: '/carnet-de-passage',
+  path: '/carnet-de-passage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -138,6 +245,16 @@ const CookiePolicyRoute = CookiePolicyRouteImport.update({
   path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomsCoordinationRoute = CustomsCoordinationRouteImport.update({
+  id: '/customs-coordination',
+  path: '/customs-coordination',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DealerPurchasingRoute = DealerPurchasingRouteImport.update({
+  id: '/dealer-purchasing',
+  path: '/dealer-purchasing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
   id: '/delivered-vehicles',
   path: '/delivered-vehicles',
@@ -146,6 +263,11 @@ const DeliveredVehiclesRoute = DeliveredVehiclesRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalMileDeliveryRoute = FinalMileDeliveryRouteImport.update({
+  id: '/final-mile-delivery',
+  path: '/final-mile-delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -233,9 +355,19 @@ const ImportUsaRoute = ImportUsaRouteImport.update({
   path: '/import-usa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InlandTransportRoute = InlandTransportRouteImport.update({
+  id: '/inland-transport',
+  path: '/inland-transport',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InspectionServiceRoute = InspectionServiceRouteImport.update({
   id: '/inspection-service',
   path: '/inspection-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortHandlingRoute = PortHandlingRouteImport.update({
+  id: '/port-handling',
+  path: '/port-handling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -269,9 +401,40 @@ const ShippingEstimateDisclaimerRoute =
     path: '/shipping-estimate-disclaimer',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ShippingToKosovoRoute = ShippingToKosovoRouteImport.update({
+  id: '/shipping-to-kosovo',
+  path: '/shipping-to-kosovo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingToMontenegroRoute = ShippingToMontenegroRouteImport.update({
+  id: '/shipping-to-montenegro',
+  path: '/shipping-to-montenegro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingToNorthMacedoniaRoute =
+  ShippingToNorthMacedoniaRouteImport.update({
+    id: '/shipping-to-north-macedonia',
+    path: '/shipping-to-north-macedonia',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ShippingToSloveniaRoute = ShippingToSloveniaRouteImport.update({
+  id: '/shipping-to-slovenia',
+  path: '/shipping-to-slovenia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorageCoordinationRoute = StorageCoordinationRouteImport.update({
+  id: '/storage-coordination',
+  path: '/storage-coordination',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const T1TransitRoute = T1TransitRouteImport.update({
+  id: '/t1-transit',
+  path: '/t1-transit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -282,6 +445,11 @@ const TermsRoute = TermsRouteImport.update({
 const VehicleHistoryCheckRoute = VehicleHistoryCheckRouteImport.update({
   id: '/vehicle-history-check',
   path: '/vehicle-history-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehicleSourcingRoute = VehicleSourcingRouteImport.update({
+  id: '/vehicle-sourcing',
+  path: '/vehicle-sourcing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
@@ -299,6 +467,27 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AirfreightAmsterdamSchipholRoute =
+  AirfreightAmsterdamSchipholRouteImport.update({
+    id: '/airfreight_/amsterdam-schiphol',
+    path: '/airfreight/amsterdam-schiphol',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AirfreightFrankfurtRoute = AirfreightFrankfurtRouteImport.update({
+  id: '/airfreight_/frankfurt',
+  path: '/airfreight/frankfurt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightLeipzigHalleRoute = AirfreightLeipzigHalleRouteImport.update({
+  id: '/airfreight_/leipzig-halle',
+  path: '/airfreight/leipzig-halle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfreightMilanMalpensaRoute = AirfreightMilanMalpensaRouteImport.update({
+  id: '/airfreight_/milan-malpensa',
+  path: '/airfreight/milan-malpensa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlIndexRoute = AlIndexRouteImport.update({
   id: '/al/',
   path: '/al/',
@@ -314,14 +503,34 @@ const AlAutomjeteTeDorezuaraRoute = AlAutomjeteTeDorezuaraRouteImport.update({
   path: '/al/automjete-te-dorezuara',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlBlerjeNgaTregtaretRoute = AlBlerjeNgaTregtaretRouteImport.update({
+  id: '/al/blerje-nga-tregtaret',
+  path: '/al/blerje-nga-tregtaret',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlCarnetDePassageRoute = AlCarnetDePassageRouteImport.update({
+  id: '/al/carnet-de-passage',
+  path: '/al/carnet-de-passage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlCopartShqiperiRoute = AlCopartShqiperiRouteImport.update({
   id: '/al/copart-shqiperi',
   path: '/al/copart-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlDorezimNeAdreseRoute = AlDorezimNeAdreseRouteImport.update({
+  id: '/al/dorezim-ne-adrese',
+  path: '/al/dorezim-ne-adrese',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlEncarShqiperiRoute = AlEncarShqiperiRouteImport.update({
   id: '/al/encar-shqiperi',
   path: '/al/encar-shqiperi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlGjetjeAutomjetiRoute = AlGjetjeAutomjetiRouteImport.update({
+  id: '/al/gjetje-automjeti',
+  path: '/al/gjetje-automjeti',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlHistorikuIAutomjetitRoute = AlHistorikuIAutomjetitRouteImport.update({
@@ -334,6 +543,70 @@ const AlIaaiShqiperiRoute = AlIaaiShqiperiRouteImport.update({
   path: '/al/iaai-shqiperi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlImportMakinashNeAustriRoute =
+  AlImportMakinashNeAustriRouteImport.update({
+    id: '/al/import-makinash-ne-austri',
+    path: '/al/import-makinash-ne-austri',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeBelgjikeRoute =
+  AlImportMakinashNeBelgjikeRouteImport.update({
+    id: '/al/import-makinash-ne-belgjike',
+    path: '/al/import-makinash-ne-belgjike',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeCekiRoute = AlImportMakinashNeCekiRouteImport.update({
+  id: '/al/import-makinash-ne-ceki',
+  path: '/al/import-makinash-ne-ceki',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlImportMakinashNeFranceRoute =
+  AlImportMakinashNeFranceRouteImport.update({
+    id: '/al/import-makinash-ne-france',
+    path: '/al/import-makinash-ne-france',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeGjermaniRoute =
+  AlImportMakinashNeGjermaniRouteImport.update({
+    id: '/al/import-makinash-ne-gjermani',
+    path: '/al/import-makinash-ne-gjermani',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeHolandeRoute =
+  AlImportMakinashNeHolandeRouteImport.update({
+    id: '/al/import-makinash-ne-holande',
+    path: '/al/import-makinash-ne-holande',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeItaliRoute = AlImportMakinashNeItaliRouteImport.update({
+  id: '/al/import-makinash-ne-itali',
+  path: '/al/import-makinash-ne-itali',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlImportMakinashNePoloniRoute =
+  AlImportMakinashNePoloniRouteImport.update({
+    id: '/al/import-makinash-ne-poloni',
+    path: '/al/import-makinash-ne-poloni',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeRumaniRoute =
+  AlImportMakinashNeRumaniRouteImport.update({
+    id: '/al/import-makinash-ne-rumani',
+    path: '/al/import-makinash-ne-rumani',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeSpanjeRoute =
+  AlImportMakinashNeSpanjeRouteImport.update({
+    id: '/al/import-makinash-ne-spanje',
+    path: '/al/import-makinash-ne-spanje',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlImportMakinashNeZvicerRoute =
+  AlImportMakinashNeZvicerRouteImport.update({
+    id: '/al/import-makinash-ne-zvicer',
+    path: '/al/import-makinash-ne-zvicer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlInspektimMakinashRoute = AlInspektimMakinashRouteImport.update({
   id: '/al/inspektim-makinash',
   path: '/al/inspektim-makinash',
@@ -347,6 +620,16 @@ const AlKalkulatorTransportiRoute = AlKalkulatorTransportiRouteImport.update({
 const AlKontaktRoute = AlKontaktRouteImport.update({
   id: '/al/kontakt',
   path: '/al/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlKoordinimDoganorRoute = AlKoordinimDoganorRouteImport.update({
+  id: '/al/koordinim-doganor',
+  path: '/al/koordinim-doganor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlKoordinimRuajtjejeRoute = AlKoordinimRuajtjejeRouteImport.update({
+  id: '/al/koordinim-ruajtjeje',
+  path: '/al/koordinim-ruajtjeje',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlKushtetEPerllogaritjesRoute =
@@ -425,10 +708,56 @@ const AlSiFunksiononRoute = AlSiFunksiononRouteImport.update({
   path: '/al/si-funksionon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlTrajtimNeAeroportRoute = AlTrajtimNeAeroportRouteImport.update({
+  id: '/al/trajtim-ne-aeroport',
+  path: '/al/trajtim-ne-aeroport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTrajtimNePortRoute = AlTrajtimNePortRouteImport.update({
+  id: '/al/trajtim-ne-port',
+  path: '/al/trajtim-ne-port',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlTransportAjrorMakinashRoute =
   AlTransportAjrorMakinashRouteImport.update({
     id: '/al/transport-ajror-makinash',
     path: '/al/transport-ajror-makinash',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeHolandeRoute =
+  AlTransportMakinashNeHolandeRouteImport.update({
+    id: '/al/transport-makinash-ne-holande',
+    path: '/al/transport-makinash-ne-holande',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeKosoveRoute =
+  AlTransportMakinashNeKosoveRouteImport.update({
+    id: '/al/transport-makinash-ne-kosove',
+    path: '/al/transport-makinash-ne-kosove',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeMalTeZiRoute =
+  AlTransportMakinashNeMalTeZiRouteImport.update({
+    id: '/al/transport-makinash-ne-mal-te-zi',
+    path: '/al/transport-makinash-ne-mal-te-zi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeMaqedonineEVeriutRoute =
+  AlTransportMakinashNeMaqedonineEVeriutRouteImport.update({
+    id: '/al/transport-makinash-ne-maqedonine-e-veriut',
+    path: '/al/transport-makinash-ne-maqedonine-e-veriut',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeShqiperiRoute =
+  AlTransportMakinashNeShqiperiRouteImport.update({
+    id: '/al/transport-makinash-ne-shqiperi',
+    path: '/al/transport-makinash-ne-shqiperi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportMakinashNeSlloveniRoute =
+  AlTransportMakinashNeSlloveniRouteImport.update({
+    id: '/al/transport-makinash-ne-slloveni',
+    path: '/al/transport-makinash-ne-slloveni',
     getParentRoute: () => rootRouteImport,
   } as any)
 const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
@@ -439,6 +768,16 @@ const AlTransportMeKontenierRoute = AlTransportMeKontenierRouteImport.update({
 const AlTransportRoroRoute = AlTransportRoroRouteImport.update({
   id: '/al/transport-roro',
   path: '/al/transport-roro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTransportTokesorRoute = AlTransportTokesorRouteImport.update({
+  id: '/al/transport-tokesor',
+  path: '/al/transport-tokesor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTranzitT1Route = AlTranzitT1RouteImport.update({
+  id: '/al/tranzit-t1',
+  path: '/al/tranzit-t1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnAlbaniaRoute = EnAlbaniaRouteImport.update({
@@ -520,6 +859,235 @@ const GuidesVehicleImportDocumentsRoute =
     path: '/guides/vehicle-import-documents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LocationsDubaiRoute = LocationsDubaiRouteImport.update({
+  id: '/locations/dubai',
+  path: '/locations/dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsDurresRoute = LocationsDurresRouteImport.update({
+  id: '/locations/durres',
+  path: '/locations/durres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsElizabethRoute = LocationsElizabethRouteImport.update({
+  id: '/locations/elizabeth',
+  path: '/locations/elizabeth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsHoustonRoute = LocationsHoustonRouteImport.update({
+  id: '/locations/houston',
+  path: '/locations/houston',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndianapolisRoute = LocationsIndianapolisRouteImport.update({
+  id: '/locations/indianapolis',
+  path: '/locations/indianapolis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsLosAngelesRoute = LocationsLosAngelesRouteImport.update({
+  id: '/locations/los-angeles',
+  path: '/locations/los-angeles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSavannahRoute = LocationsSavannahRouteImport.update({
+  id: '/locations/savannah',
+  path: '/locations/savannah',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsAlgecirasRoute = PortsAlgecirasRouteImport.update({
+  id: '/ports/algeciras',
+  path: '/ports/algeciras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsAntwerpRoute = PortsAntwerpRouteImport.update({
+  id: '/ports/antwerp',
+  path: '/ports/antwerp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsBarcelonaRoute = PortsBarcelonaRouteImport.update({
+  id: '/ports/barcelona',
+  path: '/ports/barcelona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsBremerhavenRoute = PortsBremerhavenRouteImport.update({
+  id: '/ports/bremerhaven',
+  path: '/ports/bremerhaven',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsBusanRoute = PortsBusanRouteImport.update({
+  id: '/ports/busan',
+  path: '/ports/busan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsConstantaRoute = PortsConstantaRouteImport.update({
+  id: '/ports/constanta',
+  path: '/ports/constanta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsDurresRoute = PortsDurresRouteImport.update({
+  id: '/ports/durres',
+  path: '/ports/durres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsGdanskRoute = PortsGdanskRouteImport.update({
+  id: '/ports/gdansk',
+  path: '/ports/gdansk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsGdyniaRoute = PortsGdyniaRouteImport.update({
+  id: '/ports/gdynia',
+  path: '/ports/gdynia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsGenoaRoute = PortsGenoaRouteImport.update({
+  id: '/ports/genoa',
+  path: '/ports/genoa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsHamburgRoute = PortsHamburgRouteImport.update({
+  id: '/ports/hamburg',
+  path: '/ports/hamburg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsIncheonRoute = PortsIncheonRouteImport.update({
+  id: '/ports/incheon',
+  path: '/ports/incheon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsKoperRoute = PortsKoperRouteImport.update({
+  id: '/ports/koper',
+  path: '/ports/koper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsLeHavreRoute = PortsLeHavreRouteImport.update({
+  id: '/ports/le-havre',
+  path: '/ports/le-havre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsMarseilleRoute = PortsMarseilleRouteImport.update({
+  id: '/ports/marseille',
+  path: '/ports/marseille',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsRotterdamRoute = PortsRotterdamRouteImport.update({
+  id: '/ports/rotterdam',
+  path: '/ports/rotterdam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsValenciaRoute = PortsValenciaRouteImport.update({
+  id: '/ports/valencia',
+  path: '/ports/valencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetAlgecirasRoute = AlPortetAlgecirasRouteImport.update({
+  id: '/al/portet/algeciras',
+  path: '/al/portet/algeciras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetAntwerpRoute = AlPortetAntwerpRouteImport.update({
+  id: '/al/portet/antwerp',
+  path: '/al/portet/antwerp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetBarcelonaRoute = AlPortetBarcelonaRouteImport.update({
+  id: '/al/portet/barcelona',
+  path: '/al/portet/barcelona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetBremerhavenRoute = AlPortetBremerhavenRouteImport.update({
+  id: '/al/portet/bremerhaven',
+  path: '/al/portet/bremerhaven',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetBusanRoute = AlPortetBusanRouteImport.update({
+  id: '/al/portet/busan',
+  path: '/al/portet/busan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetConstantaRoute = AlPortetConstantaRouteImport.update({
+  id: '/al/portet/constanta',
+  path: '/al/portet/constanta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetDurresRoute = AlPortetDurresRouteImport.update({
+  id: '/al/portet/durres',
+  path: '/al/portet/durres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetGdanskRoute = AlPortetGdanskRouteImport.update({
+  id: '/al/portet/gdansk',
+  path: '/al/portet/gdansk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetGdyniaRoute = AlPortetGdyniaRouteImport.update({
+  id: '/al/portet/gdynia',
+  path: '/al/portet/gdynia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetGenoaRoute = AlPortetGenoaRouteImport.update({
+  id: '/al/portet/genoa',
+  path: '/al/portet/genoa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetHamburgRoute = AlPortetHamburgRouteImport.update({
+  id: '/al/portet/hamburg',
+  path: '/al/portet/hamburg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetIncheonRoute = AlPortetIncheonRouteImport.update({
+  id: '/al/portet/incheon',
+  path: '/al/portet/incheon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetKoperRoute = AlPortetKoperRouteImport.update({
+  id: '/al/portet/koper',
+  path: '/al/portet/koper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetLeHavreRoute = AlPortetLeHavreRouteImport.update({
+  id: '/al/portet/le-havre',
+  path: '/al/portet/le-havre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetMarseilleRoute = AlPortetMarseilleRouteImport.update({
+  id: '/al/portet/marseille',
+  path: '/al/portet/marseille',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetRotterdamRoute = AlPortetRotterdamRouteImport.update({
+  id: '/al/portet/rotterdam',
+  path: '/al/portet/rotterdam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlPortetValenciaRoute = AlPortetValenciaRouteImport.update({
+  id: '/al/portet/valencia',
+  path: '/al/portet/valencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlTransportAjrorMakinashAmsterdamSchipholRoute =
+  AlTransportAjrorMakinashAmsterdamSchipholRouteImport.update({
+    id: '/al/transport-ajror-makinash_/amsterdam-schiphol',
+    path: '/al/transport-ajror-makinash/amsterdam-schiphol',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashFrankfurtRoute =
+  AlTransportAjrorMakinashFrankfurtRouteImport.update({
+    id: '/al/transport-ajror-makinash_/frankfurt',
+    path: '/al/transport-ajror-makinash/frankfurt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashLeipzigHalleRoute =
+  AlTransportAjrorMakinashLeipzigHalleRouteImport.update({
+    id: '/al/transport-ajror-makinash_/leipzig-halle',
+    path: '/al/transport-ajror-makinash/leipzig-halle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlTransportAjrorMakinashMilanMalpensaRoute =
+  AlTransportAjrorMakinashMilanMalpensaRouteImport.update({
+    id: '/al/transport-ajror-makinash_/milan-malpensa',
+    path: '/al/transport-ajror-makinash/milan-malpensa',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AlUdhezuesIndexRoute = AlUdhezuesIndexRouteImport.update({
   id: '/al/udhezues/',
   path: '/al/udhezues/',
@@ -543,6 +1111,43 @@ const AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute =
     path: '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AlVendndodhjetDubaiRoute = AlVendndodhjetDubaiRouteImport.update({
+  id: '/al/vendndodhjet/dubai',
+  path: '/al/vendndodhjet/dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetDurresRoute = AlVendndodhjetDurresRouteImport.update({
+  id: '/al/vendndodhjet/durres',
+  path: '/al/vendndodhjet/durres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetElizabethRoute = AlVendndodhjetElizabethRouteImport.update({
+  id: '/al/vendndodhjet/elizabeth',
+  path: '/al/vendndodhjet/elizabeth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetHoustonRoute = AlVendndodhjetHoustonRouteImport.update({
+  id: '/al/vendndodhjet/houston',
+  path: '/al/vendndodhjet/houston',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlVendndodhjetIndianapolisRoute =
+  AlVendndodhjetIndianapolisRouteImport.update({
+    id: '/al/vendndodhjet/indianapolis',
+    path: '/al/vendndodhjet/indianapolis',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlVendndodhjetLosAngelesRoute =
+  AlVendndodhjetLosAngelesRouteImport.update({
+    id: '/al/vendndodhjet/los-angeles',
+    path: '/al/vendndodhjet/los-angeles',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AlVendndodhjetSavannahRoute = AlVendndodhjetSavannahRouteImport.update({
+  id: '/al/vendndodhjet/savannah',
+  path: '/al/vendndodhjet/savannah',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -560,13 +1165,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/airfreight': typeof AirfreightRoute
+  '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
   '/calculator': typeof CalculatorRoute
+  '/carnet-de-passage': typeof CarnetDePassageRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/customs-coordination': typeof CustomsCoordinationRoute
+  '/dealer-purchasing': typeof DealerPurchasingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/final-mile-delivery': typeof FinalMileDeliveryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
@@ -584,28 +1194,58 @@ export interface FileRoutesByFullPath {
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inland-transport': typeof InlandTransportRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/port-handling': typeof PortHandlingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
+  '/shipping-to-kosovo': typeof ShippingToKosovoRoute
+  '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
+  '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/storage-coordination': typeof StorageCoordinationRoute
+  '/t1-transit': typeof T1TransitRoute
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
+  '/vehicle-sourcing': typeof VehicleSourcingRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
+  '/al/blerje-nga-tregtaret': typeof AlBlerjeNgaTregtaretRoute
+  '/al/carnet-de-passage': typeof AlCarnetDePassageRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/dorezim-ne-adrese': typeof AlDorezimNeAdreseRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/gjetje-automjeti': typeof AlGjetjeAutomjetiRoute
   '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/import-makinash-ne-austri': typeof AlImportMakinashNeAustriRoute
+  '/al/import-makinash-ne-belgjike': typeof AlImportMakinashNeBelgjikeRoute
+  '/al/import-makinash-ne-ceki': typeof AlImportMakinashNeCekiRoute
+  '/al/import-makinash-ne-france': typeof AlImportMakinashNeFranceRoute
+  '/al/import-makinash-ne-gjermani': typeof AlImportMakinashNeGjermaniRoute
+  '/al/import-makinash-ne-holande': typeof AlImportMakinashNeHolandeRoute
+  '/al/import-makinash-ne-itali': typeof AlImportMakinashNeItaliRoute
+  '/al/import-makinash-ne-poloni': typeof AlImportMakinashNePoloniRoute
+  '/al/import-makinash-ne-rumani': typeof AlImportMakinashNeRumaniRoute
+  '/al/import-makinash-ne-spanje': typeof AlImportMakinashNeSpanjeRoute
+  '/al/import-makinash-ne-zvicer': typeof AlImportMakinashNeZvicerRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/koordinim-doganor': typeof AlKoordinimDoganorRoute
+  '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -621,9 +1261,19 @@ export interface FileRoutesByFullPath {
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
+  '/al/trajtim-ne-aeroport': typeof AlTrajtimNeAeroportRoute
+  '/al/trajtim-ne-port': typeof AlTrajtimNePortRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
+  '/al/transport-makinash-ne-holande': typeof AlTransportMakinashNeHolandeRoute
+  '/al/transport-makinash-ne-kosove': typeof AlTransportMakinashNeKosoveRoute
+  '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
+  '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
+  '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
+  '/al/transport-tokesor': typeof AlTransportTokesorRoute
+  '/al/tranzit-t1': typeof AlTranzitT1Route
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
@@ -637,11 +1287,63 @@ export interface FileRoutesByFullPath {
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
   '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
+  '/locations/dubai': typeof LocationsDubaiRoute
+  '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
+  '/ports/algeciras': typeof PortsAlgecirasRoute
+  '/ports/antwerp': typeof PortsAntwerpRoute
+  '/ports/barcelona': typeof PortsBarcelonaRoute
+  '/ports/bremerhaven': typeof PortsBremerhavenRoute
+  '/ports/busan': typeof PortsBusanRoute
+  '/ports/constanta': typeof PortsConstantaRoute
+  '/ports/durres': typeof PortsDurresRoute
+  '/ports/gdansk': typeof PortsGdanskRoute
+  '/ports/gdynia': typeof PortsGdyniaRoute
+  '/ports/genoa': typeof PortsGenoaRoute
+  '/ports/hamburg': typeof PortsHamburgRoute
+  '/ports/incheon': typeof PortsIncheonRoute
+  '/ports/koper': typeof PortsKoperRoute
+  '/ports/le-havre': typeof PortsLeHavreRoute
+  '/ports/marseille': typeof PortsMarseilleRoute
+  '/ports/rotterdam': typeof PortsRotterdamRoute
+  '/ports/valencia': typeof PortsValenciaRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/portet/algeciras': typeof AlPortetAlgecirasRoute
+  '/al/portet/antwerp': typeof AlPortetAntwerpRoute
+  '/al/portet/barcelona': typeof AlPortetBarcelonaRoute
+  '/al/portet/bremerhaven': typeof AlPortetBremerhavenRoute
+  '/al/portet/busan': typeof AlPortetBusanRoute
+  '/al/portet/constanta': typeof AlPortetConstantaRoute
+  '/al/portet/durres': typeof AlPortetDurresRoute
+  '/al/portet/gdansk': typeof AlPortetGdanskRoute
+  '/al/portet/gdynia': typeof AlPortetGdyniaRoute
+  '/al/portet/genoa': typeof AlPortetGenoaRoute
+  '/al/portet/hamburg': typeof AlPortetHamburgRoute
+  '/al/portet/incheon': typeof AlPortetIncheonRoute
+  '/al/portet/koper': typeof AlPortetKoperRoute
+  '/al/portet/le-havre': typeof AlPortetLeHavreRoute
+  '/al/portet/marseille': typeof AlPortetMarseilleRoute
+  '/al/portet/rotterdam': typeof AlPortetRotterdamRoute
+  '/al/portet/valencia': typeof AlPortetValenciaRoute
+  '/al/transport-ajror-makinash/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
+  '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
+  '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -650,13 +1352,18 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/airfreight': typeof AirfreightRoute
+  '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
   '/calculator': typeof CalculatorRoute
+  '/carnet-de-passage': typeof CarnetDePassageRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/customs-coordination': typeof CustomsCoordinationRoute
+  '/dealer-purchasing': typeof DealerPurchasingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/final-mile-delivery': typeof FinalMileDeliveryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
@@ -674,28 +1381,58 @@ export interface FileRoutesByTo {
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inland-transport': typeof InlandTransportRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/port-handling': typeof PortHandlingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
+  '/shipping-to-kosovo': typeof ShippingToKosovoRoute
+  '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
+  '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/storage-coordination': typeof StorageCoordinationRoute
+  '/t1-transit': typeof T1TransitRoute
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
+  '/vehicle-sourcing': typeof VehicleSourcingRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
+  '/al/blerje-nga-tregtaret': typeof AlBlerjeNgaTregtaretRoute
+  '/al/carnet-de-passage': typeof AlCarnetDePassageRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/dorezim-ne-adrese': typeof AlDorezimNeAdreseRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/gjetje-automjeti': typeof AlGjetjeAutomjetiRoute
   '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/import-makinash-ne-austri': typeof AlImportMakinashNeAustriRoute
+  '/al/import-makinash-ne-belgjike': typeof AlImportMakinashNeBelgjikeRoute
+  '/al/import-makinash-ne-ceki': typeof AlImportMakinashNeCekiRoute
+  '/al/import-makinash-ne-france': typeof AlImportMakinashNeFranceRoute
+  '/al/import-makinash-ne-gjermani': typeof AlImportMakinashNeGjermaniRoute
+  '/al/import-makinash-ne-holande': typeof AlImportMakinashNeHolandeRoute
+  '/al/import-makinash-ne-itali': typeof AlImportMakinashNeItaliRoute
+  '/al/import-makinash-ne-poloni': typeof AlImportMakinashNePoloniRoute
+  '/al/import-makinash-ne-rumani': typeof AlImportMakinashNeRumaniRoute
+  '/al/import-makinash-ne-spanje': typeof AlImportMakinashNeSpanjeRoute
+  '/al/import-makinash-ne-zvicer': typeof AlImportMakinashNeZvicerRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/koordinim-doganor': typeof AlKoordinimDoganorRoute
+  '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -711,9 +1448,19 @@ export interface FileRoutesByTo {
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
+  '/al/trajtim-ne-aeroport': typeof AlTrajtimNeAeroportRoute
+  '/al/trajtim-ne-port': typeof AlTrajtimNePortRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
+  '/al/transport-makinash-ne-holande': typeof AlTransportMakinashNeHolandeRoute
+  '/al/transport-makinash-ne-kosove': typeof AlTransportMakinashNeKosoveRoute
+  '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
+  '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
+  '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
+  '/al/transport-tokesor': typeof AlTransportTokesorRoute
+  '/al/tranzit-t1': typeof AlTranzitT1Route
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
@@ -727,11 +1474,63 @@ export interface FileRoutesByTo {
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
   '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
+  '/locations/dubai': typeof LocationsDubaiRoute
+  '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
+  '/ports/algeciras': typeof PortsAlgecirasRoute
+  '/ports/antwerp': typeof PortsAntwerpRoute
+  '/ports/barcelona': typeof PortsBarcelonaRoute
+  '/ports/bremerhaven': typeof PortsBremerhavenRoute
+  '/ports/busan': typeof PortsBusanRoute
+  '/ports/constanta': typeof PortsConstantaRoute
+  '/ports/durres': typeof PortsDurresRoute
+  '/ports/gdansk': typeof PortsGdanskRoute
+  '/ports/gdynia': typeof PortsGdyniaRoute
+  '/ports/genoa': typeof PortsGenoaRoute
+  '/ports/hamburg': typeof PortsHamburgRoute
+  '/ports/incheon': typeof PortsIncheonRoute
+  '/ports/koper': typeof PortsKoperRoute
+  '/ports/le-havre': typeof PortsLeHavreRoute
+  '/ports/marseille': typeof PortsMarseilleRoute
+  '/ports/rotterdam': typeof PortsRotterdamRoute
+  '/ports/valencia': typeof PortsValenciaRoute
   '/al': typeof AlIndexRoute
   '/guides': typeof GuidesIndexRoute
+  '/al/portet/algeciras': typeof AlPortetAlgecirasRoute
+  '/al/portet/antwerp': typeof AlPortetAntwerpRoute
+  '/al/portet/barcelona': typeof AlPortetBarcelonaRoute
+  '/al/portet/bremerhaven': typeof AlPortetBremerhavenRoute
+  '/al/portet/busan': typeof AlPortetBusanRoute
+  '/al/portet/constanta': typeof AlPortetConstantaRoute
+  '/al/portet/durres': typeof AlPortetDurresRoute
+  '/al/portet/gdansk': typeof AlPortetGdanskRoute
+  '/al/portet/gdynia': typeof AlPortetGdyniaRoute
+  '/al/portet/genoa': typeof AlPortetGenoaRoute
+  '/al/portet/hamburg': typeof AlPortetHamburgRoute
+  '/al/portet/incheon': typeof AlPortetIncheonRoute
+  '/al/portet/koper': typeof AlPortetKoperRoute
+  '/al/portet/le-havre': typeof AlPortetLeHavreRoute
+  '/al/portet/marseille': typeof AlPortetMarseilleRoute
+  '/al/portet/rotterdam': typeof AlPortetRotterdamRoute
+  '/al/portet/valencia': typeof AlPortetValenciaRoute
+  '/al/transport-ajror-makinash/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
+  '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
+  '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -741,13 +1540,18 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/airfreight': typeof AirfreightRoute
+  '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
   '/calculator': typeof CalculatorRoute
+  '/carnet-de-passage': typeof CarnetDePassageRoute
   '/contact': typeof ContactRoute
   '/container-shipping': typeof ContainerShippingRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/customs-coordination': typeof CustomsCoordinationRoute
+  '/dealer-purchasing': typeof DealerPurchasingRoute
   '/delivered-vehicles': typeof DeliveredVehiclesRoute
   '/faq': typeof FaqRoute
+  '/final-mile-delivery': typeof FinalMileDeliveryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/import-austria': typeof ImportAustriaRoute
   '/import-belgium': typeof ImportBelgiumRoute
@@ -765,28 +1569,58 @@ export interface FileRoutesById {
   '/import-switzerland': typeof ImportSwitzerlandRoute
   '/import-uae': typeof ImportUaeRoute
   '/import-usa': typeof ImportUsaRoute
+  '/inland-transport': typeof InlandTransportRoute
   '/inspection-service': typeof InspectionServiceRoute
+  '/port-handling': typeof PortHandlingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/roro-shipping': typeof RoroShippingRoute
   '/services': typeof ServicesRoute
   '/shipping-calculator': typeof ShippingCalculatorRoute
   '/shipping-estimate-disclaimer': typeof ShippingEstimateDisclaimerRoute
+  '/shipping-to-kosovo': typeof ShippingToKosovoRoute
+  '/shipping-to-montenegro': typeof ShippingToMontenegroRoute
+  '/shipping-to-north-macedonia': typeof ShippingToNorthMacedoniaRoute
+  '/shipping-to-slovenia': typeof ShippingToSloveniaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/storage-coordination': typeof StorageCoordinationRoute
+  '/t1-transit': typeof T1TransitRoute
   '/terms': typeof TermsRoute
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
+  '/vehicle-sourcing': typeof VehicleSourcingRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/airfreight_/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
+  '/airfreight_/frankfurt': typeof AirfreightFrankfurtRoute
+  '/airfreight_/leipzig-halle': typeof AirfreightLeipzigHalleRoute
+  '/airfreight_/milan-malpensa': typeof AirfreightMilanMalpensaRoute
   '/al/ankande-amerikane': typeof AlAnkandeAmerikaneRoute
   '/al/automjete-te-dorezuara': typeof AlAutomjeteTeDorezuaraRoute
+  '/al/blerje-nga-tregtaret': typeof AlBlerjeNgaTregtaretRoute
+  '/al/carnet-de-passage': typeof AlCarnetDePassageRoute
   '/al/copart-shqiperi': typeof AlCopartShqiperiRoute
+  '/al/dorezim-ne-adrese': typeof AlDorezimNeAdreseRoute
   '/al/encar-shqiperi': typeof AlEncarShqiperiRoute
+  '/al/gjetje-automjeti': typeof AlGjetjeAutomjetiRoute
   '/al/historiku-i-automjetit': typeof AlHistorikuIAutomjetitRoute
   '/al/iaai-shqiperi': typeof AlIaaiShqiperiRoute
+  '/al/import-makinash-ne-austri': typeof AlImportMakinashNeAustriRoute
+  '/al/import-makinash-ne-belgjike': typeof AlImportMakinashNeBelgjikeRoute
+  '/al/import-makinash-ne-ceki': typeof AlImportMakinashNeCekiRoute
+  '/al/import-makinash-ne-france': typeof AlImportMakinashNeFranceRoute
+  '/al/import-makinash-ne-gjermani': typeof AlImportMakinashNeGjermaniRoute
+  '/al/import-makinash-ne-holande': typeof AlImportMakinashNeHolandeRoute
+  '/al/import-makinash-ne-itali': typeof AlImportMakinashNeItaliRoute
+  '/al/import-makinash-ne-poloni': typeof AlImportMakinashNePoloniRoute
+  '/al/import-makinash-ne-rumani': typeof AlImportMakinashNeRumaniRoute
+  '/al/import-makinash-ne-spanje': typeof AlImportMakinashNeSpanjeRoute
+  '/al/import-makinash-ne-zvicer': typeof AlImportMakinashNeZvicerRoute
   '/al/inspektim-makinash': typeof AlInspektimMakinashRoute
   '/al/kalkulator-transporti': typeof AlKalkulatorTransportiRoute
   '/al/kontakt': typeof AlKontaktRoute
+  '/al/koordinim-doganor': typeof AlKoordinimDoganorRoute
+  '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
@@ -802,9 +1636,19 @@ export interface FileRoutesById {
   '/al/rreth-nesh': typeof AlRrethNeshRoute
   '/al/sherbimet': typeof AlSherbimetRoute
   '/al/si-funksionon': typeof AlSiFunksiononRoute
+  '/al/trajtim-ne-aeroport': typeof AlTrajtimNeAeroportRoute
+  '/al/trajtim-ne-port': typeof AlTrajtimNePortRoute
   '/al/transport-ajror-makinash': typeof AlTransportAjrorMakinashRoute
+  '/al/transport-makinash-ne-holande': typeof AlTransportMakinashNeHolandeRoute
+  '/al/transport-makinash-ne-kosove': typeof AlTransportMakinashNeKosoveRoute
+  '/al/transport-makinash-ne-mal-te-zi': typeof AlTransportMakinashNeMalTeZiRoute
+  '/al/transport-makinash-ne-maqedonine-e-veriut': typeof AlTransportMakinashNeMaqedonineEVeriutRoute
+  '/al/transport-makinash-ne-shqiperi': typeof AlTransportMakinashNeShqiperiRoute
+  '/al/transport-makinash-ne-slloveni': typeof AlTransportMakinashNeSlloveniRoute
   '/al/transport-me-kontenier': typeof AlTransportMeKontenierRoute
   '/al/transport-roro': typeof AlTransportRoroRoute
+  '/al/transport-tokesor': typeof AlTransportTokesorRoute
+  '/al/tranzit-t1': typeof AlTranzitT1Route
   '/en/albania': typeof EnAlbaniaRoute
   '/en/netherlands': typeof EnNetherlandsRoute
   '/guides/car-import-glossary': typeof GuidesCarImportGlossaryRoute
@@ -818,11 +1662,63 @@ export interface FileRoutesById {
   '/guides/importing-electric-cars': typeof GuidesImportingElectricCarsRoute
   '/guides/importing-luxury-cars': typeof GuidesImportingLuxuryCarsRoute
   '/guides/vehicle-import-documents': typeof GuidesVehicleImportDocumentsRoute
+  '/locations/dubai': typeof LocationsDubaiRoute
+  '/locations/durres': typeof LocationsDurresRoute
+  '/locations/elizabeth': typeof LocationsElizabethRoute
+  '/locations/houston': typeof LocationsHoustonRoute
+  '/locations/indianapolis': typeof LocationsIndianapolisRoute
+  '/locations/los-angeles': typeof LocationsLosAngelesRoute
+  '/locations/savannah': typeof LocationsSavannahRoute
+  '/ports/algeciras': typeof PortsAlgecirasRoute
+  '/ports/antwerp': typeof PortsAntwerpRoute
+  '/ports/barcelona': typeof PortsBarcelonaRoute
+  '/ports/bremerhaven': typeof PortsBremerhavenRoute
+  '/ports/busan': typeof PortsBusanRoute
+  '/ports/constanta': typeof PortsConstantaRoute
+  '/ports/durres': typeof PortsDurresRoute
+  '/ports/gdansk': typeof PortsGdanskRoute
+  '/ports/gdynia': typeof PortsGdyniaRoute
+  '/ports/genoa': typeof PortsGenoaRoute
+  '/ports/hamburg': typeof PortsHamburgRoute
+  '/ports/incheon': typeof PortsIncheonRoute
+  '/ports/koper': typeof PortsKoperRoute
+  '/ports/le-havre': typeof PortsLeHavreRoute
+  '/ports/marseille': typeof PortsMarseilleRoute
+  '/ports/rotterdam': typeof PortsRotterdamRoute
+  '/ports/valencia': typeof PortsValenciaRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/al/portet/algeciras': typeof AlPortetAlgecirasRoute
+  '/al/portet/antwerp': typeof AlPortetAntwerpRoute
+  '/al/portet/barcelona': typeof AlPortetBarcelonaRoute
+  '/al/portet/bremerhaven': typeof AlPortetBremerhavenRoute
+  '/al/portet/busan': typeof AlPortetBusanRoute
+  '/al/portet/constanta': typeof AlPortetConstantaRoute
+  '/al/portet/durres': typeof AlPortetDurresRoute
+  '/al/portet/gdansk': typeof AlPortetGdanskRoute
+  '/al/portet/gdynia': typeof AlPortetGdyniaRoute
+  '/al/portet/genoa': typeof AlPortetGenoaRoute
+  '/al/portet/hamburg': typeof AlPortetHamburgRoute
+  '/al/portet/incheon': typeof AlPortetIncheonRoute
+  '/al/portet/koper': typeof AlPortetKoperRoute
+  '/al/portet/le-havre': typeof AlPortetLeHavreRoute
+  '/al/portet/marseille': typeof AlPortetMarseilleRoute
+  '/al/portet/rotterdam': typeof AlPortetRotterdamRoute
+  '/al/portet/valencia': typeof AlPortetValenciaRoute
+  '/al/transport-ajror-makinash_/amsterdam-schiphol': typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  '/al/transport-ajror-makinash_/frankfurt': typeof AlTransportAjrorMakinashFrankfurtRoute
+  '/al/transport-ajror-makinash_/leipzig-halle': typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  '/al/transport-ajror-makinash_/milan-malpensa': typeof AlTransportAjrorMakinashMilanMalpensaRoute
   '/al/udhezues/kontenier-apo-roro': typeof AlUdhezuesKontenierApoRoroRoute
   '/al/udhezues/si-te-blini-nga-ankandet-amerikane': typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur': typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
+  '/al/vendndodhjet/dubai': typeof AlVendndodhjetDubaiRoute
+  '/al/vendndodhjet/durres': typeof AlVendndodhjetDurresRoute
+  '/al/vendndodhjet/elizabeth': typeof AlVendndodhjetElizabethRoute
+  '/al/vendndodhjet/houston': typeof AlVendndodhjetHoustonRoute
+  '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
+  '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
+  '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -833,13 +1729,18 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/airfreight'
+    | '/airport-handling'
     | '/auction-access'
     | '/calculator'
+    | '/carnet-de-passage'
     | '/contact'
     | '/container-shipping'
     | '/cookie-policy'
+    | '/customs-coordination'
+    | '/dealer-purchasing'
     | '/delivered-vehicles'
     | '/faq'
+    | '/final-mile-delivery'
     | '/how-it-works'
     | '/import-austria'
     | '/import-belgium'
@@ -857,28 +1758,58 @@ export interface FileRouteTypes {
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
+    | '/inland-transport'
     | '/inspection-service'
+    | '/port-handling'
     | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/shipping-estimate-disclaimer'
+    | '/shipping-to-kosovo'
+    | '/shipping-to-montenegro'
+    | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
+    | '/storage-coordination'
+    | '/t1-transit'
     | '/terms'
     | '/vehicle-history-check'
+    | '/vehicle-sourcing'
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight/amsterdam-schiphol'
+    | '/airfreight/frankfurt'
+    | '/airfreight/leipzig-halle'
+    | '/airfreight/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
+    | '/al/blerje-nga-tregtaret'
+    | '/al/carnet-de-passage'
     | '/al/copart-shqiperi'
+    | '/al/dorezim-ne-adrese'
     | '/al/encar-shqiperi'
+    | '/al/gjetje-automjeti'
     | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
+    | '/al/import-makinash-ne-austri'
+    | '/al/import-makinash-ne-belgjike'
+    | '/al/import-makinash-ne-ceki'
+    | '/al/import-makinash-ne-france'
+    | '/al/import-makinash-ne-gjermani'
+    | '/al/import-makinash-ne-holande'
+    | '/al/import-makinash-ne-itali'
+    | '/al/import-makinash-ne-poloni'
+    | '/al/import-makinash-ne-rumani'
+    | '/al/import-makinash-ne-spanje'
+    | '/al/import-makinash-ne-zvicer'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/koordinim-doganor'
+    | '/al/koordinim-ruajtjeje'
     | '/al/kushtet-e-perllogaritjes'
     | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
@@ -894,9 +1825,19 @@ export interface FileRouteTypes {
     | '/al/rreth-nesh'
     | '/al/sherbimet'
     | '/al/si-funksionon'
+    | '/al/trajtim-ne-aeroport'
+    | '/al/trajtim-ne-port'
     | '/al/transport-ajror-makinash'
+    | '/al/transport-makinash-ne-holande'
+    | '/al/transport-makinash-ne-kosove'
+    | '/al/transport-makinash-ne-mal-te-zi'
+    | '/al/transport-makinash-ne-maqedonine-e-veriut'
+    | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
+    | '/al/transport-tokesor'
+    | '/al/tranzit-t1'
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-import-glossary'
@@ -910,11 +1851,63 @@ export interface FileRouteTypes {
     | '/guides/importing-electric-cars'
     | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
+    | '/locations/dubai'
+    | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
+    | '/ports/algeciras'
+    | '/ports/antwerp'
+    | '/ports/barcelona'
+    | '/ports/bremerhaven'
+    | '/ports/busan'
+    | '/ports/constanta'
+    | '/ports/durres'
+    | '/ports/gdansk'
+    | '/ports/gdynia'
+    | '/ports/genoa'
+    | '/ports/hamburg'
+    | '/ports/incheon'
+    | '/ports/koper'
+    | '/ports/le-havre'
+    | '/ports/marseille'
+    | '/ports/rotterdam'
+    | '/ports/valencia'
     | '/al/'
     | '/guides/'
+    | '/al/portet/algeciras'
+    | '/al/portet/antwerp'
+    | '/al/portet/barcelona'
+    | '/al/portet/bremerhaven'
+    | '/al/portet/busan'
+    | '/al/portet/constanta'
+    | '/al/portet/durres'
+    | '/al/portet/gdansk'
+    | '/al/portet/gdynia'
+    | '/al/portet/genoa'
+    | '/al/portet/hamburg'
+    | '/al/portet/incheon'
+    | '/al/portet/koper'
+    | '/al/portet/le-havre'
+    | '/al/portet/marseille'
+    | '/al/portet/rotterdam'
+    | '/al/portet/valencia'
+    | '/al/transport-ajror-makinash/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash/frankfurt'
+    | '/al/transport-ajror-makinash/leipzig-halle'
+    | '/al/transport-ajror-makinash/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+    | '/al/vendndodhjet/dubai'
+    | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -923,13 +1916,18 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/airfreight'
+    | '/airport-handling'
     | '/auction-access'
     | '/calculator'
+    | '/carnet-de-passage'
     | '/contact'
     | '/container-shipping'
     | '/cookie-policy'
+    | '/customs-coordination'
+    | '/dealer-purchasing'
     | '/delivered-vehicles'
     | '/faq'
+    | '/final-mile-delivery'
     | '/how-it-works'
     | '/import-austria'
     | '/import-belgium'
@@ -947,28 +1945,58 @@ export interface FileRouteTypes {
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
+    | '/inland-transport'
     | '/inspection-service'
+    | '/port-handling'
     | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/shipping-estimate-disclaimer'
+    | '/shipping-to-kosovo'
+    | '/shipping-to-montenegro'
+    | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
+    | '/storage-coordination'
+    | '/t1-transit'
     | '/terms'
     | '/vehicle-history-check'
+    | '/vehicle-sourcing'
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight/amsterdam-schiphol'
+    | '/airfreight/frankfurt'
+    | '/airfreight/leipzig-halle'
+    | '/airfreight/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
+    | '/al/blerje-nga-tregtaret'
+    | '/al/carnet-de-passage'
     | '/al/copart-shqiperi'
+    | '/al/dorezim-ne-adrese'
     | '/al/encar-shqiperi'
+    | '/al/gjetje-automjeti'
     | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
+    | '/al/import-makinash-ne-austri'
+    | '/al/import-makinash-ne-belgjike'
+    | '/al/import-makinash-ne-ceki'
+    | '/al/import-makinash-ne-france'
+    | '/al/import-makinash-ne-gjermani'
+    | '/al/import-makinash-ne-holande'
+    | '/al/import-makinash-ne-itali'
+    | '/al/import-makinash-ne-poloni'
+    | '/al/import-makinash-ne-rumani'
+    | '/al/import-makinash-ne-spanje'
+    | '/al/import-makinash-ne-zvicer'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/koordinim-doganor'
+    | '/al/koordinim-ruajtjeje'
     | '/al/kushtet-e-perllogaritjes'
     | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
@@ -984,9 +2012,19 @@ export interface FileRouteTypes {
     | '/al/rreth-nesh'
     | '/al/sherbimet'
     | '/al/si-funksionon'
+    | '/al/trajtim-ne-aeroport'
+    | '/al/trajtim-ne-port'
     | '/al/transport-ajror-makinash'
+    | '/al/transport-makinash-ne-holande'
+    | '/al/transport-makinash-ne-kosove'
+    | '/al/transport-makinash-ne-mal-te-zi'
+    | '/al/transport-makinash-ne-maqedonine-e-veriut'
+    | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
+    | '/al/transport-tokesor'
+    | '/al/tranzit-t1'
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-import-glossary'
@@ -1000,11 +2038,63 @@ export interface FileRouteTypes {
     | '/guides/importing-electric-cars'
     | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
+    | '/locations/dubai'
+    | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
+    | '/ports/algeciras'
+    | '/ports/antwerp'
+    | '/ports/barcelona'
+    | '/ports/bremerhaven'
+    | '/ports/busan'
+    | '/ports/constanta'
+    | '/ports/durres'
+    | '/ports/gdansk'
+    | '/ports/gdynia'
+    | '/ports/genoa'
+    | '/ports/hamburg'
+    | '/ports/incheon'
+    | '/ports/koper'
+    | '/ports/le-havre'
+    | '/ports/marseille'
+    | '/ports/rotterdam'
+    | '/ports/valencia'
     | '/al'
     | '/guides'
+    | '/al/portet/algeciras'
+    | '/al/portet/antwerp'
+    | '/al/portet/barcelona'
+    | '/al/portet/bremerhaven'
+    | '/al/portet/busan'
+    | '/al/portet/constanta'
+    | '/al/portet/durres'
+    | '/al/portet/gdansk'
+    | '/al/portet/gdynia'
+    | '/al/portet/genoa'
+    | '/al/portet/hamburg'
+    | '/al/portet/incheon'
+    | '/al/portet/koper'
+    | '/al/portet/le-havre'
+    | '/al/portet/marseille'
+    | '/al/portet/rotterdam'
+    | '/al/portet/valencia'
+    | '/al/transport-ajror-makinash/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash/frankfurt'
+    | '/al/transport-ajror-makinash/leipzig-halle'
+    | '/al/transport-ajror-makinash/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+    | '/al/vendndodhjet/dubai'
+    | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues'
     | '/lovable/email/transactional/preview'
@@ -1013,13 +2103,18 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/airfreight'
+    | '/airport-handling'
     | '/auction-access'
     | '/calculator'
+    | '/carnet-de-passage'
     | '/contact'
     | '/container-shipping'
     | '/cookie-policy'
+    | '/customs-coordination'
+    | '/dealer-purchasing'
     | '/delivered-vehicles'
     | '/faq'
+    | '/final-mile-delivery'
     | '/how-it-works'
     | '/import-austria'
     | '/import-belgium'
@@ -1037,28 +2132,58 @@ export interface FileRouteTypes {
     | '/import-switzerland'
     | '/import-uae'
     | '/import-usa'
+    | '/inland-transport'
     | '/inspection-service'
+    | '/port-handling'
     | '/privacy-policy'
     | '/reviews'
     | '/roro-shipping'
     | '/services'
     | '/shipping-calculator'
     | '/shipping-estimate-disclaimer'
+    | '/shipping-to-kosovo'
+    | '/shipping-to-montenegro'
+    | '/shipping-to-north-macedonia'
+    | '/shipping-to-slovenia'
     | '/sitemap.xml'
+    | '/storage-coordination'
+    | '/t1-transit'
     | '/terms'
     | '/vehicle-history-check'
+    | '/vehicle-sourcing'
     | '/why-alpha-worldwide'
     | '/admin/leads'
     | '/admin/login'
+    | '/airfreight_/amsterdam-schiphol'
+    | '/airfreight_/frankfurt'
+    | '/airfreight_/leipzig-halle'
+    | '/airfreight_/milan-malpensa'
     | '/al/ankande-amerikane'
     | '/al/automjete-te-dorezuara'
+    | '/al/blerje-nga-tregtaret'
+    | '/al/carnet-de-passage'
     | '/al/copart-shqiperi'
+    | '/al/dorezim-ne-adrese'
     | '/al/encar-shqiperi'
+    | '/al/gjetje-automjeti'
     | '/al/historiku-i-automjetit'
     | '/al/iaai-shqiperi'
+    | '/al/import-makinash-ne-austri'
+    | '/al/import-makinash-ne-belgjike'
+    | '/al/import-makinash-ne-ceki'
+    | '/al/import-makinash-ne-france'
+    | '/al/import-makinash-ne-gjermani'
+    | '/al/import-makinash-ne-holande'
+    | '/al/import-makinash-ne-itali'
+    | '/al/import-makinash-ne-poloni'
+    | '/al/import-makinash-ne-rumani'
+    | '/al/import-makinash-ne-spanje'
+    | '/al/import-makinash-ne-zvicer'
     | '/al/inspektim-makinash'
     | '/al/kalkulator-transporti'
     | '/al/kontakt'
+    | '/al/koordinim-doganor'
+    | '/al/koordinim-ruajtjeje'
     | '/al/kushtet-e-perllogaritjes'
     | '/al/kushtet-e-sherbimit'
     | '/al/makina-nga-amerika'
@@ -1074,9 +2199,19 @@ export interface FileRouteTypes {
     | '/al/rreth-nesh'
     | '/al/sherbimet'
     | '/al/si-funksionon'
+    | '/al/trajtim-ne-aeroport'
+    | '/al/trajtim-ne-port'
     | '/al/transport-ajror-makinash'
+    | '/al/transport-makinash-ne-holande'
+    | '/al/transport-makinash-ne-kosove'
+    | '/al/transport-makinash-ne-mal-te-zi'
+    | '/al/transport-makinash-ne-maqedonine-e-veriut'
+    | '/al/transport-makinash-ne-shqiperi'
+    | '/al/transport-makinash-ne-slloveni'
     | '/al/transport-me-kontenier'
     | '/al/transport-roro'
+    | '/al/transport-tokesor'
+    | '/al/tranzit-t1'
     | '/en/albania'
     | '/en/netherlands'
     | '/guides/car-import-glossary'
@@ -1090,11 +2225,63 @@ export interface FileRouteTypes {
     | '/guides/importing-electric-cars'
     | '/guides/importing-luxury-cars'
     | '/guides/vehicle-import-documents'
+    | '/locations/dubai'
+    | '/locations/durres'
+    | '/locations/elizabeth'
+    | '/locations/houston'
+    | '/locations/indianapolis'
+    | '/locations/los-angeles'
+    | '/locations/savannah'
+    | '/ports/algeciras'
+    | '/ports/antwerp'
+    | '/ports/barcelona'
+    | '/ports/bremerhaven'
+    | '/ports/busan'
+    | '/ports/constanta'
+    | '/ports/durres'
+    | '/ports/gdansk'
+    | '/ports/gdynia'
+    | '/ports/genoa'
+    | '/ports/hamburg'
+    | '/ports/incheon'
+    | '/ports/koper'
+    | '/ports/le-havre'
+    | '/ports/marseille'
+    | '/ports/rotterdam'
+    | '/ports/valencia'
     | '/al/'
     | '/guides/'
+    | '/al/portet/algeciras'
+    | '/al/portet/antwerp'
+    | '/al/portet/barcelona'
+    | '/al/portet/bremerhaven'
+    | '/al/portet/busan'
+    | '/al/portet/constanta'
+    | '/al/portet/durres'
+    | '/al/portet/gdansk'
+    | '/al/portet/gdynia'
+    | '/al/portet/genoa'
+    | '/al/portet/hamburg'
+    | '/al/portet/incheon'
+    | '/al/portet/koper'
+    | '/al/portet/le-havre'
+    | '/al/portet/marseille'
+    | '/al/portet/rotterdam'
+    | '/al/portet/valencia'
+    | '/al/transport-ajror-makinash_/amsterdam-schiphol'
+    | '/al/transport-ajror-makinash_/frankfurt'
+    | '/al/transport-ajror-makinash_/leipzig-halle'
+    | '/al/transport-ajror-makinash_/milan-malpensa'
     | '/al/udhezues/kontenier-apo-roro'
     | '/al/udhezues/si-te-blini-nga-ankandet-amerikane'
     | '/al/udhezues/si-te-kontrolloni-makinen-e-perdorur'
+    | '/al/vendndodhjet/dubai'
+    | '/al/vendndodhjet/durres'
+    | '/al/vendndodhjet/elizabeth'
+    | '/al/vendndodhjet/houston'
+    | '/al/vendndodhjet/indianapolis'
+    | '/al/vendndodhjet/los-angeles'
+    | '/al/vendndodhjet/savannah'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -1104,13 +2291,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AirfreightRoute: typeof AirfreightRoute
+  AirportHandlingRoute: typeof AirportHandlingRoute
   AuctionAccessRoute: typeof AuctionAccessRoute
   CalculatorRoute: typeof CalculatorRoute
+  CarnetDePassageRoute: typeof CarnetDePassageRoute
   ContactRoute: typeof ContactRoute
   ContainerShippingRoute: typeof ContainerShippingRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
+  CustomsCoordinationRoute: typeof CustomsCoordinationRoute
+  DealerPurchasingRoute: typeof DealerPurchasingRoute
   DeliveredVehiclesRoute: typeof DeliveredVehiclesRoute
   FaqRoute: typeof FaqRoute
+  FinalMileDeliveryRoute: typeof FinalMileDeliveryRoute
   HowItWorksRoute: typeof HowItWorksRoute
   ImportAustriaRoute: typeof ImportAustriaRoute
   ImportBelgiumRoute: typeof ImportBelgiumRoute
@@ -1128,28 +2320,58 @@ export interface RootRouteChildren {
   ImportSwitzerlandRoute: typeof ImportSwitzerlandRoute
   ImportUaeRoute: typeof ImportUaeRoute
   ImportUsaRoute: typeof ImportUsaRoute
+  InlandTransportRoute: typeof InlandTransportRoute
   InspectionServiceRoute: typeof InspectionServiceRoute
+  PortHandlingRoute: typeof PortHandlingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReviewsRoute: typeof ReviewsRoute
   RoroShippingRoute: typeof RoroShippingRoute
   ServicesRoute: typeof ServicesRoute
   ShippingCalculatorRoute: typeof ShippingCalculatorRoute
   ShippingEstimateDisclaimerRoute: typeof ShippingEstimateDisclaimerRoute
+  ShippingToKosovoRoute: typeof ShippingToKosovoRoute
+  ShippingToMontenegroRoute: typeof ShippingToMontenegroRoute
+  ShippingToNorthMacedoniaRoute: typeof ShippingToNorthMacedoniaRoute
+  ShippingToSloveniaRoute: typeof ShippingToSloveniaRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StorageCoordinationRoute: typeof StorageCoordinationRoute
+  T1TransitRoute: typeof T1TransitRoute
   TermsRoute: typeof TermsRoute
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
+  VehicleSourcingRoute: typeof VehicleSourcingRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AirfreightAmsterdamSchipholRoute: typeof AirfreightAmsterdamSchipholRoute
+  AirfreightFrankfurtRoute: typeof AirfreightFrankfurtRoute
+  AirfreightLeipzigHalleRoute: typeof AirfreightLeipzigHalleRoute
+  AirfreightMilanMalpensaRoute: typeof AirfreightMilanMalpensaRoute
   AlAnkandeAmerikaneRoute: typeof AlAnkandeAmerikaneRoute
   AlAutomjeteTeDorezuaraRoute: typeof AlAutomjeteTeDorezuaraRoute
+  AlBlerjeNgaTregtaretRoute: typeof AlBlerjeNgaTregtaretRoute
+  AlCarnetDePassageRoute: typeof AlCarnetDePassageRoute
   AlCopartShqiperiRoute: typeof AlCopartShqiperiRoute
+  AlDorezimNeAdreseRoute: typeof AlDorezimNeAdreseRoute
   AlEncarShqiperiRoute: typeof AlEncarShqiperiRoute
+  AlGjetjeAutomjetiRoute: typeof AlGjetjeAutomjetiRoute
   AlHistorikuIAutomjetitRoute: typeof AlHistorikuIAutomjetitRoute
   AlIaaiShqiperiRoute: typeof AlIaaiShqiperiRoute
+  AlImportMakinashNeAustriRoute: typeof AlImportMakinashNeAustriRoute
+  AlImportMakinashNeBelgjikeRoute: typeof AlImportMakinashNeBelgjikeRoute
+  AlImportMakinashNeCekiRoute: typeof AlImportMakinashNeCekiRoute
+  AlImportMakinashNeFranceRoute: typeof AlImportMakinashNeFranceRoute
+  AlImportMakinashNeGjermaniRoute: typeof AlImportMakinashNeGjermaniRoute
+  AlImportMakinashNeHolandeRoute: typeof AlImportMakinashNeHolandeRoute
+  AlImportMakinashNeItaliRoute: typeof AlImportMakinashNeItaliRoute
+  AlImportMakinashNePoloniRoute: typeof AlImportMakinashNePoloniRoute
+  AlImportMakinashNeRumaniRoute: typeof AlImportMakinashNeRumaniRoute
+  AlImportMakinashNeSpanjeRoute: typeof AlImportMakinashNeSpanjeRoute
+  AlImportMakinashNeZvicerRoute: typeof AlImportMakinashNeZvicerRoute
   AlInspektimMakinashRoute: typeof AlInspektimMakinashRoute
   AlKalkulatorTransportiRoute: typeof AlKalkulatorTransportiRoute
   AlKontaktRoute: typeof AlKontaktRoute
+  AlKoordinimDoganorRoute: typeof AlKoordinimDoganorRoute
+  AlKoordinimRuajtjejeRoute: typeof AlKoordinimRuajtjejeRoute
   AlKushtetEPerllogaritjesRoute: typeof AlKushtetEPerllogaritjesRoute
   AlKushtetESherbimitRoute: typeof AlKushtetESherbimitRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
@@ -1165,9 +2387,19 @@ export interface RootRouteChildren {
   AlRrethNeshRoute: typeof AlRrethNeshRoute
   AlSherbimetRoute: typeof AlSherbimetRoute
   AlSiFunksiononRoute: typeof AlSiFunksiononRoute
+  AlTrajtimNeAeroportRoute: typeof AlTrajtimNeAeroportRoute
+  AlTrajtimNePortRoute: typeof AlTrajtimNePortRoute
   AlTransportAjrorMakinashRoute: typeof AlTransportAjrorMakinashRoute
+  AlTransportMakinashNeHolandeRoute: typeof AlTransportMakinashNeHolandeRoute
+  AlTransportMakinashNeKosoveRoute: typeof AlTransportMakinashNeKosoveRoute
+  AlTransportMakinashNeMalTeZiRoute: typeof AlTransportMakinashNeMalTeZiRoute
+  AlTransportMakinashNeMaqedonineEVeriutRoute: typeof AlTransportMakinashNeMaqedonineEVeriutRoute
+  AlTransportMakinashNeShqiperiRoute: typeof AlTransportMakinashNeShqiperiRoute
+  AlTransportMakinashNeSlloveniRoute: typeof AlTransportMakinashNeSlloveniRoute
   AlTransportMeKontenierRoute: typeof AlTransportMeKontenierRoute
   AlTransportRoroRoute: typeof AlTransportRoroRoute
+  AlTransportTokesorRoute: typeof AlTransportTokesorRoute
+  AlTranzitT1Route: typeof AlTranzitT1Route
   EnAlbaniaRoute: typeof EnAlbaniaRoute
   EnNetherlandsRoute: typeof EnNetherlandsRoute
   GuidesCarImportGlossaryRoute: typeof GuidesCarImportGlossaryRoute
@@ -1181,11 +2413,63 @@ export interface RootRouteChildren {
   GuidesImportingElectricCarsRoute: typeof GuidesImportingElectricCarsRoute
   GuidesImportingLuxuryCarsRoute: typeof GuidesImportingLuxuryCarsRoute
   GuidesVehicleImportDocumentsRoute: typeof GuidesVehicleImportDocumentsRoute
+  LocationsDubaiRoute: typeof LocationsDubaiRoute
+  LocationsDurresRoute: typeof LocationsDurresRoute
+  LocationsElizabethRoute: typeof LocationsElizabethRoute
+  LocationsHoustonRoute: typeof LocationsHoustonRoute
+  LocationsIndianapolisRoute: typeof LocationsIndianapolisRoute
+  LocationsLosAngelesRoute: typeof LocationsLosAngelesRoute
+  LocationsSavannahRoute: typeof LocationsSavannahRoute
+  PortsAlgecirasRoute: typeof PortsAlgecirasRoute
+  PortsAntwerpRoute: typeof PortsAntwerpRoute
+  PortsBarcelonaRoute: typeof PortsBarcelonaRoute
+  PortsBremerhavenRoute: typeof PortsBremerhavenRoute
+  PortsBusanRoute: typeof PortsBusanRoute
+  PortsConstantaRoute: typeof PortsConstantaRoute
+  PortsDurresRoute: typeof PortsDurresRoute
+  PortsGdanskRoute: typeof PortsGdanskRoute
+  PortsGdyniaRoute: typeof PortsGdyniaRoute
+  PortsGenoaRoute: typeof PortsGenoaRoute
+  PortsHamburgRoute: typeof PortsHamburgRoute
+  PortsIncheonRoute: typeof PortsIncheonRoute
+  PortsKoperRoute: typeof PortsKoperRoute
+  PortsLeHavreRoute: typeof PortsLeHavreRoute
+  PortsMarseilleRoute: typeof PortsMarseilleRoute
+  PortsRotterdamRoute: typeof PortsRotterdamRoute
+  PortsValenciaRoute: typeof PortsValenciaRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
+  AlPortetAlgecirasRoute: typeof AlPortetAlgecirasRoute
+  AlPortetAntwerpRoute: typeof AlPortetAntwerpRoute
+  AlPortetBarcelonaRoute: typeof AlPortetBarcelonaRoute
+  AlPortetBremerhavenRoute: typeof AlPortetBremerhavenRoute
+  AlPortetBusanRoute: typeof AlPortetBusanRoute
+  AlPortetConstantaRoute: typeof AlPortetConstantaRoute
+  AlPortetDurresRoute: typeof AlPortetDurresRoute
+  AlPortetGdanskRoute: typeof AlPortetGdanskRoute
+  AlPortetGdyniaRoute: typeof AlPortetGdyniaRoute
+  AlPortetGenoaRoute: typeof AlPortetGenoaRoute
+  AlPortetHamburgRoute: typeof AlPortetHamburgRoute
+  AlPortetIncheonRoute: typeof AlPortetIncheonRoute
+  AlPortetKoperRoute: typeof AlPortetKoperRoute
+  AlPortetLeHavreRoute: typeof AlPortetLeHavreRoute
+  AlPortetMarseilleRoute: typeof AlPortetMarseilleRoute
+  AlPortetRotterdamRoute: typeof AlPortetRotterdamRoute
+  AlPortetValenciaRoute: typeof AlPortetValenciaRoute
+  AlTransportAjrorMakinashAmsterdamSchipholRoute: typeof AlTransportAjrorMakinashAmsterdamSchipholRoute
+  AlTransportAjrorMakinashFrankfurtRoute: typeof AlTransportAjrorMakinashFrankfurtRoute
+  AlTransportAjrorMakinashLeipzigHalleRoute: typeof AlTransportAjrorMakinashLeipzigHalleRoute
+  AlTransportAjrorMakinashMilanMalpensaRoute: typeof AlTransportAjrorMakinashMilanMalpensaRoute
   AlUdhezuesKontenierApoRoroRoute: typeof AlUdhezuesKontenierApoRoroRoute
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute: typeof AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute
   AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute
+  AlVendndodhjetDubaiRoute: typeof AlVendndodhjetDubaiRoute
+  AlVendndodhjetDurresRoute: typeof AlVendndodhjetDurresRoute
+  AlVendndodhjetElizabethRoute: typeof AlVendndodhjetElizabethRoute
+  AlVendndodhjetHoustonRoute: typeof AlVendndodhjetHoustonRoute
+  AlVendndodhjetIndianapolisRoute: typeof AlVendndodhjetIndianapolisRoute
+  AlVendndodhjetLosAngelesRoute: typeof AlVendndodhjetLosAngelesRoute
+  AlVendndodhjetSavannahRoute: typeof AlVendndodhjetSavannahRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
   AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -1214,6 +2498,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AirfreightRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/airport-handling': {
+      id: '/airport-handling'
+      path: '/airport-handling'
+      fullPath: '/airport-handling'
+      preLoaderRoute: typeof AirportHandlingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auction-access': {
       id: '/auction-access'
       path: '/auction-access'
@@ -1226,6 +2517,13 @@ declare module '@tanstack/react-router' {
       path: '/calculator'
       fullPath: '/calculator'
       preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carnet-de-passage': {
+      id: '/carnet-de-passage'
+      path: '/carnet-de-passage'
+      fullPath: '/carnet-de-passage'
+      preLoaderRoute: typeof CarnetDePassageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1249,6 +2547,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customs-coordination': {
+      id: '/customs-coordination'
+      path: '/customs-coordination'
+      fullPath: '/customs-coordination'
+      preLoaderRoute: typeof CustomsCoordinationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dealer-purchasing': {
+      id: '/dealer-purchasing'
+      path: '/dealer-purchasing'
+      fullPath: '/dealer-purchasing'
+      preLoaderRoute: typeof DealerPurchasingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/delivered-vehicles': {
       id: '/delivered-vehicles'
       path: '/delivered-vehicles'
@@ -1261,6 +2573,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/final-mile-delivery': {
+      id: '/final-mile-delivery'
+      path: '/final-mile-delivery'
+      fullPath: '/final-mile-delivery'
+      preLoaderRoute: typeof FinalMileDeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -1382,11 +2701,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportUsaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/inland-transport': {
+      id: '/inland-transport'
+      path: '/inland-transport'
+      fullPath: '/inland-transport'
+      preLoaderRoute: typeof InlandTransportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/inspection-service': {
       id: '/inspection-service'
       path: '/inspection-service'
       fullPath: '/inspection-service'
       preLoaderRoute: typeof InspectionServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/port-handling': {
+      id: '/port-handling'
+      path: '/port-handling'
+      fullPath: '/port-handling'
+      preLoaderRoute: typeof PortHandlingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -1431,11 +2764,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShippingEstimateDisclaimerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shipping-to-kosovo': {
+      id: '/shipping-to-kosovo'
+      path: '/shipping-to-kosovo'
+      fullPath: '/shipping-to-kosovo'
+      preLoaderRoute: typeof ShippingToKosovoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-to-montenegro': {
+      id: '/shipping-to-montenegro'
+      path: '/shipping-to-montenegro'
+      fullPath: '/shipping-to-montenegro'
+      preLoaderRoute: typeof ShippingToMontenegroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-to-north-macedonia': {
+      id: '/shipping-to-north-macedonia'
+      path: '/shipping-to-north-macedonia'
+      fullPath: '/shipping-to-north-macedonia'
+      preLoaderRoute: typeof ShippingToNorthMacedoniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-to-slovenia': {
+      id: '/shipping-to-slovenia'
+      path: '/shipping-to-slovenia'
+      fullPath: '/shipping-to-slovenia'
+      preLoaderRoute: typeof ShippingToSloveniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storage-coordination': {
+      id: '/storage-coordination'
+      path: '/storage-coordination'
+      fullPath: '/storage-coordination'
+      preLoaderRoute: typeof StorageCoordinationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/t1-transit': {
+      id: '/t1-transit'
+      path: '/t1-transit'
+      fullPath: '/t1-transit'
+      preLoaderRoute: typeof T1TransitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -1450,6 +2825,13 @@ declare module '@tanstack/react-router' {
       path: '/vehicle-history-check'
       fullPath: '/vehicle-history-check'
       preLoaderRoute: typeof VehicleHistoryCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicle-sourcing': {
+      id: '/vehicle-sourcing'
+      path: '/vehicle-sourcing'
+      fullPath: '/vehicle-sourcing'
+      preLoaderRoute: typeof VehicleSourcingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/why-alpha-worldwide': {
@@ -1473,6 +2855,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/airfreight_/amsterdam-schiphol': {
+      id: '/airfreight_/amsterdam-schiphol'
+      path: '/airfreight/amsterdam-schiphol'
+      fullPath: '/airfreight/amsterdam-schiphol'
+      preLoaderRoute: typeof AirfreightAmsterdamSchipholRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/frankfurt': {
+      id: '/airfreight_/frankfurt'
+      path: '/airfreight/frankfurt'
+      fullPath: '/airfreight/frankfurt'
+      preLoaderRoute: typeof AirfreightFrankfurtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/leipzig-halle': {
+      id: '/airfreight_/leipzig-halle'
+      path: '/airfreight/leipzig-halle'
+      fullPath: '/airfreight/leipzig-halle'
+      preLoaderRoute: typeof AirfreightLeipzigHalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfreight_/milan-malpensa': {
+      id: '/airfreight_/milan-malpensa'
+      path: '/airfreight/milan-malpensa'
+      fullPath: '/airfreight/milan-malpensa'
+      preLoaderRoute: typeof AirfreightMilanMalpensaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/': {
       id: '/al/'
       path: '/al'
@@ -1494,6 +2904,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlAutomjeteTeDorezuaraRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/blerje-nga-tregtaret': {
+      id: '/al/blerje-nga-tregtaret'
+      path: '/al/blerje-nga-tregtaret'
+      fullPath: '/al/blerje-nga-tregtaret'
+      preLoaderRoute: typeof AlBlerjeNgaTregtaretRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/carnet-de-passage': {
+      id: '/al/carnet-de-passage'
+      path: '/al/carnet-de-passage'
+      fullPath: '/al/carnet-de-passage'
+      preLoaderRoute: typeof AlCarnetDePassageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/copart-shqiperi': {
       id: '/al/copart-shqiperi'
       path: '/al/copart-shqiperi'
@@ -1501,11 +2925,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlCopartShqiperiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/dorezim-ne-adrese': {
+      id: '/al/dorezim-ne-adrese'
+      path: '/al/dorezim-ne-adrese'
+      fullPath: '/al/dorezim-ne-adrese'
+      preLoaderRoute: typeof AlDorezimNeAdreseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/encar-shqiperi': {
       id: '/al/encar-shqiperi'
       path: '/al/encar-shqiperi'
       fullPath: '/al/encar-shqiperi'
       preLoaderRoute: typeof AlEncarShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/gjetje-automjeti': {
+      id: '/al/gjetje-automjeti'
+      path: '/al/gjetje-automjeti'
+      fullPath: '/al/gjetje-automjeti'
+      preLoaderRoute: typeof AlGjetjeAutomjetiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/historiku-i-automjetit': {
@@ -1520,6 +2958,83 @@ declare module '@tanstack/react-router' {
       path: '/al/iaai-shqiperi'
       fullPath: '/al/iaai-shqiperi'
       preLoaderRoute: typeof AlIaaiShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-austri': {
+      id: '/al/import-makinash-ne-austri'
+      path: '/al/import-makinash-ne-austri'
+      fullPath: '/al/import-makinash-ne-austri'
+      preLoaderRoute: typeof AlImportMakinashNeAustriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-belgjike': {
+      id: '/al/import-makinash-ne-belgjike'
+      path: '/al/import-makinash-ne-belgjike'
+      fullPath: '/al/import-makinash-ne-belgjike'
+      preLoaderRoute: typeof AlImportMakinashNeBelgjikeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-ceki': {
+      id: '/al/import-makinash-ne-ceki'
+      path: '/al/import-makinash-ne-ceki'
+      fullPath: '/al/import-makinash-ne-ceki'
+      preLoaderRoute: typeof AlImportMakinashNeCekiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-france': {
+      id: '/al/import-makinash-ne-france'
+      path: '/al/import-makinash-ne-france'
+      fullPath: '/al/import-makinash-ne-france'
+      preLoaderRoute: typeof AlImportMakinashNeFranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-gjermani': {
+      id: '/al/import-makinash-ne-gjermani'
+      path: '/al/import-makinash-ne-gjermani'
+      fullPath: '/al/import-makinash-ne-gjermani'
+      preLoaderRoute: typeof AlImportMakinashNeGjermaniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-holande': {
+      id: '/al/import-makinash-ne-holande'
+      path: '/al/import-makinash-ne-holande'
+      fullPath: '/al/import-makinash-ne-holande'
+      preLoaderRoute: typeof AlImportMakinashNeHolandeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-itali': {
+      id: '/al/import-makinash-ne-itali'
+      path: '/al/import-makinash-ne-itali'
+      fullPath: '/al/import-makinash-ne-itali'
+      preLoaderRoute: typeof AlImportMakinashNeItaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-poloni': {
+      id: '/al/import-makinash-ne-poloni'
+      path: '/al/import-makinash-ne-poloni'
+      fullPath: '/al/import-makinash-ne-poloni'
+      preLoaderRoute: typeof AlImportMakinashNePoloniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-rumani': {
+      id: '/al/import-makinash-ne-rumani'
+      path: '/al/import-makinash-ne-rumani'
+      fullPath: '/al/import-makinash-ne-rumani'
+      preLoaderRoute: typeof AlImportMakinashNeRumaniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-spanje': {
+      id: '/al/import-makinash-ne-spanje'
+      path: '/al/import-makinash-ne-spanje'
+      fullPath: '/al/import-makinash-ne-spanje'
+      preLoaderRoute: typeof AlImportMakinashNeSpanjeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/import-makinash-ne-zvicer': {
+      id: '/al/import-makinash-ne-zvicer'
+      path: '/al/import-makinash-ne-zvicer'
+      fullPath: '/al/import-makinash-ne-zvicer'
+      preLoaderRoute: typeof AlImportMakinashNeZvicerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/inspektim-makinash': {
@@ -1541,6 +3056,20 @@ declare module '@tanstack/react-router' {
       path: '/al/kontakt'
       fullPath: '/al/kontakt'
       preLoaderRoute: typeof AlKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/koordinim-doganor': {
+      id: '/al/koordinim-doganor'
+      path: '/al/koordinim-doganor'
+      fullPath: '/al/koordinim-doganor'
+      preLoaderRoute: typeof AlKoordinimDoganorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/koordinim-ruajtjeje': {
+      id: '/al/koordinim-ruajtjeje'
+      path: '/al/koordinim-ruajtjeje'
+      fullPath: '/al/koordinim-ruajtjeje'
+      preLoaderRoute: typeof AlKoordinimRuajtjejeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/kushtet-e-perllogaritjes': {
@@ -1648,11 +3177,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlSiFunksiononRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/trajtim-ne-aeroport': {
+      id: '/al/trajtim-ne-aeroport'
+      path: '/al/trajtim-ne-aeroport'
+      fullPath: '/al/trajtim-ne-aeroport'
+      preLoaderRoute: typeof AlTrajtimNeAeroportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/trajtim-ne-port': {
+      id: '/al/trajtim-ne-port'
+      path: '/al/trajtim-ne-port'
+      fullPath: '/al/trajtim-ne-port'
+      preLoaderRoute: typeof AlTrajtimNePortRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/transport-ajror-makinash': {
       id: '/al/transport-ajror-makinash'
       path: '/al/transport-ajror-makinash'
       fullPath: '/al/transport-ajror-makinash'
       preLoaderRoute: typeof AlTransportAjrorMakinashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-holande': {
+      id: '/al/transport-makinash-ne-holande'
+      path: '/al/transport-makinash-ne-holande'
+      fullPath: '/al/transport-makinash-ne-holande'
+      preLoaderRoute: typeof AlTransportMakinashNeHolandeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-kosove': {
+      id: '/al/transport-makinash-ne-kosove'
+      path: '/al/transport-makinash-ne-kosove'
+      fullPath: '/al/transport-makinash-ne-kosove'
+      preLoaderRoute: typeof AlTransportMakinashNeKosoveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-mal-te-zi': {
+      id: '/al/transport-makinash-ne-mal-te-zi'
+      path: '/al/transport-makinash-ne-mal-te-zi'
+      fullPath: '/al/transport-makinash-ne-mal-te-zi'
+      preLoaderRoute: typeof AlTransportMakinashNeMalTeZiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-maqedonine-e-veriut': {
+      id: '/al/transport-makinash-ne-maqedonine-e-veriut'
+      path: '/al/transport-makinash-ne-maqedonine-e-veriut'
+      fullPath: '/al/transport-makinash-ne-maqedonine-e-veriut'
+      preLoaderRoute: typeof AlTransportMakinashNeMaqedonineEVeriutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-shqiperi': {
+      id: '/al/transport-makinash-ne-shqiperi'
+      path: '/al/transport-makinash-ne-shqiperi'
+      fullPath: '/al/transport-makinash-ne-shqiperi'
+      preLoaderRoute: typeof AlTransportMakinashNeShqiperiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-makinash-ne-slloveni': {
+      id: '/al/transport-makinash-ne-slloveni'
+      path: '/al/transport-makinash-ne-slloveni'
+      fullPath: '/al/transport-makinash-ne-slloveni'
+      preLoaderRoute: typeof AlTransportMakinashNeSlloveniRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/al/transport-me-kontenier': {
@@ -1667,6 +3252,20 @@ declare module '@tanstack/react-router' {
       path: '/al/transport-roro'
       fullPath: '/al/transport-roro'
       preLoaderRoute: typeof AlTransportRoroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-tokesor': {
+      id: '/al/transport-tokesor'
+      path: '/al/transport-tokesor'
+      fullPath: '/al/transport-tokesor'
+      preLoaderRoute: typeof AlTransportTokesorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/tranzit-t1': {
+      id: '/al/tranzit-t1'
+      path: '/al/tranzit-t1'
+      fullPath: '/al/tranzit-t1'
+      preLoaderRoute: typeof AlTranzitT1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/albania': {
@@ -1767,6 +3366,321 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesVehicleImportDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/dubai': {
+      id: '/locations/dubai'
+      path: '/locations/dubai'
+      fullPath: '/locations/dubai'
+      preLoaderRoute: typeof LocationsDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/durres': {
+      id: '/locations/durres'
+      path: '/locations/durres'
+      fullPath: '/locations/durres'
+      preLoaderRoute: typeof LocationsDurresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/elizabeth': {
+      id: '/locations/elizabeth'
+      path: '/locations/elizabeth'
+      fullPath: '/locations/elizabeth'
+      preLoaderRoute: typeof LocationsElizabethRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/houston': {
+      id: '/locations/houston'
+      path: '/locations/houston'
+      fullPath: '/locations/houston'
+      preLoaderRoute: typeof LocationsHoustonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/indianapolis': {
+      id: '/locations/indianapolis'
+      path: '/locations/indianapolis'
+      fullPath: '/locations/indianapolis'
+      preLoaderRoute: typeof LocationsIndianapolisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/los-angeles': {
+      id: '/locations/los-angeles'
+      path: '/locations/los-angeles'
+      fullPath: '/locations/los-angeles'
+      preLoaderRoute: typeof LocationsLosAngelesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/savannah': {
+      id: '/locations/savannah'
+      path: '/locations/savannah'
+      fullPath: '/locations/savannah'
+      preLoaderRoute: typeof LocationsSavannahRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/algeciras': {
+      id: '/ports/algeciras'
+      path: '/ports/algeciras'
+      fullPath: '/ports/algeciras'
+      preLoaderRoute: typeof PortsAlgecirasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/antwerp': {
+      id: '/ports/antwerp'
+      path: '/ports/antwerp'
+      fullPath: '/ports/antwerp'
+      preLoaderRoute: typeof PortsAntwerpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/barcelona': {
+      id: '/ports/barcelona'
+      path: '/ports/barcelona'
+      fullPath: '/ports/barcelona'
+      preLoaderRoute: typeof PortsBarcelonaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/bremerhaven': {
+      id: '/ports/bremerhaven'
+      path: '/ports/bremerhaven'
+      fullPath: '/ports/bremerhaven'
+      preLoaderRoute: typeof PortsBremerhavenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/busan': {
+      id: '/ports/busan'
+      path: '/ports/busan'
+      fullPath: '/ports/busan'
+      preLoaderRoute: typeof PortsBusanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/constanta': {
+      id: '/ports/constanta'
+      path: '/ports/constanta'
+      fullPath: '/ports/constanta'
+      preLoaderRoute: typeof PortsConstantaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/durres': {
+      id: '/ports/durres'
+      path: '/ports/durres'
+      fullPath: '/ports/durres'
+      preLoaderRoute: typeof PortsDurresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/gdansk': {
+      id: '/ports/gdansk'
+      path: '/ports/gdansk'
+      fullPath: '/ports/gdansk'
+      preLoaderRoute: typeof PortsGdanskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/gdynia': {
+      id: '/ports/gdynia'
+      path: '/ports/gdynia'
+      fullPath: '/ports/gdynia'
+      preLoaderRoute: typeof PortsGdyniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/genoa': {
+      id: '/ports/genoa'
+      path: '/ports/genoa'
+      fullPath: '/ports/genoa'
+      preLoaderRoute: typeof PortsGenoaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/hamburg': {
+      id: '/ports/hamburg'
+      path: '/ports/hamburg'
+      fullPath: '/ports/hamburg'
+      preLoaderRoute: typeof PortsHamburgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/incheon': {
+      id: '/ports/incheon'
+      path: '/ports/incheon'
+      fullPath: '/ports/incheon'
+      preLoaderRoute: typeof PortsIncheonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/koper': {
+      id: '/ports/koper'
+      path: '/ports/koper'
+      fullPath: '/ports/koper'
+      preLoaderRoute: typeof PortsKoperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/le-havre': {
+      id: '/ports/le-havre'
+      path: '/ports/le-havre'
+      fullPath: '/ports/le-havre'
+      preLoaderRoute: typeof PortsLeHavreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/marseille': {
+      id: '/ports/marseille'
+      path: '/ports/marseille'
+      fullPath: '/ports/marseille'
+      preLoaderRoute: typeof PortsMarseilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/rotterdam': {
+      id: '/ports/rotterdam'
+      path: '/ports/rotterdam'
+      fullPath: '/ports/rotterdam'
+      preLoaderRoute: typeof PortsRotterdamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports/valencia': {
+      id: '/ports/valencia'
+      path: '/ports/valencia'
+      fullPath: '/ports/valencia'
+      preLoaderRoute: typeof PortsValenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/algeciras': {
+      id: '/al/portet/algeciras'
+      path: '/al/portet/algeciras'
+      fullPath: '/al/portet/algeciras'
+      preLoaderRoute: typeof AlPortetAlgecirasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/antwerp': {
+      id: '/al/portet/antwerp'
+      path: '/al/portet/antwerp'
+      fullPath: '/al/portet/antwerp'
+      preLoaderRoute: typeof AlPortetAntwerpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/barcelona': {
+      id: '/al/portet/barcelona'
+      path: '/al/portet/barcelona'
+      fullPath: '/al/portet/barcelona'
+      preLoaderRoute: typeof AlPortetBarcelonaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/bremerhaven': {
+      id: '/al/portet/bremerhaven'
+      path: '/al/portet/bremerhaven'
+      fullPath: '/al/portet/bremerhaven'
+      preLoaderRoute: typeof AlPortetBremerhavenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/busan': {
+      id: '/al/portet/busan'
+      path: '/al/portet/busan'
+      fullPath: '/al/portet/busan'
+      preLoaderRoute: typeof AlPortetBusanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/constanta': {
+      id: '/al/portet/constanta'
+      path: '/al/portet/constanta'
+      fullPath: '/al/portet/constanta'
+      preLoaderRoute: typeof AlPortetConstantaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/durres': {
+      id: '/al/portet/durres'
+      path: '/al/portet/durres'
+      fullPath: '/al/portet/durres'
+      preLoaderRoute: typeof AlPortetDurresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/gdansk': {
+      id: '/al/portet/gdansk'
+      path: '/al/portet/gdansk'
+      fullPath: '/al/portet/gdansk'
+      preLoaderRoute: typeof AlPortetGdanskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/gdynia': {
+      id: '/al/portet/gdynia'
+      path: '/al/portet/gdynia'
+      fullPath: '/al/portet/gdynia'
+      preLoaderRoute: typeof AlPortetGdyniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/genoa': {
+      id: '/al/portet/genoa'
+      path: '/al/portet/genoa'
+      fullPath: '/al/portet/genoa'
+      preLoaderRoute: typeof AlPortetGenoaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/hamburg': {
+      id: '/al/portet/hamburg'
+      path: '/al/portet/hamburg'
+      fullPath: '/al/portet/hamburg'
+      preLoaderRoute: typeof AlPortetHamburgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/incheon': {
+      id: '/al/portet/incheon'
+      path: '/al/portet/incheon'
+      fullPath: '/al/portet/incheon'
+      preLoaderRoute: typeof AlPortetIncheonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/koper': {
+      id: '/al/portet/koper'
+      path: '/al/portet/koper'
+      fullPath: '/al/portet/koper'
+      preLoaderRoute: typeof AlPortetKoperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/le-havre': {
+      id: '/al/portet/le-havre'
+      path: '/al/portet/le-havre'
+      fullPath: '/al/portet/le-havre'
+      preLoaderRoute: typeof AlPortetLeHavreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/marseille': {
+      id: '/al/portet/marseille'
+      path: '/al/portet/marseille'
+      fullPath: '/al/portet/marseille'
+      preLoaderRoute: typeof AlPortetMarseilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/rotterdam': {
+      id: '/al/portet/rotterdam'
+      path: '/al/portet/rotterdam'
+      fullPath: '/al/portet/rotterdam'
+      preLoaderRoute: typeof AlPortetRotterdamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/portet/valencia': {
+      id: '/al/portet/valencia'
+      path: '/al/portet/valencia'
+      fullPath: '/al/portet/valencia'
+      preLoaderRoute: typeof AlPortetValenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/amsterdam-schiphol': {
+      id: '/al/transport-ajror-makinash_/amsterdam-schiphol'
+      path: '/al/transport-ajror-makinash/amsterdam-schiphol'
+      fullPath: '/al/transport-ajror-makinash/amsterdam-schiphol'
+      preLoaderRoute: typeof AlTransportAjrorMakinashAmsterdamSchipholRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/frankfurt': {
+      id: '/al/transport-ajror-makinash_/frankfurt'
+      path: '/al/transport-ajror-makinash/frankfurt'
+      fullPath: '/al/transport-ajror-makinash/frankfurt'
+      preLoaderRoute: typeof AlTransportAjrorMakinashFrankfurtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/leipzig-halle': {
+      id: '/al/transport-ajror-makinash_/leipzig-halle'
+      path: '/al/transport-ajror-makinash/leipzig-halle'
+      fullPath: '/al/transport-ajror-makinash/leipzig-halle'
+      preLoaderRoute: typeof AlTransportAjrorMakinashLeipzigHalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/transport-ajror-makinash_/milan-malpensa': {
+      id: '/al/transport-ajror-makinash_/milan-malpensa'
+      path: '/al/transport-ajror-makinash/milan-malpensa'
+      fullPath: '/al/transport-ajror-makinash/milan-malpensa'
+      preLoaderRoute: typeof AlTransportAjrorMakinashMilanMalpensaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/al/udhezues/': {
       id: '/al/udhezues/'
       path: '/al/udhezues'
@@ -1795,6 +3709,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlUdhezuesSiTeKontrolloniMakinenEPerdorurRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/al/vendndodhjet/dubai': {
+      id: '/al/vendndodhjet/dubai'
+      path: '/al/vendndodhjet/dubai'
+      fullPath: '/al/vendndodhjet/dubai'
+      preLoaderRoute: typeof AlVendndodhjetDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/durres': {
+      id: '/al/vendndodhjet/durres'
+      path: '/al/vendndodhjet/durres'
+      fullPath: '/al/vendndodhjet/durres'
+      preLoaderRoute: typeof AlVendndodhjetDurresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/elizabeth': {
+      id: '/al/vendndodhjet/elizabeth'
+      path: '/al/vendndodhjet/elizabeth'
+      fullPath: '/al/vendndodhjet/elizabeth'
+      preLoaderRoute: typeof AlVendndodhjetElizabethRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/houston': {
+      id: '/al/vendndodhjet/houston'
+      path: '/al/vendndodhjet/houston'
+      fullPath: '/al/vendndodhjet/houston'
+      preLoaderRoute: typeof AlVendndodhjetHoustonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/indianapolis': {
+      id: '/al/vendndodhjet/indianapolis'
+      path: '/al/vendndodhjet/indianapolis'
+      fullPath: '/al/vendndodhjet/indianapolis'
+      preLoaderRoute: typeof AlVendndodhjetIndianapolisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/los-angeles': {
+      id: '/al/vendndodhjet/los-angeles'
+      path: '/al/vendndodhjet/los-angeles'
+      fullPath: '/al/vendndodhjet/los-angeles'
+      preLoaderRoute: typeof AlVendndodhjetLosAngelesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/al/vendndodhjet/savannah': {
+      id: '/al/vendndodhjet/savannah'
+      path: '/al/vendndodhjet/savannah'
+      fullPath: '/al/vendndodhjet/savannah'
+      preLoaderRoute: typeof AlVendndodhjetSavannahRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -1816,13 +3779,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AirfreightRoute: AirfreightRoute,
+  AirportHandlingRoute: AirportHandlingRoute,
   AuctionAccessRoute: AuctionAccessRoute,
   CalculatorRoute: CalculatorRoute,
+  CarnetDePassageRoute: CarnetDePassageRoute,
   ContactRoute: ContactRoute,
   ContainerShippingRoute: ContainerShippingRoute,
   CookiePolicyRoute: CookiePolicyRoute,
+  CustomsCoordinationRoute: CustomsCoordinationRoute,
+  DealerPurchasingRoute: DealerPurchasingRoute,
   DeliveredVehiclesRoute: DeliveredVehiclesRoute,
   FaqRoute: FaqRoute,
+  FinalMileDeliveryRoute: FinalMileDeliveryRoute,
   HowItWorksRoute: HowItWorksRoute,
   ImportAustriaRoute: ImportAustriaRoute,
   ImportBelgiumRoute: ImportBelgiumRoute,
@@ -1840,28 +3808,58 @@ const rootRouteChildren: RootRouteChildren = {
   ImportSwitzerlandRoute: ImportSwitzerlandRoute,
   ImportUaeRoute: ImportUaeRoute,
   ImportUsaRoute: ImportUsaRoute,
+  InlandTransportRoute: InlandTransportRoute,
   InspectionServiceRoute: InspectionServiceRoute,
+  PortHandlingRoute: PortHandlingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReviewsRoute: ReviewsRoute,
   RoroShippingRoute: RoroShippingRoute,
   ServicesRoute: ServicesRoute,
   ShippingCalculatorRoute: ShippingCalculatorRoute,
   ShippingEstimateDisclaimerRoute: ShippingEstimateDisclaimerRoute,
+  ShippingToKosovoRoute: ShippingToKosovoRoute,
+  ShippingToMontenegroRoute: ShippingToMontenegroRoute,
+  ShippingToNorthMacedoniaRoute: ShippingToNorthMacedoniaRoute,
+  ShippingToSloveniaRoute: ShippingToSloveniaRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StorageCoordinationRoute: StorageCoordinationRoute,
+  T1TransitRoute: T1TransitRoute,
   TermsRoute: TermsRoute,
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
+  VehicleSourcingRoute: VehicleSourcingRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AirfreightAmsterdamSchipholRoute: AirfreightAmsterdamSchipholRoute,
+  AirfreightFrankfurtRoute: AirfreightFrankfurtRoute,
+  AirfreightLeipzigHalleRoute: AirfreightLeipzigHalleRoute,
+  AirfreightMilanMalpensaRoute: AirfreightMilanMalpensaRoute,
   AlAnkandeAmerikaneRoute: AlAnkandeAmerikaneRoute,
   AlAutomjeteTeDorezuaraRoute: AlAutomjeteTeDorezuaraRoute,
+  AlBlerjeNgaTregtaretRoute: AlBlerjeNgaTregtaretRoute,
+  AlCarnetDePassageRoute: AlCarnetDePassageRoute,
   AlCopartShqiperiRoute: AlCopartShqiperiRoute,
+  AlDorezimNeAdreseRoute: AlDorezimNeAdreseRoute,
   AlEncarShqiperiRoute: AlEncarShqiperiRoute,
+  AlGjetjeAutomjetiRoute: AlGjetjeAutomjetiRoute,
   AlHistorikuIAutomjetitRoute: AlHistorikuIAutomjetitRoute,
   AlIaaiShqiperiRoute: AlIaaiShqiperiRoute,
+  AlImportMakinashNeAustriRoute: AlImportMakinashNeAustriRoute,
+  AlImportMakinashNeBelgjikeRoute: AlImportMakinashNeBelgjikeRoute,
+  AlImportMakinashNeCekiRoute: AlImportMakinashNeCekiRoute,
+  AlImportMakinashNeFranceRoute: AlImportMakinashNeFranceRoute,
+  AlImportMakinashNeGjermaniRoute: AlImportMakinashNeGjermaniRoute,
+  AlImportMakinashNeHolandeRoute: AlImportMakinashNeHolandeRoute,
+  AlImportMakinashNeItaliRoute: AlImportMakinashNeItaliRoute,
+  AlImportMakinashNePoloniRoute: AlImportMakinashNePoloniRoute,
+  AlImportMakinashNeRumaniRoute: AlImportMakinashNeRumaniRoute,
+  AlImportMakinashNeSpanjeRoute: AlImportMakinashNeSpanjeRoute,
+  AlImportMakinashNeZvicerRoute: AlImportMakinashNeZvicerRoute,
   AlInspektimMakinashRoute: AlInspektimMakinashRoute,
   AlKalkulatorTransportiRoute: AlKalkulatorTransportiRoute,
   AlKontaktRoute: AlKontaktRoute,
+  AlKoordinimDoganorRoute: AlKoordinimDoganorRoute,
+  AlKoordinimRuajtjejeRoute: AlKoordinimRuajtjejeRoute,
   AlKushtetEPerllogaritjesRoute: AlKushtetEPerllogaritjesRoute,
   AlKushtetESherbimitRoute: AlKushtetESherbimitRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
@@ -1877,9 +3875,20 @@ const rootRouteChildren: RootRouteChildren = {
   AlRrethNeshRoute: AlRrethNeshRoute,
   AlSherbimetRoute: AlSherbimetRoute,
   AlSiFunksiononRoute: AlSiFunksiononRoute,
+  AlTrajtimNeAeroportRoute: AlTrajtimNeAeroportRoute,
+  AlTrajtimNePortRoute: AlTrajtimNePortRoute,
   AlTransportAjrorMakinashRoute: AlTransportAjrorMakinashRoute,
+  AlTransportMakinashNeHolandeRoute: AlTransportMakinashNeHolandeRoute,
+  AlTransportMakinashNeKosoveRoute: AlTransportMakinashNeKosoveRoute,
+  AlTransportMakinashNeMalTeZiRoute: AlTransportMakinashNeMalTeZiRoute,
+  AlTransportMakinashNeMaqedonineEVeriutRoute:
+    AlTransportMakinashNeMaqedonineEVeriutRoute,
+  AlTransportMakinashNeShqiperiRoute: AlTransportMakinashNeShqiperiRoute,
+  AlTransportMakinashNeSlloveniRoute: AlTransportMakinashNeSlloveniRoute,
   AlTransportMeKontenierRoute: AlTransportMeKontenierRoute,
   AlTransportRoroRoute: AlTransportRoroRoute,
+  AlTransportTokesorRoute: AlTransportTokesorRoute,
+  AlTranzitT1Route: AlTranzitT1Route,
   EnAlbaniaRoute: EnAlbaniaRoute,
   EnNetherlandsRoute: EnNetherlandsRoute,
   GuidesCarImportGlossaryRoute: GuidesCarImportGlossaryRoute,
@@ -1895,13 +3904,69 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesImportingElectricCarsRoute: GuidesImportingElectricCarsRoute,
   GuidesImportingLuxuryCarsRoute: GuidesImportingLuxuryCarsRoute,
   GuidesVehicleImportDocumentsRoute: GuidesVehicleImportDocumentsRoute,
+  LocationsDubaiRoute: LocationsDubaiRoute,
+  LocationsDurresRoute: LocationsDurresRoute,
+  LocationsElizabethRoute: LocationsElizabethRoute,
+  LocationsHoustonRoute: LocationsHoustonRoute,
+  LocationsIndianapolisRoute: LocationsIndianapolisRoute,
+  LocationsLosAngelesRoute: LocationsLosAngelesRoute,
+  LocationsSavannahRoute: LocationsSavannahRoute,
+  PortsAlgecirasRoute: PortsAlgecirasRoute,
+  PortsAntwerpRoute: PortsAntwerpRoute,
+  PortsBarcelonaRoute: PortsBarcelonaRoute,
+  PortsBremerhavenRoute: PortsBremerhavenRoute,
+  PortsBusanRoute: PortsBusanRoute,
+  PortsConstantaRoute: PortsConstantaRoute,
+  PortsDurresRoute: PortsDurresRoute,
+  PortsGdanskRoute: PortsGdanskRoute,
+  PortsGdyniaRoute: PortsGdyniaRoute,
+  PortsGenoaRoute: PortsGenoaRoute,
+  PortsHamburgRoute: PortsHamburgRoute,
+  PortsIncheonRoute: PortsIncheonRoute,
+  PortsKoperRoute: PortsKoperRoute,
+  PortsLeHavreRoute: PortsLeHavreRoute,
+  PortsMarseilleRoute: PortsMarseilleRoute,
+  PortsRotterdamRoute: PortsRotterdamRoute,
+  PortsValenciaRoute: PortsValenciaRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
+  AlPortetAlgecirasRoute: AlPortetAlgecirasRoute,
+  AlPortetAntwerpRoute: AlPortetAntwerpRoute,
+  AlPortetBarcelonaRoute: AlPortetBarcelonaRoute,
+  AlPortetBremerhavenRoute: AlPortetBremerhavenRoute,
+  AlPortetBusanRoute: AlPortetBusanRoute,
+  AlPortetConstantaRoute: AlPortetConstantaRoute,
+  AlPortetDurresRoute: AlPortetDurresRoute,
+  AlPortetGdanskRoute: AlPortetGdanskRoute,
+  AlPortetGdyniaRoute: AlPortetGdyniaRoute,
+  AlPortetGenoaRoute: AlPortetGenoaRoute,
+  AlPortetHamburgRoute: AlPortetHamburgRoute,
+  AlPortetIncheonRoute: AlPortetIncheonRoute,
+  AlPortetKoperRoute: AlPortetKoperRoute,
+  AlPortetLeHavreRoute: AlPortetLeHavreRoute,
+  AlPortetMarseilleRoute: AlPortetMarseilleRoute,
+  AlPortetRotterdamRoute: AlPortetRotterdamRoute,
+  AlPortetValenciaRoute: AlPortetValenciaRoute,
+  AlTransportAjrorMakinashAmsterdamSchipholRoute:
+    AlTransportAjrorMakinashAmsterdamSchipholRoute,
+  AlTransportAjrorMakinashFrankfurtRoute:
+    AlTransportAjrorMakinashFrankfurtRoute,
+  AlTransportAjrorMakinashLeipzigHalleRoute:
+    AlTransportAjrorMakinashLeipzigHalleRoute,
+  AlTransportAjrorMakinashMilanMalpensaRoute:
+    AlTransportAjrorMakinashMilanMalpensaRoute,
   AlUdhezuesKontenierApoRoroRoute: AlUdhezuesKontenierApoRoroRoute,
   AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute:
     AlUdhezuesSiTeBliniNgaAnkandetAmerikaneRoute,
   AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute:
     AlUdhezuesSiTeKontrolloniMakinenEPerdorurRoute,
+  AlVendndodhjetDubaiRoute: AlVendndodhjetDubaiRoute,
+  AlVendndodhjetDurresRoute: AlVendndodhjetDurresRoute,
+  AlVendndodhjetElizabethRoute: AlVendndodhjetElizabethRoute,
+  AlVendndodhjetHoustonRoute: AlVendndodhjetHoustonRoute,
+  AlVendndodhjetIndianapolisRoute: AlVendndodhjetIndianapolisRoute,
+  AlVendndodhjetLosAngelesRoute: AlVendndodhjetLosAngelesRoute,
+  AlVendndodhjetSavannahRoute: AlVendndodhjetSavannahRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
   AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

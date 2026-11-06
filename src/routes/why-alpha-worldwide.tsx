@@ -6,6 +6,7 @@ import { Globe2, ShieldCheck, Gavel, Package, Plane, Users, Eye, MessageCircle, 
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/why-alpha-worldwide")({
   head: () => {
@@ -52,13 +53,13 @@ const SECTIONS = [
     icon: MapPin,
     title: "Dubai Headquarters",
     body: "Our headquarters in Dubai enables local sourcing coordination in the UAE market, direct seller and dealer communication, and export preparation without delays from working remotely.",
-    cta: { label: "Import from Dubai", to: "/import-uae" },
+    cta: { label: "Dubai operations", to: "/locations/dubai" },
   },
   {
     icon: MapPin,
     title: "Durrës Operations",
     body: "Our European and Albanian operations are based in Durrës, at the country's main port — where we coordinate port handling, customs documentation, and final delivery.",
-    cta: { label: "Contact our Durrës team", to: "/contact" },
+    cta: { label: "Durrës operations", to: "/locations/durres" },
   },
   {
     icon: Gavel,
@@ -115,7 +116,7 @@ function WhyAlphaWorldwide() {
               </div>
               <div>
                 <h2 className="font-display text-2xl font-bold text-navy md:text-3xl">{s.title}</h2>
-                <p className="mt-3 max-w-2xl text-slate-body">{s.body}</p>
+                <p className="mt-3 max-w-2xl text-slate-body"><KeywordText text={s.body} /></p>
                 {s.cta.to === "whatsapp" ? (
                   <a
                     href={whatsappUrl}

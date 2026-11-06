@@ -1,6 +1,12 @@
 # Build recovery
 - [x] Remove incompatible entities aliases; automatic build OK and all 17 existing tests pass; nothing published.
 
+# Airport pages and keyword completeness
+- [x] Repair and complete EN/SQ airfreight hubs without operational changes.
+- [x] Add bilingual airport pages, airport-prefilled enquiries and honest handling status.
+- [x] Audit named locations/services; create 97 missing bilingual pages and wire dedicated links; complete inventory in docs/airfreight-keyword-qa.md.
+- [x] Verify all 180 public pages at 390/1440, airport navigation/prefills, sitemap, 23 tests and automatic build; no publishing.
+
 # Owner email contacts and lead notifications
 - [x] Clickable email alongside WhatsApp in shared header/menu, footer, CTA, homepage enquiry and EN/SQ contact pages.
 - [ ] Server-side notification for every lead; blocked until owner configures sending domain.

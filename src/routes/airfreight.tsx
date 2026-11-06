@@ -8,6 +8,9 @@ import { SITE_URL } from "@/lib/seo";
 import { AirfreightForm } from "@/components/site/AirfreightForm";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { AirportCards } from "@/components/site/AirportCards";
+import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
+import { KeywordText } from "@/components/site/KeywordText";
 
 const POINTS = [
   { icon: Zap, title: "Fastest Transit", body: "Days instead of weeks — the only option when timing matters more than cost." },
@@ -41,13 +44,6 @@ const DOCUMENTATION = [
   "T1 transit support",
   "Carnet de Passage handling",
   "Temporary admission support where applicable",
-];
-
-const AIRPORTS = [
-  { name: "Amsterdam Schiphol", verified: true },
-  { name: "Milan Malpensa", verified: true },
-  { name: "Leipzig/Halle", verified: true },
-  { name: "Frankfurt", verified: false },
 ];
 
 const CLIENT_TYPES = [
@@ -112,7 +108,7 @@ function Airfreight() {
   )}`;
 
   return (
-    <>
+    <div className="airfreight-page">
       <PageHero tone="navy" icon={Plane} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
         <Button asChild><Link to="/contact">Get a Quote</Link></Button>
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp Us</a></Button>
@@ -127,7 +123,7 @@ function Airfreight() {
                   <p.icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-display mt-4 text-lg font-bold text-navy">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-body">{p.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-body"><KeywordText text={p.body} /></p>
               </div>
             ))}
           </div>
@@ -146,7 +142,7 @@ function Airfreight() {
                 <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display mt-4 text-xl font-bold text-navy">{s.title}</h3>
+                <h3 className="font-display mt-4 text-xl font-bold text-navy"><KeywordText text={s.title} /></h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
             ))}
@@ -186,7 +182,7 @@ function Airfreight() {
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {DOCUMENTATION.map((d) => (
-                <li key={d} className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{d}</li>
+                <li key={d} className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={d} /></li>
               ))}
             </ul>
           </div>
@@ -199,20 +195,14 @@ function Airfreight() {
             <div className="eyebrow">Where we handle</div>
             <h2 className="font-display mt-3 text-4xl font-bold text-navy md:text-5xl">Verified Airport Network</h2>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {AIRPORTS.map((a) => (
-              <div key={a.name} className={`rounded-2xl border p-6 text-center shadow-card ${a.verified ? "border-teal/40 bg-card" : "border-dashed border-border bg-mist"}`}>
-                <Plane className={`mx-auto h-6 w-6 ${a.verified ? "text-teal" : "text-navy/40"}`} />
-                <h3 className="font-display mt-3 text-base font-bold text-navy">{a.name}</h3>
-                <p className="mt-1 text-xs text-slate-body">{a.verified ? "Verified handling" : "Available on request"}</p>
-              </div>
-            ))}
-          </div>
+          <AirportCards />
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-body">
             Handling can also be coordinated at other major European cargo airports through Alpha Worldwide's logistics network, subject to confirmation.
           </p>
         </div>
       </section>
+
+      <AirfreightSupplement />
 
       <section className="section-dark">
         <div className="container-page py-16 md:py-20">
@@ -243,7 +233,7 @@ function Airfreight() {
                   {f.q}
                   <span className="text-teal transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p>
               </details>
             ))}
           </div>
@@ -264,6 +254,6 @@ function Airfreight() {
           <AirfreightForm />
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -265,6 +265,7 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 main .shadow-card { border-radius: 12px; background: var(--mist); box-shadow: none; }
 main :is(.section-mist, .bg-mist, .bg-accent) .shadow-card { background: var(--background); }
 .journey-steps { margin-top: 48px; }
+.airfreight-page > section:not(.text-hero) > .container-page { padding-block: 48px; }
 
 /* Final CTA band */
 .cta-band { padding-block: 88px; border-top: 1px solid var(--border); background: var(--background); text-align: center; }
@@ -549,6 +550,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { font-size: clamp(24px,2.4vw,30px
   .alpha-presence-links { padding-left: 0; padding-top: 30px; border-left: 0; border-top: 1px solid var(--border); }
 
   .text-hero-inner { padding-block: 20px 52px; }
+  .airfreight-page > section:not(.text-hero) > .container-page { padding-block: 32px; }
   .text-hero-actions, .cta-band-actions { max-width: none; }
   .cta-band { padding-block: 64px; }
   .related-guides { padding-block: 56px; }

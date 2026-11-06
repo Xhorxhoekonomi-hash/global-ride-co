@@ -6,6 +6,7 @@ import { Globe2, ShieldCheck, Gavel, Package, Plane, Users, Eye, MessageCircle, 
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/al/pse-alpha-worldwide")({
   head: () => {
@@ -42,8 +43,8 @@ export const Route = createFileRoute("/al/pse-alpha-worldwide")({
 const SECTIONS = [
   { icon: Users, title: "Kush jemi", body: "Alpha Worldwide është një kompani ndërkombëtare për gjetje, inspektim dhe logjistikë automjetesh. U ndihmojmë klientëve të blejnë automjete nga ankandet dhe tregtarë të përzgjedhur jashtë vendit dhe menaxhojmë të gjithë procesin deri te dorëzimi — pa pasur nevojë për llogari, adresë apo marrëdhënie bankare në vendin e origjinës.", cta: { label: "Merr një ofertë në WhatsApp", to: "whatsapp" } },
   { icon: Globe2, title: "Operacione globale", body: "Operacionet tona përfshijnë gjetjen e automjeteve në SHBA, Kore të Jugut, EBA, Kanada dhe Evropë, me transport të koordinuar me kontenier, RoRo dhe ajror drejt Shqipërisë dhe në të gjithë Evropën Perëndimore.", cta: { label: "Shihni si funksionon", to: "/al/si-funksionon" } },
-  { icon: MapPin, title: "Selia në Dubai", body: "Selia jonë në Dubai mundëson koordinim vendas të gjetjes në tregun e EBA-së, komunikim direkt me shitësit dhe tregtarët, si dhe përgatitjen e eksportit pa vonesat e punës në distancë.", cta: { label: "Importo nga Dubai", to: "/al/makina-nga-dubai" } },
-  { icon: MapPin, title: "Operacionet në Durrës", body: "Operacionet tona në Evropë dhe Shqipëri janë në Durrës, pranë portit kryesor të vendit — ku koordinojmë trajtimin në port, dokumentet doganore dhe dorëzimin përfundimtar.", cta: { label: "Kontaktoni ekipin në Durrës", to: "/al/kontakt" } },
+  { icon: MapPin, title: "Selia në Dubai", body: "Selia jonë në Dubai mundëson koordinim vendas të gjetjes në tregun e EBA-së, komunikim direkt me shitësit dhe tregtarët, si dhe përgatitjen e eksportit pa vonesat e punës në distancë.", cta: { label: "Operacionet në Dubai", to: "/al/vendndodhjet/dubai" } },
+  { icon: MapPin, title: "Operacionet në Durrës", body: "Operacionet tona në Evropë dhe Shqipëri janë në Durrës, pranë portit kryesor të vendit — ku koordinojmë trajtimin në port, dokumentet doganore dhe dorëzimin përfundimtar.", cta: { label: "Operacionet në Durrës", to: "/al/vendndodhjet/durres" } },
   { icon: Gavel, title: "Ekspertizë në ankande", body: "I asistojmë klientët në blerjen e automjeteve përmes Copart, IAAI, Manheim, ADESA, Encar, Autowini, KB Chachacha dhe tregtarëve të përzgjedhur — pa pretenduar partneritet zyrtar me asnjërën prej këtyre platformave.", cta: { label: "Krahasoni platformat e ankandeve", to: "/al/ankande-amerikane" } },
   { icon: Eye, title: "Procesi i inspektimit", body: "Kur është e mundur operacionalisht, koordinojmë inspektimin para blerjes me foto, video dhe kontrolle teknike. Mundësia e inspektimit varet nga shitësi, ankandi dhe aksesi te automjeti — nuk garantohet kurrë për çdo shpallje.", cta: { label: "Shihni çfarë përfshin inspektimi", to: "/al/inspektim-makinash" } },
   { icon: Package, title: "Logjistikë me kontenier", body: "Organizojmë transport me kontenier të përbashkët ose të dedikuar, me automjetet të siguruara sipas praktikave standarde të ngarkimit për të gjithë udhëtimin detar.", cta: { label: "Detaje për transportin me kontenier", to: "/al/transport-me-kontenier" } },
@@ -69,7 +70,7 @@ function PseAlpha() {
               <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-6 w-6" /></div>
               <div>
                 <h2 className="font-display text-2xl font-bold text-navy md:text-3xl">{s.title}</h2>
-                <p className="mt-3 max-w-2xl text-slate-body">{s.body}</p>
+                <p className="mt-3 max-w-2xl text-slate-body"><KeywordText text={s.body} sq /></p>
                 {s.cta.to === "whatsapp" ? (
                   <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: `why-section-${s.title}` })} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline">{s.cta.label} →</a>
                 ) : (
