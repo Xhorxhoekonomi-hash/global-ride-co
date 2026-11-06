@@ -67,7 +67,7 @@ function ImportGermany() {
 
   return (
     <>
-      <PageHero scene={sceneForPath("/import-germany").en} breadcrumbs={[{ label: "Import to Germany" }]} eyebrow="Import to · Germany" title="Vehicle Sourcing and Shipping to Germany" description={<><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through Bremerhaven or Hamburg."} /></>}>
+      <PageHero scene={sceneForPath("/import-germany").en} breadcrumbs={[{ label: "Import to Germany" }]} eyebrow="Import to Germany" title="Vehicle Sourcing and Shipping to Germany" description={<><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through Bremerhaven or Hamburg."} /></>}>
         <Button asChild><Link to="/contact" search={{ from: "", to: "Germany", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-germany-hero" })}>Get a quote</Link></Button>
         <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-germany-hero" })}>Calculate shipping cost</Link></Button>
       </PageHero>

@@ -42,7 +42,7 @@ function ImportAustria() {
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello Alpha Worldwide, I'd like to import a vehicle into Austria.")}`;
   return (
     <>
-      <PageHero scene={sceneForPath("/import-austria").en} breadcrumbs={[{ label: "Import to Austria" }]} eyebrow="Import to · Austria" title="Vehicle Sourcing and Shipping to Austria" description={<>From the USA, South Korea, Dubai, or Canada — sourced, documented, and routed via a European seaport toward Austria.</>}>
+      <PageHero scene={sceneForPath("/import-austria").en} breadcrumbs={[{ label: "Import to Austria" }]} eyebrow="Import to Austria" title="Vehicle Sourcing and Shipping to Austria" description={<>From the USA, South Korea, Dubai, or Canada — sourced, documented, and routed via a European seaport toward Austria.</>}>
         <Button asChild><Link to="/contact" search={{ from: "", to: "Austria", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-austria-hero" })}>Get a quote</Link></Button>
         <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-austria-hero" })}>Calculate shipping cost</Link></Button>
       </PageHero>
