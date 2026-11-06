@@ -1,3 +1,6 @@
+# Build recovery
+- [x] Remove incompatible entities aliases; automatic build OK and all 17 existing tests pass; nothing published.
+
 # Owner email contacts and lead notifications
 - [x] Clickable email alongside WhatsApp in shared header/menu, footer, CTA, homepage enquiry and EN/SQ contact pages.
 - [ ] Server-side notification for every lead; blocked until owner configures sending domain.
