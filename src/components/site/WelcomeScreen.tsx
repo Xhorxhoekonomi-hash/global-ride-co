@@ -46,7 +46,7 @@ export function WelcomeScreen() {
   return (
     <div ref={dialog} tabIndex={-1} className="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
       <div className="welcome-inner">
-        <BrandLogo tone="light" className="welcome-logo" />
+        <BrandLogo className="welcome-logo" />
         <p className="welcome-slogan">Moving Cars Worldwide</p>
         <p id="welcome-title" className="welcome-line">Welcome to Alpha Worldwide</p>
         <p className="welcome-line-sq" lang="sq">Mirë se vini në Alpha Worldwide</p>
