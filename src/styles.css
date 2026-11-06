@@ -207,16 +207,16 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 /* ================================================================
    6. HeroPanel (homepage slider) and HeroScene (single interior panel)
    ================================================================ */
-.hero-panel { position: relative; background: var(--graphite); }
+.hero-panel { position: relative; background: var(--graphite); --hero-media-h: 125vw; }
 .hero-panel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .hero-panel-track::-webkit-scrollbar { display: none; }
-/* Full-bleed panel: the box is always the full viewport width; height (not aspect-ratio) is capped so the width never shrinks. */
-.hero-panel-slide { position: relative; flex: 0 0 100%; width: 100%; height: min(56.25vw, calc(100svh - 80px)); min-height: 560px; overflow: hidden; }
-.hero-panel-slide picture { position: absolute; inset: 0; display: block; }
-.hero-panel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-pos, 50% 50%); }
-.hero-panel-slide::before { content: ""; position: absolute; inset: auto 0 0; height: 62%; z-index: 1; pointer-events: none; background: linear-gradient(0deg, color-mix(in oklab, var(--graphite) 86%, transparent), color-mix(in oklab, var(--graphite) 50%, transparent) 55%, transparent); }
-/* Copy: bottom-left, aligned to the page container. */
-.hero-panel-copy { position: absolute; z-index: 2; left: 0; right: 0; bottom: 64px; width: 100%; max-width: 1400px; margin-inline: auto; padding-inline: 20px; text-align: left; color: var(--primary-foreground); }
+.hero-panel-track > .hero-panel-slide { scroll-snap-align: start; }
+/* No-overlap hero: photo and copy never share space. Mobile/tablet stacked, desktop split 42/58. */
+.hero-panel-slide { position: relative; flex: 0 0 100%; width: 100%; display: grid; grid-template-areas: "media" "copy"; grid-template-rows: auto 1fr; background: var(--graphite); overflow: hidden; }
+.hero-panel-slide picture { grid-area: media; position: relative; display: block; width: 100%; height: var(--hero-media-h); overflow: hidden; }
+.hero-panel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-pos-m, 50% 72%); }
+.hero-panel-copy { grid-area: copy; width: 100%; padding: 28px 20px 40px; text-align: left; color: var(--primary-foreground); background: var(--graphite); }
+.hero-panel:not(.hero-scene) .hero-panel-copy { padding-top: 52px; }
 .hero-panel-copy > * { max-width: 680px; }
 .hero-panel-copy p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .hero-panel-copy h2 { font-size: var(--fs-h1); line-height: 1.08; }
@@ -225,20 +225,29 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 .hero-panel-actions > * { flex: 1 1 0; min-width: 0; min-height: 48px; border-radius: 8px; box-shadow: none; white-space: normal; }
 .hero-panel-actions > :not(:first-child), .hero-panel .btn-pair--light { background: transparent; color: var(--primary-foreground); border: 1.5px solid var(--primary-foreground); }
 .hero-panel-actions > :not(:first-child):hover, .hero-panel .btn-pair--light:hover { background: color-mix(in oklab, var(--primary-foreground) 14%, transparent); }
-.hero-panel-dots { position: absolute; z-index: 3; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; }
+.hero-panel-dots { position: absolute; z-index: 3; top: calc(var(--hero-media-h) + 4px); left: 20px; display: flex; }
 .hero-panel-dot { display: grid; place-items: center; width: 44px; height: 44px; }
-.hero-panel-dot span { width: 10px; height: 10px; border-radius: 50%; background: color-mix(in oklab, var(--background) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in oklab, var(--graphite) 30%, transparent); }
+.hero-panel-dot span { width: 10px; height: 10px; border-radius: 50%; background: color-mix(in oklab, var(--background) 45%, transparent); }
 .hero-panel-dot[aria-current="true"] span { background: var(--background); width: 24px; border-radius: 5px; }
-.hero-panel-arrow { position: absolute; z-index: 3; top: 50%; transform: translateY(-50%); display: none; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: color-mix(in oklab, var(--background) 80%, transparent); color: var(--navy); }
+.hero-panel-arrow { position: absolute; z-index: 3; top: calc(var(--hero-media-h) / 2); transform: translateY(-50%); display: none; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: color-mix(in oklab, var(--background) 80%, transparent); color: var(--navy); }
 .hero-panel-arrow--prev { left: 24px; }
 .hero-panel-arrow--next { right: 24px; }
 .hero-scene-eyebrow { margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--fs-eyebrow); font-weight: 600; color: var(--teal-glow); }
 .hero-panel-copy > p.hero-scene-eyebrow { margin-top: 0; font-size: var(--fs-eyebrow); color: var(--teal-glow); }
 @media (min-width: 768px) {
-  .hero-panel-copy { bottom: clamp(64px,6vw,96px); padding-inline: 2rem; }
-  .hero-panel:has(+ .route-finder-wrap) .hero-panel-copy { bottom: 150px; }
+  .hero-panel { --hero-media-h: 56.25vw; }
+  .hero-panel-slide img { object-position: var(--hero-pos, 50% 50%); }
+  .hero-panel-copy { padding-inline: 2rem; }
 }
-@media (min-width: 1440px) { .hero-panel-copy { padding-inline: 40px; } }
+@media (min-width: 1024px) {
+  .hero-panel { --hero-h: min(78vh, 720px, max(520px, 40vw)); --hero-media-h: var(--hero-h); }
+  .hero-panel-slide { grid-template-areas: "copy media"; grid-template-columns: 42% 58%; grid-template-rows: var(--hero-h); }
+  .hero-panel-slide picture { height: 100%; }
+  .hero-panel-copy, .hero-panel:not(.hero-scene) .hero-panel-copy { display: flex; flex-direction: column; justify-content: center; padding: 32px clamp(24px, 3.5vw, 64px); }
+  .hero-panel-copy > * { max-width: 560px; }
+  .hero-panel-dots { top: auto; bottom: 8px; left: calc(42% + 29%); transform: translateX(-50%); }
+  .hero-panel-arrow--prev { left: calc(42% + 24px); }
+}
 
 /* ================================================================
    7. Interior pages: breadcrumbs, text hero, body pattern, CTA band, guides
@@ -348,7 +357,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .stat-grid dt { font-size: 15px; }
 
 /* RouteFinder: white card overlapping the hero bottom on desktop */
-.route-finder-wrap { position: relative; z-index: 4; margin-top: -72px; padding-bottom: 48px; }
+.route-finder-wrap { position: relative; z-index: 4; margin-top: 32px; padding-bottom: 48px; }
 .route-finder { background: var(--background); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; box-shadow: 0 18px 48px -24px color-mix(in oklab, var(--navy) 35%, transparent); }
 .route-finder h2 { color: var(--secondary); }
 .route-finder-row { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)) minmax(180px,auto); gap: 16px; align-items: end; margin-top: 20px; }
@@ -444,8 +453,6 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 
   .hero-panel-arrow { display: grid; }
   .service-cards-arrows { display: flex; }
-  .hero-panel:has(+ .route-finder-wrap) .hero-panel-dots { bottom: 84px; }
-  .hero-panel:has(+ .route-finder-wrap) .hero-panel-arrow { top: calc(50% - 36px); }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .journey-steps--long { grid-template-columns: repeat(2,minmax(0,1fr)); }
