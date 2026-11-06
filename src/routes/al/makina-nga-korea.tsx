@@ -251,7 +251,7 @@ function MakinaNgaKorea() {
               >
               <Calculator className="h-4 w-4" /> Hap kalkulatorin
             </Link></Button>
-            <Button asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to="/al/kontakt" >
+            <Button asChild variant="outline"><Link to="/al/kontakt" >
               <Truck className="h-4 w-4" /> Na kontaktoni
             </Link></Button>
           </div>

@@ -22,7 +22,7 @@ export const Route = createFileRoute("/al/automjete-te-dorezuara")({
 function AutomjeteTeDorezuara() {
   return <>
     <PageHero breadcrumbs={[{ label: "Automjete të dorëzuara" }]} eyebrow="Dorëzime dhe përditësime" title="Automjete që kemi trajtuar" description="Fotografi origjinale nga operacionet tona të trajtimit dhe transportit të automjeteve.">
-      <Button asChild className="h-auto min-h-12 whitespace-normal py-3"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Dorëzimet tona në Instagram <ArrowRight /></a></Button>
+      <Button asChild><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Dorëzimet tona në Instagram <ArrowRight /></a></Button>
       <Button asChild variant="outline" className="min-h-12"><Link to="/al/kontakt">Merr një ofertë</Link></Button>
     </PageHero>
     <section className="bg-background">
@@ -47,7 +47,7 @@ function AutomjeteTeDorezuara() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Dërgoni shpalljen ose lotin e ankandit për të diskutuar transportin, ose shihni një përllogaritje me kalkulatorin tonë për SHBA-në dhe Korenë e Jugut.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="min-h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a></Button>
-            <Button asChild variant="outline" className="h-auto min-h-12 whitespace-normal py-3"><Link to="/al/kalkulator-transporti">Llogarit transportin <ArrowRight /></Link></Button>
+            <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin <ArrowRight /></Link></Button>
           </div>
         </div>
       </div>
