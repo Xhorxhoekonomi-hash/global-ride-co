@@ -1,4 +1,3 @@
-import { SITE_URL } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SITE_URL } from "@/lib/seo";
@@ -53,7 +52,7 @@ const PATHS = [
   "/en/netherlands",
   "/en/shipping/south-korea-to-rotterdam",
   "/en/albania",
-  "/al/",
+  "/al",
   "/al/makina-nga-amerika",
   "/al/makina-nga-korea",
   "/al/copart-shqiperi",
