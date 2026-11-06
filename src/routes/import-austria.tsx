@@ -1,3 +1,4 @@
+import { KeywordText } from "@/components/site/KeywordText";
 import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Anchor, FileText, ShieldCheck, Ship, Truck, Car, MessageCircle, Calculator, Award } from "lucide-react";
@@ -57,7 +58,7 @@ function ImportAustria() {
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div><h2 className="font-display mt-4 text-2xl font-bold text-navy">Gateway Ports</h2><p className="mt-3 text-slate-body">Austria is typically reached via Bremerhaven, Hamburg, or Rotterdam in the north, or via Koper on the Adriatic for southern destinations.</p></div>
+            <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div><h2 className="font-display mt-4 text-2xl font-bold text-navy">Gateway Ports</h2><p className="mt-3 text-slate-body"><KeywordText text={"Austria is typically reached via Bremerhaven, Hamburg, or Rotterdam in the north, or via Koper on the Adriatic for southern destinations."} /></p></div>
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Award className="h-5 w-5" /></div><h2 className="font-display mt-4 text-2xl font-bold text-navy">Technical Approval & NoVA</h2><p className="mt-3 text-slate-body">Austrian registration generally involves technical approval documentation and NoVA, the standard vehicle consumption tax. Requirements vary and should always be confirmed with the local authority.</p></div>
           </div>
         </div>
@@ -76,7 +77,7 @@ function ImportAustria() {
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Frequently imported</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">What Customers Bring In</h2></div>
-          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card"><ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{v}</li>)}</ul></div>
+          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card"><ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}</ul></div>
         </div>
       </section>
 
@@ -94,7 +95,7 @@ function ImportAustria() {
         <div className="container-page py-16 md:py-20">
           <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Questions</div><h2 className="font-display mt-3 text-3xl font-bold text-navy md:text-4xl">Frequently Asked</h2></div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
-            {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
+            {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p></details>))}
           </div>
         </div>
       </section>

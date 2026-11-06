@@ -1,3 +1,4 @@
+import { KeywordText } from "@/components/site/KeywordText";
 import { TextHero } from "@/components/site/PageHero";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Anchor, FileText, ShieldCheck, Ship, Truck, Plane, Car, MessageCircle, Calculator } from "lucide-react";
@@ -72,9 +73,7 @@ function ImportNetherlands() {
             <h1 className="font-display mt-4 text-4xl font-bold leading-[1.05] md:text-6xl">
               Vehicle Sourcing and Shipping to the Netherlands
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Rotterdam.
-            </p>
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground"><KeywordText text={"From the USA, South Korea, Dubai, or Canada — sourced, inspected where possible, and shipped through the Port of Rotterdam."} /></p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "eu-netherlands-hero" })} className="btn-primary">
                 <MessageCircle className="h-4 w-4" /> WhatsApp Us
@@ -93,7 +92,7 @@ function ImportNetherlands() {
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div>
               <h2 className="font-display mt-4 text-2xl font-bold text-navy">Arrival at Rotterdam</h2>
-              <p className="mt-3 text-slate-body">Your vehicle arrives at the Port of Rotterdam, the largest port in Europe, whether shipped by container or RoRo. We coordinate unloading and terminal handling on arrival.</p>
+              <p className="mt-3 text-slate-body"><KeywordText text={"Your vehicle arrives at the Port of Rotterdam, the largest port in Europe, whether shipped by container or RoRo. We coordinate unloading and terminal handling on arrival."} /></p>
             </div>
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div>
@@ -138,7 +137,7 @@ function ImportNetherlands() {
           </div>
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
-              {VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{v}</li>)}
+              {VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}
             </ul>
           </div>
         </div>
@@ -159,7 +158,7 @@ function ImportNetherlands() {
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Truck className="h-5 w-5" /></div>
               <h3 className="font-display mt-4 text-xl font-bold text-navy">Delivery</h3>
-              <p className="mt-2 text-sm text-slate-body">Once cleared at Rotterdam, we coordinate onward delivery to your address or a nearby collection point.</p>
+              <p className="mt-2 text-sm text-slate-body"><KeywordText text={"Once cleared at Rotterdam, we coordinate onward delivery to your address or a nearby collection point."} /></p>
             </div>
           </div>
         </div>
@@ -175,7 +174,7 @@ function ImportNetherlands() {
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p>
               </details>
             ))}
           </div>
