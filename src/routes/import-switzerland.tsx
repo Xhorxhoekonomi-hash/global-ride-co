@@ -1,5 +1,7 @@
 import { KeywordText } from "@/components/site/KeywordText";
-import { TextHero } from "@/components/site/PageHero";
+import { PageHero } from "@/components/site/PageHero";
+import { Button } from "@/components/ui/button";
+import { sceneForPath } from "@/lib/scene-library";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Anchor, FileText, ShieldCheck, Ship, Truck, Car, MessageCircle, Calculator, Award } from "lucide-react";
 import { buildHead, SITE_URL } from "@/lib/seo";
@@ -58,20 +60,10 @@ function ImportSwitzerland() {
   const whatsappUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello Alpha Worldwide, I'd like to import a vehicle into Switzerland.")}`;
   return (
     <>
-      <Breadcrumbs items={[{ label: "Import to Switzerland" }]} />
-      <TextHero>
-        <div>
-          <div className="max-w-3xl animate-fade-up">
-            <div className="eyebrow text-primary">Import to · Switzerland</div>
-            <h1 className="mt-4">Vehicle Sourcing and Shipping to Switzerland</h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">From the USA, South Korea, Dubai, or Canada — sourced, documented, and routed through an EU gateway port toward the Swiss border.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "eu-switzerland-hero" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> WhatsApp Us</a>
-              <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-switzerland-hero" })} className="btn-outline-dark"><Calculator className="h-4 w-4" /> Calculate Shipping Cost</Link>
-            </div>
-          </div>
-        </div>
-      </TextHero>
+      <PageHero scene={sceneForPath("/import-switzerland").en} breadcrumbs={[{ label: "Import to Switzerland" }]} eyebrow="Import to · Switzerland" title="Vehicle Sourcing and Shipping to Switzerland" description={<>From the USA, South Korea, Dubai, or Canada — sourced, documented, and routed through an EU gateway port toward the Swiss border.</>}>
+        <Button asChild><Link to="/contact" search={{ from: "", to: "Switzerland", vehicle: "" }} onClick={() => trackEvent("quote_started", { source: "eu-switzerland-hero" })}>Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "eu-switzerland-hero" })}>Calculate shipping cost</Link></Button>
+      </PageHero>
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
