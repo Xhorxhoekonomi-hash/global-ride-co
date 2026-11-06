@@ -1,11 +1,11 @@
-import { describe, expect, test } from "bun:test";
+import { test } from "node:test";
+import assert from "node:assert/strict";
 import { glueLastWords } from "./HeadingWidowGuard";
 
-describe("glueLastWords", () => {
-  test("joins the last two words with a non-breaking space", () => {
-    expect(glueLastWords("Inspection and documentation")).toBe("Inspection and\u00a0documentation");
-  });
-  test("leaves a single word unchanged", () => {
-    expect(glueLastWords("Houston")).toBe("Houston");
-  });
+test("joins the last two heading words with a non-breaking space", () => {
+  assert.equal(glueLastWords("Inspection and documentation"), "Inspection and\u00a0documentation");
+});
+
+test("leaves a single word unchanged", () => {
+  assert.equal(glueLastWords("Houston"), "Houston");
 });
