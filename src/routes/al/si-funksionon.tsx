@@ -94,7 +94,7 @@ function SiFunksionon() {
                 </div>
                 {(s.n === 2 || s.n === 4 || s.n === 6 || s.n === 8) && (
                   <div className="mb-10 ml-[68px] flex flex-wrap gap-3">
-                    <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><a
+                    <Button asChild variant="outline" ><a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -116,11 +116,11 @@ function SiFunksionon() {
           <div className="eyebrow text-primary">Gati për të filluar?</div>
           <h2 className="mx-auto mt-3 max-w-2xl text-secondary">Na dërgoni automjetin tuaj të parë</h2>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}>
+            <Button asChild ><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}>
               <MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp
             </a></Button>
-            <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}>
-              <Calculator className="h-4 w-4" /> Llogarit koston e transportit
+            <Button asChild variant="outline" ><Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}>
+              <Calculator className="h-4 w-4" /> Llogarit koston
             </Link></Button>
           </div>
         </div>

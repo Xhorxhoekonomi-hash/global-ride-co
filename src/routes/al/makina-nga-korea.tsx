@@ -245,13 +245,13 @@ function MakinaNgaKorea() {
             Kalkulatori ynë përdor tarifat aktuale për transportin nga Koreja e Jugut drejt Shqipërisë, Holandës dhe Gjermanisë.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><Link
+            <Button asChild ><Link
               to="/al/kalkulator-transporti"
               onClick={() => trackEvent("calculator_started", { source: "al-korea-cta" })}
               >
               <Calculator className="h-4 w-4" /> Hap kalkulatorin
             </Link></Button>
-            <Button asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to="/al/kontakt" >
+            <Button asChild variant="outline"><Link to="/al/kontakt" >
               <Truck className="h-4 w-4" /> Na kontaktoni
             </Link></Button>
           </div>

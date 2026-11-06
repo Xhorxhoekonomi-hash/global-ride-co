@@ -89,7 +89,7 @@ function PseAlpha() {
           <p className="mx-auto mt-5 max-w-xl text-white/70">Në vend që të koordinoheni veçmas me një ndërmjetës ankandi, një inspektor, një spedicion dhe një agjent doganor, punoni me një ekip të vetëm gjatë gjithë procesit — me përllogaritje reale kostosh, jo premtime të paqarta.</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "why-final-cta" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Filloni një bisedë</a>
-            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "why-final-cta" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston e transportit</Link>
+            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "why-final-cta" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston</Link>
           </div>
         </div>
       </section>

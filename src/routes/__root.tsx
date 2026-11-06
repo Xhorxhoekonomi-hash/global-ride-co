@@ -1,4 +1,5 @@
 import { WelcomeScreen } from "@/components/site/WelcomeScreen";
+import { HeadingWidowGuard } from "@/components/site/HeadingWidowGuard";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -140,6 +141,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <WelcomeScreen />
+      <HeadingWidowGuard pathname={pathname} />
       <Header />
       <main className="min-h-screen" data-page={isGuideArticle ? "guide-article" : undefined}>
         <Outlet />

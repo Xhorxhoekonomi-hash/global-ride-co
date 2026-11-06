@@ -135,7 +135,7 @@ function GuidesHub() {
                     <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><g.icon className="h-5 w-5" /></div>
                     <span className="rounded-full bg-navy/10 px-2.5 py-1 text-[11px] font-semibold text-navy">{GUIDE_CATEGORIES[g.category]}</span>
                   </div>
-                  <h2 className="mt-4 text-navy">{g.title}</h2>
+                  <h3 className="mt-4 text-navy">{g.title}</h3>
                   <p className="mt-2 flex-1 text-sm text-slate-body">{g.summary}</p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-xs text-slate-body">{g.readingTime} read</span>

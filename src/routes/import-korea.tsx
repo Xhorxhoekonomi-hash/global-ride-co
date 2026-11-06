@@ -125,7 +125,7 @@ function ImportKorea() {
     <>
       <PageHero scene={YELLOW_MCLAREN_CONTAINER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From South Korea" }]} eyebrow="Import from · South Korea" title="Find, Inspect, and Ship a Vehicle from South Korea" description="Source low-mileage, well-documented vehicles from Encar, Autowini, KB Chachacha, and approved Korean dealers — shipped to Albania and across Europe.">
         <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping Cost</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate cost</Link></Button>
       </PageHero>
 
       <section className="section-mist border-y border-border">

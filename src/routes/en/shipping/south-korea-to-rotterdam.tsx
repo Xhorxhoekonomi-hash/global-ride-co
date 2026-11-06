@@ -126,7 +126,7 @@ function KoreaToRotterdam() {
                 onClick={() => trackEvent("calculator_started", { source: "korea-rotterdam-hero" })}
                 className="btn-outline-dark"
               >
-                <Calculator className="h-4 w-4" /> Calculate Shipping Cost
+                <Calculator className="h-4 w-4" /> Calculate cost
               </a>
             </div>
           </div>

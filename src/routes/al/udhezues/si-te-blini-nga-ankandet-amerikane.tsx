@@ -206,7 +206,7 @@ function GuideAnkande() {
           <h2 className="mx-auto mt-3 max-w-xl text-white">Na e dërgoni para se të ofertoni</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-usa-auctions" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp</a>
-            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "guide-usa-auctions" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston e transportit</Link>
+            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "guide-usa-auctions" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston</Link>
           </div>
         </div>
       </section>

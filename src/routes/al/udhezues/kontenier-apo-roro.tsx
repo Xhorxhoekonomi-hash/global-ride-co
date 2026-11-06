@@ -160,7 +160,7 @@ function GuideKontenierRoro() {
           <h2 className="mx-auto mt-3 max-w-xl text-white">Na tregoni automjetin dhe rrugën</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-container-vs-roro" })} className="btn-primary"><MessageCircle className="h-4 w-4" /> Pyesni në WhatsApp</a>
-            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "guide-container-vs-roro" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston e transportit</Link>
+            <Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "guide-container-vs-roro" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Llogarit koston</Link>
           </div>
         </div>
       </section>
