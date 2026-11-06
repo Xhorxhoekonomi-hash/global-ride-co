@@ -9,6 +9,7 @@ import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { AirportCards } from "@/components/site/AirportCards";
 import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/al/transport-ajror-makinash")({
   head: () => {
@@ -86,6 +87,8 @@ function TransportAjrorMakinash() {
         <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "al-airfreight-hero" })}>Kontakto në WhatsApp</a></Button>
       </PageHero>
 
+      <section className="bg-muted"><div className="container-page py-12 md:py-20"><h2 className="text-3xl font-semibold text-secondary">Çfarë përfshin transporti ajror</h2><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Transport ajror i plotë i automjetit</h3><p className="mt-3 text-muted-foreground leading-relaxed">Koordinojmë dërgesën nga origjina deri në mbërritjen evropiane dhe dorëzim — gjetjen, dokumentet, rezervimin dhe transportin përfundimtar.</p></article><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-xl font-semibold text-secondary">Vetëm trajtim në aeroportin evropian</h3><p className="mt-3 text-muted-foreground leading-relaxed">Kur klienti ose spedicioneri e ka rezervuar fluturimin, koordinojmë trajtimin në mbërritje, procedurat e lirimit të ngarkesës, dokumentet doganore dhe transportin e mëtejshëm.</p></article></div><h3 className="mt-8 text-xl font-semibold text-secondary">Dokumentet që koordinojmë</h3><ul className="mt-4 space-y-3 text-muted-foreground">{["Koordinimi i Air Waybill", "Shkarkimi dhe procedurat e lirimit të ngarkesës", "Koordinim doganor", "Mbështetje për tranzit T1", "Trajtimi i Carnet de Passage", "Mbështetje për pranimin e përkohshëm kur zbatohet"].map(item => <li key={item}><KeywordText text={item} sq /></li>)}</ul><p className="mt-6 text-muted-foreground leading-relaxed">Automjetet elektrike, hibride dhe ato që nuk lëvizin vetë vlerësohen sipas kërkesave të kompanisë ajrore dhe operatorit tokësor. Kufijtë e baterisë, karburantit dhe pranimi konfirmohen para rezervimit.</p></div></section>
+
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center">
@@ -154,7 +157,7 @@ function TransportAjrorMakinash() {
                   {f.q}
                   <span className="text-teal transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} sq /></p>
               </details>
             ))}
           </div>

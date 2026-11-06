@@ -6,6 +6,7 @@ import { Globe2, ShieldCheck, Gavel, Package, Plane, Users, Eye, MessageCircle, 
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
+import { KeywordText } from "@/components/site/KeywordText";
 
 export const Route = createFileRoute("/why-alpha-worldwide")({
   head: () => {
@@ -115,7 +116,7 @@ function WhyAlphaWorldwide() {
               </div>
               <div>
                 <h2 className="font-display text-2xl font-bold text-navy md:text-3xl">{s.title}</h2>
-                <p className="mt-3 max-w-2xl text-slate-body">{s.body}</p>
+                <p className="mt-3 max-w-2xl text-slate-body"><KeywordText text={s.body} /></p>
                 {s.cta.to === "whatsapp" ? (
                   <a
                     href={whatsappUrl}

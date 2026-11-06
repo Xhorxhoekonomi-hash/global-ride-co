@@ -10,6 +10,7 @@ import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { AirportCards } from "@/components/site/AirportCards";
 import { AirfreightSupplement } from "@/components/site/AirfreightSupplement";
+import { KeywordText } from "@/components/site/KeywordText";
 
 const POINTS = [
   { icon: Zap, title: "Fastest Transit", body: "Days instead of weeks — the only option when timing matters more than cost." },
@@ -122,7 +123,7 @@ function Airfreight() {
                   <p.icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-display mt-4 text-lg font-bold text-navy">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-body">{p.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-body"><KeywordText text={p.body} /></p>
               </div>
             ))}
           </div>
@@ -181,7 +182,7 @@ function Airfreight() {
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {DOCUMENTATION.map((d) => (
-                <li key={d} className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{d}</li>
+                <li key={d} className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={d} /></li>
               ))}
             </ul>
           </div>
@@ -232,7 +233,7 @@ function Airfreight() {
                   {f.q}
                   <span className="text-teal transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p>
               </details>
             ))}
           </div>

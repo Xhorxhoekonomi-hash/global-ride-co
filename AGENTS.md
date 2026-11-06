@@ -25,3 +25,4 @@
 - The homepage RouteFinder resolves targets in src/lib/route-finder.ts; calculator and quote form only read its ?from/&to/&vehicle params as initial UI state, so prefill never touches pricing math or lead submission.
 - buildHead derives hreflang from LANGUAGE_ROUTE_MAP when a route passes none, so every EN/SQ pair stays reciprocal without per-route lists.
 - Let the bundler resolve each email dependency's own entities version; global entities aliases break the incompatible v4 and v7 export paths used by email rendering.
+- Airport and keyword page registries own bilingual paths and conditional service status; shared page templates and inline keyword links keep navigation, metadata and sitemap entries aligned without changing operational forms or rates.
