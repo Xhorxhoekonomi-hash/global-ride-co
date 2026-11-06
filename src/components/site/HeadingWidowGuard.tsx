@@ -13,6 +13,7 @@ export function glueLastWords(text: string): string {
 
 export function HeadingWidowGuard({ pathname }: { pathname: string }) {
   useEffect(() => {
+    const tooWide = new WeakMap<Text, string>();
     const run = () => {
       document.querySelectorAll<HTMLElement>("main h1, main h2, main h3, .welcome-screen h2").forEach((h) => {
         const words = (h.textContent ?? "").trim().split(/\s+/);
@@ -20,13 +21,13 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
         let last: Text | null = null;
         for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue?.trim()) last = n as Text;
-        if (!last?.nodeValue) return;
+        if (!last?.nodeValue || tooWide.get(last) === last.nodeValue) return;
         const next = glueLastWords(last.nodeValue);
         if (next === last.nodeValue) return;
         const original = last.nodeValue;
         last.nodeValue = next;
         // Never let the joined pair overflow a narrow column.
-        if (h.scrollWidth > h.clientWidth + 1) last.nodeValue = original;
+        if (h.scrollWidth > h.clientWidth + 1) { last.nodeValue = original; tooWide.set(last, original); }
       });
       document.documentElement.dataset.headingsGlued = "true";
     };
