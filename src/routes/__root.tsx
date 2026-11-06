@@ -20,8 +20,6 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { StickyActionBar } from "@/components/site/StickyActionBar";
 import { CtaBand } from "@/components/site/CtaBand";
 import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
-import { CONTACT, OFFICES } from "@/lib/site-data";
-import { SITE_URL } from "@/lib/seo";
 import { KeywordDirectory } from "@/components/site/KeywordDirectory";
 
 function NotFoundComponent() {
