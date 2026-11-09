@@ -103,7 +103,7 @@ function AlbaniaHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <Anchor className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">The Port of Durrës</h2>
             <p className="mt-4 text-slate-body">
@@ -115,7 +115,7 @@ function AlbaniaHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where you can source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
           </div>
@@ -135,7 +135,7 @@ function AlbaniaHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">What's covered</div>
             <h2 className="mt-3 text-navy">Services for Albania Imports</h2>
           </div>
@@ -159,7 +159,7 @@ function AlbaniaHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>

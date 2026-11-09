@@ -105,7 +105,7 @@ function Sherbimet() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Import sipas tregut</div>
             <h2 className="mt-3 text-secondary">Tregjet tona kryesore të origjinës</h2>
           </div>

@@ -134,7 +134,7 @@ function CopartShqiperi() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Blerja në Copart me Alpha Worldwide</h2>
           </div>
@@ -225,7 +225,7 @@ function CopartShqiperi() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta për Copart</h2>
           </div>
@@ -245,7 +245,7 @@ function CopartShqiperi() {
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
           </div>

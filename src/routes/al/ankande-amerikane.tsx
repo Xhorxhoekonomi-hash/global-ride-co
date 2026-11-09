@@ -118,7 +118,7 @@ function AnkandeAmerikane() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Krahasimi i platformave</div>
             <h2 className="mt-3 text-navy">Cila platformë për cilën nevojë</h2>
           </div>
@@ -147,7 +147,7 @@ function AnkandeAmerikane() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Nga zgjedhja e platformës te dera juaj</h2>
           </div>
@@ -168,7 +168,7 @@ function AnkandeAmerikane() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

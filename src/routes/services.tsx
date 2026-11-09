@@ -90,7 +90,7 @@ function ServicesPage() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Market-specific import</div>
             <h2 className="mt-3 text-secondary">Dedicated origin markets</h2>
           </div>

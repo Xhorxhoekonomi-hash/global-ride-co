@@ -113,7 +113,7 @@ function NetherlandsHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
           </div>
@@ -133,7 +133,7 @@ function NetherlandsHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Related services</div>
             <h2 className="mt-3 text-navy">Everything Handled</h2>
           </div>
@@ -172,7 +172,7 @@ function NetherlandsHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>

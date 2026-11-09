@@ -90,7 +90,7 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Tregu i automjeteve në Dubai</div>
             <h2 className="mt-3 text-navy">Më shumë se vetëm luks</h2>
           </div>
@@ -110,7 +110,7 @@ function MakinaNgaDubai() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <MapPin className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">Prania jonë në {dubai.city}</h2>
             <p className="mt-4 text-slate-body">
@@ -122,7 +122,7 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Nga Dubai deri te dera juaj</h2>
           </div>
@@ -140,7 +140,7 @@ function MakinaNgaDubai() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Opsionet e transportit</div>
             <h2 className="mt-3 text-navy">Kontenier, RoRo, ose ajror</h2>
           </div>
@@ -166,7 +166,7 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

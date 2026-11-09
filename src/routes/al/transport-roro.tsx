@@ -80,7 +80,7 @@ function TransportRoRo() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <Landmark className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">Si funksionon RoRo</h2>
             <p className="mt-4 text-slate-body">
@@ -92,7 +92,7 @@ function TransportRoRo() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Kërkesat për automjetin</div>
             <h2 className="mt-3 text-navy">Çfarë duhet të plotësojë automjeti</h2>
           </div>
@@ -131,7 +131,7 @@ function TransportRoRo() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

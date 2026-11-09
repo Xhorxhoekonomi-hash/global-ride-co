@@ -144,7 +144,7 @@ function MakinaNgaKorea() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Nga ku sigurojmë</div>
             <h2 className="mt-3 text-secondary">Platformat dhe burimet</h2>
           </div>
@@ -161,7 +161,7 @@ function MakinaNgaKorea() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Procesi</div>
             <h2 className="mt-3 text-secondary">Nga Koreja deri te dera juaj</h2>
           </div>
@@ -171,7 +171,7 @@ function MakinaNgaKorea() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Inspektimi</div>
             <h2 className="mt-3 text-secondary">Çfarë kontrollohet, kur është i mundur</h2>
             <p className="mt-4 text-muted-foreground">
@@ -193,7 +193,7 @@ function MakinaNgaKorea() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Metoda e transportit</div>
             <h2 className="mt-3 text-secondary">Kontenier ose RoRo</h2>
           </div>
@@ -260,7 +260,7 @@ function MakinaNgaKorea() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
           </div>

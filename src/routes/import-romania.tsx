@@ -58,7 +58,7 @@ function ImportRomania() {
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Shipping options</div><h2 className="mt-3 text-navy">Container or RoRo</h2></div>
+          <div className="max-w-2xl"><div className="eyebrow">Shipping options</div><h2 className="mt-3 text-navy">Container or RoRo</h2></div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Ship className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">Container Shipping</h3><p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p></Link>
             <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Truck className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">RoRo</h3><p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p></Link>
@@ -68,14 +68,14 @@ function ImportRomania() {
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Frequently imported</div><h2 className="mt-3 text-navy">What Customers Bring In</h2></div>
+          <div className="max-w-2xl"><div className="eyebrow">Frequently imported</div><h2 className="mt-3 text-navy">What Customers Bring In</h2></div>
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card"><ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}</ul></div>
         </div>
       </section>
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Inspection & why us</div><h2 className="mt-3 text-navy">Why Alpha Worldwide</h2></div>
+          <div className="max-w-2xl"><div className="eyebrow">Inspection & why us</div><h2 className="mt-3 text-navy">Why Alpha Worldwide</h2></div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Inspection</h3><p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p></div>
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Delivery</h3><p className="mt-2 text-sm text-slate-body">Once cleared at the port, we coordinate onward delivery anywhere in Romania.</p></div>
@@ -85,7 +85,7 @@ function ImportRomania() {
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center"><div className="eyebrow">Questions</div><h2 className="mt-3 text-navy">Frequently Asked</h2></div>
+          <div className="max-w-2xl"><div className="eyebrow">Questions</div><h2 className="mt-3 text-navy">Frequently Asked</h2></div>
           <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
             {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p></details>))}
           </div>

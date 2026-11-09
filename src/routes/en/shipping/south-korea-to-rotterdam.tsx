@@ -135,7 +135,7 @@ function KoreaToRotterdam() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">How it works</div>
             <h2 className="mt-3 text-navy">From Korea to Rotterdam</h2>
           </div>
@@ -172,7 +172,7 @@ function KoreaToRotterdam() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Paperwork</div>
             <h2 className="mt-3 text-navy">Documents Typically Required</h2>
           </div>
@@ -189,7 +189,7 @@ function KoreaToRotterdam() {
 
       <section className="section-dark">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow text-teal-glow">Beyond Rotterdam</div>
             <h2 className="mt-3 text-white">Onward Delivery Across Western Europe</h2>
             <p className="mt-4 text-white/70">
@@ -208,7 +208,7 @@ function KoreaToRotterdam() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>

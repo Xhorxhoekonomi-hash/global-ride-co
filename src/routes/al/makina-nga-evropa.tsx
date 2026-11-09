@@ -36,7 +36,7 @@ function MakinaNgaEvropa() {
       </PageHero>
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Proces me 6 hapa</div>
             <h2 className="mt-3 text-navy">Nga kudo në Evropë deri te shtëpia juaj</h2>
           </div>

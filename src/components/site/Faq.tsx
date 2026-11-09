@@ -6,7 +6,7 @@ export function Faq() {
   return (
     <section className="bg-background">
       <div className="container-page py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-2xl">
           <div className="eyebrow">Questions</div>
           <h2 className="mt-3 text-navy">
             Frequently Asked Questions

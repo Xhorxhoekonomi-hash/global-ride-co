@@ -61,7 +61,7 @@ function AuctionAccess() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">How auction access works</div>
             <h2 className="mt-3 text-navy">Three steps to a purchase</h2>
           </div>

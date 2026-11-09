@@ -80,7 +80,7 @@ function RrethNesh() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë bëjmë</div>
             <h2 className="mt-3 text-navy">Aftësitë kryesore</h2>
           </div>

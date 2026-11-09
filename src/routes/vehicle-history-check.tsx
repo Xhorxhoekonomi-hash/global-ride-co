@@ -128,7 +128,7 @@ function VehicleHistoryCheck() {
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Related reading</div>
             <h2 className="mt-3 text-navy">Go Deeper</h2>
           </div>
@@ -148,7 +148,7 @@ function VehicleHistoryCheck() {
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>

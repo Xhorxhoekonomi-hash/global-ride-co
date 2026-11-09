@@ -93,7 +93,7 @@ function TransportAjrorMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Kur përdoret</div>
             <h2 className="mt-3 text-navy">Raste tipike përdorimi</h2>
           </div>
@@ -113,7 +113,7 @@ function TransportAjrorMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Ku trajtojmë</div>
             <h2 className="mt-3 text-navy">Rrjeti ynë i aeroporteve</h2>
           </div>
@@ -129,7 +129,7 @@ function TransportAjrorMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë duhet ditur</div>
             <h2 className="mt-3 text-navy">Dogana, përgatitja dhe tranziti</h2>
           </div>
@@ -149,7 +149,7 @@ function TransportAjrorMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

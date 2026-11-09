@@ -88,7 +88,7 @@ function TransportMeKontenier() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Llojet e kontenierëve</div>
             <h2 className="mt-3 text-navy">Cili kontenier për automjetin tuaj</h2>
           </div>
@@ -133,7 +133,7 @@ function TransportMeKontenier() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Avantazhet</div>
             <h2 className="mt-3 text-navy">Pse zgjedhin klientët kontenierin</h2>
           </div>
@@ -149,7 +149,7 @@ function TransportMeKontenier() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

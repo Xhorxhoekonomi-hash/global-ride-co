@@ -92,7 +92,7 @@ function InspektimMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë kontrollohet</div>
             <h2 className="mt-3 text-navy">Kontrolli teknik hap pas hapi</h2>
           </div>
@@ -112,7 +112,7 @@ function InspektimMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë merrni</div>
             <h2 className="mt-3 text-navy">Rezultatet e inspektimit</h2>
           </div>
@@ -131,7 +131,7 @@ function InspektimMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>

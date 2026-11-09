@@ -50,7 +50,7 @@ function Pervoja() {
 
       <section className="bg-background">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Dëshmi klientësh</div>
             <h2 className="mt-3 text-navy">Histori të shkruara klientësh</h2>
           </div>

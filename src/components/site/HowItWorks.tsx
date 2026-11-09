@@ -16,7 +16,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
   return (
     <section className={dark ? "section-dark" : "bg-background"}>
       <div className="container-page py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-2xl">
           <div className="eyebrow">{sq ? "Si funksionon" : "How It Works"}</div>
           <h2 className={`mt-3 ${dark ? "text-white" : "text-navy"}`}>
             {sq ? "Nga shpallja deri te shtëpia juaj" : "From listing to your driveway"}

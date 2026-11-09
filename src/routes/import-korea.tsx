@@ -168,7 +168,7 @@ function ImportKorea() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="grid h-11 w-11 mx-auto place-items-center rounded-lg bg-accent text-primary">
               <Camera className="h-5 w-5" />
             </div>
@@ -192,7 +192,7 @@ function ImportKorea() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">5-step process</div>
             <h2 className="mt-3 text-secondary">From Korea to Your Door</h2>
           </div>
@@ -219,7 +219,7 @@ function ImportKorea() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we ship to</div>
             <h2 className="mt-3 text-secondary">Destination Options</h2>
           </div>
@@ -239,7 +239,7 @@ function ImportKorea() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>

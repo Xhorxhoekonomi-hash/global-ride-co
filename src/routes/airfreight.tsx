@@ -134,7 +134,7 @@ function Airfreight() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Two ways we can help</div>
             <h2 className="mt-3 text-navy">Complete Service or Handling Only</h2>
           </div>
@@ -154,7 +154,7 @@ function Airfreight() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Before you book</div>
             <h2 className="mt-3 text-navy">Vehicle Acceptance Requirements</h2>
           </div>
@@ -177,7 +177,7 @@ function Airfreight() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Paperwork</div>
             <h2 className="mt-3 text-navy">Documentation We Coordinate</h2>
           </div>
@@ -193,7 +193,7 @@ function Airfreight() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we handle</div>
             <h2 className="mt-3 text-navy">Verified Airport Network</h2>
           </div>
@@ -209,7 +209,7 @@ function Airfreight() {
 
       <section className="section-dark">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow text-teal-glow">Who this serves</div>
             <h2 className="mt-3 text-white">Built for These Situations</h2>
           </div>
@@ -225,7 +225,7 @@ function Airfreight() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>

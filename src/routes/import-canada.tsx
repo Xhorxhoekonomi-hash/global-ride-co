@@ -30,7 +30,7 @@ function ImportCanada() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">6-step process</div>
             <h2 className="mt-3 text-navy">From Canada to your driveway</h2>
           </div>
