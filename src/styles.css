@@ -199,8 +199,16 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 .mobile-sheet-link { display: flex; width: 100%; min-height: 64px; justify-content: space-between; padding: 0; border-radius: 0; font-size: 24px; font-weight: 600; color: var(--navy); }
 .mobile-sheet-sublink { display: flex; width: 100%; min-height: 48px; justify-content: flex-start; padding-inline: 0; font-size: 17px; color: var(--navy); white-space: normal; text-align: left; }
 .mobile-sheet-actions { display: grid; gap: 12px; margin-top: 28px; padding-bottom: 112px; }
-.alpha-footer h4 { text-transform: none; color: var(--secondary); font-size: 14px; }
-.alpha-footer li > a { display: inline-block; padding-block: 4px; }
+.footer-main { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 40px; padding-block: 64px; }
+.footer-main--short { grid-template-columns: 2fr 1fr 1fr 2fr; }
+.footer-brand { grid-column: span 2; }
+.footer-group-label, .footer-heading { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); }
+.footer-group-toggle { display: none; }
+.footer-links { display: grid; gap: 8px; margin-top: 16px; font-size: 14px; line-height: 1.4; color: var(--muted-foreground); }
+.footer-links a { transition: color .2s; }
+.footer-links a:hover { color: var(--primary); }
+.footer-contact { padding-block: 40px; }
+.footer-contact-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px 32px; margin-top: 16px; font-size: 14px; color: var(--muted-foreground); }
 
 /* ================================================================
    5. Shared buttons (equal-width pairs)
@@ -499,6 +507,8 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
   .service-cards-arrows { display: flex; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .footer-main, .footer-main--short { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .footer-contact-row { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .journey-steps--long { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .related-guides-grid, .alpha-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
@@ -625,6 +635,18 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
   .related-guide-card { padding: 22px; }
   .breadcrumbs--photo { background: none; }
 .breadcrumbs--photo .breadcrumbs-list { font-size: 12px; padding-bottom: 8px; }
+
+  .footer-main, .footer-main--short { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 48px 24px; }
+  .footer-brand { grid-column: auto; padding-bottom: 24px; }
+  .footer-group { border-top: 1px solid var(--border); }
+  .footer-group-label { display: none; }
+  .footer-group-toggle { display: flex; width: 100%; min-height: 56px; align-items: center; justify-content: space-between; font-size: 15px; font-weight: 600; color: var(--secondary); }
+  .footer-group-toggle svg { width: 20px; height: 20px; color: var(--muted-foreground); transition: transform .2s; }
+  .footer-group[data-open] .footer-group-toggle svg { transform: rotate(180deg); }
+  .footer-group:not([data-open]) .footer-links { display: none; }
+  .footer-links { gap: 0; margin-top: 0; padding-bottom: 16px; }
+  .footer-links > li > * { display: flex; align-items: center; min-height: 44px; }
+  .footer-contact-row { grid-template-columns: minmax(0,1fr); }
 
   .sticky-action-bar { position: fixed; z-index: 50; inset: auto 0 0; display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: var(--background); border-top: 1px solid var(--border); }
   .sticky-action-whatsapp { display: grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 8px; background: var(--whatsapp); color: var(--primary-foreground); }
