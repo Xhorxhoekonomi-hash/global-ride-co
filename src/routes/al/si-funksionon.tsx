@@ -70,7 +70,7 @@ function SiFunksionon() {
     <>
       <PageHero scene={SILVER_FERRARI_YARD.sq} breadcrumbs={[{ label: "Si funksionon" }]} eyebrow="Si funksionon" title="Nga zgjedhja e automjetit te marrja — dhjetë hapa, një ekip" description="Çdo hap i shpjeguar me ndershmëri, përfshirë rastet kur disponueshmëria dhe kohët varen nga faktorë jashtë kontrollit tonë.">
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
-        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
             </Link>
       </PageHero>
 
