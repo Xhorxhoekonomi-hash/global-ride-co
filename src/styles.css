@@ -409,7 +409,6 @@ main :is(.alpha-enquiry, .end-band) form.shadow-card { padding: 28px; border-rad
 .motion-ok :is(.home-timeline-dot, .home-step-num, .step-timeline-icon)[data-draw] { transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
 .motion-ok :is(.home-timeline-dot, .home-step-num, .step-timeline-icon)[data-draw]:not(.is-drawn) { opacity: 0; transform: scale(.8); }
 /* Teal progress lines that draw themselves on scroll. */
-.home-steps { position: relative; }
 .home-steps::before { content: ""; position: absolute; top: -20px; left: 0; right: 0; height: 2px; background: var(--teal); transform-origin: left; }
 .motion-ok .home-steps::before { transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
 .motion-ok .home-steps:not(.is-drawn)::before { transform: scaleX(0); }
@@ -573,8 +572,8 @@ main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: no
 .bento-tile-copy span { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 15px; font-weight: 600; }
 
 /* Steps */
-.home-steps { display: grid; grid-template-columns: minmax(0,1fr); gap: 40px; margin-top: 48px; }
-.home-step-num { display: block; font-size: 64px; line-height: 1; font-weight: 200; letter-spacing: -0.03em; color: var(--teal); }
+.home-steps { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 20px; margin-top: 48px; }
+.home-step-num { display: block; font-size: clamp(44px, 12vw, 64px); line-height: 1; font-weight: 200; letter-spacing: -0.03em; color: var(--teal); }
 .home-step h3 { margin-top: 16px; color: var(--secondary); }
 .home-step p { margin-top: 8px; color: color-mix(in oklab, var(--navy) 80%, transparent); }
 
