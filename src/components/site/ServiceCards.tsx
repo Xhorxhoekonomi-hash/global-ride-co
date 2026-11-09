@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { AIRFREIGHT_PORTRAITS } from "@/lib/airfreight-photos";
@@ -30,11 +31,39 @@ export function ServiceCards({ locale }: { locale: "en" | "sq" }) {
   ];
   return <section className="home-section"><div className="container-page">
     <div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Mbështetje në çdo hap" : "The right support, at every stage"}</p><h2 className="home-heading">{al ? "Më shumë se transport." : "More than moving a car."}</h2></div></div>
-    <div className="bento-grid">
-      {cards.map((c) => <Link key={c.title} to={c.to} className="bento-tile">
+    <ServiceTrack cards={cards} more={more} label={al ? "Shërbimi" : "Service"} />
+  </div></section>;
+}
+
+/** Bento grid on tablet/desktop; a swipeable scroll-snap carousel with dots on phones (all links stay in the DOM). */
+function ServiceTrack({ cards, more, label }: { cards: Card[]; more: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onScroll = () => {
+      const first = el.firstElementChild as HTMLElement | null;
+      const step = first ? first.offsetWidth + 12 : el.clientWidth;
+      setActive(Math.min(cards.length - 1, Math.round(el.scrollLeft / Math.max(step, 1))));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [cards.length]);
+  const goTo = (i: number) => {
+    const el = ref.current;
+    const tile = el?.children[i] as HTMLElement | undefined;
+    if (el && tile) el.scrollTo({ left: tile.offsetLeft - el.offsetLeft - 20, behavior: "smooth" });
+  };
+  return <>
+    <div ref={ref} className="bento-grid">
+      {cards.map((c) => <Link key={c.title} to={c.to} className="bento-tile on-photo" data-parallax>
         <img src={c.img} alt={c.alt} width={c.w ?? 1200} height={c.h ?? 1600} loading="lazy" decoding="async" />
         <div className="bento-tile-copy"><h3>{c.title}</h3><p>{c.body}</p><span>{more}<ArrowRight className="h-4 w-4" /></span></div>
       </Link>)}
     </div>
-  </div></section>;
+    <div className="bento-dots">
+      {cards.map((c, i) => <button key={c.title} type="button" aria-label={`${label} ${i + 1} / ${cards.length}`} aria-current={i === active} onClick={() => goTo(i)}><span /></button>)}
+    </div>
+  </>;
 }
