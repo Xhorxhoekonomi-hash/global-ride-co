@@ -16,7 +16,7 @@ export function Faq() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl">
+        <div className="mt-12 max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
             {FAQS.map((f, i) => (
               <AccordionItem key={f.q} value={`item-${i}`} className="border-border">
