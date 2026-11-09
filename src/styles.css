@@ -63,6 +63,8 @@
   --fs-h1: clamp(40px, 5.2vw, 80px); --fs-h2: clamp(30px, 3.6vw, 56px); --fs-h3: clamp(20px, 1.6vw, 28px); --fs-body: 17px; --fs-eyebrow: 14px;
   /* One button size for primary/outline/secondary buttons and links styled as buttons */
   --btn-h: 48px; --btn-fs: 16px;
+  /* One section rhythm: vertical space between two sections (64px phones, 112px from 768px) */
+  --section-y: 64px;
 
   /* Brand */
   --navy: #003C5A;
@@ -144,11 +146,13 @@
   :is(.text-center, .stat-panel, .cta-band, .welcome-screen) :is(h1, h2, h3), :is(h1, h2, h3).text-center { margin-inline: auto; }
   .font-display { font-family: var(--font-display); letter-spacing: 0; }
   .eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; color: var(--color-teal); }
+  /* Anything placed over a photo is white; light-surface text colours below always exclude .on-photo. */
+  .on-photo, .on-photo :is(h1, h2, h3, p, span) { color: var(--on-dark); }
 }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 /* Small teal text on light surfaces uses the darker brand shade so it meets WCAG AA; #0F8796 stays for fills, icons and large figures. */
 .text-teal, .text-primary, .text-teal-dark, .eyebrow { color: var(--teal-dark); }
-:is(.bg-graphite, .bg-navy, .bg-secondary, .section-dark, .stat-panel, .text-hero--navy) :is(.text-teal, .text-primary, .eyebrow), .text-teal-glow { color: var(--teal-glow); }
+:is(.bg-graphite, .bg-navy, .bg-secondary, .section-dark, .end-band, .text-hero--navy) :is(.text-teal, .text-primary, .eyebrow), .text-teal-glow { color: var(--teal-glow); }
 .section-dark .text-white\/50 { color: color-mix(in oklab, var(--background) 72%, transparent); }
 p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offset: 3px; }
 
@@ -188,7 +192,7 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
    4. Layout + header + footer
    ================================================================ */
 .container-page { width: 100%; max-width: 1400px; margin-inline: auto; padding-inline: 2rem; }
-.alpha-header { --header-fg: var(--navy); position: sticky; top: 0; z-index: 40; height: var(--header-h); border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 86%, transparent); backdrop-filter: blur(20px) saturate(180%); color: var(--header-fg); transition: background-color .2s, border-color .2s, color .2s; }
+.alpha-header { --header-fg: var(--navy); position: sticky; top: 0; z-index: 40; height: var(--header-h); transition: height .25s ease, margin .25s ease, background-color .2s, border-color .2s, color .2s; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 86%, transparent); backdrop-filter: blur(20px) saturate(180%); color: var(--header-fg); }
 :root { --header-h: 56px; }
 :root:has(main .hero-panel) .alpha-header { margin-bottom: calc(-1 * var(--header-h)); }
 :root:has(main .hero-panel) .alpha-header:not([data-scrolled], [data-open]) { --header-fg: var(--primary-foreground); background: transparent; border-color: transparent; backdrop-filter: none; }
@@ -199,8 +203,10 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 .alpha-header-logo img { width: 128px; }
 .alpha-desktop-navigation { display: none; align-items: center; gap: 28px; }
 .alpha-nav-link { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 14px; font-weight: 500; color: var(--header-fg); }
+.alpha-nav-link { position: relative; }
+.alpha-nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 1.5px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.alpha-nav-link:hover::after, .alpha-nav-link[aria-current]::after { transform: scaleX(1); }
 .alpha-nav-link svg { width: 14px; height: 14px; opacity: .7; }
-.alpha-nav-link:hover, .alpha-nav-link[aria-current] { opacity: .75; }
 .alpha-header-actions { display: flex; align-items: center; gap: 4px; }
 .alpha-header-icon { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; height: 44px; font-size: 14px; font-weight: 500; color: var(--header-fg); }
 .alpha-header-icon svg { width: 18px; height: 18px; }
@@ -219,7 +225,11 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
   .alpha-desktop-navigation, .alpha-header-quote { display: inline-flex; }
   .header-menu-button { display: none; }
   .alpha-header-logo img { width: 148px; }
+  /* Shrinks 64 -> 56px after scrolling; the margin keeps the page from shifting. */
+  .alpha-header[data-scrolled] { height: 56px; margin-bottom: 8px; }
+  :root:has(main .hero-panel) .alpha-header[data-scrolled] { margin-bottom: -56px; }
 }
+.read-progress { position: fixed; z-index: 70; top: 0; left: 0; right: 0; height: 2px; background: var(--teal); transform-origin: left; }
 @media (min-width: 1280px) { .alpha-header-desktop { display: inline-flex; } }
 .alpha-footer { background: var(--background); color: var(--navy); border-top: 1px solid var(--border); }
 .footer-slogan { margin-top: 16px; font-size: 15px; font-weight: 600; color: var(--teal-dark); }
@@ -243,7 +253,11 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 /* ================================================================
    5. Shared buttons (equal-width pairs)
    ================================================================ */
-.btn-pair { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--btn-h); padding-inline: 20px; border-radius: 8px; font-size: var(--btn-fs); font-weight: 600; flex: 1 1 0; min-width: max-content; white-space: nowrap; text-align: center; transition: background-color .2s; }
+.btn-pair { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--btn-h); padding-inline: 20px; border-radius: 8px; font-size: var(--btn-fs); font-weight: 600; flex: 1 1 0; min-width: max-content; white-space: nowrap; text-align: center; transition: background-color .2s, color .2s, transform .15s ease; }
+/* Micro-interactions: buttons lift 1px, arrow icons slide 4px. */
+:is(.btn-pair, main [data-slot="button"]):hover { transform: translateY(-1px); }
+:is(a, button) svg.lucide-arrow-right { transition: transform .15s ease; }
+:is(a, button):hover > svg.lucide-arrow-right, :is(a, button):hover > span > svg.lucide-arrow-right { transform: translateX(4px); }
 main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"], [data-variant="secondary"]):not([data-size="icon"], [data-size="sm"], .h-auto) { height: auto; min-height: var(--btn-h); padding-block: 0; padding-inline: 20px; border-radius: 8px; font-size: var(--btn-fs); font-weight: 600; white-space: nowrap; }
 /* Button pairs: equal widths on one row; when both labels can't fit they stack full-width (labels never wrap). */
 :is(.hero-panel-actions, .text-hero-actions, .cta-band-actions, .welcome-actions, .btn-pair-row) { display: flex; flex-wrap: wrap; }
@@ -258,7 +272,7 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
 
 /* Shared cards: one radius, border and hover treatment everywhere */
 :is(.alpha-card, .alpha-origin, .related-guide-card) { border: 1px solid var(--border); border-radius: 20px; background: var(--background); transition: border-color .2s, transform .2s, box-shadow .2s; }
-:is(.alpha-card, .alpha-origin, .related-guide-card):is(a, :has(a)):hover { border-color: var(--primary); transform: translateY(-2px); }
+:is(.alpha-card, .alpha-origin, .related-guide-card):is(a, :has(a)):hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow-card); }
 .alpha-card { display: flex; flex-direction: column; height: 100%; padding: 24px; }
 .alpha-card > svg:first-child { width: 28px; height: 28px; margin-bottom: 16px; color: var(--teal); }
 .alpha-card h3 { color: var(--secondary); }
@@ -279,7 +293,8 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
 .form-control::placeholder { color: var(--muted-foreground); }
 textarea.form-control { padding-block: 12px; line-height: 1.5; }
 select.form-control, .route-finder-field select { appearance: none; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23003C5A' stroke-width='2'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
-.form-control:focus-visible, .route-finder-field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; border-color: var(--primary); }
+.form-control, .route-finder-field select { transition: border-color .2s, box-shadow .2s; }
+.form-control:focus-visible, .route-finder-field select:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 28%, transparent); }
 .form-control:is([aria-invalid="true"], .border-destructive) { border-color: var(--destructive); }
 .form-grid { display: grid; gap: 16px; }
 
@@ -431,7 +446,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .home-kicker { margin-bottom: 12px; font-size: 14px; font-weight: 600; color: var(--teal-dark); }
 .editorial-home { overflow-x: clip; }
 .editorial-home .home-heading { max-width: 760px; }
-.editorial-home > :not(.hero-panel) p:not([class]) { color: color-mix(in oklab, var(--navy) 80%, transparent); }
+.editorial-home > :not(.hero-panel) p:not([class], .on-photo *) { color: color-mix(in oklab, var(--navy) 80%, transparent); }
 .alpha-section-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; }
 .alpha-section-heading > p { max-width: 560px; color: color-mix(in oklab, var(--navy) 80%, transparent); }
 .alpha-section-heading > a { min-height: 44px; padding: 0; }
