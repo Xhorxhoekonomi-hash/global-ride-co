@@ -32,3 +32,7 @@
 - buildHead derives hreflang from LANGUAGE_ROUTE_MAP when a route passes none, so every EN/SQ pair stays reciprocal without per-route lists.
 - Let the bundler resolve each email dependency's own entities version; global entities aliases break the incompatible v4 and v7 export paths used by email rendering.
 - Airport and keyword page registries own bilingual paths and conditional service status; shared page templates and inline keyword links keep navigation, metadata and sitemap entries aligned without changing operational forms or rates.
+- Form inputs use the shared .form-label/.form-control classes (same style as RouteFinder); dark form variants only change label colour, so there is one field style site-wide.
+- Linked content cards use .alpha-card (or share its radius/border/hover rule in styles.css) so card treatment cannot drift per page.
+- PAGES_WITH_OWN_END_CTA (src/lib/page-end-cta.ts) lists pages whose last section is already a CTA; __root skips the shared CtaBand for them so CTAs never stack. Add new pages that end in a form or quote CTA there.
+- Footer link groups collapse on phones via CSS (display none), never conditional rendering, so internal links always stay in the DOM.
