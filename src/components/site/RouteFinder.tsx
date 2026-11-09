@@ -30,6 +30,7 @@ export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
   const [from, setFrom] = useState<RfOrigin>("USA");
   const [to, setTo] = useState<RfDestination>("Albania");
   const [vehicle, setVehicle] = useState<RfVehicle>("Car / SUV");
+  const [pulse, setPulse] = useState(0);
   const submit = (e: FormEvent) => {
     e.preventDefault();
     trackEvent("route_finder_submitted", { from, to, vehicle });
@@ -39,7 +40,7 @@ export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
   const field = (id: string, label: string, value: string, set: (v: string) => void, values: readonly string[], labels: string[]) => (
     <div className="route-finder-field">
       <label htmlFor={id}>{label}</label>
-      <select id={id} value={value} onChange={(e) => set(e.target.value)}>
+      <select id={id} value={value} onChange={(e) => { set(e.target.value); setPulse((p) => p + 1); }}>
         {values.map((v, i) => <option key={v} value={v}>{labels[i]}</option>)}
       </select>
     </div>
@@ -51,7 +52,7 @@ export function RouteFinder({ locale }: { locale: "en" | "sq" }) {
         {field("rf-from", c.from, from, (v) => setFrom(v as RfOrigin), RF_ORIGINS, c.origins)}
         {field("rf-to", c.to, to, (v) => setTo(v as RfDestination), RF_DESTINATIONS, c.destinations)}
         {field("rf-vehicle", c.vehicle, vehicle, (v) => setVehicle(v as RfVehicle), RF_VEHICLES, c.vehicles)}
-        <Button type="submit" className="route-finder-submit">{c.submit}<ArrowRight /></Button>
+        <Button key={pulse} type="submit" className={`route-finder-submit${pulse ? " rf-pulse" : ""}`}>{c.submit}<ArrowRight /></Button>
       </div>
       <p className="route-finder-note">{c.note} <Link to={L("/shipping-estimate-disclaimer")}>{c.disclaimer}</Link></p>
     </form>
