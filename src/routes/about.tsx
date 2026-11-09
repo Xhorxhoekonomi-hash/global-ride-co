@@ -5,7 +5,7 @@ import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Truck, ShoppingBag, Ship, ShieldCheck, FileText, Plane, Check, MapPin } from "lucide-react";
 import { buildHead } from "@/lib/seo";
-import { TrustStats } from "@/components/site/TrustStats";
+import { StatCounter } from "@/components/site/StatCounter";
 import { OFFICES } from "@/lib/site-data";
 
 export const Route = createFileRoute("/about")({
@@ -123,7 +123,7 @@ function About() {
         </div>
       </section>
 
-      <TrustStats />
+      <StatCounter locale="en" />
 
       <section className="bg-background">
         <div className="container-page flex flex-col items-center gap-6 py-20 text-center md:py-24">
