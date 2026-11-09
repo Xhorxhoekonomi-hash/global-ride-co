@@ -74,11 +74,14 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => { reveal.disconnect(); draw.disconnect(); window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
     };
-    // Wait for load + an idle frame so lazily hydrated route content is never mutated mid-hydration.
-    let idle = 0;
-    const kick = () => { idle = window.setTimeout(() => ("requestIdleCallback" in window ? window.requestIdleCallback(start, { timeout: 1200 }) : start()), 50); };
-    if (document.readyState === "complete") kick(); else window.addEventListener("load", kick, { once: true });
-    return () => { window.removeEventListener("load", kick); window.clearTimeout(idle); window.clearTimeout(wait); cleanup(); };
+    // Start on the first scroll after load + 1s (below-fold motion only matters then), and only once
+    // React has hydrated the sections, so lazily hydrated route content is never mutated mid-hydration.
+    let armed = false;
+    let ready = 0;
+    const onFirstScroll = () => { if (armed) return; armed = true; window.removeEventListener("scroll", onFirstScroll); start(); };
+    const listen = () => { ready = window.setTimeout(() => window.addEventListener("scroll", onFirstScroll, { passive: true }), 1000); };
+    if (document.readyState === "complete") listen(); else window.addEventListener("load", listen, { once: true });
+    return () => { window.removeEventListener("load", listen); window.removeEventListener("scroll", onFirstScroll); window.clearTimeout(ready); window.clearTimeout(wait); cleanup(); };
   }, [pathname, guide]);
 
   if (!guide) return null;
