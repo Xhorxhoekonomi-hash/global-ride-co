@@ -37,8 +37,8 @@ export function StatCounter({ locale }: { locale: "en" | "sq" }) {
         <dl className="stat-grid">
           {c.items.map((label, i) => (
             <div key={label}>
-              <dt>{label}</dt>
               <dd>{values[i].toLocaleString("en-US")}+</dd>
+              <dt>{label}</dt>
             </div>
           ))}
         </dl>
