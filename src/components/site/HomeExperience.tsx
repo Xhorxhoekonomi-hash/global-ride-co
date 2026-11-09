@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { localPath } from "@/lib/site-data";
 import { ArrowRight, CarFront, Ship, Calculator, ScanLine, Link2, ShieldCheck, Gavel, MapPin, MessageCircle, FileText, Plane, Globe2, Check, BookOpen, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,6 @@ import { EmailContact } from "@/components/site/EmailContact";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { RouteFinder } from "@/components/site/RouteFinder";
 import { ServiceCards } from "@/components/site/ServiceCards";
-import porscheYard from "@/assets/services/porsche-ferrari-yard-1200.webp.asset.json";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { GuideFeature } from "@/components/site/GuideFeature";
 import { HeroPanel, type HeroSlide } from "@/components/site/HeroPanel";
@@ -58,6 +58,13 @@ const COPY = {
     faqKicker: "Pyetje të mira. Përgjigje të qarta.", faqTitle: "Le ta bëjmë më të thjeshtë.", allFaq: "Më shumë pyetje?", finalKicker: "Hapi juaj i radhës", finalTitle: "E keni gjetur makinën?", finalBody: "Na dërgoni linkun. Shqyrtojmë të dhënat dhe ju ndihmojmë me hapat e tjerë.", finalTrust: ["Kontakt direkt në WhatsApp", "Inspektim sipas disponueshmërisë", "Ofertë e konfirmuar para rezervimit"],
   },
 };
+/** Two-sentence headings break at the sentence boundary first. */
+function sentences(text: string) {
+  const parts = text.split(/(?<=\.)\s+/);
+  if (parts.length < 2) return text;
+  return parts.map((part, i) => <span key={i} className="heading-sentence">{part}{i < parts.length - 1 ? " " : ""}</span>);
+}
+
 const GUIDE_ROUTES = ["/guides/how-to-buy-a-car-from-usa-auctions", "/guides/container-vs-roro-car-shipping", "/guides/how-to-check-a-used-car-before-buying"];
 
 
@@ -78,6 +85,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     { id: "yellow", title: al ? "Transport me kontenier, pa merak." : "Container shipping, handled.", body: al ? "Ngarkim, sigurim dhe koordinim në port." : "Loading, securing and port coordination.", alt: al ? "McLaren i verdhë me të zeza në një shesh logjistik me kontenier të hapur në sfond." : "Yellow and black McLaren on a paved logistics yard with an open container behind it.", desktop: yellow1440.url, desktopLarge: yellow2560.url, mobile: yellowMobile.url, primary: quote, secondary: { label: al ? "Transport me kontenier" : "Container Shipping", to: container } },
     { id: "ferrari", title: al ? "Deri te dera juaj." : "Delivered to your door.", body: al ? "Nga porti deri në adresën tuaj, të koordinuara nga ekipi ynë." : "From the port to your address, coordinated by our team.", alt: al ? "Ferrari gri me numrin 70 i ngarkuar në një kamion transportues makinash." : "Grey Ferrari with a number 70 livery loaded on a car-carrier truck.", desktop: ferrari1440.url, desktopLarge: ferrari2560.url, mobile: ferrariMobile.url, primary: quote, secondary: { label: al ? "Si funksionon" : "How It Works", to: L("/how-it-works") } },
   ];
+  useScrollReveal();
   return <div className="editorial-home bg-background text-foreground">
     <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} />
     <RouteFinder locale={locale} />
@@ -85,19 +93,19 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     <ServiceCards locale={locale} />
 
     <section className="home-section alpha-journey"><div className="container-page">
-      <div className="alpha-section-heading"><div><p className="home-kicker">{c.stepsKicker}</p><h2 className="home-heading">{c.stepsTitle}</h2></div><Button asChild variant="link"><Link to={L("/how-it-works")}>{c.process}<ArrowRight /></Link></Button></div>
+      <div className="alpha-section-heading"><div><p className="home-kicker">{c.stepsKicker}</p><h2 className="home-heading">{sentences(c.stepsTitle)}</h2></div><Button asChild variant="link"><Link to={L("/how-it-works")}>{c.process}<ArrowRight /></Link></Button></div>
       <HomeJourney locale={locale} titles={c.steps} bodies={c.stepBodies} />
     </div></section>
 
     <section className="home-section alpha-origins"><div className="container-page">
-      <div className="alpha-section-heading"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
-      <div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]}</span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}{al && i === 3 ? "" : ""}<ArrowRight className="h-4 w-4" /></span></div></Link>)}</div>
+      <div className="alpha-section-heading alpha-section-heading--stacked"><div><p className="home-kicker">{c.originsKicker}</p><h2 className="home-heading">{c.originsTitle}</h2></div><p>{c.originsBody}</p></div>
+      <div className="alpha-origin-grid">{c.countries.map((name,i) => <Link to={origins[i]} key={name} className="alpha-origin"><span className="alpha-origin-code">{["US", "KR", "AE", "EU"][i]}</span><div><h3>{name}</h3><p>{c.countryBodies[i]}</p><span className="alpha-origin-link">{c.originLink}<ArrowRight className="h-4 w-4" /></span></div></Link>)}</div>
       <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground"><Globe2 className="h-4 w-4 text-primary" />{c.canada}<Link to={L("/import-canada")} className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary">{c.canadaLink}<ChevronRight className="h-4 w-4" /></Link></div>
       {al && <div className="flex flex-wrap gap-4 text-sm text-primary"><Link to="/al/copart-shqiperi" className="inline-flex min-h-11 items-center gap-2">Copart Shqipëri<ArrowRight className="h-4 w-4" /></Link><Link to="/al/iaai-shqiperi" className="inline-flex min-h-11 items-center gap-2">IAAI Shqipëri<ArrowRight className="h-4 w-4" /></Link></div>}
     </div></section>
 
     <section className="home-section"><div className="container-page">
-      <div className="archive-head"><div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Nga arkivi ynë" : "The Alpha archive"}</p><h2 className="home-heading">{al ? "Automjete në duart tona." : "Real cars. Real operations."}</h2></div><Button asChild variant="link"><Link to={L("/delivered-vehicles")}>{al ? "Eksploro punën e dokumentuar" : "Explore documented work"}<ArrowRight /></Link></Button></div><img className="archive-head-photo" src={porscheYard.url} width={1200} height={1600} loading="lazy" decoding="async" alt={al ? "Porsche 911 argjendi me numrin 70 pranë një Ferrari në një shesh logjistik." : "Silver Porsche 911 with a number 70 livery beside a Ferrari on a logistics yard."} /></div>
+      <div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Nga arkivi ynë" : "The Alpha archive"}</p><h2 className="home-heading">{sentences(al ? "Automjete në duart tona." : "Real cars. Real operations.")}</h2></div><Button asChild variant="link"><Link to={L("/delivered-vehicles")}>{al ? "Eksploro punën e dokumentuar" : "Explore documented work"}<ArrowRight /></Link></Button></div>
       <div className="mt-10"><PhotoGallery photos={ALPHA_PHOTOS} locale={locale} variant="filmstrip" coverAlbumIds={["urus", "silver-ferrari", "porsche", "sls"]} /></div>
     </div></section>
 
@@ -110,6 +118,6 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
 
     <section className="alpha-presence"><div className="container-page grid gap-10 lg:grid-cols-2"><div><p className="home-kicker">{c.presenceKicker}</p><h2 className="home-heading">{c.presenceTitle}</h2><p className="mt-5 max-w-lg leading-relaxed text-muted-foreground">{c.presenceBody}</p><div className="mt-6 grid gap-5 sm:grid-cols-2">{[c.headquarters,c.operations].map((role,i) => <Link to={L(i === 0 ? "/locations/dubai" : "/locations/durres")} key={role} className="block"><p className="text-sm text-muted-foreground">{role}</p><p className="mt-2 text-xl text-secondary">{i === 0 ? (al ? "Dubai, EBA" : "Dubai, UAE") : (al ? "Durrës, Shqipëri" : "Durrës, Albania")}</p></Link>)}</div><Button asChild variant="link" className="mt-4 px-0"><Link to={L("/en/albania")}>{c.destinations}<ArrowRight /></Link></Button><div className="flex flex-wrap gap-x-4 text-sm text-muted-foreground">{(al ? ["Shqipëri", "Holandë", "Gjermani", "Belgjikë", "Francë", "Itali", "Kosovë"] : ["Albania", "Netherlands", "Germany", "Belgium", "France", "Italy", "Kosovo"]).map((name,i) => <Link key={name} to={L(["/en/albania", "/en/netherlands", "/import-germany", "/import-belgium", "/import-france", "/import-italy", "/shipping-to-kosovo"][i])} className="inline-flex min-h-11 items-center">{name}</Link>)}</div></div><div className="alpha-presence-links"><h3>{c.delivery}</h3><p>{c.deliveryBody}</p><Button variant="link" asChild className="px-0"><Link to={L("/delivered-vehicles")}>{c.deliveryLink}<ArrowRight /></Link></Button><Button variant="link" asChild className="px-0"><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noreferrer noopener">{c.instagram}<ArrowRight /></a></Button></div></div></section>
 
-    <section className="home-section alpha-enquiry"><div className="container-page grid gap-12 lg:grid-cols-2"><div><p className="home-kicker">{c.finalKicker}</p><h2 className="home-heading">{c.finalTitle}</h2><p className="mt-5 max-w-md leading-relaxed text-muted-foreground">{c.finalBody}</p><ul className="mt-7 space-y-4">{c.finalTrust.map(text => <li key={text} className="flex items-start gap-3 text-sm text-muted-foreground"><Check className="h-5 w-5 shrink-0 text-primary" />{text}</li>)}</ul><div className="mt-7 flex flex-wrap gap-3"><Button asChild variant="secondary" className="h-12"><a href={whatsapp} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "homepage_final_cta" })}><MessageCircle />WhatsApp</a></Button><Button variant="outline" asChild className="h-12"><Link to={contact} onClick={() => trackEvent("quote_started", { source: "homepage_final_cta" })}><FileText />{c.quote}</Link></Button></div><EmailContact location="homepage_enquiry" className="mt-4" /></div>{al ? <QuoteForm variant="compact" locale="sq" source="al-home" /> : <QuoteForm variant="compact" />}</div></section>
+    <section className="home-section alpha-enquiry"><div className="container-page grid gap-12 lg:grid-cols-2"><div><p className="home-kicker">{c.finalKicker}</p><h2 className="home-heading">{c.finalTitle}</h2><p className="mt-5 max-w-md leading-relaxed text-muted-foreground">{c.finalBody}</p><ul className="mt-7 space-y-4">{c.finalTrust.map(text => <li key={text} className="flex items-start gap-3 text-sm text-muted-foreground"><Check className="h-5 w-5 shrink-0 text-primary" />{text}</li>)}</ul><div className="btn-pair-row mt-7"><a href={whatsapp} target="_blank" rel="noreferrer noopener" className="btn-pair btn-pair--whatsapp" onClick={() => trackEvent("whatsapp_clicked", { source: "homepage_final_cta" })}><MessageCircle aria-hidden="true" />WhatsApp</a><Link to={contact} className="btn-pair btn-pair--outline" onClick={() => trackEvent("quote_started", { source: "homepage_final_cta" })}><FileText aria-hidden="true" />{c.quote}</Link></div><EmailContact location="homepage_enquiry" className="mt-4" /></div>{al ? <QuoteForm variant="compact" locale="sq" source="al-home" /> : <QuoteForm variant="compact" />}</div></section>
   </div>;
 }
