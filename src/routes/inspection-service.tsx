@@ -52,7 +52,7 @@ function InspectionService() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">What's included</div>
             <h2 className="mt-3 text-secondary">Every inspection covers</h2>

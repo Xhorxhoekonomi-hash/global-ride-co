@@ -104,7 +104,7 @@ function GuideUsaAuctions() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-12">
             <div id="choosing-platform">
               <h2 className="text-navy">Choosing a platform</h2>
@@ -191,7 +191,7 @@ function GuideUsaAuctions() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

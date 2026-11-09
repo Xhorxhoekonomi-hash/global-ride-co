@@ -134,7 +134,7 @@ function KoreaToRotterdam() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">How it works</div>
             <h2 className="mt-3 text-navy">From Korea to Rotterdam</h2>
@@ -171,7 +171,7 @@ function KoreaToRotterdam() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Paperwork</div>
             <h2 className="mt-3 text-navy">Documents Typically Required</h2>
@@ -188,7 +188,7 @@ function KoreaToRotterdam() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow text-teal-glow">Beyond Rotterdam</div>
             <h2 className="mt-3 text-white">Onward Delivery Across Western Europe</h2>
@@ -207,7 +207,7 @@ function KoreaToRotterdam() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
@@ -227,7 +227,7 @@ function KoreaToRotterdam() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Start today</div>
             <h2 className="mt-3 text-navy">

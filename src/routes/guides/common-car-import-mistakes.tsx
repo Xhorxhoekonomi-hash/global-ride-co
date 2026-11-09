@@ -66,7 +66,7 @@ function GuideCommonMistakes() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-teal" /><h2 className="text-navy">The seven mistakes</h2></div>
             <div className="mt-6 space-y-5">
@@ -82,7 +82,7 @@ function GuideCommonMistakes() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">How to avoid most of these</h2>
             <p className="mt-3 text-slate-body">Verify the seller, review available condition information, coordinate inspection where possible (see our <Link to="/guides/how-to-check-a-used-car-before-buying" className="text-teal hover:underline">used-car checking guide</Link>), confirm document requirements before shipping (see our <Link to="/guides/vehicle-import-documents" className="text-teal hover:underline">import documents guide</Link>), and budget realistically using our <Link to="/guides/car-shipping-costs-explained" className="text-teal hover:underline">shipping costs guide</Link>. Most of these mistakes share the same root cause — moving fast without confirming the details first.</p>
@@ -91,7 +91,7 @@ function GuideCommonMistakes() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

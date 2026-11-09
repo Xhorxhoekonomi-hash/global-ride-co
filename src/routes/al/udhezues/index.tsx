@@ -50,7 +50,7 @@ function Udhezues() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="eyebrow">Udhëzuesit kryesorë</div>
           <h2 className="mt-2 text-navy">Filloni këtu</h2>
           <div className="mt-8"><GuideFeature locale="sq" title="Si të blini makinë nga ankandet amerikane" category="Blerje jashtë vendit · 5 min lexim" read="Lexo udhëzuesin" /></div>
@@ -58,7 +58,7 @@ function Udhezues() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {GUIDES_SQ.map((g) => (
               <Link key={g.to} to={g.to} className="group flex flex-col border-t border-border py-8 pr-5 transition-colors hover:border-primary">

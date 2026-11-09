@@ -105,7 +105,7 @@ function ImportUAE() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-3xl">
             <MapPin className="mx-auto h-8 w-8 text-primary" />
             <h2 className="mt-4 text-secondary">A Dubai Headquarters Advantage</h2>
@@ -117,7 +117,7 @@ function ImportUAE() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Beyond luxury</div>
             <h2 className="mt-3 text-secondary">A Broader Market Than You'd Expect</h2>
@@ -133,7 +133,7 @@ function ImportUAE() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">6-step process</div>
             <h2 className="mt-3 text-secondary">From Dubai to Your Driveway</h2>
@@ -143,7 +143,7 @@ function ImportUAE() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Shipping options</div>
             <h2 className="mt-3 text-secondary">Container, RoRo, or Airfreight</h2>
@@ -168,7 +168,7 @@ function ImportUAE() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Where we ship to</div>
             <h2 className="mt-3 text-secondary">Destination Options</h2>
@@ -188,7 +188,7 @@ function ImportUAE() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>

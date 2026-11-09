@@ -74,7 +74,7 @@ function SiFunksionon() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-[760px]">
             {STEPS.map((s, i) => (
               <div key={s.n}>

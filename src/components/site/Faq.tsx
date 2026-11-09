@@ -5,7 +5,7 @@ import { KeywordText } from "@/components/site/KeywordText";
 export function Faq() {
   return (
     <section className="bg-background">
-      <div className="container-page py-20 md:py-24">
+      <div className="container-page section-y">
         <div className="max-w-2xl">
           <div className="eyebrow">Questions</div>
           <h2 className="mt-3 text-navy">

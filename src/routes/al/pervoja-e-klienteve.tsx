@@ -36,7 +36,7 @@ function Pervoja() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-xl border border-border bg-card p-8 text-center shadow-card">
             <div className="flex items-center gap-1 text-amber-500">{[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}</div>
             <h2 className="text-navy">Shihni çfarë thonë klientët në Google</h2>
@@ -49,7 +49,7 @@ function Pervoja() {
       <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-secondary">Automjete që kemi trajtuar</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Fotografi origjinale të trajtimit të automjeteve në magazina, porte, kamionë transportues dhe kontenierë.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} locale="sq" /></div></div></section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Dëshmi klientësh</div>
             <h2 className="mt-3 text-navy">Histori të shkruara klientësh</h2>

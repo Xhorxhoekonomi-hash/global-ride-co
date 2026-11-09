@@ -92,7 +92,7 @@ function TransportAjrorMakinash() {
       <section className="bg-muted"><div className="container-page py-12 md:py-20"><h2 className="text-secondary">Çfarë përfshin transporti ajror</h2><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-secondary">Transport ajror i plotë i automjetit</h3><p className="mt-3 text-muted-foreground leading-relaxed">Koordinojmë dërgesën nga origjina deri në mbërritjen evropiane dhe dorëzim — gjetjen, dokumentet, rezervimin dhe transportin përfundimtar.</p></article><article className="rounded-xl border border-border bg-background p-6"><h3 className="text-secondary">Vetëm trajtim në aeroportin evropian</h3><p className="mt-3 text-muted-foreground leading-relaxed">Kur klienti ose spedicioneri e ka rezervuar fluturimin, koordinojmë trajtimin në mbërritje, procedurat e lirimit të ngarkesës, dokumentet doganore dhe transportin e mëtejshëm.</p></article></div><h3 className="mt-8 text-secondary">Dokumentet që koordinojmë</h3><ul className="mt-4 space-y-3 text-muted-foreground">{["Koordinimi i Air Waybill", "Shkarkimi dhe procedurat e lirimit të ngarkesës", "Koordinim doganor", "Mbështetje për tranzit T1", "Trajtimi i Carnet de Passage", "Mbështetje për pranimin e përkohshëm kur zbatohet"].map(item => <li key={item}><KeywordText text={item} sq /></li>)}</ul><p className="mt-6 text-muted-foreground leading-relaxed">Automjetet elektrike, hibride dhe ato që nuk lëvizin vetë vlerësohen sipas kërkesave të kompanisë ajrore dhe operatorit tokësor. Kufijtë e baterisë, karburantit dhe pranimi konfirmohen para rezervimit.</p></div></section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Kur përdoret</div>
             <h2 className="mt-3 text-navy">Raste tipike përdorimi</h2>
@@ -112,7 +112,7 @@ function TransportAjrorMakinash() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Ku trajtojmë</div>
             <h2 className="mt-3 text-navy">Rrjeti ynë i aeroporteve</h2>
@@ -128,7 +128,7 @@ function TransportAjrorMakinash() {
       <AirfreightSupplement sq />
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Çfarë duhet ditur</div>
             <h2 className="mt-3 text-navy">Dogana, përgatitja dhe tranziti</h2>
@@ -148,7 +148,7 @@ function TransportAjrorMakinash() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
@@ -188,7 +188,7 @@ function TransportAjrorMakinash() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">

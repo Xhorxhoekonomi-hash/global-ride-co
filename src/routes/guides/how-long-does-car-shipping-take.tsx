@@ -66,7 +66,7 @@ function GuideShippingTime() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><Clock className="h-5 w-5 text-teal" /><h2 className="text-navy">The six stages</h2></div>
             <div className="mt-6 space-y-5">
@@ -85,7 +85,7 @@ function GuideShippingTime() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-8">
             <div>
               <div className="flex items-center gap-2"><Ship className="h-5 w-5 text-teal" /><h2 className="text-navy">Why we use ranges, not promises</h2></div>
@@ -100,7 +100,7 @@ function GuideShippingTime() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

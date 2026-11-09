@@ -143,7 +143,7 @@ function MakinaNgaKorea() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Nga ku sigurojmë</div>
             <h2 className="mt-3 text-secondary">Platformat dhe burimet</h2>
@@ -160,7 +160,7 @@ function MakinaNgaKorea() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Procesi</div>
             <h2 className="mt-3 text-secondary">Nga Koreja deri te dera juaj</h2>
@@ -170,7 +170,7 @@ function MakinaNgaKorea() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Inspektimi</div>
             <h2 className="mt-3 text-secondary">Çfarë kontrollohet, kur është i mundur</h2>
@@ -192,7 +192,7 @@ function MakinaNgaKorea() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Metoda e transportit</div>
             <h2 className="mt-3 text-secondary">Kontenier ose RoRo</h2>
@@ -259,7 +259,7 @@ function MakinaNgaKorea() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>

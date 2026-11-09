@@ -93,7 +93,7 @@ function PyetjeHub() {
         </div>
       </TextHero>
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((c) => (
               <button key={c.name} onClick={() => setActive(c.name)} className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${active === c.name ? "border-teal bg-teal/10 text-teal" : "border-border bg-card text-navy hover:border-teal/50"}`}>

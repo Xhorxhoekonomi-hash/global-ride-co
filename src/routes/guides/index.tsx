@@ -75,7 +75,7 @@ function GuidesHub() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="eyebrow">Featured guides</div>
           <h2 className="mt-2 text-navy">Start here</h2>
           <div className="mt-8"><GuideFeature title="How to Buy a Car From USA Auctions" category="Buying abroad · 5 min read" read="Read the guide" /></div>
@@ -124,7 +124,7 @@ function GuidesHub() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           {filtered.length === 0 ? (
             <p className="text-center text-sm text-slate-body">No guides match that search. Try a different term or category.</p>
           ) : (
@@ -151,7 +151,7 @@ function GuidesHub() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="eyebrow">Newest guides</div>
           <h2 className="mt-2 text-navy">Recently added</h2>
           <div className="mt-6 flex flex-wrap gap-3">

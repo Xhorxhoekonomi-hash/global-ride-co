@@ -89,7 +89,7 @@ function MakinaNgaDubai() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Tregu i automjeteve në Dubai</div>
             <h2 className="mt-3 text-navy">Më shumë se vetëm luks</h2>
@@ -109,7 +109,7 @@ function MakinaNgaDubai() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-3xl">
             <MapPin className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">Prania jonë në {dubai.city}</h2>
@@ -121,7 +121,7 @@ function MakinaNgaDubai() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Nga Dubai deri te dera juaj</h2>
@@ -139,7 +139,7 @@ function MakinaNgaDubai() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Opsionet e transportit</div>
             <h2 className="mt-3 text-navy">Kontenier, RoRo, ose ajror</h2>
@@ -165,7 +165,7 @@ function MakinaNgaDubai() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
@@ -185,7 +185,7 @@ function MakinaNgaDubai() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">

@@ -146,7 +146,7 @@ function IaaiShqiperi() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Zgjedhja e lotit</div>
@@ -165,7 +165,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Sale Information</div>
             <h2 className="mt-3 text-navy">Si të lexoni informacionin e lotit</h2>
@@ -182,7 +182,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Ofertimi</div>
             <h2 className="mt-3 text-navy">Si ofertohemi për ju</h2>
@@ -202,7 +202,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Inspektimi</div>
@@ -218,7 +218,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Transporti</div>
             <h2 className="mt-3 text-navy">Nga oborri i IAAI në Durrës</h2>
@@ -267,7 +267,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta për IAAI</h2>
@@ -287,7 +287,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
@@ -310,7 +310,7 @@ function IaaiShqiperi() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">

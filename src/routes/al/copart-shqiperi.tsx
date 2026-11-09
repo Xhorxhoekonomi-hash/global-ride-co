@@ -133,7 +133,7 @@ function CopartShqiperi() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Blerja në Copart me Alpha Worldwide</h2>
@@ -153,7 +153,7 @@ function CopartShqiperi() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Foto ankandi vs. inspektim</div>
@@ -175,7 +175,7 @@ function CopartShqiperi() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <div className="eyebrow">Kostoja totale</div>
@@ -224,7 +224,7 @@ function CopartShqiperi() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta për Copart</h2>
@@ -244,7 +244,7 @@ function CopartShqiperi() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
@@ -267,7 +267,7 @@ function CopartShqiperi() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">

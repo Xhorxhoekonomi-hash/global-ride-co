@@ -57,7 +57,7 @@ function GuideElectricCars() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
               <div className="flex items-center gap-2"><Battery className="h-5 w-5 text-teal" /><h2 className="text-navy">Battery-related shipping regulations</h2></div>
@@ -90,7 +90,7 @@ function GuideElectricCars() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

@@ -23,7 +23,7 @@ function CookiePolicy() {
     <>
       <Breadcrumbs items={[{ label: "Cookie Policy" }]} />
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="eyebrow">Legal</div>
             <h1 className="mt-3 text-navy">Cookie Policy</h1>

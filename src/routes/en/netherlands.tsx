@@ -91,7 +91,7 @@ function NetherlandsHub() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <MapPin className="h-6 w-6 text-teal" />
@@ -112,7 +112,7 @@ function NetherlandsHub() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Where we source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
@@ -132,7 +132,7 @@ function NetherlandsHub() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Related services</div>
             <h2 className="mt-3 text-navy">Everything Handled</h2>
@@ -171,7 +171,7 @@ function NetherlandsHub() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
@@ -191,7 +191,7 @@ function NetherlandsHub() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow">Start today</div>
             <h2 className="mt-3 text-navy">

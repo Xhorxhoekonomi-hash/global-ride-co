@@ -50,7 +50,7 @@ function RoroShipping() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="grid gap-5 md:grid-cols-3">
             {POINTS.map((p) => (
               <div key={p.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
@@ -66,7 +66,7 @@ function RoroShipping() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Get a rate</div>
             <h2 className="mt-3 text-white">

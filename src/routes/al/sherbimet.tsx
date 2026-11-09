@@ -86,7 +86,7 @@ function Sherbimet() {
       <PlatformBadges locale="sq" />
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="alpha-card-grid">
             {SERVICES.map((s) => {
               const copy = SERVICE_COPY_SQ[s.slug] ?? { title: s.title, body: s.body };
@@ -104,7 +104,7 @@ function Sherbimet() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Import sipas tregut</div>
             <h2 className="mt-3 text-secondary">Tregjet tona kryesore të origjinës</h2>

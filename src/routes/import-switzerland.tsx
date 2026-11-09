@@ -66,7 +66,7 @@ function ImportSwitzerland() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div>
@@ -83,7 +83,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Registration</div><h2 className="mt-3 text-navy">Cantonal Registration Overview</h2></div>
           <div className="mt-8 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <p className="text-sm text-slate-body">Vehicle registration in Switzerland is administered by each canton's road traffic office, and specific documentation and inspection steps can vary by location. We recommend confirming current requirements for your canton with the local authority before finalizing a purchase.</p>
@@ -92,7 +92,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Shipping options</div><h2 className="mt-3 text-navy">Container or RoRo to Your Gateway Port</h2></div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <Link to="/container-shipping" className="rounded-xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Ship className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">Container Shipping</h3><p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p></Link>
@@ -102,7 +102,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Frequently imported</div><h2 className="mt-3 text-navy">What Customers Bring In</h2></div>
           <div className="mt-8 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}</ul>
@@ -111,7 +111,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Inspection & why us</div><h2 className="mt-3 text-navy">Why Alpha Worldwide</h2></div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Inspection</h3><p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p></div>
@@ -121,7 +121,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Questions</div><h2 className="mt-3 text-navy">Frequently Asked</h2></div>
           <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p></details>))}
@@ -146,7 +146,7 @@ function ImportSwitzerland() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div><div className="eyebrow text-teal-glow">Get started</div><h2 className="mt-3 text-white">Send Us a Vehicle Link</h2><p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote toward your Swiss destination.</p></div>
           <QuoteForm variant="full" onDark source="eu-switzerland" />
         </div>

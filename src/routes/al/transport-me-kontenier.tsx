@@ -87,7 +87,7 @@ function TransportMeKontenier() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Llojet e kontenierëve</div>
             <h2 className="mt-3 text-navy">Cili kontenier për automjetin tuaj</h2>
@@ -107,7 +107,7 @@ function TransportMeKontenier() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
@@ -132,7 +132,7 @@ function TransportMeKontenier() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Avantazhet</div>
             <h2 className="mt-3 text-navy">Pse zgjedhin klientët kontenierin</h2>
@@ -148,7 +148,7 @@ function TransportMeKontenier() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
@@ -188,7 +188,7 @@ function TransportMeKontenier() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">
