@@ -37,8 +37,8 @@ function Contact() {
       <section className="bg-background">
         <div className="container-page grid gap-10 py-14 md:py-18 lg:grid-cols-5 lg:gap-12">
           {/* Contact card */}
-          <div className="lg:col-span-2">
-            <div className="rounded-lg border border-border bg-card p-8 shadow-card">
+          <div className="flex flex-col lg:col-span-2">
+            <div className="flex-1 rounded-xl border border-border bg-card p-8 shadow-card">
               <div className="eyebrow">Reach us</div>
               <h2 className="mt-3 text-secondary">Alpha Worldwide Albania</h2>
 
@@ -68,17 +68,7 @@ function Contact() {
               </div>
             </div>
 
-            <div className="mt-5 overflow-hidden rounded-lg border border-border shadow-card">
-              <iframe
-                title="Durrës, Albania map"
-                src="https://www.google.com/maps?q=Durres,Albania&output=embed"
-                width="100%"
-                height="280"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block border-0"
-              />
-            </div>
+            <Button asChild variant="outline" className="mt-5 w-full"><a href="https://maps.app.goo.gl/FRhPvdgR3h79varSA" target="_blank" rel="noreferrer noopener"><MapPin aria-hidden="true" />Open in Google Maps</a></Button>
           </div>
 
           {/* Form */}
