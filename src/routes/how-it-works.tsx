@@ -114,27 +114,25 @@ function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-primary">Ready to start?</div>
           <h2 className="mx-auto mt-3 max-w-2xl text-secondary">
             Send us your first vehicle
           </h2>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild ><a
-              href={whatsappUrl}
+          <div className="cta-band-actions">
+             <a className="btn-pair btn-pair--whatsapp"               href={whatsappUrl}
               target="_blank"
               rel="noreferrer noopener"
               onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}
               >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
-            </a></Button>
-            <Button asChild variant="outline" ><Link
-              to="/calculator"
+            </a>
+            <Link className="btn-pair btn-pair--light"               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
               >
               <Calculator className="h-4 w-4" /> Calculate cost
-            </Link></Button>
+            </Link>
           </div>
         </div>
       </section>

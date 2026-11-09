@@ -137,7 +137,7 @@ export function CalculatorShell({
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page section-y">
           <div className="eyebrow text-primary">{dict.relatedCta.eyebrow}</div>
           <h2 className="mt-3 text-secondary">{dict.relatedCta.heading}</h2>

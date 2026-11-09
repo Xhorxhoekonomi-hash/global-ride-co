@@ -70,7 +70,8 @@ function SiFunksionon() {
     <>
       <PageHero scene={SILVER_FERRARI_YARD.sq} breadcrumbs={[{ label: "Si funksionon" }]} eyebrow="Si funksionon" title="Nga zgjedhja e automjetit te marrja — dhjetë hapa, një ekip" description="Çdo hap i shpjeguar me ndershmëri, përfshirë rastet kur disponueshmëria dhe kohët varen nga faktorë jashtë kontrollit tonë.">
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
-        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston
+            </Link>
       </PageHero>
 
       <section className="bg-background">
@@ -111,17 +112,17 @@ function SiFunksionon() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-primary">Gati për të filluar?</div>
           <h2 className="mx-auto mt-3 max-w-2xl text-secondary">Na dërgoni automjetin tuaj të parë</h2>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild ><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}>
+          <div className="cta-band-actions">
+             <a className="btn-pair btn-pair--whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}>
               <MessageCircle className="h-4 w-4" /> Na shkruani në WhatsApp
-            </a></Button>
-            <Button asChild variant="outline" ><Link to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}>
+            </a>
+            <Link className="btn-pair btn-pair--light" to="/al/kalkulator-transporti" onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}>
               <Calculator className="h-4 w-4" /> Llogarit koston
-            </Link></Button>
+            </Link>
           </div>
         </div>
       </section>
