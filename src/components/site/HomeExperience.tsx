@@ -86,7 +86,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     { id: "ferrari", title: al ? "Deri te dera juaj." : "Delivered to your door.", body: al ? "Nga porti deri në adresën tuaj, të koordinuara nga ekipi ynë." : "From the port to your address, coordinated by our team.", alt: al ? "Ferrari gri me numrin 70 i ngarkuar në një kamion transportues makinash." : "Grey Ferrari with a number 70 livery loaded on a car-carrier truck.", desktop: ferrari1440.url, desktopLarge: ferrari2560.url, mobile: ferrariMobile.url, primary: quote, secondary: { label: al ? "Si funksionon" : "How It Works", to: L("/how-it-works") } },
   ];
   return <div className="editorial-home bg-background text-foreground">
-    <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} />
+    <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} locale={locale} />
     <RouteFinder locale={locale} />
     <StatCounter locale={locale} />
     <ServiceCards locale={locale} />
