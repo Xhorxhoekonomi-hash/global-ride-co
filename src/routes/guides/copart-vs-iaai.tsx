@@ -79,7 +79,7 @@ function GuideCopartVsIaai() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> Copart and IAAI are more alike than different — similar inventory profile, similar condition-reporting format, similar fee structure. Neither one is reliably cheaper or safer across the board. The better question is usually which platform has the specific vehicle you want, at a condition and price that make sense.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Both are among the largest vehicle auction networks in the United States, processing enormous volumes of insurance total-loss, salvage, and fleet vehicles every week across hundreds of yards nationwide. For an international buyer, the choice of platform can feel like it should matter more than it usually does in practice — this guide breaks down where the real differences are, and where the two platforms are functionally interchangeable.</p>
@@ -91,7 +91,7 @@ function GuideCopartVsIaai() {
           <div className="mx-auto max-w-4xl">
             <h2 className="text-navy">Side-by-side comparison</h2>
             <div tabIndex={0} role="region" aria-label="Comparison table" className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[560px] border-collapse overflow-hidden rounded-2xl border border-border text-left text-sm">
+              <table className="w-full min-w-[560px] border-collapse overflow-hidden rounded-xl border border-border text-left text-sm">
                 <thead>
                   <tr className="bg-card">
                     <th className="p-4 font-display font-bold text-navy">Factor</th>
@@ -162,7 +162,7 @@ function GuideCopartVsIaai() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

@@ -66,7 +66,7 @@ function GuideKontrolli() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Përgjigje e shkurtër:</strong> një kontroll i plotë kombinon shqyrtimin e dokumentacionit (VIN, historik, kilometrazh) me një kontroll fizik mekanik dhe estetik, si dhe një skanim OBD kur automjeti është i aksesueshëm. E zvogëlon ndjeshëm rrezikun — nuk e eliminon. Aksesi te automjeti varet gjithmonë nga ajo që lejon shitësi ose ankandi.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Blerja e një automjeti që nuk mund ta shihni fizikisht para blerjes — siç ndodh me shumicën e blerjeve në ankand dhe ndërkufitare — do të thotë të mbështeteni më shumë te dokumentacioni dhe te çdo akses inspektimi që është i disponueshëm. Lista më poshtë mbulon fushat që ia vlen të shqyrtohen në mënyrë sistematike, të renditura si zakonisht zhvillohet një inspektim real: fillimisht dokumentet, pastaj historiku i dëmtimeve, pastaj kontrolli fizik mekanik dhe estetik.</p>
@@ -113,7 +113,7 @@ function GuideKontrolli() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Pyetje të shpeshta</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

@@ -76,7 +76,7 @@ function GuideShippingCosts() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> total cost breaks into three distinct categories — logistics charges we estimate directly (purchase, fees, freight), destination charges set independently by tax and customs authorities, and variable costs that depend on timing or circumstances. Confusing these categories is the most common source of budget surprises.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">A vehicle import rarely has a single price tag — it's a sum of separate charges from different parties at different stages, and the final number depends on decisions you make along the way, like shipping method and vehicle condition, as much as on the vehicle's purchase price itself. Understanding which category each cost belongs to is the difference between a budget that holds up and one that gets derailed by a charge nobody mentioned.</p>
@@ -142,7 +142,7 @@ function GuideShippingCosts() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

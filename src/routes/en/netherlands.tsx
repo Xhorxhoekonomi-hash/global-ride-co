@@ -93,14 +93,14 @@ function NetherlandsHub() {
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <MapPin className="h-6 w-6 text-teal" />
               <h2 className="mt-4 text-navy">Importing Into the Netherlands</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-body">
                 Sourcing, inspection, shipping, and delivery for a vehicle that will be registered and used in the Netherlands.
               </p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
               <h2 className="mt-4 text-navy">Rotterdam as a Gateway</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-body">
@@ -113,13 +113,13 @@ function NetherlandsHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {ORIGIN_MARKETS.map((m) => (
-              <Link key={m.name} to={m.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <Link key={m.name} to={m.to} className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
                 <h3 className="text-navy">{m.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-body">{m.body}</p>
                 <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-teal opacity-0 transition-opacity group-hover:opacity-100">
@@ -133,13 +133,13 @@ function NetherlandsHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Related services</div>
             <h2 className="mt-3 text-navy">Everything Handled</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICES_LINKS.map((s) => (
-              <Link key={s.name} to={s.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <Link key={s.name} to={s.to} className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -172,11 +172,11 @@ function NetherlandsHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

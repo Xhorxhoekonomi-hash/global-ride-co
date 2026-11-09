@@ -53,7 +53,7 @@ function RoroShipping() {
         <div className="container-page py-20 md:py-24">
           <div className="grid gap-5 md:grid-cols-3">
             {POINTS.map((p) => (
-              <div key={p.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={p.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <p.icon className="h-5 w-5" />
                 </div>

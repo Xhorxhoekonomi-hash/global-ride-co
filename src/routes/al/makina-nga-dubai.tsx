@@ -90,13 +90,13 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Tregu i automjeteve në Dubai</div>
             <h2 className="mt-3 text-navy">Më shumë se vetëm luks</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {INVENTORY_AL.map((i) => (
-              <div key={i.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={i.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Gem className="h-5 w-5" />
                 </div>
@@ -110,7 +110,7 @@ function MakinaNgaDubai() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <MapPin className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">Prania jonë në {dubai.city}</h2>
             <p className="mt-4 text-slate-body">
@@ -122,13 +122,13 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Si funksionon</div>
             <h2 className="mt-3 text-navy">Nga Dubai deri te dera juaj</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WORKFLOW_AL.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.n} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="font-display text-4xl font-bold text-teal">{String(s.n).padStart(2, "0")}</div>
                 <h3 className="mt-3 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>
@@ -140,22 +140,22 @@ function MakinaNgaDubai() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Opsionet e transportit</div>
             <h2 className="mt-3 text-navy">Kontenier, RoRo, ose ajror</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <Link to="/al/transport-me-kontenier" className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/transport-me-kontenier" className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <Ship className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">Transport me kontenier</h3>
               <p className="mt-2 text-sm text-slate-body">Zgjedhja standarde për mbrojtje të plotë të automjetit.</p>
             </Link>
-            <Link to="/al/transport-roro" className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/transport-roro" className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <ShieldCheck className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">RoRo</h3>
               <p className="mt-2 text-sm text-slate-body">I disponueshëm operacionalisht sipas rrugës dhe automjetit.</p>
             </Link>
-            <Link to="/al/transport-ajror-makinash" className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/transport-ajror-makinash" className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <Plane className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">Transport ajror</h3>
               <p className="mt-2 text-sm text-slate-body">Për automjete të përzgjedhura me vlerë të lartë ose urgjencë.</p>
@@ -166,11 +166,11 @@ function MakinaNgaDubai() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

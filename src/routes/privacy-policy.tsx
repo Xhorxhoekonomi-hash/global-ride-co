@@ -25,7 +25,7 @@ function PrivacyPolicy() {
             <p className="mt-3 text-sm text-slate-body">Last updated: August 2026</p>
 
             <div className="prose-legal mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6">
                 <p>This policy explains what information Alpha Worldwide collects when you use this website, why we collect it, and how it's handled. It applies to www.alphaworldwidealbania.com and its subpages, including the Albanian-language section.</p>
               </div>
 

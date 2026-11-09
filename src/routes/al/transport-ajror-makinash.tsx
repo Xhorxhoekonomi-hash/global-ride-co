@@ -93,13 +93,13 @@ function TransportAjrorMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Kur përdoret</div>
             <h2 className="mt-3 text-navy">Raste tipike përdorimi</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {USE_CASES_AL.map((u) => (
-              <div key={u.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={u.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Plane className="h-5 w-5" />
                 </div>
@@ -113,7 +113,7 @@ function TransportAjrorMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Ku trajtojmë</div>
             <h2 className="mt-3 text-navy">Rrjeti ynë i aeroporteve</h2>
           </div>
@@ -129,13 +129,13 @@ function TransportAjrorMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë duhet ditur</div>
             <h2 className="mt-3 text-navy">Dogana, përgatitja dhe tranziti</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {CONSIDERATIONS_AL.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <c.icon className="h-5 w-5" />
                 </div>
@@ -149,11 +149,11 @@ function TransportAjrorMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

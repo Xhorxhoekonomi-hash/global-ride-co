@@ -67,7 +67,7 @@ function GuideKontenierRoro() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Përgjigje e shkurtër:</strong> RoRo (Roll-on/Roll-off) është shpesh opsioni më i thjeshtë dhe më ekonomik për një automjet standard e funksional, në një rrugë ku ky shërbim ekziston. Transporti me kontenier — i përbashkët ose i dedikuar — u përshtatet më mirë automjeteve që nuk ndizen, makinave me vlerë të lartë, modifikimeve të mëdha ose rrugëve pa shërbim RoRo.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Ky është një nga vendimet e para praktike që do të merrni pasi të blihet automjeti, dhe ndikon te kostoja, mbrojtja dhe sa shpejt mund të lëvizë automjeti pasi të arrijë në port. Nuk ka një përgjigje të vetme të saktë — zgjedhja e duhur varet nga vetë automjeti, rruga dhe çfarë i jepni përparësi mes kostos dhe qetësisë.</p>
@@ -77,12 +77,12 @@ function GuideKontenierRoro() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
               <h2 className="mt-3 text-navy">Transport me kontenier</h2>
               <p className="mt-3 text-sm text-slate-body">Një kontenier i përbashkët e ndan hapësirën (dhe koston) me dërgesa të tjera; një kontenier i plotë është vetëm për automjetin tuaj, me më shumë kontroll mbi ngarkimin dhe orarin. Automjeti është plotësisht i mbyllur gjatë udhëtimit detar, gjë që kufizon ekspozimin ndaj motit dhe trajtimit. Sendet personale zakonisht kufizohen nga dogana dhe politika e linjës detare — e konfirmojmë çfarë lejohet para ngarkimit.</p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Truck className="h-6 w-6 text-teal" />
               <h2 className="mt-3 text-navy">Transport RoRo</h2>
               <p className="mt-3 text-sm text-slate-body">Automjeti futet në anije përmes një rampe dhe sigurohet në një kuvertë të hapur ose të mbuluar — duhet të lëvizë, të drejtohet dhe të frenojë me forcën e vet. RoRo është shpesh më i shpejtë për ngarkim dhe shkarkim dhe mund të jetë më ekonomik, por automjeti është i ekspozuar ndaj kushteve gjatë transportit dhe shërbimi RoRo nuk ekziston në çdo rrugë.</p>
@@ -130,7 +130,7 @@ function GuideKontenierRoro() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Pyetje të shpeshta</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

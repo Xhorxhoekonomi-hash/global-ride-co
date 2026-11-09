@@ -102,7 +102,7 @@ function PyetjeHub() {
             ))}
           </div>
           {CATEGORIES.filter((c) => c.name === active).map((c) => (
-            <div key={c.name} className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+            <div key={c.name} className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
               {c.items.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

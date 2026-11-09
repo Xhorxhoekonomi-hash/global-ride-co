@@ -112,7 +112,7 @@ function AdminLeads() {
           <p role="alert" className="mt-6 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</p>
         )}
 
-        <div tabIndex={0} role="region" aria-label="Comparison table" className="mt-6 overflow-x-auto rounded-2xl border border-border bg-card shadow-card">
+        <div tabIndex={0} role="region" aria-label="Comparison table" className="mt-6 overflow-x-auto rounded-xl border border-border bg-card shadow-card">
           <table className="w-full min-w-[1100px] text-left text-sm">
             <thead className="bg-background text-xs uppercase tracking-wide text-muted-foreground">
               <tr>

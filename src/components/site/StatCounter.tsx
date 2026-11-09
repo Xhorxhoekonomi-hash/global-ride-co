@@ -34,12 +34,11 @@ export function StatCounter({ locale }: { locale: "en" | "sq" }) {
     <section ref={ref} className="stat-panel">
       <div className="container-page">
         <h2>{heading}</h2>
-        <hr />
         <dl className="stat-grid">
           {c.items.map((label, i) => (
             <div key={label}>
-              <dd>{values[i].toLocaleString("en-US")}+</dd>
               <dt>{label}</dt>
+              <dd>{values[i].toLocaleString("en-US")}+</dd>
             </div>
           ))}
         </dl>

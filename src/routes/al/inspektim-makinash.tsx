@@ -92,13 +92,13 @@ function InspektimMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë kontrollohet</div>
             <h2 className="mt-3 text-navy">Kontrolli teknik hap pas hapi</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CHECKS_AL.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <c.icon className="h-5 w-5" />
                 </div>
@@ -112,11 +112,11 @@ function InspektimMakinash() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Çfarë merrni</div>
             <h2 className="mt-3 text-navy">Rezultatet e inspektimit</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {DELIVERABLES_AL.map((d) => (
                 <li key={d} className="flex gap-2"><FileCheck className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{d}</li>
@@ -131,11 +131,11 @@ function InspektimMakinash() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

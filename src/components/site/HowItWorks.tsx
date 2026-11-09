@@ -16,7 +16,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
   return (
     <section className={dark ? "section-dark" : "bg-background"}>
       <div className="container-page py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-2xl">
           <div className="eyebrow">{sq ? "Si funksionon" : "How It Works"}</div>
           <h2 className={`mt-3 ${dark ? "text-white" : "text-navy"}`}>
             {sq ? "Nga shpallja deri te shtëpia juaj" : "From listing to your driveway"}
@@ -30,7 +30,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
           {steps.map((s) => (
             <div
               key={s.n}
-              className={`group relative rounded-2xl p-6 transition-all ${
+              className={`group relative rounded-xl p-6 transition-all ${
                 dark
                   ? "border border-white/10 bg-white/[0.03] hover:bg-white/[0.06]"
                   : "border border-border bg-card shadow-card hover:-translate-y-1"

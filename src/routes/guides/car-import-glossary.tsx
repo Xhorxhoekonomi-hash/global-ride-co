@@ -75,7 +75,7 @@ function GuideGlossary() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><BookOpen className="h-5 w-5 text-teal" /><h2 className="text-navy">A–Z</h2></div>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {TERMS.map((t) => (
                 <div key={t.term} className="p-5">
                   <div className="text-sm font-bold text-navy">{t.term}</div>
@@ -91,7 +91,7 @@ function GuideGlossary() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body">{f.a}</p></details>))}
             </div>
           </div>

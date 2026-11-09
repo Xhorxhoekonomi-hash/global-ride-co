@@ -80,7 +80,7 @@ function TransportRoRo() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <Landmark className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">Si funksionon RoRo</h2>
             <p className="mt-4 text-slate-body">
@@ -92,13 +92,13 @@ function TransportRoRo() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Kërkesat për automjetin</div>
             <h2 className="mt-3 text-navy">Çfarë duhet të plotësojë automjeti</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {REQUIREMENTS_AL.map((r) => (
-              <div key={r.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={r.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <r.icon className="h-5 w-5" />
                 </div>
@@ -131,11 +131,11 @@ function TransportRoRo() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

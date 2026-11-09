@@ -58,7 +58,7 @@ function About() {
           </div>
           <div className="space-y-4">
             {OFFICES.map((office) => (
-              <div key={office.id} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={office.id} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-teal" />
                   <div className="eyebrow">{office.role}</div>
@@ -82,13 +82,13 @@ function About() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">What we do</div>
             <h2 className="mt-3 text-navy">Core capabilities</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>

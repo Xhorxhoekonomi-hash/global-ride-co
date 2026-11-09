@@ -103,7 +103,7 @@ function AlbaniaHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <Anchor className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">The Port of Durrës</h2>
             <p className="mt-4 text-slate-body">
@@ -115,13 +115,13 @@ function AlbaniaHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where you can source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {COUNTRIES.map((c) => (
-              <Link key={c.slug} to={c.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <Link key={c.slug} to={c.to} className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
                 <h3 className="text-navy">{c.name}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-body">{c.hook}</p>
                 <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-teal opacity-0 transition-opacity group-hover:opacity-100">
@@ -135,13 +135,13 @@ function AlbaniaHub() {
 
       <section className="bg-background">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">What's covered</div>
             <h2 className="mt-3 text-navy">Services for Albania Imports</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {ALBANIA_SERVICES.map((s) => (
-              <Link key={s.slug} to={s.to} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+              <Link key={s.slug} to={s.to} className="group rounded-xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
                 <h3 className="text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">
                   {s.slug === "airfreight"
@@ -159,11 +159,11 @@ function AlbaniaHub() {
 
       <section className="section-mist">
         <div className="container-page py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

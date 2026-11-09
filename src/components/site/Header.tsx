@@ -67,7 +67,7 @@ export function Header() {
     ] },
     { type: "link", to: quoteHref, label: isAlbanian ? "Kontakt" : "Contact" },
   ];
-  return <header className={`alpha-header sticky inset-x-0 top-0 z-40 border-b border-border bg-background transition-shadow ${scrolled ? "shadow-header" : ""}`}>
+  return <header className={`alpha-header sticky inset-x-0 top-0 z-40 border-b bg-background transition-[box-shadow,border-color] ${scrolled ? "border-border shadow-header" : "border-transparent"}`}>
     <div className="container-page alpha-navigation-row grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 lg:flex lg:justify-between">
       <Link to={isAlbanian ? "/al" : "/"} aria-label={isAlbanian ? "Alpha Worldwide — kryefaqja" : "Alpha Worldwide — home"} className="min-w-0 shrink-0"><BrandLogo className="w-36 sm:w-44" /></Link>
       <nav aria-label={isAlbanian ? "Navigimi kryesor" : "Main navigation"} className="alpha-desktop-navigation hidden items-center gap-3 lg:flex">

@@ -109,7 +109,7 @@ function ImportUSA() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">11-step process</div>
             <h2 className="mt-3 text-secondary">From US Listing to Your Driveway</h2>
           </div>
@@ -119,7 +119,7 @@ function ImportUSA() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Shipping methods</div>
             <h2 className="mt-3 text-secondary">Shared or Full Container</h2>
           </div>
@@ -139,7 +139,7 @@ function ImportUSA() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we ship to</div>
             <h2 className="mt-3 text-secondary">Destination Options</h2>
           </div>
@@ -159,11 +159,11 @@ function ImportUSA() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">

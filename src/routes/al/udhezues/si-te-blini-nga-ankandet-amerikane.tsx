@@ -72,7 +72,7 @@ function GuideAnkande() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Përgjigje e shkurtër:</strong> blerja nga një ankand amerikan do të thotë të zgjidhni platformën, të shqyrtoni informacionin e disponueshëm për gjendjen, të ofertoni brenda një buxheti të qartë që përfshin tarifat dhe më pas të koordinoni transportin tokësor, dokumentet e eksportit dhe transportin detar. Përshkrimet e ankandit janë pikënisje, jo garanci mekanike — kjo është gjëja më e rëndësishme që duhet të kuptoni para se të ofertoni.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Ankandet amerikane qarkullojnë një numër shumë të madh automjetesh çdo javë, dhe çmimet që duken jashtëzakonisht të ulëta krahasuar me një tregtar lokal janë shpesh gjëja e parë që tërheq blerësit ndërkombëtarë. Kursimet mund të jenë reale, por vijnë me përgjegjësi të ndryshme nga blerja te një tregtar afër shtëpisë — e vlerësoni automjetin nga fotot dhe raportet në vend që të qëndroni pranë tij, dhe rruga nga oferta fituese te automjeti në dorë kalon në disa faza të veçanta, secila me vendimet e veta. Ky udhëzues e shpjegon procesin sipas radhës në të cilën do ta hasni realisht.</p>
@@ -175,7 +175,7 @@ function GuideAnkande() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Pyetje të shpeshta</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

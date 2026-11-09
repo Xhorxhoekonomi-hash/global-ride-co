@@ -78,7 +78,7 @@ function GuideUsedCarCheck() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> a thorough check combines a paper-trail review (VIN, history, odometer) with a hands-on mechanical and cosmetic check, plus an OBD scan where the vehicle is accessible. It meaningfully reduces risk — it doesn't eliminate it. Vehicle access always depends on what the seller or auction allows.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">Buying a vehicle you can't physically visit before purchase — which describes most auction and cross-border purchases — means leaning more heavily on documentation and whatever inspection access is available. The checklist below covers the areas worth reviewing systematically, organized the way an actual inspection typically proceeds: paperwork first, then damage history, then the hands-on mechanical and cosmetic check.</p>
@@ -129,7 +129,7 @@ function GuideUsedCarCheck() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

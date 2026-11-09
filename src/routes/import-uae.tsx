@@ -106,7 +106,7 @@ function ImportUAE() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <MapPin className="mx-auto h-8 w-8 text-primary" />
             <h2 className="mt-4 text-secondary">A Dubai Headquarters Advantage</h2>
             <p className="mt-4 text-muted-foreground">
@@ -118,7 +118,7 @@ function ImportUAE() {
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Beyond luxury</div>
             <h2 className="mt-3 text-secondary">A Broader Market Than You'd Expect</h2>
           </div>
@@ -134,7 +134,7 @@ function ImportUAE() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">6-step process</div>
             <h2 className="mt-3 text-secondary">From Dubai to Your Driveway</h2>
           </div>
@@ -144,7 +144,7 @@ function ImportUAE() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Shipping options</div>
             <h2 className="mt-3 text-secondary">Container, RoRo, or Airfreight</h2>
           </div>
@@ -169,7 +169,7 @@ function ImportUAE() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Where we ship to</div>
             <h2 className="mt-3 text-secondary">Destination Options</h2>
           </div>
@@ -189,11 +189,11 @@ function ImportUAE() {
 
       <section className="section-mist">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">

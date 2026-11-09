@@ -107,7 +107,7 @@ function MakinaNgaAmerika() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Procesi në 11 hapa</div>
             <h2 className="mt-3 text-secondary">Nga ankandi deri te dera juaj</h2>
           </div>
@@ -134,11 +134,11 @@ function MakinaNgaAmerika() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">
@@ -154,11 +154,11 @@ function MakinaNgaAmerika() {
 
       <section className="section-mist">
         <div className="container-page py-16 md:py-20">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-secondary">Vazhdoni të lexoni</h2>
           </div>
-          <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
+          <div className="mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
             <Link to="/al/copart-shqiperi" className="group rounded-lg border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-primary">
               <div className="font-display text-base font-bold text-secondary">Copart Shqipëri</div>
               <p className="mt-1.5 text-xs text-muted-foreground">Ofertim dhe blerje në Copart me asistencë të plotë.</p>

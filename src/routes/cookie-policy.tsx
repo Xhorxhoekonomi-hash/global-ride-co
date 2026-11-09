@@ -30,7 +30,7 @@ function CookiePolicy() {
             <p className="mt-3 text-sm text-slate-body">Last updated: August 2026</p>
 
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6">
                 <p>Cookies are small text files stored on your device that help websites function and, where permitted, help us understand how the site is used. This page explains what we use on www.alphaworldwidealbania.com.</p>
               </div>
 
