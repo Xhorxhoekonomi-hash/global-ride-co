@@ -178,7 +178,7 @@ function MakinaNgaKorea() {
               Inspektimi para blerjes ofrohet për automjete të përzgjedhura nga Alpha Worldwide dhe varet nga vendndodhja, aksesi i shitësit dhe disponueshmëria.
             </p>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-lg border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-lg border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-muted-foreground sm:grid-cols-2">
               {INSPECTION_AL.map((c) => (
                 <li key={c} className="flex gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{c}</li>
@@ -197,7 +197,7 @@ function MakinaNgaKorea() {
             <div className="eyebrow">Metoda e transportit</div>
             <h2 className="mt-3 text-secondary">Kontenier ose RoRo</h2>
           </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
+          <div className="mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
                 <Container className="h-5 w-5" />
@@ -264,7 +264,7 @@ function MakinaNgaKorea() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">

@@ -33,7 +33,7 @@ function useCountUp(target: number, active: boolean, duration = 1800) {
 function StatCard({ target, suffix, label, active }: { target: number; suffix: string; label: string; active: boolean }) {
   const value = useCountUp(target, active);
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-8 text-center shadow-elegant backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:border-teal/40">
+    <div className="rounded-xl border border-white/10 bg-white/[0.04] px-6 py-8 text-center shadow-elegant backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:border-teal/40">
       <div className="font-display text-4xl font-bold text-teal-glow tabular-nums md:text-5xl">
         {value.toLocaleString("en-US")}
         {suffix}

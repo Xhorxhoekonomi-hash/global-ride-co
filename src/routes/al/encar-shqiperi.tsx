@@ -108,7 +108,7 @@ function EncarShqiperi() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {PLATFORM_DIFFS_AL.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={p.name} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Car className="h-5 w-5" />
                 </div>
@@ -128,7 +128,7 @@ function EncarShqiperi() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {GRADING_AL.map((g) => (
-              <div key={g.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={g.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Gauge className="h-5 w-5" />
                 </div>
@@ -171,7 +171,7 @@ function EncarShqiperi() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

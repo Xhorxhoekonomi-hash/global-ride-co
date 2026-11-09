@@ -56,7 +56,7 @@ function RrethNesh() {
           </div>
           <div className="space-y-4">
             {OFFICES.map((office) => (
-              <div key={office.id} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={office.id} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-teal" />
                   <div className="eyebrow">{ROLE_SQ[office.role] ?? office.role}</div>
@@ -86,7 +86,7 @@ function RrethNesh() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-5 w-5" /></div>
                 <h3 className="mt-4 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>

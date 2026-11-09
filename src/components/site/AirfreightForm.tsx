@@ -130,7 +130,7 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-card">
+      <div className="rounded-xl border border-border bg-card p-8 text-center shadow-card">
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-teal/15 text-teal">
           <CheckCircle2 className="h-7 w-7" />
         </div>

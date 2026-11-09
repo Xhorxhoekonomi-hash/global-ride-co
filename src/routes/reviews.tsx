@@ -80,7 +80,7 @@ function Reviews() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-border bg-card p-8 text-center shadow-card">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-xl border border-border bg-card p-8 text-center shadow-card">
             <div className="flex items-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
             </div>
@@ -112,7 +112,7 @@ function Reviews() {
           {TESTIMONIALS.length > 0 ? (
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {TESTIMONIALS.map((t) => (
-                <div key={t.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+                <div key={t.name} className="rounded-xl border border-border bg-card p-6 shadow-card">
                   <div className="flex items-center gap-1 text-amber-500">
                     {[...Array(t.rating)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                   </div>
@@ -122,7 +122,7 @@ function Reviews() {
               ))}
             </div>
           ) : (
-            <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-dashed border-border bg-mist p-8 text-center">
+            <div className="mt-8 max-w-xl rounded-xl border border-dashed border-border bg-mist p-8 text-center">
               <ShieldCheck className="mx-auto h-8 w-8 text-teal" />
               <p className="mt-3 text-sm text-slate-body">
                 We only publish testimonials we can verify as real Alpha Worldwide customers. Written stories will appear here as they're collected — in the meantime, our Google reviews above are the most current source.

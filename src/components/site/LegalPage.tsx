@@ -20,7 +20,7 @@ export function LegalPage({ crumb, title, updated, intro, sections, note }: {
             <h1 className="mt-3 text-navy">{title}</h1>
             <p className="mt-3 text-sm text-slate-body">{updated}</p>
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6"><p>{intro}</p></div>
+              <div className="rounded-xl border border-border bg-card p-6"><p>{intro}</p></div>
               {sections.map((s) => (
                 <section key={s.h}>
                   <h2 className="text-navy">{s.h}</h2>

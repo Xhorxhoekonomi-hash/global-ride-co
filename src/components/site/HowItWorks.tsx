@@ -30,7 +30,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
           {steps.map((s) => (
             <div
               key={s.n}
-              className={`group relative rounded-2xl p-6 transition-all ${
+              className={`group relative rounded-xl p-6 transition-all ${
                 dark
                   ? "border border-white/10 bg-white/[0.03] hover:bg-white/[0.06]"
                   : "border border-border bg-card shadow-card hover:-translate-y-1"

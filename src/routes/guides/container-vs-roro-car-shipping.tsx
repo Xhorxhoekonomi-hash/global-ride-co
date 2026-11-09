@@ -80,7 +80,7 @@ function GuideContainerVsRoro() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> RoRo (Roll-on/Roll-off) is often the simpler, more economical option for a standard, functional vehicle on a route where it's available. Container shipping — shared or dedicated — is the better fit for non-running vehicles, high-value cars, heavy modifications, or routes without RoRo service.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">This is one of the first practical decisions you'll make once a vehicle is purchased, and it affects cost, protection, and how quickly your vehicle can move once it reaches port. There's no single right answer — the correct choice depends on the vehicle itself, the route, and what you're prioritizing between cost and peace of mind.</p>
@@ -90,12 +90,12 @@ function GuideContainerVsRoro() {
       <section className="section-mist">
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
               <h2 className="mt-3 text-navy">Container shipping</h2>
               <p className="mt-3 text-sm text-slate-body">A shared container splits space (and cost) with other shipments; a full container is dedicated to your vehicle alone, with more control over loading and schedule. The vehicle is fully enclosed for the ocean crossing, which limits weather and handling exposure. Personal belongings are typically restricted by customs and shipping-line policy — we confirm what's allowed before loading.</p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Truck className="h-6 w-6 text-teal" />
               <h2 className="mt-3 text-navy">RoRo shipping</h2>
               <p className="mt-3 text-sm text-slate-body">The vehicle is driven onto the vessel via a ramp and secured on an open or covered deck — it needs to roll, steer, and brake under its own power. RoRo is often faster to load and unload, and can be more economical, but the vehicle is exposed to the elements during transit and RoRo service isn't available on every route.</p>
@@ -146,7 +146,7 @@ function GuideContainerVsRoro() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

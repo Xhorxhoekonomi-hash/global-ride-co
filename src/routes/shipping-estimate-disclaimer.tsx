@@ -25,7 +25,7 @@ function ShippingDisclaimer() {
             <p className="mt-3 text-sm text-slate-body">Last updated: August 2026</p>
 
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6">
                 <p>Our <Link to="/calculator" className="text-teal hover:underline">shipping calculator</Link> gives you an itemized estimate for logistics costs based on the vehicle, route, and shipping method you select. This page explains exactly what that estimate covers, what it doesn't, and why it isn't a fixed, final price.</p>
               </div>
 

@@ -96,17 +96,17 @@ function ImportNetherlands() {
             <h2 className="mt-3 text-navy">Container, RoRo, or Airfreight</h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <Link to="/container-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
+            <Link to="/container-shipping" className="rounded-xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Ship className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">Container Shipping</h3>
               <p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p>
             </Link>
-            <Link to="/roro-shipping" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
+            <Link to="/roro-shipping" className="rounded-xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Truck className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">RoRo</h3>
               <p className="mt-2 text-sm text-slate-body">A cost-effective option for standard, driveable vehicles.</p>
             </Link>
-            <Link to="/airfreight" className="rounded-2xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
+            <Link to="/airfreight" className="rounded-xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal">
               <Plane className="h-6 w-6 text-teal" />
               <h3 className="mt-3 text-navy">Airfreight</h3>
               <p className="mt-2 text-sm text-slate-body">For urgent or exceptionally high-value vehicles, via Amsterdam Schiphol.</p>
@@ -121,7 +121,7 @@ function ImportNetherlands() {
             <div className="eyebrow">Frequently imported</div>
             <h2 className="mt-3 text-navy">What Customers Bring In</h2>
           </div>
-          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="mt-8 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}
             </ul>
@@ -156,7 +156,7 @@ function ImportNetherlands() {
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

@@ -15,7 +15,7 @@ export function Testimonials() {
         {TESTIMONIALS.length > 0 ? (
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={t.name} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="flex gap-0.5 text-teal">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
@@ -28,7 +28,7 @@ export function Testimonials() {
             ))}
           </div>
         ) : (
-          <div className="mx-auto mt-12 max-w-xl rounded-2xl border border-border bg-card p-10 text-center shadow-card">
+          <div className="mt-12 max-w-xl rounded-xl border border-border bg-card p-10 text-center shadow-card">
             <div className="mx-auto flex w-fit gap-0.5 text-teal/30">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-5 w-5" />

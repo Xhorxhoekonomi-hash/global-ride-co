@@ -193,7 +193,7 @@ function ImportUAE() {
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">

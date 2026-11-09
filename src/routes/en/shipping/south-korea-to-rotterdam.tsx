@@ -141,7 +141,7 @@ function KoreaToRotterdam() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WORKFLOW.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.n} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -155,13 +155,13 @@ function KoreaToRotterdam() {
 
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <div className="flex items-center gap-2 text-teal"><Package className="h-5 w-5" /><h3 className="text-navy">What's Included</h3></div>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {INCLUDED.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <div className="flex items-center gap-2 text-navy/60"><Package className="h-5 w-5" /><h3 className="text-navy">What's Excluded</h3></div>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {EXCLUDED.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
@@ -176,7 +176,7 @@ function KoreaToRotterdam() {
             <div className="eyebrow">Paperwork</div>
             <h2 className="mt-3 text-navy">Documents Typically Required</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {DOCUMENTS.map((d) => <li key={d} className="flex gap-2"><span className="text-teal">•</span>{d}</li>)}
             </ul>
@@ -212,7 +212,7 @@ function KoreaToRotterdam() {
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

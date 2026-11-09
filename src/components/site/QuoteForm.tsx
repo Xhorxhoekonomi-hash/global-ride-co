@@ -191,7 +191,7 @@ export function QuoteForm({
   if (status === "success") {
     return (
       <div
-        className={`rounded-2xl p-8 text-center ${
+        className={`rounded-xl p-8 text-center ${
           onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
         }`}
       >

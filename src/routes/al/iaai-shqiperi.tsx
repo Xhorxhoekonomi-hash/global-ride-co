@@ -170,9 +170,9 @@ function IaaiShqiperi() {
             <div className="eyebrow">Sale Information</div>
             <h2 className="mt-3 text-navy">Si të lexoni informacionin e lotit</h2>
           </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
+          <div className="mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             {SALE_INFO_AL.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <h3 className="text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-body">{s.body}</p>
               </div>
@@ -189,7 +189,7 @@ function IaaiShqiperi() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {BIDDING_AL.map((b) => (
-              <div key={b.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={b.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <b.icon className="h-5 w-5" />
                 </div>
@@ -208,7 +208,7 @@ function IaaiShqiperi() {
               <div className="eyebrow">Inspektimi</div>
               <h2 className="mt-3 text-navy">A mund të inspektohet një lot IAAI?</h2>
             </div>
-            <div className="mt-10 rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="mt-10 rounded-xl border border-border bg-card p-7 shadow-card">
               <ul className="space-y-2.5 text-sm leading-relaxed text-slate-body">
                 {INSPECTION_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
               </ul>
@@ -225,7 +225,7 @@ function IaaiShqiperi() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {SHIPPING_AL.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -234,7 +234,7 @@ function IaaiShqiperi() {
               </div>
             ))}
           </div>
-          <div className="mx-auto mt-12 max-w-2xl rounded-2xl border border-border bg-mist p-6 text-center shadow-card">
+          <div className="mt-12 max-w-2xl rounded-xl border border-border bg-mist p-6 text-center shadow-card">
             <p className="text-sm leading-relaxed text-slate-body">
               Kostoja totale përfshin çmimin e fitimit, tarifat e IAAI, transportin tokësor, transportin detar dhe shkarkimin në Durrës. Kalkulatori ynë i llogarit të gjitha zërat kryesorë.
             </p>
@@ -251,13 +251,13 @@ function IaaiShqiperi() {
 
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <h3 className="text-navy">Çfarë përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {INCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <h3 className="text-navy">Çfarë nuk përfshihet</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {EXCLUDED_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
@@ -272,7 +272,7 @@ function IaaiShqiperi() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta për IAAI</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">
@@ -292,16 +292,16 @@ function IaaiShqiperi() {
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
           </div>
-          <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
-            <Link to="/al/makina-nga-amerika" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+          <div className="mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
+            <Link to="/al/makina-nga-amerika" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">Makina nga Amerika</div>
               <p className="mt-1.5 text-xs text-slate-body">Hubi i përgjithshëm i importit nga SHBA-ja.</p>
             </Link>
-            <Link to="/al/copart-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/copart-shqiperi" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">Copart Shqipëri</div>
               <p className="mt-1.5 text-xs text-slate-body">Platforma tjetër kryesore e ankandeve.</p>
             </Link>
-            <Link to="/al/kontakt" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/kontakt" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">Kontakt</div>
               <p className="mt-1.5 text-xs text-slate-body">Na dërgoni lotin dhe kërkoni një ofertë.</p>
             </Link>

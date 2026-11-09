@@ -26,7 +26,7 @@ function KushtetPerllogaritjes() {
             <h1 className="mt-3 text-navy">Kushtet e përllogaritjes së transportit</h1>
             <p className="mt-3 text-sm text-slate-body">Përditësuar së fundi: gusht 2026</p>
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6">
                 <p><Link to="/al/kalkulator-transporti" className="text-teal hover:underline">Kalkulatori ynë i transportit</Link> ju jep një përllogaritje të detajuar të kostove logjistike bazuar në automjetin, rrugën dhe mënyrën e transportit që zgjidhni. Kjo faqe shpjegon saktësisht çfarë përfshin kjo përllogaritje, çfarë nuk përfshin dhe pse nuk është çmim fiks përfundimtar.</p>
               </div>
               <section>

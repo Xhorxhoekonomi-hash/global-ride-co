@@ -123,7 +123,7 @@ function AnkandeAmerikane() {
             <h2 className="mt-3 text-navy">Cila platformë për cilën nevojë</h2>
           </div>
           <div tabIndex={0} role="region" aria-label="Tabelë krahasuese" className="mt-12 overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse overflow-hidden rounded-2xl border border-border text-left text-sm">
+            <table className="w-full min-w-[640px] border-collapse overflow-hidden rounded-xl border border-border text-left text-sm">
               <thead>
                 <tr className="bg-mist">
                   <th className="p-4 font-display font-bold text-navy">Platforma</th>
@@ -153,7 +153,7 @@ function AnkandeAmerikane() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WORKFLOW_AL.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.n} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -172,7 +172,7 @@ function AnkandeAmerikane() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

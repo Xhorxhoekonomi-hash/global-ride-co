@@ -25,7 +25,7 @@ function Terms() {
             <p className="mt-3 text-sm text-slate-body">Last updated: August 2026</p>
 
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-xl border border-border bg-card p-6">
                 <p>These terms govern your use of www.alphaworldwidealbania.com and your engagement of Alpha Worldwide's vehicle sourcing, inspection coordination, and shipping services. By using this website or engaging our services, you agree to the terms below.</p>
               </div>
 

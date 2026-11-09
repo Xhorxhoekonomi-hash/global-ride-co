@@ -94,7 +94,7 @@ function TransportMeKontenier() {
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {CONTAINER_TYPES_AL.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <Package className="h-5 w-5" />
                 </div>
@@ -137,7 +137,7 @@ function TransportMeKontenier() {
             <div className="eyebrow">Avantazhet</div>
             <h2 className="mt-3 text-navy">Pse zgjedhin klientët kontenierin</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {ADVANTAGES_AL.map((a) => (
                 <li key={a} className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-teal" />{a}</li>
@@ -153,7 +153,7 @@ function TransportMeKontenier() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

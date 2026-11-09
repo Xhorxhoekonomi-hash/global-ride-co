@@ -177,7 +177,7 @@ function ImportKorea() {
               Free pre-purchase inspection is available for eligible vehicles selected through Alpha Worldwide, subject to vehicle location, seller access and inspection availability.
             </p>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-lg border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-lg border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-muted-foreground sm:grid-cols-2">
               {INSPECTION_CAPABILITIES.map((c) => (
                 <li key={c} className="flex gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{c}</li>
@@ -243,7 +243,7 @@ function ImportKorea() {
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-secondary">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="min-h-11 flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-secondary">

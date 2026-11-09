@@ -120,7 +120,7 @@ function Airfreight() {
         <div className="container-page py-20 md:py-24">
           <div className="grid gap-5 md:grid-cols-3">
             {POINTS.map((p) => (
-              <div key={p.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={p.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <p.icon className="h-5 w-5" />
                 </div>
@@ -140,7 +140,7 @@ function Airfreight() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {SERVICE_TYPES.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-7 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-7 shadow-card">
                 <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-6 w-6" />
                 </div>
@@ -160,7 +160,7 @@ function Airfreight() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {ACCEPTANCE.map((a) => (
-              <div key={a.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={a.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal">
                   <a.icon className="h-5 w-5" />
                 </div>
@@ -181,7 +181,7 @@ function Airfreight() {
             <div className="eyebrow">Paperwork</div>
             <h2 className="mt-3 text-navy">Documentation We Coordinate</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="mt-10 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card">
             <ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">
               {DOCUMENTATION.map((d) => (
                 <li key={d} className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={d} /></li>
@@ -229,7 +229,7 @@ function Airfreight() {
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">

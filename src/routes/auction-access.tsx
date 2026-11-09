@@ -67,7 +67,7 @@ function AuctionAccess() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {STEPS.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.n} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="font-display text-5xl font-bold text-teal">{String(s.n).padStart(2, "0")}</div>
                 <h3 className="mt-3 text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-slate-body">{s.body}</p>

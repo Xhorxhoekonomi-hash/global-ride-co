@@ -83,7 +83,7 @@ function GuideUsaAuctions() {
 
       <section className="bg-background">
         <div className="container-page py-12 md:py-14">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 shadow-card">
             <p className="text-sm text-slate-body"><strong className="text-navy">Short answer:</strong> buying from a US auction means choosing a platform, reviewing whatever condition information is available, bidding within a clear budget that includes fees, then coordinating inland transport, export documentation, and shipping. Auction descriptions are a starting point, not a mechanical warranty — that's the single most important thing to internalize before you bid.</p>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-body">US auctions move a huge volume of vehicles every week, and pricing that looks unusually low compared to a local dealership is often the first thing that draws international buyers in. The savings can be real, but they come with a different set of responsibilities than buying from a dealer down the street — you're evaluating a vehicle from photos and reports rather than standing next to it, and the process from winning bid to vehicle in hand involves several distinct stages, each with its own decisions to make. This guide walks through that process in the order you'll actually encounter it.</p>
@@ -194,7 +194,7 @@ function GuideUsaAuctions() {
         <div className="container-page py-14 md:py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
-            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+            <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
               {FAQS.map((f) => (
                 <details key={f.q} className="group p-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary>

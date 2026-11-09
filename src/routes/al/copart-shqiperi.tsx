@@ -140,7 +140,7 @@ function CopartShqiperi() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {HOW_IT_WORKS_AL.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-card">
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-teal/10 text-teal">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -161,7 +161,7 @@ function CopartShqiperi() {
                 Fotot e Copart nuk janë inspektim
               </h2>
             </div>
-            <div className="mt-10 rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div className="mt-10 rounded-xl border border-border bg-card p-7 shadow-card">
               <div className="flex items-center gap-2">
                 <ShieldAlert className="h-5 w-5 text-teal" />
                 <span className="font-semibold text-navy">Çfarë të keni parasysh</span>
@@ -182,13 +182,13 @@ function CopartShqiperi() {
               <h2 className="mt-3 text-navy">Tarifat e Copart dhe transporti</h2>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+              <div className="rounded-xl border border-border bg-card p-7 shadow-card">
                 <h3 className="text-navy">Çfarë hyn në çmim</h3>
                 <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-slate-body">
                   {FEES_NOTE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
                 </ul>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+              <div className="rounded-xl border border-border bg-card p-7 shadow-card">
                 <h3 className="text-navy">Përllogaritja e detajuar</h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-body">
                   Kalkulatori ynë ndan çdo zë: ofertën fituese, tarifat e Copart, transportin tokësor deri në terminalin e eksportit, transportin detar deri në Durrës dhe shkarkimin në port.
@@ -208,13 +208,13 @@ function CopartShqiperi() {
 
       <section className="section-mist">
         <div className="container-page grid gap-6 py-20 md:grid-cols-2 md:py-24">
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <h3 className="text-navy">Çfarë garantojmë</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {WE_GUARANTEE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-teal">•</span>{i}</li>)}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-card">
+          <div className="rounded-xl border border-border bg-card p-7 shadow-card">
             <h3 className="text-navy">Çfarë nuk garantojmë</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-slate-body">
               {WE_DO_NOT_GUARANTEE_AL.map((i) => <li key={i} className="flex gap-2"><span className="text-navy/40">•</span>{i}</li>)}
@@ -229,7 +229,7 @@ function CopartShqiperi() {
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta për Copart</h2>
           </div>
-          <div className="mx-auto mt-10 max-w-2xl divide-y divide-border rounded-2xl border border-border bg-card">
+          <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS_AL.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">
@@ -249,16 +249,16 @@ function CopartShqiperi() {
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-navy">Vazhdoni të lexoni</h2>
           </div>
-          <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
-            <Link to="/al/makina-nga-amerika" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+          <div className="mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
+            <Link to="/al/makina-nga-amerika" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">Makina nga Amerika</div>
               <p className="mt-1.5 text-xs text-slate-body">Hubi i përgjithshëm i importit nga SHBA-ja.</p>
             </Link>
-            <Link to="/al/iaai-shqiperi" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/iaai-shqiperi" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">IAAI Shqipëri</div>
               <p className="mt-1.5 text-xs text-slate-body">Platforma tjetër kryesore e ankandeve.</p>
             </Link>
-            <Link to="/al/kontakt" className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
+            <Link to="/al/kontakt" className="group rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:border-teal">
               <div className="font-display text-base font-bold text-navy">Kontakt</div>
               <p className="mt-1.5 text-xs text-slate-body">Na dërgoni lotin dhe kërkoni një ofertë.</p>
             </Link>
