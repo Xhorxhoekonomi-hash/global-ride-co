@@ -81,13 +81,53 @@ export function derivedHreflang(path: string, lang: string) {
   return { hreflang, xDefault: en ?? path };
 }
 
-/** Organization + LocalBusiness + WebSite graph for the EN and SQ home pages. */
-export function siteGraph(lang: "en" | "sq") {
+/** Shared office data; contact graphs localize the WebPage, not the business identity. */
+export function siteGraph(lang: "en" | "sq", contactPath?: "/contact" | "/al/kontakt") {
+  const localBusiness = {
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#durres-office`,
+    name: "Alpha Worldwide Albania",
+    description: "European and Albanian operations",
+    parentOrganization: { "@id": `${SITE_URL}/#organization` },
+    telephone: "+355 69 223 3416",
+    email: "info@alphaworldwidealbania.com",
+    url: SITE_URL,
+    hasMap: "https://maps.app.goo.gl/FRhPvdgR3h79varSA",
+    image: absUrl("/__l5e/assets-v1/9daed126-7325-4a04-b2f0-688d01203f14/TD_LOGO_2023.png"),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Rruga Hafiz Podgorica",
+      addressLocality: "Durrës",
+      postalCode: "2001",
+      addressCountry: "AL",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 41.3173012,
+      longitude: 19.4492877,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  };
   return {
     type: "application/ld+json",
     children: JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [
+      "@graph": contactPath ? [
+        localBusiness,
+        {
+          "@type": "ContactPage",
+          "@id": `${absUrl(contactPath)}#webpage`,
+          url: absUrl(contactPath),
+          inLanguage: lang,
+          mainEntity: { "@id": localBusiness["@id"] },
+          about: { "@id": `${SITE_URL}/#organization` },
+        },
+      ] : [
         {
                     "@type": "Organization",
           "@id": `${SITE_URL}/#organization`,
@@ -106,19 +146,7 @@ export function siteGraph(lang: "en" | "sq") {
             "Albania", "United States", "South Korea", "United Arab Emirates",
             "Canada", "Italy", "Germany", "Belgium", "Netherlands", "France",
           ],
-          department: [
-            {
-              "@type": "LocalBusiness",
-              name: "Alpha Worldwide Albania",
-              description: "European and Albanian operations",
-              telephone: OFFICES[1].phones[0],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: OFFICES[1].city,
-                addressCountry: OFFICES[1].countryCode,
-              },
-            },
-          ],
+          department: [localBusiness],
           contactPoint: [
             {
               "@type": "ContactPoint",

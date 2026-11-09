@@ -2,15 +2,15 @@ import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Mail } from "lucide-react";
-import { buildHead } from "@/lib/seo";
+import { buildHead, siteGraph } from "@/lib/seo";
 import { CONTACT, OFFICES } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { EmailContact } from "@/components/site/EmailContact";
 
 export const Route = createFileRoute("/al/kontakt")({
-  head: () =>
-    buildHead({
+  head: () => ({
+    ...buildHead({
       title: "Na kontaktoni | Alpha Worldwide",
       description: "Kontaktoni ekipin tonë në Durrës për një ofertë falas për blerjen, inspektimin dhe transportin e automjetit tuaj.",
       path: "/al/kontakt",
@@ -21,6 +21,8 @@ export const Route = createFileRoute("/al/kontakt")({
       ],
       xDefault: "/contact",
     }),
+    scripts: [siteGraph("sq", "/al/kontakt")],
+  }),
   component: KontaktAL,
 });
 

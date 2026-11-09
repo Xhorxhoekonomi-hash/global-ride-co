@@ -2,15 +2,15 @@ import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Mail, Phone, Clock, Instagram } from "lucide-react";
-import { buildHead } from "@/lib/seo";
+import { buildHead, siteGraph } from "@/lib/seo";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { EmailContact } from "@/components/site/EmailContact";
 
 export const Route = createFileRoute("/contact")({
-  head: () =>
-    buildHead({
+  head: () => ({
+    ...buildHead({
       title: "Contact Alpha Worldwide Albania | Get a Free Quote",
       description: "Reach our Durrës team via WhatsApp, phone, or email to start your car shipping to Albania or vehicle import quote today.",
       path: "/contact",
@@ -21,6 +21,8 @@ export const Route = createFileRoute("/contact")({
       ],
       xDefault: "/contact",
     }),
+    scripts: [siteGraph("en", "/contact")],
+  }),
   component: Contact,
 });
 
