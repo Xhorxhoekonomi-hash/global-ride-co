@@ -22,6 +22,17 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || !("IntersectionObserver" in window)) { document.documentElement.classList.remove("motion-ok"); return; }
     document.documentElement.classList.add("motion-ok");
+    let cleanup = () => {};
+    let tries = 0;
+    let wait = 0;
+    // Lazy route chunks hydrate after the root: only touch sections React has hydrated, or hydration fails.
+    const hydrated = (el: Element) => Object.keys(el).some((k) => k.startsWith("__reactFiber"));
+    const start = () => {
+      const pending = Array.from(document.querySelectorAll("main section")).some((s) => !hydrated(s));
+      if (pending && tries++ < 25) { wait = window.setTimeout(start, 200); return; }
+      cleanup = setup();
+    };
+    const setup = () => {
     const vh = window.innerHeight;
 
     const reveal = new IntersectionObserver((entries) => {
@@ -62,6 +73,9 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => { reveal.disconnect(); draw.disconnect(); window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
+    };
+    start();
+    return () => { window.clearTimeout(wait); cleanup(); };
   }, [pathname, guide]);
 
   if (!guide) return null;
