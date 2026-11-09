@@ -541,6 +541,9 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
   .alpha-navigation-row > div { gap: 4px; }
   .alpha-navigation-row > div [data-slot="button"] { font-size: 12px; padding-inline: 10px; }
 }
+@media (min-width: 1280px) {
+  .alpha-desktop-navigation [data-slot="button"] { font-size: 14px; }
+}
 @media (min-width: 1440px) {
   .container-page { padding-inline: 40px; }
 }
