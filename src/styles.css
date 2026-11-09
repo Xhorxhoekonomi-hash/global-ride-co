@@ -445,10 +445,11 @@ main .segmented-item[data-state="active"] { background: var(--teal-button); colo
 .platform-strip--dark .platform-chip { border-color: color-mix(in oklab, var(--on-dark) 12%, transparent); background: transparent; color: var(--on-dark); }
 
 /* Marquee: CSS-only loop of two identical lists; static and wrapping without motion. */
-.marquee { overflow: hidden; outline: none; }
-.marquee-track { display: flex; flex-wrap: wrap; gap: 12px; width: max-content; max-width: 100%; padding-inline: 20px; }
+.marquee { overflow-x: auto; scrollbar-width: none; outline: none; }
+.motion-ok .marquee { overflow: hidden; }
+.marquee-track { display: flex; gap: 12px; width: max-content; padding-inline: 20px; }
 .marquee-track > [aria-hidden] { display: none; }
-.motion-ok .marquee-track { flex-wrap: nowrap; max-width: none; padding-inline: 0; animation: marquee 40s linear infinite; }
+.motion-ok .marquee-track { padding-inline: 0; animation: marquee 40s linear infinite; }
 .motion-ok .marquee--fast .marquee-track { animation-duration: 30s; }
 .motion-ok .marquee-track > [aria-hidden] { display: block; }
 .motion-ok .marquee-track > li { padding-right: 0; }
