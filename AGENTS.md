@@ -20,6 +20,7 @@
 - All solid/outline buttons share --btn-h/--btn-fs (Button data-variant attributes + .btn-pair/btn-* utilities); labels never wrap, and button pairs flex-wrap to stack instead, so side-by-side buttons always match height.
 - The header is one row; desktop WhatsApp/email appear as icon links in it (xl+) and in the footer, keeping laptop screen height for content.
 - SITE_URL in src/lib/seo.ts is the only origin for canonical, hreflang, og:url, sitemap and JSON-LD; never hardcode another host.
+- siteGraph shares one office identity between Organization departments and contact-page JSON-LD; localize ContactPage with inLanguage because that property does not apply to LocalBusiness.
 - Legacy-URL 301s live in src/lib/legacy-redirects.ts and run in src/server.ts before the app, so they are server-side and covered by unit tests.
 - Owner hero photos live as Lovable asset pointers under src/assets/heroes (2560/1440 desktop + 1080 mobile WebP) and are mapped in src/lib/hero-scenes.ts or HomeExperience, keeping binaries out of the repo.
 - PageHero is the only interior hero (photo scene, light text, or navy text when no real photo exists); TextHero wraps bespoke light headings. Interior pages get the shared CtaBand, and guide articles get GuideToc/RelatedGuides, from __root so the pattern cannot drift per page.
