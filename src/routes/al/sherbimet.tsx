@@ -2,7 +2,8 @@ import { PageHero } from "@/components/site/PageHero";
 import { LAMBORGHINI_HANDOVER } from "@/lib/hero-scenes";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flag } from "lucide-react";
+import { SERVICE_ICONS } from "@/lib/service-icons";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -86,16 +87,15 @@ function Sherbimet() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="alpha-card-grid">
             {SERVICES.map((s) => {
               const copy = SERVICE_COPY_SQ[s.slug] ?? { title: s.title, body: s.body };
               return (
-                <Link key={s.slug} to={localPath(s.to, true)} className="group border-t border-border py-8 pr-6 transition-colors hover:border-primary">
-                  <h3 className="text-secondary">{copy.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{copy.body}</p>
-                  <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors">
-                    {s.hasDedicatedPage ? "Mëso më shumë" : "Na pyesni"} <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
+                <Link key={s.slug} to={localPath(s.to, true)} className="alpha-card">
+                  <ServiceIcon slug={s.slug} />
+                  <h3>{copy.title}</h3>
+                  <p>{copy.body}</p>
+                  <span className="alpha-card-link">{s.hasDedicatedPage ? "Mëso më shumë" : "Na pyesni"} <ArrowRight className="h-3.5 w-3.5" /></span>
                 </Link>
               );
             })}
@@ -109,17 +109,18 @@ function Sherbimet() {
             <div className="eyebrow">Import sipas tregut</div>
             <h2 className="mt-3 text-secondary">Tregjet tona kryesore të origjinës</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="alpha-card-grid mt-10">
             {[
               { to: "/al/makina-nga-amerika", name: "SHBA", body: "Copart, IAAI, Manheim dhe rrjeti i tregtarëve — oferta në ankand, transport brenda SHBA-së, transport me kontenier/RoRo drejt Evropës." },
               { to: "/al/makina-nga-korea", name: "Koreja e Jugut", body: "Gjetje përmes Encar dhe Autowini, inspektim vendas, eksport nga Busan/Incheon, dorëzim në Durrës ose në portet e BE-së." },
               { to: "/al/makina-nga-dubai", name: "EBA", body: "Gjetje përmes Dubizzle, Emirates Auction dhe tregtarëve, zhdoganim eksporti RTA, transport direkt drejt Evropës." },
             ].map((m) => (
-              <Link key={m.name} to={m.to} className="border-t border-border py-8 pr-6 transition-colors hover:border-primary">
+              <Link key={m.name} to={m.to} className="alpha-card">
+                <Flag aria-hidden="true" />
                 <div className="eyebrow">Import nga</div>
-                <h3 className="mt-2 text-secondary">{m.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary">Mëso më shumë →</div>
+                <h3 className="mt-2">{m.name}</h3>
+                <p>{m.body}</p>
+                <span className="alpha-card-link">Mëso më shumë →</span>
               </Link>
             ))}
           </div>
@@ -154,4 +155,9 @@ function Sherbimet() {
       </section>
     </>
   );
+}
+
+function ServiceIcon({ slug }: { slug: string }) {
+  const Icon = SERVICE_ICONS[slug];
+  return Icon ? <Icon aria-hidden="true" /> : null;
 }

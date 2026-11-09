@@ -3,7 +3,8 @@ import { LAMBORGHINI_HANDOVER } from "@/lib/hero-scenes";
 import { PHOTO_SELECTIONS } from "@/lib/alpha-photos";
 import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flag } from "lucide-react";
+import { SERVICE_ICONS } from "@/lib/service-icons";
 import { buildHead } from "@/lib/seo";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -74,18 +75,13 @@ function ServicesPage() {
 
       <section className="bg-background">
         <div className="container-page py-14 md:py-18">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="alpha-card-grid">
             {SERVICES.map((s) => (
-              <Link
-                key={s.slug}
-                to={s.to}
-                className="group border-t border-border py-8 pr-6 transition-colors hover:border-primary"
-              >
-                <h3 className="text-secondary">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors">
-                  {s.hasDedicatedPage ? "Learn more" : "Enquire"} <ArrowRight className="h-3.5 w-3.5" />
-                </div>
+              <Link key={s.slug} to={s.to} className="alpha-card">
+                <ServiceIcon slug={s.slug} />
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+                <span className="alpha-card-link">{s.hasDedicatedPage ? "Learn more" : "Enquire"} <ArrowRight className="h-3.5 w-3.5" /></span>
               </Link>
             ))}
           </div>
@@ -98,17 +94,18 @@ function ServicesPage() {
             <div className="eyebrow">Market-specific import</div>
             <h2 className="mt-3 text-secondary">Dedicated origin markets</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="alpha-card-grid mt-10">
             {[
               { to: "/import-usa", name: "USA", body: "Copart, IAAI, Manheim and dealer network — bidding, US-side transport, container/RoRo shipping to Europe." },
               { to: "/import-korea", name: "South Korea", body: "Encar and Autowini sourcing, local inspection, Busan/Incheon export, delivery to Durrës or EU ports." },
               { to: "/import-uae", name: "UAE", body: "Dubizzle, Emirates Auction and dealership sourcing, RTA export clearance, direct shipping to Europe." },
             ].map((m) => (
-              <Link key={m.name} to={m.to} className="border-t border-border py-8 pr-6 transition-colors hover:border-primary">
+              <Link key={m.name} to={m.to} className="alpha-card">
+                <Flag aria-hidden="true" />
                 <div className="eyebrow">Import from</div>
-                <h3 className="mt-2 text-secondary">{m.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary">Learn more →</div>
+                <h3 className="mt-2">{m.name}</h3>
+                <p>{m.body}</p>
+                <span className="alpha-card-link">Learn more →</span>
               </Link>
             ))}
           </div>
@@ -148,4 +145,9 @@ function ServicesPage() {
       </section>
     </>
   );
+}
+
+function ServiceIcon({ slug }: { slug: string }) {
+  const Icon = SERVICE_ICONS[slug];
+  return Icon ? <Icon aria-hidden="true" /> : null;
 }
