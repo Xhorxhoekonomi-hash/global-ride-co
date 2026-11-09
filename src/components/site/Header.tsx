@@ -1,39 +1,35 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Mail, MessageCircle, ChevronDown, Languages, Calculator } from "lucide-react";
 import { CONTACT, LANGUAGE_ROUTE_MAP, type NavItem } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { BrandLogo } from "@/components/site/BrandLogo";
 import { EmailContact } from "@/components/site/EmailContact";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const REVERSE_LANGUAGE_MAP = Object.fromEntries(Object.entries(LANGUAGE_ROUTE_MAP).map(([en, al]) => [al, en]));
-function NavDropdown({ label, items }: { label: string; items: { to: string; label: string }[] }) {
-  return <DropdownMenu><DropdownMenuTrigger asChild><Button variant="ghost" className="h-11 px-2 text-navy">{label}<ChevronDown /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" className="w-56 p-2">{items.map(item => <DropdownMenuItem key={item.to} asChild><Link to={item.to} className="min-h-11">{item.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu>;
-}
-function DesktopNavItem({ item }: { item: NavItem }) {
-  if (item.type === "dropdown") return <NavDropdown label={item.label} items={item.items} />;
-  return <Button variant="ghost" asChild className="h-11 px-2 text-navy"><Link to={item.to} activeProps={{ className: "text-primary bg-accent" }} activeOptions={{ exact: true }}>{item.label}</Link></Button>;
-}
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mega, setMega] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const pathname = useRouterState({ select: s => s.location.pathname });
   const isAlbanian = pathname.startsWith("/al");
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const languageTarget = isAlbanian ? REVERSE_LANGUAGE_MAP[normalized] ?? "/" : LANGUAGE_ROUTE_MAP[normalized] ?? "/al";
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); setMega(null); }, [pathname]);
   useEffect(() => { document.body.style.overflow = open ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [open]);
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
-    window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); setMega(null); } };
+    const onDown = (event: PointerEvent) => { if (!headerRef.current?.contains(event.target as Node)) setMega(null); };
+    window.addEventListener("pointerdown", onDown);
+    window.addEventListener("keydown", onKey); return () => { window.removeEventListener("keydown", onKey); window.removeEventListener("pointerdown", onDown); };
   }, []);
   const quoteHref = isAlbanian ? "/al/kontakt" : "/contact";
   const calculatorHref = isAlbanian ? "/al/kalkulator-transporti" : "/calculator";
@@ -67,22 +63,29 @@ export function Header() {
     ] },
     { type: "link", to: quoteHref, label: isAlbanian ? "Kontakt" : "Contact" },
   ];
-  return <header className={`alpha-header sticky inset-x-0 top-0 z-40 border-b bg-background transition-[box-shadow,border-color] ${scrolled ? "border-border shadow-header" : "border-transparent"}`}>
-    <div className="container-page alpha-navigation-row grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 lg:flex lg:justify-between">
-      <Link to={isAlbanian ? "/al" : "/"} aria-label={isAlbanian ? "Alpha Worldwide — kryefaqja" : "Alpha Worldwide — home"} className="min-w-0 shrink-0"><BrandLogo className="w-36 sm:w-44" /></Link>
-      <nav aria-label={isAlbanian ? "Navigimi kryesor" : "Main navigation"} className="alpha-desktop-navigation hidden items-center gap-3 lg:flex">
-        {navigation.map(item => <DesktopNavItem key={item.label} item={item} />)}
+  const megaItem = navigation.find(item => item.type === "dropdown" && item.label === mega);
+  return <header ref={headerRef} className="alpha-header" data-scrolled={scrolled || undefined} data-open={open || mega ? "" : undefined} onMouseLeave={() => setMega(null)}>
+    <div className="container-page alpha-navigation-row">
+      <Link to={isAlbanian ? "/al" : "/"} aria-label={isAlbanian ? "Alpha Worldwide — kryefaqja" : "Alpha Worldwide — home"} className="alpha-header-logo"><BrandLogo className="logo-default" /><BrandLogo tone="light" className="logo-light" /></Link>
+      <nav aria-label={isAlbanian ? "Navigimi kryesor" : "Main navigation"} className="alpha-desktop-navigation">
+        {navigation.map(item => item.type === "dropdown"
+          ? <button key={item.label} type="button" className="alpha-nav-link" aria-expanded={mega === item.label} aria-controls="alpha-mega" onClick={() => setMega(m => m === item.label ? null : item.label)} onMouseEnter={() => setMega(item.label)}>{item.label}<ChevronDown aria-hidden="true" /></button>
+          : <Link key={item.label} to={item.to} className="alpha-nav-link" activeProps={{ "aria-current": "page" }} activeOptions={{ exact: true }} onMouseEnter={() => setMega(null)}>{item.label}</Link>)}
       </nav>
-      <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-        <Button variant="ghost" asChild className="h-11 px-2 text-navy"><Link to={languageTarget} aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages className="hidden sm:block" />{isAlbanian ? "EN" : "SQ"}</Link></Button>
-        <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp +355692233416" title="WhatsApp +355692233416" className="hidden h-11 w-11 place-items-center rounded-md text-secondary hover:bg-accent xl:grid"><MessageCircle className="h-5 w-5" aria-hidden="true" /></a>
-        <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "header" })} aria-label={`Email ${CONTACT.email}`} title={CONTACT.email} className="hidden h-11 w-11 place-items-center rounded-md text-secondary hover:bg-accent xl:grid"><Mail className="h-5 w-5" aria-hidden="true" /></a>
-        <Button asChild className="hidden h-11 sm:inline-flex"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button>
-        <Button variant="ghost" className="header-menu-button lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X /> : <Menu />}<span>{open ? (isAlbanian ? "Mbyll" : "Close") : "Menu"}</span></Button>
+      <div className="alpha-header-actions">
+        <Link to={languageTarget} className="alpha-header-icon alpha-header-lang" aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages aria-hidden="true" />{isAlbanian ? "EN" : "SQ"}</Link>
+        <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp +355692233416" title="WhatsApp +355692233416" className="alpha-header-icon alpha-header-desktop"><MessageCircle aria-hidden="true" /></a>
+        <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "header" })} aria-label={`Email ${CONTACT.email}`} title={CONTACT.email} className="alpha-header-icon alpha-header-desktop"><Mail aria-hidden="true" /></a>
+        <Link to={quoteHref} className="alpha-header-quote">{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link>
+        <button type="button" className="header-menu-button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
       </div>
     </div>
-    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet lg:hidden"><div className="container-page py-6">
-      <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Button key={item.to} variant="ghost" asChild className="mobile-sheet-link"><Link to={item.to}>{item.label}</Link></Button> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Button key={i.to} variant="ghost" asChild className="mobile-sheet-sublink"><Link to={i.to}>{i.label}</Link></Button>)}</div></AccordionContent></AccordionItem>)}</Accordion>
+    {megaItem && megaItem.type === "dropdown" && <div id="alpha-mega" className="alpha-mega"><div className="container-page alpha-mega-inner">
+      <p className="alpha-mega-title">{megaItem.label}</p>
+      <ul className="alpha-mega-links">{megaItem.items.map(i => <li key={i.to}><Link to={i.to} onClick={() => setMega(null)}>{i.label}</Link></li>)}</ul>
+    </div></div>}
+    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet"><div className="container-page mobile-sheet-inner">
+      <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Link key={item.to} to={item.to} className="mobile-sheet-link">{item.label}</Link> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Link key={i.to} to={i.to} className="mobile-sheet-sublink">{i.label}</Link>)}</div></AccordionContent></AccordionItem>)}</Accordion>
       <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button><EmailContact location="mobile_menu" className="w-full justify-center" /></div>
     </div></nav>}
   </header>;
