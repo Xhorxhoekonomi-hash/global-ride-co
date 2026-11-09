@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "@tanstack/react-router";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { localPath } from "@/lib/site-data";
@@ -62,7 +63,7 @@ const COPY = {
 function sentences(text: string) {
   const parts = text.split(/(?<=\.)\s+/);
   if (parts.length < 2) return text;
-  return parts.map((part, i) => <span key={i} className="heading-sentence">{part}{i < parts.length - 1 ? " " : ""}</span>);
+  return parts.map((part, i) => <Fragment key={i}>{i > 0 && " "}<span className="heading-sentence">{part}</span></Fragment>);
 }
 
 const GUIDE_ROUTES = ["/guides/how-to-buy-a-car-from-usa-auctions", "/guides/container-vs-roro-car-shipping", "/guides/how-to-check-a-used-car-before-buying"];
