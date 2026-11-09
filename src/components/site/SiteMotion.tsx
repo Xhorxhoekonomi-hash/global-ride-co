@@ -74,8 +74,11 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => { reveal.disconnect(); draw.disconnect(); window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
     };
-    start();
-    return () => { window.clearTimeout(wait); cleanup(); };
+    // Wait for load + an idle frame so lazily hydrated route content is never mutated mid-hydration.
+    let idle = 0;
+    const kick = () => { idle = window.setTimeout(() => ("requestIdleCallback" in window ? window.requestIdleCallback(start, { timeout: 1200 }) : start()), 50); };
+    if (document.readyState === "complete") kick(); else window.addEventListener("load", kick, { once: true });
+    return () => { window.removeEventListener("load", kick); window.clearTimeout(idle); window.clearTimeout(wait); cleanup(); };
   }, [pathname, guide]);
 
   if (!guide) return null;
