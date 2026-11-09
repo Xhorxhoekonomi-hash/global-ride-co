@@ -124,11 +124,8 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
     }
   };
 
-  const inputClass = (hasError: boolean) =>
-    `w-full rounded-md border px-4 py-3 text-sm text-foreground bg-background focus:outline-none focus:ring-2 ${
-      hasError ? "border-red-500 focus:ring-red-500/20" : "border-border focus:border-teal focus:ring-teal/25"
-    }`;
-  const labelClass = "mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-navy/70";
+  const inputClass = (hasError: boolean) => `form-control${hasError ? " border-destructive" : ""}`;
+  const labelClass = "form-label";
   const errorClass = "mt-1 flex items-center gap-1 text-xs text-red-600";
 
   if (status === "success") {
@@ -146,7 +143,7 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-border bg-card p-6 shadow-card md:p-8">
+    <form onSubmit={onSubmit} noValidate className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8">
       <input
         type="text"
         name="company_website"

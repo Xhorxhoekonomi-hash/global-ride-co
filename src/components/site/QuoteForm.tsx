@@ -182,16 +182,9 @@ export function QuoteForm({
     }
   };
 
-  const inputClass = (hasError: boolean) =>
-    `w-full rounded-md border px-4 py-3 text-sm focus:outline-none focus:ring-2 ${
-      onDark
-        ? `bg-white/5 text-white placeholder:text-white/40 ${hasError ? "border-red-400 focus:ring-red-400/30" : "border-white/15 focus:border-teal focus:ring-teal/30"}`
-        : `bg-background text-foreground placeholder:text-muted-foreground ${hasError ? "border-red-500 focus:ring-red-500/20" : "border-border focus:border-teal focus:ring-teal/25"}`
-    }`;
+  const inputClass = (hasError: boolean) => `form-control${hasError ? " border-destructive" : ""}`;
 
-  const labelClass = `mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] ${
-    onDark ? "text-white/70" : "text-navy/70"
-  }`;
+  const labelClass = "form-label";
 
   const errorClass = `mt-1 flex items-center gap-1 text-xs ${onDark ? "text-red-300" : "text-red-600"}`;
 
@@ -250,8 +243,8 @@ export function QuoteForm({
     <form
       onSubmit={onSubmit}
       noValidate
-      className={`rounded-2xl p-6 md:p-8 ${
-        onDark ? "border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
+      className={`rounded-xl p-6 md:p-8 ${
+        onDark ? "form-dark border border-white/10 bg-white/[0.03]" : "border border-border bg-card shadow-card"
       }`}
     >
       <input
