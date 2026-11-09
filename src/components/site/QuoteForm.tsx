@@ -10,7 +10,7 @@ type Locale = "en" | "sq";
 type Option = { value: string; label: string };
 
 const LABELS_EN = {
-  fullName: "Full Name *",
+  fullName: "Full name *",
   fullNamePlaceholder: "Your name",
   fullNameRequired: "Please enter your full name.",
   phone: "Phone / WhatsApp *",
@@ -19,13 +19,13 @@ const LABELS_EN = {
   email: "Email *",
   emailPlaceholder: "you@example.com",
   emailInvalid: "Please enter a valid email address.",
-  origin: "Import From",
+  origin: "Import from",
   destination: "Destination",
-  vehicleLink: "Vehicle Link or Lot Number",
+  vehicleLink: "Vehicle link or lot number",
   vehicleLinkPlaceholder: "Copart lot, Encar URL, dealer listing…",
-  makeModel: "Vehicle Make & Model",
+  makeModel: "Vehicle make & model",
   makeModelPlaceholder: "e.g. BMW X5",
-  service: "Service Needed",
+  service: "Service needed",
   serviceFullProcess: "Full Process (recommended)",
   serviceInspectionOnly: "Inspection Only",
   serviceAuctionPurchase: "Auction Purchase",
