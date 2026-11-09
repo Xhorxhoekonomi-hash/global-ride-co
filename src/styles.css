@@ -306,7 +306,7 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 /* Slides stack in one cell and crossfade; only the active one is visible and interactive. */
 .hero-panel-track > .hero-panel-slide { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility 0s linear .9s; }
 .hero-panel-track > .hero-panel-slide.is-active { opacity: 1; visibility: visible; transition: opacity .9s ease, visibility 0s; }
-.hero-panel-track picture { will-change: transform; transform: translate3d(0, var(--py, 0px), 0) scale(1.06); }
+.hero-panel-track picture { will-change: transform; transform: translate3d(0, var(--py, 0px), 0); }
 .motion-ok .hero-panel-track .is-active img { animation: ken-burns 7s ease-out both; }
 .motion-ok .hero-panel[data-changed] .is-active :is(.hero-panel-text > *, .hero-panel-actions) { animation: fade-up-in .6s cubic-bezier(.2,.8,.2,1) both; }
 .motion-ok .hero-panel[data-changed] .is-active .hero-panel-text > :nth-child(2) { animation-delay: 80ms; }
@@ -349,7 +349,6 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-scene { --scrim-bottom: .85; }
 /* Phones: photo on top, white copy on a dark panel below, so text never covers the vehicle. */
 .hero-scene .hero-panel-slide { height: auto; display: flex; flex-direction: column; }
-.hero-scene picture { transform: none; }
 .hero-scene .hero-panel-slide picture { position: relative; display: block; aspect-ratio: 4 / 3; height: auto; }
 .hero-scene .hero-panel-slide::after { display: none; }
 .hero-scene .hero-panel-copy { position: relative; inset: auto; padding: 28px 20px 36px; background: var(--graphite); }
@@ -456,7 +455,9 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 /* ================================================================
    9. Homepage sections
    ================================================================ */
-.home-section { padding-block: 72px; }
+.home-section, .stat-panel, .section-y, .cta-band, .route-finder-wrap { padding-block: var(--section-y); }
+/* Consecutive white homepage sections share one gap instead of stacking two paddings. */
+.editorial-home > section:not(.hero-panel, .alpha-enquiry) + section:not(.alpha-enquiry) { padding-top: 0; }
 .home-heading { color: var(--navy); }
 .home-kicker { margin-bottom: 12px; font-size: 14px; font-weight: 600; color: var(--teal-dark); }
 .editorial-home { overflow-x: clip; }
@@ -467,23 +468,24 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .alpha-section-heading > a { min-height: 44px; padding: 0; }
 .alpha-section-heading--stacked { flex-direction: column; align-items: flex-start; }
 .heading-sentence { display: inline-block; }
-.section-y { padding-block: 72px; }
 .section-y-tight { padding-block: 56px; }
-/* Scroll reveal: armed only by JS for sections below the fold. */
-.reveal-armed { opacity: 0; transform: translateY(16px); transition: opacity .5s cubic-bezier(.2,.8,.2,1), transform .5s cubic-bezier(.2,.8,.2,1); }
-.reveal-armed.is-revealed { opacity: 1; transform: none; }
+/* Scroll reveal (armed by SiteMotion after hydration only): heading first, then tiles with a 60ms stagger. */
+.motion-ok .reveal-armed :is(.reveal-head, .reveal-item) { opacity: 0; transform: translateY(16px); transition: opacity .5s cubic-bezier(.2,.8,.2,1), transform .5s cubic-bezier(.2,.8,.2,1); transition-delay: var(--reveal-delay, 0ms); }
+.motion-ok .reveal-armed.is-revealed :is(.reveal-head, .reveal-item) { opacity: 1; transform: none; }
+.motion-ok .reveal-armed.is-revealed .reveal-item { transition: opacity .5s cubic-bezier(.2,.8,.2,1) var(--reveal-delay, 0ms), transform .5s cubic-bezier(.2,.8,.2,1) var(--reveal-delay, 0ms), border-color .2s, box-shadow .2s; }
+.motion-ok .reveal-armed.is-revealed .reveal-item:hover { transition-delay: 0ms; }
 
 /* Stats: white, giant teal numbers */
-.stat-panel { padding-block: 72px; text-align: center; background: var(--background); color: var(--navy); }
+.stat-panel { text-align: center; background: var(--background); color: var(--navy); }
 .stat-panel h2 { color: var(--navy); }
 .stat-accent { color: var(--teal-dark); }
-.stat-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; max-width: 1000px; margin: 40px auto 0; }
-.stat-grid > div { display: flex; flex-direction: column; gap: 8px; }
-.stat-grid dd { font-size: clamp(56px, 11vw, 168px); line-height: 1; font-weight: 600; letter-spacing: -0.03em; color: var(--teal); font-variant-numeric: tabular-nums; }
+.stat-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 32px; max-width: 1000px; margin: 40px auto 0; }
+.stat-grid > div { display: flex; flex-direction: column-reverse; align-items: center; gap: 8px; min-width: 0; }
+.stat-grid dd { font-size: clamp(44px, 13vw, 72px); line-height: 1; font-weight: 600; letter-spacing: -0.03em; color: var(--teal); font-variant-numeric: tabular-nums; }
 .stat-grid dt { font-size: var(--fs-body); color: var(--navy); }
 
 /* RouteFinder */
-.route-finder-wrap { padding-block: 72px 0; text-align: center; }
+.route-finder-wrap { text-align: center; }
 .route-finder { max-width: 1100px; margin-inline: auto; padding: 32px; border-radius: 20px; background: var(--mist); text-align: left; }
 .route-finder h2 { color: var(--secondary); text-align: center; margin-inline: auto; }
 .route-finder-row { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; margin-top: 24px; align-items: end; }
@@ -491,14 +493,19 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .route-finder-field label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--muted-foreground); }
 .route-finder-field select { width: 100%; height: 56px; border: 1px solid var(--border); border-radius: 8px; background-color: var(--background); padding-left: 14px; font-size: 16px; color: var(--secondary); }
 main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: none; }
+.motion-ok .rf-pulse { animation: rf-pulse .7s ease-out 1; }
+@keyframes rf-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 45%, transparent); } 100% { box-shadow: 0 0 0 14px transparent; } }
 .route-finder-note { margin-top: 14px; text-align: center; font-size: 13px; line-height: 1.5; color: var(--muted-foreground); }
 .route-finder-note a { color: var(--teal-dark); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Bento service tiles */
 .bento-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; margin-top: 40px; }
 .bento-tile { position: relative; display: block; aspect-ratio: 4/5; overflow: hidden; border-radius: 20px; background: var(--graphite); color: var(--primary-foreground); }
-.bento-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
-.bento-tile:hover img { transform: scale(1.03); }
+.bento-tile { transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.bento-tile:hover { transform: translateY(-4px); }
+.bento-tile img { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; transform: translate3d(0, var(--py, 0px), 0); transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.bento-tile:hover img { transform: translate3d(0, var(--py, 0px), 0) scale(1.04); }
+.bento-dots { display: none; }
 .bento-tile::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, color-mix(in oklab, var(--graphite) 85%, transparent)); }
 .bento-tile-copy { position: absolute; z-index: 1; inset: auto 0 0; padding: 28px; }
 .bento-tile-copy h3 { font-size: clamp(24px, 2.2vw, 32px); color: var(--primary-foreground); }
