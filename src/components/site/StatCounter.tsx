@@ -16,6 +16,7 @@ export function StatCounter({ locale }: { locale: "en" | "sq" }) {
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       io.disconnect();
+      window.removeEventListener("scroll", onScroll);
       const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min((now - start) / 1600, 1);
@@ -26,7 +27,10 @@ export function StatCounter({ locale }: { locale: "en" | "sq" }) {
       frame = requestAnimationFrame(tick);
     }, { threshold: 0.4 });
     io.observe(el);
-    return () => { io.disconnect(); cancelAnimationFrame(frame); };
+    // Jumped past without it ever entering view (anchor link, fast scroll): show the final values.
+    const onScroll = () => { if (el.getBoundingClientRect().bottom < 0) { io.disconnect(); setValues(VALUES); window.removeEventListener("scroll", onScroll); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { io.disconnect(); cancelAnimationFrame(frame); window.removeEventListener("scroll", onScroll); };
   }, []);
   const c = STATS[locale];
   const heading = locale === "sq" ? <><span className="stat-accent">{c.a}</span> {c.b}</> : <>{c.a} <span className="stat-accent">{c.b}</span></>;
