@@ -138,12 +138,12 @@ export function CalculatorShell({
       </section>
 
       <section className="bg-accent border-y border-border">
-        <div className="container-page py-16 text-center md:py-20">
+        <div className="container-page py-16 md:py-20">
           <div className="eyebrow text-primary">{dict.relatedCta.eyebrow}</div>
           <h2 className="mt-3 text-secondary">{dict.relatedCta.heading}</h2>
-          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex max-w-3xl flex-wrap items-center gap-3">
             {dict.relatedCta.links.map((l) => (
-              <Button key={l.to} asChild variant="outline" className="min-h-11 h-auto whitespace-normal py-3"><Link to={l.to}>
+              <Button key={l.to} asChild variant="outline"><Link to={l.to}>
                 {l.label}
               </Link></Button>
             ))}
