@@ -18,7 +18,7 @@ export function StatCounter({ locale }: { locale: "en" | "sq" }) {
       io.disconnect();
       const start = performance.now();
       const tick = (now: number) => {
-        const t = Math.min((now - start) / 2000, 1);
+        const t = Math.min((now - start) / 1600, 1);
         const eased = 1 - Math.pow(1 - t, 3);
         setValues(VALUES.map((v) => Math.round(v * eased)));
         if (t < 1) frame = requestAnimationFrame(tick);

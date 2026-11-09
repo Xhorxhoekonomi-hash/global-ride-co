@@ -9,6 +9,7 @@ import { EmailContact } from "@/components/site/EmailContact";
 import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { RouteFinder } from "@/components/site/RouteFinder";
 import { ServiceCards } from "@/components/site/ServiceCards";
+import { HandledMarquee } from "@/components/site/HandledMarquee";
 import { HomeJourney } from "@/components/site/HomeJourney";
 import { GuideFeature } from "@/components/site/GuideFeature";
 import { HeroPanel, type HeroSlide } from "@/components/site/HeroPanel";
@@ -90,6 +91,7 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     <RouteFinder locale={locale} />
     <StatCounter locale={locale} />
     <ServiceCards locale={locale} />
+    <HandledMarquee locale={locale} />
 
     <section className="home-section alpha-journey"><div className="container-page">
       <div className="alpha-section-heading"><div><p className="home-kicker">{c.stepsKicker}</p><h2 className="home-heading">{sentences(c.stepsTitle)}</h2></div><Button asChild variant="link"><Link to={L("/how-it-works")}>{c.process}<ArrowRight /></Link></Button></div>
