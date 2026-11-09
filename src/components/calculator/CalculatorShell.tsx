@@ -36,13 +36,13 @@ export function CalculatorShell({
       <PageHero eyebrow={dict.hero.eyebrow} title={dict.hero.title} description={dict.hero.subtitle} />
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-20">
-          <Tabs value={tab} onValueChange={setTab} className="mx-auto max-w-6xl">
-            <TabsList className="mx-auto grid h-auto w-full max-w-lg grid-cols-2 gap-1 rounded-lg bg-mist p-1.5">
-              <TabsTrigger value="usa" className="rounded-lg min-h-12 py-3 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+        <div className="container-page pb-16 pt-2 md:pb-20">
+          <Tabs value={tab} onValueChange={setTab} className="calculator-shell">
+            <TabsList className="segmented">
+              <TabsTrigger value="usa" className="segmented-item">
                 {dict.tabs.usa}
               </TabsTrigger>
-              <TabsTrigger value="korea" className="rounded-lg min-h-12 py-3 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              <TabsTrigger value="korea" className="segmented-item">
                 {dict.tabs.korea}
               </TabsTrigger>
             </TabsList>
@@ -137,7 +137,7 @@ export function CalculatorShell({
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page section-y">
           <div className="eyebrow text-primary">{dict.relatedCta.eyebrow}</div>
           <h2 className="mt-3 text-secondary">{dict.relatedCta.heading}</h2>

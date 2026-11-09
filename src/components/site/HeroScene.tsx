@@ -21,7 +21,7 @@ export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, chi
           <img src={scene.desktop} alt={scene.alt} width={2560} height={1434} loading="eager" fetchPriority="high" decoding="async" />
         </picture>
         {breadcrumbs && <div className="hero-scene-crumbs">{breadcrumbs}</div>}
-        <div className="hero-panel-copy">
+        <div className="hero-panel-copy on-photo">
           {eyebrow && <p className="hero-scene-eyebrow">{eyebrow}</p>}
           <h1>{title}</h1>
           <p className="hero-scene-intro">{description}</p>

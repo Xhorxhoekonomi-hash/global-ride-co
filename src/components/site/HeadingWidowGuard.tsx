@@ -14,8 +14,13 @@ export function glueLastWords(text: string): string {
 export function HeadingWidowGuard({ pathname }: { pathname: string }) {
   useEffect(() => {
     const tooWide = new WeakMap<Text, string>();
+    let retry = 0;
+    let timer = 0;
     const run = () => {
+      let pending = false;
       document.querySelectorAll<HTMLElement>("main h1, main h2, main h3").forEach((h) => {
+        // Never touch server-rendered text React has not hydrated yet (lazy route chunks), or hydration fails.
+        if (!Object.keys(h).some((k) => k.startsWith("__reactFiber"))) { pending = true; return; }
         const words = (h.textContent ?? "").trim().split(/\s+/);
         if (words.length < 4) return;
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
@@ -30,6 +35,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         // Never let the joined pair overflow a narrow column.
         if (h.scrollWidth > h.clientWidth + 1) { last.nodeValue = original; tooWide.set(last, original); }
       });
+      if (pending && retry++ < 80) { timer = window.setTimeout(run, 250); return; }
       document.documentElement.dataset.headingsGlued = "true";
     };
     let frame = requestAnimationFrame(run);
@@ -37,7 +43,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
     const observer = new MutationObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(run); });
     const main = document.querySelector("main");
     if (main) observer.observe(main, { childList: true, subtree: true, characterData: true });
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
+    return () => { cancelAnimationFrame(frame); window.clearTimeout(timer); observer.disconnect(); };
   }, [pathname]);
   return null;
 }

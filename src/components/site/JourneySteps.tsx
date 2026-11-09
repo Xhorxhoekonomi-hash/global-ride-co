@@ -8,13 +8,13 @@ export function JourneySteps({ steps, stepLabel = "Step" }: {
   stepLabel?: string;
 }) {
   const sq = useRouterState({ select: s => s.location.pathname.startsWith("/al") });
-  return <ol className={`home-timeline journey-steps ${steps.length > 4 ? "journey-steps--long" : ""}`}>
+  return <ol data-draw className={`home-timeline journey-steps ${steps.length > 4 ? "journey-steps--long" : ""}`}>
     {steps.map(step => {
       const Icon = step.icon;
       return <li key={step.n} className="home-timeline-step">
-        <span className="home-timeline-dot" aria-label={`${stepLabel} ${step.n}`}>{step.n}</span>
+        <span className="home-timeline-dot" aria-label={`${stepLabel} ${step.n}`} data-draw>{String(step.n).padStart(2, "0")}</span>
         <div>
-          {Icon && <Icon className="h-6 w-6 text-primary" aria-hidden="true" />}
+          {Icon && <Icon className="home-timeline-icon" aria-hidden="true" />}
           <h3><KeywordText text={step.title} sq={sq} /></h3>
           <p><KeywordText text={step.body} sq={sq} /></p>
         </div>

@@ -207,7 +207,7 @@ function ImportUAE() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Start today</div>

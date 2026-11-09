@@ -156,7 +156,7 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
       />
 
       <div>
-        <label className={labelClass}>{t("Enquiry Type *", "Lloji i kërkesës *")}</label>
+        <label className={labelClass}>{t("Enquiry type *", "Lloji i kërkesës *")}</label>
         <select
           aria-label={t("Enquiry Type", "Lloji i kërkesës")}
           value={enquiryType}
@@ -182,15 +182,15 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
             <input aria-label={t("Origin", "Origjina")} value={origin} onChange={(e) => setOrigin(e.target.value)} className={inputClass(false)} placeholder={t("City or airport", "Qyteti ose aeroporti")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Destination Airport", "Aeroporti i destinacionit")}</label>
+            <label className={labelClass}>{t("Destination airport", "Aeroporti i destinacionit")}</label>
             <input aria-label={t("Destination Airport", "Aeroporti i destinacionit")} value={destinationAirport} onChange={(e) => setDestinationAirport(e.target.value)} className={inputClass(false)} placeholder="Amsterdam Schiphol" />
           </div>
           <div>
-            <label className={labelClass}>{t("Vehicle Details", "Të dhënat e automjetit")}</label>
+            <label className={labelClass}>{t("Vehicle details", "Të dhënat e automjetit")}</label>
             <input aria-label={t("Vehicle Details", "Të dhënat e automjetit")} value={vehicleDetails} onChange={(e) => setVehicleDetails(e.target.value)} className={inputClass(false)} placeholder={t("Make, model, dimensions", "Marka, modeli, përmasat")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Desired Timeline", "Afati i dëshiruar")}</label>
+            <label className={labelClass}>{t("Desired timeline", "Afati i dëshiruar")}</label>
             <input aria-label={t("Desired Timeline", "Afati i dëshiruar")} value={timeline} onChange={(e) => setTimeline(e.target.value)} className={inputClass(false)} placeholder={t("Requested timing", "Afati i kërkuar")} />
           </div>
         </div>
@@ -199,11 +199,11 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
       {enquiryType === "European Airport Handling Only" && (
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
-            <label className={labelClass}>{t("Arrival Airport", "Aeroporti i mbërritjes")}</label>
+            <label className={labelClass}>{t("Arrival airport", "Aeroporti i mbërritjes")}</label>
             <input aria-label={t("Arrival Airport", "Aeroporti i mbërritjes")} value={arrivalAirport} onChange={(e) => setArrivalAirport(e.target.value)} className={inputClass(false)} placeholder="Milan Malpensa" />
           </div>
           <div>
-            <label className={labelClass}>{t("Air Waybill Available?", "A është gati Air Waybill?")}</label>
+            <label className={labelClass}>{t("Air waybill available?", "A është gati Air Waybill?")}</label>
             <select aria-label={t("Air Waybill Available?", "A është gati Air Waybill?")} value={awbAvailable} onChange={(e) => setAwbAvailable(e.target.value)} className={inputClass(false)}>
               <option value="">{t("Select…", "Zgjidhni…")}</option>
               <option value="Yes">{t("Yes", "Po")}</option>
@@ -212,11 +212,11 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
             </select>
           </div>
           <div>
-            <label className={labelClass}>{t("Arrival Date", "Data e mbërritjes")}</label>
+            <label className={labelClass}>{t("Arrival date", "Data e mbërritjes")}</label>
             <input aria-label={t("Arrival Date", "Data e mbërritjes")} value={arrivalDate} onChange={(e) => setArrivalDate(e.target.value)} className={inputClass(false)} placeholder={t("If known", "Nëse dihet")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Final Delivery Destination", "Destinacioni përfundimtar")}</label>
+            <label className={labelClass}>{t("Final delivery destination", "Destinacioni përfundimtar")}</label>
             <input aria-label={t("Final Delivery Destination", "Destinacioni përfundimtar")} value={finalDelivery} onChange={(e) => setFinalDelivery(e.target.value)} className={inputClass(false)} placeholder={t("City or address", "Qyteti ose adresa")} />
           </div>
         </div>
@@ -225,19 +225,19 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
       {enquiryType === "Freight Forwarder Partnership" && (
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
-            <label className={labelClass}>{t("Company Name", "Emri i kompanisë")}</label>
+            <label className={labelClass}>{t("Company name", "Emri i kompanisë")}</label>
             <input aria-label={t("Company Name", "Emri i kompanisë")} value={companyName} onChange={(e) => setCompanyName(e.target.value)} className={inputClass(false)} placeholder={t("Your company", "Kompania juaj")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Airports / Routes", "Aeroportet / Itineraret")}</label>
+            <label className={labelClass}>{t("Airports / routes", "Aeroportet / Itineraret")}</label>
             <input aria-label={t("Airports / Routes", "Aeroportet / Itineraret")} value={routes} onChange={(e) => setRoutes(e.target.value)} className={inputClass(false)} placeholder={t("Airports and routes", "Aeroportet dhe itineraret")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Expected Volume", "Vëllimi i parashikuar")}</label>
+            <label className={labelClass}>{t("Expected volume", "Vëllimi i parashikuar")}</label>
             <input aria-label={t("Expected Volume", "Vëllimi i parashikuar")} value={volume} onChange={(e) => setVolume(e.target.value)} className={inputClass(false)} placeholder={t("Expected vehicle volume", "Vëllimi i parashikuar i automjeteve")} />
           </div>
           <div>
-            <label className={labelClass}>{t("Required Handling Scope", "Shërbimet e nevojshme të trajtimit")}</label>
+            <label className={labelClass}>{t("Required handling scope", "Shërbimet e nevojshme të trajtimit")}</label>
             <input aria-label={t("Required Handling Scope", "Shërbimet e nevojshme të trajtimit")} value={handlingScope} onChange={(e) => setHandlingScope(e.target.value)} className={inputClass(false)} placeholder={t("e.g. arrival handling only", "p.sh. vetëm trajtim në mbërritje")} />
           </div>
         </div>
@@ -246,7 +246,7 @@ export function AirfreightForm({ initialAirport = "", locale = "en" }: { initial
       {enquiryType && (
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
-            <label className={labelClass}>{t("Full Name *", "Emri i plotë *")}</label>
+            <label className={labelClass}>{t("Full name *", "Emri i plotë *")}</label>
             <input aria-label={t("Full Name", "Emri i plotë")} value={name} onChange={(e) => { trackStart(); setName(e.target.value); if (errors.name) setErrors((er) => ({ ...er, name: "" })); }} className={inputClass(!!errors.name)} placeholder={t("Your name", "Emri juaj")} />
             {errors.name && <p className={errorClass}><AlertCircle className="h-3.5 w-3.5" />{errors.name}</p>}
           </div>

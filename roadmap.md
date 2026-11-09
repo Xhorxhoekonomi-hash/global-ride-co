@@ -132,3 +132,8 @@
 
 ## Design polish pass (Nov 9)
 - [x] Items 1–14 from the visual audit (accordions, archive/origins, guide card, forms, enquiry buttons, stacked CTAs, footer, chips, service cards, how-it-works, contact map, stats, consistency sweep)
+
+# Audit fixes (commit 14a0b93) + motion pass
+- [x] Part 1 items 1–18 (photo text, stats, route finder, origins, guides, archive, mobile carousel, arrows, enquiry tile, rhythm, step grid, end bands, calculator, about stats, platform strip, site-wide check).
+- [x] Part 2 motion A–K gated by html.motion-ok and reduced motion.
+- [ ] Phone homepage height ~10,000px vs 9,500 target (owner decision on trimming content).

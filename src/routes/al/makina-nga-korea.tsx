@@ -237,7 +237,7 @@ function MakinaNgaKorea() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="section-mist">
         <div className="container-page py-16 text-center md:py-20">
           <div className="eyebrow text-primary">Përllogaritje transparente</div>
           <h2 className="mt-3 text-secondary">Llogaritni koston para se të filloni</h2>
@@ -278,7 +278,7 @@ function MakinaNgaKorea() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page grid gap-12 py-14 md:py-18 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-primary">Filloni sot</div>

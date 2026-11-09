@@ -76,15 +76,15 @@ function HowItWorks() {
 
       <section className="bg-background">
         <div className="container-page section-y">
-          <div className="mx-auto max-w-[760px]">
+          <div className="mx-auto max-w-[760px] step-timeline">
             {STEPS.map((s, i) => (
               <div key={s.n}>
                 <div className="flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-primary bg-card text-primary">
+                    <div className="step-timeline-icon grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-primary bg-card text-primary" data-draw>
                       <s.icon className="h-5 w-5" />
                     </div>
-                    {i < STEPS.length - 1 && <div className="mt-2 w-px flex-1 bg-border" />}
+                    {i < STEPS.length - 1 && <div className="step-timeline-line mt-2 w-px flex-1 bg-border" data-draw />}
                   </div>
                   <div className="pb-10">
                     <div className="text-xs font-bold uppercase tracking-normal text-primary">Step {s.n}</div>
@@ -114,27 +114,25 @@ function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-accent border-y border-border">
+      <section className="end-band">
         <div className="container-page py-20 text-center md:py-24">
           <div className="eyebrow text-primary">Ready to start?</div>
           <h2 className="mx-auto mt-3 max-w-2xl text-secondary">
             Send us your first vehicle
           </h2>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild ><a
-              href={whatsappUrl}
+          <div className="cta-band-actions">
+             <a className="btn-pair btn-pair--whatsapp"               href={whatsappUrl}
               target="_blank"
               rel="noreferrer noopener"
               onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}
               >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
-            </a></Button>
-            <Button asChild variant="outline" ><Link
-              to="/calculator"
+            </a>
+            <Link className="btn-pair btn-pair--light"               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}
               >
               <Calculator className="h-4 w-4" /> Calculate cost
-            </Link></Button>
+            </Link>
           </div>
         </div>
       </section>
