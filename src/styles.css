@@ -137,6 +137,8 @@
   h2 { font-size: var(--fs-h2); line-height: 1.15; font-weight: 600; max-width: 24ch; }
   h3 { font-size: var(--fs-h3); line-height: 1.3; font-weight: 600; max-width: 28ch; }
   h1, h2, h3, h4 { text-wrap: balance; }
+  /* Headings that live inside a component column (accordions, cards, forms, footer) span that column. */
+  :where(form, footer, article, li, a, details, summary, label, [data-orientation], [class*="card"], .alpha-card, .route-finder) :is(h2, h3, h4) { max-width: none; }
   p, li, dd, figcaption { text-wrap: pretty; }
   :is(.text-center, .stat-panel, .cta-band, .welcome-screen) :is(h1, h2, h3), :is(h1, h2, h3).text-center { margin-inline: auto; }
   .font-display { font-family: var(--font-display); letter-spacing: 0; }
