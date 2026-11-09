@@ -129,3 +129,6 @@
 - [x] One type scale + one hero layout; full-bleed photo fix; photos on keyword pages; import-country gap
 - [x] Welcome overlay (client-only, once, / and /al only, no bots)
 - [x] Unique/short titles, /al JSON-LD, internal-link test
+
+## Design polish pass (Nov 9)
+- [x] Items 1–14 from the visual audit (accordions, archive/origins, guide card, forms, enquiry buttons, stacked CTAs, footer, chips, service cards, how-it-works, contact map, stats, consistency sweep)
