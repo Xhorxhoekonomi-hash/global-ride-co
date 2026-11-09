@@ -5,7 +5,6 @@ import { CONTACT, LANGUAGE_ROUTE_MAP, type NavItem } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { BrandLogo } from "@/components/site/BrandLogo";
 import { EmailContact } from "@/components/site/EmailContact";
-import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const REVERSE_LANGUAGE_MAP = Object.fromEntries(Object.entries(LANGUAGE_ROUTE_MAP).map(([en, al]) => [al, en]));
@@ -86,7 +85,8 @@ export function Header() {
     </div></div>}
     {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-sheet"><div className="container-page mobile-sheet-inner">
       <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Link key={item.to} to={item.to} className="mobile-sheet-link">{item.label}</Link> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Link key={i.to} to={i.to} className="mobile-sheet-sublink">{i.label}</Link>)}</div></AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mobile-sheet-actions"><Button variant="outline" asChild className="h-12"><Link to={calculatorHref}><Calculator />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link></Button><Button asChild className="h-12"><Link to={quoteHref}>{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></Button><Button variant="ghost" asChild className="h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener"><MessageCircle />WhatsApp</a></Button><EmailContact location="mobile_menu" className="w-full justify-center" /></div>
+      <div className="mobile-sheet-contact"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" className="inline-flex min-h-11 items-center gap-2 text-sm text-secondary"><MessageCircle className="h-5 w-5" aria-hidden="true" />WhatsApp</a><EmailContact location="mobile_menu" /></div>
+      <div className="mobile-sheet-actions"><Link to={calculatorHref} className="btn-pair btn-pair--outline"><Calculator aria-hidden="true" />{isAlbanian ? "Llogarit transportin" : "Calculate Shipping"}</Link><Link to={quoteHref} className="btn-pair btn-pair--primary">{isAlbanian ? "Merr ofertë" : "Get a Quote"}</Link></div>
     </div></nav>}
   </header>;
 }
