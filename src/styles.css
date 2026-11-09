@@ -539,7 +539,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .stat-panel h2 { color: var(--navy); }
 .stat-accent { color: var(--teal-dark); }
 .stat-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 32px; max-width: 1000px; margin: 40px auto 0; }
-.stat-grid > div { display: flex; flex-direction: column-reverse; align-items: center; gap: 8px; min-width: 0; }
+.stat-grid > div { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; }
 .stat-grid dd { font-size: clamp(44px, 13vw, 72px); line-height: 1; font-weight: 600; letter-spacing: -0.03em; color: var(--teal); font-variant-numeric: tabular-nums; }
 .stat-grid dt { font-size: var(--fs-body); color: var(--navy); }
 
