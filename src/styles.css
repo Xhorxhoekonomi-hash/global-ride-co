@@ -327,10 +327,9 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-scene-actions { margin-top: 24px; }
 @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
 @media (min-width: 768px) {
-  .hero-panel { --hero-h: clamp(560px, calc(100svh - var(--header-h)), 900px); }
+  .hero-panel { --hero-h: clamp(600px, 100svh, 1080px); }
   .hero-panel-slide img { object-position: var(--hero-pos, 50% 55%); }
-  .hero-panel-copy { padding: max(12%, 96px) 2rem 9%; }
-  .hero-panel-dots { bottom: 16px; }
+  .hero-panel-copy { padding-inline: 2rem; }
   .hero-scene { --hero-h: max(62svh, 480px); }
   .hero-scene .hero-panel-copy, .hero-scene-crumbs { padding-inline: max(2rem, calc((100% - 1336px) / 2)); }
   .hero-scene .hero-panel-copy { padding-bottom: 48px; }
@@ -455,7 +454,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .route-finder-field label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--muted-foreground); }
 .route-finder-field select { width: 100%; height: 56px; border: 1px solid var(--border); border-radius: 8px; background-color: var(--background); padding-left: 14px; font-size: 16px; color: var(--secondary); }
 main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: none; }
-.route-finder-note { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--muted-foreground); }
+.route-finder-note { margin-top: 14px; text-align: center; font-size: 13px; line-height: 1.5; color: var(--muted-foreground); }
 .route-finder-note a { color: var(--teal-dark); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Bento service tiles */
