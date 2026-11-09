@@ -218,6 +218,33 @@ main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"],
 .btn-pair--light { background: var(--background); color: var(--navy); }
 .btn-pair--light:hover { background: var(--mist); }
 
+/* Shared cards: one radius, border and hover treatment everywhere */
+:is(.alpha-card, .alpha-origin, .related-guide-card) { border: 1px solid var(--border); border-radius: 12px; background: var(--background); transition: border-color .2s, transform .2s, box-shadow .2s; }
+:is(.alpha-card, .alpha-origin, .related-guide-card):is(a, :has(a)):hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.alpha-card { display: flex; flex-direction: column; height: 100%; padding: 24px; }
+.alpha-card > svg:first-child { width: 28px; height: 28px; margin-bottom: 16px; color: var(--teal); }
+.alpha-card h3 { color: var(--secondary); }
+.alpha-card p { margin-top: 8px; font-size: 15px; line-height: 1.6; color: var(--muted-foreground); }
+.alpha-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-size: 14px; font-weight: 600; color: var(--teal-dark); }
+.alpha-card-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+
+/* Link chips (keyword directory) */
+.chip-group h3 { font-size: var(--fs-h3); color: var(--secondary); }
+.chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip { display: inline-flex; align-items: center; min-height: 40px; padding-inline: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--background); font-size: 14px; font-weight: 500; color: var(--secondary); transition: border-color .2s, color .2s; }
+.chip:hover { border-color: var(--primary); color: var(--teal-dark); }
+
+/* One form field style (RouteFinder, quote, airfreight and contact forms) */
+.form-label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--muted-foreground); }
+.form-dark .form-label { color: color-mix(in oklab, var(--primary-foreground) 82%, transparent); }
+.form-control { display: block; width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--border); border-radius: 8px; background-color: var(--background); font-size: 15px; color: var(--secondary); }
+.form-control::placeholder { color: var(--muted-foreground); }
+textarea.form-control { padding-block: 12px; line-height: 1.5; }
+select.form-control, .route-finder-field select { appearance: none; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23003C5A' stroke-width='2'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.form-control:focus-visible, .route-finder-field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; border-color: var(--primary); }
+.form-control[aria-invalid="true"] { border-color: var(--destructive); }
+.form-grid { display: grid; gap: 16px; }
+
 /* ================================================================
    6. HeroPanel (homepage slider) and HeroScene (single interior panel)
    ================================================================ */
@@ -315,8 +342,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .related-guides { padding-block: 72px; background: var(--background); }
 .related-guides h2 { color: var(--secondary); }
 .related-guides-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 28px; }
-.related-guide-card { display: flex; flex-direction: column; gap: 10px; padding: 28px; border: 1px solid var(--border); border-radius: 12px; background: var(--mist); transition: border-color .2s; }
-.related-guide-card:hover { border-color: var(--primary); }
+.related-guide-card { display: flex; flex-direction: column; gap: 10px; padding: 28px; }
 .related-guide-card > svg { width: 28px; height: 28px; color: var(--primary); }
 .related-guide-card h3 { color: var(--secondary); }
 .related-guide-card p { flex: 1; font-size: 15px; line-height: 1.6; color: var(--muted-foreground); }
@@ -388,8 +414,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 .route-finder-row { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)) minmax(180px,auto); gap: 16px; align-items: end; margin-top: 20px; }
 .route-finder-field { min-width: 0; }
 .route-finder-field label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--muted-foreground); }
-.route-finder-field select { width: 100%; height: 48px; padding: 0 40px 0 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--background) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23003C5A' stroke-width='2'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") no-repeat right 14px center; appearance: none; font-size: 15px; color: var(--secondary); }
-.route-finder-field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+.route-finder-field select { width: 100%; height: 48px; border: 1px solid var(--border); border-radius: 8px; background-color: var(--background); padding-left: 14px; font-size: 15px; color: var(--secondary); }
 .route-finder-submit { height: 48px; border-radius: 8px; box-shadow: none; }
 .route-finder-note { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--muted-foreground); }
 .route-finder-note a { color: var(--teal-dark); text-decoration: underline; text-underline-offset: 3px; }
@@ -475,7 +500,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .journey-steps--long { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .related-guides-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .related-guides-grid, .alpha-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (min-width: 768px) {
   .hero-scene .breadcrumbs-list { justify-content: flex-start; }
@@ -596,7 +621,7 @@ main[data-page="guide-article"] .max-w-3xl h2 { color: var(--secondary); scroll-
   .text-hero-actions, .cta-band-actions { max-width: none; }
   .cta-band { padding-block: 64px; }
   .related-guides { padding-block: 56px; }
-  .related-guides-grid { grid-template-columns: minmax(0,1fr); }
+  .related-guides-grid, .alpha-card-grid { grid-template-columns: minmax(0,1fr); }
   .related-guide-card { padding: 22px; }
   .breadcrumbs--photo { background: none; }
 .breadcrumbs--photo .breadcrumbs-list { font-size: 12px; padding-bottom: 8px; }
