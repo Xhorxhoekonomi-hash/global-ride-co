@@ -146,9 +146,9 @@
   :is(.text-center, .stat-panel, .cta-band, .welcome-screen) :is(h1, h2, h3), :is(h1, h2, h3).text-center { margin-inline: auto; }
   .font-display { font-family: var(--font-display); letter-spacing: 0; }
   .eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; color: var(--color-teal); }
-  /* Anything placed over a photo is white; light-surface text colours below always exclude .on-photo. */
-  .on-photo, .on-photo :is(h1, h2, h3, p, span) { color: var(--on-dark); }
 }
+/* Anything placed over a photo is white; light-surface text colours always exclude .on-photo. */
+.on-photo, .on-photo :is(h1, h2, h3, p, span) { color: var(--on-dark); }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 /* Small teal text on light surfaces uses the darker brand shade so it meets WCAG AA; #0F8796 stays for fills, icons and large figures. */
 .text-teal, .text-primary, .text-teal-dark, .eyebrow { color: var(--teal-dark); }
@@ -302,9 +302,17 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
    6. HeroPanel (homepage slider) and HeroScene (single interior panel)
    ================================================================ */
 .hero-panel { position: relative; background: var(--graphite); --hero-h: calc(100svh - 64px); --scrim-bottom: .6; --act-b: clamp(28px, 5vh, 56px); --hero-shadow: 0 1px 24px rgba(5,14,20,.35); }
-.hero-panel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.hero-panel-track::-webkit-scrollbar { display: none; }
-.hero-panel-track > .hero-panel-slide { scroll-snap-align: start; }
+.hero-panel-track { display: grid; }
+/* Slides stack in one cell and crossfade; only the active one is visible and interactive. */
+.hero-panel-track > .hero-panel-slide { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility 0s linear .9s; }
+.hero-panel-track > .hero-panel-slide.is-active { opacity: 1; visibility: visible; transition: opacity .9s ease, visibility 0s; }
+.hero-panel-track picture { will-change: transform; transform: translate3d(0, var(--py, 0px), 0) scale(1.06); }
+.motion-ok .hero-panel-track .is-active img { animation: ken-burns 7s ease-out both; }
+.motion-ok .hero-panel[data-changed] .is-active :is(.hero-panel-text > *, .hero-panel-actions) { animation: fade-up-in .6s cubic-bezier(.2,.8,.2,1) both; }
+.motion-ok .hero-panel[data-changed] .is-active .hero-panel-text > :nth-child(2) { animation-delay: 80ms; }
+.motion-ok .hero-panel[data-changed] .is-active .hero-panel-actions { animation-delay: 160ms; }
+@keyframes ken-burns { from { transform: scale(1); } to { transform: scale(1.06); } }
+@keyframes fade-up-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 /* Full-bleed hero: headline at the top, buttons anchored to the bottom, vehicle in the clear middle band. */
 .hero-panel-slide { position: relative; flex: 0 0 100%; width: 100%; height: var(--hero-h); overflow: hidden; }
 .hero-panel-slide picture, .hero-panel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -312,7 +320,7 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-panel-slide::before, .hero-panel-slide::after { content: ""; position: absolute; inset-inline: 0; z-index: 1; pointer-events: none; }
 .hero-panel-slide::before { top: 0; height: 45%; background: linear-gradient(rgb(5 14 20 / .65), rgb(5 14 20 / .3) 55%, transparent); }
 .hero-panel-slide::after { bottom: 0; height: 30%; background: linear-gradient(transparent, color-mix(in oklab, var(--graphite) calc(var(--scrim-bottom) * 100%), transparent)); }
-.hero-panel-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: calc(var(--header-h) + clamp(20px, 5vh, 56px)) 20px var(--act-b); text-align: center; color: #fff; animation: hero-in .3s ease-out both; }
+.hero-panel-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: calc(var(--header-h) + clamp(20px, 5vh, 56px)) 20px var(--act-b); text-align: center; color: #fff; }
 .hero-panel-copy :is(h1, h2) { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -0.022em; max-width: 1100px; margin-inline: auto; color: #fff; text-shadow: var(--hero-shadow); }
 .hero-panel-copy p { margin: 18px auto 0; max-width: 640px; font-size: clamp(17px, 1.3vw, 21px); font-weight: 500; line-height: 1.45; color: #fff; text-shadow: var(--hero-shadow); }
 .hero-panel-actions { gap: 12px; width: 100%; max-width: 460px; }
@@ -320,20 +328,28 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-panel-actions > :not(:first-child) { background: var(--background); color: var(--navy); border: 0; }
 .hero-panel-actions > :not(:first-child):hover { background: var(--mist); }
 /* Dots sit 12px above the button row (dot hit-area is 32px, visible dot centred). */
-.hero-panel-dots { position: absolute; z-index: 3; bottom: calc(var(--act-b) + var(--btn-h) + 12px - 12px); left: 50%; transform: translateX(-50%); display: flex; }
+.hero-panel-dots { position: absolute; z-index: 3; bottom: calc(var(--act-b) + var(--btn-h) + 12px - 12px); left: 50%; transform: translateX(-50%); display: flex; align-items: center; }
+.hero-panel-toggle { display: grid; place-items: center; width: 32px; height: 32px; margin-left: 6px; border-radius: 50%; background: color-mix(in oklab, var(--graphite) 35%, transparent); color: var(--on-dark); }
+.hero-panel-toggle svg { width: 14px; height: 14px; }
 .hero-panel-dot { display: grid; place-items: center; width: 28px; height: 32px; }
 .hero-panel-dot span { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in oklab, var(--background) 55%, transparent); box-shadow: 0 0 6px rgba(5,14,20,.4); }
-.hero-panel-dot[aria-current="true"] span { background: var(--background); width: 20px; border-radius: 4px; }
+.hero-panel-dot[aria-current="true"] span { position: relative; overflow: hidden; width: 28px; border-radius: 4px; }
+/* Thin progress fill inside the active dot while autoplay runs. */
+.hero-panel-dot span::after { content: ""; position: absolute; inset: 0; background: var(--background); transform: scaleX(1); transform-origin: left; }
+.hero-panel-dot:not([aria-current="true"]) span::after { display: none; }
+.hero-panel[data-playing] .hero-panel-dot[aria-current="true"] span::after { animation: dot-progress 6s linear both; }
+@keyframes dot-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .hero-panel-arrow { position: absolute; z-index: 3; top: 50%; transform: translateY(-50%); display: none; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: color-mix(in oklab, var(--background) 30%, transparent); backdrop-filter: blur(12px); color: var(--primary-foreground); }
 .hero-panel-arrow svg { width: 20px; height: 20px; }
 .hero-panel-arrow--prev { left: 24px; }
 .hero-panel-arrow--next { right: 24px; }
-@media (hover: hover) and (pointer: fine) { .hero-panel-arrow { display: grid; } }
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) { .hero-panel-arrow { display: grid; } }
 @media (min-width: 900px) { .hero-panel-copy :is(h1, h2) { white-space: nowrap; } }
 /* Interior photo heroes: copy bottom-left, white on the bottom scrim. */
 .hero-scene { --scrim-bottom: .85; }
 /* Phones: photo on top, white copy on a dark panel below, so text never covers the vehicle. */
 .hero-scene .hero-panel-slide { height: auto; display: flex; flex-direction: column; }
+.hero-scene picture { transform: none; }
 .hero-scene .hero-panel-slide picture { position: relative; display: block; aspect-ratio: 4 / 3; height: auto; }
 .hero-scene .hero-panel-slide::after { display: none; }
 .hero-scene .hero-panel-copy { position: relative; inset: auto; padding: 28px 20px 36px; background: var(--graphite); }
@@ -344,7 +360,6 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-scene .hero-panel-copy > * { max-width: 720px; }
 .hero-scene-eyebrow, .hero-panel-copy > p.hero-scene-eyebrow { margin: 0 0 10px; font-size: 14px; font-weight: 600; color: var(--teal-glow); }
 .hero-scene-actions { margin-top: 24px; }
-@keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
 @media (min-width: 768px) {
   .hero-panel { --hero-h: clamp(600px, 100svh, 1080px); }
   .hero-panel-slide img { object-position: var(--hero-pos, 50% 55%); }
