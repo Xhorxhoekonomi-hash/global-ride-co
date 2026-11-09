@@ -21,6 +21,7 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { StickyActionBar } from "@/components/site/StickyActionBar";
 import { CtaBand } from "@/components/site/CtaBand";
+import { PAGES_WITH_OWN_END_CTA } from "@/lib/page-end-cta";
 import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
 import { KeywordDirectory } from "@/components/site/KeywordDirectory";
 
@@ -128,7 +129,7 @@ function RootComponent() {
   const isUtilityPage = pathname.startsWith("/admin");
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const isGuideArticle = /^\/(al\/udhezues|guides)\/[^/]+$/.test(normalized);
-  const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized);
+  const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized) && !PAGES_WITH_OWN_END_CTA.has(normalized);
 
   if (isUtilityPage) {
     return (
