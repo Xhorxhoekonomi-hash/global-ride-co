@@ -29,7 +29,7 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     const hydrated = (el: Element) => Object.keys(el).some((k) => k.startsWith("__reactFiber"));
     const start = () => {
       const pending = Array.from(document.querySelectorAll("main section")).some((s) => !hydrated(s));
-      if (pending && tries++ < 25) { wait = window.setTimeout(start, 200); return; }
+      if (pending && tries++ < 80) { wait = window.setTimeout(start, 200); return; }
       cleanup = setup();
     };
     const setup = () => {

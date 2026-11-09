@@ -35,7 +35,7 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         // Never let the joined pair overflow a narrow column.
         if (h.scrollWidth > h.clientWidth + 1) { last.nodeValue = original; tooWide.set(last, original); }
       });
-      if (pending && retry++ < 20) { timer = window.setTimeout(run, 250); return; }
+      if (pending && retry++ < 80) { timer = window.setTimeout(run, 250); return; }
       document.documentElement.dataset.headingsGlued = "true";
     };
     let frame = requestAnimationFrame(run);
