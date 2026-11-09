@@ -1,6 +1,5 @@
-import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AIRFREIGHT_PORTRAITS } from "@/lib/airfreight-photos";
 import handover from "@/assets/services/lamborghini-handover-1200.webp.asset.json";
 import ferrariContainer from "@/assets/services/ferrari-in-container-1200.webp.asset.json";
@@ -13,7 +12,6 @@ const af = AIRFREIGHT_PORTRAITS.loader;
 
 export function ServiceCards({ locale }: { locale: "en" | "sq" }) {
   const al = locale === "sq";
-  const track = useRef<HTMLDivElement>(null);
   const more = al ? "Më shumë" : "Learn more";
   const cards: Card[] = al ? [
     { title: "Blerje dhe inspektim", body: "Mbështetje në blerje dhe inspektim para blerjes.", to: "/al/inspektim-makinash", img: handover.url, alt: "Lamborghini Aventador gri me dyert e hapura përpara një ndërtese me xhama." },
@@ -30,23 +28,12 @@ export function ServiceCards({ locale }: { locale: "en" | "sq" }) {
     { title: "Delivery", body: "From the port to your address.", to: "/final-mile-delivery", img: greenFerrari.url, alt: "Green Ferrari with yellow stripes on a logistics yard beside a truck." },
     { title: "Airfreight", body: "For urgent and high-value vehicles.", to: "/airfreight", img: af.src, alt: af.alt.en, w: af.width, h: af.height },
   ];
-  const scroll = (dir: number) => {
-    const el = track.current; if (!el) return;
-    const card = el.querySelector<HTMLElement>(".service-card");
-    el.scrollBy({ left: dir * ((card?.offsetWidth ?? 300) + 16), behavior: "smooth" });
-  };
-  return <section className="home-section service-cards-section"><div className="container-page">
-    <div className="service-cards-head">
-      <div><p className="home-kicker">{al ? "Mbështetje në çdo hap" : "The right support, at every stage"}</p><h2 className="home-heading">{al ? "Më shumë se transport." : "More than moving a car."}</h2></div>
-      <div className="service-cards-arrows">
-        <button type="button" onClick={() => scroll(-1)} aria-label={al ? "Mëparshmi" : "Previous"}><ChevronLeft /></button>
-        <button type="button" onClick={() => scroll(1)} aria-label={al ? "Tjetri" : "Next"}><ChevronRight /></button>
-      </div>
-    </div>
-    <div className="service-cards-track" ref={track}>
-      {cards.map((c) => <Link key={c.title} to={c.to} className="service-card">
+  return <section className="home-section"><div className="container-page">
+    <div className="alpha-section-heading"><div><p className="home-kicker">{al ? "Mbështetje në çdo hap" : "The right support, at every stage"}</p><h2 className="home-heading">{al ? "Më shumë se transport." : "More than moving a car."}</h2></div></div>
+    <div className="bento-grid">
+      {cards.map((c) => <Link key={c.title} to={c.to} className="bento-tile">
         <img src={c.img} alt={c.alt} width={c.w ?? 1200} height={c.h ?? 1600} loading="lazy" decoding="async" />
-        <div className="service-card-copy"><h3>{c.title}</h3><p>{c.body}</p><span>{more}<ArrowRight className="h-4 w-4" /></span></div>
+        <div className="bento-tile-copy"><h3>{c.title}</h3><p>{c.body}</p><span>{more}<ArrowRight className="h-4 w-4" /></span></div>
       </Link>)}
     </div>
   </div></section>;

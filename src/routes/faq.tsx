@@ -134,7 +134,7 @@ function FaqHub() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((c) => (
               <button

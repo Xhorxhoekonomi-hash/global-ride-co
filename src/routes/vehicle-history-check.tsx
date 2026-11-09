@@ -109,7 +109,7 @@ function VehicleHistoryCheck() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl space-y-10">
             {SECTIONS.map((s) => (
               <div key={s.title} className="flex gap-5">
@@ -127,7 +127,7 @@ function VehicleHistoryCheck() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Related reading</div>
             <h2 className="mt-3 text-navy">Go Deeper</h2>
@@ -147,7 +147,7 @@ function VehicleHistoryCheck() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>

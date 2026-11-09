@@ -48,7 +48,7 @@ function ImportRomania() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Waves className="h-5 w-5" /></div><h2 className="mt-4 text-navy">Black Sea Logistics</h2><p className="mt-3 text-slate-body"><KeywordText text={"Constanța offers a direct Black Sea route for vehicles into Romania — a logistics profile distinct from the North Sea ports used for most Western European destinations."} /></p></div>
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><FileText className="h-5 w-5" /></div><h2 className="mt-4 text-navy">Registration Overview</h2><p className="mt-3 text-slate-body">Registration typically requires proof of ownership, customs documentation, and technical conformity evidence. Requirements vary and should always be confirmed with the local registration authority.</p></div>
@@ -57,7 +57,7 @@ function ImportRomania() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Shipping options</div><h2 className="mt-3 text-navy">Container or RoRo</h2></div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <Link to="/container-shipping" className="rounded-xl border border-border bg-card p-6 shadow-card transition-colors hover:border-teal"><Ship className="h-6 w-6 text-teal" /><h3 className="mt-3 text-navy">Container Shipping</h3><p className="mt-2 text-sm text-slate-body">Full protection for higher-value or modified vehicles.</p></Link>
@@ -67,14 +67,14 @@ function ImportRomania() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Frequently imported</div><h2 className="mt-3 text-navy">What Customers Bring In</h2></div>
           <div className="mt-8 max-w-2xl rounded-xl border border-border bg-card p-7 shadow-card"><ul className="grid gap-2.5 text-sm text-slate-body sm:grid-cols-2">{VEHICLES_IMPORTED.map((v) => <li key={v} className="flex gap-2"><Car className="mt-0.5 h-4 w-4 shrink-0 text-teal" /><KeywordText text={v} /></li>)}</ul></div>
         </div>
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Inspection & why us</div><h2 className="mt-3 text-navy">Why Alpha Worldwide</h2></div>
           <div className="grid gap-10 mt-10 lg:grid-cols-2 lg:gap-16">
             <div><div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></div><h3 className="mt-4 text-navy">Inspection</h3><p className="mt-2 text-sm text-slate-body">Where operationally possible, we coordinate pre-purchase inspection with photos, video, and a technical check — never guaranteed for every listing.</p></div>
@@ -84,7 +84,7 @@ function ImportRomania() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl"><div className="eyebrow">Questions</div><h2 className="mt-3 text-navy">Frequently Asked</h2></div>
           <div className="mt-10 max-w-2xl divide-y divide-border rounded-xl border border-border bg-card">
             {FAQS.map((f) => (<details key={f.q} className="group p-5"><summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-navy">{f.q}<span className="text-teal transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-body"><KeywordText text={f.a} /></p></details>))}
@@ -109,7 +109,7 @@ function ImportRomania() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div><div className="eyebrow text-teal-glow">Get started</div><h2 className="mt-3 text-white">Send Us a Vehicle Link</h2><p className="mt-5 max-w-md text-white/70">We'll confirm feasibility and return an itemised quote to your Romanian destination.</p></div>
           <QuoteForm variant="full" onDark source="eu-romania" />
         </div>

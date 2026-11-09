@@ -4,7 +4,7 @@ import { useEffect } from "react";
  * Gentle one-time reveal for homepage sections below the hero. Content is visible by default
  * (SSR / no JS); only sections still below the fold get armed after hydration.
  */
-export function useScrollReveal(selector = ".editorial-home > section:not(.hero-panel)") {
+export function useScrollReveal(selector = "main section:not(.hero-panel, .hero-scene, .text-hero)") {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
     const targets = Array.from(document.querySelectorAll<HTMLElement>(selector)).filter((el) => el.getBoundingClientRect().top > window.innerHeight);

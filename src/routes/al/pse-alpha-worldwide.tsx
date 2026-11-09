@@ -65,7 +65,7 @@ function PseAlpha() {
 
       {SECTIONS.map((s, i) => (
         <section key={s.title} className={i % 2 === 0 ? "bg-background" : "section-mist"}>
-          <div className="container-page py-16 md:py-20">
+          <div className="container-page section-y">
             <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start">
               <div className="grid h-12 w-12 place-items-center rounded-lg bg-teal/10 text-teal"><s.icon className="h-6 w-6" /></div>
               <div>

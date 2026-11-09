@@ -79,7 +79,7 @@ function RrethNesh() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Çfarë bëjmë</div>
             <h2 className="mt-3 text-navy">Aftësitë kryesore</h2>
@@ -97,7 +97,7 @@ function RrethNesh() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <div className="eyebrow text-teal-glow">Si punojmë</div>

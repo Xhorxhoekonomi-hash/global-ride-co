@@ -29,7 +29,7 @@ function ImportEurope() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">6-step process</div>
             <h2 className="mt-3 text-navy">From anywhere in Europe to your driveway</h2>
@@ -39,7 +39,7 @@ function ImportEurope() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Start today</div>
             <h2 className="mt-3 text-white">

@@ -58,7 +58,7 @@ export function CalculatorShell({
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">{dict.howItWorks.eyebrow}</div>
             <h2 className="mt-3 text-secondary">{dict.howItWorks.heading}</h2>
@@ -77,7 +77,7 @@ export function CalculatorShell({
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="grid max-w-4xl gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
               <h3 className="text-secondary">{dict.included.title}</h3>
@@ -101,7 +101,7 @@ export function CalculatorShell({
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">{dict.ports.eyebrow}</div>
             <h2 className="mt-3 text-secondary">{dict.ports.heading}</h2>
@@ -118,7 +118,7 @@ export function CalculatorShell({
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">{dict.faq.eyebrow}</div>
             <h2 className="mt-3 text-secondary">{dict.faq.heading}</h2>
@@ -138,7 +138,7 @@ export function CalculatorShell({
       </section>
 
       <section className="bg-accent border-y border-border">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="eyebrow text-primary">{dict.relatedCta.eyebrow}</div>
           <h2 className="mt-3 text-secondary">{dict.relatedCta.heading}</h2>
           <div className="mt-8 flex max-w-3xl flex-wrap items-center gap-3">

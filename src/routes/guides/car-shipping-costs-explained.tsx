@@ -84,7 +84,7 @@ function GuideShippingCosts() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><Package className="h-5 w-5 text-teal" /><h2 className="text-navy">Estimated logistics charges</h2></div>
             <p className="mt-2 text-sm text-slate-body">These are the costs we can estimate and quote directly, based on the vehicle, route, and shipping method.</p>
@@ -96,7 +96,7 @@ function GuideShippingCosts() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><Landmark className="h-5 w-5 text-teal" /><h2 className="text-navy">Destination taxes and authority charges</h2></div>
             <p className="mt-2 text-sm text-slate-body">These are set independently by the customs, tax, and registration authorities at your destination — not by Alpha Worldwide.</p>
@@ -108,7 +108,7 @@ function GuideShippingCosts() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center gap-2"><DollarSign className="h-5 w-5 text-teal" /><h2 className="text-navy">Variable and easy-to-miss costs</h2></div>
             <p className="mt-2 text-sm text-slate-body">These depend on timing, circumstances, or decisions made during the process — they're not automatic, but worth planning for.</p>
@@ -120,7 +120,7 @@ function GuideShippingCosts() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
               <h2 className="text-navy">Getting a real number</h2>
@@ -139,7 +139,7 @@ function GuideShippingCosts() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

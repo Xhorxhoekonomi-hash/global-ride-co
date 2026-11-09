@@ -79,7 +79,7 @@ function Reviews() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-xl border border-border bg-card p-8 text-center shadow-card">
             <div className="flex items-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
@@ -104,7 +104,7 @@ function Reviews() {
       <section className="bg-mist"><div className="container-page py-14 md:py-20"><h2 className="text-secondary">Vehicles we’ve handled</h2><p className="mt-4 max-w-2xl text-sm text-muted-foreground">Original photographs of vehicle handling at warehouses, ports, transporters and containers.</p><div className="mt-8"><PhotoGallery photos={ALPHA_PHOTOS} limit={6} /></div></div></section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Customer testimonials</div>
             <h2 className="mt-3 text-navy">Written Customer Stories</h2>

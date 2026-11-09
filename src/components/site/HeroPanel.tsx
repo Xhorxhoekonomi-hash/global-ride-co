@@ -15,7 +15,7 @@ export type HeroSlide = {
   secondary: { label: string; to: string };
 };
 
-/** Tesla-style full-bleed photo slider: swipe on touch, arrows/dots on desktop, never autoplays. */
+/** Tesla-style full-bleed photo slider: copy centred on the photo over top/bottom scrims; swipe on touch, arrows on fine pointers, never autoplays. */
 export function HeroPanel({ slides, label, source }: { slides: HeroSlide[]; label: string; source: string }) {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -42,15 +42,17 @@ export function HeroPanel({ slides, label, source }: { slides: HeroSlide[]; labe
       onKeyDown={(e) => { if (e.key === "ArrowRight") go(active + 1); if (e.key === "ArrowLeft") go(active - 1); }}>
       <div ref={track} className="hero-panel-track">
         {slides.map((s, i) => (
-          <div key={s.id} className="hero-panel-slide" role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}`} aria-hidden={i !== active}>
+          <div key={s.id} className={`hero-panel-slide hero-slide--${s.id}`} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}`} aria-hidden={i !== active}>
             <picture>
               <source media="(max-width: 767px)" srcSet={s.mobile} width={1080} height={1935} />
               <source media="(min-width: 768px)" srcSet={`${s.desktop} 1440w, ${s.desktopLarge} 2560w`} sizes="100vw" width={2560} height={1434} />
               <img src={s.desktop} alt={s.alt} width={2560} height={1434} loading={i === 0 ? "eager" : "lazy"} fetchPriority={i === 0 ? "high" : "auto"} decoding="async" />
             </picture>
             <div className="hero-panel-copy">
-              {i === 0 ? <h1>{s.title}</h1> : <h2>{s.title}</h2>}
-              <p>{s.body}</p>
+              <div className="hero-panel-text">
+                {i === 0 ? <h1>{s.title}</h1> : <h2>{s.title}</h2>}
+                <p>{s.body}</p>
+              </div>
               <div className="hero-panel-actions">
                 <Link to={s.primary.to} className="btn-pair btn-pair--primary" tabIndex={i === active ? 0 : -1} onClick={() => trackEvent("quote_started", { source })}>{s.primary.label}</Link>
                 <Link to={s.secondary.to} className="btn-pair btn-pair--light" tabIndex={i === active ? 0 : -1}>{s.secondary.label}</Link>

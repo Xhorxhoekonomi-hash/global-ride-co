@@ -102,7 +102,7 @@ function AlbaniaHub() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-3xl">
             <Anchor className="mx-auto h-8 w-8 text-teal" />
             <h2 className="mt-4 text-navy">The Port of Durrës</h2>
@@ -114,7 +114,7 @@ function AlbaniaHub() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Where you can source from</div>
             <h2 className="mt-3 text-navy">Origin Markets</h2>
@@ -134,7 +134,7 @@ function AlbaniaHub() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">What's covered</div>
             <h2 className="mt-3 text-navy">Services for Albania Imports</h2>
@@ -158,7 +158,7 @@ function AlbaniaHub() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
@@ -178,7 +178,7 @@ function AlbaniaHub() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Start today</div>
             <h2 className="mt-3 text-white">

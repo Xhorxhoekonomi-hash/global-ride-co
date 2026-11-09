@@ -74,7 +74,7 @@ function ServicesPage() {
       <PlatformBadges />
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="alpha-card-grid">
             {SERVICES.map((s) => (
               <Link key={s.slug} to={s.to} className="alpha-card">
@@ -89,7 +89,7 @@ function ServicesPage() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Market-specific import</div>
             <h2 className="mt-3 text-secondary">Dedicated origin markets</h2>

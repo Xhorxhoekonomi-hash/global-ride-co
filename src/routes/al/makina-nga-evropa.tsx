@@ -35,7 +35,7 @@ function MakinaNgaEvropa() {
         <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin</Link></Button>
       </PageHero>
       <section className="bg-background">
-        <div className="container-page py-20 md:py-24">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Proces me 6 hapa</div>
             <h2 className="mt-3 text-navy">Nga kudo në Evropë deri te shtëpia juaj</h2>
@@ -44,7 +44,7 @@ function MakinaNgaEvropa() {
         </div>
       </section>
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Filloni sot</div>
             <h2 className="mt-3 text-white">Na dërgoni një shpallje evropiane</h2>

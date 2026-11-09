@@ -59,7 +59,7 @@ function Historiku() {
       </TextHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="mx-auto max-w-3xl space-y-10">
             {SECTIONS.map((s) => (
               <div key={s.title} className="flex gap-5">
@@ -75,7 +75,7 @@ function Historiku() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Lexim i lidhur</div>
             <h2 className="mt-3 text-navy">Mësoni më shumë</h2>
@@ -89,7 +89,7 @@ function Historiku() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-navy">Pyetje të shpeshta</h2>

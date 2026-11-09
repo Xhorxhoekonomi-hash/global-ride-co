@@ -75,7 +75,7 @@ function GuideKontenierRoro() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-7 shadow-card">
               <Ship className="h-6 w-6 text-teal" />
@@ -92,7 +92,7 @@ function GuideKontenierRoro() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Faktorët që e vendosin realisht</h2>
             <div className="mt-6 space-y-5">
@@ -108,7 +108,7 @@ function GuideKontenierRoro() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
               <h2 className="text-navy">Ngarkimi dhe trajtimi në terminal</h2>
@@ -127,7 +127,7 @@ function GuideKontenierRoro() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Pyetje të shpeshta</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

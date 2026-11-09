@@ -15,7 +15,7 @@ export function HowItWorks({ variant = "light", locale = "en" }: { variant?: "li
   const steps = sq ? STEPS_SQ : IMPORT_STEPS;
   return (
     <section className={dark ? "section-dark" : "bg-background"}>
-      <div className="container-page py-20 md:py-24">
+      <div className="container-page section-y">
         <div className="max-w-2xl">
           <div className="eyebrow">{sq ? "Si funksionon" : "How It Works"}</div>
           <h2 className={`mt-3 ${dark ? "text-white" : "text-navy"}`}>

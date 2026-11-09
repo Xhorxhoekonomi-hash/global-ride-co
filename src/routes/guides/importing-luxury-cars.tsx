@@ -59,7 +59,7 @@ function GuideLuxuryCars() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Brands we regularly source</h2>
             <div className="mt-4 flex flex-wrap gap-2.5">
@@ -71,7 +71,7 @@ function GuideLuxuryCars() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl space-y-10">
             <div>
               <div className="flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-teal" /><h2 className="text-navy">Insurance during transit</h2></div>
@@ -94,7 +94,7 @@ function GuideLuxuryCars() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-14 md:py-16">
+        <div className="container-page section-y-tight">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-navy">Frequently asked</h2>
             <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">

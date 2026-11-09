@@ -73,7 +73,7 @@ function ImportBelgium() {
       </PageHero>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-teal/10 text-teal"><Anchor className="h-5 w-5" /></div>
@@ -90,7 +90,7 @@ function ImportBelgium() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Shipping options</div>
             <h2 className="mt-3 text-navy">Container, RoRo, or Airfreight</h2>
@@ -116,7 +116,7 @@ function ImportBelgium() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Frequently imported</div>
             <h2 className="mt-3 text-navy">What Customers Bring In</h2>
@@ -130,7 +130,7 @@ function ImportBelgium() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Inspection & delivery</div>
             <h2 className="mt-3 text-navy">Before and After Shipping</h2>
@@ -151,7 +151,7 @@ function ImportBelgium() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Questions</div>
             <h2 className="mt-3 text-navy">Frequently Asked</h2>
@@ -182,7 +182,7 @@ function ImportBelgium() {
       </section>
 
       <section className="section-dark">
-        <div className="container-page grid gap-12 py-20 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="container-page grid gap-12 section-y lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="eyebrow text-teal-glow">Get started</div>
             <h2 className="mt-3 text-white">Send Us a Vehicle Link</h2>

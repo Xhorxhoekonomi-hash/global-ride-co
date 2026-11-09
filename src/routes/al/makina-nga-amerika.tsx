@@ -106,7 +106,7 @@ function MakinaNgaAmerika() {
       <PlatformBadges locale="sq" />
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Procesi në 11 hapa</div>
             <h2 className="mt-3 text-secondary">Nga ankandi deri te dera juaj</h2>
@@ -133,7 +133,7 @@ function MakinaNgaAmerika() {
       </section>
 
       <section className="bg-background">
-        <div className="container-page py-14 md:py-18">
+        <div className="container-page section-y-tight">
           <div className="max-w-2xl">
             <div className="eyebrow">Pyetje</div>
             <h2 className="mt-3 text-secondary">Pyetje të shpeshta</h2>
@@ -153,7 +153,7 @@ function MakinaNgaAmerika() {
       </section>
 
       <section className="section-mist">
-        <div className="container-page py-16 md:py-20">
+        <div className="container-page section-y">
           <div className="max-w-2xl">
             <div className="eyebrow">Faqe të lidhura</div>
             <h2 className="mt-3 text-secondary">Vazhdoni të lexoni</h2>
