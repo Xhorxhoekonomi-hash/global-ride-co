@@ -20,6 +20,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { StickyActionBar } from "@/components/site/StickyActionBar";
+import { SiteMotion } from "@/components/site/SiteMotion";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PAGES_WITH_OWN_END_CTA } from "@/lib/page-end-cta";
 import { GuideToc, RelatedGuides } from "@/components/site/GuideExtras";
@@ -143,6 +144,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <WelcomeScreen />
       <HeadingWidowGuard pathname={pathname} />
+      <SiteMotion pathname={pathname} guide={isGuideArticle} />
       <Header />
       <main className="min-h-screen" data-page={isGuideArticle ? "guide-article" : undefined}>
         <Outlet />

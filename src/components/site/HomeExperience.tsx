@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Link } from "@tanstack/react-router";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { localPath } from "@/lib/site-data";
 import { ArrowRight, CarFront, Ship, Calculator, ScanLine, Link2, ShieldCheck, Gavel, MapPin, MessageCircle, FileText, Plane, Globe2, Check, BookOpen, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -86,7 +85,6 @@ export function HomeExperience({ locale, faqs }: { locale: "en" | "sq"; faqs: Fa
     { id: "yellow", title: al ? "Transport me kontenier, pa merak." : "Container shipping, handled.", body: al ? "Ngarkim, sigurim dhe koordinim në port." : "Loading, securing and port coordination.", alt: al ? "McLaren i verdhë me të zeza në një shesh logjistik me kontenier të hapur në sfond." : "Yellow and black McLaren on a paved logistics yard with an open container behind it.", desktop: yellow1440.url, desktopLarge: yellow2560.url, mobile: yellowMobile.url, primary: quote, secondary: { label: al ? "Transport me kontenier" : "Container Shipping", to: container } },
     { id: "ferrari", title: al ? "Deri te dera juaj." : "Delivered to your door.", body: al ? "Nga porti deri në adresën tuaj, të koordinuara nga ekipi ynë." : "From the port to your address, coordinated by our team.", alt: al ? "Ferrari gri me numrin 70 i ngarkuar në një kamion transportues makinash." : "Grey Ferrari with a number 70 livery loaded on a car-carrier truck.", desktop: ferrari1440.url, desktopLarge: ferrari2560.url, mobile: ferrariMobile.url, primary: quote, secondary: { label: al ? "Si funksionon" : "How It Works", to: L("/how-it-works") } },
   ];
-  useScrollReveal();
   return <div className="editorial-home bg-background text-foreground">
     <HeroPanel slides={slides} label={al ? "Shërbimet e Alpha Worldwide" : "Alpha Worldwide services"} source={heroSource} />
     <RouteFinder locale={locale} />
