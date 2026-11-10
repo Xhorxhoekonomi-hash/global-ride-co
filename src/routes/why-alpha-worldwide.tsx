@@ -41,7 +41,7 @@ const SECTIONS = [
     icon: Users,
     title: "Who We Are",
     body: "Alpha Worldwide is an international vehicle sourcing, inspection, and logistics company. We help customers buy vehicles from auctions and selected dealers abroad, and manage the entire process through to delivery — without customers needing accounts, addresses, or bank relationships in the origin country.",
-    cta: { label: "Get a Quote on WhatsApp", to: "whatsapp" },
+    cta: { label: "Get a quote on WhatsApp", to: "whatsapp" },
   },
   {
     icon: Globe2,
@@ -103,8 +103,8 @@ function WhyAlphaWorldwide() {
   return (
     <>
       <PageHero scene={BROWN_PORSCHE_YARD.en} breadcrumbs={[{ label: "Why Alpha Worldwide" }]} eyebrow="Why Alpha Worldwide" title={<>10+ Years Sourcing and Shipping Vehicles Worldwide</>} description={<>15,000+ vehicles bought and transported — from auction lots and dealer listings to a delivered vehicle at your door, coordinated from {dubai.city} and {durres.city}.</>}>
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "why-alpha-worldwide-hero" })}>WhatsApp Us</a></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "why-alpha-worldwide-hero" })}>WhatsApp us</a></Button>
       </PageHero>
 
       {SECTIONS.map((s, i) => (

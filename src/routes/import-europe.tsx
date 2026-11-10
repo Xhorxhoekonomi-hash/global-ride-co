@@ -24,8 +24,8 @@ function ImportEurope() {
   return (
     <>
       <PageHero scene={FERRARI_CAR_CARRIER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From Europe" }]} eyebrow="Import from · Europe" title={<>Cross-Border Vehicle Sourcing & Transport Across Europe</>} description={<>Found a car on AutoScout24 or with a European dealer? We handle purchase coordination, transport, and delivery to Albania or Kosovo.</>}>
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate shipping</Link></Button>
       </PageHero>
 
       <section className="bg-background">

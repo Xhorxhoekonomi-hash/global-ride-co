@@ -17,7 +17,7 @@ function DeliveredVehicles() {
   return <>
     <PageHero eyebrow="Deliveries & updates" title="Vehicles we’ve handled" description="Original photographs from our vehicle handling and shipping operations.">
       <Button asChild><a href="https://www.instagram.com/alphaworldwidealbania/" target="_blank" rel="noopener noreferrer"><Instagram /> Our deliveries on Instagram <ArrowRight /></a></Button>
-      <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a Quote</Link></Button>
+      <Button asChild variant="outline" className="min-h-12"><Link to="/contact">Get a quote</Link></Button>
     </PageHero>
     <section className="bg-background">
       <div className="container-page py-12 md:py-16">
@@ -41,7 +41,7 @@ function DeliveredVehicles() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Send the listing or auction lot to discuss your shipment, or explore an estimate using our existing USA and South Korea calculator.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="min-h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a></Button>
-            <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping <ArrowRight /></Link></Button>
+            <Button asChild variant="outline"><Link to="/calculator">Calculate shipping <ArrowRight /></Link></Button>
           </div>
         </div>
       </div>

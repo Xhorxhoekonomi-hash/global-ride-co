@@ -175,7 +175,7 @@ function VehicleHistoryCheck() {
             onClick={() => trackEvent("whatsapp_clicked", { source: "vehicle-history-final-cta" })}
             className="btn-primary"
           >
-            <MessageCircle className="h-4 w-4" /> Ask About a Specific Vehicle
+            <MessageCircle className="h-4 w-4" /> Ask about a Specific Vehicle
           </a>
         </div>
       </section>

@@ -26,7 +26,7 @@ export function AuthorBox({ locale = "en" }: { locale?: "en" | "sq" }) {
           </div>
         </div>
         <Link to={sq ? "/al/kontakt" : "/contact"} className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-teal hover:text-teal">
-          <MessageCircle className="h-3.5 w-3.5" /> {sq ? "Na kontaktoni" : "Contact Us"}
+          <MessageCircle className="h-3.5 w-3.5" /> {sq ? "Na kontaktoni" : "Contact us"}
         </Link>
       </div>
     </div>

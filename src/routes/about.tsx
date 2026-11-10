@@ -38,7 +38,7 @@ function About() {
   return (
     <>
       <PageHero scene={BROWN_PORSCHE_YARD.en} eyebrow="Moving Cars Worldwide" title={<>An International Vehicle Logistics Company</>} description={<>Headquartered in Dubai, UAE, with European and Albanian operations in Durrës — sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, and Canada.</>}>
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
         <Button asChild variant="outline"><Link to="/how-it-works">How It Works</Link></Button>
       </PageHero>
 
@@ -133,7 +133,7 @@ function About() {
           <p className="max-w-xl text-slate-body">
             Send us the details and we'll build a delivered-price quote — from origin listing to your driveway.
           </p>
-          <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
+          <Link to="/contact" className="btn-primary">Get a free quote</Link>
         </div>
       </section>
     </>

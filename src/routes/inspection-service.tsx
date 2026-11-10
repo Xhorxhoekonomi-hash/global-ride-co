@@ -47,7 +47,7 @@ function InspectionService() {
   return (
     <>
       <PageHero scene={LAMBORGHINI_HANDOVER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Vehicle Inspection" }]} eyebrow="Inspection service" title="Know Exactly What You're Buying" description="155-point vehicle inspection before purchase — photos, video, OBD scan and paint-meter readings on the ground in the USA, South Korea, UAE or Canada, before a single dollar moves.">
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
         <Button asChild variant="outline"><Link to="/vehicle-history-check">Vehicle History Check</Link></Button>
       </PageHero>
 

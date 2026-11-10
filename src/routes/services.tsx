@@ -67,8 +67,8 @@ function ServicesPage() {
   return (
     <>
       <PageHero scene={LAMBORGHINI_HANDOVER.en} eyebrow="Services" title="Comprehensive Vehicle Sourcing, Inspection & Shipping Services" description="Make a confident, informed purchase decision — we handle the entire process with efficiency and professionalism.">
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate shipping</Link></Button>
       </PageHero>
 
       <PlatformBadges />
