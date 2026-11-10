@@ -58,6 +58,10 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
     let frame = 0;
     const update = () => {
       frame = 0;
+      // Safety net: anything already scrolled into or past view is revealed even if an observer callback was missed (fast flicks on iOS).
+      const limit = window.innerHeight;
+      document.querySelectorAll<HTMLElement>(".reveal-armed:not(.is-revealed)").forEach((el) => { if (el.getBoundingClientRect().top < limit) { el.classList.add("is-revealed"); reveal.unobserve(el); } });
+      document.querySelectorAll<HTMLElement>("[data-draw]:not(.is-drawn)").forEach((el) => { if (el.getBoundingClientRect().top < limit) { el.classList.add("is-drawn"); draw.unobserve(el); } });
       parallax.forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.bottom < 0 || r.top > window.innerHeight) return;
