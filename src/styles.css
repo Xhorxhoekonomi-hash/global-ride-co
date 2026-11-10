@@ -807,6 +807,9 @@ main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: no
   .sticky-action-whatsapp { display: grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 8px; background: var(--whatsapp); color: var(--primary-foreground); }
 }
 
+/* Touch screens have no hover: labels that only appear on hover are always shown there. */
+@media (hover: none) { .group-hover\:opacity-100 { opacity: 1; } }
+
 /* Floating WhatsApp: a gentle pulse ring every 12s until first interaction. */
 .whatsapp-float::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); opacity: 0; pointer-events: none; }
 .motion-ok .whatsapp-float[data-pulse]::after { animation: wa-pulse 12s ease-out 3s infinite; }
