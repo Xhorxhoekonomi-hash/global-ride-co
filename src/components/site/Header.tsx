@@ -99,7 +99,7 @@ export function Header() {
         <Link to={languageTarget} className="alpha-header-icon alpha-header-lang" aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages aria-hidden="true" />{isAlbanian ? "EN" : "SQ"}</Link>
         <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp +355692233416" title="WhatsApp +355692233416" className="alpha-header-icon alpha-header-desktop"><MessageCircle aria-hidden="true" /></a>
         <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "header" })} aria-label={`Email ${CONTACT.email}`} title={CONTACT.email} className="alpha-header-icon alpha-header-desktop"><Mail aria-hidden="true" /></a>
-        <Link to={quoteHref} className="alpha-header-quote">{isAlbanian ? "Merr ofertë" : "Get a quote"}</Link>
+        <Link to={quoteHref} className="alpha-header-quote">{isAlbanian ? "Merr një ofertë" : "Get a quote"}</Link>
         <button ref={menuButtonRef} type="button" className="header-menu-button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
       </div>
     </div>
@@ -110,7 +110,7 @@ export function Header() {
     {open && mounted && createPortal(<nav ref={sheetRef} id="mobile-navigation" aria-label={isAlbanian ? "Navigimi në celular" : "Mobile navigation"} className="mobile-sheet" onClick={event => { if ((event.target as HTMLElement).closest("a[href]")) setOpen(false); }}><div className="container-page mobile-sheet-inner">
       <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Link key={item.to} to={item.to} className="mobile-sheet-link">{item.label}</Link> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Link key={i.to} to={i.to} className="mobile-sheet-sublink">{i.label}</Link>)}</div></AccordionContent></AccordionItem>)}</Accordion>
       <div className="mobile-sheet-contact"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" className="inline-flex min-h-11 items-center gap-2 text-sm text-secondary"><MessageCircle className="h-5 w-5" aria-hidden="true" />WhatsApp</a><EmailContact location="mobile_menu" /></div>
-      <div className="mobile-sheet-actions"><Link to={calculatorHref} className="btn-pair btn-pair--outline"><Calculator aria-hidden="true" />{isAlbanian ? "Llogarit transportin" : "Calculate shipping"}</Link><Link to={quoteHref} className="btn-pair btn-pair--primary">{isAlbanian ? "Merr ofertë" : "Get a quote"}</Link></div>
+      <div className="mobile-sheet-actions"><Link to={calculatorHref} className="btn-pair btn-pair--outline"><Calculator aria-hidden="true" />{isAlbanian ? "Llogarit transportin" : "Calculate shipping"}</Link><Link to={quoteHref} className="btn-pair btn-pair--primary">{isAlbanian ? "Merr një ofertë" : "Get a quote"}</Link></div>
     </div></nav>, document.body)}
   </header>;
 }
