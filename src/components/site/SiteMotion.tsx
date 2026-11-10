@@ -51,7 +51,7 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-drawn"); draw.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -25% 0px" });
     document.querySelectorAll("[data-draw]").forEach((el) => {
-      if (el.getBoundingClientRect().top < vh * 0.75) el.classList.add("is-drawn"); else draw.observe(el);
+      if (el.getBoundingClientRect().top < vh * 0.75) el.classList.add("is-drawn"); else { el.classList.add("draw-armed"); draw.observe(el); }
     });
 
     const parallax = window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches ? Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]")) : [];

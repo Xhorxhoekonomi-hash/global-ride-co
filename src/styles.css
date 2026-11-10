@@ -417,15 +417,15 @@ main :is(.alpha-enquiry, .end-band) form.shadow-card { padding: 28px; border-rad
 .home-timeline-step p { margin-top: 6px; font-size: 15px; line-height: 1.6; color: var(--muted-foreground); }
 /* Numerals fade/scale in as they are reached (motion only). */
 .motion-ok :is(.home-timeline-dot, .home-step-num, .step-timeline-icon)[data-draw] { transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
-.motion-ok :is(.home-timeline-dot, .home-step-num, .step-timeline-icon)[data-draw]:not(.is-drawn) { opacity: 0; transform: scale(.8); }
+.motion-ok :is(.home-timeline-dot, .home-step-num, .step-timeline-icon).draw-armed:not(.is-drawn) { opacity: 0; transform: scale(.8); }
 /* Teal progress lines that draw themselves on scroll. */
 .home-steps::before { content: ""; position: absolute; top: -20px; left: 0; right: 0; height: 2px; background: var(--teal); transform-origin: left; }
 .motion-ok .home-steps::before { transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
-.motion-ok .home-steps:not(.is-drawn)::before { transform: scaleX(0); }
+.motion-ok .home-steps.draw-armed:not(.is-drawn)::before { transform: scaleX(0); }
 .step-timeline-line { position: relative; }
 .step-timeline-line::after { content: ""; position: absolute; inset: 0; background: var(--teal); transform-origin: top; }
 .motion-ok .step-timeline-line::after { transition: transform .9s cubic-bezier(.2,.8,.2,1); }
-.motion-ok .step-timeline-line:not(.is-drawn)::after { transform: scaleY(0); }
+.motion-ok .step-timeline-line.draw-armed:not(.is-drawn)::after { transform: scaleY(0); }
 
 /* Dark end band: the only coloured band; every page ends the same way */
 .end-band { background: var(--graphite); color: var(--on-dark); }
