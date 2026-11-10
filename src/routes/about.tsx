@@ -39,7 +39,7 @@ function About() {
     <>
       <PageHero scene={BROWN_PORSCHE_YARD.en} eyebrow="Moving Cars Worldwide" title={<>An International Vehicle Logistics Company</>} description={<>Headquartered in Dubai, UAE, with European and Albanian operations in Durrës — sourcing, inspecting, and shipping vehicles from the USA, South Korea, UAE, and Canada.</>}>
         <Button asChild><Link to="/contact">Get a quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/how-it-works">How It Works</Link></Button>
+        <Button asChild variant="outline"><Link to="/how-it-works">How it works</Link></Button>
       </PageHero>
 
       <section className="bg-background">
