@@ -11,6 +11,19 @@ export function glueLastWords(text: string): string {
   return `${m[1]}\u00a0${m[2]}${m[3]}`;
 }
 
+/**
+ * Binds the phrase after an em dash so a heading breaks BEFORE " — phrase", never inside it
+ * ("Collection / — Ten Steps, One Team"): the dash and the following words are joined with
+ * non-breaking spaces, which behaves like an inline-block span around that segment.
+ */
+export function bindDashPhrase(text: string): string {
+  const i = text.lastIndexOf(" — ");
+  if (i < 0) return text;
+  const tail = text.slice(i + 3);
+  if (!tail.trim() || tail.trim().split(/\s+/).length > 6) return text;
+  return `${text.slice(0, i)} —\u00a0${tail.replace(/ +/g, "\u00a0")}`;
+}
+
 export function HeadingWidowGuard({ pathname }: { pathname: string }) {
   useEffect(() => {
     const tooWide = new WeakMap<Text, string>();
@@ -23,6 +36,14 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         if (!Object.keys(h).some((k) => k.startsWith("__reactFiber"))) { pending = true; return; }
         const words = (h.textContent ?? "").trim().split(/\s+/);
         if (words.length < 4) return;
+        const walkerDash = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+        for (let n = walkerDash.nextNode(); n; n = walkerDash.nextNode()) {
+          const t = n as Text;
+          if (!t.nodeValue?.includes(" — ") || tooWide.get(t) === t.nodeValue) continue;
+          const before = t.nodeValue;
+          t.nodeValue = bindDashPhrase(before);
+          if (h.scrollWidth > h.clientWidth + 1) { t.nodeValue = before; tooWide.set(t, before); }
+        }
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
         let last: Text | null = null;
         for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue?.trim()) last = n as Text;

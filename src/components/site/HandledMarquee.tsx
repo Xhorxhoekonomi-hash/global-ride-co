@@ -11,7 +11,7 @@ export function HandledMarquee({ locale }: { locale: "en" | "sq" }) {
   const items = (copy: boolean) => albums.map((a) => (
     <li key={`${copy ? "b" : "a"}-${a.id}`} aria-hidden={copy || undefined}>
       <Link to={to} className="marquee-photo" tabIndex={copy ? -1 : undefined}>
-        <img src={a.photos[0].src} alt={copy ? "" : a[locale]} width={480} height={360} loading="lazy" decoding="async" />
+        <img src={a.photos[0].src} alt={copy ? "" : a[locale]} width={480} height={360} loading="eager" decoding="async" />
         <span>{a[locale]}</span>
       </Link>
     </li>
