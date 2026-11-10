@@ -33,7 +33,7 @@ const LABELS_EN = {
   serviceCustoms: "Customs Coordination",
   message: "Message",
   messagePlaceholder: "Tell us about the vehicle, timing, and any preferences…",
-  submitCompact: "Get a Free Quote",
+  submitCompact: "Get a free quote",
   submitFull: "Request Quote on WhatsApp",
   submitting: "Sending…",
   submitHelper: "Submitting opens WhatsApp with your details pre-filled so our team gets your request instantly.",

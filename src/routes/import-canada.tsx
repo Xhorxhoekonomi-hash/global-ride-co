@@ -24,8 +24,8 @@ function ImportCanada() {
   return (
     <>
       <PageHero scene={LAMBORGHINI_IN_CONTAINER.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From Canada" }]} eyebrow="Import from · Canada" title={<>Vehicle Sourcing & Shipping from Canada to Albania & Europe</>} description={<>We source, inspect, purchase, and ship vehicles from auctions and dealers across Canada — fully managed to your door in Albania or Europe.</>}>
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Shipping</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate cost</Link></Button>
       </PageHero>
 
       <section className="bg-background">

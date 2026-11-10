@@ -70,8 +70,8 @@ function HowItWorks() {
   return (
     <>
       <PageHero scene={SILVER_FERRARI_YARD.en} breadcrumbs={[{ label: "How It Works" }]} eyebrow="How it works" title="From Choosing a Vehicle to Collection — Ten Steps, One Team" description="Every step explained honestly, including where availability and timing genuinely depend on factors outside our control.">
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate Cost</Link></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate cost</Link></Button>
       </PageHero>
 
       <section className="bg-background">
@@ -126,7 +126,7 @@ function HowItWorks() {
               rel="noreferrer noopener"
               onClick={() => trackEvent("whatsapp_clicked", { source: "how-it-works-final-cta" })}
               >
-              <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              <MessageCircle className="h-4 w-4" /> WhatsApp us
             </a>
             <Link className="btn-pair btn-pair--light"               to="/calculator"
               onClick={() => trackEvent("calculator_started", { source: "how-it-works-final-cta" })}

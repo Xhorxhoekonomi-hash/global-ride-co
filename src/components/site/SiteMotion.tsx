@@ -51,13 +51,17 @@ export function SiteMotion({ pathname, guide }: { pathname: string; guide: boole
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-drawn"); draw.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -25% 0px" });
     document.querySelectorAll("[data-draw]").forEach((el) => {
-      if (el.getBoundingClientRect().top < vh * 0.75) el.classList.add("is-drawn"); else draw.observe(el);
+      if (el.getBoundingClientRect().top < vh * 0.75) el.classList.add("is-drawn"); else { el.classList.add("draw-armed"); draw.observe(el); }
     });
 
     const parallax = window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches ? Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]")) : [];
     let frame = 0;
     const update = () => {
       frame = 0;
+      // Safety net: anything already scrolled into or past view is revealed even if an observer callback was missed (fast flicks on iOS).
+      const limit = window.innerHeight;
+      document.querySelectorAll<HTMLElement>(".reveal-armed:not(.is-revealed)").forEach((el) => { if (el.getBoundingClientRect().top < limit) { el.classList.add("is-revealed"); reveal.unobserve(el); } });
+      document.querySelectorAll<HTMLElement>("[data-draw]:not(.is-drawn)").forEach((el) => { if (el.getBoundingClientRect().top < limit) { el.classList.add("is-drawn"); draw.unobserve(el); } });
       parallax.forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.bottom < 0 || r.top > window.innerHeight) return;

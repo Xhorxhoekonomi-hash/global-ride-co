@@ -32,7 +32,7 @@ function MakinaNgaEvropa() {
     <>
       <PageHero scene={FERRARI_CAR_CARRIER.sq} breadcrumbs={[{ label: "Shërbimet", to: "/al/sherbimet" }, { label: "Import nga Evropa" }]} eyebrow="Import nga · Evropa" title="Gjetje dhe transport ndërkufitar automjetesh në të gjithë Evropën" description="Keni gjetur një makinë në AutoScout24 ose te një tregtar evropian? Ne koordinojmë blerjen, transportin dhe dorëzimin në Shqipëri ose Kosovë.">
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
-        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
       </PageHero>
       <section className="bg-background">
         <div className="container-page section-y">

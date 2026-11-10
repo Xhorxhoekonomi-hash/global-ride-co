@@ -112,8 +112,8 @@ function Airfreight() {
   return (
     <div className="airfreight-page">
       <PageHero scene={AIRFREIGHT_HUB_SCENE.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Airfreight" }]} eyebrow="Airfreight" title={<>When It Absolutely Has to Arrive Fast</>} description={<>Complete airfreight coordination or European airport handling only — for urgent timelines and exceptionally high-value vehicles.</>}>
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp Us</a></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "airfreight-hero" })}>WhatsApp us</a></Button>
       </PageHero>
 
       <section className="bg-background">

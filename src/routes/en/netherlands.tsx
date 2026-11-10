@@ -155,7 +155,7 @@ function NetherlandsHub() {
         <div className="container-page flex flex-col items-center gap-6 py-20 text-center md:py-24">
           <div className="eyebrow text-teal-glow">Real numbers, not guesses</div>
           <h2 className="max-w-2xl text-white">
-            Calculate Shipping to the Netherlands
+            Calculate shipping to the Netherlands
           </h2>
           <p className="max-w-xl text-white/70">
             Our calculator supports Netherlands as a destination for both USA and South Korea routes, with an itemised cost breakdown.
@@ -207,7 +207,7 @@ function NetherlandsHub() {
               onClick={() => trackEvent("whatsapp_clicked", { source: "netherlands-hub-final-cta" })}
               className="btn-primary mt-6 inline-flex"
             >
-              <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              <MessageCircle className="h-4 w-4" /> WhatsApp us
             </a>
           </div>
           <QuoteForm variant="full" />

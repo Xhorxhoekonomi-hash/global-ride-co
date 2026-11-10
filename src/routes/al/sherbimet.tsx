@@ -80,7 +80,7 @@ function Sherbimet() {
     <>
       <PageHero scene={LAMBORGHINI_HANDOVER.sq} breadcrumbs={[{ label: "Shërbimet" }]} eyebrow="Shërbimet" title="Shërbime të plota për gjetjen, inspektimin dhe transportin e automjetit" description="Merrni një vendim blerjeje me siguri dhe informacion të plotë — ne kujdesemi për të gjithë procesin me efikasitet dhe profesionalizëm.">
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
-        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
       </PageHero>
 
       <PlatformBadges locale="sq" />

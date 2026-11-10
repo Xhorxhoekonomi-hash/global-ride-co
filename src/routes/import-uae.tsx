@@ -100,8 +100,8 @@ function ImportUAE() {
   return (
     <>
       <PageHero scene={ORANGE_MCLAREN_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "Import From UAE" }]} eyebrow="Import from · UAE" title="Vehicle Sourcing & Shipping from Dubai, Abu Dhabi & Sharjah" description="Sourced from Dubizzle, Emirates Auction and official dealerships — inspected, documented, and shipped to Albania and across Europe, backed by our Dubai headquarters.">
-        <Button asChild><Link to="/contact">Get a Quote</Link></Button>
-        <Button asChild variant="outline"><a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "import-uae-hero" })}>Call UAE Office</a></Button>
+        <Button asChild><Link to="/contact">Get a quote</Link></Button>
+        <Button asChild variant="outline"><a href={`tel:${CONTACT.uae.replace(/\s/g, "")}`} onClick={() => trackEvent("phone_clicked", { location: "import-uae-hero" })}>Call UAE office</a></Button>
       </PageHero>
 
       <section className="bg-background">

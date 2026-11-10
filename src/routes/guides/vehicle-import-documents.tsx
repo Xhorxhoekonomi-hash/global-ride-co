@@ -190,7 +190,7 @@ function GuideImportDocuments() {
           <div className="eyebrow text-teal-glow">Not sure what you'll need?</div>
           <h2 className="mx-auto mt-3 max-w-xl text-white">Tell us your route and vehicle</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-import-documents" })} className="btn-primary"><FileText className="h-4 w-4" /> Ask About Documents</a>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-import-documents" })} className="btn-primary"><FileText className="h-4 w-4" /> Ask about documents</a>
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-import-documents" })} className="btn-outline-light"><Calculator className="h-4 w-4" /> Calculate cost</Link>
           </div>
         </div>

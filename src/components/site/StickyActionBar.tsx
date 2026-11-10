@@ -28,7 +28,7 @@ export function StickyActionBar() {
         <MessageCircle className="h-6 w-6" strokeWidth={2.25} />
       </a>
       <Link to={al ? "/al/kontakt" : "/contact"} className="btn-pair btn-pair--primary sticky-action-quote" onClick={() => trackEvent("quote_started", { source: "sticky_bar" })}>
-        {al ? "Merr një ofertë" : "Get a Quote"}
+        {al ? "Merr një ofertë" : "Get a quote"}
       </Link>
     </div>
   );

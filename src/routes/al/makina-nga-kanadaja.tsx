@@ -32,7 +32,7 @@ function MakinaNgaKanadaja() {
     <>
       <PageHero scene={LAMBORGHINI_IN_CONTAINER.sq} breadcrumbs={[{ label: "Shërbimet", to: "/al/sherbimet" }, { label: "Import nga Kanadaja" }]} eyebrow="Import nga · Kanadaja" title="Gjetje dhe transport automjetesh nga Kanadaja drejt Shqipërisë dhe Evropës" description="Gjejmë, inspektojmë, blejmë dhe transportojmë automjete nga ankandet dhe tregtarët në të gjithë Kanadanë — me menaxhim të plotë deri te dera juaj në Shqipëri ose Evropë.">
         <Button asChild><Link to="/al/kontakt">Merr një ofertë</Link></Button>
-        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin</Link></Button>
+        <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston</Link></Button>
       </PageHero>
       <section className="bg-background">
         <div className="container-page section-y">

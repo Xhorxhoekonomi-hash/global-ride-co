@@ -174,7 +174,7 @@ function GuideShippingCosts() {
           <h2 className="mx-auto mt-3 max-w-xl text-white">Run your vehicle through the calculator</h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link to="/calculator" onClick={() => trackEvent("calculator_started", { source: "guide-shipping-costs" })} className="btn-primary"><Calculator className="h-4 w-4" /> Calculate cost</Link>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-shipping-costs" })} className="btn-outline-light"><MessageCircle className="h-4 w-4" /> Ask a Question</a>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" onClick={() => trackEvent("whatsapp_clicked", { source: "guide-shipping-costs" })} className="btn-outline-light"><MessageCircle className="h-4 w-4" /> Ask a question</a>
           </div>
         </div>
       </section>

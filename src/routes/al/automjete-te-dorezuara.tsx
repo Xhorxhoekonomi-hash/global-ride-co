@@ -47,7 +47,7 @@ function AutomjeteTeDorezuara() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Dërgoni shpalljen ose lotin e ankandit për të diskutuar transportin, ose shihni një përllogaritje me kalkulatorin tonë për SHBA-në dhe Korenë e Jugut.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="min-h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a></Button>
-            <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit transportin <ArrowRight /></Link></Button>
+            <Button asChild variant="outline"><Link to="/al/kalkulator-transporti">Llogarit koston <ArrowRight /></Link></Button>
           </div>
         </div>
       </div>
