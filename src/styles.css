@@ -170,7 +170,8 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
   min-height: var(--btn-h); padding: 0 1.5rem; border-radius: 0.5rem; white-space: nowrap;
    background-color: var(--teal-button); color: white; font-weight: 600; font-size: var(--btn-fs);
   transition: all 0.2s ease;
-  &:hover { background-color: var(--color-teal-dark); transform: translateY(-1px); }
+  &:hover { background-color: var(--color-teal-dark); }
+  @media (hover: hover) and (pointer: fine) { &:hover { transform: translateY(-1px); } }
 }
 @utility btn-outline-light {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
@@ -196,6 +197,7 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 :root { --header-h: 56px; }
 :root:has(main .hero-panel) .alpha-header { margin-bottom: calc(-1 * var(--header-h)); }
 :root:has(main .hero-panel) .alpha-header:not([data-scrolled], [data-open]) { --header-fg: var(--primary-foreground); background: transparent; border-color: transparent; backdrop-filter: none; }
+.alpha-header[data-open] { background: var(--background); backdrop-filter: none; }
 .alpha-header .logo-light { display: none; }
 :root:has(main .hero-panel) .alpha-header:not([data-scrolled], [data-open]) .logo-light { display: block; }
 :root:has(main .hero-panel) .alpha-header:not([data-scrolled], [data-open]) .logo-default { display: none; }
@@ -237,7 +239,8 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 :root[data-menu-open] .sticky-action-bar, :root[data-menu-open] .whatsapp-float { visibility: hidden; }
 .mobile-sheet-inner { display: flex; flex: 1; flex-direction: column; padding-top: 16px; }
 .mobile-sheet-contact { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; }
-.mobile-sheet-link { display: flex; width: 100%; min-height: 64px; align-items: center; justify-content: space-between; padding: 0; border-radius: 0; font-size: 28px; font-weight: 600; color: var(--navy); }
+.mobile-sheet-link { display: flex; width: 100%; height: 64px; min-height: 64px; padding-block: 0; align-items: center; justify-content: space-between; padding: 0; border-radius: 0; font-size: 28px; font-weight: 600; color: var(--navy); }
+a.mobile-sheet-link { border-bottom: 1px solid var(--border); }
 .mobile-sheet-sublink { display: flex; width: 100%; min-height: 48px; justify-content: flex-start; padding-inline: 0; font-size: 17px; color: var(--navy); white-space: normal; text-align: left; }
 .mobile-sheet-actions { position: sticky; bottom: 0; display: grid; gap: 10px; margin-top: auto; padding-block: 20px; background: var(--background); }
 .footer-main { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 40px; padding-block: 64px; }
@@ -256,7 +259,7 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
    ================================================================ */
 .btn-pair { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--btn-h); padding-inline: 20px; border-radius: 8px; font-size: var(--btn-fs); font-weight: 600; flex: 1 1 0; min-width: max-content; white-space: nowrap; text-align: center; transition: background-color .2s, color .2s, transform .15s ease; }
 /* Micro-interactions: buttons lift 1px, arrow icons slide 4px. */
-:is(.btn-pair, main [data-slot="button"]):hover { transform: translateY(-1px); }
+@media (hover: hover) and (pointer: fine) { :is(.btn-pair, main [data-slot="button"]):hover { transform: translateY(-1px); } }
 :is(a, button) svg.lucide-arrow-right { transition: transform .15s ease; }
 :is(a, button):hover > svg.lucide-arrow-right, :is(a, button):hover > span > svg.lucide-arrow-right { transform: translateX(4px); }
 main [data-slot="button"]:is([data-variant="default"], [data-variant="outline"], [data-variant="secondary"]):not([data-size="icon"], [data-size="sm"], .h-auto) { height: auto; min-height: var(--btn-h); padding-block: 0; padding-inline: 20px; border-radius: 8px; font-size: var(--btn-fs); font-weight: 600; white-space: nowrap; }
@@ -324,15 +327,19 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .hero-panel-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: calc(var(--header-h) + clamp(20px, 5vh, 56px)) 20px var(--act-b); text-align: center; color: #fff; }
 .hero-panel-copy :is(h1, h2) { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -0.022em; max-width: 1100px; margin-inline: auto; color: #fff; text-shadow: var(--hero-shadow); }
 .hero-panel-copy p { margin: 18px auto 0; max-width: 640px; font-size: clamp(17px, 1.3vw, 21px); font-weight: 500; line-height: 1.45; color: #fff; text-shadow: var(--hero-shadow); }
-.hero-panel-actions { gap: 12px; width: 100%; max-width: 460px; }
-.hero-panel-actions > :first-child { background: var(--teal-button); color: var(--primary-foreground); border: 0; }
-.hero-panel-actions > :not(:first-child) { background: var(--background); color: var(--navy); border: 0; }
-.hero-panel-actions > :not(:first-child):hover { background: var(--mist); }
+.hero-panel-actions { gap: 12px; width: 100%; max-width: 460px; align-items: stretch; opacity: 1; }
+/* Both hero buttons are identical boxes: same height, same 1.5px border (in their own fill), same line-height. */
+.hero-panel-actions > * { box-sizing: border-box; height: var(--btn-h); min-height: var(--btn-h); margin: 0; border: 1.5px solid transparent; line-height: 1; vertical-align: top; opacity: 1; transform: none; }
+.hero-panel-actions > :first-child { background: var(--teal-button); border-color: var(--teal-button); color: var(--primary-foreground); }
+.hero-panel-actions > :first-child:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+.hero-panel-actions > :not(:first-child) { background: var(--background); border-color: var(--background); color: var(--navy); }
+.hero-panel-actions > :not(:first-child):hover { background: var(--mist); border-color: var(--mist); }
 /* Dots sit 12px above the button row (dot hit-area is 32px, visible dot centred). */
 .hero-panel-dots { position: absolute; z-index: 3; bottom: calc(var(--act-b) + var(--btn-h) + 12px - 12px); left: 50%; transform: translateX(-50%); display: flex; align-items: center; }
-.hero-panel-toggle { display: grid; place-items: center; width: 32px; height: 32px; margin-left: 6px; border-radius: 50%; background: color-mix(in oklab, var(--graphite) 35%, transparent); color: var(--on-dark); }
+.hero-panel-toggle { position: relative; display: grid; place-items: center; width: 32px; height: 32px; margin-left: 6px; border-radius: 50%; background: color-mix(in oklab, var(--graphite) 35%, transparent); color: var(--on-dark); }
+.hero-panel-toggle::after { content: ""; position: absolute; inset: -6px; }
 .hero-panel-toggle svg { width: 14px; height: 14px; }
-.hero-panel-dot { display: grid; place-items: center; width: 28px; height: 32px; }
+.hero-panel-dot { display: grid; place-items: center; width: 28px; height: 44px; margin-block: -6px; }
 .hero-panel-dot span { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in oklab, var(--background) 55%, transparent); box-shadow: 0 0 6px rgba(5,14,20,.4); }
 .hero-panel-dot[aria-current="true"] span { position: relative; overflow: hidden; width: 28px; border-radius: 4px; }
 /* Thin progress fill inside the active dot while autoplay runs. */
@@ -384,7 +391,9 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .breadcrumbs-list [aria-current] { color: var(--secondary); font-weight: 500; }
 .breadcrumbs--photo { background: none; }
 .breadcrumbs--photo .breadcrumbs-list { justify-content: flex-start; padding: 0; color: color-mix(in oklab, var(--primary-foreground) 85%, transparent); }
+.breadcrumbs--photo :is(a, span) { color: inherit; text-shadow: 0 1px 8px rgba(5,14,20,.5); }
 .breadcrumbs--photo [aria-current] { color: var(--primary-foreground); }
+.breadcrumbs--photo svg { opacity: .85; }
 
 .text-hero { background: var(--background); }
 .text-hero-inner { padding-block: 64px 48px; }
@@ -570,7 +579,7 @@ main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: no
 .bento-tile::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, color-mix(in oklab, var(--graphite) 85%, transparent)); }
 .bento-tile-copy { position: absolute; z-index: 1; inset: auto 0 0; padding: 28px; }
 .bento-tile-copy h3 { font-size: clamp(24px, 2.2vw, 32px); color: var(--primary-foreground); }
-.bento-tile-copy p { margin-top: 6px; font-size: 16px; opacity: .92; }
+.bento-tile-copy p { margin-top: 6px; font-size: 16px; }
 .bento-tile-copy span { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 15px; font-weight: 600; }
 
 /* Steps */
@@ -758,8 +767,18 @@ main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: no
   .related-guides { padding-block: 56px; }
   .related-guides-grid, .alpha-card-grid { grid-template-columns: minmax(0,1fr); }
   .related-guide-card { padding: 22px; }
-  .breadcrumbs--photo { background: none; }
-.breadcrumbs--photo .breadcrumbs-list { font-size: 12px; padding-bottom: 8px; }
+  .breadcrumbs--photo .breadcrumbs-list { font-size: 13px; }
+  /* Phones: form fields at 16px so iOS Safari never zooms on focus. */
+  :is(input, select, textarea):not([type="checkbox"], [type="radio"], [type="range"]) { font-size: 16px; }
+  /* Pill filters/chips keep their look but get a 44px tap area. */
+  main :is(a, button).rounded-full.border { position: relative; }
+  main :is(a, button).rounded-full.border::after { content: ""; position: absolute; inset: -6px 0; }
+  /* Interior photo hero on phones: shorter photo, compact headline and intro so both buttons fit the first screen. */
+  .hero-scene .hero-panel-slide picture { aspect-ratio: 16 / 9; }
+  .hero-scene .hero-panel-copy { padding: 22px 20px 28px; }
+  .hero-scene .hero-panel-copy h1 { font-size: clamp(28px, 7.6vw, 34px); line-height: 1.12; max-width: 100%; overflow-wrap: break-word; hyphens: auto; }
+  .hero-scene .hero-panel-copy p.hero-scene-intro { margin-top: 12px; font-size: 16px; line-height: 1.5; }
+  .hero-scene-actions { margin-top: 20px; }
 
   .footer-main, .footer-main--short { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 48px 24px; }
   .footer-brand { grid-column: auto; padding-bottom: 24px; }
