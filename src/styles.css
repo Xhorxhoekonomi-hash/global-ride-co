@@ -233,7 +233,8 @@ p a.text-teal, li a.text-teal { text-decoration: underline; text-underline-offse
 @media (min-width: 1280px) { .alpha-header-desktop { display: inline-flex; } }
 .alpha-footer { background: var(--background); color: var(--navy); border-top: 1px solid var(--border); }
 .footer-slogan { margin-top: 16px; font-size: 15px; font-weight: 600; color: var(--teal-dark); }
-.mobile-sheet { position: fixed; inset: var(--header-h) 0 0; z-index: 60; display: flex; flex-direction: column; overflow-y: auto; background: var(--background); }
+.mobile-sheet { position: fixed; top: var(--header-h); left: 0; right: 0; height: calc(100dvh - var(--header-h)); z-index: 70; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; overflow-y: auto; background: var(--background); }
+:root[data-menu-open] .sticky-action-bar, :root[data-menu-open] .whatsapp-float { visibility: hidden; }
 .mobile-sheet-inner { display: flex; flex: 1; flex-direction: column; padding-top: 16px; }
 .mobile-sheet-contact { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; }
 .mobile-sheet-link { display: flex; width: 100%; min-height: 64px; align-items: center; justify-content: space-between; padding: 0; border-radius: 0; font-size: 28px; font-weight: 600; color: var(--navy); }
