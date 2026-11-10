@@ -36,6 +36,9 @@
 - Linked content cards use .alpha-card (or share its radius/border/hover rule in styles.css) so card treatment cannot drift per page.
 - PAGES_WITH_OWN_END_CTA (src/lib/page-end-cta.ts) lists pages whose last section is already a CTA; __root skips the shared CtaBand for them so CTAs never stack. Add new pages that end in a form or quote CTA there.
 - Footer link groups collapse on phones via CSS (display none), never conditional rendering, so internal links always stay in the DOM.
-- SiteMotion (from __root) owns site-wide motion: CSS motion applies only under html.motion-ok (set after hydration, never under reduced motion) and it mutates sections only once React has hydrated them, so content is visible without JS and hydration stays clean.
+- SiteMotion (from __root) owns site-wide motion: CSS motion applies only under html.motion-ok (set after hydration, never under reduced motion) and it mutates sections only once React has hydrated them, so content is visible without JS and hydration stays clean; elements are hidden only once individually armed (reveal-armed/draw-armed), and a scroll fallback reveals anything already passed, so text can never stay invisible.
 - .end-band (dark graphite) is the only page-end band; mid-page tinted sections use .section-mist, so every page ends the same way.
 - Marquees render the list twice with the copy aria-hidden/untabbable and are static scrollable rows without motion.
+
+- Hero button pairs are identical boxes (fixed --btn-h height, 1.5px border in their own fill, no transform); hover lifts apply only under (hover: hover) so iOS never keeps a tapped button shifted.
+- HeadingWidowGuard also binds the phrase after " — " with non-breaking spaces (reverting if it would overflow), so headings break before the dash segment.
