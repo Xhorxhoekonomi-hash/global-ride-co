@@ -16,10 +16,12 @@ async def check(page, w, h, path, scroll):
     await page.wait_for_function("document.documentElement.classList.contains('motion-ok') || document.readyState==='complete'")
     if scroll: await page.mouse.wheel(0, 600); await page.wait_for_function("scrollY>=500")
     sheet = page.locator("#mobile-navigation")
-    for _ in range(3):
+    for _ in range(5):
+        if await btn.get_attribute("aria-expanded") == "true": break
         await btn.click()
-        try: await expect(sheet).to_be_visible(timeout=2000); break
+        try: await expect(btn).to_have_attribute("aria-expanded", "true", timeout=1500)
         except AssertionError: pass
+    await expect(sheet).to_be_visible()
     box = await sheet.bounding_box()
     parent = await sheet.evaluate("e => e.parentElement.tagName")
     assert parent == "BODY", parent
