@@ -46,7 +46,7 @@ function RoroShipping() {
     <>
       <PageHero scene={ROLLS_ROYCE_PORT.en} breadcrumbs={[{ label: "Services", to: "/services" }, { label: "RoRo Shipping" }]} eyebrow="RoRo shipping" title={<>The Fast, Economical Route to Albania</>} description={<>Roll-on/Roll-off shipping to Durrës, Albania and European ports — the standard choice for everyday vehicles.</>}>
         <Button asChild><Link to="/contact">Get a quote</Link></Button>
-        <Button asChild variant="outline"><Link to="/calculator">Calculate shipping</Link></Button>
+        <Button asChild variant="outline"><Link to="/calculator">Calculate cost</Link></Button>
       </PageHero>
 
       <section className="bg-background">

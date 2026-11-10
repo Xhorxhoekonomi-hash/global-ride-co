@@ -41,7 +41,7 @@ function DeliveredVehicles() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Send the listing or auction lot to discuss your shipment, or explore an estimate using our existing USA and South Korea calculator.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="min-h-12"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a></Button>
-            <Button asChild variant="outline"><Link to="/calculator">Calculate shipping <ArrowRight /></Link></Button>
+            <Button asChild variant="outline"><Link to="/calculator">Calculate cost <ArrowRight /></Link></Button>
           </div>
         </div>
       </div>
