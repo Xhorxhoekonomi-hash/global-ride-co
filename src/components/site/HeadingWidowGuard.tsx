@@ -41,8 +41,10 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
           const t = n as Text;
           if (!t.nodeValue?.includes(" — ") || tooWide.get(t) === t.nodeValue) continue;
           const before = t.nodeValue;
+          const height = h.offsetHeight;
           t.nodeValue = bindDashPhrase(before);
-          if (h.scrollWidth > h.clientWidth + 1) { t.nodeValue = before; tooWide.set(t, before); }
+          // Revert when binding overflows or adds a line (the heading must not grow taller).
+          if (h.scrollWidth > h.clientWidth + 1 || h.offsetHeight > height + 1) { t.nodeValue = before; tooWide.set(t, before); }
         }
         const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
         let last: Text | null = null;
@@ -52,9 +54,10 @@ export function HeadingWidowGuard({ pathname }: { pathname: string }) {
         if (next === last.nodeValue) return;
         const original = last.nodeValue;
         if (!/[ \t\n]/.test(next.trim())) return;
+        const height = h.offsetHeight;
         last.nodeValue = next;
-        // Never let the joined pair overflow a narrow column.
-        if (h.scrollWidth > h.clientWidth + 1) { last.nodeValue = original; tooWide.set(last, original); }
+        // Never let the joined pair overflow a narrow column or add a line.
+        if (h.scrollWidth > h.clientWidth + 1 || h.offsetHeight > height + 1) { last.nodeValue = original; tooWide.set(last, original); }
       });
       if (pending && retry++ < 80) { timer = window.setTimeout(run, 250); return; }
       document.documentElement.dataset.headingsGlued = "true";

@@ -1,5 +1,6 @@
 import type React from "react";
 import type { ReactNode } from "react";
+import { headingLength, nodeText } from "@/lib/heading-length";
 
 export type HeroSceneImage = { desktop: string; desktopLarge: string; mobile: string; alt: string; position?: string; mobilePosition?: string };
 
@@ -23,7 +24,7 @@ export function HeroScene({ scene, eyebrow, title, description, breadcrumbs, chi
         {breadcrumbs && <div className="hero-scene-crumbs">{breadcrumbs}</div>}
         <div className="hero-panel-copy on-photo">
           {eyebrow && <p className="hero-scene-eyebrow">{eyebrow}</p>}
-          <h1>{title}</h1>
+          <h1 data-len={headingLength(nodeText(title))}>{title}</h1>
           <p className="hero-scene-intro">{description}</p>
           {children && <div className="hero-panel-actions hero-scene-actions">{children}</div>}
         </div>
