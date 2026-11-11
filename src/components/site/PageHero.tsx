@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { HeroScene, type HeroSceneImage } from "@/components/site/HeroScene";
+import { headingLength, nodeText, tagHeroHeadings } from "@/lib/heading-length";
 import { Breadcrumbs, type Crumb } from "@/components/site/Breadcrumbs";
 
 /**
@@ -25,7 +26,7 @@ export function PageHero({ scene, tone = "light", icon: Icon, breadcrumbs, eyebr
       <div className="container-page text-hero-inner">
         {Icon && <Icon className="text-hero-icon" aria-hidden="true" />}
         {eyebrow && <p className="text-hero-eyebrow">{eyebrow}</p>}
-        <h1>{title}</h1>
+        <h1 data-len={headingLength(nodeText(title))}>{title}</h1>
         <p className="text-hero-intro">{description}</p>
         {children && <div className="text-hero-actions">{children}</div>}
       </div>
@@ -36,6 +37,6 @@ export function PageHero({ scene, tone = "light", icon: Icon, breadcrumbs, eyebr
 /** Light text hero for pages whose heading markup is bespoke (guides, FAQ, legal, destinations). */
 export function TextHero({ children }: { children: ReactNode }) {
   return <section className="text-hero text-hero--light">
-    <div className="container-page text-hero-inner">{children}</div>
+    <div className="container-page text-hero-inner">{tagHeroHeadings(children)}</div>
   </section>;
 }

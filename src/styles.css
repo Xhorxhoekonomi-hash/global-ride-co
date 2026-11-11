@@ -404,7 +404,7 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .text-hero .eyebrow, .text-hero-eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; color: var(--teal-dark); }
 .text-hero h1 + p, .text-hero-intro { margin-top: 20px; max-width: 720px; color: var(--muted-foreground); }
 .text-hero-actions { gap: 12px; max-width: 460px; margin-top: 32px; }
-:is(.text-hero, .hero-scene) h1[data-len] { line-height: 1.1; text-wrap: balance; hyphens: auto; overflow-wrap: break-word; max-width: 22ch; }
+:is(.text-hero, .hero-scene) h1[data-len] { line-height: 1.1; text-wrap: balance; hyphens: auto; overflow-wrap: break-word; }
 :is(.text-hero, .hero-scene) h1[data-len="s"] { font-size: var(--fs-hero-s); }
 :is(.text-hero, .hero-scene) h1[data-len="m"] { font-size: var(--fs-hero-m); }
 :is(.text-hero, .hero-scene) h1[data-len="l"] { font-size: var(--fs-hero-l); }
