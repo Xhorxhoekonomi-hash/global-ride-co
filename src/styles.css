@@ -374,11 +374,13 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
   .hero-panel-slide img { object-position: var(--hero-pos, 50% 55%); }
   .hero-panel-copy { padding-inline: 2rem; }
   /* Tablet/desktop: dark copy column left, photo right, never overlapping. */
-  .hero-scene .hero-panel-slide { display: grid; grid-template-columns: minmax(400px, 40%) 1fr; min-height: clamp(520px, 72svh, 820px); padding-top: var(--header-h); background: var(--graphite); }
+  .hero-scene .hero-panel-slide { display: grid; grid-template-columns: minmax(420px, 50%) 1fr; min-height: clamp(520px, 72svh, 820px); padding-top: var(--header-h); background: var(--graphite); }
   .hero-scene .hero-panel-slide picture { position: relative; grid-column: 2; grid-row: 1; aspect-ratio: auto; height: 100%; }
   .hero-scene .hero-panel-copy { grid-column: 1; grid-row: 1; justify-content: center; padding: 72px 40px 48px max(2rem, calc((100vw - 1336px) / 2)); }
   .hero-scene-crumbs { padding-inline: max(2rem, calc((100vw - 1336px) / 2)); }
   .hero-scene .hero-panel-copy :is(h1, h2) { max-width: none; }
+  /* Split hero copy column is half the width: same length buckets, scaled to the column. */
+  .hero-scene { --fs-hero-s: clamp(40px, 3.6vw, 56px); --fs-hero-m: clamp(32px, 2.8vw, 42px); --fs-hero-l: clamp(28px, 2.3vw, 34px); }
 }
 
 /* ================================================================
@@ -404,10 +406,10 @@ select.form-control, .route-finder-field select { appearance: none; padding-righ
 .text-hero .eyebrow, .text-hero-eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; color: var(--teal-dark); }
 .text-hero h1 + p, .text-hero-intro { margin-top: 20px; max-width: 720px; color: var(--muted-foreground); }
 .text-hero-actions { gap: 12px; max-width: 460px; margin-top: 32px; }
-:is(.text-hero, .hero-scene) h1[data-len] { line-height: 1.1; text-wrap: balance; hyphens: auto; overflow-wrap: break-word; }
-:is(.text-hero, .hero-scene) h1[data-len="s"] { font-size: var(--fs-hero-s); }
-:is(.text-hero, .hero-scene) h1[data-len="m"] { font-size: var(--fs-hero-m); }
-:is(.text-hero, .hero-scene) h1[data-len="l"] { font-size: var(--fs-hero-l); }
+h1[data-len] { max-width: none; line-height: 1.1; text-wrap: balance; hyphens: auto; overflow-wrap: break-word; }
+h1[data-len="s"] { font-size: var(--fs-hero-s); }
+h1[data-len="m"] { font-size: var(--fs-hero-m); }
+h1[data-len="l"] { font-size: var(--fs-hero-l); }
 .text-hero-icon { width: 44px; height: 44px; margin-bottom: 20px; color: var(--teal-glow); stroke-width: 1.5; }
 
 /* Body pattern: flat 12px cards on #F4F4F4, white when the section itself is grey */

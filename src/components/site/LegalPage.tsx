@@ -1,3 +1,4 @@
+import { headingLength, nodeText } from "@/lib/heading-length";
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
@@ -17,7 +18,7 @@ export function LegalPage({ crumb, title, updated, intro, sections, note }: {
         <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="eyebrow">Ligjore</div>
-            <h1 className="mt-3 text-navy">{title}</h1>
+            <h1 className="mt-3 text-navy" data-len={headingLength(nodeText(title))}>{title}</h1>
             <p className="mt-3 text-sm text-slate-body">{updated}</p>
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
               <div className="rounded-xl border border-border bg-card p-6"><p>{intro}</p></div>
