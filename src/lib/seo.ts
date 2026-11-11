@@ -25,6 +25,13 @@ export function absUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/**
+ * React's server renderer writes hoisted <link> props verbatim, while the client warns on a lowercase
+ * `hreflang` prop. Use the lowercase name on the server (HTML output stays `hreflang="…"`) and the
+ * React DOM name in the browser, where it is written to the same `hreflang` attribute.
+ */
+const HREFLANG_KEY = typeof window === "undefined" ? "hreflang" : "hrefLang";
+
 export function buildHead(opts: HeadOpts): {
   meta: MetaEntry[];
   links: MetaEntry[];
@@ -62,11 +69,11 @@ export function buildHead(opts: HeadOpts): {
   }
   if (opts.hreflang) {
     for (const alt of opts.hreflang) {
-      links.push({ rel: "alternate", hrefLang: alt.lang, href: absUrl(alt.path) });
+      links.push({ rel: "alternate", [HREFLANG_KEY]: alt.lang, href: absUrl(alt.path) });
     }
   }
   if (opts.xDefault) {
-    links.push({ rel: "alternate", hrefLang: "x-default", href: absUrl(opts.xDefault) });
+    links.push({ rel: "alternate", [HREFLANG_KEY]: "x-default", href: absUrl(opts.xDefault) });
   }
 
   return { meta, links };

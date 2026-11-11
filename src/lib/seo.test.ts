@@ -17,7 +17,7 @@ test("an Albanian page pairs back to English with English x-default", () => {
 
 test("heads that declare no alternates get en, sq and x-default", () => {
   const { links } = buildHead({ title: "t", description: "d", path: "/container-shipping" });
-  assert.deepEqual(links.filter((l) => l.rel === "alternate").map((l) => l.hrefLang), ["en", "sq", "x-default"]);
+  assert.deepEqual(links.filter((l) => l.rel === "alternate").map((l) => l.hreflang), ["en", "sq", "x-default"]);
 });
 
 test("the office graph uses the owner's verified Google Maps details", () => {
