@@ -90,7 +90,7 @@ export const OFFICES = [
     country: "Albania",
     countryCode: "AL",
     role: "European & Albanian Operations",
-    phones: ["+355 69 223 3416", "+355 69 301 2101", "+355 69 294 0040"],
+    phones: ["+355 69 223 3416", "+355 69 301 2101"],
   },
 ] as const;
 
@@ -98,7 +98,7 @@ export const OFFICES = [
 export const CONTACT = {
   location: "Durrës, Albania",
   email: "info@alphaworldwidealbania.com",
-  phones: ["+355 69 223 3416", "+355 69 301 2101", "+355 69 294 0040"],
+  phones: ["+355 69 223 3416", "+355 69 301 2101"],
   uae: "+971 50 630 4486",
   hours: "Monday–Friday, 9:00 AM – 5:00 PM",
   whatsapp: "355692233416",
