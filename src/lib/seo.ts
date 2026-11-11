@@ -62,11 +62,11 @@ export function buildHead(opts: HeadOpts): {
   }
   if (opts.hreflang) {
     for (const alt of opts.hreflang) {
-      links.push({ rel: "alternate", hreflang: alt.lang, href: absUrl(alt.path) });
+      links.push({ rel: "alternate", hrefLang: alt.lang, href: absUrl(alt.path) });
     }
   }
   if (opts.xDefault) {
-    links.push({ rel: "alternate", hreflang: "x-default", href: absUrl(opts.xDefault) });
+    links.push({ rel: "alternate", hrefLang: "x-default", href: absUrl(opts.xDefault) });
   }
 
   return { meta, links };
