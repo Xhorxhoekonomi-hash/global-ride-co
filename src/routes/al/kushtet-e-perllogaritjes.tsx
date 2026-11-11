@@ -1,3 +1,4 @@
+import { headingLength } from "@/lib/heading-length";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -23,7 +24,7 @@ function KushtetPerllogaritjes() {
         <div className="container-page section-y">
           <div className="mx-auto max-w-3xl">
             <div className="eyebrow">Ligjore</div>
-            <h1 className="mt-3 text-navy">Kushtet e përllogaritjes së transportit</h1>
+            <h1 className="mt-3 text-navy" data-len={headingLength("Kushtet e përllogaritjes së transportit")}>Kushtet e përllogaritjes së transportit</h1>
             <p className="mt-3 text-sm text-slate-body">Përditësuar së fundi: gusht 2026</p>
             <div className="mt-10 space-y-8 text-sm leading-relaxed text-slate-body">
               <div className="rounded-xl border border-border bg-card p-6">
