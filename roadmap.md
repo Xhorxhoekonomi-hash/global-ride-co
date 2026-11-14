@@ -1,4 +1,5 @@
 # Build recovery
+- [x] Approved Korea update: method-specific Albania prices, EN/SQ choices and copy; 48 browser price/total/WhatsApp cases, reset checks, 98 tests and automatic build OK; no publishing.
 - [x] Remove incompatible entities aliases; automatic build OK and all 17 existing tests pass; nothing published.
 
 # Airport pages and keyword completeness
