@@ -112,7 +112,7 @@ const FAQS = [
   { q: "Is the pre-purchase inspection free?", a: "Free pre-purchase inspection is available for eligible vehicles selected through Alpha Worldwide, subject to vehicle location, seller access and inspection availability." },
   { q: "What does the inspection actually check?", a: "Exterior and interior condition, engine and transmission observations, visible leaks, painted-panel observations, an OBD scan where accessible, photos and video, and a review of seller and vehicle documents. The inspection reflects the vehicle's visible and accessible condition at the time of inspection and does not guarantee the absence of hidden or future defects." },
   { q: "Where can you ship to?", a: "Albania, the Netherlands (via our dedicated Rotterdam route), Germany, Belgium, France, and other European destinations on request." },
-  { q: "RoRo or container — which should I choose?", a: "RoRo is generally more economical and suits standard vehicles. Container shipping offers full enclosure and is better suited to higher-value or modified vehicles." },
+  { q: "RoRo or container — which should I choose?", a: "For Albania, choose RoRo or shared container shipping (4 cars per container). RoRo vehicles are driven on and off the vessel; shared container shipping offers full enclosure. Compare both prices in the calculator." },
   { q: "Do you handle customs clearance?", a: "We coordinate customs paperwork with licensed local agents at the destination port. Customs values, tax amounts, and clearance decisions are determined by the relevant customs authority, not by Alpha Worldwide." },
 ];
 

@@ -110,16 +110,11 @@ export const PLATFORM_BADGES_LABELS_AL = {
 
 import type { CalculatorDict, CalculatorFAQ } from "@/components/calculator/dict";
 
-export const KOREA_INCLUDES_AL: string[] = [
-  "Tërheqja lokale në Korenë e Jugut",
-  "Dokumentacioni i eksportit",
-  "Transport detar me RoRo",
-  "Tarifa e shërbimit të Alpha Worldwide",
-];
+export { KOREA_INCLUDES_SQ as KOREA_INCLUDES_AL } from "@/data/koreaShipping";
 
 export const CALCULATOR_FAQS_AL: CalculatorFAQ[] = [
   { q: "Si llogaritet përllogaritja për transportin nga SHBA-ja?", a: "Kombinojmë tarifën reale të transportit tokësor nga vendndodhja e ankandit deri në terminalin më të afërt të eksportit, shkallën e plotë të tarifave të blerësit të Copart/IAAI për ofertën tuaj fituese, dhe tarifën e transportit detar për atë rrugë — të gjitha nga tabelat që përdor ekipi ynë." },
-  { q: "Si llogaritet përllogaritja për transportin nga Koreja e Jugut?", a: "Koreja e Jugut përdor një çmim të fiksuar 'all-in' sipas llojit të automjetit dhe destinacionit, duke mbuluar tërheqjen lokale, dokumentacionin e eksportit dhe transportin detar RoRo — kështu që përllogaritja është më e thjeshtë dhe nuk kërkon ndarje të veçantë të tarifave." },
+  { q: "Si llogaritet përllogaritja për transportin nga Koreja e Jugut?", a: "Nga Koreja e Jugut drejt Shqipërisë ofrohet RoRo ose kontenier i përbashkët, me një çmim të fiksuar që përfshin tërheqjen lokale kudo në Korenë e Jugut, dokumentacionin e eksportit, transportin detar dhe tarifën e shërbimit të Alpha Worldwide. Gjermania dhe Holanda mbeten vetëm me RoRo." },
   { q: "Çfarë përfshihet në përllogaritje?", a: "Transporti tokësor (SHBA-ja), tarifat e ankandit (SHBA-ja), transporti detar dhe shkarkimi në portin e destinacionit. Për Korenë e Jugut, tërheqja dhe dokumentacioni i eksportit janë të përfshira në një çmim të fiksuar." },
   { q: "Çfarë nuk përfshihet në përllogaritje?", a: "Taksat doganore dhe importi nuk përfshihen në asnjë nga kalkulatorët, sepse varen nga rregullat e vendit të destinacionit dhe nga vlera e deklaruar e automjetit. Ne ju ndihmojmë t'i konfirmoni pasi të dimë destinacionin." },
   { q: "Pse mund të ndryshojë çmimi im final nga përllogaritja?", a: "Përmasat e automjetit, gjendja, kërkesat e sakta të ngarkimit dhe oraret aktuale të transportuesve mund të ndikojnë në çmimin final. Kalkulatori jep një përllogaritje reale të detajuar — menaxheri i rastit konfirmon shifrën përfundimtare para rezervimit." },
@@ -139,7 +134,7 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
     usaTitle: "Përllogaritja për SHBA-në",
     usaBody: "Kombinon tarifën reale të transportit tokësor nga vendndodhja e ankandit deri në terminalin më të afërt të eksportit, shkallën e plotë të tarifave të blerësit të Copart/IAAI për ofertën fituese, dhe tarifën e transportit detar për atë rrugë.",
     koreaTitle: "Përllogaritja për Korenë e Jugut",
-    koreaBody: "Një çmim i fiksuar 'all-in' sipas llojit të automjetit dhe destinacionit — që bashkon tërheqjen lokale, dokumentacionin e eksportit dhe transportin detar RoRo në një shifër të vetme.",
+    koreaBody: "Shqipëria ofron RoRo ose kontenier të përbashkët — me tërheqje lokale kudo në Korenë e Jugut, dokumentacion eksporti, transport detar dhe tarifën e shërbimit të Alpha Worldwide në një çmim të fiksuar. Gjermania dhe Holanda mbeten vetëm me RoRo.",
   },
   included: {
     title: "Çfarë përfshihet",
@@ -256,7 +251,6 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
   korea: {
     step1: {
       title: "Lloji i automjetit",
-      roroTag: "Transporti me RoRo — i përfshirë në çmimin e fiksuar",
       types: [
         { value: "Sedan/Coupe", label: "Sedan/Kupe" },
         { value: "SUV/Minivan", label: "SUV/Minivan" },
@@ -275,12 +269,16 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
         { value: "Netherlands", code: "NL", label: "Holandë", port: "Porti i Rotterdamit" },
       ],
     },
+    step4: { title: "Metoda e transportit", methods: [
+      { value: "roro", label: "RoRo", body: "Hyn dhe del nga anija me lëvizjen e vet" },
+      { value: "container", label: "Kontenier", body: "Kontenier i përbashkët, 4 makina" },
+    ] },
     breakdown: {
-      title: (d) => `Detajimi i kostos — Koreja e Jugut → ${d}`,
+      title: (d, m) => `Transport i fiksuar — ${m} drejt ${d}`,
       vehicleLine: (t) => `Automjeti: ${t}`,
       vehiclePrice: "Çmimi i automjetit",
       allInTitle: "Paketa 'all-in' e transportit",
-      fixedShipping: "Çmimi i fiksuar i transportit",
+      fixedShipping: (d, m) => `Transport i fiksuar — ${m} drejt ${d}`,
       plusShipping: "+ Transporti 'all-in'",
       estimatedTotal: "Totali i përllogaritur",
       notes: {
@@ -288,12 +286,13 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
         estimatesWarning: "Vetëm përllogaritje. Konfirmohet nga ekipi.",
       },
     },
-    emptyState: "Plotësoni llojin e automjetit, çmimin dhe destinacionin për të parë detajimin e kostos.",
+    emptyState: "Plotësoni llojin e automjetit, çmimin dhe destinacionin, pastaj zgjidhni metodën e transportit për Shqipërinë për të parë detajimin e kostos.",
     requestOnWhatsApp: "Kërko këtë ofertë në WhatsApp",
     requestFullQuote: "Kërko një ofertë të plotë →",
     wa: {
       greeting: "Përshëndetje Alpha Worldwide,",
       resultLead: (d) => `Rezultati im nga kalkulatori — Koreja e Jugut → ${d}`,
+      shippingMethod: "Metoda e transportit",
       vehicle: "Automjeti",
       vehiclePrice: "Çmimi i automjetit",
       fixedShipping: "Çmimi i fiksuar i transportit",

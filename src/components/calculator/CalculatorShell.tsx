@@ -7,6 +7,7 @@ import { Link } from "@tanstack/react-router";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UsaCalculator } from "./UsaCalculator";
 import { KoreaCalculator } from "./KoreaCalculator";
+import type { KoreaIncludes } from "@/data/koreaShipping";
 import type { CalculatorDict, CalculatorFAQ } from "./dict";
 import { localPath } from "@/lib/site-data";
 
@@ -21,7 +22,7 @@ export function CalculatorShell({
   faqs: CalculatorFAQ[];
   source: string;
   contactHref: string;
-  koreaIncludes?: string[];
+  koreaIncludes?: KoreaIncludes;
 }) {
   // Read-only prefill from the homepage RouteFinder (?from=usa|korea&to=...). Never alters calculation.
   const [tab, setTab] = useState("usa");

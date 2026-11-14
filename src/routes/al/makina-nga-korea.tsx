@@ -76,7 +76,7 @@ const STEPS_AL = [
   { n: 3, title: "Verifikimi i historikut", body: "Shqyrtojmë historikun e automjetit, dokumentet e shitësit dhe të dhënat e serviesit." },
   { n: 4, title: "Blerja e sigurt", body: "Kryejmë procesin e plotë të blerjes — dokumentacion i saktë dhe rrugë të sigurta pagese." },
   { n: 5, title: "Transporti brenda Koresë", body: "Automjeti transportohet nga vendndodhja e shitësit deri në portin e eksportit — zakonisht Busan ose Incheon." },
-  { n: 6, title: "Zgjedhja: kontenier ose RoRo", body: "Zgjidhet metoda e transportit detar në varësi të llojit të automjetit dhe disponueshmërisë operative — RoRo nuk është gjithmonë e disponueshme për çdo rrugë." },
+  { n: 6, title: "Zgjedhja: kontenier ose RoRo", body: "Drejt Shqipërisë zgjidhni RoRo ose kontenier të përbashkët (4 makina për kontenier), sipas llojit të automjetit dhe preferencës suaj." },
   { n: 7, title: "Dokumentacioni i eksportit", body: "Përgatitja e dokumentacionit të eksportit para ngarkimit në anije." },
   { n: 8, title: "Transporti detar drejt Durrësit", body: "Transport detar deri në Portin e Durrësit." },
   { n: 9, title: "Doganë dhe dorëzimi përfundimtar", body: "Koordinojmë dokumentacionin doganor me agjentë të licencuar dhe organizojmë dorëzimin sipas kërkesës suaj." },
@@ -112,7 +112,7 @@ const FAQS_AL = [
   { q: "Nga cilat platforma koreane mund të blej një automjet?", a: "Alpha Worldwide ju ndihmon të blini automjete nga Encar, Autowini, KB Chachacha dhe nga shitës të përzgjedhur në Korenë e Jugut." },
   { q: "Sa e plotë është inspektimi për një automjet nga Koreja?", a: "Për automjetet e përzgjedhura në Korenë e Jugut, Alpha Worldwide mund të organizojë inspektim para blerjes me fotografi, video dhe kontroll teknik. Shtrirja e inspektimit varet nga vendndodhja, aksesi te automjeti dhe shërbimi i kërkuar — jo çdo shpallje mund të inspektohet automatikisht." },
   { q: "Çfarë kontrollohet gjatë inspektimit?", a: "Inspektimi mbulon gjendjen e jashtme dhe të brendshme, vëzhgime për motorin dhe kutinë e shpejtësisë, rrjedhjet e dukshme, panelet e ripikturuara, një skanim OBD kur është i aksesueshëm, foto dhe video, si dhe një shqyrtim të dokumenteve. Inspektimi pasqyron gjendjen e dukshme dhe të aksesueshme në momentin e kontrollit dhe nuk garanton mungesën e defekteve të fshehura ose të ardhshme." },
-  { q: "A duhet të zgjedh kontenier apo RoRo?", a: "Transporti me kontenier është zgjedhja e zakonshme drejt Durrësit dhe ofron mbrojtje të plotë. RoRo është një opsion i mundshëm, por disponueshmëria varet nga porti i origjinës, orari i anijes dhe rruga — nuk është gjithmonë e disponueshme. Ne ju konfirmojmë opsionet reale për automjetin tuaj." },
+  { q: "A duhet të zgjedh kontenier apo RoRo?", a: "Drejt Shqipërisë ofrohet RoRo ose kontenier i përbashkët (4 makina për kontenier). Me RoRo automjeti hyn dhe del nga anija me lëvizjen e vet; kontenieri i përbashkët ofron mbrojtje të plotë. Krahasoni të dy çmimet në kalkulator." },
   { q: "Sa kohë zgjat transporti nga Koreja e Jugut në Shqipëri?", a: "Koha e transportit varet nga porti i eksportit (zakonisht Busan ose Incheon), metoda e transportit dhe orari i anijes. Ju japim një afat të përafërt të konfirmuar përpara rezervimit." },
   { q: "Kush e koordinon zhdoganimin kur mbërrin automjeti nga Koreja?", a: "Koordinojmë dokumentacionin doganor me agjentë të licencuar në Portin e Durrësit — pavarësisht nëse automjeti vjen nga Koreja e Jugut apo nga një origjinë tjetër. Vlerat doganore dhe taksat përcaktohen nga autoriteti doganor, jo nga Alpha Worldwide." },
 ];
@@ -204,7 +204,7 @@ function MakinaNgaKorea() {
               </div>
               <h3 className="mt-4 text-secondary">Transport me kontenier</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Zgjidhja e zakonshme drejt Durrësit. Ofron mbrojtje të plotë dhe është e përshtatshme për automjete me vlerë të lartë ose të modifikuara.
+                Kontenier i përbashkët drejt Durrësit, me 4 makina për kontenier. Ofron mbrojtje të plotë dhe të njëjtin çmim transporti për çdo lloj automjeti.
               </p>
             </div>
             <div className="rounded-lg border border-border bg-card p-7 shadow-card">
@@ -213,7 +213,7 @@ function MakinaNgaKorea() {
               </div>
               <h3 className="mt-4 text-secondary">Transport me RoRo</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                RoRo mund të jetë një opsion më ekonomik për automjete standarde, por disponueshmëria varet nga rruga dhe orari i anijes. Ju konfirmojmë opsionet reale.
+                RoRo drejt Shqipërisë: automjeti hyn dhe del nga anija me lëvizjen e vet. Çmimi varet nga lloji i automjetit; krahasoni RoRo me kontenierin e përbashkët në kalkulator.
               </p>
             </div>
           </div>

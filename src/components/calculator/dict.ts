@@ -2,6 +2,7 @@
 // lives in src/lib/i18n-al.ts as CALCULATOR_DICT_AL. Both must implement
 // the same CalculatorDict shape — missing keys are a build error.
 
+import { KOREA_INCLUDES, type KoreaMethod, type KoreaVehicleType } from "@/data/koreaShipping";
 import type { Destination } from "@/data/oceanFreight";
 
 export type CalculatorFAQ = { q: string; a: string };
@@ -9,7 +10,7 @@ export type CalculatorFAQ = { q: string; a: string };
 export type RelatedLink = { to: string; label: string };
 
 export type SizeOption = { value: "Sedan/Standard" | "Large SUV/Truck" | "Oversized"; title: string; body: string };
-export type KoreaType = "Sedan/Coupe" | "SUV/Minivan" | "Oversized";
+export type KoreaType = KoreaVehicleType;
 export type KoreaTypeOption = { value: KoreaType; label: string };
 export type DestinationOption = { value: Destination; code: string; label: string; port: string };
 
@@ -95,15 +96,16 @@ export type CalculatorDict = {
     };
   };
   korea: {
-    step1: { title: string; roroTag: string; types: KoreaTypeOption[] };
+    step1: { title: string; types: KoreaTypeOption[] };
     step2: { title: string; helper: (converted: string) => string };
     step3: { title: string; destinations: DestinationOption[] };
+    step4: { title: string; methods: { value: KoreaMethod; label: string; body: string }[] };
     breakdown: {
-      title: (destination: string) => string;
+      title: (destination: string, method: string) => string;
       vehicleLine: (type: string) => string;
       vehiclePrice: string;
       allInTitle: string;
-      fixedShipping: string;
+      fixedShipping: (destination: string, method: string) => string;
       plusShipping: string;
       estimatedTotal: string;
       notes: { customsWarning: string; estimatesWarning: string };
@@ -114,6 +116,7 @@ export type CalculatorDict = {
     wa: {
       greeting: string;
       resultLead: (destination: string) => string;
+      shippingMethod: string;
       vehicle: string;
       vehiclePrice: string;
       fixedShipping: string;
@@ -125,16 +128,9 @@ export type CalculatorDict = {
   };
 };
 
-const KOREA_INCLUDES_EN = [
-  "Local pickup in South Korea",
-  "Export documentation",
-  "RoRo ocean freight",
-  "Alpha Worldwide service fee",
-];
-
 export const CALCULATOR_FAQS_EN: CalculatorFAQ[] = [
   { q: "How is my USA shipping estimate calculated?", a: "We combine the real land-transport rate from your auction location to the nearest export terminal, the full Copart/IAAI buyer-fee bracket for your winning bid, and the ocean-freight rate for that terminal-to-destination route — all from the same tables our team uses internally." },
-  { q: "How is my South Korea shipping estimate calculated?", a: "South Korea uses a fixed all-in price by vehicle type and destination, covering local pickup, export documentation, and RoRo ocean freight — so the estimate is simpler and doesn't require a separate fee breakdown." },
+  { q: "How is my South Korea shipping estimate calculated?", a: "South Korea to Albania offers RoRo or shared container shipping, with a fixed price covering local pickup anywhere in South Korea, export documentation, ocean freight and the Alpha Worldwide service fee. Germany and the Netherlands remain RoRo-only." },
   { q: "What's included in the estimate?", a: "Land transport (USA), auction fees (USA), ocean freight, and destination unloading. The Korea estimate additionally bundles pickup and export documentation into one fixed price." },
   { q: "What's excluded from the estimate?", a: "Customs duties and import taxes are not included in either calculator, since these depend on your destination country's regulations and the vehicle's declared value. We'll help confirm these once we know your destination." },
   { q: "Why might my final price change from the estimate?", a: "Vehicle dimensions, condition, exact loading requirements, and current carrier schedules can all affect the final price. The calculator gives a real, itemized estimate — your case handler confirms the final number before booking." },
@@ -154,7 +150,7 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
     usaTitle: "USA Estimate",
     usaBody: "Combines the real land-transport rate from your auction location to the nearest export terminal, the full Copart/IAAI buyer-fee bracket for your winning bid, and the ocean-freight rate for that route.",
     koreaTitle: "South Korea Estimate",
-    koreaBody: "A fixed all-in price by vehicle type and destination — bundling local pickup, export documentation, and RoRo ocean freight into one figure.",
+    koreaBody: "Albania offers RoRo or shared container shipping — bundling local pickup anywhere in South Korea, export documentation, ocean freight and the Alpha Worldwide service fee into one fixed price. Germany and the Netherlands remain RoRo-only.",
   },
   included: {
     title: "What's Included",
@@ -270,7 +266,6 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
   korea: {
     step1: {
       title: "Vehicle type",
-      roroTag: "RoRo shipping — included in fixed price",
       types: [
         { value: "Sedan/Coupe", label: "Sedan/Coupe" },
         { value: "SUV/Minivan", label: "SUV/Minivan" },
@@ -289,12 +284,16 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
         { value: "Netherlands", code: "NL", label: "Netherlands", port: "Port of Rotterdam" },
       ],
     },
+    step4: { title: "Shipping method", methods: [
+      { value: "roro", label: "RoRo", body: "Driven on and off the vessel" },
+      { value: "container", label: "Container", body: "Shared container, 4 cars" },
+    ] },
     breakdown: {
-      title: (d) => `Cost Breakdown — South Korea → ${d}`,
+      title: (d, m) => `Fixed shipping — ${m} to ${d}`,
       vehicleLine: (t) => `Vehicle: ${t}`,
       vehiclePrice: "Vehicle Price",
       allInTitle: "All-In Shipping Package",
-      fixedShipping: "Fixed Shipping Price",
+      fixedShipping: (d, m) => `Fixed shipping — ${m} to ${d}`,
       plusShipping: "+ All-In Shipping",
       estimatedTotal: "Estimated Total",
       notes: {
@@ -302,12 +301,13 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
         estimatesWarning: "Estimates only. Final confirmed by team.",
       },
     },
-    emptyState: "Complete vehicle type, price, and destination to see your cost breakdown.",
+    emptyState: "Complete vehicle type, price and destination, then choose a shipping method for Albania to see your cost breakdown.",
     requestOnWhatsApp: "Request This Quote on WhatsApp",
     requestFullQuote: "Request Full Quote →",
     wa: {
       greeting: "Hello Alpha Worldwide,",
       resultLead: (d) => `My shipping calculator result — South Korea → ${d}`,
+      shippingMethod: "Shipping method",
       vehicle: "Vehicle",
       vehiclePrice: "Vehicle Price",
       fixedShipping: "Fixed Shipping Price",
@@ -320,5 +320,5 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
 };
 
 export const KOREA_INCLUDES_BY_LOCALE = {
-  en: KOREA_INCLUDES_EN,
+  en: KOREA_INCLUDES,
 };

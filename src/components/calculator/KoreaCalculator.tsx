@@ -6,7 +6,7 @@ import { AlertTriangle, Check, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
-import { KOREA_SHIPPING, KOREA_INCLUDES, KRW_TO_EUR_RATE } from "@/data/koreaShipping";
+import { getKoreaShipping, KOREA_METHODS_BY_DESTINATION, KOREA_INCLUDES, KRW_TO_EUR_RATE, type KoreaMethod, type KoreaIncludes } from "@/data/koreaShipping";
 import type { Destination } from "@/data/oceanFreight";
 import { fmtInt } from "./format";
 import { Step, StepReveal, Row } from "./StepUI";
@@ -23,11 +23,12 @@ export function KoreaCalculator({
   dict: CalculatorDict;
   source: string;
   contactHref: string;
-  koreaIncludes?: string[];
+  koreaIncludes?: KoreaIncludes;
   initialDestination?: Destination;
 }) {
   const D = dict.korea;
-  const includes = koreaIncludes ?? KOREA_INCLUDES;
+  const includesByMethod = koreaIncludes ?? KOREA_INCLUDES;
+  const [method, setMethod] = useState<KoreaMethod | null>(null);
 
   const [type, setType] = useState<KoreaType | null>(null);
   const [currency, setCurrency] = useState<"KRW" | "EUR">("KRW");
@@ -38,8 +39,11 @@ export function KoreaCalculator({
   const priceEur = currency === "KRW" ? priceNumber * KRW_TO_EUR_RATE : priceNumber;
   const priceKrw = currency === "EUR" ? priceNumber / KRW_TO_EUR_RATE : priceNumber;
 
-  const ready = !!type && priceNumber > 0 && !!destination;
-  const shippingEur = ready && destination && type ? KOREA_SHIPPING[destination][type] : 0;
+  const effectiveMethod = destination === "Albania" ? method : destination ? "roro" : null;
+  const ready = !!type && priceNumber > 0 && !!destination && !!effectiveMethod;
+  const shippingEur = ready && destination && type && effectiveMethod ? getKoreaShipping(destination, type, effectiveMethod) : 0;
+  const methodLabel = D.step4.methods.find((m) => m.value === effectiveMethod)?.label ?? "";
+  const includes = effectiveMethod ? includesByMethod[effectiveMethod] : [];
   const totalEur = priceEur + shippingEur;
 
   const destinationLabel = (v: Destination): string =>
@@ -52,6 +56,7 @@ export function KoreaCalculator({
       "",
       D.wa.resultLead(destinationLabel(destination)),
       `${D.wa.vehicle}: ${type}`,
+      `${D.wa.shippingMethod}: ${effectiveMethod === "container" ? "Container" : "RoRo"}`,
       "",
       `${D.wa.vehiclePrice}: ₩${fmtInt(priceKrw)} (~€${fmtInt(priceEur)})`,
       `${D.wa.fixedShipping}: €${fmtInt(shippingEur)}`,
@@ -66,7 +71,7 @@ export function KoreaCalculator({
   const onWhatsApp = () => {
     const text = whatsappText();
     if (!text) return;
-    trackEvent("whatsapp_clicked", { source: `${source}-korea` });
+    trackEvent("whatsapp_clicked", { source: `${source}-korea`, method: effectiveMethod });
     window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   };
 
@@ -92,9 +97,6 @@ export function KoreaCalculator({
                 <div className="text-sm font-bold text-secondary">{t.label}</div>
               </Button>
             ))}
-          </div>
-          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary">
-            {D.step1.roroTag}
           </div>
         </Step>
 
@@ -152,7 +154,10 @@ export function KoreaCalculator({
                       key={d.value}
                       type="button"
                       aria-pressed={destination === d.value}
-                       onClick={() => setDestination(d.value)}
+                       onClick={() => {
+                        if (d.value !== destination) setMethod(null);
+                        setDestination(d.value);
+                      }}
                       className={cn(
                         "h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
                         destination === d.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary",
@@ -161,6 +166,27 @@ export function KoreaCalculator({
                       <div className="text-xs font-bold tracking-normal text-primary">{d.code}</div>
                       <div className="mt-2 text-sm font-bold text-secondary">{d.label}</div>
                       <div className="mt-1 text-xs text-muted-foreground">{d.port}</div>
+                    </Button>
+                  ))}
+                </div>
+              </Step>
+            </StepReveal>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {showDest && destination === "Albania" && type && (
+            <StepReveal key="km">
+              <Step n={4} title={D.step4.title}>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {D.step4.methods.filter((m) => KOREA_METHODS_BY_DESTINATION.Albania.includes(m.value)).map((m) => (
+                    <Button variant="ghost" key={m.value} type="button" aria-pressed={method === m.value}
+                      onClick={() => setMethod(m.value)}
+                      className={cn("h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
+                        method === m.value ? "border-primary bg-accent shadow-card" : "border-border bg-card hover:border-primary")}
+                    >
+                      <span className="text-sm font-bold text-secondary">{m.label}</span>
+                      <span className="mt-1 text-xs text-muted-foreground">{m.body}</span>
+                      <span className="mt-3 text-base font-semibold tabular-nums text-primary">{fmtInt(getKoreaShipping("Albania", type, m.value))} EUR</span>
                     </Button>
                   ))}
                 </div>
@@ -182,7 +208,7 @@ export function KoreaCalculator({
               className="overflow-hidden rounded-lg border border-border bg-card shadow-card"
             >
               <div className="border-b border-border p-5">
-                <div className="text-xs font-bold uppercase tracking-normal text-primary">{D.breakdown.title(destinationLabel(destination))}</div>
+                <div className="text-xs font-bold uppercase tracking-normal text-primary">{D.breakdown.title(destinationLabel(destination), methodLabel)}</div>
                 <div className="mt-1 text-xs text-muted-foreground">{D.breakdown.vehicleLine(type)}</div>
               </div>
 
@@ -198,7 +224,7 @@ export function KoreaCalculator({
                       </li>
                     ))}
                   </ul>
-                  <Row label={D.breakdown.fixedShipping} value={`€${fmtInt(shippingEur)}`} bold />
+                  <Row label={D.breakdown.fixedShipping(destinationLabel(destination), methodLabel)} value={`€${fmtInt(shippingEur)}`} bold />
                 </div>
 
                 <div className="border-t border-border bg-accent p-4">
