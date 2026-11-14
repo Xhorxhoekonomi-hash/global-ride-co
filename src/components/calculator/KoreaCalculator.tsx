@@ -71,7 +71,7 @@ export function KoreaCalculator({
   const onWhatsApp = () => {
     const text = whatsappText();
     if (!text) return;
-    trackEvent("whatsapp_clicked", { source: `${source}-korea`, method: effectiveMethod });
+    trackEvent("whatsapp_clicked", { source: `${source}-korea`, method: effectiveMethod ?? "roro" });
     window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   };
 
