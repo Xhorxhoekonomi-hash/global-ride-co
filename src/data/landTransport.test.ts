@@ -2,8 +2,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { LAND_TRANSPORT_TABLE, getLandTransport } from './landTransport';
 
-test('owner-approved USA land table contains exactly 96 locations', () => {
-  assert.equal(Object.keys(LAND_TRANSPORT_TABLE).length, 96);
+test('owner-approved USA land table contains exactly 251 locations', () => {
+  assert.equal(Object.keys(LAND_TRANSPORT_TABLE).length, 251);
+});
+
+test('155 Manheim/Adesa locations follow the original 96 locations', () => {
+  const keys = Object.keys(LAND_TRANSPORT_TABLE);
+  assert.equal(keys.slice(0, 96).filter(key => /^(MANHEIM|ADESA) /.test(key)).length, 0);
+  assert.equal(keys.slice(96).filter(key => /^(MANHEIM|ADESA) /.test(key)).length, 155);
 });
 
 test('no location routes through Indianapolis', () => {
@@ -25,6 +31,10 @@ for (const [key, price, terminal] of [
   ['LONG BEACH CA', 290, 'la'],
   ['ABILENE, TX', 575, 'houston'],
   ['SAVANNAH GA', 300, 'savannah'],
+  ['MANHEIM HOUSTON', 345, 'houston'],
+  ['ADESA INDIANAPOLIS', 700, 'elizabeth'],
+  ['MANHEIM NEW JERSEY', 400, 'elizabeth'],
+  ['ADESA LOS ANGELES', 380, 'la'],
 ] as const) {
   test(`${key} uses approved USD ${price} via ${terminal}`, () => {
     assert.equal(LAND_TRANSPORT_TABLE[key]?.basePrice, price);
