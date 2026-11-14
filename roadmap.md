@@ -1,4 +1,5 @@
 # Build recovery
+- [x] Applied owner-approved 96 USA land rates by parsing supplied block; protected fields unchanged, 8 phone/desktop calculator checks, 110 tests and automatic build OK; nothing published.
 - [x] Approved Korea update: method-specific Albania prices, EN/SQ choices and copy; 48 browser price/total/WhatsApp cases, reset checks, 98 tests and automatic build OK; no publishing.
 - [x] Remove incompatible entities aliases; automatic build OK and all 17 existing tests pass; nothing published.
 
