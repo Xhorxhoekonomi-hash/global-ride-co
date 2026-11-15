@@ -10,6 +10,11 @@ const GA4_ID = import.meta.env.VITE_GA4_ID as string | undefined;
 const CLARITY_ID = import.meta.env.VITE_CLARITY_ID as string | undefined;
 
 export type AnalyticsEventName =
+  | "account_signup_started"
+  | "account_created"
+  | "account_signed_in"
+  | "calculator_locked_viewed"
+  | "calculator_unlocked"
   | "quote_started"
   | "quote_submitted"
   | "whatsapp_clicked"

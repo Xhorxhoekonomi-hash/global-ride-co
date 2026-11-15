@@ -1,4 +1,6 @@
 import type { ComponentType } from 'react'
+import {template as welcome} from './welcome'
+import {template as newAccount} from './new-account'
 import { template as leadNotificationTemplate } from './lead-notification'
 
 export interface TemplateEntry {
@@ -20,4 +22,6 @@ export interface TemplateEntry {
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'lead-notification': leadNotificationTemplate,
+  'welcome': welcome,
+  'new-account': newAccount,
 }

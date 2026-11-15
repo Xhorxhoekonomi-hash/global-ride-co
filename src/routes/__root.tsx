@@ -1,3 +1,4 @@
+import { CustomerSession } from "@/components/account/CustomerSession";
 import { WelcomeScreen } from "@/components/site/WelcomeScreen";
 import { HeadingWidowGuard } from "@/components/site/HeadingWidowGuard";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -134,14 +135,14 @@ function RootComponent() {
 
   if (isUtilityPage) {
     return (
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}><CustomerSession>
         <Outlet />
-      </QueryClientProvider>
+      </CustomerSession></QueryClientProvider>
     );
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}><CustomerSession>
       <WelcomeScreen />
       <HeadingWidowGuard pathname={pathname} />
       <SiteMotion pathname={pathname} guide={isGuideArticle} />
@@ -156,6 +157,6 @@ function RootComponent() {
       <Footer />
       <WhatsAppFloat />
       <StickyActionBar />
-    </QueryClientProvider>
+    </CustomerSession></QueryClientProvider>
   );
 }
