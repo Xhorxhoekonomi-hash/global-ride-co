@@ -65,6 +65,7 @@ import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldw
 import { Route as AccountResetPasswordRouteImport } from './routes/account.reset-password'
 import { Route as AccountSignInRouteImport } from './routes/account.sign-in'
 import { Route as AccountSignUpRouteImport } from './routes/account.sign-up'
+import { Route as AdminCustomersRouteImport } from './routes/admin/customers'
 import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AirfreightAmsterdamSchipholRouteImport } from './routes/airfreight_.amsterdam-schiphol'
@@ -484,6 +485,11 @@ const AccountSignUpRoute = AccountSignUpRouteImport.update({
   id: '/sign-up',
   path: '/sign-up',
   getParentRoute: () => AccountRoute,
+} as any)
+const AdminCustomersRoute = AdminCustomersRouteImport.update({
+  id: '/admin/customers',
+  path: '/admin/customers',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLeadsRoute = AdminLeadsRouteImport.update({
   id: '/admin/leads',
@@ -1267,6 +1273,7 @@ export interface FileRoutesByFullPath {
   '/account/reset-password': typeof AccountResetPasswordRoute
   '/account/sign-in': typeof AccountSignInRoute
   '/account/sign-up': typeof AccountSignUpRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
@@ -1462,6 +1469,7 @@ export interface FileRoutesByTo {
   '/account/reset-password': typeof AccountResetPasswordRoute
   '/account/sign-in': typeof AccountSignInRoute
   '/account/sign-up': typeof AccountSignUpRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/airfreight/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
@@ -1658,6 +1666,7 @@ export interface FileRoutesById {
   '/account/reset-password': typeof AccountResetPasswordRoute
   '/account/sign-in': typeof AccountSignInRoute
   '/account/sign-up': typeof AccountSignUpRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
   '/airfreight_/amsterdam-schiphol': typeof AirfreightAmsterdamSchipholRoute
@@ -1855,6 +1864,7 @@ export interface FileRouteTypes {
     | '/account/reset-password'
     | '/account/sign-in'
     | '/account/sign-up'
+    | '/admin/customers'
     | '/admin/leads'
     | '/admin/login'
     | '/airfreight/amsterdam-schiphol'
@@ -2050,6 +2060,7 @@ export interface FileRouteTypes {
     | '/account/reset-password'
     | '/account/sign-in'
     | '/account/sign-up'
+    | '/admin/customers'
     | '/admin/leads'
     | '/admin/login'
     | '/airfreight/amsterdam-schiphol'
@@ -2245,6 +2256,7 @@ export interface FileRouteTypes {
     | '/account/reset-password'
     | '/account/sign-in'
     | '/account/sign-up'
+    | '/admin/customers'
     | '/admin/leads'
     | '/admin/login'
     | '/airfreight_/amsterdam-schiphol'
@@ -2438,6 +2450,7 @@ export interface RootRouteChildren {
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   VehicleSourcingRoute: typeof VehicleSourcingRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
+  AdminCustomersRoute: typeof AdminCustomersRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AirfreightAmsterdamSchipholRoute: typeof AirfreightAmsterdamSchipholRoute
@@ -2967,6 +2980,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/account/sign-up'
       preLoaderRoute: typeof AccountSignUpRouteImport
       parentRoute: typeof AccountRoute
+    }
+    '/admin/customers': {
+      id: '/admin/customers'
+      path: '/admin/customers'
+      fullPath: '/admin/customers'
+      preLoaderRoute: typeof AdminCustomersRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/leads': {
       id: '/admin/leads'
@@ -4015,6 +4035,7 @@ const rootRouteChildren: RootRouteChildren = {
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   VehicleSourcingRoute: VehicleSourcingRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
+  AdminCustomersRoute: AdminCustomersRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
   AirfreightAmsterdamSchipholRoute: AirfreightAmsterdamSchipholRoute,
