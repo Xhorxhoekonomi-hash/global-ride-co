@@ -28,8 +28,9 @@ export function CalculatorShell({
   const [tab, setTab] = useState("usa");
   const [prefill, setPrefill] = useState<ReturnType<typeof calculatorPrefill>>({});
   useEffect(() => {
+    const savedTab=sessionStorage.getItem("alpha-calculator-tab");
     const p = calculatorPrefill(new URLSearchParams(window.location.search));
-    if (p.tab) setTab(p.tab);
+    if (savedTab === "usa" || savedTab === "korea") setTab(savedTab); else if (p.tab) setTab(p.tab);
     setPrefill(p);
   }, []);
   return (
@@ -38,7 +39,7 @@ export function CalculatorShell({
 
       <section className="bg-background">
         <div className="container-page pb-16 pt-2 md:pb-20">
-          <Tabs value={tab} onValueChange={setTab} className="calculator-shell">
+          <Tabs value={tab} onValueChange={v=>{setTab(v);sessionStorage.setItem("alpha-calculator-tab",v);}} className="calculator-shell">
             <TabsList className="segmented">
               <TabsTrigger value="usa" className="segmented-item">
                 {dict.tabs.usa}

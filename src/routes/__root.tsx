@@ -1,3 +1,4 @@
+import { CustomerSession } from "@/components/account/CustomerSession";
 import { WelcomeScreen } from "@/components/site/WelcomeScreen";
 import { HeadingWidowGuard } from "@/components/site/HeadingWidowGuard";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -130,18 +131,19 @@ function RootComponent() {
   const isUtilityPage = pathname.startsWith("/admin");
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const isGuideArticle = /^\/(al\/udhezues|guides)\/[^/]+$/.test(normalized);
-  const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized) && !PAGES_WITH_OWN_END_CTA.has(normalized);
+  const isAccountPage = normalized.startsWith("/account") || normalized.startsWith("/al/llogaria");
+  const showCtaBand = !isAccountPage && !["/", "/al", "/contact", "/al/kontakt"].includes(normalized) && !PAGES_WITH_OWN_END_CTA.has(normalized);
 
   if (isUtilityPage) {
     return (
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}><CustomerSession>
         <Outlet />
-      </QueryClientProvider>
+      </CustomerSession></QueryClientProvider>
     );
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}><CustomerSession>
       <WelcomeScreen />
       <HeadingWidowGuard pathname={pathname} />
       <SiteMotion pathname={pathname} guide={isGuideArticle} />
@@ -154,8 +156,8 @@ function RootComponent() {
         {showCtaBand && <CtaBand locale={pathname.startsWith("/al") ? "sq" : "en"} />}
       </main>
       <Footer />
-      <WhatsAppFloat />
-      <StickyActionBar />
-    </QueryClientProvider>
+      {!isAccountPage && <WhatsAppFloat />}
+      {!isAccountPage && <StickyActionBar />}
+    </CustomerSession></QueryClientProvider>
   );
 }

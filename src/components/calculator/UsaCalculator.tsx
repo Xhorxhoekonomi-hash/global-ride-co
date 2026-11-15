@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Car, Check, ChevronsUpDown, Container, MessageCircle, Truck, Zap, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,9 +8,15 @@ import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { LAND_TRANSPORT_TABLE, getLandTransport, type VehicleSize } from "@/data/landTransport";
-import { UNLOADING_FEES, getOceanFreight, type Destination } from "@/data/oceanFreight";
-import { calculateAllAuctionFees } from "@/data/auctionFees";
+import type { VehicleSize } from "@/data/landTransport";
+import { AUCTION_LOCATIONS as LAND_TRANSPORT_TABLE } from "./locations";
+import { useCustomer } from "@/components/account/CustomerSession";
+import { LockedResult } from "@/components/account/LockedResult";
+import { canSeePrices } from "@/lib/customer/validation";
+import { getQuote } from "@/lib/customer/customer.functions";
+import type { calculateUsa } from "@/lib/customer/calculate.server";
+import type { Destination } from "@/data/oceanFreight";
+
 import { fmt, toTitle, USD_TO_EUR } from "./format";
 import { Step, StepReveal, Row } from "./StepUI";
 import type { CalculatorDict } from "./dict";
@@ -34,14 +40,16 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
   const bidNumber = parseFloat(bid) || 0;
   const ready = !!location && !!size && bidNumber > 0 && !!destination;
 
-  const land = location && size ? getLandTransport(location, size) : null;
-  const fees = ready ? calculateAllAuctionFees(bidNumber, isEV) : null;
-  const ocean = land && destination && size ? getOceanFreight(land.terminal, destination, size) : 0;
-  const unloading = destination ? UNLOADING_FEES[destination] : null;
-
-  const totalUsd =
-    ready && land && fees && unloading ? bidNumber + fees.total + land.finalCost + ocean + unloading.amount : 0;
-  const totalEur = totalUsd * USD_TO_EUR;
+  const {user} = useCustomer();
+  const unlocked = canSeePrices(user);
+  const [result,setResult] = useState<ReturnType<typeof calculateUsa>|null>(null);
+  const [resultError,setResultError] = useState('');
+  const [restored,setRestored] = useState(false);
+  useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-usa')??'null');if(v){setLocation(v.location);setSize(v.size);setIsEV(v.isEV);setBid(v.bid);setDestination(v.destination);}}catch{}setRestored(true);},[]);
+  useEffect(()=>{if(restored)sessionStorage.setItem('alpha-calculator-usa',JSON.stringify({location,size,isEV,bid,destination}));},[location,size,isEV,bid,destination,restored]);
+  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!location||!size||!destination)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'usa',inputs:{location,size,isEV,bid:bidNumber,destination}}}).then(v=>{if(active&&v.tab==='usa'&&'land' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'usa'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,location,size,isEV,bidNumber,destination,ready]);
+  const land=unlocked?result?.land:null,fees=unlocked?result?.fees:null,ocean=unlocked?result?.ocean??0:0,unloading=unlocked?result?.unloading:null;
+  const totalUsd=unlocked?result?.totalUsd??0:0,totalEur=unlocked?result?.totalEur??0:0;
 
   const destinationLabel = (v: Destination): string =>
     D.step4.destinations.find((d) => d.value === v)?.label ?? v;
@@ -184,7 +192,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
                     >
                       <input type="checkbox" checked={isEV} onChange={(e) => setIsEV(e.target.checked)} className="h-4 w-4 accent-primary" />
                       <Zap className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium text-secondary">{D.step2.evLabel}</span>
+                      <span className="text-sm font-medium text-secondary">{unlocked ? D.step2.evLabel : D.step2.evLabel.replace(/\s*\([^)]*[+$€][^)]*\)/g, "")}</span>
                     </motion.label>
                   )}
                 </AnimatePresence>
@@ -246,7 +254,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
 
       <div className="lg:sticky lg:top-24">
         <AnimatePresence mode="wait">
-          {ready && land && fees && unloading && destination && selectedLoc ? (
+          {ready && !unlocked ? <LockedResult sq={contactHref.startsWith("/al")} /> : ready && land && fees && unloading && destination && selectedLoc ? (
             <motion.div
               key="result"
               initial={{ opacity: 0, height: 0 }}
@@ -336,7 +344,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
               exit={{ opacity: 0 }}
               className="rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground"
             >
-              {D.emptyState}
+              {resultError || (ready && unlocked ? (contactHref.startsWith("/al") ? "Duke përllogaritur…" : "Calculating…") : D.emptyState)}
             </motion.div>
           )}
         </AnimatePresence>

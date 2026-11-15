@@ -110,7 +110,7 @@ export const PLATFORM_BADGES_LABELS_AL = {
 
 import type { CalculatorDict, CalculatorFAQ } from "@/components/calculator/dict";
 
-export { KOREA_INCLUDES_SQ as KOREA_INCLUDES_AL } from "@/data/koreaShipping";
+export { KOREA_INCLUDES_SQ as KOREA_INCLUDES_AL } from "@/components/calculator/korea-public";
 
 export const CALCULATOR_FAQS_AL: CalculatorFAQ[] = [
   { q: "Si llogaritet përllogaritja për transportin nga SHBA-ja?", a: "Kombinojmë tarifën reale të transportit tokësor nga vendndodhja e ankandit deri në terminalin më të afërt të eksportit, shkallën e plotë të tarifave të blerësit të Copart/IAAI për ofertën tuaj fituese, dhe tarifën e transportit detar për atë rrugë — të gjitha nga tabelat që përdor ekipi ynë." },

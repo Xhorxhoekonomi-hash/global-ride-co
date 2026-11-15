@@ -1,12 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Check, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
-import { getKoreaShipping, KOREA_METHODS_BY_DESTINATION, KOREA_INCLUDES, KRW_TO_EUR_RATE, type KoreaMethod, type KoreaIncludes } from "@/data/koreaShipping";
+import type { KoreaMethod, KoreaIncludes } from "@/data/koreaShipping";
+import { KOREA_INCLUDES, KRW_TO_EUR_RATE } from "./korea-public";
+import { useCustomer } from "@/components/account/CustomerSession";
+import { LockedResult } from "@/components/account/LockedResult";
+import { canSeePrices } from "@/lib/customer/validation";
+import { getQuote, koreaMethodPrices } from "@/lib/customer/customer.functions";
+import type { calculateKorea } from "@/lib/customer/calculate.server";
 import type { Destination } from "@/data/oceanFreight";
 import { fmtInt } from "./format";
 import { Step, StepReveal, Row } from "./StepUI";
@@ -41,10 +47,19 @@ export function KoreaCalculator({
 
   const effectiveMethod = destination === "Albania" ? method : destination ? "roro" : null;
   const ready = !!type && priceNumber > 0 && !!destination && !!effectiveMethod;
-  const shippingEur = ready && destination && type && effectiveMethod ? getKoreaShipping(destination, type, effectiveMethod) : 0;
+  const {user}=useCustomer();const unlocked=canSeePrices(user);
+  const [result,setResult]=useState<ReturnType<typeof calculateKorea>|null>(null);
+  const [methodPrices,setMethodPrices]=useState<{roro:number;container:number}|null>(null);
+  const [resultError,setResultError]=useState('');
+  const [restored,setRestored]=useState(false);
+  useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-korea')??'null');if(v){setType(v.type);setCurrency(v.currency);setPrice(v.price);setDestination(v.destination);setMethod(v.method);}}catch{}setRestored(true);},[]);
+  useEffect(()=>{if(restored)sessionStorage.setItem('alpha-calculator-korea',JSON.stringify({type,currency,price,destination,method}));},[type,currency,price,destination,method,restored]);
+  useEffect(()=>{setMethodPrices(null);if(!unlocked||!type)return;let active=true;void koreaMethodPrices({data:{type}}).then(v=>{if(active)setMethodPrices(v);}).catch(()=>{});return()=>{active=false;};},[unlocked,user?.id,type]);
+  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!destination||!type||!effectiveMethod)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'korea',inputs:{type,currency,price:priceNumber,destination,method:effectiveMethod}}}).then(v=>{if(active&&v.tab==='korea'&&'shippingEur' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'korea'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,ready,type,currency,priceNumber,destination,effectiveMethod]);
+  const shippingEur=unlocked?result?.shippingEur??0:0;
   const methodLabel = D.step4.methods.find((m) => m.value === effectiveMethod)?.label ?? "";
   const includes = effectiveMethod ? includesByMethod[effectiveMethod] : [];
-  const totalEur = priceEur + shippingEur;
+  const totalEur = unlocked ? result?.totalEur ?? 0 : 0;
 
   const destinationLabel = (v: Destination): string =>
     D.step3.destinations.find((d) => d.value === v)?.label ?? v;
@@ -178,7 +193,7 @@ export function KoreaCalculator({
             <StepReveal key="km">
               <Step n={4} title={D.step4.title}>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {D.step4.methods.filter((m) => KOREA_METHODS_BY_DESTINATION.Albania.includes(m.value)).map((m) => (
+                  {D.step4.methods.map((m) => (
                     <Button variant="ghost" key={m.value} type="button" aria-pressed={method === m.value}
                       onClick={() => setMethod(m.value)}
                       className={cn("h-auto min-h-12 w-full flex-col items-start whitespace-normal rounded-lg border p-4 text-left transition-colors",
@@ -186,7 +201,7 @@ export function KoreaCalculator({
                     >
                       <span className="text-sm font-bold text-secondary">{m.label}</span>
                       <span className="mt-1 text-xs text-muted-foreground">{m.body}</span>
-                      <span className="mt-3 text-base font-semibold tabular-nums text-primary">{fmtInt(getKoreaShipping("Albania", type, m.value))} EUR</span>
+                      {unlocked && methodPrices && <span className="mt-3 text-base font-semibold tabular-nums text-primary">{fmtInt(methodPrices[m.value])} EUR</span>}
                     </Button>
                   ))}
                 </div>
@@ -198,7 +213,7 @@ export function KoreaCalculator({
 
       <div className="lg:sticky lg:top-24">
         <AnimatePresence mode="wait">
-          {ready && destination && type ? (
+          {ready && !unlocked ? <LockedResult sq={contactHref.startsWith("/al")} /> : ready && destination && type && result ? (
             <motion.div
               key="kr"
               initial={{ opacity: 0, height: 0 }}
@@ -264,7 +279,7 @@ export function KoreaCalculator({
               exit={{ opacity: 0 }}
               className="rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground"
             >
-              {D.emptyState}
+              {resultError || (ready && unlocked ? (contactHref.startsWith("/al") ? "Duke përllogaritur…" : "Calculating…") : D.emptyState)}
             </motion.div>
           )}
         </AnimatePresence>

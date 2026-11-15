@@ -2,7 +2,8 @@
 // lives in src/lib/i18n-al.ts as CALCULATOR_DICT_AL. Both must implement
 // the same CalculatorDict shape — missing keys are a build error.
 
-import { KOREA_INCLUDES, type KoreaMethod, type KoreaVehicleType } from "@/data/koreaShipping";
+import { KOREA_INCLUDES } from "./korea-public";
+import type { KoreaMethod, KoreaVehicleType } from "@/data/koreaShipping";
 import type { Destination } from "@/data/oceanFreight";
 
 export type CalculatorFAQ = { q: string; a: string };

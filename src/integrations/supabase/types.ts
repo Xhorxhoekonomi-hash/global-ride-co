@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      calculator_quotes: {
+        Row: {
+          created_at: string
+          currency: string
+          id: string
+          input_fingerprint: string
+          inputs: Json
+          result: Json
+          tab: string
+          total: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          currency: string
+          id?: string
+          input_fingerprint: string
+          inputs: Json
+          result: Json
+          tab: string
+          total: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string
+          id?: string
+          input_fingerprint?: string
+          inputs?: Json
+          result?: Json
+          tab?: string
+          total?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "calculator_quotes_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       leads: {
         Row: {
           created_at: string
@@ -83,6 +127,51 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          country: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          locale: string
+          marketing_consent: boolean
+          marketing_consent_at: string | null
+          marketing_consent_text: string
+          phone: string
+          privacy_accepted_at: string
+          updated_at: string
+        }
+        Insert: {
+          country?: string
+          created_at?: string
+          email: string
+          full_name: string
+          id: string
+          locale?: string
+          marketing_consent?: boolean
+          marketing_consent_at?: string | null
+          marketing_consent_text: string
+          phone: string
+          privacy_accepted_at: string
+          updated_at?: string
+        }
+        Update: {
+          country?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          locale?: string
+          marketing_consent?: boolean
+          marketing_consent_at?: string | null
+          marketing_consent_text?: string
+          phone?: string
+          privacy_accepted_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       staff_users: {
         Row: {
           created_at: string
@@ -103,7 +192,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      customer_consent_wording: { Args: { l: string }; Returns: string }
     }
     Enums: {
       [_ in never]: never
