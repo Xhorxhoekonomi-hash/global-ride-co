@@ -48,3 +48,4 @@
 - Customer profile and quote access uses public.profiles plus existing staff_users checks; customer metadata never grants staff status and server-generated quote writes use privileged access only after verified ownership.
 - Account sign-in/signup/recovery routes are non-nested siblings of account settings via filename underscores, preserving public URLs without inheriting the signed-in page.
 - Managed welcome/owner app emails use per-user idempotency keys; marketing consent is export data only, with no app-owned unsubscribe token or bulk sending.
+- Signed-in users without a profile (e.g. Google sign-in) must complete the CompleteProfile step; completeCustomerProfile creates the row server-side only for confirmed non-staff users, and calculator prices unlock only when a profile exists, so consent is always recorded before quotes.
