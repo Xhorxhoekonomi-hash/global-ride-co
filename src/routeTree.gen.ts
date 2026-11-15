@@ -62,9 +62,9 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VehicleHistoryCheckRouteImport } from './routes/vehicle-history-check'
 import { Route as VehicleSourcingRouteImport } from './routes/vehicle-sourcing'
 import { Route as WhyAlphaWorldwideRouteImport } from './routes/why-alpha-worldwide'
-import { Route as AccountResetPasswordRouteImport } from './routes/account.reset-password'
-import { Route as AccountSignInRouteImport } from './routes/account.sign-in'
-import { Route as AccountSignUpRouteImport } from './routes/account.sign-up'
+import { Route as AccountResetPasswordRouteImport } from './routes/account_.reset-password'
+import { Route as AccountSignInRouteImport } from './routes/account_.sign-in'
+import { Route as AccountSignUpRouteImport } from './routes/account_.sign-up'
 import { Route as AdminCustomersRouteImport } from './routes/admin/customers'
 import { Route as AdminLeadsRouteImport } from './routes/admin/leads'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
@@ -166,9 +166,9 @@ import { Route as PortsLeHavreRouteImport } from './routes/ports/le-havre'
 import { Route as PortsMarseilleRouteImport } from './routes/ports/marseille'
 import { Route as PortsRotterdamRouteImport } from './routes/ports/rotterdam'
 import { Route as PortsValenciaRouteImport } from './routes/ports/valencia'
-import { Route as AlLlogariaHyrRouteImport } from './routes/al.llogaria.hyr'
-import { Route as AlLlogariaRegjistrohuRouteImport } from './routes/al.llogaria.regjistrohu'
-import { Route as AlLlogariaRivendosFjalekaliminRouteImport } from './routes/al.llogaria.rivendos-fjalekalimin'
+import { Route as AlLlogariaHyrRouteImport } from './routes/al.llogaria_.hyr'
+import { Route as AlLlogariaRegjistrohuRouteImport } from './routes/al.llogaria_.regjistrohu'
+import { Route as AlLlogariaRivendosFjalekaliminRouteImport } from './routes/al.llogaria_.rivendos-fjalekalimin'
 import { Route as AlPortetAlgecirasRouteImport } from './routes/al/portet/algeciras'
 import { Route as AlPortetAntwerpRouteImport } from './routes/al/portet/antwerp'
 import { Route as AlPortetBarcelonaRouteImport } from './routes/al/portet/barcelona'
@@ -472,19 +472,19 @@ const WhyAlphaWorldwideRoute = WhyAlphaWorldwideRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountResetPasswordRoute = AccountResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => AccountRoute,
+  id: '/account_/reset-password',
+  path: '/account/reset-password',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AccountSignInRoute = AccountSignInRouteImport.update({
-  id: '/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => AccountRoute,
+  id: '/account_/sign-in',
+  path: '/account/sign-in',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AccountSignUpRoute = AccountSignUpRouteImport.update({
-  id: '/sign-up',
-  path: '/sign-up',
-  getParentRoute: () => AccountRoute,
+  id: '/account_/sign-up',
+  path: '/account/sign-up',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCustomersRoute = AdminCustomersRouteImport.update({
   id: '/admin/customers',
@@ -1019,20 +1019,20 @@ const PortsValenciaRoute = PortsValenciaRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlLlogariaHyrRoute = AlLlogariaHyrRouteImport.update({
-  id: '/hyr',
-  path: '/hyr',
-  getParentRoute: () => AlLlogariaRoute,
+  id: '/al/llogaria_/hyr',
+  path: '/al/llogaria/hyr',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AlLlogariaRegjistrohuRoute = AlLlogariaRegjistrohuRouteImport.update({
-  id: '/regjistrohu',
-  path: '/regjistrohu',
-  getParentRoute: () => AlLlogariaRoute,
+  id: '/al/llogaria_/regjistrohu',
+  path: '/al/llogaria/regjistrohu',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AlLlogariaRivendosFjalekaliminRoute =
   AlLlogariaRivendosFjalekaliminRouteImport.update({
-    id: '/rivendos-fjalekalimin',
-    path: '/rivendos-fjalekalimin',
-    getParentRoute: () => AlLlogariaRoute,
+    id: '/al/llogaria_/rivendos-fjalekalimin',
+    path: '/al/llogaria/rivendos-fjalekalimin',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const AlPortetAlgecirasRoute = AlPortetAlgecirasRouteImport.update({
   id: '/al/portet/algeciras',
@@ -1219,7 +1219,7 @@ const LovableEmailTransactionalPreviewRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRouteWithChildren
+  '/account': typeof AccountRoute
   '/airfreight': typeof AirfreightRoute
   '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
@@ -1308,7 +1308,7 @@ export interface FileRoutesByFullPath {
   '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
-  '/al/llogaria': typeof AlLlogariaRouteWithChildren
+  '/al/llogaria': typeof AlLlogariaRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -1415,7 +1415,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRouteWithChildren
+  '/account': typeof AccountRoute
   '/airfreight': typeof AirfreightRoute
   '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
@@ -1504,7 +1504,7 @@ export interface FileRoutesByTo {
   '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
-  '/al/llogaria': typeof AlLlogariaRouteWithChildren
+  '/al/llogaria': typeof AlLlogariaRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -1612,7 +1612,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRouteWithChildren
+  '/account': typeof AccountRoute
   '/airfreight': typeof AirfreightRoute
   '/airport-handling': typeof AirportHandlingRoute
   '/auction-access': typeof AuctionAccessRoute
@@ -1663,9 +1663,9 @@ export interface FileRoutesById {
   '/vehicle-history-check': typeof VehicleHistoryCheckRoute
   '/vehicle-sourcing': typeof VehicleSourcingRoute
   '/why-alpha-worldwide': typeof WhyAlphaWorldwideRoute
-  '/account/reset-password': typeof AccountResetPasswordRoute
-  '/account/sign-in': typeof AccountSignInRoute
-  '/account/sign-up': typeof AccountSignUpRoute
+  '/account_/reset-password': typeof AccountResetPasswordRoute
+  '/account_/sign-in': typeof AccountSignInRoute
+  '/account_/sign-up': typeof AccountSignUpRoute
   '/admin/customers': typeof AdminCustomersRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1701,7 +1701,7 @@ export interface FileRoutesById {
   '/al/koordinim-ruajtjeje': typeof AlKoordinimRuajtjejeRoute
   '/al/kushtet-e-perllogaritjes': typeof AlKushtetEPerllogaritjesRoute
   '/al/kushtet-e-sherbimit': typeof AlKushtetESherbimitRoute
-  '/al/llogaria': typeof AlLlogariaRouteWithChildren
+  '/al/llogaria': typeof AlLlogariaRoute
   '/al/makina-nga-amerika': typeof AlMakinaNgaAmerikaRoute
   '/al/makina-nga-dubai': typeof AlMakinaNgaDubaiRoute
   '/al/makina-nga-evropa': typeof AlMakinaNgaEvropaRoute
@@ -1767,9 +1767,9 @@ export interface FileRoutesById {
   '/ports/valencia': typeof PortsValenciaRoute
   '/al/': typeof AlIndexRoute
   '/guides/': typeof GuidesIndexRoute
-  '/al/llogaria/hyr': typeof AlLlogariaHyrRoute
-  '/al/llogaria/regjistrohu': typeof AlLlogariaRegjistrohuRoute
-  '/al/llogaria/rivendos-fjalekalimin': typeof AlLlogariaRivendosFjalekaliminRoute
+  '/al/llogaria_/hyr': typeof AlLlogariaHyrRoute
+  '/al/llogaria_/regjistrohu': typeof AlLlogariaRegjistrohuRoute
+  '/al/llogaria_/rivendos-fjalekalimin': typeof AlLlogariaRivendosFjalekaliminRoute
   '/al/portet/algeciras': typeof AlPortetAlgecirasRoute
   '/al/portet/antwerp': typeof AlPortetAntwerpRoute
   '/al/portet/barcelona': typeof AlPortetBarcelonaRoute
@@ -2253,9 +2253,9 @@ export interface FileRouteTypes {
     | '/vehicle-history-check'
     | '/vehicle-sourcing'
     | '/why-alpha-worldwide'
-    | '/account/reset-password'
-    | '/account/sign-in'
-    | '/account/sign-up'
+    | '/account_/reset-password'
+    | '/account_/sign-in'
+    | '/account_/sign-up'
     | '/admin/customers'
     | '/admin/leads'
     | '/admin/login'
@@ -2357,9 +2357,9 @@ export interface FileRouteTypes {
     | '/ports/valencia'
     | '/al/'
     | '/guides/'
-    | '/al/llogaria/hyr'
-    | '/al/llogaria/regjistrohu'
-    | '/al/llogaria/rivendos-fjalekalimin'
+    | '/al/llogaria_/hyr'
+    | '/al/llogaria_/regjistrohu'
+    | '/al/llogaria_/rivendos-fjalekalimin'
     | '/al/portet/algeciras'
     | '/al/portet/antwerp'
     | '/al/portet/barcelona'
@@ -2399,7 +2399,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AccountRoute: typeof AccountRouteWithChildren
+  AccountRoute: typeof AccountRoute
   AirfreightRoute: typeof AirfreightRoute
   AirportHandlingRoute: typeof AirportHandlingRoute
   AuctionAccessRoute: typeof AuctionAccessRoute
@@ -2450,6 +2450,9 @@ export interface RootRouteChildren {
   VehicleHistoryCheckRoute: typeof VehicleHistoryCheckRoute
   VehicleSourcingRoute: typeof VehicleSourcingRoute
   WhyAlphaWorldwideRoute: typeof WhyAlphaWorldwideRoute
+  AccountResetPasswordRoute: typeof AccountResetPasswordRoute
+  AccountSignInRoute: typeof AccountSignInRoute
+  AccountSignUpRoute: typeof AccountSignUpRoute
   AdminCustomersRoute: typeof AdminCustomersRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -2485,7 +2488,7 @@ export interface RootRouteChildren {
   AlKoordinimRuajtjejeRoute: typeof AlKoordinimRuajtjejeRoute
   AlKushtetEPerllogaritjesRoute: typeof AlKushtetEPerllogaritjesRoute
   AlKushtetESherbimitRoute: typeof AlKushtetESherbimitRoute
-  AlLlogariaRoute: typeof AlLlogariaRouteWithChildren
+  AlLlogariaRoute: typeof AlLlogariaRoute
   AlMakinaNgaAmerikaRoute: typeof AlMakinaNgaAmerikaRoute
   AlMakinaNgaDubaiRoute: typeof AlMakinaNgaDubaiRoute
   AlMakinaNgaEvropaRoute: typeof AlMakinaNgaEvropaRoute
@@ -2551,6 +2554,9 @@ export interface RootRouteChildren {
   PortsValenciaRoute: typeof PortsValenciaRoute
   AlIndexRoute: typeof AlIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
+  AlLlogariaHyrRoute: typeof AlLlogariaHyrRoute
+  AlLlogariaRegjistrohuRoute: typeof AlLlogariaRegjistrohuRoute
+  AlLlogariaRivendosFjalekaliminRoute: typeof AlLlogariaRivendosFjalekaliminRoute
   AlPortetAlgecirasRoute: typeof AlPortetAlgecirasRoute
   AlPortetAntwerpRoute: typeof AlPortetAntwerpRoute
   AlPortetBarcelonaRoute: typeof AlPortetBarcelonaRoute
@@ -2960,26 +2966,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhyAlphaWorldwideRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/account/reset-password': {
-      id: '/account/reset-password'
-      path: '/reset-password'
+    '/account_/reset-password': {
+      id: '/account_/reset-password'
+      path: '/account/reset-password'
       fullPath: '/account/reset-password'
       preLoaderRoute: typeof AccountResetPasswordRouteImport
-      parentRoute: typeof AccountRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/account/sign-in': {
-      id: '/account/sign-in'
-      path: '/sign-in'
+    '/account_/sign-in': {
+      id: '/account_/sign-in'
+      path: '/account/sign-in'
       fullPath: '/account/sign-in'
       preLoaderRoute: typeof AccountSignInRouteImport
-      parentRoute: typeof AccountRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/account/sign-up': {
-      id: '/account/sign-up'
-      path: '/sign-up'
+    '/account_/sign-up': {
+      id: '/account_/sign-up'
+      path: '/account/sign-up'
       fullPath: '/account/sign-up'
       preLoaderRoute: typeof AccountSignUpRouteImport
-      parentRoute: typeof AccountRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/customers': {
       id: '/admin/customers'
@@ -3688,26 +3694,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortsValenciaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/al/llogaria/hyr': {
-      id: '/al/llogaria/hyr'
-      path: '/hyr'
+    '/al/llogaria_/hyr': {
+      id: '/al/llogaria_/hyr'
+      path: '/al/llogaria/hyr'
       fullPath: '/al/llogaria/hyr'
       preLoaderRoute: typeof AlLlogariaHyrRouteImport
-      parentRoute: typeof AlLlogariaRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/al/llogaria/regjistrohu': {
-      id: '/al/llogaria/regjistrohu'
-      path: '/regjistrohu'
+    '/al/llogaria_/regjistrohu': {
+      id: '/al/llogaria_/regjistrohu'
+      path: '/al/llogaria/regjistrohu'
       fullPath: '/al/llogaria/regjistrohu'
       preLoaderRoute: typeof AlLlogariaRegjistrohuRouteImport
-      parentRoute: typeof AlLlogariaRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/al/llogaria/rivendos-fjalekalimin': {
-      id: '/al/llogaria/rivendos-fjalekalimin'
-      path: '/rivendos-fjalekalimin'
+    '/al/llogaria_/rivendos-fjalekalimin': {
+      id: '/al/llogaria_/rivendos-fjalekalimin'
+      path: '/al/llogaria/rivendos-fjalekalimin'
       fullPath: '/al/llogaria/rivendos-fjalekalimin'
       preLoaderRoute: typeof AlLlogariaRivendosFjalekaliminRouteImport
-      parentRoute: typeof AlLlogariaRoute
+      parentRoute: typeof rootRouteImport
     }
     '/al/portet/algeciras': {
       id: '/al/portet/algeciras'
@@ -3950,41 +3956,10 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AccountRouteChildren {
-  AccountResetPasswordRoute: typeof AccountResetPasswordRoute
-  AccountSignInRoute: typeof AccountSignInRoute
-  AccountSignUpRoute: typeof AccountSignUpRoute
-}
-
-const AccountRouteChildren: AccountRouteChildren = {
-  AccountResetPasswordRoute: AccountResetPasswordRoute,
-  AccountSignInRoute: AccountSignInRoute,
-  AccountSignUpRoute: AccountSignUpRoute,
-}
-
-const AccountRouteWithChildren =
-  AccountRoute._addFileChildren(AccountRouteChildren)
-
-interface AlLlogariaRouteChildren {
-  AlLlogariaHyrRoute: typeof AlLlogariaHyrRoute
-  AlLlogariaRegjistrohuRoute: typeof AlLlogariaRegjistrohuRoute
-  AlLlogariaRivendosFjalekaliminRoute: typeof AlLlogariaRivendosFjalekaliminRoute
-}
-
-const AlLlogariaRouteChildren: AlLlogariaRouteChildren = {
-  AlLlogariaHyrRoute: AlLlogariaHyrRoute,
-  AlLlogariaRegjistrohuRoute: AlLlogariaRegjistrohuRoute,
-  AlLlogariaRivendosFjalekaliminRoute: AlLlogariaRivendosFjalekaliminRoute,
-}
-
-const AlLlogariaRouteWithChildren = AlLlogariaRoute._addFileChildren(
-  AlLlogariaRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AccountRoute: AccountRouteWithChildren,
+  AccountRoute: AccountRoute,
   AirfreightRoute: AirfreightRoute,
   AirportHandlingRoute: AirportHandlingRoute,
   AuctionAccessRoute: AuctionAccessRoute,
@@ -4035,6 +4010,9 @@ const rootRouteChildren: RootRouteChildren = {
   VehicleHistoryCheckRoute: VehicleHistoryCheckRoute,
   VehicleSourcingRoute: VehicleSourcingRoute,
   WhyAlphaWorldwideRoute: WhyAlphaWorldwideRoute,
+  AccountResetPasswordRoute: AccountResetPasswordRoute,
+  AccountSignInRoute: AccountSignInRoute,
+  AccountSignUpRoute: AccountSignUpRoute,
   AdminCustomersRoute: AdminCustomersRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminLoginRoute: AdminLoginRoute,
@@ -4070,7 +4048,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlKoordinimRuajtjejeRoute: AlKoordinimRuajtjejeRoute,
   AlKushtetEPerllogaritjesRoute: AlKushtetEPerllogaritjesRoute,
   AlKushtetESherbimitRoute: AlKushtetESherbimitRoute,
-  AlLlogariaRoute: AlLlogariaRouteWithChildren,
+  AlLlogariaRoute: AlLlogariaRoute,
   AlMakinaNgaAmerikaRoute: AlMakinaNgaAmerikaRoute,
   AlMakinaNgaDubaiRoute: AlMakinaNgaDubaiRoute,
   AlMakinaNgaEvropaRoute: AlMakinaNgaEvropaRoute,
@@ -4139,6 +4117,9 @@ const rootRouteChildren: RootRouteChildren = {
   PortsValenciaRoute: PortsValenciaRoute,
   AlIndexRoute: AlIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
+  AlLlogariaHyrRoute: AlLlogariaHyrRoute,
+  AlLlogariaRegjistrohuRoute: AlLlogariaRegjistrohuRoute,
+  AlLlogariaRivendosFjalekaliminRoute: AlLlogariaRivendosFjalekaliminRoute,
   AlPortetAlgecirasRoute: AlPortetAlgecirasRoute,
   AlPortetAntwerpRoute: AlPortetAntwerpRoute,
   AlPortetBarcelonaRoute: AlPortetBarcelonaRoute,
