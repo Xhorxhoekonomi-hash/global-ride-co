@@ -146,3 +146,4 @@
 - [x] Part 1 items 1–18 (photo text, stats, route finder, origins, guides, archive, mobile carousel, arrows, enquiry tile, rhythm, step grid, end bands, calculator, about stats, platform strip, site-wide check).
 - [x] Part 2 motion A–K gated by html.motion-ok and reduced motion.
 - [ ] Phone homepage height ~10,000px vs 9,500 target (owner decision on trimming content).
+- [x] Google sign-in button and its "or" divider hidden sitewide via GOOGLE_SIGN_IN_ENABLED=false (owner: consent-screen branding pending); provider and code untouched.
