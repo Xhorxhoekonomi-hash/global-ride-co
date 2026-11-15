@@ -1,4 +1,6 @@
-import {test,expect} from 'bun:test';
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+function expect(v:unknown){return {toBe:(x:unknown)=>assert.equal(v,x),toContain:(x:string)=>assert.ok(String(v).includes(x)),toThrow:()=>assert.throws(v as ()=>void),not:{toMatch:(r:RegExp)=>assert.ok(!r.test(String(v))),toContain:(x:string)=>assert.ok(!String(v).includes(x))}};}
 import {canSeePrices,signupSchema,consentText,customersCsv,csvCell,quoteSchema} from './validation';
 import {calculateUsa,calculateKorea} from './calculate.server';
 import {getLandTransport,LAND_TRANSPORT_TABLE} from '@/data/landTransport';
