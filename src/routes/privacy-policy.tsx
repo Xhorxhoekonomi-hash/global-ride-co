@@ -51,6 +51,11 @@ function PrivacyPolicy() {
               </section>
 
               <section>
+                <h2 className="text-navy">Customer accounts and calculator estimates</h2>
+                <p className="mt-3">When you create an account, we collect your name, email, phone, country and calculator estimates to show estimates and respond to enquiries. Occasional marketing emails are sent only with your consent; you can withdraw consent in your account, and any marketing email will provide an unsubscribe option. You can edit your details or permanently delete your account and saved calculator estimates from your account page. For questions, contact info@alphaworldwidealbania.com.</p>
+              </section>
+
+              <section>
                 <h2 className="text-navy">WhatsApp</h2>
                 <p className="mt-3">Many of our contact options link directly to WhatsApp. Messages you send us through WhatsApp are subject to WhatsApp's own privacy policy in addition to this one, since that conversation takes place on WhatsApp's platform, not ours.</p>
               </section>

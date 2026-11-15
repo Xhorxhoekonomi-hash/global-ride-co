@@ -1,3 +1,6 @@
+import { useCustomer } from "@/components/account/CustomerSession";
+import { accountPaths } from "@/lib/customer/validation";
+import { UserRound } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -20,6 +23,8 @@ export function Header() {
   useEffect(() => { setMounted(true); }, []);
   const pathname = useRouterState({ select: s => s.location.pathname });
   const isAlbanian = pathname.startsWith("/al");
+  const {user}=useCustomer();
+  const account=accountPaths(isAlbanian);
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const languageTarget = isAlbanian ? REVERSE_LANGUAGE_MAP[normalized] ?? "/" : LANGUAGE_ROUTE_MAP[normalized] ?? "/al";
   useEffect(() => {
@@ -96,6 +101,7 @@ export function Header() {
           : <Link key={item.label} to={item.to} className="alpha-nav-link" activeProps={{ "aria-current": "page" }} activeOptions={{ exact: true }} onMouseEnter={() => setMega(null)}>{item.label}</Link>)}
       </nav>
       <div className="alpha-header-actions">
+        <Link to={user?account.account:account.signin} className="alpha-header-icon alpha-header-desktop" aria-label={user?(isAlbanian?"Llogaria":"Account"):(isAlbanian?"Hyr":"Sign in")} title={user?"Account":"Sign in"}><UserRound aria-hidden="true" /></Link>
         <Link to={languageTarget} className="alpha-header-icon alpha-header-lang" aria-label={isAlbanian ? "Switch to English" : "Kalo në shqip"} onClick={() => trackEvent("language_changed", { from: isAlbanian ? "sq" : "en", to: isAlbanian ? "en" : "sq" })}><Languages aria-hidden="true" />{isAlbanian ? "EN" : "SQ"}</Link>
         <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" aria-label="WhatsApp +355692233416" title="WhatsApp +355692233416" className="alpha-header-icon alpha-header-desktop"><MessageCircle aria-hidden="true" /></a>
         <a href={`mailto:${CONTACT.email}`} onClick={() => trackEvent("email_clicked", { location: "header" })} aria-label={`Email ${CONTACT.email}`} title={CONTACT.email} className="alpha-header-icon alpha-header-desktop"><Mail aria-hidden="true" /></a>
@@ -109,6 +115,7 @@ export function Header() {
     </div></div>}
     {open && mounted && createPortal(<nav ref={sheetRef} id="mobile-navigation" aria-label={isAlbanian ? "Navigimi në celular" : "Mobile navigation"} className="mobile-sheet" onClick={event => { if ((event.target as HTMLElement).closest("a[href]")) setOpen(false); }}><div className="container-page mobile-sheet-inner">
       <Accordion type="single" collapsible>{navigation.map(item => item.type === "link" ? <Link key={item.to} to={item.to} className="mobile-sheet-link">{item.label}</Link> : <AccordionItem key={item.label} value={item.label}><AccordionTrigger className="mobile-sheet-link">{item.label}</AccordionTrigger><AccordionContent><div className="grid gap-1">{item.items.map(i => <Link key={i.to} to={i.to} className="mobile-sheet-sublink">{i.label}</Link>)}</div></AccordionContent></AccordionItem>)}</Accordion>
+      <Link to={user?account.account:account.signin} className="mobile-sheet-link"><UserRound aria-hidden="true" />{user?(isAlbanian?"Llogaria":"Account"):(isAlbanian?"Hyr":"Sign in")}</Link>
       <div className="mobile-sheet-contact"><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer noopener" className="inline-flex min-h-11 items-center gap-2 text-sm text-secondary"><MessageCircle className="h-5 w-5" aria-hidden="true" />WhatsApp</a><EmailContact location="mobile_menu" /></div>
       <div className="mobile-sheet-actions"><Link to={calculatorHref} className="btn-pair btn-pair--outline"><Calculator aria-hidden="true" />{isAlbanian ? "Llogarit koston" : "Calculate cost"}</Link><Link to={quoteHref} className="btn-pair btn-pair--primary">{isAlbanian ? "Merr një ofertë" : "Get a quote"}</Link></div>
     </div></nav>, document.body)}

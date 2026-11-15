@@ -1,4 +1,4 @@
-import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, redirect, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { buildHead } from "@/lib/seo";
@@ -100,6 +100,7 @@ function AdminLeads() {
               {rows === null ? "Loading…" : `${rows.length} submission${rows.length === 1 ? "" : "s"}`}
             </p>
           </div>
+          <Link to="/admin/customers" className="btn-outline-dark">Customers</Link>
           <button
             onClick={signOut}
             className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold text-navy transition hover:bg-background"
