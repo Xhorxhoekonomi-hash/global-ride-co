@@ -1,6 +1,6 @@
 import {createServerFn} from '@tanstack/react-start';
 import {requireSupabaseAuth} from '@/integrations/supabase/auth-middleware';
-import {profileSchema,quoteSchema} from './validation';
+import {profileSchema,quoteSchema,completeProfileSchema,nameFromIdentity,consentText} from './validation';
 import {z} from 'zod';
 export const getCustomerProfile=createServerFn({method:'POST'}).middleware([requireSupabaseAuth]).handler(async({context})=>{
  const {data,error}=await context.supabase.from('profiles').select('*').eq('id',context.userId).maybeSingle();if(error)throw error;return data;
@@ -39,4 +39,13 @@ export const listCustomers=createServerFn({method:'POST'}).middleware([requireSu
  const [{data:profiles,error},{data:quotes,error:qe}]=await Promise.all([context.supabase.from('profiles').select('*').order('created_at',{ascending:false}),context.supabase.from('calculator_quotes').select('*').order('created_at',{ascending:false})]);if(error||qe)throw error??qe;
  const {supabaseAdmin}=await import('@/integrations/supabase/client.server');
  return await Promise.all((profiles??[]).map(async p=>{const {data:a}=await supabaseAdmin.auth.admin.getUserById(p.id);const qq=(quotes??[]).filter(q=>q.user_id===p.id);return {...p,email_confirmed:Boolean(a.user?.email_confirmed_at),quote_count:qq.length,quotes:qq,last_quote:qq[0]?`${qq[0].tab} · ${JSON.stringify(qq[0].inputs)} · ${qq[0].total} ${qq[0].currency}`:''};}));
+});
+export const completeCustomerProfile=createServerFn({method:'POST'}).middleware([requireSupabaseAuth]).inputValidator(v=>completeProfileSchema.parse(v)).handler(async({context,data})=>{
+ const {data:auth,error}=await context.supabase.auth.getUser();if(error||!auth.user?.email_confirmed_at||!auth.user.email)throw new Error('Confirm your email first');
+ const {data:staff}=await context.supabase.from('staff_users').select('user_id').eq('user_id',context.userId).maybeSingle();if(staff)throw new Error('Staff accounts cannot have customer profiles');
+ const {data:existing}=await context.supabase.from('profiles').select('id').eq('id',context.userId).maybeSingle();if(existing)return {ok:true};
+ const meta=auth.user.user_metadata??{};const full_name=nameFromIdentity(meta.full_name??meta.name,auth.user.email);
+ const {supabaseAdmin}=await import('@/integrations/supabase/client.server');
+ const {error:insertError}=await supabaseAdmin.from('profiles').insert({id:context.userId,full_name,email:auth.user.email,phone:data.phone,country:data.country,locale:data.locale,marketing_consent:data.marketing_consent,marketing_consent_text:consentText(data.locale),privacy_accepted_at:new Date().toISOString()});
+ if(insertError)throw insertError;return {ok:true};
 });

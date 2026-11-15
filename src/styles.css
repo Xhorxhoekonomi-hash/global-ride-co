@@ -703,6 +703,13 @@ main .route-finder-submit { min-height: 56px; border-radius: 8px; box-shadow: no
 /* Sticky mobile action bar (shown only below 768px) */
 .sticky-action-bar { display: none; }
 
+/* Google sign-in button: Google branding guidelines fix these colours (light theme) */
+.google-btn { display: flex; width: 100%; min-height: var(--btn-h); align-items: center; justify-content: center; gap: 10px; padding: 0 12px; border: 1px solid #747775; border-radius: 8px; background: #FFFFFF; color: #1F1F1F; font-family: "Google Sans", var(--font-sans, inherit); font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.google-btn:disabled { opacity: .6; }
+.google-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.auth-divider { display: flex; align-items: center; gap: 12px; margin-top: 24px; color: var(--muted-foreground); font-size: 14px; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
 /* ================================================================
    10. Responsive
    ================================================================ */

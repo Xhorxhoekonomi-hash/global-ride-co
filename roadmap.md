@@ -2,7 +2,7 @@
 - [x] Add bilingual free accounts, result-only server-side calculator gate and restored selections; original rates and public SEO preserved.
 - [x] Add private customer profiles/quotes, confirmed-session emails and staff-only customer list/CSV; existing staff rules preserved.
 - [x] Bilingual privacy copy; 123 tests, phone/desktop EN/SQ restored USA price/profile/staff checks and automatic build OK; test users removed; no publishing.
-- [ ] Enable hosted public signup (currently disabled); owner action required because current HIBP setting cannot be read safely. Then verify real signup/check-inbox/confirmation email, recovery, deletion and sending outcomes.
+- [x] Public sign-up enabled, managed Google sign-in with complete-profile step; email sign-up E2E verified (real Google account round-trip unverified).
 
 # Build recovery
 - [x] Append 155 approved Manheim/Adesa locations (251 total); original 96 and other source bytes unchanged; phone/desktop search, scrolling, empty state and Houston $345/Elizabeth $700 verified; 115 tests pass; nothing published.
