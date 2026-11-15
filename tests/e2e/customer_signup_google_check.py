@@ -1,6 +1,7 @@
 # End-to-end: real UI sign-up -> confirm (admin API, test env only) -> restored unlocked result -> staff list -> customer refused;
 # simulated Google-style user (no customer metadata) -> complete-profile step -> unlocked; staff cannot create a profile;
-# Google button starts the OAuth redirect. All temporary users are deleted afterwards.
+# the Google button itself is hidden by GOOGLE_SIGN_IN_ENABLED (branding pending), so the scripts only assert its absence.
+# All temporary users are deleted afterwards.
 import asyncio,json,os,re,secrets,uuid,requests
 from pathlib import Path
 from playwright.async_api import async_playwright,expect
@@ -24,7 +25,7 @@ async def main():
     email='info+e2e-'+uuid.uuid4().hex[:10]+'@alphaworldwidealbania.com';pw=secrets.token_urlsafe(18)
     await fill_calc(page,sq);await expect(page.locator('[data-calculator-locked]')).to_be_visible();assert '$' not in await page.locator('[data-calculator-locked]').inner_text()
     await page.locator('[data-calculator-locked]').get_by_role('link',name='Krijo llogari falas' if sq else 'Create free account').click()
-    await expect(page.get_by_role('button',name='Vazhdo me Google' if sq else 'Continue with Google')).to_be_visible()
+    await expect(page.get_by_role('button',name=re.compile('Google'))).to_have_count(0);await expect(page.locator('.auth-divider')).to_have_count(0)
     sel=page.get_by_label('Shteti' if sq else 'Country');await expect(sel.locator('option:checked')).to_have_text('Shqipëri' if sq else 'Albania')
     await page.screenshot(path=str(OUT/f'{w}-{sq}-signup.png'))
     await page.get_by_label('Emri i plotë' if sq else 'Full name').fill('E2E Verification');await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Telefon|Phone')).fill('+355692233416');await page.get_by_label(re.compile('Fjalëkalimi|Password')).fill(pw)
@@ -50,10 +51,11 @@ async def main():
    ctx=await browser.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');page=await ctx.new_page();await page.goto(L);await page.evaluate('([k,v])=>localStorage.setItem(k,v)',[a['storage_key'],json.dumps(a['session'])])
    await page.goto(L+'/admin/customers');await expect(page.get_by_role('heading',name='Customer accounts')).to_be_visible();await expect(page.get_by_role('button',name=re.compile('E2E Verification'))).to_have_count(2);await expect(page.get_by_role('button',name=re.compile('Google Style User'))).to_have_count(1);await page.screenshot(path=str(OUT/'staff-customers.png'))
    staff_id=a['session']['user']['id'];await fill_calc(page,False);cp=page.locator('[data-complete-profile]');await expect(cp).to_be_visible(timeout=20000);await cp.get_by_label(re.compile('Phone')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button',name='Save and see price').click();await expect(cp.get_by_role('alert')).to_contain_text('Staff');assert requests.get(BASE+'/rest/v1/profiles?id=eq.'+staff_id,headers=HEAD,timeout=30).json()==[];print('PASS staff listed customers and staff profile refused');await ctx.close()
-   # Google button starts the OAuth redirect
-   ctx=await browser.new_context(viewport={'width':1440,'height':900});page=await ctx.new_page();urls=[];page.on('request',lambda r:urls.append(r.url));ctx.on('page',lambda pg:urls.append('POPUP '+pg.url))
-   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000);await page.get_by_role('button',name='Continue with Google').click();await page.wait_for_timeout(4000)
-   hits=[u for u in urls if 'oauth' in u.lower() or 'google' in u.lower()];print('google redirect hits',hits[:5],'final',page.url);assert hits;await ctx.close();await browser.close()
+   # Google button is hidden while GOOGLE_SIGN_IN_ENABLED is false, so no OAuth redirect is exercised
+   ctx=await browser.new_context(viewport={'width':1440,'height':900});page=await ctx.new_page()
+   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
+   await expect(page.get_by_role('button',name=re.compile('Google'))).to_have_count(0);await expect(page.locator('.auth-divider')).to_have_count(0)
+   print('PASS google button hidden on sign-in (flag off)');await ctx.close();await browser.close()
  finally:
   for uid in created: requests.delete(BASE+'/auth/v1/admin/users/'+uid,headers=HEAD,timeout=30).raise_for_status()
   left=[requests.get(BASE+'/rest/v1/'+t+'?'+c+'=eq.'+u,headers=HEAD,timeout=30).json() for u in created for t,c in [('profiles','id'),('calculator_quotes','user_id')]]
