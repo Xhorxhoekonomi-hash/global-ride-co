@@ -21,7 +21,7 @@ async def main():
    browser=await p.chromium.launch()
    for sq,(w,h) in [(False,(390,844)),(True,(1440,900))]:
     ctx=await browser.new_context(viewport={'width':w,'height':h},reduced_motion='reduce');page=await ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-    email='alpha-e2e-'+uuid.uuid4().hex[:12]+'@example.com';pw=secrets.token_urlsafe(18)
+    email='info+e2e-'+uuid.uuid4().hex[:10]+'@alphaworldwidealbania.com';pw=secrets.token_urlsafe(18)
     await fill_calc(page,sq);await expect(page.locator('[data-calculator-locked]')).to_be_visible();assert '$' not in await page.locator('[data-calculator-locked]').inner_text()
     await page.locator('[data-calculator-locked]').get_by_role('link',name='Krijo llogari falas' if sq else 'Create free account').click()
     await expect(page.get_by_role('button',name='Vazhdo me Google' if sq else 'Continue with Google')).to_be_visible()
