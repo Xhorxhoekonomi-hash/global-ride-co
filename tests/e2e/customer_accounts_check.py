@@ -28,6 +28,7 @@ async def main():
      await page.get_by_text('MANHEIM HOUSTON → Houston, TX',exact=True).scroll_into_view_if_needed();await page.screenshot(path=str(OUT/f'{w}-{sq}-unlocked.png'))
      await page.goto('http://localhost:8080'+('/al/llogaria' if sq else '/account'));await expect(page.get_by_label('Emri i plotë' if sq else 'Full name')).to_have_value('Account Verification');await page.screenshot(path=str(OUT/f'{w}-{sq}-account.png'))
      await page.get_by_label('Emri i plotë' if sq else 'Full name').fill('Account Verification Updated');await page.get_by_role('button',name='Ruaj ndryshimet' if sq else 'Save changes').click();await expect(page.get_by_role('status')).to_be_visible();await page.reload();await expect(page.get_by_label('Emri i plotë' if sq else 'Full name')).to_have_value('Account Verification Updated')
+     await page.get_by_label(re.compile('Email me occasional|Më dërgoni')).check();await page.get_by_role('button',name='Ruaj ndryshimet' if sq else 'Save changes').click();await expect(page.get_by_role('status')).to_be_visible();await page.reload();await expect(page.get_by_label(re.compile('Email me occasional|Më dërgoni'))).to_be_checked()
      await page.goto('http://localhost:8080/admin/customers');await expect(page).to_have_url(re.compile('/account$'))
      # Reset name for next size.
      await page.get_by_label('Full name').fill('Account Verification');await page.get_by_role('button',name='Save changes').click();await expect(page.get_by_role('status')).to_be_visible()
@@ -35,7 +36,10 @@ async def main():
      await context.close()
    # staff sees created customers and their saved quotes
    with open(os.path.expanduser('~/.cache/lovable-auth/session.json')) as f:a=json.load(f)
-   context=await browser.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');page=await context.new_page();await page.goto('http://localhost:8080');await page.evaluate('([k,v])=>localStorage.setItem(k,v)',[a['storage_key'],json.dumps(a['session'])]);await page.goto('http://localhost:8080/admin/customers');await expect(page.get_by_role('heading',name='Customer accounts')).to_be_visible();await expect(page.get_by_role('button',name=re.compile('Account Verification'))).to_have_count(2);await page.screenshot(path=str(OUT/'staff-populated.png'));print('PASS staff populated list')
+   context=await browser.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');page=await context.new_page();await page.goto('http://localhost:8080');await page.evaluate('([k,v])=>localStorage.setItem(k,v)',[a['storage_key'],json.dumps(a['session'])]);await page.goto('http://localhost:8080/admin/customers');await expect(page.get_by_role('heading',name='Customer accounts')).to_be_visible();await expect(page.get_by_role('button',name=re.compile('Account Verification'))).to_have_count(2);await page.screenshot(path=str(OUT/'staff-populated.png'));print('PASS staff populated list');
+   async with page.expect_download() as d:
+    await page.get_by_role('button',name='Export CSV',exact=True).click()
+   download=await d.value;await download.save_as(str(OUT/'customers-test.csv'));assert 'Account Verification' in (OUT/'customers-test.csv').read_text();print('PASS actual CSV download')
    for uid in created:
     rows=requests.get(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid,headers=HEAD,timeout=30).json();print('quote rows for repeated identical inputs',len(rows));assert len(rows)==1
    await browser.close()

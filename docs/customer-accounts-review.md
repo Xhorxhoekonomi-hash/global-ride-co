@@ -22,7 +22,7 @@ All original rate files and calculation formulas are unchanged. Unit equivalence
 - 123 tests pass across 13 files; latest automatic build OK.
 - Chromium 390×844 and 1440×900, EN/SQ: completed public USA → locked result → sign-up page.
 - Temporary unconfirmed customers created through privileged test API, then confirmed only by exact test UUID; sign-in restores USA selections and shows land $345; all four locale/viewport combinations pass.
-- Profile changes saved and read back after reload; customer refused staff customers route; staff sees both temporary customers and saved quotes.
+- Profile and marketing preference changes saved and read back after reload; actual CSV download checked; customer refused staff customers route; staff sees both temporary customers and saved quotes.
 - Repeated identical input yields one quote row per test customer. Test users removed afterwards.
 - Customer browser checks reported zero page errors. Screenshots captured for locked/sign-up/unlocked/account and empty/populated staff views.
 
@@ -31,5 +31,5 @@ All original rate files and calculation formulas are unchanged. Unit equivalence
 - Public signup must be enabled in More → Users → Auth settings. The agent could not safely change it through configure_auth because that tool also rewrites the current HIBP setting, which available hosted reads do not reveal; no unrelated security setting was guessed.
 - Because signup remains disabled, actual public signup/check-inbox/resend and live confirmation-email delivery are unverified. Temporary admin-created users verify profile trigger and post-confirmation access but are not substitutes for public signup testing.
 - Welcome/owner sends are implemented with idempotency but inbox delivery and lifetime idempotency are unverified; no durable email-send ledger added per platform constraints.
-- Password recovery, permanent deletion UI, consent toggle persistence, actual downloaded CSV, Korea signed-in browser flow, and physical iPhone behavior require further verification. Unit tests cover Korea and CSV logic.
+- Password recovery, permanent deletion UI, Korea signed-in browser flow, and physical iPhone behavior require further verification. Unit tests cover Korea and CSV logic.
 - Nothing published. Existing lead operations and admin lead guard are unchanged apart from the customer-page navigation link.

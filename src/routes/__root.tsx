@@ -131,7 +131,8 @@ function RootComponent() {
   const isUtilityPage = pathname.startsWith("/admin");
   const normalized = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const isGuideArticle = /^\/(al\/udhezues|guides)\/[^/]+$/.test(normalized);
-  const showCtaBand = !["/", "/al", "/contact", "/al/kontakt"].includes(normalized) && !PAGES_WITH_OWN_END_CTA.has(normalized);
+  const isAccountPage = normalized.startsWith("/account") || normalized.startsWith("/al/llogaria");
+  const showCtaBand = !isAccountPage && !["/", "/al", "/contact", "/al/kontakt"].includes(normalized) && !PAGES_WITH_OWN_END_CTA.has(normalized);
 
   if (isUtilityPage) {
     return (
@@ -155,8 +156,8 @@ function RootComponent() {
         {showCtaBand && <CtaBand locale={pathname.startsWith("/al") ? "sq" : "en"} />}
       </main>
       <Footer />
-      <WhatsAppFloat />
-      <StickyActionBar />
+      {!isAccountPage && <WhatsAppFloat />}
+      {!isAccountPage && <StickyActionBar />}
     </CustomerSession></QueryClientProvider>
   );
 }
