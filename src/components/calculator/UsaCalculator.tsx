@@ -40,8 +40,8 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
   const bidNumber = parseFloat(bid) || 0;
   const ready = !!location && !!size && bidNumber > 0 && !!destination;
 
-  const {user} = useCustomer();
-  const unlocked = canSeePrices(user);
+  const {user,hasProfile} = useCustomer();
+  const unlocked = canSeePrices(user)&&hasProfile===true;
   const [result,setResult] = useState<ReturnType<typeof calculateUsa>|null>(null);
   const [resultError,setResultError] = useState('');
   const [restored,setRestored] = useState(false);

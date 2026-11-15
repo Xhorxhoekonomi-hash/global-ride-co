@@ -47,7 +47,7 @@ export function KoreaCalculator({
 
   const effectiveMethod = destination === "Albania" ? method : destination ? "roro" : null;
   const ready = !!type && priceNumber > 0 && !!destination && !!effectiveMethod;
-  const {user}=useCustomer();const unlocked=canSeePrices(user);
+  const {user,hasProfile}=useCustomer();const unlocked=canSeePrices(user)&&hasProfile===true;
   const [result,setResult]=useState<ReturnType<typeof calculateKorea>|null>(null);
   const [methodPrices,setMethodPrices]=useState<{roro:number;container:number}|null>(null);
   const [resultError,setResultError]=useState('');
