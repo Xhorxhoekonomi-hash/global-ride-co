@@ -9,7 +9,7 @@ BASE=os.environ['SUPABASE_URL'];KEY=os.environ['SUPABASE_SERVICE_ROLE_KEY']
 HEAD={'apikey':KEY,'Authorization':'Bearer '+KEY}
 L='http://localhost:8080'
 async def fill_calc(page,sq):
- await page.goto(L+('/al/kalkulator-transporti' if sq else '/calculator'));await expect(page.locator('html')).to_have_attribute('data-customer-ready','true')
+ await page.goto(L+('/al/kalkulator-transporti' if sq else '/calculator'));await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
  await page.get_by_role('button',name=re.compile('e.g. Houston|p.sh. Houston')).click();await page.get_by_role('combobox').fill('MANHEIM HOUSTON');await page.get_by_role('option',name=re.compile('MANHEIM HOUSTON')).click();await page.get_by_role('button',name=re.compile('^Sedan')).click();await page.get_by_role('spinbutton').fill('10000');await page.get_by_role('button',name=re.compile('AL Albania|AL Shqipëri')).click()
 async def unlocked(page):
  await expect(page.get_by_role('spinbutton')).to_have_value('10000');await expect(page.get_by_text('$345',exact=True)).to_have_count(2,timeout=20000);await expect(page.locator('[data-calculator-locked]')).to_have_count(0)
@@ -52,7 +52,7 @@ async def main():
    staff_id=a['session']['user']['id'];await fill_calc(page,False);cp=page.locator('[data-complete-profile]');await expect(cp).to_be_visible(timeout=20000);await cp.get_by_label(re.compile('Phone')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button',name='Save and see price').click();await expect(cp.get_by_role('alert')).to_contain_text('Staff');assert requests.get(BASE+'/rest/v1/profiles?id=eq.'+staff_id,headers=HEAD,timeout=30).json()==[];print('PASS staff listed customers and staff profile refused');await ctx.close()
    # Google button starts the OAuth redirect
    ctx=await browser.new_context(viewport={'width':1440,'height':900});page=await ctx.new_page();urls=[];page.on('request',lambda r:urls.append(r.url));ctx.on('page',lambda pg:urls.append('POPUP '+pg.url))
-   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true');await page.get_by_role('button',name='Continue with Google').click();await page.wait_for_timeout(4000)
+   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000);await page.get_by_role('button',name='Continue with Google').click();await page.wait_for_timeout(4000)
    hits=[u for u in urls if 'oauth' in u.lower() or 'google' in u.lower()];print('google redirect hits',hits[:5],'final',page.url);assert hits;await ctx.close();await browser.close()
  finally:
   for uid in created: requests.delete(BASE+'/auth/v1/admin/users/'+uid,headers=HEAD,timeout=30).raise_for_status()

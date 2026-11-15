@@ -15,5 +15,5 @@ test('profile name comes from Google, falling back to the email', () => {
 test('SQ country labels are localized while stored values stay English', () => {
   assert.equal(countryLabel('Albania',true),'Shqipëri');
   assert.equal(countryLabel('Albania',false),'Albania');
-  for (const c of countries) assert.notEqual(countryLabel(c,true),c==='Kanada'?'':c);
+  for (const c of countries) assert.notEqual(countryLabel(c,true),c);
 });
