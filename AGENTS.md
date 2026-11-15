@@ -43,3 +43,8 @@
 
 - Hero button pairs are identical boxes (fixed --btn-h height, 1.5px border in their own fill, no transform); hover lifts apply only under (hover: hover) so iOS never keeps a tapped button shifted.
 - HeadingWidowGuard also binds the phrase after " — " with non-breaking spaces (reverting if it would overflow), so headings break before the dash segment.
+
+- Customer prices are calculated only in authenticated server functions from unchanged rate modules; browser location metadata is price-free so public calculators cannot expose generated estimates.
+- Customer profile and quote access uses public.profiles plus existing staff_users checks; customer metadata never grants staff status and server-generated quote writes use privileged access only after verified ownership.
+- Account sign-in/signup/recovery routes are non-nested siblings of account settings via filename underscores, preserving public URLs without inheriting the signed-in page.
+- Managed welcome/owner app emails use per-user idempotency keys; marketing consent is export data only, with no app-owned unsubscribe token or bulk sending.

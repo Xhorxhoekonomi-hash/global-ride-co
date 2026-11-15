@@ -192,7 +192,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
                     >
                       <input type="checkbox" checked={isEV} onChange={(e) => setIsEV(e.target.checked)} className="h-4 w-4 accent-primary" />
                       <Zap className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium text-secondary">{D.step2.evLabel}</span>
+                      <span className="text-sm font-medium text-secondary">{unlocked ? D.step2.evLabel : D.step2.evLabel.replace(/\s*\([^)]*[+$€][^)]*\)/g, "")}</span>
                     </motion.label>
                   )}
                 </AnimatePresence>
