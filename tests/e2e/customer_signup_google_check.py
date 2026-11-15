@@ -32,7 +32,7 @@ async def main():
     await expect(page.get_by_role('heading',name='Kontrolloni email-in' if sq else 'Check your inbox')).to_be_visible(timeout=20000);await page.screenshot(path=str(OUT/f'{w}-{sq}-inbox.png'))
     rows=profile(email);assert len(rows)==1 and rows[0]['marketing_consent'] is False and rows[0]['locale']==('sq' if sq else 'en'),rows;uid=rows[0]['id'];created.append(uid)
     requests.put(BASE+'/auth/v1/admin/users/'+uid,headers=HEAD,timeout=30,json={'email_confirm':True}).raise_for_status()
-    await page.goto(L+('/al/llogaria/hyr' if sq else '/account/sign-in'));await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Fjalëkalimi|Password')).fill(pw);await page.get_by_role('button',name='Hyr' if sq else 'Sign in',exact=True).click()
+    await page.goto(L+('/al/llogaria/hyr' if sq else '/account/sign-in'));await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000);await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Fjalëkalimi|Password')).fill(pw);await page.get_by_role('button',name='Hyr' if sq else 'Sign in',exact=True).click()
     await expect(page).to_have_url(re.compile('kalkulator-transporti|/calculator'));await unlocked(page);await page.screenshot(path=str(OUT/f'{w}-{sq}-unlocked.png'))
     await page.goto(L+'/admin/customers');await expect(page).to_have_url(re.compile('/account$'));await page.goto(L+'/admin/leads');await expect(page.get_by_text(re.compile('E2E Verification|\\$345'))).to_have_count(0)
     print('PASS email signup',w,sq,'leads url',page.url,'errors',errors);await ctx.close()
@@ -40,7 +40,7 @@ async def main():
    gemail='alpha-e2e-g-'+uuid.uuid4().hex[:10]+'@example.com';gpw=secrets.token_urlsafe(18)
    r=requests.post(BASE+'/auth/v1/admin/users',headers=HEAD,timeout=30,json={'email':gemail,'password':gpw,'email_confirm':True,'user_metadata':{'full_name':'Google Style User'}});r.raise_for_status();gid=r.json()['id'];created.append(gid);assert profile(gemail)==[]
    ctx=await browser.new_context(viewport={'width':390,'height':844},reduced_motion='reduce');page=await ctx.new_page()
-   await fill_calc(page,True);await page.goto(L+'/al/llogaria/hyr');await page.get_by_label('Email',exact=True).fill(gemail);await page.get_by_label(re.compile('Fjalëkalimi')).fill(gpw);await page.get_by_role('button',name='Hyr',exact=True).click()
+   await fill_calc(page,True);await page.goto(L+'/al/llogaria/hyr');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000);await page.get_by_label('Email',exact=True).fill(gemail);await page.get_by_label(re.compile('Fjalëkalimi')).fill(gpw);await page.get_by_role('button',name='Hyr',exact=True).click()
    cp=page.locator('[data-complete-profile]');await expect(cp).to_be_visible(timeout=20000);await expect(page.get_by_text('$345',exact=True)).to_have_count(0);await expect(cp.locator('option:checked')).to_have_text('Shqipëri');await cp.scroll_into_view_if_needed();await page.screenshot(path=str(OUT/'390-complete-profile.png'))
    await cp.get_by_label(re.compile('Telefon')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button',name='Ruaj dhe shiko çmimin').click()
    await unlocked(page);rows=profile(gemail);assert rows and rows[0]['full_name']=='Google Style User' and rows[0]['marketing_consent'] is False and rows[0]['privacy_accepted_at'];print('PASS complete-profile unlock',rows[0]['full_name'])
