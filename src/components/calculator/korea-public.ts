@@ -1,3 +1,4 @@
+import type {KoreaMethod} from "@/data/koreaShipping";
 export type KoreaIncludes = Record<KoreaMethod, string[]>;
 export const KOREA_INCLUDES: KoreaIncludes = {
   roro: ["Local pickup anywhere in South Korea", "Export documentation", "RoRo ocean freight", "Alpha Worldwide service fee"],
