@@ -1,3 +1,8 @@
+# Customer accounts and calculator result access
+- [ ] Add bilingual free accounts, result-only calculator gate and restored selections; preserve all prices and existing public SEO.
+- [ ] Add private customer profiles/quotes, confirmed-account emails and staff-only customer list/CSV; preserve existing leads and staff permissions.
+- [ ] Update bilingual privacy copy; verify account lifecycle, price equivalence, access controls and phone/desktop screens; do not publish.
+
 # Build recovery
 - [x] Append 155 approved Manheim/Adesa locations (251 total); original 96 and other source bytes unchanged; phone/desktop search, scrolling, empty state and Houston $345/Elizabeth $700 verified; 115 tests pass; nothing published.
 - [x] Applied owner-approved 96 USA land rates by parsing supplied block; protected fields unchanged, 8 phone/desktop calculator checks, 110 tests and automatic build OK; nothing published.
