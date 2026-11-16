@@ -61,7 +61,7 @@ export function KrwEurConverter({ sq = false }: { sq?: boolean }) {
           ) : (
             <>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-lg bg-muted p-4">
+                <div className="rounded-lg border border-border bg-background p-4">
                   <div className="text-sm text-muted-foreground">{t.oneEur}</div>
                   <div className="mt-1 text-2xl font-semibold text-secondary tabular-nums">{fmt.krw.format(rate.eurToKrw)} KRW</div>
                   {change !== null && (
@@ -71,7 +71,7 @@ export function KrwEurConverter({ sq = false }: { sq?: boolean }) {
                     </div>
                   )}
                 </div>
-                <div className="rounded-lg bg-muted p-4">
+                <div className="rounded-lg border border-border bg-background p-4">
                   <div className="text-sm text-muted-foreground">{t.oneM}</div>
                   <div className="mt-1 text-2xl font-semibold text-secondary tabular-nums">{fmt.eur.format(krwToEur(1_000_000, rate.eurToKrw))}</div>
                 </div>
