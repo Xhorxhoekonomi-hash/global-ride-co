@@ -1,3 +1,4 @@
+import { KrwEurConverter } from "@/components/site/KrwEurConverter";
 import { PageHero } from "@/components/site/PageHero";
 import { YELLOW_MCLAREN_CONTAINER } from "@/lib/hero-scenes";
 import { JourneySteps } from "@/components/site/JourneySteps";
@@ -140,6 +141,8 @@ function ImportKorea() {
           ))}
         </div>
       </section>
+
+      <KrwEurConverter />
 
       <section className="bg-background">
         <div className="container-page section-y-tight">
