@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 import { isStale, krwChangePct, krwToEur, parseSeries } from "./krw-eur";
 
 const json = { rates: { "2026-11-13": { KRW: 1477.8 }, "2026-11-16": { KRW: 1470.23 } } };
