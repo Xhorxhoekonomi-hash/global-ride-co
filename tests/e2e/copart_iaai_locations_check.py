@@ -29,7 +29,10 @@ async def main():
    await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
    await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Password')).fill(pw);await page.get_by_role('button',name='Sign in',exact=True).click()
    await page.wait_for_url(re.compile('/calculator|/account'));await page.goto(L+'/calculator');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
-   box=await open_picker(page);await box.fill('LAS VEGAS WEST');await page.get_by_role('option',name=re.compile('LAS VEGAS WEST')).click()
+   for _ in range(3):
+    box=await open_picker(page);await box.fill('LAS VEGAS WEST');await page.get_by_role('option',name=re.compile('LAS VEGAS WEST')).click()
+    if await page.get_by_role('button',name=re.compile('LAS VEGAS WEST')).count(): break
+   await expect(page.get_by_role('button',name=re.compile('LAS VEGAS WEST')).first).to_be_visible()
    await page.get_by_role('button',name=re.compile('^Sedan')).click();await page.get_by_role('spinbutton').fill('10000');await page.get_by_role('button',name=re.compile('AL Albania')).click()
    await page.screenshot(path=str(OUT/'before-cp.png'));cp=page.locator('[data-complete-profile]');await expect(cp).to_be_visible(timeout=20000);await cp.get_by_label(re.compile('Phone')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button',name='Save and see price').click()
    await expect(page.get_by_text('LAS VEGAS WEST (NV) → Los Angeles, CA')).to_be_visible(timeout=20000);await expect(page.get_by_text('$485',exact=True).first).to_be_visible();await page.screenshot(path=str(OUT/'lasvegas.png'));print('PASS LAS VEGAS WEST via LA $485')
