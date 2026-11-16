@@ -26,14 +26,16 @@ async def main():
    email='info+e2e-'+uuid.uuid4().hex[:10]+'@alphaworldwidealbania.com';pw=secrets.token_urlsafe(18)
    r=requests.post(BASE+'/auth/v1/admin/users',headers=HEAD,timeout=30,json={'email':email,'password':pw,'email_confirm':True,'user_metadata':{'full_name':'E2E Locations'}});r.raise_for_status();uid=r.json()['id']
    page=await (await b.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce')).new_page()
-   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
-   await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Password')).fill(pw);await page.get_by_role('button',name='Sign in',exact=True).click()
-   await page.wait_for_url(re.compile('/calculator|/account'));await page.goto(L+'/calculator');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
+   await page.goto(L+'/calculator');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
    for _ in range(3):
     box=await open_picker(page);await box.fill('LAS VEGAS WEST');await page.get_by_role('option',name=re.compile('LAS VEGAS WEST')).click()
     if await page.get_by_role('button',name=re.compile('LAS VEGAS WEST')).count(): break
    await expect(page.get_by_role('button',name=re.compile('LAS VEGAS WEST')).first).to_be_visible()
    await page.get_by_role('button',name=re.compile('^Sedan')).click();await page.get_by_role('spinbutton').fill('10000');await page.get_by_role('button',name=re.compile('AL Albania')).click()
+   await expect(page.locator('[data-calculator-locked]')).to_be_visible()
+   await page.goto(L+'/account/sign-in');await expect(page.locator('html')).to_have_attribute('data-customer-ready','true',timeout=60000)
+   await page.get_by_label('Email',exact=True).fill(email);await page.get_by_label(re.compile('Password')).fill(pw);await page.get_by_role('button',name='Sign in',exact=True).click()
+   await expect(page).to_have_url(re.compile('/calculator'),timeout=30000)
    await page.screenshot(path=str(OUT/'before-cp.png'));print((await page.locator('main').aria_snapshot())[:2500]);cp=page.locator('[data-complete-profile]');await expect(cp).to_be_visible(timeout=20000);await cp.get_by_label(re.compile('Phone')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button',name='Save and see price').click()
    await expect(page.get_by_text('LAS VEGAS WEST (NV) → Los Angeles, CA')).to_be_visible(timeout=20000);await expect(page.get_by_text('$485',exact=True).first).to_be_visible();await page.screenshot(path=str(OUT/'lasvegas.png'));print('PASS LAS VEGAS WEST via LA $485')
    await page.get_by_role('button',name=re.compile('LAS VEGAS WEST')).first.click();box=page.get_by_role('combobox');await box.fill('IAAI HOUSTON SOUTH');await page.get_by_role('option',name=re.compile('IAAI HOUSTON SOUTH')).click()
