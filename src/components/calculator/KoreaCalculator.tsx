@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { CONTACT } from "@/lib/site-data";
 import { trackEvent } from "@/lib/analytics";
 import type { KoreaMethod, KoreaIncludes } from "@/data/koreaShipping";
-import { KOREA_INCLUDES, KRW_TO_EUR_RATE } from "./korea-public";
+import { KOREA_INCLUDES, KOREA_CURRENCIES, KOREA_CURRENCY_SYMBOL, convertKoreaPrice, type KoreaCurrency } from "./korea-public";
 import { useCustomer } from "@/components/account/CustomerSession";
 import { LockedResult } from "@/components/account/LockedResult";
 import { canSeePrices } from "@/lib/customer/validation";
@@ -37,13 +37,15 @@ export function KoreaCalculator({
   const [method, setMethod] = useState<KoreaMethod | null>(null);
 
   const [type, setType] = useState<KoreaType | null>(null);
-  const [currency, setCurrency] = useState<"KRW" | "EUR">("KRW");
+  const [currency, setCurrency] = useState<KoreaCurrency>("KRW");
   const [price, setPrice] = useState("");
   const [destination, setDestination] = useState<Destination | null>(initialDestination ?? null);
 
   const priceNumber = parseFloat(price) || 0;
-  const priceEur = currency === "KRW" ? priceNumber * KRW_TO_EUR_RATE : priceNumber;
-  const priceKrw = currency === "EUR" ? priceNumber / KRW_TO_EUR_RATE : priceNumber;
+  const { priceEur, priceKrw, priceUsd } = convertKoreaPrice(currency, priceNumber);
+  const enteredLabel = `${KOREA_CURRENCY_SYMBOL[currency]}${fmtInt(priceNumber)}`;
+  const enteredWithEur = currency === "EUR" ? enteredLabel : `${enteredLabel} (≈ €${fmtInt(priceEur)})`;
+  const helperText = currency === "USD" ? `€${fmtInt(priceEur)} · ≈ ₩${fmtInt(priceKrw)}` : currency === "KRW" ? `€${fmtInt(priceEur)} · ≈ $${fmtInt(priceUsd)}` : `₩${fmtInt(priceKrw)} · ≈ $${fmtInt(priceUsd)}`;
 
   const effectiveMethod = destination === "Albania" ? method : destination ? "roro" : null;
   const ready = !!type && priceNumber > 0 && !!destination && !!effectiveMethod;
@@ -52,7 +54,7 @@ export function KoreaCalculator({
   const [methodPrices,setMethodPrices]=useState<{roro:number;container:number}|null>(null);
   const [resultError,setResultError]=useState('');
   const [restored,setRestored]=useState(false);
-  useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-korea')??'null');if(v){setType(v.type);setCurrency(v.currency);setPrice(v.price);setDestination(v.destination);setMethod(v.method);}}catch{}setRestored(true);},[]);
+  useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-korea')??'null');if(v){setType(v.type);if(KOREA_CURRENCIES.includes(v.currency))setCurrency(v.currency);setPrice(v.price);setDestination(v.destination);setMethod(v.method);}}catch{}setRestored(true);},[]);
   useEffect(()=>{if(restored)sessionStorage.setItem('alpha-calculator-korea',JSON.stringify({type,currency,price,destination,method}));},[type,currency,price,destination,method,restored]);
   useEffect(()=>{setMethodPrices(null);if(!unlocked||!type)return;let active=true;void koreaMethodPrices({data:{type}}).then(v=>{if(active)setMethodPrices(v);}).catch(()=>{});return()=>{active=false;};},[unlocked,user?.id,type]);
   useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!destination||!type||!effectiveMethod)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'korea',inputs:{type,currency,price:priceNumber,destination,method:effectiveMethod}}}).then(v=>{if(active&&v.tab==='korea'&&'shippingEur' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'korea'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,ready,type,currency,priceNumber,destination,effectiveMethod]);
@@ -73,7 +75,7 @@ export function KoreaCalculator({
       `${D.wa.vehicle}: ${type}`,
       `${D.wa.shippingMethod}: ${effectiveMethod === "container" ? "Container" : "RoRo"}`,
       "",
-      `${D.wa.vehiclePrice}: ₩${fmtInt(priceKrw)} (~€${fmtInt(priceEur)})`,
+      `${D.wa.vehiclePrice}: ${enteredWithEur}`,
       `${D.wa.fixedShipping}: €${fmtInt(shippingEur)}`,
       D.wa.separator,
       `${D.wa.estimatedTotal}: €${fmtInt(totalEur)}`,
@@ -119,7 +121,7 @@ export function KoreaCalculator({
           {showPrice && (
             <StepReveal key="kp">
               <Step n={2} title={D.step2.title}>
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_auto]">
                   <div className="relative min-w-0">
                     <input
                       type="number"
@@ -133,26 +135,29 @@ export function KoreaCalculator({
                     />
                   </div>
                   <div className="flex overflow-hidden rounded-md border border-border">
-                    {(["KRW", "EUR"] as const).map((c) => (
+                    {KOREA_CURRENCIES.map((c) => (
                       <Button variant="ghost"
                         key={c}
                         type="button"
                         aria-pressed={currency === c}
                          onClick={() => setCurrency(c)}
                         className={cn(
-                          "min-h-12 rounded-none px-3 text-sm font-semibold transition-colors",
+                          "h-12 min-h-12 flex-1 rounded-none px-2 text-sm font-semibold transition-colors sm:w-24 sm:flex-none",
                           currency === c ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground",
                         )}
                       >
-                        {c === "KRW" ? "₩ KRW" : "€ EUR"}
+                        {`${KOREA_CURRENCY_SYMBOL[c]} ${c}`}
                       </Button>
                     ))}
                   </div>
                 </div>
                 {priceNumber > 0 && (
                   <p className="mt-1.5 text-xs text-muted-foreground">
-                    {D.step2.helper(currency === "KRW" ? `€${fmtInt(priceEur)}` : `₩${fmtInt(priceKrw)}`)}
+                    {D.step2.helper(helperText)}
                   </p>
+                )}
+                {priceNumber > 0 && (
+                  <p className="mt-1 text-xs text-muted-foreground">{dict.usa.breakdown.notes.usdEurNote}</p>
                 )}
               </Step>
             </StepReveal>
@@ -228,7 +233,7 @@ export function KoreaCalculator({
               </div>
 
               <div className="space-y-5 p-5 text-sm">
-                <Row label={D.breakdown.vehiclePrice} value={`₩${fmtInt(priceKrw)} (~€${fmtInt(priceEur)})`} />
+                <Row label={D.breakdown.vehiclePrice} value={enteredWithEur} />
 
                 <div>
                   <div className="mb-1.5 text-xs font-bold uppercase tracking-normal text-muted-foreground">{D.breakdown.allInTitle}</div>

@@ -1,4 +1,5 @@
 import type {KoreaMethod} from "@/data/koreaShipping";
+import {USD_TO_EUR} from "./format";
 export type KoreaIncludes = Record<KoreaMethod, string[]>;
 export const KOREA_INCLUDES: KoreaIncludes = {
   roro: ["Local pickup anywhere in South Korea", "Export documentation", "RoRo ocean freight", "Alpha Worldwide service fee"],
@@ -11,3 +12,12 @@ export const KOREA_INCLUDES_SQ: KoreaIncludes = {
 };
 
 export const KRW_TO_EUR_RATE = 1 / 1450;
+
+export type KoreaCurrency = "KRW" | "USD" | "EUR";
+export const KOREA_CURRENCIES: readonly KoreaCurrency[] = ["KRW", "USD", "EUR"];
+export const KOREA_CURRENCY_SYMBOL: Record<KoreaCurrency, string> = { KRW: "₩", USD: "$", EUR: "€" };
+/** Shared by the browser and the authenticated server calculation so both agree. */
+export function convertKoreaPrice(currency: KoreaCurrency, price: number) {
+  const priceEur = currency === "KRW" ? price * KRW_TO_EUR_RATE : currency === "USD" ? price * USD_TO_EUR : price;
+  return { priceEur, priceKrw: priceEur / KRW_TO_EUR_RATE, priceUsd: priceEur / USD_TO_EUR };
+}

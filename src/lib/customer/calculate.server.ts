@@ -1,8 +1,9 @@
 import {getLandTransport} from '@/data/landTransport';
 import {getOceanFreight,UNLOADING_FEES} from '@/data/oceanFreight';
 import {calculateAllAuctionFees} from '@/data/auctionFees';
-import {getKoreaShipping,KRW_TO_EUR_RATE} from '@/data/koreaShipping';
+import {getKoreaShipping} from '@/data/koreaShipping';
 import {USD_TO_EUR} from '@/components/calculator/format';
+import {convertKoreaPrice} from '@/components/calculator/korea-public';
 import {usaSchema,koreaSchema} from './validation';
 export function calculateUsa(input:unknown) {
  const v=usaSchema.parse(input); const land=getLandTransport(v.location,v.size); if(!land) throw new Error('Unknown location');
@@ -11,7 +12,7 @@ export function calculateUsa(input:unknown) {
  return {land,fees,ocean,unloading,totalUsd,totalEur:totalUsd*USD_TO_EUR};
 }
 export function calculateKorea(input:unknown) {
- const v=koreaSchema.parse(input);const priceEur=v.currency==='KRW'?v.price*KRW_TO_EUR_RATE:v.price; const priceKrw=v.currency==='EUR'?v.price/KRW_TO_EUR_RATE:v.price;
+ const v=koreaSchema.parse(input);const {priceEur,priceKrw}=convertKoreaPrice(v.currency,v.price);
  const shippingEur=getKoreaShipping(v.destination,v.type,v.method);
- return {priceEur,priceKrw,shippingEur,totalEur:priceEur+shippingEur};
+ return {currency:v.currency,priceEntered:v.price,priceEur,priceKrw,shippingEur,totalEur:priceEur+shippingEur};
 }
