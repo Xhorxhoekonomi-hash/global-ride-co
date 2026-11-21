@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Shared BrandLogo is the single presentation boundary for owner-supplied artwork so header and footer always use the same unchanged original asset.
+- Calculator FX constants live in format.ts (USD/date) and korea-public.ts (KRW); server/data reuse them to prevent drift.
 - Shared EmailContact presents the owner mailbox beside WhatsApp; mailto links are contact options, never substitutes for stored enquiry submissions.
 - The EN and SQ homepages share HomeExperience presentation with localized copy and valid existing links; route-specific SEO remains in each leaf route to preserve indexing.
 - Visual redesigns may restyle calculator presentation but must not modify calculation logic/data, lead submission, auth or database schema, keeping operational behavior independent of presentation.

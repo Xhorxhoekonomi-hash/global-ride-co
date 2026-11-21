@@ -42,4 +42,4 @@ export const KOREA_INCLUDES_SQ: KoreaIncludes = {
   container: ["Tërheqje lokale kudo në Korenë e Jugut", "Dokumentacioni i eksportit", "Transport detar me kontenier të përbashkët (4 makina për kontenier)", "Tarifa e shërbimit të Alpha Worldwide"],
 };
 
-export const KRW_TO_EUR_RATE = 1 / 1450;
+export { KRW_TO_EUR_RATE } from "@/components/calculator/korea-public";

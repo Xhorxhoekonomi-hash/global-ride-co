@@ -2,7 +2,8 @@
 // lives in src/lib/i18n-al.ts as CALCULATOR_DICT_AL. Both must implement
 // the same CalculatorDict shape — missing keys are a build error.
 
-import { KOREA_INCLUDES } from "./korea-public";
+import { KOREA_INCLUDES, KRW_TO_EUR_RATE } from "./korea-public";
+import { USD_TO_EUR, ratesUpdatedLabel } from "./format";
 import type { KoreaMethod, KoreaVehicleType } from "@/data/koreaShipping";
 import type { Destination } from "@/data/oceanFreight";
 
@@ -237,7 +238,7 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
       notes: {
         buyerFeeNote: "* Buyer fee applied on (bid + $100) per Copart rules",
         containerNote: "* Shared 40'HC container — typically 4 cars",
-        usdEurNote: "* USD→EUR at ~0.92 (approximate rate)",
+        usdEurNote: `* USD→EUR at ${USD_TO_EUR} (mid-market rate, updated ${ratesUpdatedLabel("en-GB")})`,
         customsWarning: "Customs & import duties NOT included",
         estimatesWarning: "All figures are estimates. Final confirmed by team.",
       },
@@ -275,7 +276,7 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
     },
     step2: {
       title: "Vehicle price",
-      helper: (converted) => `≈ ${converted} (approximate rate, ₩1,450 = €1)`,
+      helper: (converted) => `≈ ${converted} (approximate rate, ₩${Math.round(1 / KRW_TO_EUR_RATE).toLocaleString("en-US")} = €1)`,
     },
     step3: {
       title: "Destination",

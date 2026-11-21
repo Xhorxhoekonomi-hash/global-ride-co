@@ -1,3 +1,7 @@
+# Approved calculator exchange rates — 21 Nov 2026
+- [x] Update shared constants and localized wording only; transport prices and ECB converter preserved.
+- [x] 149 tests pass; signed-in EN/SQ 390/1440 checks and saved USD quote verified; temporary customer/data removed; build OK; report, no publishing.
+
 # Customer accounts and calculator result access
 - [x] Add bilingual free accounts, result-only server-side calculator gate and restored selections; original rates and public SEO preserved.
 - [x] Add private customer profiles/quotes, confirmed-session emails and staff-only customer list/CSV; existing staff rules preserved.

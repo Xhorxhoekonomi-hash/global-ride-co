@@ -109,6 +109,8 @@ export const PLATFORM_BADGES_LABELS_AL = {
 // here — this file only carries UI copy.
 
 import type { CalculatorDict, CalculatorFAQ } from "@/components/calculator/dict";
+import { USD_TO_EUR, ratesUpdatedLabel } from "@/components/calculator/format";
+import { KRW_TO_EUR_RATE } from "@/components/calculator/korea-public";
 
 export { KOREA_INCLUDES_SQ as KOREA_INCLUDES_AL } from "@/components/calculator/korea-public";
 
@@ -221,7 +223,7 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
       notes: {
         buyerFeeNote: "* Tarifa e blerësit aplikohet mbi (oferta + 100 USD) sipas rregullave të Copart",
         containerNote: "* Kontenier i përbashkët 40'HC — zakonisht 4 automjete",
-        usdEurNote: "* USD→EUR në ~0.92 (kurs i përafërt)",
+        usdEurNote: `* USD→EUR në ${USD_TO_EUR} (kurs mesatar i tregut, përditësuar më ${ratesUpdatedLabel("sq-AL")})`,
         customsWarning: "Taksat doganore dhe importi NUK janë të përfshira",
         estimatesWarning: "Të gjitha shifrat janë përllogaritje. Konfirmohen nga ekipi.",
       },
@@ -259,7 +261,7 @@ export const CALCULATOR_DICT_AL: CalculatorDict = {
     },
     step2: {
       title: "Çmimi i automjetit",
-      helper: (converted) => `≈ ${converted} (kurs i përafërt, ₩1.450 = €1)`,
+      helper: (converted) => `≈ ${converted} (kurs i përafërt, ₩${Math.round(1 / KRW_TO_EUR_RATE).toLocaleString("de-DE")} = €1)`,
     },
     step3: {
       title: "Destinacioni",

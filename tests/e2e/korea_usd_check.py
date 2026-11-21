@@ -1,4 +1,4 @@
-# Korea USD currency: temporary confirmed customer, USD 10000, Albania RoRo Sedan -> total EUR 10,950 at 390/1440 EN+SQ. User deleted afterwards.
+# Approved 21 Nov FX: temporary confirmed customer, USD 10000 -> EUR 10,867; KRW 14,740,000 -> EUR 10,000; USA rate note at 390/1440 EN+SQ. User deleted afterwards.
 import asyncio,os,re,secrets,uuid,requests
 from pathlib import Path
 from playwright.async_api import async_playwright,expect
@@ -26,7 +26,7 @@ async def main():
      usd=page.get_by_role('button',name='$ USD');await usd.click();await expect(usd).to_have_attribute('aria-pressed','true')
      bx=await usd.bounding_box();assert bx['height']>=47.5,bx
      await page.get_by_role('spinbutton').fill('10000')
-     await expect(page.get_by_text(re.compile('≈ €9,200 · ≈ ₩13,340,000'))).to_be_visible()
+     await expect(page.get_by_text(re.compile('≈ €9,117 · ≈ ₩13,438,458'))).to_be_visible()
      await page.get_by_role('button',name=re.compile('AL ')).first.click()
      await page.get_by_role('button',name=re.compile('RoRo')).first.click()
      if first:
@@ -35,19 +35,43 @@ async def main():
       if True:
        await cp.get_by_label(re.compile('Phone|Telefon')).fill('+355692233416');await cp.locator('input[type=checkbox][required]').check();await cp.get_by_role('button').last.click()
       first=False
-     try: await expect(page.get_by_text('€10,950').first).to_be_visible(timeout=20000)
+     try: await expect(page.get_by_text('€10,867').first).to_be_visible(timeout=20000)
      except Exception:
       await page.screenshot(path=str(OUT/'debug.png'));print('URL',page.url,await page.locator('main').inner_text());raise
-     await expect(page.get_by_text('$10,000 (≈ €9,200)').first).to_be_visible()
-     await page.get_by_text('€10,950').first.scroll_into_view_if_needed()
-     await page.screenshot(path=str(OUT/f"{'sq' if sq else 'en'}-{w}.png"));print('PASS',('SQ' if sq else 'EN'),w)
+     await expect(page.get_by_text('$10,000 (≈ €9,117)').first).to_be_visible()
+     await page.get_by_text('€10,867').first.scroll_into_view_if_needed()
+     await page.screenshot(path=str(OUT/f"{'sq' if sq else 'en'}-{w}.png"));print('PASS USD',('SQ' if sq else 'EN'),w)
+     await page.get_by_role('button',name='₩ KRW').click()
+     await page.get_by_role('spinbutton').fill('14740000')
+     helper=page.get_by_text(re.compile(r'≈ €10,000 · ≈ \$'))
+     await expect(helper).to_be_visible()
+     await expect(helper).to_contain_text('₩1.474 = €1' if sq else '₩1,474 = €1')
+     await helper.scroll_into_view_if_needed()
+     await page.screenshot(path=str(OUT/f"{'sq' if sq else 'en'}-{w}-krw.png"));print('PASS KRW',('SQ' if sq else 'EN'),w)
+     await page.get_by_role('tab',name=re.compile('Copart')).click()
+     await page.get_by_role('button',name=re.compile('Houston TX')).click()
+     await page.get_by_role('combobox').fill('IAAI HOUSTON SOUTH')
+     await page.get_by_role('option',name=re.compile('IAAI HOUSTON SOUTH')).click()
+     await page.get_by_role('button',name=re.compile('^Sedan')).first.click()
+     await page.get_by_role('spinbutton').fill('10000')
+     await page.get_by_role('button',name=re.compile('AL ')).first.click()
+     note=page.get_by_text(re.compile(r'\* USD→EUR .*0\.9117'))
+     await expect(note).to_be_visible(timeout=20000)
+     await expect(note).to_contain_text('21 nëntor 2026' if sq else '21 Nov 2026')
+     await note.scroll_into_view_if_needed()
+     await page.screenshot(path=str(OUT/f"{'sq' if sq else 'en'}-{w}-usa.png"));print('PASS USA NOTE',('SQ' if sq else 'EN'),w,await note.inner_text())
      await ctx.close()
    await b.close()
-  q=requests.get(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid+'&tab=eq.korea&select=inputs,total,currency',headers=HEAD,timeout=30).json();print('saved quotes',q[:2])
+  q=requests.get(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid+'&tab=eq.korea&select=inputs,total,currency',headers=HEAD,timeout=30).json()
+  assert any(v['inputs']['currency']=='USD' and v['inputs']['price']==10000 and abs(v['total']-10867)<0.01 for v in q)
+  print('Saved USD quote total verified: 10867')
  finally:
   if uid:
    requests.delete(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid,headers=HEAD,timeout=30)
    requests.delete(BASE+'/rest/v1/profiles?id=eq.'+uid,headers=HEAD,timeout=30)
    requests.delete(BASE+'/auth/v1/admin/users/'+uid,headers=HEAD,timeout=30).raise_for_status()
-   print('cleanup profiles left',requests.get(BASE+'/rest/v1/profiles?id=eq.'+uid,headers=HEAD,timeout=30).json(),'quotes left',requests.get(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid,headers=HEAD,timeout=30).json())
+   profiles=requests.get(BASE+'/rest/v1/profiles?id=eq.'+uid,headers=HEAD,timeout=30);profiles.raise_for_status()
+   quotes=requests.get(BASE+'/rest/v1/calculator_quotes?user_id=eq.'+uid,headers=HEAD,timeout=30);quotes.raise_for_status()
+   assert profiles.json()==[] and quotes.json()==[]
+   print('Cleanup verified: 0 profiles, 0 quotes; test auth user deleted')
 asyncio.run(main())
