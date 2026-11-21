@@ -1,3 +1,8 @@
+# Daily calculator exchange rates
+- [x] Store strictly public read-only rates; seed ECB/Frankfurter; protected refresh returns 200/401 as expected; daily 06:00 UTC job registered.
+- [x] Shared server/UI snapshots, 1h cache and 4-day fallback; 159 tests and EN/SQ 390/1440 checks, test customer removed; no publication.
+- [ ] Actual scheduled production callback awaits owner publication: new refresh endpoint still returns 404 on the published app.
+
 # Approved calculator exchange rates — 21 Nov 2026
 - [x] Update shared constants and localized wording only; transport prices and ECB converter preserved.
 - [x] 149 tests pass; signed-in EN/SQ 390/1440 checks and saved USD quote verified; temporary customer/data removed; build OK; report, no publishing.

@@ -1,5 +1,6 @@
 import type {KoreaMethod} from "@/data/koreaShipping";
 import {USD_TO_EUR} from "./format";
+import type { CalculatorRates } from "@/lib/fx/calculator-rates";
 export type KoreaIncludes = Record<KoreaMethod, string[]>;
 export const KOREA_INCLUDES: KoreaIncludes = {
   roro: ["Local pickup anywhere in South Korea", "Export documentation", "RoRo ocean freight", "Alpha Worldwide service fee"],
@@ -18,7 +19,9 @@ export type KoreaCurrency = "KRW" | "USD" | "EUR";
 export const KOREA_CURRENCIES: readonly KoreaCurrency[] = ["KRW", "USD", "EUR"];
 export const KOREA_CURRENCY_SYMBOL: Record<KoreaCurrency, string> = { KRW: "₩", USD: "$", EUR: "€" };
 /** Shared by the browser and the authenticated server calculation so both agree. */
-export function convertKoreaPrice(currency: KoreaCurrency, price: number) {
-  const priceEur = currency === "KRW" ? price * KRW_TO_EUR_RATE : currency === "USD" ? price * USD_TO_EUR : price;
-  return { priceEur, priceKrw: priceEur / KRW_TO_EUR_RATE, priceUsd: priceEur / USD_TO_EUR };
+export function convertKoreaPrice(currency: KoreaCurrency, price: number, rates?: CalculatorRates) {
+  const usdEur = rates?.usdEur.rate ?? USD_TO_EUR;
+  const eurKrw = rates?.eurKrw.rate ?? Math.round(1 / KRW_TO_EUR_RATE);
+  const priceEur = currency === "KRW" ? price / eurKrw : currency === "USD" ? price * usdEur : price;
+  return { priceEur, priceKrw: priceEur * eurKrw, priceUsd: priceEur / usdEur };
 }

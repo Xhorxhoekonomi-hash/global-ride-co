@@ -2,8 +2,8 @@
 // lives in src/lib/i18n-al.ts as CALCULATOR_DICT_AL. Both must implement
 // the same CalculatorDict shape — missing keys are a build error.
 
-import { KOREA_INCLUDES, KRW_TO_EUR_RATE } from "./korea-public";
-import { USD_TO_EUR, ratesUpdatedLabel } from "./format";
+import { KOREA_INCLUDES } from "./korea-public";
+import { usdRateNote, koreaRateHelper, type CalculatorRates } from "@/lib/fx/calculator-rates";
 import type { KoreaMethod, KoreaVehicleType } from "@/data/koreaShipping";
 import type { Destination } from "@/data/oceanFreight";
 
@@ -70,7 +70,7 @@ export type CalculatorDict = {
       notes: {
         buyerFeeNote: string;
         containerNote: string;
-        usdEurNote: string;
+        usdEurNote: (rates: CalculatorRates) => string;
         customsWarning: string;
         estimatesWarning: string;
       };
@@ -99,7 +99,7 @@ export type CalculatorDict = {
   };
   korea: {
     step1: { title: string; types: KoreaTypeOption[] };
-    step2: { title: string; helper: (converted: string) => string };
+    step2: { title: string; helper: (converted: string, rates: CalculatorRates) => string };
     step3: { title: string; destinations: DestinationOption[] };
     step4: { title: string; methods: { value: KoreaMethod; label: string; body: string }[] };
     breakdown: {
@@ -238,7 +238,7 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
       notes: {
         buyerFeeNote: "* Buyer fee applied on (bid + $100) per Copart rules",
         containerNote: "* Shared 40'HC container — typically 4 cars",
-        usdEurNote: `* USD→EUR at ${USD_TO_EUR} (mid-market rate, updated ${ratesUpdatedLabel("en-GB")})`,
+        usdEurNote: (rates) => usdRateNote(rates, false),
         customsWarning: "Customs & import duties NOT included",
         estimatesWarning: "All figures are estimates. Final confirmed by team.",
       },
@@ -276,7 +276,7 @@ export const CALCULATOR_DICT_EN: CalculatorDict = {
     },
     step2: {
       title: "Vehicle price",
-      helper: (converted) => `≈ ${converted} (approximate rate, ₩${Math.round(1 / KRW_TO_EUR_RATE).toLocaleString("en-US")} = €1)`,
+      helper: (converted, rates) => koreaRateHelper(converted, rates, false),
     },
     step3: {
       title: "Destination",

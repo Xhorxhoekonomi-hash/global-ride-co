@@ -17,7 +17,8 @@ import { getQuote } from "@/lib/customer/customer.functions";
 import type { calculateUsa } from "@/lib/customer/calculate.server";
 import type { Destination } from "@/data/oceanFreight";
 
-import { fmt, toTitle, USD_TO_EUR } from "./format";
+import { fmt, toTitle } from "./format";
+import type { CalculatorRates } from "@/lib/fx/calculator-rates";
 import { Step, StepReveal, Row } from "./StepUI";
 import type { CalculatorDict } from "./dict";
 
@@ -27,7 +28,7 @@ const SIZE_ICONS: Record<VehicleSize, LucideIcon> = {
   "Oversized": Container,
 };
 
-export function UsaCalculator({ dict, source, contactHref, initialDestination }: { dict: CalculatorDict; source: string; contactHref: string; initialDestination?: Destination }) {
+export function UsaCalculator({ dict, source, contactHref, initialDestination, fxRates }: { dict: CalculatorDict; source: string; contactHref: string; initialDestination?: Destination; fxRates: CalculatorRates }) {
   const D = dict.usa;
   const locations = useMemo(() => Object.keys(LAND_TRANSPORT_TABLE).sort(), []);
   const [location, setLocation] = useState<string | null>(null);
@@ -43,11 +44,12 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
   const {user,hasProfile} = useCustomer();
   const unlocked = canSeePrices(user)&&hasProfile===true;
   const [result,setResult] = useState<ReturnType<typeof calculateUsa>|null>(null);
+  const rates = result?.fxRates ?? fxRates;
   const [resultError,setResultError] = useState('');
   const [restored,setRestored] = useState(false);
   useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-usa')??'null');if(v){setLocation(v.location);setSize(v.size);setIsEV(v.isEV);setBid(v.bid);setDestination(v.destination);}}catch{}setRestored(true);},[]);
   useEffect(()=>{if(restored)sessionStorage.setItem('alpha-calculator-usa',JSON.stringify({location,size,isEV,bid,destination}));},[location,size,isEV,bid,destination,restored]);
-  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!location||!size||!destination)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'usa',inputs:{location,size,isEV,bid:bidNumber,destination}}}).then(v=>{if(active&&v.tab==='usa'&&'land' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'usa'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,location,size,isEV,bidNumber,destination,ready]);
+  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!location||!size||!destination)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'usa',inputs:{location,size,isEV,bid:bidNumber,destination}}}).then(v=>{if(active&&v.tab==='usa'&&'land' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'usa'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,location,size,isEV,bidNumber,destination,ready,fxRates.usdEur.rate,fxRates.usdEur.fetchedAt]);
   const land=unlocked?result?.land:null,fees=unlocked?result?.fees:null,ocean=unlocked?result?.ocean??0:0,unloading=unlocked?result?.unloading:null;
   const totalUsd=unlocked?result?.totalUsd??0:0,totalEur=unlocked?result?.totalEur??0:0;
 
@@ -317,7 +319,7 @@ export function UsaCalculator({ dict, source, contactHref, initialDestination }:
                   <li>{D.breakdown.notes.buyerFeeNote}</li>
                   <li>{D.breakdown.notes.containerNote}</li>
                   {unloading.isEstimate && <li>* {unloading.note}</li>}
-                  <li>{D.breakdown.notes.usdEurNote}</li>
+                  <li>{D.breakdown.notes.usdEurNote(rates)}</li>
                   <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.customsWarning}</li>
                   <li className="flex items-start gap-1.5 font-semibold text-warning"><AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" /> {D.breakdown.notes.estimatesWarning}</li>
                 </ul>

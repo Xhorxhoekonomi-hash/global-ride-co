@@ -17,6 +17,7 @@ import type { Destination } from "@/data/oceanFreight";
 import { fmtInt } from "./format";
 import { Step, StepReveal, Row } from "./StepUI";
 import type { CalculatorDict, KoreaType } from "./dict";
+import type { CalculatorRates } from "@/lib/fx/calculator-rates";
 
 // Locale-specific Korea inclusion list. Falls back to English data-module list.
 export function KoreaCalculator({
@@ -25,12 +26,14 @@ export function KoreaCalculator({
   contactHref,
   koreaIncludes,
   initialDestination,
+  fxRates,
 }: {
   dict: CalculatorDict;
   source: string;
   contactHref: string;
   koreaIncludes?: KoreaIncludes;
   initialDestination?: Destination;
+  fxRates: CalculatorRates;
 }) {
   const D = dict.korea;
   const includesByMethod = koreaIncludes ?? KOREA_INCLUDES;
@@ -42,7 +45,9 @@ export function KoreaCalculator({
   const [destination, setDestination] = useState<Destination | null>(initialDestination ?? null);
 
   const priceNumber = parseFloat(price) || 0;
-  const { priceEur, priceKrw, priceUsd } = convertKoreaPrice(currency, priceNumber);
+  const [result,setResult]=useState<ReturnType<typeof calculateKorea>|null>(null);
+  const rates = result?.fxRates ?? fxRates;
+  const { priceEur, priceKrw, priceUsd } = convertKoreaPrice(currency, priceNumber, rates);
   const enteredLabel = `${KOREA_CURRENCY_SYMBOL[currency]}${fmtInt(priceNumber)}`;
   const enteredWithEur = currency === "EUR" ? enteredLabel : `${enteredLabel} (≈ €${fmtInt(priceEur)})`;
   const helperText = currency === "USD" ? `€${fmtInt(priceEur)} · ≈ ₩${fmtInt(priceKrw)}` : currency === "KRW" ? `€${fmtInt(priceEur)} · ≈ $${fmtInt(priceUsd)}` : `₩${fmtInt(priceKrw)} · ≈ $${fmtInt(priceUsd)}`;
@@ -50,14 +55,13 @@ export function KoreaCalculator({
   const effectiveMethod = destination === "Albania" ? method : destination ? "roro" : null;
   const ready = !!type && priceNumber > 0 && !!destination && !!effectiveMethod;
   const {user,hasProfile}=useCustomer();const unlocked=canSeePrices(user)&&hasProfile===true;
-  const [result,setResult]=useState<ReturnType<typeof calculateKorea>|null>(null);
   const [methodPrices,setMethodPrices]=useState<{roro:number;container:number}|null>(null);
   const [resultError,setResultError]=useState('');
   const [restored,setRestored]=useState(false);
   useEffect(()=>{try{const v=JSON.parse(sessionStorage.getItem('alpha-calculator-korea')??'null');if(v){setType(v.type);if(KOREA_CURRENCIES.includes(v.currency))setCurrency(v.currency);setPrice(v.price);setDestination(v.destination);setMethod(v.method);}}catch{}setRestored(true);},[]);
   useEffect(()=>{if(restored)sessionStorage.setItem('alpha-calculator-korea',JSON.stringify({type,currency,price,destination,method}));},[type,currency,price,destination,method,restored]);
   useEffect(()=>{setMethodPrices(null);if(!unlocked||!type)return;let active=true;void koreaMethodPrices({data:{type}}).then(v=>{if(active)setMethodPrices(v);}).catch(()=>{});return()=>{active=false;};},[unlocked,user?.id,type]);
-  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!destination||!type||!effectiveMethod)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'korea',inputs:{type,currency,price:priceNumber,destination,method:effectiveMethod}}}).then(v=>{if(active&&v.tab==='korea'&&'shippingEur' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'korea'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,ready,type,currency,priceNumber,destination,effectiveMethod]);
+  useEffect(()=>{setResult(null);setResultError('');if(!unlocked||!ready||!destination||!type||!effectiveMethod)return;let active=true;const timer=setTimeout(()=>{void getQuote({data:{tab:'korea',inputs:{type,currency,price:priceNumber,destination,method:effectiveMethod}}}).then(v=>{if(active&&v.tab==='korea'&&'shippingEur' in v.result){setResult(v.result);trackEvent('calculator_unlocked',{tab:'korea'});}}).catch(e=>{if(active)setResultError(e.message);});},350);return()=>{active=false;clearTimeout(timer);};},[unlocked,user?.id,ready,type,currency,priceNumber,destination,effectiveMethod,fxRates.usdEur.rate,fxRates.eurKrw.rate,fxRates.usdEur.fetchedAt]);
   const shippingEur=unlocked?result?.shippingEur??0:0;
   const methodLabel = D.step4.methods.find((m) => m.value === effectiveMethod)?.label ?? "";
   const includes = effectiveMethod ? includesByMethod[effectiveMethod] : [];
@@ -153,11 +157,11 @@ export function KoreaCalculator({
                 </div>
                 {priceNumber > 0 && (
                   <p className="mt-1.5 text-xs text-muted-foreground">
-                    {D.step2.helper(helperText)}
+                    {D.step2.helper(helperText, rates)}
                   </p>
                 )}
                 {priceNumber > 0 && (
-                  <p className="mt-1 text-xs text-muted-foreground">{dict.usa.breakdown.notes.usdEurNote}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{dict.usa.breakdown.notes.usdEurNote(rates)}</p>
                 )}
               </Step>
             </StepReveal>

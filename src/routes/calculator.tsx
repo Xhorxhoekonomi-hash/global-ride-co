@@ -2,8 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildHead } from "@/lib/seo";
 import { CalculatorShell } from "@/components/calculator/CalculatorShell";
 import { CALCULATOR_DICT_EN, CALCULATOR_FAQS_EN } from "@/components/calculator/dict";
+import { calculatorRatesQuery } from "@/lib/fx/calculator-rates.query";
 
 export const Route = createFileRoute("/calculator")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(calculatorRatesQuery),
   head: () => {
     const base = buildHead({
       title: "Car Shipping Cost Calculator | Copart, IAAI & Korea",

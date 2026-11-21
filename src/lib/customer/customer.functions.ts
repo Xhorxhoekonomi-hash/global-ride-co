@@ -12,7 +12,9 @@ export const getQuote=createServerFn({method:'POST'}).middleware([requireSupabas
  const {data:auth,error}=await context.supabase.auth.getUser();if(error||!auth.user?.email_confirmed_at)throw new Error('Confirm your email first');
  const {data:profile}=await context.supabase.from('profiles').select('id').eq('id',context.userId).maybeSingle();if(!profile)throw new Error('Complete your customer profile first');
  const {calculateUsa,calculateKorea}=await import('./calculate.server');
- const result=data.tab==='usa'?calculateUsa(data.inputs):calculateKorea(data.inputs);
+ const {loadCalculatorRates}=await import('@/lib/fx/calculator-rates.server');
+ const fxRates=await loadCalculatorRates();
+ const result=data.tab==='usa'?calculateUsa(data.inputs,fxRates):calculateKorea(data.inputs,fxRates);
  const {supabaseAdmin}=await import('@/integrations/supabase/client.server');
  const fingerprint=JSON.stringify(data.inputs);
  const {error:saveError}=await supabaseAdmin.from('calculator_quotes').upsert({user_id:context.userId,tab:data.tab,inputs:data.inputs,result,total:'totalUsd' in result?result.totalUsd:result.totalEur,currency:data.tab==='usa'?'USD':'EUR',input_fingerprint:fingerprint},{onConflict:'user_id,tab,input_fingerprint',ignoreDuplicates:true});

@@ -201,6 +201,8 @@ import { Route as AlVendndodhjetHoustonRouteImport } from './routes/al/vendndodh
 import { Route as AlVendndodhjetIndianapolisRouteImport } from './routes/al/vendndodhjet/indianapolis'
 import { Route as AlVendndodhjetLosAngelesRouteImport } from './routes/al/vendndodhjet/los-angeles'
 import { Route as AlVendndodhjetSavannahRouteImport } from './routes/al/vendndodhjet/savannah'
+import { Route as ApiPublicCalculatorFxRouteImport } from './routes/api/public/calculator-fx'
+import { Route as ApiPublicCalculatorFxRefreshRouteImport } from './routes/api/public/calculator-fx-refresh'
 import { Route as EnShippingSouthKoreaToRotterdamRouteImport } from './routes/en/shipping/south-korea-to-rotterdam'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -1203,6 +1205,17 @@ const AlVendndodhjetSavannahRoute = AlVendndodhjetSavannahRouteImport.update({
   path: '/al/vendndodhjet/savannah',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicCalculatorFxRoute = ApiPublicCalculatorFxRouteImport.update({
+  id: '/api/public/calculator-fx',
+  path: '/api/public/calculator-fx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCalculatorFxRefreshRoute =
+  ApiPublicCalculatorFxRefreshRouteImport.update({
+    id: '/api/public/calculator-fx-refresh',
+    path: '/api/public/calculator-fx-refresh',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnShippingSouthKoreaToRotterdamRoute =
   EnShippingSouthKoreaToRotterdamRouteImport.update({
     id: '/en/shipping/south-korea-to-rotterdam',
@@ -1408,6 +1421,8 @@ export interface FileRoutesByFullPath {
   '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
   '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
   '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
+  '/api/public/calculator-fx': typeof ApiPublicCalculatorFxRoute
+  '/api/public/calculator-fx-refresh': typeof ApiPublicCalculatorFxRefreshRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1604,6 +1619,8 @@ export interface FileRoutesByTo {
   '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
   '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
   '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
+  '/api/public/calculator-fx': typeof ApiPublicCalculatorFxRoute
+  '/api/public/calculator-fx-refresh': typeof ApiPublicCalculatorFxRefreshRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1801,6 +1818,8 @@ export interface FileRoutesById {
   '/al/vendndodhjet/indianapolis': typeof AlVendndodhjetIndianapolisRoute
   '/al/vendndodhjet/los-angeles': typeof AlVendndodhjetLosAngelesRoute
   '/al/vendndodhjet/savannah': typeof AlVendndodhjetSavannahRoute
+  '/api/public/calculator-fx': typeof ApiPublicCalculatorFxRoute
+  '/api/public/calculator-fx-refresh': typeof ApiPublicCalculatorFxRefreshRoute
   '/en/shipping/south-korea-to-rotterdam': typeof EnShippingSouthKoreaToRotterdamRoute
   '/al/udhezues/': typeof AlUdhezuesIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1999,6 +2018,8 @@ export interface FileRouteTypes {
     | '/al/vendndodhjet/indianapolis'
     | '/al/vendndodhjet/los-angeles'
     | '/al/vendndodhjet/savannah'
+    | '/api/public/calculator-fx'
+    | '/api/public/calculator-fx-refresh'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -2195,6 +2216,8 @@ export interface FileRouteTypes {
     | '/al/vendndodhjet/indianapolis'
     | '/al/vendndodhjet/los-angeles'
     | '/al/vendndodhjet/savannah'
+    | '/api/public/calculator-fx'
+    | '/api/public/calculator-fx-refresh'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues'
     | '/lovable/email/transactional/preview'
@@ -2391,6 +2414,8 @@ export interface FileRouteTypes {
     | '/al/vendndodhjet/indianapolis'
     | '/al/vendndodhjet/los-angeles'
     | '/al/vendndodhjet/savannah'
+    | '/api/public/calculator-fx'
+    | '/api/public/calculator-fx-refresh'
     | '/en/shipping/south-korea-to-rotterdam'
     | '/al/udhezues/'
     | '/lovable/email/transactional/preview'
@@ -2588,6 +2613,8 @@ export interface RootRouteChildren {
   AlVendndodhjetIndianapolisRoute: typeof AlVendndodhjetIndianapolisRoute
   AlVendndodhjetLosAngelesRoute: typeof AlVendndodhjetLosAngelesRoute
   AlVendndodhjetSavannahRoute: typeof AlVendndodhjetSavannahRoute
+  ApiPublicCalculatorFxRoute: typeof ApiPublicCalculatorFxRoute
+  ApiPublicCalculatorFxRefreshRoute: typeof ApiPublicCalculatorFxRefreshRoute
   EnShippingSouthKoreaToRotterdamRoute: typeof EnShippingSouthKoreaToRotterdamRoute
   AlUdhezuesIndexRoute: typeof AlUdhezuesIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -3939,6 +3966,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlVendndodhjetSavannahRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/calculator-fx': {
+      id: '/api/public/calculator-fx'
+      path: '/api/public/calculator-fx'
+      fullPath: '/api/public/calculator-fx'
+      preLoaderRoute: typeof ApiPublicCalculatorFxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/calculator-fx-refresh': {
+      id: '/api/public/calculator-fx-refresh'
+      path: '/api/public/calculator-fx-refresh'
+      fullPath: '/api/public/calculator-fx-refresh'
+      preLoaderRoute: typeof ApiPublicCalculatorFxRefreshRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/shipping/south-korea-to-rotterdam': {
       id: '/en/shipping/south-korea-to-rotterdam'
       path: '/en/shipping/south-korea-to-rotterdam'
@@ -4157,6 +4198,8 @@ const rootRouteChildren: RootRouteChildren = {
   AlVendndodhjetIndianapolisRoute: AlVendndodhjetIndianapolisRoute,
   AlVendndodhjetLosAngelesRoute: AlVendndodhjetLosAngelesRoute,
   AlVendndodhjetSavannahRoute: AlVendndodhjetSavannahRoute,
+  ApiPublicCalculatorFxRoute: ApiPublicCalculatorFxRoute,
+  ApiPublicCalculatorFxRefreshRoute: ApiPublicCalculatorFxRefreshRoute,
   EnShippingSouthKoreaToRotterdamRoute: EnShippingSouthKoreaToRotterdamRoute,
   AlUdhezuesIndexRoute: AlUdhezuesIndexRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

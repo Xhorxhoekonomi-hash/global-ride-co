@@ -58,6 +58,30 @@ export type Database = {
           },
         ]
       }
+      fx_rates: {
+        Row: {
+          fetched_at: string
+          pair: string
+          rate: number
+          rate_date: string
+          source: string
+        }
+        Insert: {
+          fetched_at: string
+          pair: string
+          rate: number
+          rate_date: string
+          source: string
+        }
+        Update: {
+          fetched_at?: string
+          pair?: string
+          rate?: number
+          rate_date?: string
+          source?: string
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           created_at: string

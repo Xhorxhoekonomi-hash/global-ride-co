@@ -10,6 +10,8 @@ import { KoreaCalculator } from "./KoreaCalculator";
 import type { KoreaIncludes } from "@/data/koreaShipping";
 import type { CalculatorDict, CalculatorFAQ } from "./dict";
 import { localPath } from "@/lib/site-data";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { calculatorRatesQuery } from "@/lib/fx/calculator-rates.query";
 
 export function CalculatorShell({
   dict,
@@ -26,6 +28,7 @@ export function CalculatorShell({
 }) {
   // Read-only prefill from the homepage RouteFinder (?from=usa|korea&to=...). Never alters calculation.
   const [tab, setTab] = useState("usa");
+  const { data: fxRates } = useSuspenseQuery(calculatorRatesQuery);
   const [prefill, setPrefill] = useState<ReturnType<typeof calculatorPrefill>>({});
   useEffect(() => {
     const savedTab=sessionStorage.getItem("alpha-calculator-tab");
@@ -50,10 +53,10 @@ export function CalculatorShell({
             </TabsList>
 
             <TabsContent value="usa" className="mt-10">
-              <UsaCalculator key={`u-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "usa" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} />
+              <UsaCalculator fxRates={fxRates} key={`u-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "usa" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} />
             </TabsContent>
             <TabsContent value="korea" className="mt-10">
-              <KoreaCalculator key={`k-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "korea" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} koreaIncludes={koreaIncludes} />
+              <KoreaCalculator fxRates={fxRates} key={`k-${prefill.destination ?? ""}`} initialDestination={prefill.tab === "korea" ? prefill.destination : undefined} dict={dict} source={source} contactHref={contactHref} koreaIncludes={koreaIncludes} />
             </TabsContent>
           </Tabs>
         </div>

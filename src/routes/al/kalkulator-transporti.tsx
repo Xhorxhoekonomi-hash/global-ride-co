@@ -2,8 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildHead, SITE_URL } from "@/lib/seo";
 import { CalculatorShell } from "@/components/calculator/CalculatorShell";
 import { CALCULATOR_DICT_AL, CALCULATOR_FAQS_AL, KOREA_INCLUDES_AL } from "@/lib/i18n-al";
+import { calculatorRatesQuery } from "@/lib/fx/calculator-rates.query";
 
 export const Route = createFileRoute("/al/kalkulator-transporti")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(calculatorRatesQuery),
   head: () => {
     const base = buildHead({
       title: "Kalkulator transporti automjetesh | Alpha Worldwide",
